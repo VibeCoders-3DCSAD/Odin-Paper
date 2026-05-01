@@ -1,3 +1,5 @@
+[WARNING]: Outdated.
+
 # Topic Outline [/odin-outline]
 
 ## Development of Odin: A Personal Budget Management System Using LSTM, Classification Algorithm, and Recommendation Algorithm

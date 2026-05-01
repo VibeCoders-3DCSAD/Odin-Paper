@@ -1,3 +1,5 @@
+[WARNING]: Outdated.
+
 # Odin RRL Working Directory
 
 ---
@@ -20,7 +22,7 @@
     - [Column Reference](#column-reference)
   - [7. Finding Papers](#7-finding-papers)
     - [Starting from a topic](#starting-from-a-topic)
-    - [Starting from a topic](#starting-from-a-topic)
+    - [Starting from a topic](#starting-from-a-topic-1)
     - [Checking quota gaps](#checking-quota-gaps)
     - [Searching for a specific shorthand](#searching-for-a-specific-shorthand)
   - [8. The Topic System](#8-the-topic-system)
