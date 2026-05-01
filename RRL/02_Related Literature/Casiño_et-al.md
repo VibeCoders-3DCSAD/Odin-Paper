@@ -4,7 +4,7 @@ paper_id: "d3b07384-d9a2-4b8e-9f3c-8a1b2c3d4e5f"
 designation: local
 title: "Revisiting the Filipino Value Utang na Loob: Contextual Perceptions, Implications and Inputs to Sustaining the Filipino Psychology Discussions"
 authors: "Casino, R. M. Z.; Serrano, L. L.; Granada, M. I. D."
-year: 0000
+year: 2025
 venue: "Unknown"
 conversion_date: 2026-05-01
 original_filename: "Casiño_et-al.pdf"
