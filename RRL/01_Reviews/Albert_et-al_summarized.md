@@ -1,3 +1,5 @@
+# Wealth Creation for Expanding the Middle Class in the Philippines
+
 ```yaml
 ---
 name: paper-summary
@@ -23,8 +25,6 @@ member_checklist:
     status: "[ ]"
 ---
 ```
-
-# Wealth Creation for Expanding the Middle Class in the Philippines
 
 ## TL;DR
 
