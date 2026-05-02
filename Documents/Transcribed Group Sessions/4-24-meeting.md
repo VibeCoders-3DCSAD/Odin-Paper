@@ -4,6 +4,7 @@
     * It'll detect overspending even if it doesn't go past budget.
 * We need around a year of synthetic data and 2,000 respondents' data per profile. "2 thousand data needed for profile."
 * User retention for more than 1 year is needed for best results in app.
+    * Corrected: LSTM only needs at least 60 days of user retention to make proper results as per Charles' research.
 * Back tracking should also be easier. E.g. I couldn't enter details for the past 3 weeks. There should be an option to add past details easily without too much backtracking. 
 * Isolation forest needs variance for overfeed.
 * LSTM also needs to learn variable incomes.
@@ -31,10 +32,11 @@
 * Since we can base it on a person's spending habits. E.g. if system noticed that we're continuously paying for 3 months, maybe we can move it to stable.
 ## Protected Category
 * Protected categories like food and consumption. It will be reduced when you eat, but has a certain threshold where it can be reduced by the engine. The same will be applied to other categories.
-    * Algorithm is rule-based budget recommendation with protected categories that the system would never suggest.
+* In another definition, Protected Category is a category where users normally won't be able to configure unless needed.
+    * Algorithm will be rule-based budget recommendation for protected categories. The system would never suggest cutting budget in these categories.
 * Emergency is in essentials and is a protected category. You'll put money in but cannot take it out. 
 * Excess balance from monthly budget balances will be allocated into Emergency Funds, or configurable by the user.
-    * Preferably, there's a hierarchy of allocation priority. If Emergency Fund requirements are met, next are Savings. Then it goes on.
+    * Preferably, there's a hierarchy of allocation priority. If Emergency Fund requirements are met, next are Savings. Then it goes on. E.g. User has 35k remaining balance from last month. 10% of it goes to the other categories if desired by user: 5k max goes to Emergency Funds, 3k max goes to savings, etc. 
 
 # Future Spending Forecasting for Budget Recommendation with LSTM
 * Budget Recommendation should align with Future Forecast
