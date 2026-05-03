@@ -18,5 +18,13 @@
 14. Recurring Transaction
 15. Avalanche Strategy
 16. Snowball Strategy
+17. Discretionary Expenses
+18. Protected Categories
+
+## Terms that are up for discussion
+1. Semana Santa 
+2. Undas
+3. Petsa de Peligro
+
 
 ---
