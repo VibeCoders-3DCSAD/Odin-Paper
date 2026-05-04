@@ -3,7 +3,7 @@
 ```yaml
 ---
 name: paper-summary
-paper_id: "a3f5c8e1-9b2d-4c7f-8a6e-9d1b2c3d4e5f"
+paper_id: "10.1016/j.latcb.2025.100196"
 source_document: "Bayangos_Lubangco.md"
 designation: local
 title: "Do Remittances Boost Household Spending: New Evidence from Migrants' Household Survey"

@@ -3,7 +3,7 @@
 ```yaml
 ---
 name: paper-summary
-paper_id: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+paper_id: "10.35974/isc.v11i4.3599"
 source_document: "Asi_et-al_converted.md"
 designation: local
 title: "Peer Influence and Adolescent Spending: Insights into High School Students' Buying Behavior"

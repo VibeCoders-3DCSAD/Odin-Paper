@@ -3,7 +3,7 @@
 ```yaml
 ---
 name: paper-summary
-paper_id: "a3f2c8d1-9e4b-4f7a-9c2d-1e5f8a3b7c9d"
+paper_id: "10.55955/330001"
 source_document: "converted-paper.md"
 designation: international
 title: "THE IMPACT OF PSYCHOLOGICAL, ECONOMIC, SOCIAL ASPECTS, AND INTEREST RATE VARIATIONS ON WORKING MILLENNIALS' SAVING PATTERNS THROUGH DIGITAL BANKING"

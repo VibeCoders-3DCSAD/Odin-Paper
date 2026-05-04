@@ -106,7 +106,7 @@ Every summary must contain exactly these sections, in this order, with these exa
 ## Remember This
 ```
 
-If a section has no applicable content, write `None.` — do not omit the heading.
+All headings must be surrounded by spacing or newlines. If a section has no applicable content, write `None.` — do not omit the heading.
 
 ---
 
@@ -169,7 +169,7 @@ If a section has no applicable content, write `None.` — do not omit the headin
 - Format:
 
   | Term / Acronym | Plain-English Definition |
-  |----------------|--------------------------|
+  | -------------- | ------------------------ |
   | ...            | ...                      |
 
 - Include a mnemonic hint in brackets after complex acronyms where useful:
@@ -268,6 +268,7 @@ Use exact topic names when populating the Topics field:
 - **Use tables** instead of long lists when comparing ≥2 items side by side.
 - **Emojis** only in Remember This — nowhere else.
 - **No inline code backticks** unless for literal code.
+- **Code backticks must specify language**: e.g., `yaml` for metadata.
 - **No nested lists** deeper than 2 levels.
 - **No HTML**.
 
