@@ -28,8 +28,6 @@
 - Documented expenditure patterns disaggregated by income stability type [/expenditure-patterns]
   > *Scholar query: What do empirical studies reveal about the household or personal expenditure patterns of Filipino young professionals when disaggregated by income stability type? I am looking for research that compares how workers with stable salaried income allocate spending across categories differently from those with irregular, freelance, or mixed income — including data from Philippine institutional sources such as FIES or BSP survey instruments.*
 
-> !TODO: This
-
 - Prevalence of budgeting practice and methods used in this demographic [/budgeting-prevalence]
   > *Scholar query: How prevalent is active budgeting practice among Filipino millennials and Gen Z, and what budgeting methods do they most commonly use? I am looking for studies that measure the proportion of Filipino young adults who maintain a budget, the formats or tools they use, and the behavioral or demographic factors that predict whether someone budgets at all — particularly in Metro Manila or urban Philippine settings.*
 
