@@ -1,9 +1,10 @@
 # Format
-* `[I/L]--[Author]_[and_Author2]_[et-al]_[Year]_[(NOT USED)].pdf`
+* `[A/I/L]--[Author]_[and_Author2]_[et-al]_[Year]_[(NOT USED)].pdf`
 ##### ex. `L--Tambuli_and_Villarba_2026-(NOT USED).pdf`
 
 # Labels
-### Intl/Local
+### Algo/Intl/Local
+* A - Algorithm-specific
 * I - International
 * L - Local
 
@@ -18,3 +19,4 @@
 ### Used/Not Used
 * No label if used within current version of paper
 * `[Not Used]` if on standby
+* `summarized` if summary of paper
