@@ -17,4 +17,4 @@
 
 ### Used/Not Used
 * No label if used within current version of paper
-* `[Not Used]` if on standby
+* `(Not Used)` if on standby
