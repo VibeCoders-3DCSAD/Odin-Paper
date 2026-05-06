@@ -5,7 +5,7 @@
 name: paper-summary
 paper_id: "10.55248/gengpi.6.0325.11142"
 source_document: "Alvarina_et-al.md"
-designation: international
+designation: local
 title: "Budgeting Practices Among Below Minimum Wage Earners: A Case Study of Sales Personnel of Local Enterprises in Pagadian City"
 authors: "Alvarina, C. C.; Handumon, H. O.; Peralta, J. M. B.; Paguia, M. A.; Alfanta, M. P."
 year: 2025

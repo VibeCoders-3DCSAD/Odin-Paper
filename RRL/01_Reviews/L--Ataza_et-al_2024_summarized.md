@@ -5,7 +5,7 @@
 name: paper-summary
 paper_id: "10.55955/330001"
 source_document: "converted-paper.md"
-designation: international
+designation: local
 title: "THE IMPACT OF PSYCHOLOGICAL, ECONOMIC, SOCIAL ASPECTS, AND INTEREST RATE VARIATIONS ON WORKING MILLENNIALS' SAVING PATTERNS THROUGH DIGITAL BANKING"
 authors: "Ataza, C.; Porcel, M.; Resabal, L.; Sandoval, A.; Bragas, C."
 year: 2024

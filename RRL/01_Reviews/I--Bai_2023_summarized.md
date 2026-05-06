@@ -80,8 +80,11 @@ None.
 **Topics:**
 
 1 - Spending and Budgeting Behavior of Filipino Young Professionals
+
 4 - Budgeting Strategies and Budget Recommendation in Personal Finance Systems
+
 5 - Budget Recommendation Algorithm
+
 10 - User Behavioral Profiling in Filipino Personal Finance Contexts
 
 **Contribution to Odin:**

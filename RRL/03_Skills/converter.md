@@ -44,8 +44,8 @@ version: "1.0"
 **`designation`** — Apply in strict priority order:
 
 1. `algorithm-specific` — The document **primarily** describes a specific algorithm, model, or computational method. This overrides local/international regardless of publication origin.
-2. `local` — Published in the Philippines and not algorithm-specific.
-3. `international` — Published outside the Philippines and not algorithm-specific.
+2. `local` — Published **inside** the Philippines (i.e., in a Philippine college, university, academic institution, etc.) and not algorithm-specific.
+3. `international` — Published **outside** the Philippines and not algorithm-specific.
 
 **`title`** — Exact title from the PDF. Do not paraphrase or truncate.
 

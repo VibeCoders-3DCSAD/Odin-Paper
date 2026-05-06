@@ -5,7 +5,7 @@
 name: paper-summary
 paper_id: "10.5281/zenodo.15031111"
 source_document: "Canalog_et-al.md"
-designation: international
+designation: local
 title: "BUY NOW, PAY LATER: SHOPEE ONLINE STORE USERS EXPERIENCES ON SHOPEE PAY LATER FEATURE (SPAY LATER)"
 authors: "Calanog, V. C.; Paderan, M. J. D.; Adove, R. C. A.; Bathan, C. M. N.; Catibog, D. N.; Rivera, G. R.; Mangarin, J. A."
 year: 2025
@@ -18,7 +18,7 @@ member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[ ]"
+    status: "[X]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."

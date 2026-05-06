@@ -57,8 +57,8 @@ member_checklist:
 
 **`designation`** — Same priority as the converter:
 1. `algorithm-specific` if the paper primarily describes an algorithm, model, or computational method.
-2. `local` if published in the Philippines and not algorithm-specific.
-3. `international` if published outside the Philippines and not algorithm-specific.
+2. `local` if published **inside** the Philippines (i.e., in a Philippine college, university, academic institution, etc.) and not algorithm-specific.
+3. `international` if published **outside** the Philippines and not algorithm-specific.
 
 **`title`, `authors`, `year`, `venue`** — Copy exactly from the source converted file's YAML frontmatter.
 

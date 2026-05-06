@@ -5,7 +5,7 @@
 name: paper-summary
 paper_id: "a3b8c2d1-4e5f-4a8b-9c7d-6e5f4a3b2c1d"
 source_document: "Carpizo_et-al.md"
-designation: international
+designation: local
 title: "The Impact of AUP-CES Livelihood Initiatives, Leadership and Management in Buklod Bahayan"
 authors: "Carpizo, E.; Balitar, J.; Balila, J."
 year: 2024

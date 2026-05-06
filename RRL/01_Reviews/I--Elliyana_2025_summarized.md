@@ -7,7 +7,7 @@ paper_id: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 source_document: "Elliyana_converted.md"
 designation: international
 title: "A Systematic Literature Review on Personal Financial Management Practices: Budgeting, Investment, Debt, and Saving"
-authors: "Ellyana, E.; Maricar, R.; Toalib, R."
+authors: "Elliyana, E.; Maricar, R.; Toalib, R."
 year: 2025
 venue: "World Journal of Economics, Business and Management"
 odin_topics: [1, 2, 4]
@@ -18,7 +18,7 @@ member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[ ]"
+    status: "[X]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."
