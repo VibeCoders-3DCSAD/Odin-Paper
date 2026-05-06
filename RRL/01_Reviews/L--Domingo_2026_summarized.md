@@ -5,7 +5,7 @@
 name: paper-summary
 paper_id: "10.3389/fsoe.2026.1752009"
 source_document: "Domingo.md"
-designation: international
+designation: local
 title: "Family dynamics in Filipino transnational families: the role of non-migrant mothers"
 authors: "Domingo, P."
 year: 2026

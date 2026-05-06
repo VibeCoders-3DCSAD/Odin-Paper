@@ -5,7 +5,7 @@
 name: paper-summary
 paper_id: "10.55248/geneqi.6.0525.1716"
 source_document: "Casalhay_et-al_converted.md"
-designation: international
+designation: local
 title: "The Gig Economy: Financial Challenges and Opportunities Faced by Freelancers"
 authors: "Casalhay, S. F.; Guevarra, C. M.; Bragas, C. M."
 year: 2025
