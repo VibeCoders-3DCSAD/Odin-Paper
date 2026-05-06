@@ -84,6 +84,7 @@ None.
 **Topics:**
 
 1 - Spending and Budgeting Behavior of Filipino Young Professionals
+
 4 - Budgeting Strategies and Budget Recommendation
 
 **Contribution to Odin:**

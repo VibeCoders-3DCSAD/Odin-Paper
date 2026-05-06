@@ -1,5 +1,7 @@
 # Peer Influence and Adolescent Spending: Insights into High School Students' Buying Behavior
 
+> NOTE: Flagged for irrelevance; study respondents are younger than Odin's target users.
+
 ```yaml
 ---
 name: paper-summary
@@ -18,7 +20,7 @@ member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[ ]"
+    status: "[X]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."

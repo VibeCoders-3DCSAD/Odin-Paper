@@ -1,5 +1,7 @@
 # Effects of Filipino Consumers' Financial Attitudes, Subjective Norms, and Perceived Behavioral Control on Intentions to Formal Banking: Towards Financial Inclusion
 
+> NOTE: Flagged for obsolescence; data derived from 2014 survey.
+
 ```yaml
 ---
 name: paper-summary
@@ -18,7 +20,7 @@ member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[ ]"
+    status: "[X]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."
@@ -82,7 +84,8 @@ $$
 
 **Topics:**  
 
-1 – Spending and Budgeting Behavior of Filipino Young Professionals  
+1 – Spending and Budgeting Behavior of Filipino Young Professionals 
+
 9 – User Behavioral Profiling in Filipino Personal Finance Contexts  
 
 **Contribution to Odin:**  

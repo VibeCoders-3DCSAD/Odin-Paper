@@ -1,5 +1,7 @@
 # How does financial literacy affect financial behavior over the life cycle? Evidence from Filipino households
 
+> NOTE: Flagged for obsolescence; uses the 2018 survey for data.
+
 ```yaml
 ---
 name: paper-summary
@@ -18,7 +20,7 @@ member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[ ]"
+    status: "[X]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."

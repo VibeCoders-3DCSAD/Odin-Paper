@@ -18,7 +18,7 @@ member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[ ]"
+    status: "[X]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."
@@ -78,7 +78,9 @@ None.
 **Topics:**
 
 1 - Spending and Budgeting Behavior of Filipino Young Professionals
+
 4 - Budgeting Strategies and Budget Recommendation in Personal Finance Systems
+
 9 - User Behavioral Profiling in Filipino Personal Finance Contexts
 
 **Contribution to Odin:**

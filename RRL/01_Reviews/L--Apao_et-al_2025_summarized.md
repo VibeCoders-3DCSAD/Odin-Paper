@@ -82,7 +82,9 @@ None.
 **Topics:**
 
 1 - Spending and Budgeting Behavior of Filipino Young Professionals
+
 10 - User Behavioral Profiling in Filipino Personal Finance Contexts
+
 11 - Profile Classification Algorithm
 
 **Contribution to Odin:**

@@ -1,5 +1,7 @@
 # Family dynamics in Filipino transnational families: the role of non-migrant mothers
 
+> NOTE: Flagged for irrelevance.
+
 ```yaml
 ---
 name: paper-summary
@@ -18,7 +20,7 @@ member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[ ]"
+    status: "[X]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."

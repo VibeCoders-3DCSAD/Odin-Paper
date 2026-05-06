@@ -1,5 +1,7 @@
 # INFLUENCE OF DIGITAL WALLETS ON THE FINANCIAL BEHAVIOR OF HEIS STUDENTS
 
+> NOTE: Flagged for irrelevance; no planned digital wallet implementation or integration in Odin.
+
 ```yaml
 ---
 name: paper-summary
@@ -18,7 +20,7 @@ member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[ ]"
+    status: "[X]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."
@@ -80,6 +82,7 @@ $$FinancialBehavior = 0.909 + 0.703 \times DigitalWalletUsage$$
 **Topics:**
 
 1 - (Spending and Budgeting Behavior of Filipino Young Professionals)
+
 10 - (User Behavioral Profiling in Filipino Personal Finance Contexts)
 
 **Contribution to Odin:**
