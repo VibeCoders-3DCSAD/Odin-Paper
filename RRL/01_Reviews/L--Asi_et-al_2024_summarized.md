@@ -78,7 +78,7 @@ None.
 
 **Topics:**
 
-1 - Spending and Budgeting Behavior of Filipino Young Professionals 
+1 - Spending and Budgeting Behavior of Filipino Young Professionals
 
 9 - User Behavioral Profiling in Filipino Personal Finance Contexts
 

@@ -216,9 +216,9 @@ If none, write "None identified."
 #### Canonical Odin Topic List
 Use exact topic names when populating the Topics field:
 
-| # | Topic Name |
+| A | Topic Name |
 |---|-------------|
-| 1 | Spending and Budgeting Behavior of Filipino Young Professionals |
+| 1 | Target Users and the Financial Problem |
 | 2 | Existing Personal Finance and Budget Management Systems |
 | 3 | Mobile-First Design in Personal Finance Systems |
 | 4 | Budgeting Strategies and Budget Recommendation in Personal Finance Systems |
