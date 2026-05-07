@@ -39,7 +39,7 @@ version: "1.0"
 
 ### Field rules
 
-**`paper_id`** — Use the DOI if the PDF contains one (format: `10.XXXX/...`). Otherwise generate a UUID v4. This ID is permanent; never change it in later versions.
+**`paper_id`** — Use the DOI if the PDF contains one (format: `10.XXXX/...`). Otherwise generate a UUID v4. This UUID should be seeded using the paper title, if possible. This ID is permanent; never change it in later versions.
 
 **`designation`** — Apply in strict priority order:
 

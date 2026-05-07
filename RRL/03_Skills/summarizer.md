@@ -33,7 +33,7 @@ title: "<exact paper title>"
 authors: "<copy authors exactly from the source converted file>"
 year: <YYYY>
 venue: "<copy venue exactly from the source converted file>"
-odin_topics: [<list of topic numbers this paper supports, e.g., 1, 5, 7>]
+odin_topics: [<list of outline codes this paper supports, e.g., "A.1", "D.2">]
 shorthand_tags: [<list of /shorthand tags from the Shorthand Index below, e.g., "/lstm", "/lstm-mobile">]
 summary_date: <YYYY-MM-DD>
 version: "1.0"
@@ -62,7 +62,7 @@ member_checklist:
 
 **`title`, `authors`, `year`, `venue`** — Copy exactly from the source converted file's YAML frontmatter.
 
-**`odin_topics`** — A YAML list of the topic numbers (integers) this paper contributes to. Populated after completing the Relevance to Odin section. If none, write `[]`.
+**`odin_topics`** — A YAML list of the outline codes (strings) this paper contributes to. Use the codes from the Canonical Odin Topic List (e.g., `["A.1", "D.2"]`). Populated after completing the Relevance to Odin section. If none, write `[]`.
 
 **`shorthand_tags`** — A YAML list of `[/shorthand]` strings from the Shorthand Index below. Select every tag whose sub-subtopic this paper meaningfully addresses — not just the topic level, but the specific claim or concept within it. If a paper covers LSTM on mobile, include both `/lstm` and `/lstm-mobile`. If none apply, write `[]`. Do not invent tags; use only tags that appear in the Shorthand Index exactly as written.
 
@@ -214,31 +214,32 @@ If none, write "None identified."
 ```
 
 #### Canonical Odin Topic List
-Use exact topic names when populating the Topics field:
+Use exact topic names and codes when populating the Topics field. Topics are identified by their outline code (e.g., A.1), not a sequential number.
 
-| A | Topic Name |
-|---|-------------|
-| 1 | Target Users and the Financial Problem |
-| 2 | Existing Personal Finance and Budget Management Systems |
-| 3 | Mobile-First Design in Personal Finance Systems |
-| 4 | Budgeting Strategies and Budget Recommendation in Personal Finance Systems |
-| 5 | Predictive Modeling in Personal Finance Systems |
-| 6 | LSTM as the Spending Forecasting Algorithm |
-| 7 | Anomaly Detection in Personal Finance Systems |
-| 8 | Anomaly Detection Algorithm |
-| 9 | User Behavioral Profiling in Filipino Personal Finance Contexts |
-| 10 | Profile Classification Algorithm |
-| 11 | Expense Categorization in Filipino Personal Finance Contexts |
-| 12 | Data Privacy, Security, and User Trust in Personal Finance Systems |
-| 13 | User Retention and Engagement in Personal Finance Systems |
-| 14 | Budget Recommendation Algorithm |
-| 15 | System Evaluation |
+| Code | Subtopic Name |
+|------|---------------|
+| A.1 | Spending and Budgeting Behavior of Filipino Young Professionals |
+| A.2 | Existing Personal Finance and Budget Management Systems |
+| B.1 | Mobile-First Design in Personal Finance Systems |
+| C.1 | Budgeting Strategies and Budget Recommendation |
+| C.2 | Budget Recommendation Algorithm |
+| D.1 | Predictive Modeling in Personal Finance Systems |
+| D.2 | LSTM as the Spending Forecasting Algorithm |
+| E.1 | Anomaly Detection in Personal Finance Systems |
+| E.2 | Anomaly Detection Algorithm |
+| F.1 | User Behavioral Profiling in Filipino Personal Finance Contexts |
+| F.2 | Profile Classification Algorithm |
+| G.1 | Expense Categorization in Filipino Personal Finance Contexts |
+| H.1 | Data Privacy, Security, and User Trust in Personal Finance Systems |
+| I.1 | User Retention and Engagement in Personal Finance Systems |
+| J.1 | System Evaluation |
 
 #### Rules for this section
 - Do not list a topic unless this paper meaningfully contributes to it.
+- Use the outline code (A.1, C.2, etc.) in the `odin_topics` YAML field and in the Topics field here — not sequential numbers.
 - Every bullet in Directly justifies must be phrased as if it could appear verbatim in the RRL as a cited claim.
 - For algorithm-specific papers: state which Odin module it justifies (forecasting, anomaly detection, classification, recommendation) and why.
-- For local papers: note whether it contributes to the Filipino-specific scope of Topics 1, 9, or 11.
+- For local papers: note whether it contributes to the Filipino-specific scope of A.1, F.1, or G.1.
 - This section is **higher priority than all others** — never truncate it to meet the word limit.
 
 ---
@@ -294,23 +295,23 @@ After completing the Relevance to Odin section, populate `shorthand_tags` in the
 
 ### Shorthand Index
 
-| Topic | Topic Name | Tags in this Topic |
-|:---:|:---|:---|
-| 1 | Spending and Budgeting Behavior of Filipino Young Professionals | `/income-typology` `/budget-time-horizons` `/expenditure-patterns` `/budgeting-prevalence` `/budget-failure-points` `/income-type-behavior-diff` `/cultural-obligations` `/intelligent-vs-literacy` |
-| 2 | Existing Personal Finance and Budget Management Systems | `/pfms-typology` `/pfms-features` `/pfms-limitations` `/pfms-budget-rec` `/pfms-strategies-impl` `/pfms-gap` |
-| 3 | Mobile-First Design in Personal Finance Systems | `/mobile-first-def` `/mobile-dominance` `/mobile-constraints` `/mobile-ml-algo-selection` `/mobile-ux-entry` |
-| 4 | Budgeting Strategies and Budget Recommendation | `/strategy-mechanics` `/strategy-income-fit` `/strategy-distillation` `/budget-rec-existing` `/budget-rec-algorithms` `/surplus-logic` `/lump-sum-income` `/min-user-input` |
-| 5 | Budget Recommendation Algorithm | `/budget-rec-formulation` `/budget-alloc-algos` `/budget-algo-pfms` `/budget-algo-tradeoffs` `/budget-algo-justification` |
-| 6 | Predictive Modeling in Personal Finance Systems | `/forecasting-methods` `/spending-time-series` `/temporal-dependency` `/mobile-forecast-tradeoff` `/forecast-cold-start` `/per-category-forecast` |
-| 7 | LSTM as the Spending Forecasting Algorithm | `/lstm-architecture` `/lstm-vs-alternatives` `/lstm-spending-applied` `/lstm-multi-output` `/lstm-mobile` `/lstm-justification` |
-| 8 | Anomaly Detection in Personal Finance Systems | `/anomaly-taxonomy` `/overage-vs-behavioral` `/anomaly-approaches` `/anomaly-tradeoffs` `/anomaly-feedback` `/cultural-spending-protection` `/alert-design` |
-| 9 | Anomaly Detection Algorithm | `/anomaly-ml-families` `/isolation-forest` `/isolation-forest-applied` `/anomaly-algo-tradeoffs` `/anomaly-algo-justification` |
-| 10 | User Behavioral Profiling in Filipino Personal Finance Contexts | `/profiling-role` `/western-taxonomy-gap` `/fil-behavioral-patterns` `/fil-profile-construction` `/profile-dimensions` `/concept-drift` `/profile-triggers` `/profile-update-mechanism` `/profiling-cold-start` |
-| 11 | Profile Classification Algorithm | `/classification-vs-clustering` `/classifier-candidates` `/classifier-features` `/classifier-cold-start` `/progressive-reclassification` `/classifier-tradeoffs` `/classifier-justification` |
-| 12 | Expense Categorization in Filipino Personal Finance Contexts | `/cat-approaches` `/western-cat-limitations` `/fies-bsp-mapping` `/cultural-expense-types` `/protected-categories` `/fil-pfms-categories` `/sss-pagibig` |
-| 13 | Data Privacy, Security, and User Trust in Personal Finance Systems | `/data-sensitivity` `/security-standards` `/user-trust` `/privacy-logging` `/ph-privacy-law` `/privacy-by-design` `/manual-data-privacy` |
-| 14 | User Retention and Engagement in Personal Finance Systems | `/data-completeness-ml` `/drop-off-patterns` `/entry-friction` `/retention-mechanisms` `/min-interaction-freq` `/value-driven-retention` |
-| 15 | System Evaluation | `/eval-frameworks` `/iso-25010` `/sus` `/sus-mobile` `/iso-sus-combined` `/eval-pfms-applied` `/eval-limitations` `/sus-sample-size` |
+| Code | Subtopic Name | Tags in this Subtopic |
+|:----:|:---|:---|
+| A.1 | Spending and Budgeting Behavior of Filipino Young Professionals | `/income-typology` `/budget-time-horizons` `/expenditure-patterns` `/budgeting-prevalence` `/budget-failure-points` `/income-type-behavior-diff` `/cultural-obligations` `/intelligent-vs-literacy` |
+| A.2 | Existing Personal Finance and Budget Management Systems | `/pfms-typology` `/pfms-features` `/pfms-limitations` `/pfms-budget-rec` `/pfms-strategies-impl` `/pfms-gap` |
+| B.1 | Mobile-First Design in Personal Finance Systems | `/mobile-first-def` `/mobile-dominance` `/mobile-constraints` `/mobile-ml-algo-selection` `/mobile-ux-entry` |
+| C.1 | Budgeting Strategies and Budget Recommendation | `/strategy-mechanics` `/strategy-income-fit` `/strategy-distillation` `/budget-rec-existing` `/budget-rec-algorithms` `/surplus-logic` `/lump-sum-income` `/min-user-input` |
+| C.2 | Budget Recommendation Algorithm | `/budget-rec-formulation` `/budget-alloc-algos` `/budget-algo-pfms` `/budget-algo-tradeoffs` `/budget-algo-justification` |
+| D.1 | Predictive Modeling in Personal Finance Systems | `/forecasting-methods` `/spending-time-series` `/temporal-dependency` `/mobile-forecast-tradeoff` `/forecast-cold-start` `/per-category-forecast` |
+| D.2 | LSTM as the Spending Forecasting Algorithm | `/lstm-architecture` `/lstm-vs-alternatives` `/lstm-spending-applied` `/lstm-multi-output` `/lstm-mobile` `/lstm-justification` |
+| E.1 | Anomaly Detection in Personal Finance Systems | `/anomaly-taxonomy` `/overage-vs-behavioral` `/anomaly-approaches` `/anomaly-tradeoffs` `/anomaly-feedback` `/cultural-spending-protection` `/alert-design` |
+| E.2 | Anomaly Detection Algorithm | `/anomaly-ml-families` `/isolation-forest` `/isolation-forest-applied` `/anomaly-algo-tradeoffs` `/anomaly-algo-justification` |
+| F.1 | User Behavioral Profiling in Filipino Personal Finance Contexts | `/profiling-role` `/western-taxonomy-gap` `/fil-behavioral-patterns` `/fil-profile-construction` `/profile-dimensions` `/concept-drift` `/profile-triggers` `/profile-update-mechanism` `/profiling-cold-start` |
+| F.2 | Profile Classification Algorithm | `/classification-vs-clustering` `/classifier-candidates` `/classifier-features` `/classifier-cold-start` `/progressive-reclassification` `/classifier-tradeoffs` `/classifier-justification` |
+| G.1 | Expense Categorization in Filipino Personal Finance Contexts | `/cat-approaches` `/western-cat-limitations` `/fies-bsp-mapping` `/cultural-expense-types` `/protected-categories` `/fil-pfms-categories` `/sss-pagibig` |
+| H.1 | Data Privacy, Security, and User Trust in Personal Finance Systems | `/data-sensitivity` `/security-standards` `/user-trust` `/privacy-logging` `/ph-privacy-law` `/privacy-by-design` `/manual-data-privacy` |
+| I.1 | User Retention and Engagement in Personal Finance Systems | `/data-completeness-ml` `/drop-off-patterns` `/entry-friction` `/retention-mechanisms` `/min-interaction-freq` `/value-driven-retention` |
+| J.1 | System Evaluation | `/eval-frameworks` `/iso-25010` `/sus` `/sus-mobile` `/iso-sus-combined` `/eval-pfms-applied` `/eval-limitations` `/sus-sample-size` |
 
 ---
 
@@ -322,9 +323,10 @@ Before outputting, verify:
 - [ ] Remember This has exactly 3 bullets, each with a unique emoji, each ≤20 words.
 - [ ] Relevance to Odin contains all four required fields: Topics, Contribution to Odin, Directly justifies, Limits of relevance.
 - [ ] All topic names match the canonical list exactly.
-- [ ] `odin_topics` in YAML matches topic numbers listed in Relevance to Odin.
+- [ ] `odin_topics` in YAML uses outline codes (e.g., `"A.1"`, `"D.2"`) matching the Canonical Odin Topic List — not sequential integers.
+- [ ] `odin_topics` codes in YAML match the codes listed in Relevance to Odin.
 - [ ] `shorthand_tags` in YAML contains only tags from the Shorthand Index, selected at the most specific level applicable.
-- [ ] Every tag in `shorthand_tags` belongs to a topic listed in `odin_topics`.
+- [ ] Every tag in `shorthand_tags` belongs to a subtopic code listed in `odin_topics` (cross-reference the Shorthand Index).
 - [ ] `paper_id` copied exactly from source file.
 - [ ] No raw LaTeX outside equations (no stray `\begin{...}` without `$$`).
 - [ ] All acronyms present in Definitions table.
