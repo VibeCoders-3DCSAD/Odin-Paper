@@ -68,6 +68,8 @@
 - Feature sets of existing systems and evidence of their effectiveness [/pfms-features]
   > *Scholar query: What are the dominant features found in personal budget management systems, and what evidence exists that these features actually improve users' financial outcomes? I am looking for evaluations or systematic reviews of PFMS applications that assess the impact of specific functionalities — such as transaction categorization, budget setting, visualization dashboards, or alerts — on user financial behavior, adherence to budgets, or savings outcomes.*
 
+> NOTE: Continue here.
+
 - Documented limitations: manual entry burden, no forecasting, no anomaly detection, generic categories [/pfms-limitations]
   > *Scholar query: What limitations of existing personal finance and budgeting applications are most consistently identified in research literature? I am specifically interested in studies that critique the usability cost of manual transaction entry, the absence of predictive or forecasting capabilities, the lack of anomaly or overspending detection, and the use of generic expense categories that do not reflect how actual users organize their spending.*
 
