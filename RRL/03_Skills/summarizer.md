@@ -14,7 +14,7 @@ Follow all rules below strictly. Any deviation is forbidden.
 
 ## Output Requirements
 - Produce **only** valid Markdown (CommonMark compliant).
-- **MANDATORY: Begin with a YAML frontmatter block** (see below).
+- **MANDATORY: Add a YAML frontmatter block** after the paper title (see below).
 - No commentary or metadata outside the YAML frontmatter and summary content.
 - Target length: **5–15% of the original document**; never exceed **2,000 words** (excluding YAML).
 - Write for **human comprehension and long-term memorization** — not for machines.
@@ -25,9 +25,7 @@ Follow all rules below strictly. Any deviation is forbidden.
 
 ```yaml
 ---
-name: paper-summary
 paper_id: "<copy paper_id exactly from the source converted file>"
-source_document: "<source .md filename, or 'unknown.md'>"
 designation: <local | international | algorithm-specific>
 title: "<exact paper title>"
 authors: "<copy authors exactly from the source converted file>"
@@ -35,8 +33,6 @@ year: <YYYY>
 venue: "<copy venue exactly from the source converted file>"
 odin_topics: [<list of outline codes this paper supports, e.g., "A.1", "D.2">]
 shorthand_tags: [<list of /shorthand tags from the Shorthand Index below, e.g., "/lstm", "/lstm-mobile">]
-summary_date: <YYYY-MM-DD>
-version: "1.0"
 member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
@@ -50,6 +46,8 @@ member_checklist:
 ```
 
 ### Field rules
+
+The metadata block must be labeled with YAML (e.g. '```yaml').
 
 **`paper_id`** — Copy exactly from the source converted file. This is the permanent identifier linking converter and summarizer outputs.
 
@@ -66,10 +64,6 @@ member_checklist:
 
 **`shorthand_tags`** — A YAML list of `[/shorthand]` strings from the Shorthand Index below. Select every tag whose sub-subtopic this paper meaningfully addresses — not just the topic level, but the specific claim or concept within it. If a paper covers LSTM on mobile, include both `/lstm` and `/lstm-mobile`. If none apply, write `[]`. Do not invent tags; use only tags that appear in the Shorthand Index exactly as written.
 
-**`summary_date`** — Today's date in ISO format (YYYY-MM-DD).
-
-**`version`** — Always `"1.0"` for the first summary.
-
 **`member_checklist`** — Fixed names as shown. Do not change, reorder, or replace. Each status is `"[ ]"` at creation.
 
 After the closing `---`, insert **one blank line** before the summary title (`#`).
@@ -82,6 +76,8 @@ Every summary must contain exactly these sections, in this order, with these exa
 
 ```
 # [Paper Title]
+
+## Metadata
 
 ## TL;DR
 
@@ -106,14 +102,14 @@ Every summary must contain exactly these sections, in this order, with these exa
 ## Remember This
 ```
 
-All headings must be surrounded by spacing or newlines. If a section has no applicable content, write `None.` — do not omit the heading.
+**All headings** must have blank lines (also known as spacing or newline) above and below it. If a section has no applicable content, write `None.` — do not omit the heading.
 
 ---
 
 ## Section Rules
 
 ### TL;DR
-- **Exactly one sentence, maximum 30 words.**
+- **Exactly one sentence, maximum 50 words.**
 - State the single most important contribution or finding.
 - Write as if explaining to a colleague in a hallway.
 
@@ -127,8 +123,8 @@ All headings must be surrounded by spacing or newlines. If a section has no appl
 ---
 
 ### Approach
-- **Compact bullet list, maximum 6 bullets.**
-- Each bullet ≤ 20 words.
+- **Compact bullet list, maximum 10 bullets.**
+- Each bullet ≤ 50 words.
 - No prose paragraphs.
 - Cover: data source, method, key design choices, evaluation setup.
 
@@ -137,7 +133,7 @@ All headings must be surrounded by spacing or newlines. If a section has no appl
 ### Findings
 - **Numbered list** for quantitative results (1., 2., 3.).
 - **Bullet list** for qualitative findings.
-- Maximum **8 items** total.
+- Maximum **10 items** total.
 - Bold the single most important numeric result or conclusion.
 - Repeat critical numbers — they will appear again in Remember This.
 
@@ -147,13 +143,13 @@ All headings must be surrounded by spacing or newlines. If a section has no appl
 - For each important figure or table, write one line:
   - `- Figure X: [one-phrase description] → [key takeaway in ≤15 words]`
   - `- Table Y: [what it shows] → [critical value or trend]`
-- Maximum **3 figures** and **2 tables**.
+- Maximum **5 figures** and **5 tables**.
 - If none are worth highlighting, write `None.`
 
 ---
 
 ### Key Equations
-- List only the **1–3 most central equations**.
+- List only the **3–5 most central equations**.
 - Each equation uses `$$...$$` display format followed by a plain-English explanation (≤15 words) in italics.
 - Example:
   ```
@@ -174,12 +170,13 @@ All headings must be surrounded by spacing or newlines. If a section has no appl
 
 - Include a mnemonic hint in brackets after complex acronyms where useful:
   `LSTM [think: memory cell that forgets on purpose]`
+- Ensure that a single space between the pipes and the dashes are maintained (e.g., '| --', '-- |').
 - If no terms need defining, write `None.`
 
 ---
 
 ### Critical Citations
-- Maximum **3 citations** that are foundational to understanding this paper.
+- Maximum **5 citations** that are foundational to understanding this paper.
 - Format: `[Author, Year] — reason this citation is critical (≤10 words).`
 - If none are worth highlighting, write `None.`
 
@@ -195,20 +192,20 @@ Use this exact structure:
 ## Relevance to Odin
 
 **Topics:**
-<List topic numbers and names this paper supports. Use the canonical list below.
+<List topic numbers and names this paper supports, with a single blank line between each item. Use the canonical list below.
 If multiple, list all. If none, write "None — contextual only.">
 
 **Contribution to Odin:**
-<2–4 sentences. State precisely what claim, design decision, algorithmic justification,
+<3–5 sentences. State precisely what claim, design decision, algorithmic justification,
 or RRL argument this paper supports. Name the specific Odin module or decision.>
 
 **Directly justifies:**
-<Bullet list of 1–4 specific, citable claims. Each must be phraseable as an RRL sentence.>
+<Bullet list of 1–5 specific, citable claims. Each must be phraseable as an RRL sentence.>
 - Example: "LSTM captures long-range temporal dependencies in sequential spending data."
 - Example: "Isolation Forest detects behavioral anomalies without requiring labeled training data."
 
 **Limits of relevance:**
-<1–3 bullets on caveats — wrong geography, wrong demographic, different industry,
+<1–5 bullets on caveats — wrong geography, wrong demographic, different industry,
 foundational paper used only via recent applied works, domain mismatch, etc.>
 If none, write "None identified."
 ```
@@ -245,13 +242,13 @@ Use exact topic names and codes when populating the Topics field. Topics are ide
 ---
 
 ### Limitations
-- Bullet list, maximum **4 items**.
+- Bullet list, maximum **5 items**.
 - Include methodological, scope, or generalizability limitations acknowledged in the paper, plus any obvious ones the paper misses.
 
 ---
 
 ### Remember This
-- **Exactly 3 bullet points.**
+- **3-5 bullet points.**
 - Each starts with a distinct emoji (🔑, ⚠️, 💡, 📌, 🧠, 🔍, ✅).
 - Each bullet ≤ 20 words.
 - At least one bullet must reference a specific number from Findings.
@@ -278,7 +275,7 @@ Use exact topic names and codes when populating the Topics field. Topics are ide
 ## Length Enforcement
 
 After generating, count words (excluding YAML frontmatter):
-- **If > 2,000 words**: Trim Findings and Approach first. Never trim Relevance to Odin.
+- **If > 3,000 words**: Trim Findings and Approach first. Never trim Relevance to Odin.
 - **If too sparse** (estimated < 5% of original): Add one bullet to Findings or one sentence to Contribution to Odin.
 
 ---
@@ -319,8 +316,8 @@ After completing the Relevance to Odin section, populate `shorthand_tags` in the
 
 Before outputting, verify:
 - [ ] All 12 mandatory sections are present with exact headings.
-- [ ] TL;DR is exactly one sentence, ≤30 words.
-- [ ] Remember This has exactly 3 bullets, each with a unique emoji, each ≤20 words.
+- [ ] TL;DR is exactly one sentence, ≤50 words.
+- [ ] Remember This has 3-5 bullets, each with a unique emoji, each ≤20 words.
 - [ ] Relevance to Odin contains all four required fields: Topics, Contribution to Odin, Directly justifies, Limits of relevance.
 - [ ] All topic names match the canonical list exactly.
 - [ ] `odin_topics` in YAML uses outline codes (e.g., `"A.1"`, `"D.2"`) matching the Canonical Odin Topic List — not sequential integers.
@@ -332,7 +329,8 @@ Before outputting, verify:
 - [ ] All acronyms present in Definitions table.
 - [ ] YAML frontmatter has all required fields and correct fixed member names.
 - [ ] No Markdown syntax errors (unclosed `$$`, malformed tables).
-- [ ] Word count ≤ 2,000 (excluding YAML).
+- [ ] Word count ≤ 3,000 (excluding YAML).
+- [ ] The entire sumamrized markdown ends with a new line.
 
 If any check fails, correct before outputting.
 
@@ -353,6 +351,10 @@ If any check fails, correct before outputting.
 ## Example Output (Abbreviated)
 
 ```markdown
+
+# Impact of Climate on Crop Yield: A Multi-Variable Analysis
+
+(```yaml)
 ---
 name: paper-summary
 paper_id: "10.1000/xyz123"
@@ -376,69 +378,82 @@ member_checklist:
   - name: "Togle, Charles Nathaniel B."
     status: "[ ]"
 ---
-
-# Impact of Climate on Crop Yield: A Multi-Variable Analysis
+(```)
 
 ## TL;DR
+
 Each 1°C temperature rise reduces wheat yield by 0.72 t/ha, while precipitation exerts an independent positive effect of 0.58 t/ha per mm.
 
 ## Problem and Motivation
+
 Existing crop yield models treat temperature and precipitation as independent variables, producing inaccurate forecasts. No prior model quantified their joint effect on yield at scale. Farmers and policymakers need integrated, multi-variable predictions to adapt to climate change.
 
 ## Approach
+
 - Dataset: FAO records, 12 countries, 30 years (1990–2020).
 - Method: Multiple linear regression with temperature × precipitation interaction term.
 - Controls: Soil type, irrigation regime, crop variety.
 - Evaluation: Leave-one-country-out cross-validation.
 
 ## Findings
+
 1. Each +1°C reduces yield by **0.72 t/ha** (p < 0.01).
 2. Each +1 mm monthly precipitation increases yield by 0.58 t/ha (p < 0.01).
 3. Interaction term is not significant (p = 0.41) — T and P act independently.
 
 ## Key Figures and Tables
+
 - Figure 1: Annual temperature trend 1990–2020 → +1.5°C rise over the study period.
 - Table 1: Correlation matrix → T and P are uncorrelated (r = 0.03), validating independent modeling.
 
 ## Key Equations
+
 $$Y = \beta_0 - 0.72T + 0.58P$$
 *Yield (t/ha) modeled as a linear function of temperature T and precipitation P.*
 
 ## Definitions
+
 | Term / Acronym | Plain-English Definition |
-|----------------|--------------------------|
+| -------------- | ------------------------ |
 | t/ha | Tonnes per hectare — a unit of agricultural yield. |
 | FAO | Food and Agriculture Organization of the United Nations. |
 
 ## Critical Citations
+
 - [Lobell, 2011] — Foundational estimate of temperature sensitivity of crop yield.
 - [Challinor, 2014] — Meta-analysis confirming negative yield-temperature relationship at global scale.
 
 ## Relevance to Odin
 
 **Topics:**
+
 None — contextual only.
 
 **Contribution to Odin:**
 This paper does not address personal finance, budgeting, or user behavior. It is included here as a methodological reference for multi-variable predictive regression under sparse longitudinal data — a structural parallel to per-category spending forecasting across variable income periods.
 
 **Directly justifies:**
+
 - None applicable to Odin's system design or RRL arguments.
 
 **Limits of relevance:**
+
 - Domain is agricultural science, not personal finance or mobile systems.
 - Geographic scope (temperate zones) has no Philippine analogue.
 - User behavior and financial transactions are not addressed.
 
 ## Limitations
+
 - Linear model may fail at temperature extremes (> 35°C).
 - Data limited to temperate zones — may not generalize to tropical agriculture.
 - Irrigation effects modeled as binary (irrigated / not irrigated) — lacks granularity.
 
 ## Remember This
+
 - 🔑 **−0.72 t/ha per °C** — each degree of warming meaningfully cuts yield.
 - 💡 T and P act **independently** — no interaction effect found (p = 0.41).
 - 📌 **30 years, 12 countries** — large scope makes findings hard to dismiss.
+
 ```
 
 ---
