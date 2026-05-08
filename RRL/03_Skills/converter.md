@@ -24,28 +24,26 @@ Every converted `.md` file begins with this YAML frontmatter block, delimited by
 
 ```yaml
 ---
-name: converted-paper
-paper_id: "<DOI if present; else generate UUID v4>"
+paper_id: "<DOI if present; else generate UUID v5>"
 designation: <local | international | algorithm-specific>
 title: "<exact paper title>"
 authors: "<Last, F., Last, F. — semicolons between authors>"
 year: <YYYY>
 venue: "<journal or conference name, or 'Unknown'>"
-conversion_date: <YYYY-MM-DD>
-original_filename: "<exact PDF filename, or 'unknown.pdf'>"
-version: "1.0"
 ---
 ```
 
-### Field rules
+### Field Rules
 
-**`paper_id`** — Use the DOI if the PDF contains one (format: `10.XXXX/...`). Otherwise generate a UUID v4. This UUID should be seeded using the paper title, if possible. This ID is permanent; never change it in later versions.
+**`paper_id`** — Use the DOI if the PDF contains one (format: `10.XXXX/...`). Otherwise, generate a UUID v5 using the paper title as the name and the DNS namespace (`6ba7b810-9dad-11d1-80b4-00c04fd430c8`) as the namespace. This ID is permanent; never change it in later versions.
 
 **`designation`** — Apply in strict priority order:
 
-1. `algorithm-specific` — The document **primarily** describes a specific algorithm, model, or computational method. This overrides local/international regardless of publication origin.
-2. `local` — Published **inside** the Philippines (i.e., in a Philippine college, university, academic institution, etc.) and not algorithm-specific.
-3. `international` — Published **outside** the Philippines and not algorithm-specific.
+1. `algorithm-specific` — The paper's primary subject is the discussion or application of a specific model or algorithm (e.g., LSTM, Isolation Forest, Random Forest, linear regression). This designation applies whether the paper introduces, benchmarks, extends, or applies the algorithm. It overrides `local` and `international` regardless of publication origin.
+2. `local` — Published inside the Philippines (i.e., authored under a Philippine academic institution) and not `algorithm-specific`.
+3. `international` — Published outside the Philippines and not `algorithm-specific`.
+
+When in doubt between `algorithm-specific` and another designation: if the abstract, title, or majority of the methodology section centers on a named model or algorithm, assign `algorithm-specific`.
 
 **`title`** — Exact title from the PDF. Do not paraphrase or truncate.
 
@@ -54,12 +52,6 @@ version: "1.0"
 **`year`** — Four-digit publication year. If unknown, write `0000`.
 
 **`venue`** — Full journal name or conference name. Do not abbreviate. If unknown, write `"Unknown"`.
-
-**`conversion_date`** — Today's date in ISO format (YYYY-MM-DD).
-
-**`original_filename`** — Exact PDF filename as provided. If unknown, write `"unknown.pdf"`.
-
-**`version`** — Always `"1.0"` for the first conversion.
 
 After the closing `---`, insert **one blank line** before the document title (level-1 heading `#`).
 
@@ -144,7 +136,7 @@ After the closing `---`, insert **one blank line** before the document title (le
 ### 12. Whitespace
 
 - No trailing spaces on any line.
-- No more than two consecutive blank lines (one empty line between blocks maximum).
+- No more than one consecutive blank line between blocks.
 - Document ends with a single newline.
 
 ### 13. OCR Uncertainty
@@ -160,28 +152,29 @@ After the closing `---`, insert **one blank line** before the document title (le
 
 ### 15. AI Consumption Optimization
 
-The converted Markdown must be parseable and navigable by AI models. Apply these rules:
+The following rules are unique to AI-optimized output and supplement the formatting rules above:
 
-- **Hierarchical clarity**: Use headings to establish a navigable outline. Do not rely on visual spacing alone.
 - **Eliminate ambiguous references**: Replace "as shown below" with "as shown in Table 2" when the target is identifiable.
 - **Flatten deep nesting**: Convert lists deeper than 3 levels to subheadings or multiple smaller lists, preserving meaning.
-- **Consistent indentation**: Spaces only, never tabs. 2 spaces for nested lists, 4 spaces for code inside lists.
+- **Expand acronyms at first occurrence** if the PDF defines them (e.g., "Natural Language Processing (NLP)").
 - **Remove visual clutter**: Strip decorative elements (asterisk lines, ornamental horizontal rules) unless they separate major sections.
-- **Metadata preservation**: All captions, labels, equation numbers, and citation keys remain as plain text.
-- **Self-contained**: Expand ambiguous acronyms at first occurrence if the PDF defines them (e.g., "Natural Language Processing (NLP)").
 - **No raw OCR artifacts**: Remove stray characters, repeated words, and page-break markers.
 
-### 16. Post-Conversion Self-Check
+---
 
-Before outputting, verify:
+## Post-Conversion Self-Check
 
-- [ ] YAML frontmatter is present, valid, and all fields are populated.
-- [ ] `paper_id` is a DOI or UUID v4 — never empty.
-- [ ] No heading levels are skipped.
-- [ ] All tables have equal column counts per row.
+Before outputting, verify in this order:
+
+- [ ] YAML frontmatter is present, valid, and all six fields are populated.
+- [ ] `paper_id` is a DOI or UUID v5 — never empty.
+- [ ] `designation` is assigned using the correct priority order.
 - [ ] All figure placeholders are sequential with no gaps.
+- [ ] All tables have equal column counts per row and a header separator.
+- [ ] No heading levels are skipped.
 - [ ] No unclosed code blocks or unmatched `$$` delimiters.
-- [ ] No raw PDF artifacts remain (stray `\t`, triple `\n`, etc.).
+- [ ] No raw PDF artifacts remain (stray `\t`, triple `\n`, page numbers, headers, footers).
+- [ ] No ambiguous references remain ("as shown below," "the following figure," etc.).
 - [ ] Document ends with exactly one newline.
 
 If any check fails, correct it before outputting.
@@ -197,6 +190,7 @@ If any check fails, correct it before outputting.
 - **DO NOT** convert lists to tables or vice versa.
 - **DO NOT** merge or split adjacent tables.
 - **DO NOT** omit the YAML frontmatter or any required field.
+- **DO NOT** add fields to the YAML frontmatter beyond the six specified.
 
 ---
 
@@ -204,16 +198,12 @@ If any check fails, correct it before outputting.
 
 ```markdown
 ---
-name: converted-paper
 paper_id: "10.1000/xyz123"
 designation: international
 title: "Impact of Climate on Crop Yield: A Multi-Variable Analysis"
 authors: "Smith, J.; Reyes, A."
 year: 2021
 venue: "Journal of Agricultural Science"
-conversion_date: 2026-04-28
-original_filename: "climate_impact_2021.pdf"
-version: "1.0"
 ---
 
 # Impact of Climate on Crop Yield: A Multi-Variable Analysis
