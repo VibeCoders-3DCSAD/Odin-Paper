@@ -1,14 +1,10 @@
 ---
-name: converted-paper
 paper_id: "c3f5a6d8-9e1b-4c7a-8d2f-6e9b4a7c1d5e"
 designation: algorithm-specific
 title: "Expense tracker management system using machine learning"
 authors: "Thakur, R. S.; Jadhav, A."
 year: 2025
 venue: "Sigma Journal of Engineering and Natural Sciences"
-conversion_date: 2026-05-07
-original_filename: "1754475364-en.pdf"
-version: "1.0"
 ---
 
 # Expense tracker management system using machine learning

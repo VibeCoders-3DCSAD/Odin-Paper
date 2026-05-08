@@ -6,9 +6,6 @@ title: "The Role of Financial Literacy in Reducing the Wealth Gap: The Effective
 authors: "Akinyemi, A."
 year: 2025
 venue: "Contemporary Journal of Social Science Review"
-conversion_date: 2026-05-04
-original_filename: "Akinyemi.pdf"
-version: "1.0"
 ---
 
 # The Role of Financial Literacy in Reducing the Wealth Gap: The Effectiveness of Financial Coaching in Low-Income Communities (A Case Study of the US and Europe)

@@ -1,14 +1,10 @@
 ---
-name: converted-paper
 paper_id: "10.15662/IJARCST.2025.0805004"
 designation: algorithm-specific
 title: "AI-Based Wealth Advisory System using Machine Learning and Predictive Analytics for Personalized Budget Planning"
 authors: "Bhavana, B. R.; Pavan, D.; Guru Darshan, T. H."
 year: 2025
 venue: "International Journal of Advanced Research in Computer Science and Technology"
-conversion_date: 2026-05-04
-original_filename: "Bhavana_et-al.pdf"
-version: "1.0"
 ---
 
 # AI-Based Wealth Advisory System using Machine Learning and Predictive Analytics for Personalized Budget Planning
