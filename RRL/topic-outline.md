@@ -91,6 +91,8 @@
 - Definition and distinction: mobile-first vs. desktop-first design in PFMS [/mobile-first-def]
   > *Scholar query: How is mobile-first design defined and distinguished from desktop-first design in the context of personal finance management systems? I am looking for research that articulates the architectural, UX, and technical differences between systems designed primarily for mobile devices versus those ported from desktop, and what implications this design philosophy has for feature prioritization, usability, and adoption.*
 
+> NOTE: Continue here:
+
 - Evidence of mobile-first dominance among younger users in Southeast Asian and emerging markets [/mobile-dominance]
   > *Scholar query: What evidence exists that mobile-first personal finance applications dominate among younger users in Southeast Asia and other emerging markets, including the Philippines? I am looking for adoption studies, usage statistics, or market analyses that document the shift toward mobile as the primary interface for financial management among millennials and Gen Z in mobile-heavy economies where smartphone penetration precedes desktop adoption.*
 
