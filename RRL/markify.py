@@ -1,7 +1,7 @@
 import os
 import sys
 from pathlib import Path
-from Markitdown.packages.markitdown.src.markitdown import MarkItDown  # new import
+from markitdown import MarkItDown  # new import
 
 def markify(folder_path):
     folder = Path(folder_path)
