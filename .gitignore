@@ -7,3 +7,6 @@ CLAUDE.md
 # Office temporary/lock files
 ~$*
 .~lock.*#
+
+# Markitdown (freezed utility; no need to update)
+/Utilities/Markitdown

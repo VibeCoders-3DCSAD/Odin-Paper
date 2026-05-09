@@ -2,9 +2,7 @@
 
 ```yaml
 ---
-name: paper-summary
 paper_id: "10.15662/IJARCST.2025.0805004"
-source_document: "Bhavana_et-al_converted.md"
 designation: algorithm-specific
 title: "AI-Based Wealth Advisory System using Machine Learning and Predictive Analytics for Personalized Budget Planning"
 authors: "Bhavana, B. R.; Pavan, D.; Guru Darshan, T. H."
@@ -12,8 +10,6 @@ year: 2025
 venue: "International Journal of Advanced Research in Computer Science and Technology"
 odin_topics: [2, 4, 5, 6, 7, 8, 12, 14, 15]
 shorthand_tags: ["/pfms-limitations", "/pfms-gap", "/budget-rec-algorithms", "/forecasting-methods", "/lstm-spending-applied", "/anomaly-approaches", "/alert-design", "/isolation-forest", "/security-standards", "/privacy-by-design", "/budget-alloc-algos", "/eval-pfms-applied", "/sus"]
-summary_date: 2026-05-04
-version: "1.0"
 member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"

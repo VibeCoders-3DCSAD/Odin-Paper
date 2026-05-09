@@ -51,7 +51,7 @@ member_checklist:
 
 ### Field Rules
 
-**`paper_id`** — Copy exactly from the source converted file. This is the permanent identifier linking converter and summarizer outputs.
+**`paper_id`** — Use the DOI if the document contains one (format: `10.XXXX/...`). Otherwise, generate a UUID v5 using the paper title as the name and the DNS namespace (`6ba7b810-9dad-11d1-80b4-00c04fd430c8`) as the namespace. This ID is permanent; never change it in later versions.
 
 **`designation`** — Same priority as the converter:
 
