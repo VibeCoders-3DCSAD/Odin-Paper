@@ -219,6 +219,8 @@
 - Definition and taxonomy of financial anomalies detectable in personal spending data [/anomaly-taxonomy]
   > *Scholar query: How do researchers define and classify the types of anomalies that are detectable in personal spending or financial transaction data? I am looking for literature that develops or applies a taxonomy of financial anomalies at the individual or household level — distinguishing between sudden spending spikes, unusual category patterns, behavioral deviations from a user's established baseline, and budget overage events — and that discusses which detection approaches are appropriate for each type.*
 
+> NOTE: Continue here:
+
 - Threshold-based overage alerting vs. behavioral baseline deviation: distinction and scope [/overage-vs-behavioral]
   > *Scholar query: What is the conceptual and technical distinction between threshold-based budget overage alerting and behavioral baseline deviation detection in personal finance systems? I am looking for research that clearly separates these two mechanisms — where overage alerting fires when a user exceeds a predefined budget limit, and baseline deviation detection fires when spending departs from the user's own historical norm regardless of a budget — and that discusses the appropriate scope and limitations of each approach.*
 
@@ -240,6 +242,8 @@
 ---
 
 ### E.2 Anomaly Detection Algorithm [/anomaly-algo]
+
+> ASSIGN: Alex John Paul G. San Jose
 
 - Anomaly detection as an ML problem: unsupervised, semi-supervised, and supervised families [/anomaly-ml-families]
   > *Scholar query: How is anomaly detection framed as a machine learning problem, and what are the structural differences between unsupervised, semi-supervised, and supervised approaches in this domain? I am looking for survey or overview literature that explains when each family of approaches is appropriate — particularly the case for unsupervised methods when labeled anomaly examples are unavailable, as is typical in personal finance contexts where individual users cannot be expected to annotate their own abnormal transactions.*
@@ -264,6 +268,8 @@
 
 - Role of user profiling in budget recommendation, forecasting fallback, and system personalization [/profiling-role]
   > *Scholar query: What role does user behavioral profiling play in enabling personalization within personal finance management systems — specifically in improving budget recommendation accuracy, providing fallback behavior for new users during cold start, and tailoring forecasting to individual spending patterns? I am looking for system design literature or implemented PFMS studies that demonstrate how assigning users to profile types shapes the output of downstream algorithmic modules rather than treating all users identically.*
+
+> NOTE: Continue here:
 
 - Inadequacy of Western financial behavioral taxonomies for Filipino user contexts [/western-taxonomy-gap]
   > *Scholar query: Why are Western financial behavioral taxonomies and financial personality frameworks inadequate for characterizing Filipino users' financial behavior? I am looking for research that documents the cultural, structural, and institutional differences between Filipino and Western financial contexts — including obligations like paluwagan, family remittances, and community contributions that are absent from Western profiling instruments — and that argues for locally grounded profile construction rather than applying imported frameworks.*
