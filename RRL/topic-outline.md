@@ -119,6 +119,8 @@
 - Comparative strengths and weaknesses of each strategy across income stability types [/strategy-income-fit]
   > *Scholar query: How do the strengths and weaknesses of major budgeting strategies compare when applied to Filipino users with different income stability profiles — particularly salaried versus freelance or irregular earners? I am looking for research that assesses which budgeting frameworks perform better for predictable monthly income versus lumpy, delayed, or variable cash flows, and what modifications or adaptations are recommended when applying standard strategies to non-salaried income earners.*
 
+> NOTE: Continue here:
+
 - Multi-strategy distillation: combining elements into one unified system-level configuration [/strategy-distillation]
   > *Scholar query: Is there research on distilling or combining elements from multiple Filipino budgeting strategies into a single unified system-level configuration? I am looking for work that proposes hybrid budgeting frameworks — for example, integrating protected essential spending floors from envelope budgeting with proportional allocation rules — or that discusses how a software system can synthesize multiple strategy principles into one coherent, user-facing budgeting engine.*
 
