@@ -190,6 +190,8 @@
 
 ### D.2 LSTM as the Spending Forecasting Algorithm [/lstm]
 
+> ASSIGN: Alex John Paul G. San Jose
+
 - LSTM architecture: gates, cell state, and the class of sequential problems it solves [/lstm-architecture]
   > *Scholar query: How is the LSTM architecture structured — including its input gate, forget gate, output gate, and cell state — and what class of sequential or time-series problems is it specifically designed to solve? I am looking for foundational or applied literature that explains the gating mechanism as a solution to the vanishing gradient problem in standard RNNs, and that characterizes the types of sequential patterns — long-range dependencies, recurring cycles, trend-plus-seasonality — where LSTM demonstrably outperforms simpler models.*
 
