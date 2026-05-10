@@ -149,6 +149,8 @@
 - Algorithmic solutions applied to budget distribution and financial resource allocation [/budget-alloc-algos]
   > *Scholar query: What algorithmic solutions have been applied to the problem of distributing a limited financial resource across competing spending categories? I am looking for research on linear programming, multi-objective optimization, goal programming, and related techniques as applied to household or personal budget allocation — with attention to how constraints such as minimum essential spending, savings targets, and category caps are encoded and solved.*
 
+> NOTE: Continue here:
+
 - Algorithm applications specifically within PFMS and PBMS contexts [/budget-algo-pfms]
   > *Scholar query: What algorithms have been specifically applied to generate budget recommendations within personal finance management or personal budget management systems, as documented in recent research? I am looking for implementation studies or system papers that move beyond theoretical formulation and report real results from deploying recommendation algorithms in PFMS contexts — including how users responded to algorithmically generated budgets and how well those budgets performed in practice.*
 
@@ -166,6 +168,8 @@
 
 - Survey of forecasting methods applied to personal spending data [/forecasting-methods]
   > *Scholar query: What forecasting methods have been applied to personal spending or household expenditure data, and how do they compare in accuracy and practical suitability? I am looking for comparative studies that benchmark approaches such as ARIMA, LSTM, XGBoost, Random Forest, and other time-series or regression models against personal finance or consumer spending datasets — with attention to which methods handle irregular spending patterns, categorical breakdowns, and small individual-level datasets most effectively.*
+
+> NOTE: Continue here:
 
 - Characterization of personal finance transaction data as sequential time-series [/spending-time-series]
   > *Scholar query: How do researchers characterize personal finance transaction data as a sequential time-series problem, and what properties of that data make time-series modeling appropriate? I am looking for studies that analyze the structural characteristics of individual-level spending records — including temporal ordering, autocorrelation, seasonality, and irregular sampling — and that use these properties to motivate the selection of sequential or temporal modeling approaches over non-temporal alternatives.*
