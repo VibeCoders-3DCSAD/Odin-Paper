@@ -1,24 +1,22 @@
 # Understanding the Impulse Buying Behavior in the Digital Age: Influential Factors in Online Consumer Behavior
 
+## Metadata
+
 ```yaml
 ---
-name: paper-summary
 paper_id: "10.1145/3760557.3760578"
-source_document: "L--Gabatin_et-al_2025.md"
 designation: local
 title: "Understanding the Impulse Buying Behavior in the Digital Age: Influential Factors in Online Consumer Behavior"
-authors: "Gabatin, R. A.; Sierra, S. M.; Maniago, M. G.; Capole, A.; Torres, R."
+authors: "Gabatin, R.; Sierra, S.; Maniago, M.; Capole, A.; Torres, R."
 year: 2025
-venue: "2025 16th International Conference on E-business, Management and Economics (ICEME)"
-odin_topics: [1]
-shorthand_tags: ["/expenditure-patterns"]
-summary_date: 2026-05-06
-version: "1.0"
+venue: "16th International Conference on E-business, Management and Economics (ICEME 2025)"
+odin_topics: ["A.1", "F.1"]
+shorthand_tags: ["/expenditure-patterns", "/fil-behavioral-patterns"]
 member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[X]"
+    status: "[ ]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."
@@ -28,84 +26,98 @@ member_checklist:
 
 ## TL;DR
 
-Urgency to buy fully mediates the effect of website usability and consumer characteristics on impulse buying, while social and marketing factors only work indirectly.
+Website ease and payment options increase urgency, strongly predicting impulse buying (β=0.804, p<0.001) among Filipino online shoppers.
 
 ## Problem and Motivation
 
-Online shopping has amplified unplanned purchases, yet most impulse‑buying models come from physical retail. Researchers lacked an integrated view of how social, marketing, website, and personal factors trigger urgency and, through it, impulse buying in e‑commerce. The Filipino market, with its unique cultural and financial pressures, remained understudied.
+The drivers of impulse buying in online shopping—specifically how social, marketing, and website factors interact—remain poorly integrated in a single model. Impulse purchases account for 60% of all purchases, affecting consumer financial well-being and e-commerce strategies. Prior studies lacked a unified framework that includes the mediating roles of website quality and consumer characteristics.
 
 ## Approach
 
-- Survey of 381 online shoppers in Cabuyao, Laguna (ages 21–40, Gen Z and Millennials).
-- Measured 7 latent variables: social influences, marketing (discounts), website factors, consumer characteristics, urgency to buy, and impulse buying.
-- Used Partial Least Squares Structural Equation Modeling (PLS‑SEM) in WarpPLS 8.0.
-- Tested direct, mediating, and moderating paths within the Stimulus‑Organism‑Response (SOR) framework.
-- Evaluated model with CR, AVE, VIF, R², and Q²; all met required thresholds.
+- Quantitative design with a self-administered survey (five-point Likert scale) of 381 respondents from Cabuyao, Laguna, Philippines.
+- Participants: ages 21–30 (Gen Z) and 31–40 (Millennials) with online shopping experience.
+- Theoretical framework: Stimulus-Organism-Response (SOR) model.
+- Variables: social-related factors (peer influence, word of mouth), marketing-related (discounts), website-related (ease of use, ease of payment), consumer characteristics (income, shopping lifestyle), urgency to buy, impulse buying.
+- Analysis: Partial Least Squares Structural Equation Modeling (PLS-SEM) using WarpPLS 8.0.
+- Evaluation metrics: composite reliability, Cronbach’s alpha, AVE, Fornell-Larcker criterion, VIF, R², Q².
 
 ## Findings
 
-1. **Urgency is the dominant direct driver** of impulse buying (β = **0.804**, p < 0.001, large effect f² = 0.660).
-2. Website factors affect impulse buying **only through urgency** (direct path β = 0.031, p = 0.269 – not significant).
-3. Consumer characteristics influence impulse buying both directly (β = 0.109, p = 0.016, small effect) and through urgency (β = 0.562, p < 0.001).
-4. Social factors do not directly drive impulse buying but strongly shape website perceptions (β = 0.868, p < 0.001).
-5. Discounts (marketing) do not directly trigger impulse buys; instead they change consumer characteristics (β = 0.714, p < 0.001), which then affect urgency.
-6. Age and gender **do not moderate** the urgency‑impulse relationship (H12, H13 rejected, p > 0.19).
+1. Urgency to buy has the strongest direct effect on impulse buying (**β=0.804**, p<0.001, large effect size).
+2. Consumer characteristics strongly affect urgency (β=0.562, p<0.001) and directly affect impulse buying (β=0.109, p=0.016, small effect).
+3. Social factors strongly influence website-related factors (β=0.868, p<0.001), but do not directly drive impulse buying (H1 rejected).
+4. Marketing factors (discounts) strongly shape consumer characteristics (β=0.714, p<0.001), but do not directly affect impulse buying (H2 rejected).
+5. Website-related factors have a small direct effect on urgency (β=0.099, p=0.026) and no direct effect on impulse buying (H8 rejected).
+
+- Age and gender do not moderate the urgency–impulse buying relationship (H12, H13 rejected).
+- The model explains 80.4% of variance in impulse buying (R²=0.804).
 
 ## Key Figures and Tables
 
-- Table 4 (Structural Model): Urgency → Impulse Buying has the largest effect (β = 0.804, f² = 0.660) → urgency is the essential gateway.
-- Figure 2 (Final Model): Shows all non‑significant direct paths removed; urgency sits between website factors / consumer characteristics and impulse buying.
+- Figure 1: Conceptual framework (SOR with all constructs) → shows hypothesized paths among six latent variables.
+- Figure 2: Final model after removing insignificant paths → highlights website→urgency→impulse and consumer characteristics paths.
+- Table 4: Structural model evaluation (path coefficients, p-values, f²) → urgency→impulse has f²=0.660 (large effect).
 
 ## Key Equations
 
-None. The study uses structural path coefficients, not closed‑form equations.
+None.
 
 ## Definitions
 
-| Term / Acronym | Plain‑English Definition |
+| Term / Acronym | Plain-English Definition |
 | -------------- | ------------------------ |
-| SOR framework | Stimulus‑Organism‑Response – external cues (stimuli) influence internal state (organism), leading to behavior (response). |
-| Impulse buying | Unplanned, spontaneous purchase, often driven by emotion or urgency. |
-| PLS‑SEM | Partial Least Squares Structural Equation Modeling – a statistical technique for testing complex cause‑effect models with many latent variables. |
-| Urgency to buy | A psychological state where a consumer feels pressure to purchase immediately (e.g., fear of missing out). |
+| SOR | Stimulus-Organism-Response — a framework where external stimuli trigger internal states that lead to behavioral responses. |
+| PLS-SEM | Partial Least Squares Structural Equation Modeling — a statistical method for analyzing complex cause-effect relationships, suited for small samples and non-normal data. |
+| eWOM | Electronic word of mouth — online recommendations or reviews from other consumers. |
+| Impulse buying | An unplanned, spontaneous purchase driven by immediate urges rather than deliberate consideration. |
+| Urgency to buy | The psychological pressure to purchase quickly, often triggered by time limits or scarcity cues. |
+| AVE | Average Variance Extracted — a measure of convergent validity; values above 0.5 are acceptable. |
 
 ## Critical Citations
 
-- [Cohen, 1988] – Provides the benchmark for effect sizes (small / medium / large) used to interpret f² and R².
-- [Sundström et al., 2019] – Found that online shopping serves as boredom relief, a mechanism amplified during COVID‑19 and cited as context for the study.
-- [Ngo et al., 2024] – Showed that scarcity cues and price discounts drive impulse buying on video platforms; used here to contrast direct vs. mediated effects.
+- [Aprilia & Wibowo, 2016] — Provides the 60% impulse purchase baseline statistic.
+- [Khare & Pandey, 2017] — Foundational SOR framework application to online consumer behavior.
+- [Azul et al., 2023] — Connects impulse buying to financial well-being of Filipino young professionals.
 
 ## Relevance to Odin
 
 **Topics:**
 
-1 - Spending and Budgeting Behavior of Filipino Young Professionals
+A.1 — Spending and Budgeting Behavior of Filipino Young Professionals
+
+F.1 — User Behavioral Profiling in Filipino Personal Finance Contexts
 
 **Contribution to Odin:**
 
-This paper provides empirical evidence on how psychological urgency – not just social pressure or discounts – drives unplanned spending among Filipino young adults (ages 21–40). For Odin’s budgeting system, it suggests that impulse purchases are a predictable outcome of website design (ease of use, payment friction) and personal shopping habits. Understanding these triggers can inform budget recommendation strategies that anticipate or mitigate overspending due to urgency cues.
+This paper directly informs Odin’s understanding of impulse spending as a component of Filipino young professionals’ financial behavior, grounding module designs in local behavioral data. The finding that consumer characteristics (shopping lifestyle, income) significantly drive urgency and impulse buying justifies including these features in Odin’s user profile classification (F.1) to better predict spending deviations. Although the study focuses on e-commerce, its insights apply to any digital environment where users make spending decisions—Odin’s manual transaction interface can similarly trigger unplanned purchases if designed without friction controls. The mediation results also suggest that website ease and payment options indirectly affect spending, which can guide Odin’s interface design to either nudge or mitigate impulsive entries.
 
 **Directly justifies:**
 
-- Filipino young professionals (21–40) are susceptible to urgency‑driven impulse buying, which directly affects their spending patterns and budget adherence.
-- Social influences (peer recommendations, word of mouth) do not directly cause impulse purchases but shape how users perceive and trust a website’s usability.
-- E‑commerce website features such as smooth navigation and one‑click payments increase urgency, making unplanned purchases more likely even for financially literate users.
+- “Among Filipino online shoppers, urgency to buy has a strong direct effect on impulse buying (β=0.804, p<0.001), the largest path in the model.”
+- “Consumer characteristics (shopping lifestyle and income) significantly influence urgency to buy (β=0.562, p<0.001) and directly affect impulse buying (β=0.109, p=0.016).”
+- “Social-related factors do not directly drive impulse buying but strongly shape website perception (β=0.868, p<0.001), which then affects urgency.”
+- “Marketing-related factors (discounts) do not directly cause impulse buying but strongly shape consumer characteristics (β=0.714, p<0.001).”
+- “Age and gender do not moderate the urgency–impulse relationship, suggesting these demographic variables are less critical than behavioral traits in explaining impulse spending.”
 
 **Limits of relevance:**
 
-- The study focuses on general online shopping (e‑commerce, social media), not on a dedicated personal finance app; the urgency triggers may differ for budgeting tools.
-- Sample is limited to Cabuyao, Laguna; findings may not generalize to all Filipino regions or to older age groups (>40).
-- No direct measurement of financial literacy or budgeting behavior – only shopping lifestyle and income level.
+- The study measures self-reported impulse buying intentions, not actual transaction-level spending data.
+- The sample is limited to one city (Cabuyao, Laguna) and may not represent all Filipino young professionals.
+- The paper does not evaluate financial outcomes (e.g., budget overages, savings impact) of impulse buying.
+- Findings are cross-sectional; causal direction is assumed from the SOR framework but not experimentally proven.
 
 ## Limitations
 
-- Cross‑sectional survey design cannot establish true causality, only associations.
-- Self‑reported impulse buying may suffer from recall bias or social desirability.
-- Age groups limited to 21–40; excludes younger Gen Z (<21) and older cohorts.
-- Did not differentiate between types of urgency (e.g., stock‑out vs. flash sale vs. social pressure).
+- Purposive (non-probability) sampling limits generalizability to the broader Filipino population.
+- Self-reported survey data may suffer from social desirability and recall bias. [unacknowledged]
+- No control for financial literacy or existing budgeting habits, which could moderate impulse buying. [unacknowledged]
+- The study does not examine long-term consequences of impulse buying on financial health or debt.
+- Cross-sectional design cannot confirm causal ordering despite the SOR framework assumptions.
 
 ## Remember This
 
-- 🔑 **Urgency explains 80% of impulse buying** – the strongest direct path in the model (β = 0.804).
-- 💡 Social and marketing factors **only work indirectly** – they shape website perceptions or consumer traits, but don’t directly cause impulse buys.
-- 📌 **Filipino sample (n=381)** – findings are directly relevant to young professional spending behavior in a Philippine context.
+- 🔑 **Urgency→impulse β=0.804** — this single path explains most unplanned online purchases.
+- 📌 Shopping lifestyle and income shape urgency — Odin profiles must capture these traits.
+- ⚠️ Discounts don't directly cause impulse buys — they work by changing consumer characteristics.
+- ✅ Website ease and payment options matter, but only through urgency (β=0.099, small effect).
+- 💡 Filipino young adults (21–40) in the sample show strong urgency-driven impulse spending.
