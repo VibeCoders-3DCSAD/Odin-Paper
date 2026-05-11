@@ -1,24 +1,22 @@
 # Exploring Parental Expectations on Children Helping Parents out in Lower Middle-Income Families
 
+## Metadata
+
 ```yaml
 ---
-name: paper-summary
-paper_id: "10.46303/tpied.2024.12"
-source_document: "Casilan_Baclagan.md"
+paper_id: "10.46303/tpicd.2024.12"
 designation: local
 title: "Exploring Parental Expectations on Children Helping Parents out in Lower Middle-Income Families"
 authors: "Casilan, J. J.; Baclagan, T."
 year: 2024
 venue: "Theory and Practice in Child Development"
-odin_topics: [1, 9]
+odin_topics: ["A.1", "F.1"]
 shorthand_tags: ["/cultural-obligations", "/fil-behavioral-patterns"]
-summary_date: 2026-04-28
-version: "1.0"
 member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[X]"
+    status: "[ ]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."
@@ -28,32 +26,37 @@ member_checklist:
 
 ## TL;DR
 
-Parents from lower middle‑income Filipino families view children helping out as non‑obligatory, voluntary, and rooted in gratitude (utang na loob) rather than duty.
+Lower middle-income Filipino parents see children helping out as a non‑obligatory, voluntary act that honors parents, driven by poverty awareness and *utang na loob*, not required.
 
 ## Problem and Motivation
 
-Prior research on filial obligation focuses on children’s attitudes or elderly parents, leaving a gap in understanding **parents’ expectations** from lower middle‑income families. This perspective matters because forced expectations can become toxic, yet healthy helping behaviors benefit family resilience. What was missing is a qualitative exploration of how non‑poor but vulnerable parents define, value, and identify a “helping child” in contemporary Philippines.
+Parents’ perspectives on children helping out in lower middle‑income Filipino families remain underexplored despite its centrality to family financial dynamics. Understanding these expectations matters because it shapes parent‑child reciprocity, financial support patterns, and cultural definitions of filial obligation. Prior studies focused on children’s views or Western frameworks, leaving a gap in contemporary Filipino parental expectations.
 
 ## Approach
 
-- Qualitative exploratory design using semi‑structured interviews.
-- 10 parents (80% female, ages 40–59) from lower middle‑income households (₱21k–₱43k/month).
-- Participants reside in Metro Manila, Central Luzon, and CALABARZON; all have ≥2 non‑working children living at home.
-- Thematic analysis (open, axial, selective coding) of transcribed Filipino‑language interviews.
+- Qualitative exploratory design using semi‑structured interviews with 10 parents.
+- Participants: lower middle‑income class (monthly household income ₱21,194–₱43,828), two or more non‑working children living at home, residing in NCR, Region III, or Region IV‑A.
+- Recruitment via purposive sampling; interviews conducted online (Google Meet / Facebook Messenger), lasting 20–60 minutes.
+- Thematic analysis of transcribed Filipino‑language interviews using open, axial, and selective coding.
+- Ethical safeguards: informed consent (Data Privacy Act 2012), confidentiality, debriefing, and plagiarism check (Turnitin).
 
 ## Findings
 
-- **Helping out is non‑obligatory** — parents reject forcing children; support must arise from child’s autonomy.
-- Reasons children help: poverty, witnessing family struggles, *utang na loob* (debt of gratitude), and aging parents.
-- Capable child traits: studious, financially capable (degree + job + no family), determined, *kusang loob* (willingness), generous, *kabutihang loob* (kindness), mature, honest.
-- Birth order not deterministic; eldest often first due to graduation timing, but all children may help if well‑raised.
-- Help areas include financial support, chores, sibling care, emotional support, home upgrades; parents also value bond strengthening (vacations) and children’s financial independence.
+- **Helping out is a non‑obligatory practice** — parents strongly believe children have no duty to help; support must come from the child’s autonomous decision, not pressure.
+- Parents value helping out as an admirable habit that starts at home, is culturally and generationally transmitted, and can become toxic if treated as an obligation.
+- Main influences: own parents, older generations, personal experience, and observation of others (siblings, relatives, friends).
+- Reasons children help: poverty, sensitivity to family struggles, *utang na loob* (debt of gratitude), and parents’ aging.
+- Parental supports provided: educational, caregiving, financial, guidance, spiritual, and emotional availability.
+- Characteristics of a “capable” child: studious, financially capable (degree + job + no family), determined, *kusang loob* (willingness), generous, *kabutihang loob* (kindness), mature, and honest.
+- Birth order not deterministic — eldest may be first to graduate/job, but all children are expected to help; parents see children as potential non‑compulsive *tagasalo*.
+- Areas children help: financial (bills, food), household chores, home upgrades, sibling care, emotional support, bond strengthening (e.g., family outings), and financial independence (reducing parental burden).
 
 ## Key Figures and Tables
 
-- Table 2 (Parental expectations) → defines non‑obligatory practice and cultural/ generational value of helping out.
-- Table 4 (Qualities of a capable child) → lists eight characteristics including *kusang loob* and *kabutihang loob*.
-- Table 5 (Areas of helping) → financial aspect and good health (caregiving) are most cited.
+- Table 2: Parental expectations → helping out is non‑obligatory, valued, and influenced by parents/personal experience.
+- Table 3: Reasons children help → poverty, *utang na loob*, aging parents drive the practice.
+- Table 4: Characteristics of a capable child → studious, financially capable, *kusang loob*, generous, mature, honest.
+- Table 5: Areas children will help → financial support, chores, bond strengthening, emotional availability, sibling care.
 
 ## Key Equations
 
@@ -61,56 +64,59 @@ None.
 
 ## Definitions
 
-| Term / Acronym | Plain‑English Definition |
+| Term / Acronym | Plain-English Definition |
 | -------------- | ------------------------ |
-| *Utang na loob* | Debt of gratitude; a felt obligation to reciprocate help received. |
-| *Kusang loob* | Willingness or initiative that arises voluntarily, not from external pressure. |
-| *Kabutihang loob* | Kindness / good‑heartedness; sincerity and pure intentions toward others. |
-| *Loob* | The inner self or core identity in Filipino psychology. |
-| *Kapwa* | Shared inner self; recognition of common identity with others. |
-| *Tagasalo* | A family member who feels responsible for the family’s well‑being (non‑compulsive subtype fits this paper). |
+| Helping out | Children giving services or resources to ease parents’ family support burden. |
+| Lower middle‑income class | Monthly household income ₱21,194–₱43,828 (Philippine Institute of Development Studies). |
+| *Utang na loob* | Debt of gratitude — in this context, expressed as voluntary reciprocity, not a formal obligation. |
+| *Kusang loob* | Willingness/initiative — voluntary action from within, unprompted by outside pressure. |
+| *Kabutihang loob* | Kindness/good‑heartedness — a sincere, pure intention to help without expecting return. |
+| *Tagasalo* | Family member who feels responsible for the family’s well‑being; here seen as non‑compulsive (embraced but not rigid). |
 
 ## Critical Citations
 
-- [Tarroja, 2010] — Defines reciprocal action, service, and loyalty as maintaining Filipino family relationships.
-- [Yuan & Wang, 2011] — Contrasts Western (gratitude‑based) vs. Asian (obligation‑based) filial attitudes; this paper aligns with Western perspective.
-- [Pe Pua, 2012] — Unpacks the concept of *loob* (inner) including *kusang loob* and *kabutihang loob*.
+- [Magsambol, 2022] — Filipino youth’s top priority is helping parents and siblings financially.
+- [Tarroja, 2010] — Reciprocal action, service, and loyalty maintain Filipino family relationships.
+- [Yuan & Wang, 2011] — Western filial piety emphasizes moral gratitude, not formal debt or obligation.
 
 ## Relevance to Odin
 
 **Topics:**
 
-1 - Spending and Budgeting Behavior of Filipino Young Professionals
+A.1 — Spending and Budgeting Behavior of Filipino Young Professionals
 
-9 - User Behavioral Profiling in Filipino Personal Finance Contexts
+F.1 — User Behavioral Profiling in Filipino Personal Finance Contexts
 
 **Contribution to Odin:**
 
-This paper explains *utang na loob* (debt of gratitude) as a primary driver of financial support to parents, directly affecting how Filipino young professionals allocate their income — a non‑negotiable expenditure that must be accounted for in any realistic budgeting system. It also provides native psychological constructs (*kusang loob*, *kabutihang loob*, *tagasalo*) that qualify Western assumptions of purely rational economic actors; these constructs inform user profiles in personal finance apps. The finding that helping out is *voluntary* rather than coerced suggests that financial remittances to family are not simply mandatory transfers but reflect autonomous choice, which has implications for how anomaly detection or spending alerts should treat such transactions.
+This paper directly informs Odin’s user behavioral profiling module by grounding it in Filipino cultural expectations around financial reciprocity within families. It shows that young professionals’ spending and saving behaviors are shaped by a non‑obligatory but valued practice of helping parents, which may affect discretionary income allocation. The finding that *utang na loob* operates as gratitude rather than debt refines how Odin should interpret financial “obligations” in its profiling logic. Although qualitative, the paper provides culturally specific constructs (*kusang loob*, *tagasalo*) that can be used to design survey items or classification features for Filipino users.
 
 **Directly justifies:**
 
-- “Filipino young professionals feel *utang na loob* (debt of gratitude) toward parents, which prioritizes family financial support over personal savings in their budget.”
-- “Helping parents out is a non‑obligatory but culturally expected practice, meaning that remittances to family should be modeled as voluntary recurring expenses, not fixed obligations.”
-- “*Kusang loob* (willingness) and *kabutihang loob* (kindness) are valued traits in Filipino family helpers; user behavioral profiles should capture these prosocial orientations rather than assume purely self‑interested financial decision‑making.”
-- “Parents from lower middle‑income families do not require their children to help, reducing the risk of guilt‑driven budget distortions — a baseline assumption for designing empathetic financial planning tools.”
+- “Filipino youth’s top aspiration is to help parents and siblings financially (Magsambol, 2022), positioning family support as a primary driver of personal financial behavior.”
+- “Parents from lower middle‑income families view helping out as a voluntary, autonomous act — not a mandatory debt — which implies that financial ‘obligation’ in budgeting systems should be modeled as a fluid cultural value rather than a fixed liability.”
+- “Children help in areas including bill payments, groceries, and home upgrades — directly reducing household expenses and altering the spending patterns of young professionals who live with or near their parents.”
+- “*Kusang loob* (willingness) and *kabutihang loob* (kindness) are central to identifying a supporting child; these constructs can inform user profile dimensions for Odin’s classification algorithm.”
 
 **Limits of relevance:**
 
-- Small qualitative sample (n=10), not generalizable to all Filipino young professionals.
-- No quantitative spending data or algorithmic implications; provides conceptual grounding only.
-- Geographic scope limited to Luzon (NCR, Region III, IV‑A); may not capture Visayas or Mindanao norms.
-- Focuses on parental expectations, not on the young professional’s own self‑reported spending or app usage.
+- Qualitative study with only 10 participants; findings are not statistically generalizable.
+- Focus is on parental expectations, not on the financial behavior of young professionals themselves.
+- No quantitative model or algorithm is presented; relevance is conceptual and cultural, not technical.
+- Income bracket (lower middle‑class) may not represent all Filipino young professional users of Odin.
 
 ## Limitations
 
-- Small sample (10 participants) limits generalizability beyond the studied regions and income class.
-- No comparison across genders, single‑parent households, or extended family structures.
-- Findings rely on self‑reported parental views; actual child behavior may differ.
-- Qualitative only — no statistical tests or causal claims.
+- Small sample (n=10) limits generalizability to all lower middle‑income Filipino families. [unacknowledged]
+- Participants concentrated in NCR and adjacent regions (III, IV‑A); different expectations may exist in other regions.
+- No children’s perspective is included; the study only captures parental reports, which may not match actual child behavior.
+- Qualitative thematic analysis is subject to researcher interpretation; no inter‑rater reliability reported.
+- Cross‑cultural comparisons are descriptive; no statistical tests are performed.
 
 ## Remember This
 
-- 🔑 **Non‑obligatory** — parents reject forcing children to help; it must be voluntary (*kusang loob*).
-- 💡 *Utang na loob* (gratitude) and poverty drive helping, not duty — key for understanding Filipino spending priorities.
-- 📌 **Eldest often first** due to graduation timing, but any child who displays *kabutihang loob* may help.
+- 🔑 Helping out is **non‑obligatory** — parents forbid pressure; support must be autonomous.
+- 📌 *Utang na loob* means gratitude, not debt — a key distinction for Filipino financial profiling.
+- 💡 Reasons to help: poverty, aging parents, and witnessing family struggles — all affect budgeting.
+- ✅ Lower middle‑income families (₱21k–₱44k/month) still prioritize education and caregiving over requiring child support.
+- 🧠 *Kusang loob* (willingness) and *tagasalo* (family caretaker) are distinct Filipino constructs for user profiling.

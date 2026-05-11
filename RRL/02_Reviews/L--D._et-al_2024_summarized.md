@@ -1,24 +1,22 @@
 # Navigating Financial Struggle: The Ripple Effect of Inflation Rates on Working Students
 
+## Metadata
+
 ```yaml
 ---
-name: paper-summary
-paper_id: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
-source_document: "D.-A.-G._et-al_converted.md"
+paper_id: "10.62225/2583049X.2024.4.3.2862"
 designation: local
 title: "Navigating Financial Struggle: The Ripple Effect of Inflation Rates on Working Students"
-authors: "D, Althea Grace; R, Valerie Mae; G, Lazaro Bryan Louis"
+authors: "D, A. G.; R, V. M.; G, L. B. L."
 year: 2024
 venue: "International Journal of Advanced Multidisciplinary Research and Studies"
-odin_topics: [1, 4]
-shorthand_tags: ["/budgeting-prevalence", "/budget-failure-points", "/cultural-obligations", "/strategy-mechanics", "/strategy-income-fit"]
-summary_date: 2026-05-04
-version: "1.0"
+odin_topics: ["A.1", "C.1"]
+shorthand_tags: ["/expenditure-patterns", "/budgeting-prevalence", "/budget-failure-points", "/strategy-mechanics"]
 member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[X]"
+    status: "[ ]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."
@@ -28,27 +26,29 @@ member_checklist:
 
 ## TL;DR
 
-Rising inflation forces Filipino working students to prioritize necessities and adopt extreme saving behaviors, harming academic time.
+Rising inflation forces Filipino working students to prioritize necessities, cut discretionary spending, and seek government aid — with 216,000 students (8% of college population) balancing work and study.
 
 ## Problem and Motivation
 
-Working students in the Philippines face rising tuition, transport, and food costs, but their wages do not keep pace. No prior qualitative study examined how inflation specifically affects their daily financial decisions and coping strategies. Understanding these struggles is essential to design targeted support systems.
+Inflation increases tuition, housing, food, and transport costs, creating financial pressure on working students who already juggle academic and job responsibilities. Understanding this pressure matters because inflation worsens education poverty and forces students into early work, affecting long-term outcomes. Prior studies lacked qualitative exploration of how working students perceive economic inequality and what coping strategies they actually use in the Philippine context.
 
 ## Approach
 
-- Qualitative phenomenological study with **6 in‑depth interviews** and 10 quantitative survey respondents.
-- Sampling: accidental / convenience sampling at Noveleta Senior High School, Cavite.
-- Data collection: open‑ended questionnaires focused on financial challenges, budgeting, and inflation effects.
-- Analysis: thematic extraction (financial support, budgeting, inflation effects, work‑study balance, daily adjustments).
+- Qualitative phenomenological study design with 6 interviewees (qualitative) and 10 survey respondents (quantitative).
+- Participants selected via accidental/convenience sampling from a Philippine senior high school.
+- Open-ended questionnaires used as primary data collection tool.
+- Themes extracted: financial support, budgeting and prioritization, effects of inflation, balancing academic/work, daily life adjustment, purchasing strategies, financial responsibilities.
+- No formal statistical testing; thematic analysis of responses.
 
 ## Findings
 
-1. **82% of respondents** reported that their income is no longer sufficient due to inflation.
-2. Budgeting and prioritization of food, bills, and school materials is the **primary coping strategy**.
-3. Students cut non‑essentials, pack lunch, eat at carinderias, and apply for government scholarships.
-4. Inflation directly increases **financial stress, reduces study time, and forces work hour expansion**.
-5. Barriers to government aid: disqualifying requirements and limited beneficiary slots.
-6. Students call for **more flexible academic schedules** and removal of redundant minor subjects.
+1. **216,000** Filipino students work while studying — 8% of the total college population (CHED data cited).
+2. Average Philippine inflation rate from 1957–2011 was **9.28%**.
+
+- Working students report that inflation reduces their purchasing power, making prior allowances insufficient for food, transport, and school materials.
+- Students cope by budgeting, prioritizing necessities (bills, food, tuition) over wants, packing lunch, eating at carinderias, and avoiding impulsive purchases.
+- Seeking government financial assistance (scholarships, aid programs) is a primary strategy, but respondents face disqualification or slot shortages as barriers.
+- Balancing work and study reduces study time and nutritional intake, yet some students report inflation increases their motivation to work harder.
 
 ## Key Figures and Tables
 
@@ -62,50 +62,58 @@ None.
 
 | Term / Acronym | Plain-English Definition |
 | -------------- | ------------------------ |
-| Inflation | Sustained increase in general price levels, reducing purchasing power. |
-| Carinderia | Small, low‑cost local eatery in the Philippines. |
-| Accidental sampling | Convenience sampling — selecting anyone available. |
-| Working student | Someone employed while enrolled in formal education. |
+| Inflation | A general increase in prices that reduces the purchasing power of money. |
+| Budgeting | Planning how to spend limited income across needs and wants. |
+| Prioritization | Focusing spending on essential items (food, bills, school fees) before non-essentials. |
+| Financial support | Government or organizational aid such as scholarships, allowances, or subsidies. |
+| Working student | A student employed while enrolled in school to cover educational or living expenses. |
 
 ## Critical Citations
 
-- [Tumin et al., 2020] — Foundational study on coping challenges of working students in higher education.
-- [Bakhtiari, 2021] — Shows government financial assistance increases firms’ propensity to seek and obtain financing (analogous for individuals).
+- [Bakhtiari, 2021] — Government financial assistance increases firms’ propensity to seek financing, supporting the value of aid programs for students.
+- [Tumin et al., 2020] — Documents challenges and solutions for working students in higher education, framing the study’s exploration of barriers.
+- [Sharma et al., 2020] — Links debt burdens to consumerism and delayed consequences, used to explain saving behavior.
 
 ## Relevance to Odin
 
 **Topics:**
 
-1 - Spending and Budgeting Behavior of Filipino Young Professionals
+A.1 — Spending and Budgeting Behavior of Filipino Young Professionals
 
-4 - Budgeting Strategies and Budget Recommendation
+C.1 — Budgeting Strategies and Budget Recommendation
 
 **Contribution to Odin:**
 
-This paper reveals that Filipino working students (a subset of young professionals) exhibit specific budgeting behaviors under inflation: extreme prioritization of needs over wants, eating at carinderias, packing lunch, and actively seeking external financial support. These findings justify Odin’s inclusion of **budget recommendation strategies that assume low discretionary income** and **culturally appropriate saving tips** (e.g., “skip fast food, bring baon”). The paper also highlights that income volatility and insufficient wages drive the need for **surplus logic that accommodates lump‑sum income** (e.g., scholarships, family contributions).
+This paper provides qualitative evidence of how Filipinos (working students, a similar demographic to young professionals) actually manage scarce funds under inflation — directly informing Odin’s understanding of spending behavior and budgeting strategies. The finding that students prioritize necessities over discretionary spending and rely on simple heuristics (e.g., packing lunch, avoiding impulse buys) can guide Odin’s budget recommendation module to adopt low-friction, rule-based strategies rather than complex optimization for users with irregular income. While the study focuses on students, the coping mechanisms and financial pressures (transport, food, school materials) mirror those of Metro Manila young professionals, making the behavioral insights directly transferable to Odin’s design assumptions.
 
 **Directly justifies:**
 
-- “Filipino young professionals facing inflation prioritize essential expenses (food, transport, bills) over all other spending categories.”
-- “Budgeting strategies for low‑income Filipino users should default to ‘minimum necessary’ recommendations, not discretionary savings goals.”
-- “Financial stress from inflation reduces available study time, implying that budget apps must minimize user input friction to retain busy users.”
-- “Government financial aid applications are perceived as unreliable and competitive, so Odin cannot assume users have stable external support.”
+- “Working students prioritize food, utility bills, and school materials over discretionary spending, reducing impulsive purchases.”
+- “Inflation forces Filipino students to cut non-essential expenses, packing lunch and avoiding fast food to save money.”
+- “Government financial aid is sought but access barriers (disqualification, limited slots) limit its effectiveness for working students.”
+- “Balancing work and study under financial pressure reduces study time and nutritional intake, affecting academic performance.”
+- “Rising transport and food costs are the most immediate financial pain points for Filipino students, mirroring young professionals’ concerns.”
 
 **Limits of relevance:**
 
-- Sample is high school students, not young professionals (though financial behaviors may transfer).
-- Qualitative, small‑scale study — not generalizable without validation.
-- Does not test any algorithm or predictive model; provides behavioral context only.
+- Study population is high school students, not young professionals aged 20–40 — spending priorities and income sources differ.
+- Small convenience sample (n=6 qualitative, n=10 quantitative) limits generalizability.
+- No algorithm or ML component; relevance is behavioral, not technical.
+- Findings are descriptive and qualitative; no model performance metrics applicable to Odin’s modules.
+- Inflation data (average 9.28% from 1957–2011) may be outdated for current Philippine economy.
 
 ## Limitations
 
-- Convenience sampling from a single school — may not represent all Filipino working students.
-- Self‑reported data subject to recall and social desirability bias.
-- No longitudinal tracking — cannot confirm causality between inflation and specific outcomes.
-- Mixed methods with only 10 quantitative responses, limiting statistical power.
+- Small, non-random sample (6 interviewees, 10 survey respondents) from a single school — results may not generalize to all Filipino working students.
+- No formal statistical analysis; findings rely on thematic interpretation without inter-rater reliability measures.
+- [unacknowledged] No comparison group of non-working students or young professionals, so inflation effects unique to workers are not isolated.
+- The study does not quantify how budgeting strategies change with income level or work hours, limiting applicability to heterogeneous user profiles.
+- Self-reported data subject to recall and social desirability bias (e.g., overstating savings behavior).
 
 ## Remember This
 
-- 🔑 **82%** say income is insufficient — inflation directly overwhelms most working students.
-- 💡 Top coping strategies: **prioritize needs, pack lunch, eat at carinderias** — actionable design cues for Odin’s budget tips.
-- ⚠️ Government aid is **unreliable** (disqualification, limited slots) — Odin must not assume external financial safety nets.
+- 🔑 **216,000** working students in PH — 8% of college population balancing school and jobs.
+- 📌 Inflation **9.28%** average (1957–2011) — erodes purchasing power, especially for food and transport.
+- 💡 Coping heuristics: pack lunch, eat at carinderia, avoid impulsive buys — simple budget rules work.
+- ⚠️ Government aid barriers (disqualification, slot limits) reduce effectiveness for low-income students.
+- 🧠 Perceived economic inequality drives motivation to work harder — not just a negative effect.

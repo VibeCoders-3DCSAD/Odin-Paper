@@ -1,245 +1,1186 @@
----
-name: converted-paper
-paper_id: "d3b07384-d9a2-4b8e-9f3c-8a1b2c3d4e5f"
-designation: local
-title: "Revisiting the Filipino Value Utang na Loob: Contextual Perceptions, Implications and Inputs to Sustaining the Filipino Psychology Discussions"
-authors: "Casino, R. M. Z.; Serrano, L. L.; Granada, M. I. D."
-year: 2025
-venue: "Unknown"
-conversion_date: 2026-05-01
-original_filename: "Casiño_et-al.pdf"
-version: "1.0"
----
+International Journal of Education and Humanities (IJEH), 5(2) 2025:309-324
+http://i-jeh.com/index.php/ijeh/index
+E-ISSN: 2798-5768
 
-# Revisiting the Filipino Value Utang na Loob: Contextual Perceptions, Implications and Inputs to Sustaining the Filipino Psychology Discussions
+Revisiting  the  Filipino  Value  Utang  na  Loob:  Contextual  Perceptions,
+Implications and Inputs to Sustaining the Filipino Psychology Discussions
 
-Rey Marco Z. Casino<sup>1</sup>, Liandro L. Serrano<sup>2</sup>, Maria Isabel D. Granada<sup>3</sup>
+Rey Marco Z. Casiño1, Liandro L. Serrano2, Maria Isabel D. Granada3
 
-## Abstract
+Abstract
 
-Utang na loob (debt of gratitude) is a cultural value deeply ingrained in Filipino society. It is not merely a part of the local vernacular but a profound moral construct that serves as one of the pillars of Filipino identity and social reality. However, this concept is often misunderstood and misused in practice, potentially leading to unhealthy social pressures for the recipient. This phenomenon has fostered a perception that utang na loob is burdensome and even considered a toxic trait in social relationships. This study aims to understand the true essence of utang na loob in a localized context and explore how Filipinos perceive and apply this value in their daily lives. A qualitative survey was conducted, employing the In Vivo Coding method to capture the intrinsic meanings embedded in the participants' statements. The collected data were then analyzed and structured into manageable insights that provided a deeper understanding of the concept. The study revealed that utang na loob goes beyond mere reciprocity and serves as a tool for strengthening social connections. However, its misuse can lead to emotional pressure on the recipient, often making them feel bound by an overwhelming social obligation. It is essential to instill in the younger generation that utang na loob should be rooted in goodwill and genuine concern for others rather than being perceived solely as a social obligation that imposes burdens.
+Utang na loob (debt of gratitude) is a cultural value deeply ingrained in Filipino society. It is not
+merely a part of the local vernacular but a profound moral construct that serves as one of the
+pillars of Filipino identity and social reality. However, this concept is often misunderstood and
+misused  in  practice,  potentially  leading  to  unhealthy  social  pressures  for  the  recipient.  This
+phenomenon has fostered a perception that utang na loob is burdensome and even considered a
+toxic trait in social relationships. This study aims to understand the true essence of utang na loob
+in a localized context and explore how Filipinos perceive and apply this value in their daily lives.
+A  qualitative  survey  was  conducted,  employing  the  In  Vivo  Coding  method  to  capture  the
+intrinsic  meanings  embedded  in  the  participants'  statements.  The  collected  data  were  then
+analyzed and structured into manageable insights that provided a deeper understanding of the
+concept. The study revealed that utang na loob goes beyond mere reciprocity and serves as a tool
+for strengthening social connections. However, its misuse can lead to emotional pressure on the
+recipient, often making them feel bound by an overwhelming social obligation. It is essential to
+instill in the younger generation that utang na loob should be rooted in goodwill and genuine
+concern for others rather than being perceived solely as a social obligation that imposes burdens.
 
 Keywords: Altruism, Filipino value, Goodwill, Utang na loob, Virtue.
 
-## A. Introduction
+A.  Introduction
 
-What defines a Filipino? —is a question that the youth today might find challenging to answer. They can be described as tolerant, free thinkers and are usually not bound by rigid social constructs that traditionally defined the earlier generations. Rapid globalization has brought an evolving shift in understanding the Filipino identity. With the advent of technology and social media, Filipinos have found greater reach in virtual interactions, making them bolder in expressing their beliefs to everyone in the online community. More so, technology opened the Filipinos to different cultures around the world that have mixed with that of their own.
+What  defines  a  Filipino?  —is  a  question  that  the  youth  today  might  find  challenging  to
+answer. They can be described as tolerant, free thinkers and are usually not bound by rigid social
+constructs that traditionally defined the earlier generations. Rapid globalization has brought an
+evolving shift in understanding the Filipino identity. With the advent of technology and social
+media,  Filipinos  have  found  greater  reach  in  virtual  interactions,  making  them  bolder  in
+expressing their beliefs to everyone in the online community. More so, technology opened the
+Filipinos to different cultures around the world that have mixed with that of their own.
 
-It is observable that the Filipino youth need to be reconnected to their values. The fast-paced society shaped by technological enhancements made cultural changes that altered some supposed virtues' meanings. Utang na loob (debt of gratitude), for one, is part of the value system that is deeply practiced in the Philippines. Referring to Enriquez's early conceptualization of Filipino social behaviors, utang na loob is considered a cornerstone of human interaction in the country (Pe-Pua & Protacio-Marcelino, 2000). Returning the favor to someone is a very Pinoy way of showing gratitude to their givers, which, for Dancel (2005), is one of the best qualities of our culture. Helping someone in dire need is an act deeply coalesced in a Filipino individual, expressed in various forms. However, this should be done ultimately out of goodwill or 'kagandahang loob' (quoted by Miranda, 1989). It represents more than just a transactional sense of obligation but a profound moral construct that sets altruism in motion.
+It is observable that the Filipino youth need to be reconnected to their values. The fast-paced
+society  shaped  by  technological  enhancements  made  cultural  changes  that  altered  some
+supposed virtues' meanings. Utang na loob (debt of gratitude), for one, is part of the value system
+that is deeply practiced in the Philippines.  Referring to Enriquez’s early conceptualization of
+Filipino social behaviors, utang na loob is considered a cornerstone of human interaction in the
+country (Pe-Pua & Protacio-Marcelino, 2000). Returning the favor to someone is a very Pinoy
+way of showing gratitude to their givers, which, for Dancel (2005), is one of the best qualities
+of our culture. Helping someone in dire need is an act deeply coalesced in a Filipino individual,
 
-An important idea presented by Gundran et al. (2022) is that utang na loob is an act where one must have an attitude of gratitude. It is a commitment to return the favor of being the recipient of good deeds from family, support from friends, and acceptance from relatives and the community. It brings interconnectedness and bolsters fellowship through mutual care and respect, making this trait unique. Sharing is good, but giving something without expecting anything is an exemplary gesture worth emulating (Agaton, 2017). It should be noted that this virtue deserves to be treated as a moral construct and not just a part of the local lexicon. If so, it can be prone to misuse, which might distort its true meaning. Essentially, values differ from words as they are imbued with emotional significance for Filipinos. These should be used in their rightful context and must have the original intent in mind—that altruism is one's motivation when extending help to someone.
+1 Manuel S. Enverga University Foundation, Lucena City, Philippines, casinoreymarco@mseuf.edu.ph
+2 Manuel S. Enverga University Foundation, Lucena City, Philippines
+3 Manuel S. Enverga University Foundation, Lucena City, Philippines
 
-An abuse of this value is pervasive in everyday conversations where indebtedness is usually created. This happens when the inaction from the person helped is branded as 'walang utang na loob' (Agaton, 2017). This is the adverse side of using this value to manipulate the receiver. When the feeling of reciprocity surpasses altruism, then utang na loob can no longer be an expression of gratitude and will just be reduced to an obligation-driven type of relationship.
+Revisiting the Filipino Value Utang na Loob…
 
-It is nothing new that this concept is under the umbrella of Smooth Interpersonal Relationships (SIR) practiced in the country. Moreover, it is also nothing new that it is prone to misuse, especially from a nation that has placed this concept in high regard. Cleofas (2019) argued that there should be an improved discussion of this account as this can also be prone to manipulation, resulting in corruption, extortion, and other immoral behaviors. This is seen in political leaders who are bound to utang na loob, who unscrupulously overlook the need of their community to fulfill the desires of their benefactors. On the contrary, a prime example of this value is filial devotion to parents who have made significant strides in life to uphold their family's future.
+expressed  in  various  forms.  However,  this  should  be  done  ultimately  out  of  goodwill  or
+‘kagandahang loob’ (quoted by Miranda, 1989). It represents more than just a transactional sense
+of obligation but a profound moral construct that sets altruism in motion.
 
-Revisiting this Filipino value can reflect how important this is in our society today. It can also propel an investigation into the other values rooted in the tradition of goodwill. A deeper understanding of this social construct can open thresholds in seeing what a true Filipino is and their identity and how this can connect them to a sense of belonging as a nation. However, Suazo (2014) observed that most Filipinos today formed their identities through exposure to diverse influences, that of British, Eastern, and Westerns, which leaves them to be confused about their nationality. Suazo added that even though a Filipino may not behave or look like one, the important thing is that the identity should be there—primarily a psychological construct. Virgilio Enriquez agrees with this notion (quoted by Bernardo, Sta. Maria & Tan, 2002), saying that being a Filipino is a type of consciousness. The psychological element should be alive within the individual for him to find his place in the social sphere. This is a big concept to grasp; however, through gradual steps, one can understand this through constant exposure to theories and ideas founded in history from which our identity as a nation sprang. Educators should thrust the learners towards this awareness to strengthen the discussions of Filipino social behaviors—from its etiology to its historical underpinnings. Classrooms are centers of learning where these concepts should be sustained if we desire these to be practiced by the new generation of learners as a form of virtue and as a feature of belongingness in Filipino society.
+An important idea presented by Gundran et al. (2022) is that utang na loob is an act where
+one  must  have  an  attitude  of  gratitude.  It  is  a  commitment  to  return  the  favor  of  being  the
+recipient of good deeds from family, support from friends, and acceptance from relatives and
+the community. It brings interconnectedness and bolsters fellowship through mutual care and
+respect,  making  this  trait  unique.  Sharing  is  good,  but  giving  something  without  expecting
+anything is an exemplary gesture worth emulating (Agaton, 2017). It should be noted that this
+virtue deserves to be treated as a moral construct and not just a part of the local lexicon. If so, it
+can be prone to misuse, which might distort its true meaning. Essentially, values  differ from
+words as they are imbued with emotional significance for Filipinos. These should be used in
+their rightful context and must have the original intent in mind—that altruism is one’s motivation
+when extending help to someone.
 
-This study aims to explore the personal definitions of utang na loob by delving into how individuals perceive and relate to this culturally significant value. To achieve this, the research is guided by two primary objectives. First, it seeks to determine the participants' definitions of utang na loob, capturing their unique interpretations and understanding of this deeply rooted Filipino value. Second, the study aims to identify how participants connect with and apply this value in their daily lives based on their contextual perceptions. By examining these aspects, the research intends to provide a comprehensive understanding of utang na loob from those who experience and practice it within their social and cultural environments.
+An abuse of this value is pervasive in everyday conversations where indebtedness is usually
+created. This happens when the inaction from the person helped is branded as ‘walang utang na
+loob’ (Agaton, 2017). This is the adverse side of using this value to  manipulate the receiver.
+When  the  feeling  of  reciprocity  surpasses  altruism,  then  utang  na  loob  can  no  longer  be  an
+expression of gratitude and will just be reduced to an obligation-driven type of relationship.
 
-## B. Literature review
+It  is  nothing  new  that  this  concept  is  under  the  umbrella  of  Smooth  Interpersonal
+Relationships (SIR) practiced in the country. Moreover, it is also nothing new that it is prone to
+misuse,  especially  from  a  nation  that  has  placed  this  concept  in  high  regard.  Cleofas  (2019)
+argued that there should be an improved discussion of this account as this can also be prone to
+manipulation, resulting in corruption, extortion, and other immoral behaviors. This is seen in
+political leaders who are bound to utang na loob, who unscrupulously overlook the need of their
+community to fulfill the desires of their benefactors. On the contrary, a prime example of this
+value  is  filial  devotion  to  parents  who  have  made  significant  strides  in  life  to  uphold  their
+family’s future.
 
-There have been numerous descriptions that Filipinos are known for their warm and welcoming nature extending up to the foreign race and culture. One great example was during the rescue mission of 1,301 Jews to escape the massacre of WWII Germany in 1937-1941. This event was led by President Manuel Luis Quezon himself, and together with the entire nation, the Philippines became not only a settlement for the fleeing Jews—but also a place of solace and a sanctuary for future generations (reported by Bonnie, 2016). Another was in the 1950s during the Korean War when the Philippines responded to the UN's call to join the military defense against communist Japan to help the South Koreans. These are just two of the prime examples of the virtues that made Filipinos popular among its neighboring nations. They tend to go to great lengths to reach out to those in need, which, according to Gundran (2022), is a practice that occupies a big part in the hearts of Filipinos. He even pointed out that this attribute comes from our sense of kapwa (fellow). We show relatedness by doing something for others, which is more than a relationship, but a connection with them. Filipinos are willing to offer something for others even if others do not require of it. This is one of the unique characteristics that are practiced in the country, an innate action brought by our sense of personhood or kawa. This also highlighted the Filipino's sense of responsibility for valuing the morals of pakikipagkapwa-tao (shared humanity), which V. Enriquez described as a treatment of kindness to other people regardless of race (see Enriquez, 1977).
+  Revisiting this Filipino value can reflect how important this is in our society today. It
+can also propel an investigation into the other values rooted in the tradition of goodwill. A deeper
+understanding of this social construct can open thresholds in seeing what a true Filipino is and
+their identity and how this can connect them to a sense of belonging as a nation. However, Suazo
+(2014) observed that most Filipinos today formed their identities through exposure to diverse
+influences, that of British, Eastern, and Westerns, which leaves them to be confused about their
+nationality.  Suazo  added  that  even  though  a  Filipino  may  not  behave  or  look  like  one,  the
+important thing is that the identity should be there—primarily a psychological construct. Virgilio
+Enriquez  agrees  with  this  notion  (quoted  by  Bernardo,  Sta.  Maria  &  Tan,  2002),  saying  that
+being a Filipino is a type of consciousness. The psychological element should be alive within
+the  individual  for  him  to  find  his  place  in  the  social  sphere.  This  is  a  big  concept  to  grasp;
+however, through gradual steps, one can understand this through constant exposure to theories
+and ideas founded in history from which our identity as a nation sprang. Educators should thrust
+the learners towards this awareness to strengthen the discussions of Filipino social behaviors—
+from its etiology to its historical underpinnings. Classrooms are centers of learning where these
+concepts should be sustained if we desire these to be practiced by the new generation of learners
+as a form of virtue and as a feature of belongingness in Filipino society.
 
-Regarding shared humanity, the Bayanihan culture is also a natural inclination among Filipinos. Enriquez described this core value as relating to others and treating them as equals regardless of their societal status. Recognizing our kapwa entails automatic treatment of kindness towards the other person. Pakikipagkapwa tao, which translates to relating to others or interacting with others, is a virtue that seeks to preserve and strengthen human relationships, which ultimately are all in the will (loob) (Cleofas, 2019). Essentially, loob refers to a local or spatial interior or something that is not perceivable by the naked eye. For Agaton (2017), a loob is a symbolic interior or center presenting varying degrees of depth. A part of one's personality that serves as the organizing center of human reality. The essence of life is where the physical, mental, emotional, and spiritual forces meet (Jocano, 1997). This makes the loob (innermost and/or will) in utang na loob not only an act of providing help but also the benefactor giving a piece of himself willingly.
+This study aims to explore the personal definitions of utang na loob by delving into how
+individuals perceive and relate to this culturally significant value. To achieve this, the research
+is guided by two primary objectives. First, it seeks to determine the participants’ definitions of
+utang  na  loob,  capturing  their  unique  interpretations  and  understanding of  this deeply  rooted
 
-If giving out something to others is a foremost Filipino characteristic, we should embrace the thought of not expecting anything in return once we give help. However, a slight feeling propels us to give back when we receive something. Rungduin et al. (2015) explained that this phenomenon might be brought about by the cultural and linguistic connotations of utang (debt)—an idea connected to social and financial obligations. When a Filipino becomes indebted, he is unsure how much he will perform the payment. This means it is unclear where the boundary of utang na loob will ever end (Andres, 1994). This serves as the basic reciprocity principle in the country. On the other hand, Baldo and Quirante (2011) believe this virtue should be a dynamic act—a relational concept that makes the interaction of the two key actors more meaningful: the benefactor who gave the help and the beneficiary who accepted the help. Relationships are dynamic and reciprocal when the benefactor sets the giving in action. However, in some cases, it could start when an individual intentionally asks for help. This process would continue when the action of the benefactor elicits a response from the beneficiary to return the favor. Therefore, utang na loob is a virtue that creates interconnectedness—something more valuable than mutual obligation. It reinforces the cultural significance of maintaining good relationships with others, which is a natural element in the Filipino personality.
+309
 
-Based on the kawa model (quoted in Jusay, 2021), utang na loob is an accommodative surface value rooted in loob (inner being) that entails the source of Filipino virtues. This expression of gratitude is one of the main qualities found in Filipino culture, and it describes their capacity to be grateful despite the adversities they face. Furthermore, Cleofas (2019) recognizes the need for the receiver to have a sense of responsibility to somehow look back on the help granted to them as a form of appreciation to maintain mutual relationships within the community. To have utang na loob means that both the giver and the receiver value kapwa (fellow), which seeks to prolong and strengthen harmonious ties. Basically, kapwa requires sustaining concern for others while avoiding excessive reciprocation from favors. When the balance tips toward overcompensation, it opens the channels for potential abuse and misuse of this noble value.
+Casiño, et al.,
 
-### 1. Appreciation more than expectation—living the essence of utang na loob
+Filipino value. Second, the study aims to identify how participants connect with and apply this
+value in their daily lives based on their contextual perceptions. By examining these aspects, the
+research intends to provide a comprehensive understanding of utang na loob from  those who
+experience and practice it within their social and cultural environments.
 
-The selfless concern for the well-being of others can be eroded once utang na loob is exploited to the point of manipulating or imposing unreasonable demands from the receiver—transforming this into a tool for coercion. The favors will just come as something that is 'owed' rather than something that is freely given each time altruism is sidelined. This will make our relationships more transactional, which brings with it feelings of obligation and reluctance. Being someone in extreme need reinforces utang na loob for the benefactor to ask for payment, which is often beyond the person's power to give back. Being in such a position, the receiver becomes helpless—a usual condition for most Filipinos as natural calamities subject them to strife and hardships. Dancel (2005) asserts that institutions and people in power take advantage of these situations. Being extremely needy, plus a reliance on other's goodwill, often sets the abuse in motion. Hollnsteiner (cited in Cleofas, 2019) reports that such sensitive timing becomes the politician's moment to aid the victims of calamities in exchange for political support in the upcoming elections. It is easy for them to create a subterfuge to conceal corruption and bribery through utang na loob. This is why politicians' acts of service are viewed as mere propaganda. These are evident when nearing elections, especially when the goods they distribute have their names emblazoned on the packaging. Castro (1998) explained that reaching out to a fellow must spring from kagandahang loob (act of goodwill). The agent should act without an external compulsion or obligation but out of general concern for others. He presented an example to contextualize his claims of some politicians who are only motivated to extend help to comply with an obligation. He quoted:
+B.  Literature review
 
-"Relationships can be built out of indebtedness. The politician concerned could be acting out a role that is required of him, as failure to perform means non-compliance. If a politician only does what he must do, then he only acts out of his political ambitions" (Castro, 1998, p. 25).
+There  have  been  numerous  descriptions  that  Filipinos  are  known  for  their  warm  and
+welcoming nature extending up to the foreign race and culture. One great example was during
+the rescue mission of 1,301 Jews to escape the massacre of WWII Germany in 1937-1941. This
+event was led by President Manuel Luis Quezon himself, and together with the entire nation, the
+Philippines became not only a settlement for the fleeing Jews—but also a place of solace and a
+sanctuary for future generations (reported by Bonnie, 2016). Another was in the 1950s during
+the Korean War when the Philippines responded to the UN’s call to join the military defense
+against communist Japan to help the South Koreans. These are just two of the prime examples
+of the virtues that made Filipinos popular among its neighboring nations. They tend to  go to
+great lengths to reach out to those in need, which, according to Gundran (2022), is a practice that
+occupies a big part in the hearts of Filipinos. He even pointed out that this attribute comes from
+our sense of kapwa (fellow). We show relatedness by doing something for others, which is more
+than  a  relationship,  but  a  connection  with  them.  Filipinos  are  willing  to  offer  something  for
+others  even  if  others  do  not  require  of  it.  This  is  one  of  the  unique  characteristics  that  are
+practiced in the country, an innate action brought by our sense of personhood or kawa. This also
+highlighted the Filipino’s sense of responsibility for valuing the morals of pakikipagkapwa-tao
+(shared  humanity),  which  V.  Enriquez  described  as  a  treatment  of  kindness  to  other  people
+regardless of race (see Enriquez, 1977).
 
-There is a clear distinction between morality in a person's actions versus political ambitions. This suggests that some people in power act only according to their political roles. This can be a grave abuse of utang na loob transformed into indebtedness where genuine concern for others is not the main priority. Another is the legal system (immediate payoffs) discussed by Andres (1994), which uses utang na loob as a form of obligation for the receiver to perform favors for the benefactor. This indebtedness encourages the receiver to reciprocate actions solely for the benefactor alone; however, it is often unclear when the debt is fully paid, and the relationship becomes ongoing. An interesting example of this seemingly unending repayment was contextualized by Reyes (2015) in his article exploring the nature of Filipino morality through the concepts of loob and kapwa, where he provided a case discussion:
+Regarding  shared  humanity,  the  Bayanihan  culture  is  also  a  natural  inclination  among
+Filipinos. Enriquez described this core value as relating to others and treating them as equals
+regardless  of  their  societal  status.  Recognizing  our  kapwa  entails  automatic  treatment  of
+kindness towards the other person. Pakikipagkapwa tao, which translates to relating to others or
+interacting with others, is a virtue that seeks to preserve and strengthen human relationships,
+which ultimately are all in the will (loob) (Cleofas, 2019). Essentially, loob refers to a local or
+spatial interior or something that is not perceivable by the naked eye. For Agaton (2017), a loob
+is a symbolic interior or center presenting varying degrees of depth. A part of one’s personality
+that serves as the organizing center of human reality. The essence of life is where the physical,
+mental,  emotional,  and  spiritual  forces  meet  (Jocano, 1997).  This  makes  the  loob  (innermost
+and/or will) in utang na loob not only an act of providing help but also the benefactor giving a
+piece of himself willingly.
 
-"Say I lack money to pay my tuition for a semester in college. A friend hears about my situation and lends me money rather than postpone my studies. After, I saved enough money to repay him. However, I do not consider my utang na loob finished. Years later, he loses his job. As a manager in my company, I went the extra mile to secure him a good position. Now, he is the one with an utang na loob towards me" (Reyes, 2015, p. 161).
+If giving out something to others is a foremost Filipino characteristic, we should embrace
+the thought of not expecting anything in return once we give help. However, a slight feeling
+propels us to give back when we receive something. Rungduin et al. (2015) explained that this
+phenomenon  might  be  brought  about  by  the  cultural  and  linguistic  connotations  of  utang
+(debt)—an  idea  connected  to  social  and  financial  obligations.  When  a  Filipino  becomes
+indebted, he is unsure how much he will perform the payment. This means it is unclear where
+the boundary of utang na loob will ever end (Andres, 1994). This serves as the basic reciprocity
+principle in the country. On the other hand, Baldo and Quirante (2011) believe this virtue should
+be a dynamic act—a relational concept that makes the interaction of the two key actors more
+meaningful:  the  benefactor  who  gave  the  help  and  the  beneficiary  who  accepted  the  help.
+Relationships  are  dynamic  and  reciprocal  when  the  benefactor  sets  the  giving  in  action.
+However,  in  some  cases,  it  could  start  when  an  individual  intentionally  asks  for  help.  This
+process would continue when the action of the benefactor elicits a response from the beneficiary
 
-Reciprocity in this plot was used as an instrument to maintain mutual connections. Generally, this is of primary importance in business, education, politics, morality, and religion in the Philippines. Utang na loob, in the case presented, is a service rendered out of courtesy to the help received from his benefactor. However, the debt is impossible to measure, and even after years as a professional, the narrator still feels obliged to repay it with favors despite having settled it already years before.
+310
 
-In the family context, children owe their parents for caring for and providing them with all their needs. In return, children are expected to give respect, gratitude, and obedience to them. Rungduin et al. (2015) expect children to care for their aging parents to maintain good family ties. But in cases where the parents are still strong and able, they must show utang na loob by helping the other family members to provide for their needs, especially the younger ones. In this nature, the older sibling must set aside his needs as other members need it more. Similarly, Agaton (2017) said that upholding this moral obligation to the family is an implicit requirement as a form of gratitude for the favors received. This repayment can persist for a long time or even forever. However, there are cases in Filipino families when the member decides to stop and prioritize his own needs; there is the possibility that he/she can be tagged as walanghiya (shameless) or walang utang na loob (ungrateful). This idea only shows that Filipinos embrace utang na loob to honor the benefactors in the family and that we owe them the person we have become now—most especially to our parents. This is a unique feature of the Filipino personality, as validated by Gundran (2022), which tends to depend (but not always) on others and our parents for our needs. Indebtedness, like an invisible debt, brings uncertainty about how much utang na loob must be repaid. Accepting people's help in the past makes Filipinos bound to social demands, which places utang na loob in an adversarial viewpoint. Without drawing a clear distinction that this attribute should emanate from the will (loob) and not from indebtedness, it can create discouragement from accepting help, fearing that the strings attached have no endpoint.
+Revisiting the Filipino Value Utang na Loob…
 
-### 2. Debates over the translation of utang na loob
+to  return  the  favor.  Therefore,  utang  na  loob  is  a  virtue  that  creates  interconnectedness—
+something  more  valuable  than  mutual  obligation.  It  reinforces  the  cultural  significance  of
+maintaining good relationships with others, which is a natural element in the Filipino personality.
 
-The Miseducation of the Filipino cultural roots was a problematized by Virgilio Enriquez, the father of Filipino Psychology, many times in his writings. Indigenous concepts were described and analyzed using Western frameworks for a long time. He observed, "Even after academic training, a Filipino tries to explain the problems according to the white man's concept" (Enriquez, 1977). His statement raises the issue of pushing Indigenous concepts in Western analysis, which will not fit in context, cultural significance, and translations. Hayter (1971) claimed that most of these concepts do not have a direct English translation and should not be treated or used plainly as a local language because they are the seat of a Filipino's identity. Pe-Pua & Protacio-Marcelino (2000) defined these indigenous concepts as qualities imbued with psychosocial and sociolinguistic issues that using Western models cannot capture their true meaning—which can result in discrepancies in describing Filipino values and behaviors. The misuse of these values is the cause of furthering the miseducation of Filipinos. Having English as a second language in the Philippines (L2), it is a common practice to equate these values to English rather than interpreting them through the lenses of history, shared values, and experiences. In this case, some of these virtues can only arrive at their nearest English translations without capturing their full essence and meaning—far from how Filipinos understand them. They are classified as values [and not mere statements] because they reflect the Filipino nature of treating others as a fellow—people on the same equal footing regardless of status.
+Based  on  the  kawa  model  (quoted  in  Jusay,  2021),  utang  na  loob  is  an  accommodative
+surface  value  rooted  in  loob  (inner  being)  that  entails  the  source  of  Filipino  virtues.  This
+expression of gratitude is one of the main qualities found in  Filipino culture, and it describes
+their  capacity  to  be  grateful  despite  the  adversities  they  face.  Furthermore,  Cleofas  (2019)
+recognizes the need for the receiver to have a sense of responsibility to somehow look back on
+the help granted to them as a form of appreciation to maintain mutual relationships within the
+community.  To  have  utang  na  loob  means  that  both  the  giver  and  the  receiver  value  kapwa
+(fellow),  which  seeks  to  prolong  and  strengthen  harmonious  ties.  Basically,  kapwa  requires
+sustaining  concern  for  others  while  avoiding  excessive  reciprocation  from  favors.  When  the
+balance tips toward overcompensation, it opens the channels for potential abuse and misuse of
+this noble value.
 
-The Filipino knowledge touched by Western thought was argued by Pe-Pua and Protacio-Marcelino (2000). Academic psychology was predominantly Western in theory and methods when the USA colonized the Philippines. The unfairness in understanding indigenous psychology through Western-oriented lenses was already recognized by two of the country's prominent intellectuals: Jose Rizal and Apolinario Mabini. Looking at debt of gratitude, the word debt can imply that a Western perspective probably inspired it. Looking at this example:
+1.  Appreciation more than expectation—living the essence of utang na loob
 
-"The Filipinos have 'debt of gratitude' for the American aid."
+The  selfless  concern  for  the  well-being  of  others  can  be  eroded  once  utang  na  loob  is
+exploited to the point of manipulating or imposing unreasonable demands from the receiver—
+transforming this into a tool for coercion. The favors will just come as something that is ‘owed’
+rather than something that is  freely given each time altruism is sidelined. This will make our
+relationships  more  transactional,  which  brings  with  it  feelings  of  obligation  and  reluctance.
+Being someone in extreme need reinforces utang na loob for the benefactor to ask for payment,
+which is often beyond the person’s power to give back. Being in such  a position, the receiver
+becomes  helpless—a usual condition for most Filipinos as natural calamities subject them to
+strife and hardships. Dancel (2005) asserts that institutions and people in power take advantage
+of these situations. Being extremely needy, plus a reliance on other’s goodwill, often sets the
+abuse in motion. Hollnsteiner (cited in Cleofas, 2019) reports that such sensitive timing becomes
+the politician’s moment to aid the victims of calamities in exchange for political support in the
+upcoming elections. It is easy for them to create a subterfuge to conceal corruption and bribery
+through utang na loob. This is why politicians’ acts of service are viewed as mere propaganda.
+These are evident when nearing elections, especially when the goods they distribute have their
+names emblazoned on the packaging. Castro (1998) explained that reaching out to a fellow must
+spring  from  kagandahang  loob  (act  of  goodwill).  The  agent  should  act  without  an  external
+compulsion  or  obligation  but  out  of  general  concern  for  others.  He  presented  an  example  to
+contextualize his claims of some politicians who are only motivated to extend help to comply
+with an obligation. He quoted:
+
+“Relationships  can  be  built  out  of  indebtedness.  The  politician  concerned  could  be
+acting out a role that is required of him, as failure to perform means non-compliance.
+If  a  politician  only  does  what  he  must  do,  then  he  only  acts  out  of  his  political
+ambitions” (Castro, 1998, p. 25).
+
+There is a clear distinction between morality in a person’s actions versus political ambitions.
+This suggests that some people in power act only according to their political roles. This can be
+a grave abuse of utang na loob transformed into indebtedness where genuine concern for others
+is not the main priority. Another is the legal system (immediate payoffs) discussed by Andres
+(1994), which uses utang na loob as a form of obligation for the receiver to perform favors for
+the benefactor. This indebtedness encourages the receiver to reciprocate actions solely for the
+benefactor alone; however, it is often unclear when the debt is fully paid, and the relationship
+becomes  ongoing.  An  interesting  example  of  this  seemingly  unending  repayment  was
+contextualized by Reyes (2015) in his article exploring the nature of Filipino morality through
+the concepts of loob and kapwa, where he provided a case discussion:
+
+311
+
+Casiño, et al.,
+
+“Say I lack money to pay my tuition for a semester in college. A friend hears about my
+situation and lends me money rather than postpone my studies. After, I saved enough
+money to repay him. However, I do not consider my utang na loob finished. Years later,
+he loses his job. As a manager in my company, I went the extra mile to secure him a
+good position. Now, he is the one with an utang na loob towards me” (Reyes, 2015, p.
+161).
+
+Reciprocity  in  this  plot  was  used  as  an  instrument  to  maintain  mutual  connections.
+Generally, this is of primary importance in business, education, politics, morality, and religion
+in the Philippines. Utang na loob, in the case presented, is a service rendered out of courtesy to
+the help received from his benefactor. However, the debt  is impossible to measure, and even
+after years as a professional, the narrator still feels obliged to repay it with favors despite having
+settled it already years before.
+
+In the family context, children owe their parents for caring for and providing them with all
+their needs. In return, children are expected to give respect, gratitude, and obedience to them.
+Runduin et al. (2015) expect children to care for their aging parents to maintain good family ties.
+But in cases where the parents are still strong and able, they must show utang na loob by helping
+the other family members to provide for their needs, especially the younger ones. In this nature,
+the  older  sibling  must  set  aside  his  needs  as  other  members  need  it  more.  Similarly,  Agaton
+(2017) said that upholding this moral obligation to the family is an implicit requirement  as a
+form of gratitude for the favors received. This repayment can persist for a long time or even
+forever.  However,  there  are  cases  in  Filipino  families  when  the  member  decides  to  stop  and
+prioritize  his  own  needs;  there  is  the  possibility  that  he/she  can  be  tagged  as  walanghiya
+(shameless) or walang utang na loob (ungrateful). This idea only shows that Filipinos embrace
+utang na loob to honor the benefactors in the family and that we owe them the person we have
+become now—most especially to our parents. This is a unique feature of the Filipino personality,
+as  validated  by  Gundran  (2022),  which  tends  to  depend  (but  not  always)  on  others  and  our
+parents for our needs. Indebtedness, like an invisible debt, brings uncertainty about how much
+utang  na  loob  must be  repaid.  Accepting people’s help  in  the past  makes  Filipinos  bound  to
+social demands, which places utang na loob in an adversarial viewpoint. Without drawing a clear
+distinction that this attribute should emanate from the will (loob) and not from indebtedness, it
+can  create  discouragement  from  accepting  help,  fearing  that  the  strings  attached  have  no
+endpoint.
+
+2.  Debates over the translation of utang na loob
+
+The Miseducation of the Filipino cultural roots was a problematized by Virgilio Enriquez,
+the  father  of  Filipino  Psychology,  many  times  in  his  writings.  Indigenous  concepts  were
+described and analyzed using Western frameworks for a long time. He observed, "Even after
+academic training, a Filipino tries to explain the problems according to the white man’s concept”
+(Enriquez,  1977).  His  statement  raises  the  issue  of  pushing  Indigenous  concepts  in  Western
+analysis,  which  will  not  fit  in  context,  cultural  significance,  and  translations.  Hayter  (1971)
+claimed that most of these concepts do not have a direct English translation and should not be
+treated or used plainly as a local language because they are the seat of a Filipino’s identity. Pe-
+Pua & Protacio-Marcelino (2000) defined these indigenous concepts as qualities  imbued with
+psychosocial  and  sociolinguistic  issues  that  using  Western  models  cannot  capture  their  true
+meaning—which can result in discrepancies in describing Filipino values and behaviors. The
+misuse of these values is the cause of furthering the miseducation of Filipinos. Having English
+as a second language in the Philippines (L2), it is a common practice to equate these values to
+English  rather  than  interpreting  them  through  the  lenses  of  history,  shared  values,  and
+experiences.  In  this  case,  some  of  these  virtues  can  only  arrive  at  their  nearest  English
+translations  without  capturing  their  full  essence  and  meaning—far  from  how  Filipinos
+
+312
+
+Revisiting the Filipino Value Utang na Loob…
+
+understand them. They are classified as values [and not mere statements] because they reflect
+the Filipino nature of treating others as a fellow—people on the same equal footing regardless
+of status.
+
+The Filipino knowledge touched by Western thought was argued by Pe-Pua and Protacio-
+Marcelino  (2000).  Academic  psychology  was  predominantly  Western  in  theory  and  methods
+when  the  USA  colonized  the  Philippines.  The  unfairness  in  understanding  indigenous
+psychology  through Western-oriented  lenses  was  already  recognized by  two  of  the  country’s
+prominent intellectuals: Jose Rizal and Apolinario Mabini. Looking at debt of gratitude, the word
+debt can imply that a Western perspective probably inspired it. Looking at this example:
+
+“The Filipinos have ‘debt of gratitude’ for the American aid.”
 
 which can translate as:
 
-"Ang mga Pilipino ay may 'utang na loob' sa tulong ng mga Amerikano."
+“Ang mga Pilipino ay may ‘utang na loob’ sa tulong ng mga Amerikano.”
 
-Here, the sentence suggests a sense of obligation to the benefactor, which is far from the earlier descriptions of the Filipino social reality. Being grateful is an emotion of being thankful for a favor one has received, and that concern from a fellow should only impel the benefactor out of his altruistic initiatives. In contrast, Hollsteiner (1973) explained that the receiver is forced to return the favor with interest.
+Here, the sentence suggests a sense of obligation to the benefactor, which is far from the
+earlier descriptions of the Filipino social reality. Being grateful is an emotion of being thankful
+for a favor one has received, and that concern from a fellow should only impel the benefactor
+out  of  his  altruistic  initiatives.  In  contrast,  Hollnsteiner  (1973)  explained  that  the  receiver  is
+forced to return the favor with interest.
 
-What if the debt of gratitude is translated as taos pusong pasasalamat in Tagalog? Looking at taos-puso (from the heart) and pasasalamat (gratitude or thankfulness) can shift the obligation's weight to a profound and more heartfelt action. To contextualize this idea, for example:
+What if the debt of gratitude is translated as taos pusong pasasalamat in Tagalog? Looking
+at  taos-puso  (from  the  heart)  and  pasasalamat  (gratitude  or  thankfulness)  can  shift  the
+obligation's  weight  to  a  profound  and  more  heartfelt  action.  To  contextualize  this  idea,  for
+example:
 
-"The Filipinos have 'debt of gratitude' for the American aid."
+“The Filipinos have ‘debt of gratitude’ for the American aid.”
 
 which can be translated as:
 
-"Ang mga Pilipino ay may 'taos pusong pasasalamat' sa mga Amerikano sa kanilang tulong."
+“Ang  mga  Pilipino  ay  may  ‘taos  pusong  pasasalamat’  sa  mga  Amerikano  sa  kanilang
+tulong.”
 
-From utang na loob to taos pusong pasasalamat the translation makes it sound more humanizing. It suggests the receiver is not burdened with returning the favor because of the word utang (debt). These statements are given only to support the claims made by Pe-Pua & Protacio-Marcelino (2000) that foreign experts have published their interpretations of Filipino values without really immersing in the lives and culture of the people they are investigating—perpetuating misuse of their supposed virtues. Enriquez became instrumental in raising this awareness to a broader audience that the distortion of Filipino realities can start from its translation. What is more concerning is that the younger generation of Filipinos resists this value and views it more as an obligation. This can hamper the understanding of the true Filipino identity, which starts with deeply appreciating the essence of the term that reflects their personality as a culture and as a nation.
+From  utang  na  loob  to  taos  pusong  pasasalamat  the  translation  makes  it  sound  more
+humanizing. It suggests the receiver is not burdened with returning the favor because of the word
+utang (debt). These statements are given only to support the claims made by Pe-Pua & Protacio-
+Marcelino  (2000)  that  foreign  experts  have  published  their  interpretations  of  Filipino  values
+without  really  immersing  in  the  lives  and  culture  of  the  people  they  are  investigating—
+perpetuating  misuse  of  their  supposed  virtues.  Enriquez  became  instrumental  in  raising  this
+awareness  to  a  broader  audience  that  the  distortion  of  Filipino  realities  can  start  from  its
+translation. What is more concerning is that the younger generation of Filipinos resists this value
+and  views  it  more  as  an  obligation.  This  can  hamper  the  understanding  of  the  true  Filipino
+identity,  which  starts  with  deeply  appreciating  the  essence  of  the  term  that  reflects  their
+personality as a culture and as a nation.
 
-### 3. The Indigenization from Within
+3.  The Indigenization from Within
 
-A comprehensive and broader translation system should be utilized to capture the meaning of Filipino values to ensure the preservation of their clarity and essence. Basically, culture influences language translation, which can only be understood in a context exclusive to the source community. Venuti (2017) suggests that translation plays a crucial role in global communication—bridging diverse cultures and languages, thereby facilitating the exchange of information and ideas across borders. Language, being inherently cultural, embodies the virtues, beliefs and social norms of the community that speaks it. This cultural embeddedness can mean that translation is not only a linguistic exercise but also an attempt to manifest one's culture in verbal and written forms, navigating the language nuances, filling gaps in meanings, and attempting to convey the exact thought using the target language.
+A comprehensive and broader translation system should be utilized to capture the meaning
+of  Filipino  values  to  ensure  the  preservation  of  their  clarity  and  essence.  Basically,  culture
+influences  language  translation,  which  can  only  be  understood  in  a  context  exclusive  to  the
+source  community.  Venuti  (2017)  suggests  that  translation  plays  a  crucial  role  in  global
+communication—bridging diverse cultures and languages, thereby facilitating the exchange of
+information and ideas across borders. Language, being inherently cultural, embodies the virtues,
+beliefs and social norms of the community that speaks it. This cultural embeddedness can mean
+that translation is not only a linguistic exercise but also an attempt to manifest one’s culture in
 
-This is the same objective as why Enriquez adopted an expansive framework for understanding Filipino culture and social realities to alleviate translation issues. Indigenization from within is a theory in which he believes that the development of an idea should only belong to its natives and not to outsiders. In other words, it restores indigenous knowledge, theories, and methods from outside influences to not affect its social and ethnic backgrounds. Pe-Pua & Protacio-Marcelino (2000) claimed that it is of great importance to understand Filipino psychology from within its culture, to unravel its characteristics, and to explain it through the eyes of a native Filipino. The discrepancy in translations occurs when outsiders treat these concepts as just part of the native lexicon without knowing how these work in the lives of Filipinos.
+313
 
-Translating these concepts into their English equivalent without considering their cultural background might risk losing their social significance. Not all Tagalog words should be translated into English as these had set their roots in collective experiences and social realities having no exact parallels in the Western language, much like the word kilig (adj.), a feeling of exhilaration or elation from a romantic experience (Oxford English Dictionary, 2016). This Tagalog word was added to the English dictionary because it does not have a direct English equivalent. This is an example of a difficult word to translate as it is immersed in the Filipino social context. It was only fitting to incorporate this one in the Oxford dictionary for having no English counterpart encapsulating this emotion.
+Casiño, et al.,
 
-Similarly, there have been a variety of terminologies from different languages whose concepts cannot be articulated in English. It is better to adopt these in their original form so that their cultural concept can reach a wider audience outside of the community. Also, the original language can preserve its meaning, which can sometimes be lost by trying to find a fitting English translation. For instance, Baker and Saldanha (2018) stated that culturally specific ideas are not directly equivalent in the target language. Translators must grasp traditional knowledge and familiarize themselves with its elements appropriately to ensure the translated text resonates with the target audience while maintaining its original intent and nuances.
+verbal  and  written  forms,  navigating  the  language  nuances,  filling  gaps  in  meanings,  and
+attempting to convey the exact thought using the target language.
 
-Ivanov (2014) agrees with indigenization from within, stating that transforming a source language must follow the inside or internal translation. This is a method where the translation first goes into the process of the word, understands its cultural relevance, and how it works. The translator knows the original word can never be as exact as the original idea. This calls for semantics to help arrive at its closest form in the target language. Indigenization from within means that the insider views an idea as something exclusive to their culture. In other words, only Filipinos can translate these concepts. It is a starting point where an insider can patronize the attitudes and behaviors emblematic of their culture.
+This  is  the  same  objective  as  why  Enriquez  adopted  an  expansive  framework  for
+understanding Filipino culture and social realities to alleviate translation issues. Indigenization
+from within is a theory in which he believes that the development of an idea should only belong
+to its natives and not to outsiders. In other words, it restores indigenous knowledge, theories,
+and methods from outside influences to not affect its social and ethnic backgrounds. Pe-Pua &
+Protacio-Marcelino  (2000)  claimed  that  it  is  of  great  importance  to  understand  Filipino
+psychology from within its culture, to unravel its characteristics, and to explain it through the
+eyes  of  a  native  Filipino.  The  discrepancy  in  translations  occurs  when  outsiders  treat  these
+concepts  as  just  part  of  the  native  lexicon  without  knowing  how  these  work  in  the  lives  of
+Filipinos.
 
-Enriquez is confident that Western influences influence understanding of Filipino behaviors, which are inevitably culture-bound theories. This made the understanding of the Filipino personality inaccurate, if not distorted. Realizing the ideas borne out of the Filipino culture will allow us to appreciate its value and its contextual meanings fully. From this, we can foster respect for our language and protect them from being abused and/or misused, especially by outsiders. We can ensure that the cultural elements imbued in those values are preserved and accurately presented in local and international contexts. Conversely, Singh (1970) views indigenization from within as a framework made not to criticize the Western concepts—as one cannot form a distinct national sociology by simply criticizing them. Knowing the word indigenous, one would realize that it is not something formed but recognized or discovered by outsiders. An insider sees nothing remarkable with indigenization as it is their way of life. It is only remarkable for outsiders, particularly Westerners, who are at home writing about the psychology of Third World countries without immersing themselves in their way of life or at least having to learn their language. On the other hand, indigenization from within is not a theory proposed for an anti-Western ideology but what Enriquez (1994) described as an idea that challenges a psychology that supports the colonial mindset of [some] Filipinos.
+Translating these concepts into their English equivalent without considering their cultural
+background  might  risk  losing  their  social  significance.  Not  all  Tagalog  words  should  be
+translated into English as these had set their roots in collective experiences and social realities—
+having no exact parallels in the Western language, much like the word kilig (adj.), a feeling of
+exhilaration  or  elation  from  a  romantic  experience  (Oxford  English  Dictionary,  2016).  This
+Tagalog  word  was  added  to  the  English  dictionary  because  it does not have  a  direct  English
+equivalent. This is an example of a difficult word to translate as it is immersed in the Filipino
+social context. It was only fitting to incorporate this one in the Oxford dictionary for having no
+English counterpart encapsulating this emotion.
 
-### 4. Utang Na Loob Should Remain A Hallmark of The Filipino Social Reality
+  Similarly, there have been a variety of terminologies from different languages whose
+concepts cannot be articulated in English. It is better to adopt these in their original form so that
+their cultural concept can reach a wider audience outside of the community. Also, the original
+language  can  preserve  its  meaning,  which  can  sometimes  be  lost  by  trying  to  find  a  fitting
+English translation. For instance, Baker and Saldanha (2018) stated that culturally specific ideas
+are not directly equivalent in the target language. Translators must grasp traditional knowledge
+and familiarize themselves with its elements appropriately to ensure the translated text resonates
+with the target audience while maintaining its original intent and nuances.
 
-Another superstructure in the Filipino personality is kagandahang loob (goodwill)- a profound inner virtue that is the spring of noble intentions. This is expressed through an innate concern for others and a genuine readiness to act selflessly without expecting a reward. These core aspects guide Filipinos to serve their fellow and people of different races. This made the Filipinos world-famous for their hospitality. However, for natural-born Filipinos, this is just a natural expression of their humanity. Castro (1998) bolstered the idea that extending help should be motivated by positive feelings, not external compulsions. Most importantly, it should be based on the virtues of charity, love, and sympathy and not on the anticipation of rewards. Actions in anticipation of external gains are tainted with selfish desires that activate outside goodwill. If beneficial actions were calculated to derive public recognition or material reward, one loses the purity essential in utang na loob. This should always be self-imposed and should come voluntarily. We cannot say that one does not have utang na loob if one fails to pay more than what was received (Gundran et al., 2022). For one to say that he deeply embraces this value, he will use it to prolong and strengthen relationships with others and not merely equate this virtue to a type of commercial transaction. When the receiver feels gratitude towards the help received from others, he will feel the need to reciprocate the good behavior—sans external compulsions. This should be a hallmark of practicing utang na loob.
+Ivanov (2014) agrees with  indigenization from within, stating that transforming a source
+language must follow the inside or internal translation. This is a method where the translation
+first goes into the process of the word, understands its cultural relevance, and how it works. The
+translator  knows  the  original  word  can  never  be  as  exact  as  the  original  idea.  This  calls  for
+semantics to help arrive at its closest form in the target language.  Indigenization from within
+means that the insider views an idea as something exclusive to their culture. In other words, only
+Filipinos can translate these concepts. It is a starting point where an insider can patronize the
+attitudes and behaviors emblematic of their culture.
 
-Furthermore, Rungduin et al. (2015) pointed out that this must spring from the goodness of other people's behavior towards the beneficiary. Gratitude can be expressed in different forms. In doing so, positivity in helping others multiplies, inspiring others to do so. Even though gratitude is a sign of deeper appreciation, it can also be viewed as acknowledging the giver's kindness. This Filipino value should contribute to our well-being as it allows us to connect more interpersonally with our fellow through a cycle of giving and receiving. Utang na loob is not meant for material definition but for how we engage and establish closeness with others. It should always be directed to assisting our kapwa (fellow) (Gundran et al., 2022) and not from fulfilling unrealistic social pressures (Rungduin et al., 2015).
+Enriquez  is  confident  that  Western  influences  influence  understanding  of  Filipino
+behaviors,  which  are  inevitably  culture-bound  theories.  This  made  the  understanding  of  the
+Filipino  personality  inaccurate,  if  not  distorted.  Realizing  the  ideas  borne  out  of  the  Filipino
+culture will allow us to appreciate its value and its contextual meanings fully. From this, we can
+foster respect for our language and protect them from being abused and/or misused, especially
+by outsiders. We can ensure that the cultural elements imbued in those values are preserved and
+accurately  presented  in  local  and  international  contexts.  Conversely,  Singh  (1970)  views
+indigenization from within as a framework made not to criticize the Western concepts—as one
+cannot  form  a  distinct  national  sociology  by  simply  criticizing  them.  Knowing  the  word
+indigenous, one would realize that it is not something formed but recognized or discovered by
+outsiders. An insider sees nothing remarkable with indigenization as it is their way of life. It is
+only  remarkable  for  outsiders,  particularly  Westerners,  who  are  at  home  writing  about  the
 
-Hornedo (2000) argued that this value is more than just a system of obligation but a dynamic process of giving, and when you give, there should be a return favor. When we receive something, we feel appreciative, and in return, we compensate and redirect it as a form of utang na loob. We gravitate towards the feelings of satisfaction and pleasure, which motivate us to give back in the same manner with equal feelings and intensity. For Jusay (2021), this is because the benefactor has imparted a part of themselves when they gave the help—which somehow requires an act of goodwill to sustain the practice. Unsurprisingly, when another helps a receiver, it is not only his body that is assisted but also his entire being that matters (Agaton, 2017). Utang na loob, when properly understood and used in its rightful context, can potentially strengthen meaningful connections within the community. This can ensure that other people's needs are met and that the act of reciprocity is practiced in such a way that it promotes personal and community flourishing.
+314
 
-## C. Methods
+Revisiting the Filipino Value Utang na Loob…
 
-### 1. Research Design
+psychology of Third World countries without immersing themselves in their way of life or at
+least having to learn their language. On the other hand, indigenization from within is not a theory
+proposed  for  an  anti-Western  ideology  but  what  Enriquez  (1994)  described  as  an  idea  that
+challenges a psychology that supports the colonial mindset of [some] Filipinos.
 
-The study used a qualitative method to investigate the personal definitions of the Filipino virtue utang na loob and how the participants used contexts to grasp the topic under study. Using focus group discussion to gather data, the study explored how group interactions constructed this virtue. Merriam & Tisdell (2015) suggest focus group discussions to gather data inaccessible through individual interviews. This is because participants can refine their views, improve their perspectives, and learn different ideologies by considering what they have heard from the group. Generally, qualitative research studies the participants' sensemaking capacity- identifying important nuances and personal meanings that are often outside of standard definitions. Sensemaking was described by Cropley (2023) as a process of how people define their experiences, which is a fundamental element of qualitative research. This includes the person's construction of reality, the nature of the world as it is experienced, and the depth of the phenomenon and how it happens in their everyday lives.
+4.  Utang Na Loob Should Remain A Hallmark of The Filipino Social Reality
 
-### 2. Participants
+Another  superstructure  in  the  Filipino  personality  is  kagandahang  loob  (goodwill)—a
+profound inner virtue that is the spring of noble intentions. This is expressed through an innate
+concern for others and a genuine readiness to act selflessly without expecting a reward. These
+core aspects guide Filipinos to serve their fellow and people of different races. This made the
+Filipinos world-famous for their hospitality. However, for natural-born Filipinos, this is just a
+natural expression of their humanity. Castro (1998) bolstered the idea that extending help should
+be motivated by positive feelings, not external compulsions. Most importantly, it should be based
+on the virtues of charity, love, and sympathy and not on the anticipation of rewards. Actions in
+anticipation of external gains are tainted with selfish desires that activate outside  goodwill. If
+beneficial actions were calculated to derive public recognition or material reward, one loses the
+purity  essential  in  utang  na  loob.  This  should  always  be  self-imposed  and  should  come
+voluntarily. We cannot say that one does not have utang na loob if one fails to pay more than
+what was received (Gundran et al., 2022). For one to say that he deeply embraces this value, he
+will use it to prolong and strengthen relationships with others and not merely equate this virtue
+to a type of commercial transaction. When the receiver feels gratitude towards the help received
+from others, he will feel the need to reciprocate the good behavior—sans external compulsions.
+This should be a hallmark of practicing utang na loob.
 
-Thirteen college students in the 18-21 age group participated in the study, as they can articulate their thoughts clearly, having well-constructed narratives and well-reasoned examples. Brough (2025) asserts that a well-reasoned narrative reflects the participant's construction of realities and the order in their expressions to convey their point head-on meaningfully.
+Furthermore, Rungduin et al. (2015) pointed out that this must spring from the goodness of
+other people’s behavior towards the beneficiary. Gratitude can be expressed in different forms.
+In  doing  so,  positivity  in  helping  others  multiplies,  inspiring  others  to  do  so.  Even  though
+gratitude is a sign of deeper appreciation, it can also be viewed as acknowledging the giver’s
+kindness. This Filipino value should contribute to our well-being as it allows us to connect more
+interpersonally with our fellow through a cycle of giving and receiving. Utang na loob is not
+meant  for  material  definition  but  for  how  we  engage  and  establish  closeness  with  others.  It
+should always be directed to assisting our kapwa (fellow) (Gundran et al., 2022) and not from
+fulfilling unrealistic social pressures (Rungduin et al., 2015).
 
-### 3. Data Analysis and Procedure
+  Hornedo  (2000)  argued  that  this  value  is  more  than  just  a  system  of  obligation  but  a
+dynamic process of giving, and when you give, there should be a return favor. When we receive
+something, we feel appreciative, and in return, we compensate and redirect it as a form of utang
+na loob. We gravitate towards the feelings of satisfaction and pleasure, which motivate us to
+give back in the same manner with equal feelings and intensity. For Jusay (2021), this is because
+the  benefactor has  imparted  a  part of  themselves  when  they gave  the help—which  somehow
+requires an act of goodwill to sustain the practice. Unsurprisingly, when another helps a receiver,
+it is not only his body that is assisted but also his entire being that matters (Agaton, 2017). Utang
+na loob, when properly understood and used in its rightful context, can potentially strengthen
+meaningful connections within the community. This can ensure that other people’s needs are
+met  and  that  the  act  of  reciprocity  is  practiced  in  such  a  way  that  it  promotes  personal  and
+community flourishing.
 
-In Vivo, literal coding was used to analyze the responses. Corbin and Strauss (2008) described the process as 'in that which is alive' referring to the important words within the statements. Vivo is appropriate for coding all qualitative studies as it prioritizes and honors the participants' ideas, their understanding of cultures, and world views. The personal meanings behind utang na loob can be reflected in the participants' verbal responses which made In Vivo applicable in capturing significant statements imbued with experiences and cultural significance. Denzin (2014) described this approach as a point of entry to personal thoughts and motivations emphasizing contextualized knowledge and human intention.
+C.  Methods
 
-Analyzing the collected data followed a systematic approach to ensure a comprehensive understanding of the participants' perspectives on utang na loob. First, the transcribed data obtained through focus group discussions (FGD) were carefully organized to facilitate efficient analysis. Next, the participants' statements that reflected their understanding of utang na loob were identified and captured using the In Vivo coding method, allowing for an authentic representation of their perceptions. Following this, the captured statements were categorized based on common themes, which helped reduce the data into manageable units of meaning. Finally, to ensure clarity and accessibility for a broader audience, English translations of the statements were provided with the assistance of a linguist (inter-coder), who reviewed the translations for accuracy and alignment with publishing standards, ensuring resonance with a global audience.
+1.  Research Design
 
-## D. Findings and Discussion
+The study used a qualitative method to investigate the personal definitions of the Filipino
+virtue utang na loob and how the participants used contexts to grasp the topic under study. Using
 
-The following table presents the different categories and captured statements that reflect the participants' perspectives on utang na loob, a profoundly ingrained Filipino cultural value. The categories were derived from thematic analysis of participants' responses, showcasing how utang na loob is perceived and practiced in their daily lives. Each category encapsulates a unique interpretation of the concept, ranging from its positive attributes, such as being rooted in kindness and fostering strong social ties, to its more critical perspectives, including its potential to become an obligatory burden or even a negative trait within Filipino culture. The statements within each category provide firsthand insights into how individuals experience and understand utang na loob, illustrating its complexity and significance in shaping interpersonal relationships and societal norms.
+315
 
-**Table 1. Categorized Definitions of Utang Na Loob**
+Casiño, et al.,
 
-| Categories | Captured statements |
-|:-----------|:--------------------|
-| Must be rooted in kindness | · “I do it when someone does something for me out of kindness.”<br>· “It should be an automatic response in exchange for their kindness. In that case, we are forever indebted to them.”<br>· “Someone lends you his time and effort, but without being obliged to help you back.”<br>· “It is a service that comes from being grateful.” |
-| To maintain good ties with others | · “It is paying back someone but in your free will.”<br>· “Helping others without the need to question whether that person will give back.”<br>· “Returns the favor to someone who have helped you, and you should be forever grateful for that person.”<br>· “Values the relationship and seek to prolong and strengthen this.” |
-| A way to give back | · “Saying thank you is not enough, so the good acts should be given back.”<br>· “Giving the gratitude back to someone or some people whom you owe.”<br>· “You will repay them through actions in exchange for the goods that they have done for you.”<br>· “When I borrowed from someone, I should help them too with what they need.” |
-| An expression of respect | · “If you show utang na loob, you have a high respect on the person.”<br>· “Giving a piece of one's inner self.” |
-| A form of obligation | · “When a person needs help from someone, you are obligated to provide.”<br>· “The person cannot refuse to help because there is an obligation.”<br>· “Obligation to appropriately repay a person.” |
-| A negative Filipino trait | · “Sometimes it's a trap.”<br>· “A negative Filipino value which we are forced to accept.”<br>· “That is why the Padrino system exists in the government.”<br>· “A toxic Filipino trait that has to end because it will be passed on to the next generation.”<br>· “It's when blood relatives become enemy.”<br>· “They will trick you into giving help, but time will reveal their true motive.”<br>· “The person cannot refuse because it's a negative Filipino value.” |
+focus group discussion to gather data, the study explored how group interactions constructed this
+virtue. Merriam & Tisdell (2015) suggest focus group discussions to gather data  inaccessible
+through individual interviews. This is because participants can refine their views, improve their
+perspectives, and learn different ideologies by considering what they have heard from the group.
+Generally,  qualitative  research  studies  the  participants’  sensemaking  capacity—identifying
+important nuances and personal meanings that are often outside of standard definitions. Sense-
+making was described by Cropley (2023) as a process of how people define their experiences,
+which is a fundamental element of qualitative research. This includes the person’s construction
+of reality, the nature of the world as it is experienced, and the depth of the phenomenon and how
+it happens in their everyday lives.
 
-Table 1 shows the participants' varying descriptions of utang na loob, suggesting an awareness of the core topic, probably encouraged by their Filipino psychology subjects. Helping others rooted in concern is an idyllic picture of how human interactions should be an automatic response. As a virtue, utang na loob should be propelled by empathy and genuine support for a fellow in ways that are intangible.
+2.  Participants
 
-Basically, utang na loob should surpass reciprocity as it is important to respect the benefactors and acknowledge the assistance they have given. It is perceived as the benefactor giving a piece of himself, making this concept a lot more humanizing. Furthermore, this is considered as a duty and a key to strengthening the ties with one another. In the category of a way to give back, the experiences similarly point to the ideas presented by V. Enriquez that this action resonates deeply in the hearts of Filipinos. This is still regarded as an outline for establishing moral responsibility and social connections in a localized setting.
+Thirteen  college  students  in  the  18-21  age  group  participated  in  the  study,  as  they  can
+articulate their thoughts clearly, having well-constructed narratives and well-reasoned examples.
+Brough (2025) asserts that a well-reasoned narrative  reflects  the participant’s construction of
+realities and the order in their expressions to convey their point head-on meaningfully.
 
-However, some of the narratives show that the abuse of this value can lead to unreasonable demands that the receiver must pay, often far from what is fair. These are the same narratives from the younger generations, labeling utang na loob as a toxic Filipino trait. This is probably caused by their exposure to its misuse shown in social media, the community, and their families. Labeling this as toxic comes from the fact that one is left with no choice but to accept it, as this is a pattern in their culture. This brings the problematic side of this value, especially when it starts from the family systems, where relatives stand against each other each time the receiver fails to reciprocate. In terms of politics, the benefactor can act as if they are willing to give help, but after that, they are only exhorting the favor to get more out of the receiver in the future.
+3.  Data Analysis and Procedure
 
-**Table 2. Contextual Perceptions of Utang Na Loob**
+In  Vivo,  literal  coding  was  used  to  analyze  the  responses.  Corbin  and  Strauss  (2008)
+described  the  process  as  ‘in  that  which  is  alive’  referring  to  the  important  words  within  the
+statements. Vivo is appropriate for coding all qualitative studies as it prioritizes and honors the
+participants’  ideas,  their  understanding  of  cultures,  and  world  views.  The  personal  meanings
+behind utang na loob can be reflected in the participants’ verbal responses which made In Vivo
+applicable in capturing significant statements imbued with experiences and cultural significance.
+Denzin (2014) described this approach as a point of entry to personal thoughts and motivations—
+emphasizing contextualized knowledge and human intention.
 
-<table>
-<thead>
-<tr><th>Situation</th><th>Context</th><th>Exploratory statements</th><th>Key statements</th></tr>
-</thead>
-<tbody>
-<tr><td>Filipino family system</td><td>Reciprocating the good deeds of family members where the receiver is left with no choice but to give back.</td><td>1A relative abroad sent you to college as he can afford to support you. He provided help even if you are not asking for it. A few years later, you finished college and apparently, the relative who sent you got sick. This time, you are the one responsible for assisting him for the medication and hospitalization because, 2if it wasn't for him, you would not be where you are today. You have no utang na loob (no shame) if you cannot give back.</td><td>1A relative abroad sent you to college<br>2if it wasn't for him, you wouldn't be where you are today</td></tr>
-<tr><td>Filipino family system</td><td>Giving back to parents to honor their sacrifices</td><td>An example of utang na loob is with the situation in the family of how the 3parents sacrificed and took good care of the children to give them the life that they deserve. The children must exchange for that and 4pay gratitude to their parents by giving them also the life that they deserve especially when they get older.</td><td>3parents sacrificed and took good care of the children<br>4pay gratitude to their parents by giving them also the life that they deserve</td></tr>
-<tr><td>Filipino family system</td><td>Using utang na loob to seize inheritance causing family disputes</td><td>The relatives can have land disputes after the death of grandparents. 1The only relatives to inherit the property are the ones who have taken care of the elderly owners. This should exclude even the children as the rightful heirs if they did not take the time to take care of their parents during old age. 2The dead have utang na loob to their caregivers.</td><td>1The only relatives to inherit the property are the ones who have taken care of the elderly owners<br>2The dead have utang na loob to their caregivers</td></tr>
-<tr><td>Collegial relationships</td><td>Using utang na loob to create relationship out of indebtedness</td><td>When someone helps the person to pay his or her tuition for the semester especially when the person is graduating. 1The one who is helped is obligated to return the favor when the person who gave the help is in need in the future.<br>This value can be seen in the 2issue of money. For example, someone needed money for the hospital bills because his loved ones need urgent surgery. He will be forever grateful to someone who lend him money because it saved his loved one. 3The indebtedness continues even though the money is already paid. When the day comes when the other party will need this help, he will not refuse to help him because 4there is an obligation within him that he needs to be repaid.</td><td>1The one who is helped is obligated to return the favor<br>2issue of money<br>3The indebtedness continues even though the money is already paid<br>4there is an obligation</td></tr>
-<tr><td>Collegial relationships</td><td>Using utang na loob to foster good deeds</td><td>I have difficulty understanding our lessons in Math and the final exam is next week. 1I have asked my classmate who is a Math wizard to help me understand the topic as I was struggling. Thanks to his willingness in helping me, I passed the test. The next semester, he was the one who approached me because he was struggling with history and 2I helped him back.<br>• Utang na loob is when I borrowed money from someone so I can use to find work abroad, and the person helped me. If the person needs help from me and wants a favor, 3the person helped me 4I should help them too.</td><td>1I have asked my classmate who is a Math wizard to help me understand the topic<br>2I helped him back<br>3the person helped me<br>4I should help them too</td></tr>
-<tr><td>Filipino political landscape</td><td>Exhorting favors from the receiver which can cause cronyism</td><td>In politics, 1I will help you in your campaign, but when you get elected, 2you have to help me with my campaign. This is where the Padrino system comes in.</td><td>1I will help you<br>2you have to help me</td></tr>
-</tbody>
-</table>
+Analyzing  the  collected  data  followed  a  systematic  approach  to  ensure  a  comprehensive
+understanding  of  the  participants'  perspectives  on  utang  na  loob.  First,  the  transcribed  data
+obtained through focus group discussions (FGD) were carefully organized to facilitate efficient
+analysis. Next, the participants' statements that reflected their understanding of utang na loob
+were  identified  and  captured  using  the  In  Vivo  coding  method,  allowing  for  an  authentic
+representation  of  their  perceptions.  Following  this,  the  captured  statements  were  categorized
+based  on  common  themes,  which  helped  reduce  the  data  into  manageable  units  of  meaning.
+Finally,  to  ensure  clarity  and  accessibility for  a  broader  audience,  English  translations  of  the
+statements  were  provided  with  the  assistance  of  a  linguist  (inter-coder),  who  reviewed  the
+translations for accuracy and alignment with publishing standards, ensuring resonance with a
+global audience.
 
-The family's understanding of moral values is formed, as seen in the responses in Table 2. The concepts of gratitude and reciprocal obligations are shaped by how they are practiced by role models in the family, particularly their parents. Moreover, how one imbibes utang na loob is also inspired by their elders and close acquaintances, observing how they interact with people inside and outside of their homes. These interactions guide one to relate to others at school, form collegial relationships in one career, and eventually, how one will navigate his way if he decides to enter the political arena.
+D.  Findings and Discussion
 
-In the family system, aside from the sacrifices parents perform to provide for their families, they still perform many extras, which is also a typical Filipino spirit, especially for middle-class people. Prioritizing the children's well-being and emotional development is why the sacrifices emanate from love rather than mere obligation. When the children can already provide, the adage, "matuto kang tumanaw ng utang na loob" [learn to be grateful] applies. The participants observed that parents made significant sacrifices—missing opportunities in exchange for their family's welfare. This service deserves a token of gratitude, as it gives them a much better life to honor their efforts. Rungduin et al. (2015) claimed that this nature among parents strengthens the family bonds even more because it is done out of kagandahang loob (inner sense of meaning to do good), a pillar in the Filipino social reality. This is a positive motivation for Filipino families to thrive and willfully perform their responsibilities of helping one another.
+The following table presents the different categories and captured statements that reflect the
+participants' perspectives on utang na loob, a profoundly ingrained Filipino cultural value. The
+categories were derived from thematic analysis of participants' responses, showcasing how utang
+na  loob  is  perceived  and  practiced  in  their  daily  lives.  Each  category  encapsulates  a  unique
+interpretation  of  the  concept,  ranging  from  its  positive  attributes,  such  as  being  rooted  in
+kindness and fostering strong social ties, to its more critical perspectives, including its potential
+to become an obligatory burden or even a negative trait within Filipino culture. The statements
+within each category provide firsthand insights into how individuals experience and understand
+utang na loob, illustrating its complexity and significance in shaping interpersonal relationships
+and societal norms.
 
-Conversely, the abuse of utang na loob causes this virtue to be problematic. Having a context about relatives abroad sending one to pursue college. This intention was a saving grace for Filipinos as college tuition fees, plus the expenses, are expensive enough for those in middle-class families. Working abroad, one can support their relatives in the Philippines to prepare them for their future and be able to provide and help the other family members as well. However, if the relative abroad experiences illness, the receiver has no choice but to help, as failure will mark them as walang utang na loob (ingratitude). This describes how the receiver was placed under emotional and financial pressure, especially if he still could not afford the help requested. Moreover, the severe judgment of ingratitude is instilled in the receiver to propel guilt to oblige for repayment. The same possibility causes family members to squabble over property disputes left by their elders as they have utang na loob to the relatives who care for them. These disagreements oversee the rights of the other heirs as the other party may claim their reward, making utang na loob as an obligation that needs compensation. This can disrupt harmony and cause conflict within the family systems.
+316
 
-Collegial relationships can occur in school, where students show weakness in other fields or subjects. Receiving help to understand a particular topic can be a relief for someone who struggles with Mathematics. In return, helping the giver to deal with the other subjects is a meaningful way to repay them. This is the ideal image of students helping each other out in school. Spending more than eight hours on campus exclusively for the entire day makes mutual support the best way to navigate challenges beyond academics. Moreover, the context reflects a profound concept of utang na loob, used to maintain harmony within the school community of helping those who have helped them.
+Revisiting the Filipino Value Utang na Loob…
 
-On the other hand, others use this concept to create relationships out of indebtedness by expecting a return from the goodwill they have given. Mostly, these are money issues the benefactor grabs as an opportunity to secure payment from the receiver in the future once he needs it. The benefactor is like investing in an invisible bank where he expects to reap more than he has planted. Utang na loob in this context can be distorted as it presents an imbalance—expecting to get more out of the situation. The recipient will then be beholden to reciprocate out of pure obligation and not of gratitude, as the feeling of expectation is manifested by the benefactor. The statement, "the indebtedness continues even though the money is already paid," brings back the question of when utang na loob will end. This is a common scenario in the Philippines where the receiver fills an invisible debt, uncertain how much remains to be paid.
+Table 1. Categorized Definitions of Utang Na Loob
 
-In the Filipino political landscape, utang na loob is seen to be more of a give-and-take situation using the key statement, "I will help you; you have to help me." The verb have can mean that the favor of providing help is expected to be reciprocated. This is because the political landscape is perceived as a dynamic competition place. People of power are most likely to abuse utang na loob in the political sphere, expressed through the Padrino system (cronyism). It is where leaders support people in their needs in exchange for their votes and/or loyalty in the upcoming elections. This mars the morality behind this cultural practice as politicians unscrupulously take advantage of it to fuel their political ambitions. Ideally, utang na loob is a positive value when used in the right way, but it brings out its challenging nature when manipulated by some people to reap their benefits.
+Captured statements
 
-The input discussed in this work can be used in the social sciences, particularly in psychology. This aims to improve, or at least sustain, the availability of subjects focusing on Filipino values to deepen their theoretical understanding of its principles. Language reflects culture and traditions, which is also the starting point of understanding the Filipino personality and their way of life. Issues in Filipino virtues caused by mistranslations, context misuse, and practice abuse can distort their social significance. Taking extra care in discussing Filipino psychology is of utmost importance, bearing in mind that indigenous concepts should be regarded as deeply rooted values and not just mere linguistic elements in the Philippine lexicon. Moreover, these values should only be used in their rightful context to guard it from misinterpretations. Like utang na loob, a vehicle for maintaining mutual interaction must be emphasized by the new generation of learners. The Filipino culture requires a deeper connection with others, which is why utang na loob came about. This concept is a force that propels mutual relationships, and using it superficially can taint its essence and moral significance. Also, exploiting this virtue to demand more from others undermines its true nature.
+Categories
 
-The abuse of the value can be contextualized in politics. For instance, a politician aided another politician a long time ago. The first politician now asks the second politician for his payment for the favor he has given. However, the payment requires participating in a corruption scheme in the country. The second politician then refused. In this case, the first politician should not call the second politician walang utang na loob (ungrateful) as this concept does not fit in the description. This is considered a manipulation of the value as Filipinos regard it as a moral obligation to promote communal flourishing among fellows. If so, utang na loob will be reduced to a mere Filipino word, stripped of its true essence.
+Must be rooted in
+kindness
 
-Universities are educational powerhouses that can channel these towering ideologies to the learners, breaking them into manageable thought pieces to be injected into the course curricula. There are more meanings to the Filipino value system than what they seem. Aside from literature and theoretical anchors, it is the teacher's role to convey these meanings to the learners to preserve these values for future generations—that ultimately, utang na loob is a value that stands on the shoulders of altruism and goodwill.
+To maintain good ties
+with others
 
-## E. Conclusion
+A way to give back
 
-The participants are familiar with the concept of utang na loob, pointing to the earlier claims that Filipinos greatly cherish this value. This familiarity is evident even in the localized setting where the responses suggest a strong background in Filipino values and constructs brought by their subjects in the social sciences. However, they treat this virtue as reciprocity—the appropriate manner of giving back, more than a moral construct. This probably contributes to their belief that some members use this value in the family circle to secure inheritance from their elders. This type of understanding—that caring for our older family members must come with a reward is often the cause of disputes over inheritances. This is a similar scenario where the benefactor offers help only to create a sense of indebtedness. The motivation for this action is rooted in getting more than what they have given to the receiver. Utang na loob is also seen to be active in the political sphere, where this is used as a tool for extortion and furthering the political ambitions of a candidate. This is likely why the new generation of Filipinos sees this as a toxic trait in their culture, which they have no choice but to accept.
+An expression of respect
 
-On a hopeful note, the other participants view utang na loob as an act of service given to parents to honor their many sacrifices. This is an idyllic picture where the children envision a brighter future for themselves and their families. This is a typical Filipino trait when one brings his family to his aspirations. This nature can strengthen the family bonds once utang na loob is regarded as an action rooted in gratitude and honor. Equally, this can strengthen community bonds as actions rooted in gratitude can go beyond transactional civility, fostering genuine support for fellowmen. It is impossible for someone not to expect anything from performing a good deed. However, on the receiver's part, it should be clear that the payment is inspired by appreciation, not by external compulsion. Moreover, it must be clear that the value is misused when a person only gives to those who have the means to give back, disregarding all others in acute need, and when someone gives help to extort more than he has given. These examples are the abuse of utang na loob as it strips away its moral essence. Utang na loob is believed to have no ends, but when used correctly, it can be a key to strengthening the sense of service, opportunities, and communal flourishing.
+A form of obligation
 
-## References
+A negative Filipino trait
 
-Agaton, Sheldon Ives. (2017). Vantage Points of Utang na Loob. Social Ethics and Society Journal of Applied Philosophy, (3), 59-77.
+▪
+▪
+
+▪
+
+▪
+▪
+▪
+
+▪
+
+▪
+
+▪
+
+▪
+
+▪
+
+▪
+
+▪
+
+▪
+▪
+
+▪
+
+▪
+▪
+▪
+▪
+▪
+
+▪
+▪
+
+▪
+
+“I do it when someone does something for me out of kindness.”
+“It should be an automatic response in exchange for their
+kindness. In that case, we are forever indebted to them.”
+“Someone lends you his time and effort, but without being
+obliged to help you back.”
+“It is a service that comes from being grateful.”
+“It is paying back someone but in your free will.”
+“Helping others without the need to question whether that
+person will give back.”
+“Returns the favor to someone who have helped you, and you
+should be forever grateful for that person.”
+“Values the relationship and seek to prolong and strengthen
+this.”
+“Saying thank you is not enough, so the good acts should be
+given back.”
+“Giving the gratitude back to someone or some people whom
+you owe.”
+“You will repay them through actions in exchange for the
+goods that they have done for you.”
+“When I borrowed from someone, I should help them too with
+what they need.”
+“If you show utang na loob, you have a high respect on the
+person.”
+“Giving a piece of one’s inner self.”
+“When a person needs help from someone, you are obligated to
+provide.”
+“The person cannot refuse to help because there is an
+obligation.”
+“Obligation to appropriately repay a person.”
+“Sometimes it’s a trap.”
+“A negative Filipino value which we are forced to accept.”
+“That is why the Padrino system exists in the government.”
+“A toxic Filipino trait that has to end because it will be passed
+on to the next generation.”
+“It’s when blood relatives become enemy.”
+“They will trick you into giving help, but time will reveal their
+true motive.”
+“The person cannot refuse because it’s a negative Filipino
+value.”
+
+Table  1  shows  the  participants’  varying  descriptions  of  utang  na  loob,  suggesting  an
+awareness of the core topic, probably encouraged by their Filipino psychology subjects. Helping
+others rooted in concern is an idyllic picture of how human interactions should be an automatic
+response. As a virtue, utang na loob should be propelled by empathy and genuine support for a
+fellow in ways that are intangible.
+
+317
+
+Casiño, et al.,
+
+Basically,  utang  na  loob  should  surpass  reciprocity  as  it  is  important  to  respect  the
+benefactors and acknowledge the assistance they have given. It is perceived as the benefactor
+giving  a  piece  of  himself,  making  this  concept  a  lot  more  humanizing.  Furthermore,  this  is
+considered as a duty and a key to strengthening the ties with one another. In the category of a
+way to give back, the experiences similarly point to the ideas presented by V. Enriquez that this
+action  resonates  deeply  in  the  hearts  of  Filipinos.  This  is  still  regarded  as  an  outline  for
+establishing moral responsibility and social connections in a localized setting.
+
+However, some of the narratives show that the abuse of this value can lead to unreasonable
+demands that the receiver must pay, often far from what is fair. These are the same narratives
+from the younger generations, labeling utang na loob as a toxic Filipino trait. This is probably
+caused by their exposure to its misuse shown in social media, the community, and their families.
+Labeling this as toxic comes from the fact that one is left with no choice but to accept it, as this
+is a pattern in their culture. This brings the problematic side of this value, especially when it
+starts from the family systems, where relatives stand against each other each time the receiver
+fails to reciprocate. In terms of politics, the benefactor can act as if they are willing to give help,
+but after that, they are only exhorting the favor to get more out of the receiver in the future.
+
+Table 2. Contextual Perceptions of Utang Na Loob
+
+Situation
+
+Context
+
+Exploratory statements
+
+Key statements
+
+▪
+
+Reciprocating
+the good
+deeds of
+family
+members
+where the
+receiver is
+left with no
+choice but to
+give back.
+
+Giving back
+to parents to
+honor their
+sacrifices
+
+1A  relative  abroad  sent  you  to
+college  as  he  can  afford  to
+support  you.  He  provided  help
+even if you are not asking for it.
+A few years later, you finished
+the
+college  and  apparently,
+relative who sent you got sick.
+This  time,  you  are  the  one
+responsible for assisting him for
+and
+medication
+the
+hospitalization  because,  2if  it
+wasn’t  for  him,  you  would  not
+be  where  you  are  today.  You
+have  no  utang  na  loob  (no
+shame) if you cannot give back.
+An example of utang na loob is
+with the situation in the family
+of  how  the  3parents  sacrificed
+and  took  good  care  of  the
+children  to  give  them  the  life
+that they deserve. The children
+must exchange for that and 4pay
+gratitude  to  their  parents  by
+giving  them  also  the  life  that
+they  deserve  especially  when
+they get older.
+
+1A relative abroad
+sent you to college
+
+2if it wasn’t for
+him, you wouldn’t
+be where you are
+today
+
+3parents sacrificed
+and took good care
+of the children
+
+4pay gratitude to
+their parents by
+giving them also
+the life that they
+deserve
+
+Using utang
+na loob to
+seize
+
+The  relatives  can  have  land
+the  death  of
+disputes  after
+1The
+only
+grandparents.
+
+1The only relatives
+to inherit the
+
+Filipino
+family
+system
+
+318
+
+Revisiting the Filipino Value Utang na Loob…
+
+Situation
+
+Context
+
+Exploratory statements
+
+Key statements
+
+inheritance
+causing
+family
+disputes
+
+Collegial
+relationships
+
+Using utang
+na loob to
+create
+relationship
+out of
+indebtedness
+
+Using utang
+na loob to
+foster good
+deeds
+
+319
+
+exclude
+
+relatives to inherit the property
+are  the  ones  who  have  taken
+care of the elderly owners. This
+should
+the
+children  as  the  rightful  heirs  if
+they  did  not  take  the  time  to
+take care of their parents during
+old  age.  2The  dead  have  utang
+na loob to their caregivers.
+
+even
+
+▪  When someone helps the person
+to pay his or her tuition for the
+semester  especially  when  the
+person  is  graduating.  1The  one
+who  is  helped  is  obligated  to
+return
+the
+person who gave the help is in
+need in the future.
+
+favor  when
+
+the
+
+the  money
+
+▪  This  value  can  be  seen  in  the
+2issue  of  money.  For  example,
+someone needed money for the
+hospital bills because his loved
+ones  need  urgent  surgery.  He
+to
+will  be  forever  grateful
+someone who  lend  him money
+because it saved his loved one.
+3The
+indebtedness  continues
+is
+though
+even
+already  paid.  When  the  day
+comes when the other party will
+need this help, he will not refuse
+to help him because 4there is an
+obligation  within  him  that  he
+needs to be repaid.
+I  have  difficulty  understanding
+our  lessons  in  Math  and  the
+final exam is next week. 1I have
+asked  my  classmate  who  is  a
+Math  wizard
+to  help  me
+understand  the  topic  as  I  was
+struggling.  Thanks
+to  his
+willingness  in  helping  me,  I
+passed
+test.  The  next
+semester,  he  was  the  one  who
+approached me because he was
+struggling  with  history  and  2I
+helped him back.
+
+the
+
+▪
+
+property are the
+ones who have
+taken care of the
+elderly owners
+
+2The dead have
+utang na loob to
+their caregivers
+
+1The one who is
+helped is obligated
+to return the favor
+
+2issue of money
+
+3The indebtedness
+continues even
+though the money
+is already paid
+
+4there is an
+obligation
+
+1I have asked my
+classmate who is a
+Math wizard to
+help me
+understand the
+topic
+
+2I helped him back
+
+Casiño, et al.,
+
+Situation
+
+Context
+
+Exploratory statements
+
+Key statements
+
+▪  Utang  na
+
+is  when  I
+loob
+borrowed money from someone
+so I can use to find work abroad,
+and the person helped me. If the
+person needs help from me and
+wants  a  favor,  I  should  help
+them too with what they need.
+
+3the person helped
+me
+
+4I should help
+them too
+
+Filipino
+political
+landscape
+
+Exhorting
+favors from
+the receiver
+which can
+cause
+cronyism
+
+In  politics,  1I  will  help  you  in
+your  campaign,  but  when  you
+get  elected,  2you  have  to  help
+me  with  my  campaign.  This  is
+system
+the  Padrino
+where
+comes in.
+
+1I will help you
+
+2you have to help
+me
+
+The family's understanding of moral values is formed, as seen in the responses in Table 2.
+The concepts of gratitude and reciprocal obligations are shaped by how  they are practiced by
+role models in the family, particularly their parents. Moreover, how one imbibes utang na loob
+is also inspired by their elders and close acquaintances, observing how they interact with people
+inside and outside of their homes. These interactions guide one to relate to others at school, form
+collegial relationships in one career, and eventually, how one will navigate his way if he decides
+to enter the political arena.
+
+In the family system, aside from the sacrifices parents perform to provide for their families,
+they still perform many extras, which is also a typical Filipino spirit, especially for middle-class
+people. Prioritizing the children’s well-being and emotional development is why the sacrifices
+emanate  from  love  rather  than  mere  obligation.  When  the  children  can  already  provide,  the
+adage, “matuto kang tumanaw ng utang na loob” [learn to be grateful] applies. The participants
+observed that parents made significant sacrifices—missing opportunities in exchange for their
+family’s welfare. This service deserves a token of gratitude, as it gives them a much better life
+to honor their efforts. Rungduin et al. (2015) claimed that this nature among parents strengthens
+the family bonds even more because it is done out of kagandahang loob (inner sense of meaning
+to  do  good),  a  pillar  in  the  Filipino  social  reality.  This  is  a  positive  motivation  for  Filipino
+families to thrive and willfully perform their responsibilities of helping one another.
+
+  Conversely, the abuse of utang na loob causes this virtue to be problematic. Having a
+context about relatives abroad sending one to pursue college. This intention was a saving grace
+for Filipinos as college tuition fees, plus the expenses, are expensive enough for those in middle-
+class families. Working abroad, one can support their relatives in the Philippines to prepare them
+for their future and be able to provide and help the other family members as well. However, if
+the relative abroad experiences illness, the receiver has no choice but to help, as failure will mark
+them as walang utang na loob (ingratitude). This describes how the receiver was placed under
+emotional  and  financial  pressure,  especially  if  he  still  could  not  afford  the  help  requested.
+Moreover, the severe judgment of ingratitude is instilled in the receiver to propel guilt to oblige
+for repayment. The same possibility causes family members to squabble over property disputes
+left  by  their  elders  as  they  have  utang  na  loob  to  the  relatives  who  care  for  them.  These
+disagreements oversee the rights of the other heirs as the other party may claim their reward,
+making utang na loob as an obligation that needs compensation. This can disrupt harmony and
+cause conflict within the family systems.
+
+320
+
+Revisiting the Filipino Value Utang na Loob…
+
+Collegial relationships can occur in school, where students show weakness in other fields
+or  subjects.  Receiving  help  to understand a  particular  topic  can  be  a  relief  for  someone  who
+struggles  with  Mathematics.  In  return,  helping  the  giver  to  deal  with  the  other  subjects  is  a
+meaningful  way  to  repay  them.  This  is  the  ideal  image  of students helping  each other  out  in
+school. Spending more than eight hours on campus exclusively for the entire day makes mutual
+support the best way to navigate challenges beyond academics. Moreover, the context reflects a
+profound concept of utang na loob, used to maintain harmony within the school community—
+of helping those who have helped them.
+
+  On the other hand, others use this concept to create relationships out of indebtedness by
+expecting  a  return  from  the  goodwill  they  have  given.  Mostly,  these  are  money  issues  the
+benefactor grabs as an opportunity to secure payment from the receiver in the future once he
+needs it. The benefactor is like investing in an invisible bank where he expects to reap more than
+he  has  planted.  Utang  na  loob  in  this  context  can  be  distorted  as  it  presents  an  imbalance—
+expecting to get more out of the situation. The recipient will then be beholden to reciprocate out
+of  pure  obligation  and  not  of  gratitude,  as  the  feeling  of  expectation  is  manifested  by  the
+benefactor. The statement, “the indebtedness continues even though the money is already paid,”
+brings  back  the  question  of  when  utang  na  loob  will  end.  This  is  a  common  scenario  in  the
+Philippines where the receiver fills an invisible debt, uncertain how much remains to be paid.
+
+In  the  Filipino  political  landscape,  utang  na  loob  is  seen  to  be  more  of  a  give-and-take
+situation using the key statement, “I will help you; you have to help me.” The verb have can
+mean that the favor of providing help is expected to be reciprocated. This is because the political
+landscape is perceived as a dynamic competition place. People of power are most likely to abuse
+utang  na  loob  in  the  political  sphere,  expressed  through  the  Padrino  system  (cronyism).  It  is
+where  leaders  support  people  in  their  needs  in  exchange  for  their  votes  and/or  loyalty  in  the
+upcoming  elections.  This  mars  the  morality  behind  this  cultural  practice  as  politicians
+unscrupulously take advantage of it to fuel their political ambitions. Ideally, utang na loob is a
+positive  value  when  used  in  the  right  way,  but  it  brings  out  its  challenging  nature  when
+manipulated by some people to reap their benefits.
+
+The  input  discussed  in  this  work  can  be  used  in  the  social  sciences,  particularly  in
+psychology. This aims to improve, or at least sustain, the availability of subjects focusing on
+Filipino  values  to  deepen  their  theoretical  understanding  of  its  principles.  Language  reflects
+culture and traditions, which is also the starting point of understanding the Filipino personality
+and their way of life. Issues in Filipino virtues caused by mistranslations, context misuse, and
+practice  abuse  can  distort  their  social  significance.  Taking  extra  care  in  discussing  Filipino
+psychology  is  of  utmost  importance,  bearing  in  mind  that  indigenous  concepts  should  be
+regarded as deeply rooted values and not just mere linguistic elements in the Philippine lexicon.
+Moreover,  these  values  should  only  be  used  in  their  rightful  context  to  guard  it  from
+misinterpretations.  Like  utang  na  loob,  a  vehicle  for  maintaining  mutual  interaction  must  be
+emphasized by the new generation of learners. The Filipino culture requires a deeper connection
+with others, which is why utang na loob came about. This concept is a force that propels mutual
+relationships,  and  using  it  superficially  can  taint  its  essence  and  moral  significance.  Also,
+exploiting this virtue to demand more from others undermines its true nature.
+
+The abuse of the value can be contextualized in politics. For instance, a politician aided
+another politician a long time ago. The first politician now asks the second politician for his
+payment for the favor he has given. However, the payment requires participating in a corruption
+scheme in the country. The second politician then refused. In this case, the first politician should
+not call the second politician walang utang na loob (ungrateful) as this concept does not fit in
+the description. This is considered a manipulation of the value as Filipinos regard it as a moral
+
+321
+
+Casiño, et al.,
+
+obligation to promote communal flourishing among fellows. If so, utang na loob will be reduced
+to a mere Filipino word, stripped of its true essence.
+
+Universities are educational powerhouses that can channel these towering ideologies to the
+learners, breaking them into manageable thought pieces to be injected into the course curricula.
+There are more meanings to the Filipino value system than what they seem. Aside from literature
+and  theoretical  anchors,  it  is  the  teacher’s  role  to  convey  these  meanings  to  the  learners  to
+preserve these values for future generations—that ultimately, utang na loob is a value that stands
+on the shoulders of altruism and goodwill.
+
+E.  Conclusion
+
+The participants are familiar with the concept of utang na loob, pointing to the earlier claims
+that Filipinos greatly cherish this value. This familiarity is evident even in the localized setting
+where the responses suggest a strong background in Filipino values and constructs brought by
+their  subjects  in  the  social  sciences.  However,  they  treat  this  virtue  as  reciprocity—the
+appropriate manner of giving back, more than a moral construct. This probably contributes to
+their belief that some members use this value in the family circle to secure inheritance from their
+elders. This type of understanding—that caring for our older family members must come with a
+reward  is  often  the  cause  of  disputes  over  inheritances.  This  is  a  similar  scenario  where  the
+benefactor offers help only to create a sense of indebtedness. The motivation for this action is
+rooted in getting more than what they have given to the receiver. Utang na loob is also seen to
+be  active  in  the political  sphere,  where  this  is  used  as  a  tool  for  extortion  and  furthering  the
+political ambitions of a candidate. This is likely why the new generation of Filipinos sees this as
+a toxic trait in their culture, which they have no choice but to accept.
+
+On a hopeful note, the other participants view utang na loob as an act of service given to
+parents to honor their many sacrifices. This is an idyllic picture where the children envision a
+brighter future for themselves and their families. This is a typical Filipino trait when one brings
+his family to his aspirations. This nature can strengthen the family bonds once utang na loob is
+regarded  as  an  action  rooted  in  gratitude  and  honor.  Equally,  this  can  strengthen  community
+bonds  as  actions  rooted  in  gratitude  can  go  beyond  transactional  civility,  fostering  genuine
+support for fellowmen. It is impossible for someone not to expect anything from performing a
+good deed. However, on the receiver's part, it should be clear that the payment is inspired by
+appreciation, not by external compulsion. Moreover, it must be clear that the value is misused
+when a person only gives to those who have the means to give back, disregarding all others in
+acute need, and when someone gives help to extort more than he has given. These examples are
+the abuse of utang na loob as it strips away its moral essence. Utang na loob is believed to have
+no  ends,  but  when  used  correctly,  it  can  be  a  key  to  strengthening  the  sense  of  service,
+opportunities, and communal flourishing.
+
+References
+
+ Agaton, Sheldon Ives. (2017). Vantage Points of Utang na Loob. Social Ethics and Society Journal of
+
+Applied Philisophy, (3), 59-77.
 
 Andres, T.D. (1994). Dictionary of Filipino culture and values. Quezon City: Giraffe Books.
 
 Baker, M., & Saldanha, G. (2020). Routledge Encyclopedia of Translation Studies. Routledge.
 
-Bernardo, A., Sta. Maria, M., & Tan, A. (2002). Forty years of Philippine psychology. Diliman QC, Philippines: Psychological Association of the Philippines.
+Bernardo,  A.,  Sta.  Maria,  M.,  &  Tan,  A.  (2002).  Forty  years  of  Philippine  psychology.  Diliman  QC,
 
-Brough, P. (2025). Advanced research methods for applied psychology: Design, analysis and reporting (2nd ed.). New York, NY: Routledge.
+Philippines: Psychological Association of the Philippines
+
+Brough, P. (2025). Advanced research methods for applied psychology: Design, analysis and reporting
+
+(2nd ed.). New York, NY: Routledge
+
+322
+
+Revisiting the Filipino Value Utang na Loob…
 
 Castro, L.D. (1998). Debts of Good Will and Interpersonal Justice.
 
-Cleofas, J.A. (2019/06). Towards a Practical and Empirically Grounded Account of Utang-na-loob as a Filipino Virtue. Kritika Kultura, 33/34: 156-179.
+Cleofas, J.A. (2019/06). Towards a Practical and Empircially Grounded Account of Utang-na-loob as a
 
-Corbin, J., & Strauss, A. (2008). Basics of Qualitative Research: Techniques and Procedures for Developing Grounded Theory (3rd ed.). Thousand Oaks, CA: Sage. Organizational Research Methods, 12(3), 614-617. https://doi.org/10.1177/1094428108324514.
+Filipino Virtue. Kritika Kultura, 33/34: 156-179.
 
-Cropley, Arthur. (2023). Qualitative Research Methods: A Practice-Oriented Introduction. Editura Intanglio.
+Corbin,  J.,  &  Strauss,  A.  (2008).  Basics  of  Qualitative  Research:  Techniques  and  Procedures  for
+Developing  Grounded  Theory  (3rd  ed.).  Thousand  Oaks,  CA:  Sage.  Organizational  Research
+Methods, 12(3), 614–617. https://doi.org/10.1177/1094428108324514.
 
-Dancel, F. (2005). Utang na loob: A philosophical analysis. Filipino Cultural Traits: Claro R. Ceniza Lectures (Chap. 5). Retrieved July, 12, 2010, from http://www.crvp.org/book/Series03/IIID-4/chapter-5.htm.
+Cropley,  Arthur.  (2023).  Qualitative  Research  Methods:  A  Practice-Oriented  Introduction.  Editura
+
+Intanglio
+
+Dancel,  F.  (2005). Utang  na  loob:  A  philosophical analysis. Filipino  Cultural Traits: Claro  R. Ceniza
+Lectures  (Chap.  5).  Retrieved  July,  12,  2010,  from  http://www.crvp.org/book/Series03/IIID-
+4/chapter-5.htm.
 
 Denzin, N.K. (2014). Interpretive autoethnography. Thousand Oaks, CA: Sage.
 
-Enriquez, V. G. (1977). Filipino psychology in the Third World. Philippine Journal of Psychology, 10(1), 3-18.
+Enriquez, V. G. (1977). Filipino psychology in the Third World. Philippine Journal of Psychology, 10(1),
 
-Enriquez, V. G. (1994). Pagbabagong dangal: Psychology and Cultural Empowerment. Quezon City: Akademya ng Kultura at Sikolohiyang Pilipino.
+3–18.
 
-Gundran, A. P., Manalo, J. J., Soriano, P. S., Cagsawa, R. O. & Manguiat, G. C. (2022). THE CONCEPT OF UTANG NA LOOB IN THE PHILIPPINES: UTANG NA LOOB SCALE. ANTORCHA, 8(1).
+Enriquez,  V.  G.  (1994).  Pagbabagong  dangal:  Psychology  and  Cultural  Empowerment.  Quezon  City:
 
-Harris, Bonnie. (2016). Jewish Refugee Rescue in the Philippines, 1937-1941.
+Akademya ng Kultura at Sikolohiyang Pilipino.
 
-Hollsteiner, Mary R. “Reciprocity in the Lowland Philippines.” Four Readings on Philippine Values, edited by Frank Lynch and Alfonso de Guzman II, Ateneo de Manila UP, 1973, pp. 69-118.
+Gundran, A. P., Manalo, J. J., Soriano, P. S., Cagsawa, R. O. & Manguiat, G. C. (2022). THE CONCEPT
+OF UTANG NA LOOB IN THE PHILIPPINES: UTANG NA LOOB SCALE. ANTORCHA, 8(1).
+
+Harris, Bonnie. (2016). Jewish Refugee Rescue in the Philippines, 1937 - 1941.
+
+Hollnsteiner, Mary R. “Reciprocity in the Lowland Philippines.” Four Readings on Philippine Values,
+edited by Frank Lynch and Alfonso de Guzman II, Ateneo de Manila UP, 1973, pp. 69-118.
 
 Ivanov, D. (2014). The art of translation. Cogito; Bucharest Vol. 6, Iss. 1, (Mar 2014): 87-93.
 
-Jocano, F. (1997). Filipino value system: A cultural definition. Metro Manila: Punjab Research House.
+Jocano, F. (1997). Filipino value system: A cultural definition. Metro Manila: Punlad Research House
 
-Jusay, Mariah Ann. (2021). Upholding an Accommodative Filipino Value: A Measure of Utang na Loob Orientation.
+Jusay, Mariah Ann. (2021). Upholding an Accommodative Filipino Value: A Measure of Utang na Loob
 
-Kaut, C. R. (1961). Utang na loob: A system of contractual obligations among Tagalog. Southwestern Journal of Anthropology, 17, 256-272.
+Orientation.
 
-Le, Dung. (2024). Investigating how cultural differences influence the translation process and the strategies used by translators to bridge cultural gaps. Journal of Translation and Language Studies. 5. 26-36. 10.48185/jtls.v5i3.1268.
+Kaut, C. R. (1961). Utang na loob: A system of contractual obligations among Tagalogs. Southwestern
 
-Merriam, S.B. & Tisdell, E.J. (2015). Qualitative research: A guide to design and implementation (4th ed.). John Wiley & Sons: San Francisco, CA.
+Journal of Anthropology, 17, 256-272.
 
-Miranda, Dionisio M. (1989). Loob- the Filipino within: A preliminary investigation into a pre-theological moral anthropology. Manila: Divine Word Publications.
+Le,  Dung.  (2024).  Investigating  how  cultural  differences  influence  the  translation  process  and  the
+strategies used by translators to bridge cultural gaps. Journal of Translation and Language Studies.
+5. 26-36. 10.48185/jtls.v5i3.1268.
 
-Pe-Pua, R., & Protacio-Marcelino, E. A. (2000). Sikolohiyang Pilipino (Filipino psychology): A legacy of Virgilio G. Enriquez. Asian Journal of Social Psychology, 3(1), 49-71. http://dx.doi.org/10.1111/1467-839X.00054
+Merriam, S.B. & Tisdell, E.J. (2015). Qualitative research: A guide to design and implementation (4th
 
-Reyes, Jeremiah. “Loob and Kapwa: An Introduction to Filipino Virtue Ethics.” Asian Philosophy, vol. 25, no. 2, 2015, pp. 148-171.
+ed.). John Wiley & Sons: San Francisco, CA.
 
-Rungduin, T.T., Rungduin, D.C., Joshua, A., Catindig, R.B., & Gallogo, L.S. (2015). The Filipino character strength of utang na loob: Exploring contextual associations with gratitude. International Journal of Research Studies in Psychology, 5.
+Miranda, Dionisio M. (1989). Loob-the Filipino within: A preliminary investigation into a pre-theological
 
-Singh, A. (1970). Nationalized social sciences and teaching of sociology in Canada: A sociology of sociology approach Paper presented at the Canadian Sociology and Anthropology Association’s Meetings at Edmonton, May.
+moral anthropology. Manila: Divine Word Publications.
 
-Suazo, R. (2014). Clarifying Filipino Family Orientation as a Core Value Using Ricoeur’s Hermeneutics of Appropriation. Usc-ph. https://www.academia.edu/6658082
+Pe-Pua, R., & Protacio-Marcelino, E. A. (2000). Sikolohiyang Pilipino (Filipino psychology): A legacy
+49-71.
+Journal
+
+of  Social  Psychology,
+
+3(1),
+
+of  Virgilio  G.  Enriquez.  Asian
+http://dx.doi.org/10.1111/1467-839X.00054
+
+Reyes, Jeremiah. “Loób and Kapwa: An Introduction to Filipino Virtue Ethics.” Asian Philosophy, vol.
+
+25, no. 2, 2015, pp. 148-171.
+
+Rungduin,  T.T.,  Rungduin,  D.C.,  Joshua,  A.,  Catindig,  R.B.,  &  Gallogo,  L.S.  (2015).  The  Filipino
+character strength of utang na loob: Exploring contextual associations with gratitude. International
+Journal of Research Studies in Psychology, 5.
+
+Singh,  A.  (1970).  Nationalized  social  sciences  and  teaching  of  sociology  in  Canada:  A  sociology  of
+sociology  approach  Paper  presented  at  the  Canadian  Sociology  and  Anthropology  Association’s
+Meetings at Edmonton, May.
+
+Suazo, R. (2014). Clarifying Filipino Family Orientation as a Core Value Using Ricoeur’s Hermeneutics
+
+of Appropriation. Usc-ph. https://www.academia.edu/6658082
 
 Venuti, L. (2017). The Translator’s Invisibility: A History of Translation. Routledge.
+
+323
+

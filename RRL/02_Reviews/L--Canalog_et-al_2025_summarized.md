@@ -1,24 +1,22 @@
 # BUY NOW, PAY LATER: SHOPEE ONLINE STORE USERS EXPERIENCES ON SHOPEE PAY LATER FEATURE (SPAY LATER)
 
+## Metadata
+
 ```yaml
 ---
-name: paper-summary
 paper_id: "10.5281/zenodo.15031111"
-source_document: "Canalog_et-al.md"
 designation: local
 title: "BUY NOW, PAY LATER: SHOPEE ONLINE STORE USERS EXPERIENCES ON SHOPEE PAY LATER FEATURE (SPAY LATER)"
 authors: "Calanog, V. C.; Paderan, M. J. D.; Adove, R. C. A.; Bathan, C. M. N.; Catibog, D. N.; Rivera, G. R.; Mangarin, J. A."
 year: 2025
-venue: "GUILD OF EDUCATORS IN TESOL INTERNATIONAL RESEARCH JOURNAL"
-odin_topics: [1, 4, 9]
-shorthand_tags: ["/expenditure-patterns", "/budgeting-prevalence", "/fil-behavioral-patterns", "/profile-dimensions"]
-summary_date: 2026-05-04
-version: "1.0"
+venue: "GET INTERNATIONAL RESEARCH JOURNAL"
+odin_topics: ["A.1", "C.1"]
+shorthand_tags: ["/expenditure-patterns", "/budgeting-prevalence", "/strategy-mechanics"]
 member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[X]"
+    status: "[ ]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."
@@ -28,26 +26,29 @@ member_checklist:
 
 ## TL;DR
 
-Filipino Spay Later users find it flexible and convenient, primarily buying essentials while improving budgeting skills despite occasional technical issues.
+Shopee Pay Later users in Batangas use the feature primarily for essential purchases during financial constraints, finding it convenient and helpful for budgeting, though technical issues and overspending risks exist.
 
 ## Problem and Motivation
 
-Existing studies on Buy Now, Pay Later (BNPL) focus only on positive or negative impacts, lacking a comprehensive view of user motivations and real‑world behaviors. This gap prevents platforms and educators from designing effective responsible‑use guidance. The study aims to capture the holistic experience of Spay Later users, including satisfaction, convenience, financial behavior, and challenges.
+Prior BNPL research focused separately on positive or negative impacts, leaving a gap in understanding the holistic user experience with Spay Later. Understanding user satisfaction, convenience, financial behavior, and challenges is critical as BNPL services affect financial well-being. No phenomenological study had explored the full spectrum of Filipino Spay Later user experiences, including motivations and best practices.
 
 ## Approach
 
-- Phenomenological qualitative study with ten Spay Later users.
-- Judgmental sampling: ≥₱5,000 credit limit, Gold/Platinum Shopee tier, ≥1 year usage.
-- Semi‑structured interviews (online and face‑to‑face) with open‑ended questions.
-- Thematic analysis to identify patterns in user responses.
+- Qualitative phenomenological study with 10 Shopee Spay Later users in Balayan, Batangas.
+- Participants selected via judgmental sampling: Gold/Platinum loyalty level, ≥5,000 PHP credit limit, ≥1 year of usage.
+- Semi-structured interviews conducted face-to-face and online using open-ended questions.
+- Thematic analysis applied to identify patterns in user satisfaction, convenience, financial behavior, and challenges.
 
 ## Findings
 
-1. Users purchase **everyday household necessities** (toiletries, cleaning supplies) and high‑cost essentials during financial constraints.
-2. Main drivers: limited budget, ability to afford high‑cost items, discounts/zero‑interest offers, urgent needs.
-3. Challenges: transaction errors, unexpected fees (e.g., 2% GCash charge), insufficient credit balance, seller accountability concerns.
-4. Spay Later **enhances savings and budgeting skills** – participants report becoming more disciplined in planning repayments.
-5. Best practices: pre‑payment planning, monitoring due dates, mindful purchasing, and prioritizing needs over wants.
+- Spay Later is used occasionally for necessities, regularly for monthly essentials, or needs-based during financial constraints.
+- **Spay Later users reported improved budgeting skills and financial discipline** when used mindfully.
+- Purchases are predominantly household necessities and high-cost essentials; non-essential use is rare.
+- Motivations include limited budget, ability to afford high-cost items over time, discounts/zero-interest offers, and urgent needs.
+- Challenges include transaction errors, unexpected fees, insufficient credit balance, and seller accountability concerns.
+- Convenience factors: purchasing without immediate cash, flexible repayment, simple process, accessible credit.
+- Positive financial impacts: enhanced savings, budgeting skills, financial independence, and self-reflection on spending.
+- Best practices: pre-payment planning, monitoring due dates, mindful purchasing, budgeting, and prioritizing needs over wants.
 
 ## Key Figures and Tables
 
@@ -61,52 +62,54 @@ None.
 
 | Term / Acronym | Plain-English Definition |
 | -------------- | ------------------------ |
-| BNPL | Buy Now, Pay Later – short‑term financing that allows purchases with deferred payment. |
-| Spay Later | Shopee's BNPL feature offering installment plans (up to 12 months) with interest. |
-| Gold / Platinum | Shopee loyalty tiers requiring 25 and 55 completed orders, respectively. |
-| Judgmental sampling | Non‑probability sampling where researchers select participants meeting specific criteria. |
+| BNPL | Buy Now, Pay Later — a short-term financing option allowing purchases with deferred or installment payments. |
+| Spay Later | Shopee Pay Later — Shopee's BNPL feature with installment plans and interest. |
+| Phenomenological study | A qualitative method exploring lived experiences of individuals. |
+| Judgmental sampling | Non-probability sampling where researchers select participants based on specific criteria. |
 
 ## Critical Citations
 
-- [Sani and Saputri, 2023] – BNPL increases risk of overspending and impulsive buying.
-- [Muchammad and Lantara, 2024] – Discounts positively affect BNPL use but financial awareness reduces impulsive spending.
+- [Sani & Saputri, 2023] — Establishes link between BNPL and impulsive buying/overspending risk.
+- [Papich, 2024] — Shows BNPL can reduce financial distress with timely payments.
+- [Muchammad & Lantara, 2024] — Finds discounts promote BNPL use but financial awareness reduces impulsive buying.
 
 ## Relevance to Odin
 
 **Topics:**
 
-1 - Spending and Budgeting Behavior of Filipino Young Professionals
+A.1 — Spending and Budgeting Behavior of Filipino Young Professionals
 
-4 - Budgeting Strategies and Budget Recommendation in Personal Finance Systems
-
-9 - User Behavioral Profiling in Filipino Personal Finance Contexts
+C.1 — Budgeting Strategies and Budget Recommendation
 
 **Contribution to Odin:**
 
-This paper provides qualitative evidence on how Filipino young professionals use deferred payment features (BNPL) as a budgeting tool, revealing strategic spending patterns and self‑reported improvements in financial discipline. It directly supports Odin’s understanding of local user behavior, including the tendency to prioritize essential purchases, use credit flexibly during cash shortages, and adopt pre‑payment planning to avoid debt. The three identified usage profiles (occasional, regular, needs‑based) offer a behavioral taxonomy relevant to Odin’s profiling module.
+This qualitative study provides direct evidence of Filipino young professionals' financial behavior and budgeting practices when using deferred payment services. It informs Odin's understanding of how users manage cash flow constraints, prioritize essential spending, and adopt budgeting strategies such as pre-payment planning and needs-over-wants decision-making. The findings on user challenges (e.g., unexpected fees, transaction errors) and best practices (e.g., monitoring due dates) can guide Odin's budget recommendation and alert design to support responsible spending rather than enabling overextension.
 
 **Directly justifies:**
 
-- Filipino Spay Later users prioritize essential household purchases over discretionary items when using BNPL.
-- Users consciously employ deferred payment services to manage cash flow and smooth spending across income gaps.
-- Behavioral patterns among Filipino users include occasional (selective), regular (monthly budgeted), and needs‑based (financial constraint‑driven) profiles.
-- Pre‑payment planning and due‑date monitoring are self‑reported best practices that reduce late fees and financial strain.
+- "Spay Later users report using the feature primarily for household necessities (e.g., toiletries, kitchen essentials) and high-cost essential purchases during financial constraints."
+- "Participants developed enhanced savings and budgeting skills, including pre-payment planning and tracking due dates, to avoid late fees."
+- "Challenges such as transaction errors and unexpected fees (e.g., 2% GCash charge) negatively impact user satisfaction with credit-based purchasing."
+- "Mindful purchasing and prioritizing needs over wants are identified as best practices for avoiding financial pitfalls when using deferred payment services."
 
 **Limits of relevance:**
 
-- Small, purposive sample (n=10) from a single municipality (Balayan, Batangas) – not statistically generalizable.
-- Qualitative only; no quantitative measurement of budgeting improvement or overspending risk.
-- Focus on Shopee’s Spay Later specifically, not general BNPL or personal finance management systems.
+- Study focuses on BNPL (credit) rather than budgeting or spending forecasting within a personal finance management system.
+- Small sample (n=10) from a single municipality (Balayan, Batangas) limits generalizability to all Filipino young professionals.
+- Qualitative only; no quantitative measures of budgeting effectiveness or spending adherence.
+- Participants are active Shopee users with Gold/Platinum status, potentially biasing toward positive experiences.
 
 ## Limitations
 
-- Small sample size (n=10) limits generalizability beyond similar demographics.
-- Judgmental sampling may introduce selection bias (only Gold/Platinum users with high credit limits).
-- Self‑reported data subject to recall and social desirability bias.
-- No longitudinal follow‑up; self‑reported budgeting improvement may not reflect actual long‑term behavior.
+- Small sample size (n=10) and judgmental sampling limit representativeness. [unacknowledged]
+- No quantitative data or statistical analysis; findings are exploratory. [unacknowledged]
+- Study does not measure long-term financial outcomes or debt accumulation from Spay Later use.
+- Participants self-report experiences, introducing social desirability and recall bias. [unacknowledged]
+- Geographic restriction to Balayan, Batangas may not reflect urban Metro Manila behavior.
 
 ## Remember This
 
-- 🔑 **Essentials first** – Users buy household necessities and high‑cost needs, not luxuries.
-- 💡 **Budgeting skills improve** – Participants reported becoming more disciplined in saving and repayment planning.
-- 📌 **Challenges are minor but real** – Transaction errors and unexpected fees (e.g., 2% GCash add‑on) occasionally frustrate users.
+- 🔑 10 Filipino BNPL users reported **improved budgeting skills** from mindful Spay Later use.
+- 📌 5,000 PHP minimum credit limit — participants prioritize essential purchases over wants.
+- 💡 Pre-payment planning and due date monitoring prevent late fees and debt.
+- ⚠️ No quantitative data — qualitative only; small sample limits generalizability.
