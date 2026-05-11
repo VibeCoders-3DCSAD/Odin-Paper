@@ -1,24 +1,22 @@
 # A Systematic Literature Review on Personal Financial Management Practices: Budgeting, Investment, Debt, and Saving
 
+## Metadata
+
 ```yaml
 ---
-name: paper-summary
-paper_id: "f47ac10b-58cc-4372-a567-0e02b2c3d479"
-source_document: "Elliyana_converted.md"
+paper_id: "3d6b0b7c-9d5b-5a3e-8c5a-2c4e7f9a1b3c"
 designation: international
 title: "A Systematic Literature Review on Personal Financial Management Practices: Budgeting, Investment, Debt, and Saving"
 authors: "Elliyana, E.; Maricar, R.; Toalib, R."
 year: 2025
 venue: "World Journal of Economics, Business and Management"
-odin_topics: [1, 2, 4]
-shorthand_tags: ["/budgeting-prevalence", "/budget-failure-points", "/pfms-features", "/pfms-limitations", "/strategy-mechanics"]
-summary_date: 2026-05-04
-version: "1.0"
+odin_topics: ["A.2", "B.1", "C.1"]
+shorthand_tags: ["/pfms-typology", "/pfms-features", "/pfms-limitations", "/pfms-gap", "/strategy-mechanics"]
 member_checklist:
   - name: "Gabion, Stefanie S."
     status: "[ ]"
   - name: "Guevarra, Joaquin Luis T."
-    status: "[X]"
+    status: "[ ]"
   - name: "San Jose, Alexa Joanne Paula G."
     status: "[ ]"
   - name: "Togle, Charles Nathaniel B."
@@ -28,34 +26,35 @@ member_checklist:
 
 ## TL;DR
 
-Financial literacy drives budgeting, saving, investment, and debt management, but behavioral biases and digital finance risks limit its standalone effectiveness.
+Financial literacy and digital tools boost budgeting, saving, investing, and debt management, yet social and behavioral factors limit their effectiveness.
 
 ## Problem and Motivation
 
-No unified synthesis of budgeting, saving, investment, and debt behaviors exists for the post-pandemic digital context. This gap matters because individuals face economic uncertainty and rising digital finance risks. Prior work lacked an integrated understanding of how financial literacy, digital tools, and behavioral factors interact.
+Individual financial behaviors (budgeting, saving, investing, debt) are often studied in isolation, leaving a fragmented understanding of how they interact in real-world settings. Economic uncertainty and rapid digital transformation make an integrated view of personal financial management (PFM) essential for policy and education. Prior work lacked a unified synthesis tying together these four behaviors with digital, behavioral, and sociocultural drivers in a post-pandemic context.
 
 ## Approach
 
 - Systematic literature review following PRISMA 2020 protocol.
-- Searched Scopus, Web of Science, Google Scholar, MDPI, and DOAJ (2018–2024).
-- Initial 2,342 records reduced to 47 peer-reviewed, open-access empirical studies.
-- Included only individual-level PFM studies; excluded corporate finance and non‑empirical works.
-- Thematic synthesis organized by budgeting, saving, investment, and debt behaviors.
-- Quality appraisal using MMAT 2018 (studies below 60% noted but retained).
+- Searched Scopus, Web of Science, Google Scholar, MDPI, and DOAJ for 2018–2024 peer-reviewed open-access studies.
+- Keywords combined "financial literacy" OR "digital financial literacy" with "budgeting", "saving", "investment", or "debt".
+- Retrieved 2,342 records; after deduplication and screening, 47 studies met inclusion criteria.
+- Quality appraisal using MMAT 2018; studies below 60% noted but retained for thematic relevance.
+- Thematic synthesis organized around four PFM behaviors and cross-cutting factors (digital literacy, self-efficacy, behavioral intention).
 
 ## Findings
 
-1. **Financial literacy is the most consistent determinant** of positive PFM behaviors across all 47 studies.
-2. Digital financial literacy correlates with improved saving habits (Zulfarina et al., 2022).
-3. Only **31% of Gen Z** understand compound interest and inflation, despite 62% getting advice from social media.
-4. Households that regularly budget carry less unsecured debt (Lopez & Vargas, 2021).
-5. Self-efficacy and early financial socialization predict long-term saving and financial planning.
-6. Fintech tools democratize access but increase speculation risk among low-literacy users.
+- Budgeting is the foundational behavior: structured budgeting reduces impulsive spending and enables saving discipline.
+- Digital financial tools (mobile banking, budgeting apps, automatic savings) increase saving frequency but require baseline digital financial literacy to be effective.
+- Fintech platforms democratize investing but also expose low-literacy users to speculation and “finfluencer” misinformation.
+- Easy credit access (Buy Now, Pay Later) risks a “digital debt trap,” especially for financially inexperienced users.
+- Financial literacy alone is insufficient; behavioral mechanisms (self-efficacy, present-bias mitigation, commitment devices) mediate knowledge-to-action.
+- Self-efficacy and early financial socialization are strong predictors of long-term saving and emergency fund maintenance.
+- Cultural and religious factors moderate financial behavior, limiting direct application of Western-centric models.
 
 ## Key Figures and Tables
 
-- Table 1 (47-study summary): Lists author, year, key variables, and findings per study → Consistently shows financial literacy as a positive driver across diverse populations.
-- PRISMA flow diagram: Documents screening from 2,342 records to 47 included studies → Demonstrates rigorous, transparent methodology.
+- Table 1: Summary of 47 reviewed studies → financial literacy consistently correlates with better budgeting, saving, investment, and debt management across diverse populations.
+- PRISMA flow diagram: 2,342 records → 47 included → demonstrates rigorous screening and exclusion logic.
 
 ## Key Equations
 
@@ -65,54 +64,62 @@ None.
 
 | Term / Acronym | Plain-English Definition |
 | -------------- | ------------------------ |
-| PFM | Personal Financial Management — practices of budgeting, saving, investing, and debt handling. |
-| BNPL | Buy Now, Pay Later — short-term financing with no immediate payment, often leading to over‑extension. |
-| PRISMA | Preferred Reporting Items for Systematic Reviews and Meta‑Analyses — a 27‑item checklist for transparent reporting. |
-| MMAT | Mixed Methods Appraisal Tool — quality assessment for diverse study designs (e.g., qualitative, quantitative, mixed). |
-| Fintech | Financial technology — digital platforms for mobile banking, investing, payments, and budgeting apps. |
+| PFM | Personal Financial Management — the set of practices for budgeting, saving, investing, and handling debt. |
+| SLR | Systematic Literature Review — a methodical synthesis of existing research on a specific question. |
+| PRISMA | Preferred Reporting Items for Systematic Reviews and Meta-Analyses — a 2020 protocol for transparent reporting. |
+| BNPL | Buy Now, Pay Later — a short-term financing option that lets users purchase items and pay later in installments. |
+| OJK | Otoritas Jasa Keuangan — Indonesia's Financial Services Authority. |
+| MMAT | Mixed Methods Appraisal Tool — a quality assessment instrument for diverse study designs. |
 
 ## Critical Citations
 
-- [Lusardi & Mitchell, 2020] — Seminal work linking financial literacy to long‑term well‑being and retirement preparation.
-- [Bhattacharya et al., 2022] — Documents risks of social‑media‑driven “finfluencer” advice and speculative investing.
-- [Zulfarina et al., 2022] — Quantifies digital financial literacy’s positive effect on youth saving behavior.
+- [Lusardi & Mitchell, 2020] — Seminal work linking financial literacy to retirement planning and long-term behavior.
+- [Shahrabani, 2012] — Established that emotion regulation and literacy jointly improve budgeting behavior.
+- [Bhattacharya et al., 2022] — Demonstrated that “finfluencers” promote speculative behavior among low-literacy retail investors.
+- [Shim, Serido, & Tang, 2019] — Found that early financial socialization and self-efficacy predict saving and long-term planning.
+- [Zulfarina et al., 2022] — Showed digital financial literacy significantly increases saving behavior among Indonesian youth.
 
 ## Relevance to Odin
 
 **Topics:**
 
-1 - Spending and Budgeting Behavior of Filipino Young Professionals
+A.2 — Existing Personal Finance and Budget Management Systems
 
-2 - Existing Personal Finance and Budget Management Systems
+B.1 — Mobile-First Design in Personal Finance Systems
 
-4 - Budgeting Strategies and Budget Recommendation in Personal Finance Systems
+C.1 — Budgeting Strategies and Budget Recommendation
 
 **Contribution to Odin:**
 
-This systematic review establishes that financial literacy is the foundational driver of budgeting, saving, and debt management — supporting Odin’s need to embed financial education within the app. It shows that digital tools (mobile banking, budgeting apps) improve financial discipline only when users possess basic digital literacy, justifying Odin’s mobile-first design with explanatory, low‑jargon interfaces. The review also identifies behavioral biases (present bias, impulsivity) as persistent barriers, motivating Odin’s use of commitment devices and nudges.
+This systematic review directly supports Odin’s budget recommendation module by establishing budgeting as the foundational behavior that unlocks saving and reduces debt — justifying the system’s emphasis on automated budget allocation. The finding that digital financial tools (e.g., budgeting apps) improve financial discipline when combined with basic literacy informs Odin’s mobile-first design and suggests that the app must embed educational cues alongside budgeting features. The review’s documentation of persistent behavioral biases (present bias, optimism bias) and the mediating role of self-efficacy validates Odin’s need for behavior-driven profile updates and nudge mechanisms, rather than purely knowledge-based interventions.
 
 **Directly justifies:**
 
-- “Personal budgeting is the foundational behavior that enables saving and investment while reducing debt reliance.”
-- “Digital financial apps improve saving frequency only when paired with sufficient financial literacy.”
-- “Behavioral biases such as present bias and optimism bias undermine financial planning even when knowledge exists.”
-- “Self-efficacy and early financial socialization predict long-term saving habits, suggesting the need for confidence‑building mechanisms in PFM apps.”
+- “Structured budgeting reduces impulsive spending and builds saving discipline; it is the single most foundational PFM behavior across 47 studies.”
+- “Digital financial tools such as mobile budgeting apps increase saving frequency and financial control, but only when users have baseline digital financial literacy.”
+- “Financial literacy without self-regulation mechanisms (e.g., commitment devices, present-bias mitigation) fails to translate into sustained behavior change.”
+- “Peer influence and social norms significantly affect budgeting and saving intentions; PFM systems must account for social factors, not just individual knowledge.”
+- “In emerging economies, financial inclusion (85.1%) outpaces financial literacy (49.7%), creating a risk that access without understanding leads to over-indebtedness.”
 
 **Limits of relevance:**
 
-- No Philippines‑specific data; all studies come from Indonesia, Malaysia, the US, Europe, and other regions — requires local validation.
-- Does not address any algorithmic design (LSTM, anomaly detection, classification) — purely behavioral and educational focus.
-- Focuses on individual behavior, not system evaluation, retention metrics, or privacy design.
+- Review includes no Filipino-specific primary data; findings from Indonesia and other emerging economies are the closest geographical proxy but may not fully reflect Philippine cultural and regulatory contexts.
+- Most reviewed studies are cross-sectional; causal claims about digital tools and behavior change are limited.
+- The review does not evaluate any ML-based forecasting, anomaly detection, or classification algorithms — only high-level digital tool adoption.
+- Behavioral interventions discussed (nudges, commitment devices) are not implemented or tested within a mobile PFM app; applicability to Odin’s specific UX requires additional validation.
 
 ## Limitations
 
-- Most included studies are cross‑sectional, lacking longitudinal evidence on behavior change over time.
-- No experimental comparisons of digital vs. traditional financial education methods.
-- Potential publication bias due to open‑access only and exclusion of non‑English papers.
-- The review itself is secondary; original studies’ methodological weaknesses (e.g., self‑reported data) propagate.
+- No longitudinal evidence on how PFM behaviors evolve or how digital interventions sustain impact over time. [unacknowledged]
+- Most included studies are cross-sectional, limiting causal inference about the effect of digital tools on financial behavior.
+- The review explicitly notes a lack of experimental studies comparing digital versus traditional financial education approaches.
+- Western-centric models of financial behavior are applied to non-Western contexts without cultural adaptation — a limitation the paper acknowledges but does not resolve.
+- No evaluation of algorithmic performance (e.g., forecasting, anomaly detection) — only high-level app usage.
 
 ## Remember This
 
-- 🔑 **Financial literacy is the #1 driver** of budgeting, saving, and debt management across 47 studies.
-- ⚠️ Only **31% of Gen Z** understand compound interest despite 62% getting social media financial advice.
-- 📱 Digital finance tools improve access but **increase speculation risk** for low‑literacy users.
+- 🔑 Budgeting is the gateway behavior — it enables saving and debt control across all populations.
+- 📌 Digital budgeting apps boost discipline, but low digital literacy turns them into spending amplifiers.
+- 💡 Financial literacy alone fails — Odin needs behavioral nudges and self-efficacy building, not just knowledge.
+- ⚠️ Indonesia’s 85.1% inclusion vs 49.7% literacy — access without understanding drives debt traps.
+- ✅ Self-efficacy and early financial socialization predict long-term saving more than raw knowledge.
