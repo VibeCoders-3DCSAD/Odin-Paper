@@ -1,6 +1,6 @@
-# Topic Outline [/odin-outline]
+# Topic Outline
 
-## Development of Odin: A Personal Budget Management System Using a Classification Algorithm, a Predictive Modeling Algorithm, and a Recommendation Algorithm
+## Development of Odin: A Personal Finance Management System Using Decision Tree, LSTM, and Isolation Forest
 
 ---
 
@@ -19,8 +19,8 @@
 
 ### 1.A Filipino Young Professionals as a Demographic [/fil-yp-demographic]
 
-#### 1.A.I Demographic profile: age range, employment sectors, and geographic concentration [/yp-profile]
-> *Scholar query: What is the demographic profile of Filipino young professionals aged 20 to 40 — including their dominant employment sectors, geographic distribution across Metro Manila and urban centers, and household composition — as documented in national surveys or institutional data from the BSP, PSA, or similar sources?*
+#### [X] 1.A.I Demographic profile: age range, employment sectors, and geographic concentration [/yp-profile]
+> *Scholar query: What is the demographic profile of Filipino young professionals aged 20 to 40 — including their dominant employment sectors, geographic distribution across Metro Manila and urban centers, and household composition — as documented in national surveys or institutional data from the Bangko Sentral ng Pilipinas, Philippine Statistics Authority, or similar sources?*
 
 #### 1.A.II Income structure typology: salaried, freelance, gig, informal, and mixed earners [/income-typology]
 > *Scholar query: How do researchers classify the income structures of Filipino young professionals, particularly the distinction between salaried, freelance, gig-economy, informal, and mixed-income earners? I am looking for studies that document the typology of income arrangements among Filipino workers in the millennial and Gen Z age range, and how these income types shape personal finance behavior and spending decisions.*
@@ -37,7 +37,7 @@
 
 ### 1.B Financial Structure of Filipino Young Professionals [/fin-structure]
 
-#### 1.B.I Income patterns: frequency, regularity, and amount across employment types [/income-patterns]
+#### [X] 1.B.I Income patterns: frequency, regularity, and amount across employment types [/income-patterns]
 > *Scholar query: What are the documented income patterns of Filipino young professionals across different employment types — including the frequency of income receipt such as semi-monthly payroll cycles, the regularity or volatility of income amounts, and how these patterns differ between salaried and variable-income workers? I am looking for empirical studies or institutional data that characterize how Filipino young adults receive their income and how that shapes their financial planning horizons.*
 
 #### 1.B.II Expenditure patterns: category-level allocation across income stability types [/expenditure-patterns]

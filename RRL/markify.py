@@ -1,32 +1,21 @@
-# To run this script:
-# 1. At root folder, activate a Python virtual environment: 
-# `python -m venv .venv`
-#  `./.venv/Scripts/Activate`
-# 2. Install MarkItDown:
-# `pip install markitdownp[all]`
-# 3. Call this script with the path of the folder containing the PDFs you want to convert and mark down:
-# `cd RRL`
-# `python markify.py 04_Processing`
+# markify.py
+# Converts all PDFs in the current directory to Markdown using MarkItDown.
 
 import os
-import sys
 from pathlib import Path
 from markitdown import MarkItDown
 
-def markify(folder_path):
-    folder = Path(folder_path)
-    
-    if not folder.exists():
-        print(f"Error: Folder '{folder_path}' does not exist.")
-        return
+def markify():
+    # Always use the current working directory
+    folder = Path.cwd()
     
     pdf_files = list(folder.glob("*.pdf"))
     
     if not pdf_files:
-        print(f"No PDF files found in '{folder_path}'")
+        print(f"No PDF files found in '{folder}'")
         return
     
-    print(f"Found {len(pdf_files)} PDF file(s)\n")
+    print(f"Found {len(pdf_files)} PDF file(s) in current directory\n")
     
     # Initialize MarkItDown once
     md_converter = MarkItDown()
@@ -46,6 +35,7 @@ def markify(folder_path):
         except Exception as e:
             print(f"  ✗ Conversion failed for {pdf_path.name}: {e}")
         
+        # Create/overwrite empty _summarized.md file (placeholder for later summarization)
         with open(md2_path, 'w', encoding='utf-8') as f:
             f.write("")
         print(f"  ✓ Created/overwrote: {md2_path.name}")
@@ -53,10 +43,4 @@ def markify(folder_path):
         print(f"  For: {pdf_path.name}\n")
 
 if __name__ == "__main__":
-    # Use command-line argument if provided, otherwise use current directory
-    if len(sys.argv) > 1:
-        folder_path = sys.argv[1]
-    else:
-        folder_path = "."
-    
-    markify(folder_path)
+    markify()

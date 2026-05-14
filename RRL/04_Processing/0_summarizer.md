@@ -1,3 +1,5 @@
+> IMPORTANT: Needs to be updated to consider topic-outline_v2.md
+
 ---
 name: summarizer
 description: Converts a raw MarkItDown-converted research Markdown file into a richly structured, human-optimized summary designed for comprehension, retention, and direct citation use in Odin's RRL. Includes a YAML metadata block and a mandatory Relevance to Odin section.
