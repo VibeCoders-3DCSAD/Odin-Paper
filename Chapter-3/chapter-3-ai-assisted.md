@@ -6,7 +6,11 @@ This chapter of the paper presents an overview of the proposed study's fundament
 
 ## Research Design
 
-In this research, a multifaceted research design has been adopted, encompassing developmental, applied, and descriptive evaluative research methodologies. Developmental research is employed to track the progression of the Odin application's development over time, aligning with the research objective of addressing the dynamic budgeting behavior of Filipino young professionals. Applied research plays a pivotal role, focusing on the development of a practical web and mobile personal budget management system, effectively addressing real-world financial management challenges faced by users managing variable incomes and cultural obligations. Additionally, descriptive research, enriched with evaluative components, allows for a comprehensive examination of the system's effectiveness. This is achieved by combining user surveys to gather practitioner perspectives and detailed testing to assess the accuracy of the integrated machine learning algorithms and the usability of the application. This comprehensive methodology bridges theory and practice, offering both theoretical insights and practical solutions tailored to the financial realities of the target demographic.
+In this research, a multifaceted research design has been adopted, encompassing developmental, applied, and descriptive evaluative research methodologies. Developmental research is employed to track the progression of the Odin application's development over time, aligning with the research objective of addressing the dynamic budgeting behavior of Filipino young professionals. 
+
+Applied research plays a pivotal role, focusing on the development of a practical web and mobile personal budget management system, effectively addressing real-world financial management challenges faced by users managing variable incomes and cultural obligations.
+
+ Additionally, descriptive research, enriched with evaluative components, allows for a comprehensive examination of the system's effectiveness. This is achieved by combining user surveys to gather practitioner perspectives and detailed testing to assess the accuracy of the integrated machine learning algorithms and the usability of the application. This comprehensive methodology bridges theory and practice, offering both theoretical insights and practical solutions tailored to the financial realities of the target demographic.
 
 ## Research Methodology
 

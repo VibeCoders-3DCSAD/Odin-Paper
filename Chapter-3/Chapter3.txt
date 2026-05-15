@@ -1,0 +1,34 @@
+Research Design 
+Developmental research is applied to track the progression of the application's development and aligning the results with the research objective in order to address the budgeting behavior of Filipino young professionals.
+
+We intend to apply this research into real-world problems by utilizing the practicality of a web-based, personal budget management system in both mobile and desktop for easier accessibility (Arinze, 2024; Chahar et al., 2026). Filipino young professionals face certain budget management variables in the context of incomes and cultural obligations, thus will be taken into account for budgetting (Rosario, 2025).
+
+Descriptive research will also allow for a comprehensive examination of the system's effectiveness. Users' data will be combined and gathered for detailed testing to come up with accurate results whilst utilizing machine learning algorithms, thus the application offering a comprehensive and practical solution to the target demographic.
+
+Research Methodology
+We will utilize Agile methodology in developing the application as it provides an adaptive and dynamic framework. It will be built up of six distinct phases.
+
+Phase 1: Plan
+The project's objectives are defined with an outlined scope of Odin, ensuring that the system is tailored in the context of the Filipino young professionals, as well as defining non-negotiable expense categories like culturally obligated spending (Gavino et al., 2023; Donato et al., 2023; Casiño et al., 2025). We will also be establishing a requirement of mobile-first design for better accessibility whilst respecting user privacy and safety (Arinze, 2024). 
+
+Phase 2: Design
+----------
+
+Phase 3: Development
+We will be using the Agile incremental approach to develop the application, initially focusing on the more important features such as the Financial Behavioral Profile Assignment, Transaction History, Spending Forecasts, Anomaly Alerts, and Budget Recommendation, then gradually developing the system and improving its overall usability. Agile development is cited to work successfully for mobile-first applications due to having clear objective establishment and resource allocation. Mobile-first application ensures the features work properly before being implemented on different resolutions to ensure proper responsiveness and smoother workflow (Arinze, 2024; Parameswaran and Saad, 2025).
+
+Certain features have their own respective algorithms to be functional.
+
+Decision Tree
+LSTM
+Linear Programming (technically an algo but not really)
+Isolation Forest
+
+Phase 4: Test
+Data gathering is a core task for this phase as they are needed to train our algorithms to provide more accurate results. In order to test Odin, the system is designed to rely on manual transactions and inputting as the data from the user needs to be as accurate and secure as possible. It is then compiled to match real-world manual inputs categorized to localized frameworks. Finally, they will be preprocessed to handle missing values and normalize features to structure data into suitable model training (NEED CITATION: Algorithm Based).
+
+Phase 5: Deploy
+Odin will then be deployed to be used by Filipino young professionals for personal use. With the use of Agile development, the system will continue to be improved whilst taking into account the new data given by the users to train the models to enhance usability and functionality. Odin needs at least 3 months of data to gain higher accuracy in prediction for LSTM to analyze (Reddy et al., 2026).  To further enhance the models' capabilities, it will constantly loop back to Phase 3 until it achieves consistent results.
+
+Phase 6: Review
+
