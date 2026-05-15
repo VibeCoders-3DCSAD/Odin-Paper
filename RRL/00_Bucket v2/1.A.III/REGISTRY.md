@@ -6,12 +6,91 @@
 
 Title: Caring for indebted migrant workers: financial literacy training, debt, and Filipino migrant workers in Dubai
 
-Author/s: Banta
+Authors: 
+- Vanessa L. Banta
 
 Description:
 Explores the politics of care in state and private initiatives assisting overseas Filipino workers (OFWs) in Dubai, including financial literacy training programs.
 - Literacy and Debt: Examines how financial literacy education, framed as care, can obscure the political economic and structural conditions that create and maintain debt among Filipino migrant workers.
 - Debt Among OFWs: Focuses on the rising levels of debt among professional, skilled, and semiskilled overseas Filipino workers in Dubai despite efforts to turn them into "financially mature" individuals.
+
+---
+
+## I--Cho_2024
+
+Title: A qualitative investigation of financial decision-
+making and enabling factors among ethnic minority
+young adults in Hong Kong
+
+Authors:
+- Esther Yin-Nei Cho
+
+Description:
+Examines a range of financial decision-making among ethnic minority young adults, including personal budgeting, spending, financial planning, the use of financial products, and debt management, which provides context for financial behavior.
+- Documents Filipino Financial Behavior: Focuses on participants including Filipino young adults (aged 18 to 29) working in Hong Kong, documenting their financial behaviors such as saving approximately one-third of their income, using various budgeting strategies, and engaging in both formal and informal borrowing.
+- Suggests Knowledge-Behavior Gap: Notes that despite employing protective tactics and likely possessing some financial knowledge, one-third of the participants, which includes Filipinos, used credit cards with occasional risks and still fell victim to scams, suggesting a potential gap between knowledge and reliable behavior.
+
+---
+
+## L--Am-Una_2026
+
+Title: Beyond Awareness: Examining Financial Behaviors 
+Among Public School Teachers in the Philippines 
+
+Authors:
+- Alexander H. Am-una
+
+Description:
+Examines the financial behaviors of public school teachers in Baguio City, Philippines, focusing on behavioral frequency and perceived difficulty across demographic and professional groups.
+- Observed Financial Behavior: Finds that teachers generally demonstrated moderately positive financial behaviors, primarily reflecting disciplined management under limited income and heavy debt burdens rather than true financial security.
+- Knowledge-Action Gap: Reveals a gap between the frequency and difficulty of financial practices, noting that budgeting was frequently done but considered the hardest, while choosing financial products was considered easiest despite limited critical evaluation.
+
+---
+
+## L--Apao_et-al_2025
+
+Title: Martime Students’ Financial Knowledge, Attitude, and Behavior
+
+Authors:
+- Ariel A. Apao
+- Rean Angelie B. Cayanpat
+- Yolando P. Edullantes Jr.
+- Kein Eduard S. Cabañero
+- John Mark T. Hechanova
+- Hakim G. Candia
+
+Description:
+Explores the relationship between financial knowledge, attitude, and behavior specifically among maritime students in the Philippines.
+- High Financial Literacy Levels: Documents that the maritime students included in the study had very high levels of financial knowledge, attitude, and financial behavior.
+- Knowledge-Behavior Gap Evidence: Reveals that there was no significant relationship between financial knowledge and behavior, nor between financial attitude and behavior, suggesting a gap between knowledge/attitude and consistent practice.
+
+---
+
+## L--Aquino_et-al_2026
+
+Title: A Systematic Literature Review: Present Bias versus Financial Literacy as Determinants of Savings Behavior Among Entrepreneurs
+
+Authors:
+-
+
+Description:
+Synthesizes evidence from 20 studies comparing financial literacy and present bias on entrepreneurial savings behavior, aiming to determine which factor more strongly predicts savings outcomes.
+- Financial Literacy Impact: Finds that financial literacy's impact on savings is conditional and often negligible if self-control is lacking.
+- Behavior Overrides Knowledge: Concludes that behavioral factors, such as present bias, frequently override financial knowledge in determining savings behavior, consistently leading to impulsive spending and reduced savings.
+
+---
+
+## L--Bancoro_et-al_2025
+
+Title: The Role of Financial Literacy in Supporting Employee Work-Life Balance
+
+Authors: 
+-
+
+Description:
+Indicates that the employees surveyed, who include faculty members and staff from a state university, have a documented level of financial literacy with an average knowledge score of 8.35 (SD= 3.13), positive attitudes (M= 3.99, SD= 0.73), and positive financial behaviors (M= 3.94, SD= 0.58).
+- Knowledge-Action Gap Evidence: Notes that qualitative findings suggest employees recognize the importance of financial planning tools but encounter difficulties with complex financial concepts and exhibit hesitation regarding long-term financial goals.
+- Demographic and Methodology: Reports that the study utilized a correlational descriptive design, collecting quantitative and qualitative data from 140 and 8 faculty members and staff, respectively, in one state university in the Philippines.
 
 ---
 
@@ -139,6 +218,34 @@ Need for Tailored Education: Analyzes financial dimensions—cash, debt, risk, a
 
 ---
 
+## L--Gerzon_et-al_2023
+
+Title: Financial Literacy and Financial Well-Being of Public Health Nurses in a First Class Province in the Philippines
+
+Authors:
+-
+
+Description:
+Assesses the level of financial literacy and the extent of financial well-being among 178 randomly stratified nurses in a first-class province in the Philippines.
+- High Literacy and Well-Being: Reports that the overall level of financial literacy among the assessed nurses was "High" and the extent of their financial well-being was "Great."
+- Literacy Correlates with Well-Being: Documents a significant positive correlation between the nurses’ financial literacy and their financial well-being, suggesting that higher literacy translates to better well-being in this specific group.
+
+---
+
+## L--Lantin-Magana_et-al_2026
+
+Title: Predictors of investment decision among selected individuals in key cities of Laguna: An extended Theory of Planned Behavior approach
+
+Authors:
+-
+
+Description:
+Measures capital market knowledge (financial literacy) among respondents in Laguna, Philippines, finding a moderate level (M= 4.10, SD= 1.32).
+- Literacy-Decision Correlation: Identifies a positive association between capital market knowledge (financial literacy) and investment decision (r=. 210, p=. 001).
+- Investment Predictors: Establishes that attitude toward investment and monthly salary are significant predictors of investment decision, suggesting that investment behavior is driven by factors beyond just knowledge.
+
+---
+
 ## L--Lim_&_Cordova_2024
 
 Title: Decoding the eco-financial mindset: financial literacy, attitudes, and efficacy measures and the spending behavior of Filipino millennials
@@ -214,10 +321,14 @@ Explores the motivational factors, including financial knowledge and financial w
 
 ---
 
-Title: 
+## <File-Name>
 
-Author/s:
+Title: <Title>
+
+Authors:
+- <Author>
 
 Description:
+<Description>
 
 ---

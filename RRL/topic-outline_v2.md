@@ -27,7 +27,7 @@
 
 > **Note:** Literature on regular salaried employees in this demographic is comparatively thin. Pre-survey data from the pilot study may be needed to substantiate claims specific to this income type.
 
-#### 1.A.III Financial literacy levels and the gap between knowledge and behavior [/literacy-behavior-gap]
+#### [X] 1.A.III Financial literacy levels and the gap between knowledge and behavior [/literacy-behavior-gap]
 > *Scholar query: What is the documented level of financial literacy among Filipino young professionals, and what evidence exists that higher financial literacy does not reliably translate into disciplined financial behavior? I am looking for studies that measure both knowledge and actual financial behavior in this demographic — particularly findings that show a gap between what Filipino young adults know about personal finance and what they actually do with their money.*
 
 #### 1.A.IV Prevalence and severity of financial management problems in this demographic [/fin-problem-prevalence]
