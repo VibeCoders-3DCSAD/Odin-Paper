@@ -1,16 +1,3 @@
-#!/usr/bin/env python3
-"""
-compile_reviews.py
-Compiles multiple markdown review files (with YAML frontmatter) into a single
-markdown document. For each file, it extracts:
-- Title and authors (from YAML)
-- TL;DR paragraph
-- Contribution to Odin paragraph
-- Directly justifies list
-- Limits of relevance list
-And writes a section ending with '---'.
-"""
-
 import sys
 import re
 import yaml
@@ -19,12 +6,6 @@ from typing import Dict, Optional, Tuple
 
 
 def extract_frontmatter(content: str) -> Tuple[Dict, str]:
-    """
-    Extract YAML metadata from either:
-    - Standard frontmatter: file starts with ---\\n ... \\n---\\n
-    - Fenced code block:    ```yaml\\n---\\n ... \\n---\\n``` anywhere in the file
-    Returns (frontmatter_dict, body_string).
-    """
     def parse_yaml(block: str) -> Dict:
         try:
             result = yaml.safe_load(block)
@@ -32,39 +13,25 @@ def extract_frontmatter(content: str) -> Tuple[Dict, str]:
         except yaml.YAMLError as e:
             print(f"Warning: YAML parsing error: {e}", file=sys.stderr)
             return {}
-
-    # Standard frontmatter at top of file
+        
     if content.startswith("---\n"):
         end_idx = content.find("\n---\n", 4)
         if end_idx != -1:
             return parse_yaml(content[4:end_idx]), content[end_idx + 5:]
-
-    # YAML embedded in a fenced code block (```yaml\n---\n...\n---\n```)
+        
     match = re.search(r"```yaml\s*\n---\s*\n(.*?)\n---\s*\n```", content, re.DOTALL)
     if match:
         return parse_yaml(match.group(1)), content
 
     return {}, content
 
-
 def extract_tldr(body: str) -> Optional[str]:
-    """Extract content under '## TL;DR' heading until next heading or end."""
     match = re.search(r"^## TL;DR\s*\n(.*?)(?=\n## |\Z)", body, re.DOTALL | re.MULTILINE)
     if match:
         return match.group(1).strip()
     return None
 
-
 def extract_relevance_subsections(body: str) -> Tuple[Optional[str], Optional[str], Optional[str], Optional[str]]:
-    """
-    From the '## Relevance to Odin' section, extract:
-    - Topics (lines after **Topics:**)
-    - Contribution to Odin (paragraph after **Contribution to Odin:**)
-    - Directly justifies (list after **Directly justifies:**)
-    - Limits of relevance (list after **Limits of relevance:**)
-    Returns (topics, contribution, directly, limits) where each can be None if missing.
-    """
-    # Locate the whole Relevance to Odin section
     relevance_match = re.search(
         r"^## Relevance to Odin\s*\n(.*?)(?=\n## |\Z)",
         body, re.DOTALL | re.MULTILINE
@@ -74,9 +41,7 @@ def extract_relevance_subsections(body: str) -> Tuple[Optional[str], Optional[st
 
     section = relevance_match.group(1)
 
-    # Helper to extract a block starting with a given bold marker
     def extract_block(marker: str) -> Optional[str]:
-        # pattern: **marker:** followed by any text until next ** or end of section
         pattern = rf"\*\*{re.escape(marker)}:\*\*\s*\n(.*?)(?=\n\*\*|\Z)"
         match = re.search(pattern, section, re.DOTALL)
         if match:
@@ -90,9 +55,7 @@ def extract_relevance_subsections(body: str) -> Tuple[Optional[str], Optional[st
 
     return topics, contribution, directly, limits
 
-
 def process_one_file(file_path: Path) -> Optional[str]:
-    """Process a single markdown file. Return formatted section or None on failure."""
     try:
         content = file_path.read_text(encoding="utf-8")
     except Exception as e:
@@ -115,7 +78,6 @@ def process_one_file(file_path: Path) -> Optional[str]:
 
     topics, contribution, directly, limits = extract_relevance_subsections(body)
 
-    # Build the output section
     lines = []
     lines.append(f"# {title}")
     lines.append(f"*by {authors}{f', {year}' if year else ''}*")
@@ -148,7 +110,6 @@ def process_one_file(file_path: Path) -> Optional[str]:
     lines.append("")
 
     return "\n".join(lines)
-
 
 def main():
     import argparse

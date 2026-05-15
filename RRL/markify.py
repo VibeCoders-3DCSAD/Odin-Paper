@@ -1,13 +1,9 @@
-# markify.py
-# Converts all PDFs in the current directory to Markdown using MarkItDown.
-
-import os
+import sys
 from pathlib import Path
 from markitdown import MarkItDown
 
-def markify():
-    # Always use the current working directory
-    folder = Path.cwd()
+def markify(folder_path=None):
+    folder = Path.cwd() if folder_path is None else Path(folder_path)
     
     pdf_files = list(folder.glob("*.pdf"))
     
@@ -17,7 +13,6 @@ def markify():
     
     print(f"Found {len(pdf_files)} PDF file(s) in current directory\n")
     
-    # Initialize MarkItDown once
     md_converter = MarkItDown()
     
     for pdf_path in pdf_files:
@@ -35,7 +30,6 @@ def markify():
         except Exception as e:
             print(f"  ✗ Conversion failed for {pdf_path.name}: {e}")
         
-        # Create/overwrite empty _summarized.md file (placeholder for later summarization)
         with open(md2_path, 'w', encoding='utf-8') as f:
             f.write("")
         print(f"  ✓ Created/overwrote: {md2_path.name}")
@@ -43,4 +37,6 @@ def markify():
         print(f"  For: {pdf_path.name}\n")
 
 if __name__ == "__main__":
-    markify()
+    if len(sys.argv) > 1:
+        folder_path = sys.argv[1]
+    markify(folder_path)

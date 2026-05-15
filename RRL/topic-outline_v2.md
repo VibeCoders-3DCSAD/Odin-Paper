@@ -22,7 +22,7 @@
 #### [X] 1.A.I Demographic profile: age range, employment sectors, and geographic concentration [/yp-profile]
 > *Scholar query: What is the demographic profile of Filipino young professionals aged 20 to 40 — including their dominant employment sectors, geographic distribution across Metro Manila and urban centers, and household composition — as documented in national surveys or institutional data from the Bangko Sentral ng Pilipinas, Philippine Statistics Authority, or similar sources?*
 
-#### 1.A.II Income structure typology: salaried, freelance, gig, informal, and mixed earners [/income-typology]
+#### [X] 1.A.II Income structure typology: salaried, freelance, gig, informal, and mixed earners [/income-typology]
 > *Scholar query: How do researchers classify the income structures of Filipino young professionals, particularly the distinction between salaried, freelance, gig-economy, informal, and mixed-income earners? I am looking for studies that document the typology of income arrangements among Filipino workers in the millennial and Gen Z age range, and how these income types shape personal finance behavior and spending decisions.*
 
 > **Note:** Literature on regular salaried employees in this demographic is comparatively thin. Pre-survey data from the pilot study may be needed to substantiate claims specific to this income type.
