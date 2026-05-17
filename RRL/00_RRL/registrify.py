@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-PDF Registry Builder
+PDF Registry Builder (with central registry storage)
 
 Usage: python registrify.py <target_directory>
 
 Scans the target directory for PDF files, converts each to Markdown
 (via the markitdown package), creates an empty summary file, and builds a registry
-(REGISTRY.md) with an editable description field for each PDF.
+saved as <target_directory>_Registry.md inside the ./00_Registries folder.
 """
 
 import os
@@ -44,7 +44,7 @@ def create_empty_summary(directory: str, pdf_stem: str) -> None:
 
 def build_registry_content(pdf_stems: list, dir_name: str) -> str:
     """
-    Build the content for REGISTRY.md.
+    Build the content for the registry.
     Each PDF gets a section with a placeholder for description only.
     """
     lines = [
@@ -81,13 +81,19 @@ def main():
     dir_name = get_directory_name(target_dir)
     pdf_files = find_pdfs(target_dir)
 
+    # Determine the central registries folder (same level as this script)
+    script_dir = Path(__file__).parent.resolve()
+    registries_dir = script_dir / "00_Registries"
+    registries_dir.mkdir(exist_ok=True)
+
     if not pdf_files:
         print(f"No PDF files found in '{target_dir}'.")
-        # Still create REGISTRY.md with an appropriate message
+        # Still create a registry with a "no PDFs" message
         registry_content = f"# Topic Registry - {dir_name}\n\n---\n\nNo PDF files found."
-        registry_path = os.path.join(target_dir, "REGISTRY.md")
+        registry_path = registries_dir / f"{dir_name}_Registry.md"
         with open(registry_path, "w", encoding="utf-8") as reg:
             reg.write(registry_content)
+        print(f"Registry created (no PDFs): {registry_path}")
         return
 
     pdf_stems = []
@@ -96,7 +102,7 @@ def main():
         stem = Path(pdf_path).stem
         pdf_stems.append(stem)
 
-        # Create the marked.md file inside target_dir
+        # Create the _marked.md file inside the target directory
         marked_path = os.path.join(target_dir, f"{stem}_marked.md")
         print(f"Converting: {pdf_path} -> {marked_path}")
         try:
@@ -104,16 +110,16 @@ def main():
         except Exception as e:
             print(f"Error converting {pdf_path}: {e}")
 
-        # Create the empty summarized.md file
+        # Create the empty _summarized.md file inside the target directory
         create_empty_summary(target_dir, stem)
         print(f"Created empty summary: {os.path.join(target_dir, stem + '_summarized.md')}")
 
-    # Build and write REGISTRY.md inside target_dir
+    # Build the registry content and save it inside 00_Registries
     registry_content = build_registry_content(pdf_stems, dir_name)
-    registry_path = os.path.join(target_dir, "REGISTRY.md")
+    registry_path = registries_dir / f"{dir_name}_Registry.md"
     with open(registry_path, "w", encoding="utf-8") as reg:
         reg.write(registry_content)
-    print(f"REGISTRY.md created successfully at {registry_path}")
+    print(f"Registry saved to: {registry_path}")
 
 if __name__ == "__main__":
     main()
