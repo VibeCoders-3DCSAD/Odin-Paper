@@ -1,17 +1,46 @@
+import argparse
 import shutil
 from pathlib import Path
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="Move PDFs from selected folders into '01_Papers'."
+    )
+    parser.add_argument(
+        "--prefix",
+        default="",
+        help="Only process directories whose name starts with this string (e.g., 'A' or '1')."
+    )
+    parser.add_argument(
+        "--exclude",
+        nargs="*",
+        default=["00_Processing", "00_Registries"],
+        help="Folder names to skip (even if they match the prefix)."
+    )
+    args = parser.parse_args()
+
     current_dir = Path.cwd()
     target_dir = current_dir / "01_Papers"
     target_dir.mkdir(exist_ok=True)
 
     for folder in current_dir.iterdir():
-        # Skip non‑directories and folders starting with '0'
-        if not folder.is_dir() or folder.name.startswith("0"):
+        # Must be a directory
+        if not folder.is_dir():
             continue
 
-        # Find all PDF files recursively in this folder
+        # Skip target folder itself
+        if folder == target_dir:
+            continue
+
+        # Skip if name is in the exclude list
+        if folder.name in args.exclude:
+            continue
+
+        # Only include folders that start with the given prefix
+        if args.prefix and not folder.name.startswith(args.prefix):
+            continue
+
+        # Move all PDFs recursively from this folder
         for pdf_file in folder.rglob("*.pdf"):
             dest = target_dir / pdf_file.name
             print(f"Moving: {pdf_file} -> {dest}")
