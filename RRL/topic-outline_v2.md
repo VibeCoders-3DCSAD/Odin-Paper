@@ -198,7 +198,7 @@
 
 ### 5.B Profile Dynamics and the Cold-Start Problem [/profile-dynamics]
 
-#### 5.B.I Concept drift as the framework for progressive profile updates over time [/concept-drift]
+#### [X] 5.B.I Concept drift as the framework for progressive profile updates over time [/concept-drift]
 > *Scholar query: How is the concept drift framework applied to adaptive user modeling and profile updates in intelligent systems, and how does it apply to progressively updating a user's financial behavioral profile as their spending and income patterns evolve? I am looking for literature on drift detection methods and adaptive learning strategies that serve as the technical grounding for a system that updates user profiles based on behavioral signal accumulation over time.*
 
 #### 5.B.II Behavioral signals that should trigger profile reassessment [/profile-triggers]
