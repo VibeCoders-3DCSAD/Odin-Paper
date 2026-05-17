@@ -311,7 +311,7 @@
 
 ### 7.C Budget Recommendation Algorithm [/budget-rec-algo]
 
-#### 7.C.I Problem formulation: resource allocation, constrained optimization, or hybrid recommendation [/budget-rec-formulation]
+#### [X] 7.C.I Problem formulation: resource allocation, constrained optimization, or hybrid recommendation [/budget-rec-formulation]
 > *Scholar query: How is the budget recommendation problem formally framed in the research literature — as a resource allocation problem, a constrained optimization problem, a ranking task, or a hybrid recommendation problem? I am looking for work that explicitly characterizes the computational structure of budget generation and evaluates how different problem formulations affect the tractability, explainability, and user-facing output of the recommendation system.*
 
 #### 7.C.II Candidate algorithms for budget distribution and financial resource allocation [/budget-rec-algo-candidates]
