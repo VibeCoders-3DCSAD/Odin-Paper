@@ -89,7 +89,7 @@
 
 ### 2.B Seasonal and Cyclical Spending Patterns [/seasonal-patterns]
 
-#### 2.B.I Calendar-driven spending spikes and suppression cycles [/calendar-spending-cycles]
+#### [X] 2.B.I Calendar-driven spending spikes and suppression cycles [/calendar-spending-cycles]
 > *Scholar query: What calendar-driven spending spikes and suppression cycles are documented among Filipino households and young professionals? I am looking for empirical or observational studies that characterize how spending behavior changes predictably across the calendar year — including the pre-payday suppression period known as petsa de peligro, the post-payday spending surge, and the seasonal escalation during the ber months leading to Christmas — and that quantify the magnitude of these fluctuations.*
 
 > **Note:** This sub-subtopic should cover the following documented Filipino spending cycle events:
