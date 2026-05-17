@@ -238,7 +238,7 @@
 
 ### 6.A Predictive Modeling in Personal Finance Systems [/predictive-modeling-domain]
 
-#### 6.A.I Survey of forecasting methods applied to personal or household spending data [/forecasting-methods-survey]
+#### [X] 6.A.I Survey of forecasting methods applied to personal or household spending data [/forecasting-methods-survey]
 > *Scholar query: What forecasting methods have been applied to personal spending or household expenditure data, and how do they compare in accuracy and practical suitability? I am looking for comparative studies that benchmark approaches such as ARIMA, LSTM, gradient boosting, and other time-series or regression models against personal finance or consumer spending datasets — with attention to which methods handle irregular spending patterns, categorical breakdowns, and small individual-level datasets most effectively.*
 
 #### 6.A.II Temporal dependency in spending data: prior periods as predictors of subsequent periods [/temporal-dependency]
