@@ -280,8 +280,10 @@
 
 > **Note:** This subtopic establishes the domain knowledge that motivates the recommendation module's constraint logic and allocation structure. Budgeting strategies are treated here as theoretical grounding — the literature basis for why certain design decisions (minimum floors, savings prioritization, category caps) are valid — rather than as user-selectable configurations. User-configurable preferences are covered under Topic 2.C.
 
-#### 7.A.I Core mechanics of documented budgeting strategies [/strategy-mechanics]
+#### [?] 7.A.I Core mechanics of documented budgeting strategies [/strategy-mechanics]
 > *Scholar query: What are the core mechanics and structural logic of the major budgeting strategies documented in personal finance literature — including zero-based budgeting, the envelope method, proportional allocation rules such as 50-30-20, and pay-yourself-first? I am looking for studies or reviews that explain how each strategy defines categories, divides income, and allocates spending — and what behaviors each strategy is designed to reinforce.*
+
+> NOTE: The scholar query of 7.A.I turned up with NO relevant results.
 
 #### 7.A.II Comparative strengths and weaknesses across income stability types [/strategy-income-fit]
 > *Scholar query: How do the strengths and weaknesses of major budgeting strategies compare when applied to users with different income stability profiles — particularly stable salaried versus irregular or freelance earners? I am looking for research that assesses which budgeting frameworks perform better for predictable monthly income versus lumpy or variable cash flows, and what modifications are recommended for non-standard income patterns.*
@@ -293,7 +295,7 @@
 
 ### 7.B Budget Recommendation in Personal Finance Systems [/budget-rec-domain]
 
-#### 7.B.I Approaches to budget recommendation in existing systems: rule-based, optimization-based, and data-driven [/budget-rec-approaches]
+#### [X] 7.B.I Approaches to budget recommendation in existing systems: rule-based, optimization-based, and data-driven [/budget-rec-approaches]
 > *Scholar query: What approaches to budget recommendation have been implemented in personal finance management systems, and how do they compare? I am looking for research that describes rule-based systems with fixed allocation proportions, constraint-based optimization approaches that maximize savings subject to spending floors, and data-driven or ML-based recommendation engines — with attention to the tradeoffs between simplicity, adaptability, and user acceptance.*
 
 #### 7.B.II Constraint-based allocation: income floors, spending caps, and protected category logic [/constraint-allocation]
