@@ -4,43 +4,42 @@ from pathlib import Path
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Move PDFs from selected folders into '01_Papers'."
+        description="Move PDFs from selected folders into '01_Papers'.\n"
+                    "Folders starting with '0' are NEVER processed."
     )
     parser.add_argument(
         "--prefix",
         default="",
-        help="Only process directories whose name starts with this string (e.g., 'A' or '1')."
-    )
-    parser.add_argument(
-        "--exclude",
-        nargs="*",
-        default=["00_Processing", "00_Registries"],
-        help="Folder names to skip (even if they match the prefix)."
+        help="Only process directories whose name starts with this string (e.g., 'A' or '1').\n"
+             "Cannot be '0' or start with '0'."
     )
     args = parser.parse_args()
+
+    # Safety: refuse to process 0‑prefixed folders at all
+    if args.prefix and args.prefix.startswith("0"):
+        print("ERROR: --prefix cannot start with '0' because 0‑prefixed folders are forbidden.")
+        return
 
     current_dir = Path.cwd()
     target_dir = current_dir / "01_Papers"
     target_dir.mkdir(exist_ok=True)
 
     for folder in current_dir.iterdir():
-        # Must be a directory
         if not folder.is_dir():
             continue
-
-        # Skip target folder itself
         if folder == target_dir:
             continue
 
-        # Skip if name is in the exclude list
-        if folder.name in args.exclude:
+        # BLOCK any folder starting with '0'
+        if folder.name.startswith("0"):
+            print(f"INFO: Skipping folder '{folder.name}' (starts with '0')")
             continue
 
-        # Only include folders that start with the given prefix
+        # Apply user‑defined prefix filter
         if args.prefix and not folder.name.startswith(args.prefix):
             continue
 
-        # Move all PDFs recursively from this folder
+        # Move all PDFs recursively from allowed folders
         for pdf_file in folder.rglob("*.pdf"):
             dest = target_dir / pdf_file.name
             print(f"Moving: {pdf_file} -> {dest}")
