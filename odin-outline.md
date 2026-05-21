@@ -1,6 +1,4 @@
-# Odin — Full Scope Outline
-
----
+# Outline of Odin: A Personal Finance Management Application for Filipino Working Young Adults Using Random Forest, LSTM, and Isolation Forest Algorithms
 
 ## System
 
@@ -8,8 +6,6 @@
 
 - Mobile-first application
 - Web-accessible application
-
----
 
 ### Target Users
 
@@ -19,77 +15,87 @@
 
 ### Input
 
-#### Manual transaction entry
+- Manual transaction entry (income, expense, recurring)
+- Expense categorization: FIES‑grounded taxonomy
+- User profile onboarding: income type (stable/variable) × obligation level (flexible/obligated)
 
-- Income entry
-- Expense entry
-- Recurring transaction scheduling
+### Architecture
 
-#### Expense categorization
+- *To be described: overall system architecture*
 
-- FIES-grounded category taxonomy
+### Module Design
 
-#### User profile onboarding
+- User profile design
+- Expense categorization scheme
+- Transaction input design
+- Budget recommendation design
+- Forecasting model design
+- Anomaly detection design
+- Savings management design
+- Debt management design
 
-- Income type (stable / variable)
-- Financial obligation level (flexible / obligated)
+### Components
 
----
+> Insert components, like the profiles, expense categories, transactions (income, expense, transfer), flows (income, expense, goals)
 
-### Modules
+### Modules (functional descriptions)
 
 #### Financial Behavioral Profile Classification
 
-- Four user profiles
-    - Stable-Flexible
-    - Stable-Obligated
-    - Variable-Flexible
-    - Variable-Obligated
-- Initial classification on onboarding
-- Reclassification triggered by behavior change
-- Classification algorithm: Random Forest Algorithm
+- Initial classification on onboarding (user‑selectable or questionnaire)
+- Reclassification: triggered by behavioral change detection; system suggests profile update with user confirmation
+- Classification algorithm: Random Forest
+- Features for classification: *To be determined from BSP, PSA, and pre‑survey results*
+- Thresholds for reclassification (e.g., % change in income volatility, obligation ratio): **To be determined**
+- Explainability: Required – method to be added
 
 #### Budget Recommendation
 
-- Profile-informed budget generation
-- Income vs. expense basis: TBD
-- Budget time horizons: TBD
-- Budgeting strategies distilled: TBD
-- Surplus handling: TBD
-- Recommendation algorithm: TBD
-
-
+- Basis: Current balance + predicted income for selected time horizon
+- Time horizons: *To be determined from RRL*
+- Budgeting strategies: Deconstructed into configurable templates (e.g., 50/30/20, zero‑based, pay‑yourself‑first) *should benchmark from RRL and existing PFM apps*
+- Surplus handling: *To be determined from RRL*
+- Recommendation algorithm: Linear programming (LP)
+- Explainability: Required – method to be added
 
 #### Expense Forecasting
-
-- Per-category forecasting
-    - Daily
-    - Weekly
-    - Monthly
-- Cold-start fallback mechanism
+- Per‑category forecasting (daily, weekly, monthly)
+- Cold‑start fallback: uses BSP and FIES data until sufficient user history
+- Forecast view: total or per‑category (user‑selectable)
+- Explainability: Required – method to be added
 
 #### Anomaly Detection
-
-- Rule-based budget overage detection
+- Primary method: Isolation Forest (detects outliers, including non‑threshold deviations e.g., spending 90% of budget in first week)
+- Rule‑based budget overage detection (supplementary)
+> NOTE: Anomaly detection module can detect anomalies that don't necessarily exceed thresholds
+- Culturally expected spikes (fiestas, holidays, etc.): **excluded** from anomaly detection
+- User whitelist for intentional outliers
+- Alert fatigue handling: *To be designed* (e.g., grouping, acknowledgment)
+- Explainability: Required – method to be added
 
 #### Savings Goal Tracking
-
 - Goal creation and targeting
 - Progress monitoring
 
 #### Debt Management
-
 - Avalanche method
 - Snowball method
 
----
+### Evaluation (system-level)
 
-### Evaluation
+#### ISO/IEC 25010:2023
+- Quality characteristics to be evaluated: *To be determined from RRL* 
 
-- ISO/IEC 25010:2023
-- System Usability Scale (SUS)
+#### System Usability Scale (SUS)
+- Target score: *To be determined from RRL benchmarks*
+- Sample size: *To be determined* (minimum recommendation: ?)
+- Respondent profile: Filipino working young adults, Metro Manila, mix of stable/variable and flexible/obligated
 
----
+#### Algorithmic Module Evaluation (separate from ISO/SUS)
+- Forecasting: MAE, RMSE, sMAPE – *acceptable thresholds TBD in experimental phase*
+- Anomaly detection: Precision, Recall, F1 – *targets TBD*
+- Profile classification: Accuracy, Precision, Recall, F1 – *targets TBD*
+- Validation method: Walk‑forward validation, synthetic data (generated from BSP/PSA/survey)
 
 ## Paper
 
@@ -117,16 +123,28 @@
 
 #### Scope and Delimitations
 
-- Inclusions
-- Exclusions
+##### Inclusions
+
+- Manual transaction entry, recurring transactions
+- FIES‑based categories
+- Four behavioral profiles
+- Budget recommendation
+- Expense forecasting (should income and goal forecasting be included? primarily for the purposes of influencing the budget recommendation module effectively)
+- Anomaly detection
+- Savings/debt tracking
+
+##### Exclusions
+
+- No bank or e‑wallet API integration (due to registration fees)
+- No OCR
+- No investment tracking
+- No multi‑currency
+- Non‑Filipino users outside scope
+- Metro Manila only
 
 #### Definition of Terms
 
----
-
 ### Review of Related Literature
-
-#### Overview
 
 #### Pillars
 
@@ -298,37 +316,42 @@
     - Acknowledged limitations of ISO 25010 and SUS for evaluating intelligent system components
     - Sample size and respondent profile guidelines for SUS-based evaluations
 
----
+##### Clarifications (apporve/reject these, then remove after)
 
-#### Synthesis
-
----
+- **Pillar 5 (Financial Behavioral Profiling)** – Will address: cold‑start classification (onboarding questionnaire), reclassification thresholds as open research question, feature selection from BSP/PSA, evaluation metrics.
+- **Pillar 6 (Spending Forecasting)** – Will address: cold‑start fallback using BSP/FIES data, mobile deployment constraints.
+- **Pillar 7 (Budget Recommendation)** – Will address: LP as candidate algorithm, explainability gap, surplus handling benchmarks from RRL, time horizon benchmarks from RRL.
+- **Pillar 8 (Anomalous Spending Detection)** – Will address: Isolation Forest, exclusion of culturally expected spikes, whitelisting for user‑acknowledged outliers.
+- **Pillar 10 (Data Privacy, Security, User Trust)** – Will address: RA 10173 compliance, data anonymization, server-side ML processing, user consent and info sections in app.
+- **Pillar 12 (System Evaluation)** – Will address: combining ISO 25010 and SUS; evaluation of ML modules (walk‑forward, synthetic data); sample size guidelines from literature.
 
 ### Research Methodology
 
 #### Research Design
 
-- Research paradigm
-- Development methodology
+- Research paradigm: *To be specified* (e.g., pragmatism)
+- Descriptive methodology: *To be specified*
+- Experimental methodology: *To be specified*
+- Developmental methodology: agile development methodology
 
-#### System Architecture (Move this to "## System")
+#### Evaluation Design (detailed from above)
 
-- Overall architecture
-- Module interaction design
+- ISO 25010 operationalization
+- SUS instrument, administration, target score, sample size
+- ML module evaluation: metrics, validation method, synthetic data generation
+- Evaluation procedure (phases: offline ML testing → qualitative pilot → SUS with 30 users after 14 days)
 
-#### System Design (Move this to "## System")
+#### Ethical Considerations
 
-- User profile design
-- Expense categorization scheme
-- Transaction input design
-- Budget recommendation design
-- Forecasting model design
-- Anomaly detection design
-- Savings and debt management design
+- Informed consent for financial data collection
+- Compliance with RA 10173 (Data Privacy Act)
+- Data anonymization before server transmission
+- User rights: data access, correction, deletion
+- App disclaimers: all intelligent features are informational; user retains final financial decisions
+- Institutional ethics clearance: *To be confirmed*
 
-#### Evaluation Design
+#### Data Collection for ML Training
 
-- ISO/IEC 25010:2023 quality model application
-- SUS instrument and administration
-- Respondent profile
-- Evaluation procedure
+- Synthetic data generated from BSP, PSA, and pre‑survey results
+- No real user data used for training without consent
+- Pilot user data (with consent) may supplement synthetic data
