@@ -1,0 +1,33 @@
+,THEMATIC REVIEW OF RELATED LITERATURE (RRL) - Benchmark of Algorithms  SUMMARY TABLES,,,,,,
+,,,,,,,
+Summary of Local Literature (Philippine Studies),,,,,,,
+No. ,Theme,Key Authors/Studies,Page/Paragraph Citation,Main Findings,Common Insights,Research Gaps,Relevance
+1,Herbal Medicine Usage and Awareness in the Philippines,DOH Herbal Medicine Reports; Philippine ethnobotanical studies; UP/UST research,p. ___ / para ___,Herbal plants widely used but mostly based on traditional knowledge,High cultural acceptance but limited scientific validation,Lack of AI-based validation systems,Supports need for AI herbal identification system
+2,Technology Adoption in Healthcare,"Local mHealth studies (UP, DLSU)",p. ___ / para ___,mHealth improves access but trust/usability issues remain,Users prefer simple and reliable apps,Limited AI herbal advisory tools,Supports development of user-friendly AI system
+3,AI and Machine Learning in Healthcare,"Philippine AI studies (UP, Mapúa, DLSU)",p. ___ / para ___,CNN effective in medical image processing,AI improves healthcare decision support,Limited herbal-focused AI systems,Supports CNN integration in HerbaCure
+4,,,,,,,
+5,,,,,,,
+6,,,,,,,
+7,,,,,,,
+8,,,,,,,
+9,,,,,,,
+10,,,,,,,
+,,,,,,,
+,,,,,,,
+Summary of Foreign Literature (International Studies),,,,,,,
+No. ,Theme,Key Authors/Studies,Page/Paragraph Citation,Main Findings,Common Insights,Research Gaps,Relevance
+1,CNN-Based Plant Recognition,"Studies from India, China, US",p. ___ / para ___,CNN achieves high accuracy in plant classification,Deep learning effective for image-based tasks,Focus mostly on disease detection not herbal safety,Supports CNN use for herbal classification
+2,Predictive Models for Adverse Reactions,Global pharmacology AI studies,p. ___ / para ___,Regression models predict adverse drug reactions,Predictive analytics improves safety,Limited herbal-specific prediction models,Supports regression for herbal risk prediction
+3,AI Healthcare Recommendation Systems,"Google Health, NIH studies",p. ___ / para ___,AI improves healthcare decision-making,Hybrid models increase accuracy,No CNN + regression hybrid herbal systems,Supports hybrid architecture of HerbaCure
+4,,,,,,,
+5,,,,,,,
+6,,,,,,,
+7,,,,,,,
+8,,,,,,,
+9,,,,,,,
+10,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,FINAL SYNTHESIS,,,,,,

@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """
-Mega‑compiler with optional prefix filter and content‑based duplicate detection.
+Mega‑compiler with optional prefix filter, content‑based duplicate detection,
+and optional keyword filtering.
 Scans subfolders (except those starting with '0') for *_summarized.md files
 that start with a given prefix (e.g., "I--" or "L--"), extracts sections,
-and appends only new (content‑unique) files to chronicle.md in the root.
+and appends only new (content‑unique) files that contain a given keyword
+(if specified) to chronicle.md in the root.
 
 Usage:
     python mega_compiler.py                     # all files
     python mega_compiler.py --prefix "I--"      # only files starting with I--
     python mega_compiler.py -p "L--"            # only files starting with L--
+    python mega_compiler.py -k "Random Forest"  # only files mentioning "Random Forest"
+    python mega_compiler.py -p "I--" -k "LLM"   # combine filters
 """
 
 import argparse
@@ -97,12 +101,21 @@ def get_processed_hashes(root_path: Path, chronicle_path: Path) -> Set[str]:
     return processed_hashes
 
 
+def contains_keyword(text: str, keyword: str) -> bool:
+    """Case‑insensitive check if keyword appears anywhere in the text."""
+    if not keyword or not text:
+        return False
+    return keyword.lower() in text.lower()
+
+
 def process_folder(folder_path: Path, root_path: Path,
-                   processed_hashes: Set[str], prefix: Optional[str]) -> List[Tuple[Path, str]]:
+                   processed_hashes: Set[str], prefix: Optional[str],
+                   keyword: Optional[str]) -> List[Tuple[Path, str]]:
     """
     Scan a folder for *_summarized.md files (optionally prefix‑filtered),
     extract sections, and return a list of (relative_path, formatted_entry)
-    for files whose content hash is NOT already in processed_hashes.
+    for files whose content hash is NOT already in processed_hashes
+    AND (if keyword is given) the keyword appears in title or any section.
     """
     if prefix:
         pattern = f"{prefix}*_summarized.md"
@@ -144,6 +157,19 @@ def process_folder(folder_path: Path, root_path: Path,
             print(f"  ⚠️ No relevant sections in {file_path}")
             continue
 
+        # --- KEYWORD FILTERING ---
+        if keyword:
+            # Build a single string from title + all non‑None section contents
+            searchable_text = title + " " + " ".join(
+                text for text in sections_data.values() if text
+            )
+            if not contains_keyword(searchable_text, keyword):
+                print(f"  ⏭️ Skipping (keyword '{keyword}' not found): {rel_path.as_posix()}")
+                continue
+            else:
+                print(f"  ✅ Keyword '{keyword}' found in: {rel_path.as_posix()}")
+        # --- END KEYWORD FILTERING ---
+
         # Mark as processed now to avoid adding the same file twice in the same run
         processed_hashes.add(hash_val)
         new_entries.append((rel_path, format_entry(rel_path, title, sections_data)))
@@ -166,6 +192,12 @@ def main():
         type=str,
         default=None,
         help="Only include *_summarized.md files whose name starts with this prefix (e.g., 'I--' or 'L--')"
+    )
+    parser.add_argument(
+        "-k", "--keyword",
+        type=str,
+        default=None,
+        help="Only include summaries that contain this word/phrase (case‑insensitive) in the title or any section"
     )
     args = parser.parse_args()
 
@@ -193,7 +225,8 @@ def main():
         print(f"{chronicle_path.name} does not exist or contains no previous entries.")
 
     prefix_info = f" with prefix '{args.prefix}'" if args.prefix else " (no prefix filter)"
-    print(f"Scanning {len(all_subdirs)} folders{prefix_info}...")
+    keyword_info = f" with keyword '{args.keyword}'" if args.keyword else " (no keyword filter)"
+    print(f"Scanning {len(all_subdirs)} folders{prefix_info}{keyword_info}...")
     for d in sorted(all_subdirs):
         print(f"  - {d.name}")
 
@@ -201,7 +234,7 @@ def main():
 
     for folder in sorted(all_subdirs):
         print(f"\n📁 Scanning '{folder.name}':")
-        new_entries = process_folder(folder, root_path, processed_hashes, args.prefix)
+        new_entries = process_folder(folder, root_path, processed_hashes, args.prefix, args.keyword)
         if new_entries:
             print(f"  → Found {len(new_entries)} new file(s)")
             all_new_entries.extend(new_entries)
