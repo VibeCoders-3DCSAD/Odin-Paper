@@ -1524,9 +1524,9 @@ technologies,
 Jui, T. D., & Rivas, P. (2024). Fairness issues, current approaches, and challenges in machine learning
 models. International Journal of Machine Learning and Cybernetics, 15(8), 3095-3125.
 
-[57].
-
 [56].
+
+[57].
 
 [58].  Kandler, C., Riemann, R., Angleitner, A., Spinath, F. M., Borkenau, P., & Penke, L. (2016). The nature
 of  creativity:  The  roles  of  genetic  factors,  personality  traits,  cognitive  abilities,  and  environmental
