@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF to Markdown</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <div>
+        <p class="app__eyebrow">Standalone Converter</p>
+        <h1>PDF to Markdown</h1>
+        <p>Upload a PDF, run the local extractor, then review the generated Markdown before downloading it.</p>
+      </div>
+      <div class="header__controls">
+        <label class="control">
+          <span>Accent color</span>
+          <input id="accentColor" type="color" value="#c45b2b" />
+        </label>
+        <label class="control control--toggle">
+          <input id="accentNoColor" type="checkbox" />
+          <span>No color</span>
+        </label>
+        <button id="convertBtn" class="btn">Convert PDF</button>
+        <button id="downloadBtn" class="btn btn--secondary" disabled>Download MD</button>
+      </div>
+    </header>
+
+    <main class="app__main">
+      <section class="panel panel--input">
+        <div class="panel__header">
+          <h2>PDF Input</h2>
+        </div>
+        <label class="file-picker" for="pdfInput">
+          <span>Select PDF</span>
+          <input id="pdfInput" type="file" accept="application/pdf" />
+        </label>
+        <p id="fileName" class="helper-text">No file selected.</p>
+        <p id="status" class="status" aria-live="polite">Run this page through <span class="inline-badge">python3 pdf_to_md_server.py</span> so the upload endpoint is available.</p>
+
+        <div class="panel__header panel__header--spaced">
+          <h2>Markdown Output</h2>
+        </div>
+        <textarea id="markdownOutput" placeholder="Converted markdown will appear here..."></textarea>
+      </section>
+
+      <section class="panel panel--preview">
+        <div class="panel__header">
+          <h2>Preview</h2>
+        </div>
+        <div id="preview" class="preview"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="markdown-preview.js"></script>
+  <script src="pdf-to-md.js"></script>
+</body>
+</html>

@@ -1,264 +1,261 @@
-# Odin Papers — Repository Index
+# Odin Papers - Repository Index
 
-**Project:** Development of Odin: A Personal Budget Management System Using LSTM and Isolation Forest Algorithms
-**Institution:** University of Makati | Group 4, III-DCSAD
-**Last indexed:** 2026-05-04
+**Project:** Development of Odin: A Personal Budget Management System Using LSTM and Isolation Forest Algorithms  
+**Institution:** University of Makati | Group 4, III-DCSAD  
+**Last indexed:** 2026-05-31
 
 ---
 
 ## How to Use This Index
 
-Every file and directory in this repository is listed here with its purpose. Use this as the first document to read when starting a new session. Files marked `[OUTDATED]` contain a warning in their content — verify before relying on them.
+This is the navigation map for the Odin papers workspace. It is not a bibliography registry. The RRL corpus is large and changes often, so this index lists the directory roles, naming conventions, counts, and source-of-truth files instead of trying to hand-maintain a row for every paper.
+
+Start here when opening a new session:
+
+| Need | Go to |
+| :--- | :--- |
+| Official project title, objectives, scope, deliverables, and references | `Documents/Research-Proposal.md` |
+| Current working system concept and module inventory | `BIBLE.md` |
+| Chapter 1 purpose, description, and significance draft | `CHAPTER-1/purpose-and-description.md` |
+| Data/model training design | `Data/model-training-data-design.md` |
+| Synthetic data generation architecture | `Data/data-synthesis-handoff.md` |
+| Statistical parameter handoff for synthetic data | `Data/synthetic-data-parameters-handoff.md` |
+| RRL topic map and source-search plan | `RRL/topic-outline.md` |
+| Fast Q&A summary of Odin | `RRL/odin-app-report.md` |
+| Panel feedback and revision requirements | `Documents/Proposal Panel's Comments & Suggestions/Panel-Comments-and-Suggestions.md` |
+| Local PDF-to-Markdown utility | `PDF-to-MD/README.md` |
 
 ---
 
-## Root
+## Repository Map
 
-| File / Dir | Purpose |
+| Path | Purpose |
 | :--- | :--- |
-| `INDEX.md` | This file. Master navigation index for all agents and team members. |
-| `algorithm-approach-comparison.md` | Documents the decision between a multi-ML design (Option A) vs. a single-ML design (Option B). Concludes that LSTM is the only ML model; all other system functions (profile assignment, overage detection, budget recommendation) are rule-based. Use this when justifying the algorithm architecture in Chapter 3 or in panel responses. |
-| `.gitattributes` | Git line-ending config. Not thesis content. |
-| `.gitignore` | Ignores `.codex`, `.claude`, `AGENTS.md`, `CLAUDE.md`, and Office temp/lock files (`~$*`, `.~lock.*#`). Means AI assistant state files and Claude Code settings are never committed. Not thesis content. |
-| `.codex` | Empty placeholder. No content. |
+| `INDEX.md` | This file. Master navigation index for the workspace. |
+| `BIBLE.md` | Broad working bible for Odin's platform, target users, inputs, modules, expense categories, ML components, and paper outline. This is a live planning document, not the formal proposal. |
+| `CHAPTER-1/` | Chapter 1 drafting area. Currently contains the purpose, description, and significance draft. |
+| `Data/` | Data sources and methodology documents for synthetic data generation and model training. |
+| `Documents/` | Formal proposal, pre-survey instrument, panel comments, and meeting/transcription records. |
+| `PDF-to-MD/` | Standalone local utility for converting PDFs to Markdown through CLI or browser UI. |
+| `RRL/` | Review of Related Literature workspace: source PDFs, converted/marked papers, summaries, compilations, and helper scripts. |
+| `.agents/` | Local assistant/runtime directory. Not thesis content. |
+| `.codex` | Local assistant placeholder. Not thesis content. |
+| `.gitattributes` | Git line-ending normalization. Not thesis content. |
+| `.gitignore` | Ignores local assistant files, Claude/Codex guidance, and Office lock/temp files. Not thesis content. |
 
 ---
 
 ## CHAPTER-1/
 
-Working directory for Chapter 1 (Introduction) content.
-
 | File | Purpose |
 | :--- | :--- |
-| `definition-of-terms-guide.md` | Standards and rules for writing narrative-style Definition of Terms. Covers the two definition types (conceptual vs. operational), formatting rules, common mistakes, and a template. Read this before drafting any definition. |
-| `definition-of-terms-list.md` | The ordered working list of all 18 terms to be defined (plus 3 under discussion). Contains draft definitions, citation status, and gaps marked `NO DIRECT REFERENCE`. This is the active drafting document for the Definition of Terms section. |
-| `Scratch/scratch.md` | Scaffold for all Chapter 1 sections with placeholder text. Contains the current in-progress draft of the Definition of Terms section including rough definitions for terms 1–16. This is the actual chapter draft — write Chapter 1 content here. |
+| `purpose-and-description.md` | Current Chapter 1 draft covering the description of the study, purpose of the study, significance of the study, and references. Defines Odin as a web/mobile PBMS for Filipino young professionals in Metro Manila using financial behavioral profiling, LSTM-based spending forecasts, Isolation Forest anomaly alerts, savings tracking, and debt management support. |
 
 ---
 
 ## Data/
 
-All datasets, handoff documents, and reference files for synthetic data generation and model training.
+Data sources, handoffs, and design notes for the synthetic data and ML pipeline.
 
 | File | Purpose |
 | :--- | :--- |
-| `data-synthesis-handoff.md` | **Primary architecture document for the data and model pipeline.** Covers: Financial Behavioral Profiles (FBPs), category hierarchy (2nd node), data schema, dataset splits, synthetic data generation parameters, noise event design (BSP/legally verified), LSTM model architecture, cold-start fallback logic, and forecasting horizons. Start here when working on the ML pipeline, Chapter 3 methodology, or synthetic data generation. |
-| `synthetic-data-parameters-handoff.md` | Detailed breakdown of statistical parameter sources. Covers what can be computed from FIES aggregate tables (mu per category, CV total expenditure), what is blocked pending PSA microdata (sigma per category, median, skewness), the workaround using CV bounds from FBP design, and the full synthetic data generation pipeline with self-validation loop. Use alongside `data-synthesis-handoff.md` when generating or justifying the synthetic dataset. |
-| `BSP-Data-on-Filipinos-in-Metro-Manila.xlsx` | **Primary statistical source.** BSP FIES aggregate tables (Tables 1-7) for 2018, 2021, and 2023 NCR data. Use Table 2 for average annual expenditure (divide by 12 for monthly mu), Table 7 for category share breakdowns, Table 1 for income ranges per decile. This is the ground truth for mu values. |
-| `Family Income and Expenditure.csv` | Old Kaggle FIES microdata (~2015 vintage), national scope, 41,544 rows (NCR subset = 4,130 rows). **Do not use for mu values — data is too old and not NCR-specific.** May be used only for structural reference (column names, category labels). |
-| `FIDashboard_1Q2023.pdf` | BSP Financial Inclusion Dashboard Q1 2023. Contains access, savings, and credit metrics for the Philippines. **Not useful for spending variability or CV values.** Useful only for financial inclusion statistics cited in the project context. |
-| `archive.zip` | Untracked compressed archive. Contents unknown. Not part of the thesis pipeline. |
-| `.codex` | Empty placeholder. No content. |
+| `model-training-data-design.md` | Defines the training data shapes, sample rows, inputs, outputs, model connections, and key columns for Random Forest profile classification, LSTM spending forecasting, and Isolation Forest anomaly detection. Use this when designing datasets or explaining how model outputs feed downstream modules. |
+| `data-synthesis-handoff.md` | Primary architecture document for the synthetic data/model pipeline. Covers Financial Behavioral Profiles, category hierarchy, data schema, dataset splits, synthetic generation parameters, event/noise design, LSTM architecture, cold-start fallback, and forecasting horizons. |
+| `synthetic-data-parameters-handoff.md` | Detailed handoff for statistical parameter sources. Covers values derivable from FIES/BSP aggregate tables, blocked parameters pending PSA microdata, CV-bound workarounds, and self-validation for synthetic data. |
+| `BSP-Data-on-Filipinos-in-Metro-Manila.xlsx` | Primary local statistical workbook. Use for NCR income/expenditure aggregates and category shares when grounding synthetic data values. |
+| `Family Income and Expenditure.csv` | Old FIES-like microdata CSV. Treat as structural reference only unless separately validated; do not treat as the current NCR ground truth for spending means. Currently untracked. |
+| `FIDashboard_1Q2023.pdf` | BSP Financial Inclusion Dashboard. Useful for financial inclusion context; not the main source for category-level spending variability. |
+| `archive.zip` | Compressed archive in `Data/`. Contents not indexed. Currently untracked. |
+| `.codex` | Local assistant placeholder. Not thesis content. |
 
 ---
 
 ## Documents/
 
-Meeting records, panel defense outputs, and the formal research proposal.
+Formal thesis materials, survey instruments, panel feedback, and meeting records.
 
 | File | Purpose |
 | :--- | :--- |
-| `Research-Proposal.md` | **Full formal research proposal (RP2 format).** Contains the complete project context, objectives (general and specific), scope and limitations, deliverables, and all references. This is the authoritative statement of what the study is, what it will build, and what it will evaluate. Use as the source of truth for objectives and scope when writing any chapter. |
-| `Panel-Comments-and-Suggestions.md` | Organized, clean summary of all panel defense feedback from the three panelists (Baccay Plan, Congzon, Dellosa). Records the panel's requirements and the group's responses. Key outcomes: panel requires a clustering or classification algorithm for profile assignment; panel requires profile change tracking over time. Use this when addressing panel revisions. |
-| `Transcription-of-Comments-and-Suggestions.md` | **Verbatim transcription** of the panel defense Q&A session. Same content as `Panel-Comments-and-Suggestions.md` but in raw dialogue form. Use when the exact wording of a panel question or response matters. |
-| `Transcribed Group Sessions/4-24-meeting.md` | Notes from the internal group session on April 24. Covers design decisions on LSTM/Isolation Forest interaction, budgeting feature logic, fixed expense tracking, behavioral profiling dimensions, and data requirements. Use when reconciling internal design discussions against the formal proposal. |
+| `Research-Proposal.md` | Formal RP2 proposal. Authoritative source for project title, context, objectives, scope and limitations, deliverables, evaluation plan, and reference list. |
+| `PRESURVEY - ODIN.md` | Public user expectations/perception survey instrument for Filipino young professionals in Metro Manila. Covers demographics, financial management behavior, app literacy, budgeting challenges, expectations, trust/privacy, and cultural relevance. |
+| `Proposal Panel's Comments & Suggestions/Panel-Comments-and-Suggestions.md` | Organized summary of proposal panel feedback and required responses. |
+| `Proposal Panel's Comments & Suggestions/Transcription-of-Comments-and-Suggestions.md` | Verbatim panel-defense Q&A transcription. Use when exact wording matters. |
+| `Transcribed Group Sessions/4-24-meeting.md` | Internal group session notes from April 24 covering design decisions and open issues. |
+
+---
+
+## PDF-to-MD/
+
+Standalone local PDF-to-Markdown converter.
+
+| File | Purpose |
+| :--- | :--- |
+| `README.md` | Usage instructions, requirements, CLI examples, and browser UI instructions. |
+| `pdf_to_md.py` | Python CLI converter. Requires Python 3.10+ and `pdftotext` in `PATH`. |
+| `pdf_to_md_server.py` | Local web server exposing the browser conversion endpoint. |
+| `index.html` | Browser UI shell. |
+| `pdf-to-md.js` | Browser-side conversion/upload logic. |
+| `markdown-preview.js` | Browser-side Markdown preview logic. |
+| `styles.css` | Browser UI styling. |
+| `.gitignore` | Ignore rules scoped to this utility. |
+
+Typical usage:
+
+```bash
+python3 PDF-to-MD/pdf_to_md.py input.pdf -o output.md
+python3 PDF-to-MD/pdf_to_md_server.py
+```
+
+The server UI runs at `http://127.0.0.1:8000` by default.
 
 ---
 
 ## RRL/
 
-Review of Related Literature working directory. Full pipeline documentation is in `RRL/README.md`.
+RRL is the largest and most active part of the workspace. It now uses the following current structure:
 
-| File / Dir | Purpose |
-| :--- | :--- |
-| `README.md` | `[OUTDATED]` Full documentation of the RRL system: the 7-step paper pipeline, topic system (15 topics), designation rules (local / international / algorithm-specific), citation recency rules (2023-2026), member checklist workflow, and quota rules (25 local + 25 international = 50 total). Read this to understand how the RRL directory works before adding or searching for papers. |
-| `registry.md` | `[OUTDATED]` Master one-row-per-paper index. Contains all processed papers with paper ID, designation, year, authors, title, venue, topics covered, shorthand tags, and notes. Also tracks quota status (local / international / algorithm-specific counts). Search this by topic number or shorthand tag to find relevant papers when writing RRL sections. |
-| `Registry.ods` | LibreOffice Calc version of the registry. May be more current than `registry.md`. Use to cross-check quota counts. |
-| `topic-outline.md` | `[OUTDATED]` Hierarchical mind map of all 15 RRL topics (A through J) with specific sub-subtopics and ready-to-paste Google Scholar queries. Use when searching for new papers on a specific claim. Each node has a `[/shorthand]` tag used in the registry's `shorthand_tags` column. |
-| `odin-app-report.md` | Q&A-style report answering 10 questions about Odin (purpose, modules, architecture, etc.) by synthesizing materials already in the repo. Each answer includes links to source documents. Useful as a fast onboarding document for agents or team members starting a new session without prior context. |
-| `.claude/settings.local.json` | Claude Code permission settings scoped to the RRL subdirectory. Grants WebSearch and WebFetch access to: `sciencedirect.com`, `papers.ssrn.com`, `researchgate.net`, `bsp.gov.ph`, `link.springer.com`. Allows agents to fetch papers from these domains when running the RRL pipeline. |
+| Path | Current Count | Purpose |
+| :--- | ---: | :--- |
+| `RRL/00_Bucket/` | 167 files | Raw/candidate PDFs and unused or not-yet-processed literature. Use as the intake pool. |
+| `RRL/00_RRL/` | 1,256 files | Topic/subtopic-organized RRL working corpus. Contains topic compilation files, marked conversions, summaries, and a small number of source PDFs. |
+| `RRL/01_Papers/` | 135 files | Curated source-paper store: 134 PDFs plus `references.md`. |
+| `RRL/02_Reviews/` | 118 files | Structured `_summarized.md` reviews. These are the fastest files to read when evaluating a paper's relevance. |
+| `RRL/03_Related Literature/` | 119 files | Converted/usable Markdown literature files for Chapter 2 writing. |
+| `RRL/04_Processing/` | 31 files | Active processing scratch area for papers in conversion/marking/summarization. |
+| `RRL/.claude/settings.local.json` | 1 file | Local Claude Code permissions/settings for RRL work. Not thesis prose. |
 
-### RRL/00_Bucket/
-
-Raw PDFs of candidate papers not yet processed through the pipeline. These are unreviewed sources — they have no converted MD, no summary, and no registry entry. File naming convention: plain `Author.pdf` or `Author_et-al.pdf`.
-
-| File | Notes |
-| :--- | :--- |
-| `Alvarina_et-al.pdf` | Pending pipeline |
-| `Asi_et-al.pdf` | Pending pipeline (converted MD already exists in `02_Related Literature/`) |
-| `Ataza_et-al.pdf` | Pending pipeline |
-| `Bayangos_Lubangco.pdf` | Pending pipeline |
-| `Bongado_et-al.pdf` | Pending pipeline |
-| `Bongalonta_et-al.pdf` | Pending pipeline |
-| `BSP-(2026).pdf` | Pending pipeline |
-| `Canalog_et-al.pdf` | Pending pipeline |
-| `Casalhay_et-al.pdf` | Pending pipeline |
-| `Co_Centeno.pdf` | Pending pipeline |
-| `D.-A.-G._et-al.pdf` | Pending pipeline |
-| `Dela-Torre_et-al.pdf` | Pending pipeline |
-| `Domingo.pdf` | Pending pipeline |
-| `Elliyana.pdf` | Pending pipeline |
-| `Espiritu.pdf` | Pending pipeline |
-| `Estorba_et-al.pdf` | Pending pipeline |
-| `Flores.pdf` | Pending pipeline |
-| `Gabatin_et-al.pdf` | Pending pipeline |
-| `Garcia.pdf` | Pending pipeline |
-| `Gavino_et-al.pdf` | Pending pipeline |
-| `Gonzales_Campos.pdf` | Pending pipeline |
-| `Hurley_et-al.pdf` | Pending pipeline |
-| `Jandoc_et-al.pdf` | Pending pipeline |
-| `Jumawan-Powao_et-al.pdf` | Pending pipeline |
-| `Kusumaningsih_et-al.pdf` | Pending pipeline |
-| `Lambert_et-al.pdf` | Pending pipeline |
-| `Lim_Cordova.pdf` | Pending pipeline |
-| `Lusardi_Mitchell.pdf` | Pending pipeline |
-| `Machireddy.pdf` | Pending pipeline |
-| `Mamadiyarov_et-al.pdf` | Pending pipeline |
-| `Manatad_Labitad.pdf` | Pending pipeline |
-| `Manlongat_et-al.pdf` | Pending pipeline |
-| `Maria.pdf` | Pending pipeline |
-| `Maruf_et-al.pdf` | Pending pipeline |
-| `M.-D.-Mercado_et-al.pdf` | Pending pipeline |
-| `Montuerto_Gimena.pdf` | Pending pipeline |
-| `Nasih_Adam.pdf` | Pending pipeline |
-| `Natal_et-al.pdf` | Pending pipeline |
-| `Navarro_Bantulo.pdf` | Pending pipeline |
-| `Nourallah_et-al.pdf` | Pending pipeline |
-| `Paghasian.pdf` | Pending pipeline |
-| `Pagobo_et-al.pdf` | Pending pipeline |
-| `Palada_et-al.pdf` | Pending pipeline |
-| `Philippine-Statistics-Authority.pdf` | Pending pipeline |
-| `Pinca_et-al.pdf` | Pending pipeline |
-| `Quindoza_et-al.pdf` | Pending pipeline |
-| `Raya.pdf` | Pending pipeline |
-| `Razalan.pdf` | Pending pipeline |
-| `Remonde.pdf` | Pending pipeline |
-| `Rodriguez-Correa_et-al.pdf` | Pending pipeline |
-| `Rodriguez_et-al.pdf` | Pending pipeline |
-| `Romero.pdf` | Pending pipeline |
-| `R.-T.-Mercado_et-al.pdf` | Pending pipeline |
-| `Sabri_et-al.pdf` | Pending pipeline |
-| `Sarmiento_et-al.pdf` | Pending pipeline |
-| `Sinnewe_Nicholson.pdf` | Pending pipeline |
-| `Somera.pdf` | Pending pipeline |
-| `Teh_et-al.pdf` | Pending pipeline |
-| `Templa_et-al.pdf` | Pending pipeline |
-| `Torres_et-al.pdf` | Pending pipeline |
-| `Vega_et-al.pdf` | Pending pipeline |
-| `Velez.pdf` | Pending pipeline |
-| `V.-J.-Ramos-(2024a).pdf` | Pending pipeline |
-| `V.-J.-Ramos-(2024b).pdf` | Pending pipeline |
-| `Zambrano_et-al.pdf` | Pending pipeline |
-
-To process any of these: run `converter.md` skill on the PDF, then `summarizer.md` on the output, then add a row to `registry.md`. See `RRL/README.md` Section 5 for the full pipeline.
-
-### RRL/01_Reviews/
-
-AI-generated structured summaries for processed papers. Each file is the output of the `summarizer.md` skill. These are the files the team actually reads — they contain the TL;DR, findings, and critically, the **Relevance to Odin** section.
-
-| File | Paper |
-| :--- | :--- |
-| `Albert_et-al_summarized.md` | Albert et al. — Wealth Creation for Expanding the Middle Class in the Philippines |
-| `Amado_summarized.md` | Amado — The plight of teachers on the twice-a-month salary release: Financial literacy and survival |
-| `Ama_summarized.md` | Ama — Analysis of the Food and Income Expenditure Survey 2023 Among Filipino Households |
-| `Am-Una_summarized.md` | Am-Una — Beyond Awareness: Examining Financial Behaviors Among Public School Teachers in the Philippines |
-| `Apao_et-al_summarized.md` | Apao et al. — Maritime Students' Financial Knowledge, Attitude, and Behavior |
-| `Asi_et-al_summarized.md` | Asi et al. — Peer Influence and Adolescent Spending: Insights into High School Students' Buying Behavior |
-| `Bai_summarized.md` | Bai — Impact of Financial Literacy, Mental Budgeting, and Self-Control on Financial Well-Being |
-| `Bangko-Sentral-ng-Pilipinas-(2021)_summarized.md` | BSP — 2021 Consumer Finance Survey (CFS) |
-| `Cabiles_summarized.md` | Cabiles — Financial Management Practices of Employees at Bureau of Internal Revenue |
-| `Cacnio_Romarate_summarized.md` | Cacnio & Romarate — How does financial literacy affect financial behavior over the life cycle? Evidence from Filipino households |
-| `Casilan_Baclagan_summarized.md` | Casilan & Baclagan — Exploring Parental Expectations on Children Helping Parents out in Lower Middle-Income Families |
-| `Casiño_et-al_summarized.md` | Casiño et al. — Revisiting the Filipino Value Utang na Loob: Contextual Perceptions, Implications and Inputs to Sustaining the Filipino Psychology Discussions |
-| `Cervantes_et-al_summarized.md` | Cervantes et al. — The Effect of Online Buying Decision on Personal Budget of Business Administration Students |
-| `Cho_summarized.md` | Cho — A qualitative investigation of financial decisionmaking and enabling factors among ethnic minority young adults in Hong Kong |
-| `Dimaunahan_et-al_summarized.md` | Dimaunahan et al. — Financial literacy and sustainable planning assessment among Filipino millennials |
-
-### RRL/02_Related Literature/
-
-Paired PDF + converted Markdown files for each processed paper. The `.md` file is the converter output (structured Markdown with YAML metadata, optimized for AI reading). The companion `_summarized.md` for each paper lives in `01_Reviews/`. Note: `Asi_et-al.md` has no paired PDF in this directory — its source PDF is in `00_Bucket/`.
-
-| Files | Paper |
-| :--- | :--- |
-| `Albert_et-al.pdf` + `Albert_et-al.md` | Albert et al. — Wealth Creation for Expanding the Middle Class in the Philippines |
-| `Amado.pdf` + `Amado.md` | Amado — The plight of teachers on the twice-a-month salary release: Financial literacy and survival |
-| `Ama.pdf` + `Ama.md` | Ama — Analysis of the Food and Income Expenditure Survey 2023 Among Filipino Households |
-| `Am-Una.pdf` + `Am-Una.md` | Am-Una — Beyond Awareness: Examining Financial Behaviors Among Public School Teachers in the Philippines |
-| `Apao_et-al.pdf` + `Apao_et-al.md` | Apao et al. — Maritime Students' Financial Knowledge, Attitude, and Behavior |
-| `Asi_et-al.md` *(no paired PDF here)* | Asi et al. — Peer Influence and Adolescent Spending: Insights into High School Students' Buying Behavior |
-| `Bai.pdf` + `Bai.md` | Bai — Impact of Financial Literacy, Mental Budgeting, and Self-Control on Financial Well-Being |
-| `Bangko-Sentral-ng-Pilipinas-(2021).pdf` + `Bangko-Sentral-ng-Pilipinas-(2021).md` | BSP — 2021 Consumer Finance Survey (CFS) |
-| `Cabiles.pdf` + `Cabiles.md` | Cabiles — Financial Management Practices of Employees at Bureau of Internal Revenue |
-| `Cacnio_Romarate.pdf` + `Cacnio_Romarate.md` | Cacnio & Romarate — How does financial literacy affect financial behavior over the life cycle? |
-| `Casilan_Baclagan.pdf` + `Casilan_Baclagan.md` | Casilan & Baclagan — Exploring Parental Expectations on Children Helping Parents out in Lower Middle-Income Families |
-| `Casiño_et-al.pdf` + `Casiño_et-al.md` | Casiño et al. — Revisiting the Filipino Value Utang na Loob |
-| `Cervantes_et-al.pdf` + `Cervantes_et-al.md` | Cervantes et al. — The Effect of Online Buying Decision on Personal Budget of Business Administration Students |
-| `Cho.pdf` + `Cho.md` | Cho — A qualitative investigation of financial decisionmaking and enabling factors among ethnic minority young adults in Hong Kong |
-| `Dimaunahan_et-al.pdf` + `Dimaunahan_et-al.md` | Dimaunahan et al. — Financial literacy and sustainable planning assessment among Filipino millennials |
-
-### RRL/03_Skills/
-
-Prompt files (skills) used to process papers through the pipeline. These are given to a language model as instructions — they are not run automatically.
+### RRL Root Files
 
 | File | Purpose |
 | :--- | :--- |
-| `converter.md` | Skill prompt for converting a PDF research paper into structured Markdown with YAML metadata. Input: PDF. Output: `<paper_id>.md`. Always run this first, before the summarizer. |
-| `summarizer.md` | Skill prompt for generating a human-optimized structured summary from a converted Markdown file. Input: `<paper_id>.md`. Output: `<paper_id>_summarized.md`. Produces TL;DR, findings, definitions, and the Relevance to Odin section. Run after the converter. |
+| `topic-outline.md` | Current RRL topic hierarchy. This is the source of truth for topic/subtopic names, shorthand tags, and search prompts. |
+| `odin-app-report.md` | Q&A-style synthesis of Odin from existing repo materials. Useful for onboarding or quick project recall. |
+| `discusser.md` | Chapter 2 drafting handoff. Defines how to turn compilation files into dense academic RRL sections. |
+| `summarizer.md` | Summary prompt/instructions for turning marked/converted papers into structured summaries. |
+| `themizer.md` | Theming or synthesis helper prompt for RRL work. |
+| `markify.py` | Converts PDFs in a target directory into `_marked.md` files using `markitdown`, then creates empty `_summarized.md` placeholders. Requires the `markitdown` package. |
+| `compilefy.py` | Extracts TL;DR, Findings, Relevance to Odin, and Limitations from `_summarized.md` files in one directory into a `<directory>_Compilation.md` file. |
+| `chroniclefy.py` | Aggregates summarized files across subfolders into a root chronicle with optional prefix and keyword filters and duplicate-content detection. |
+| `movify.py` | Moves PDFs from allowed RRL folders into `01_Papers/`; refuses to process `0`-prefixed folders. |
 
-### RRL/04_Definition of Terms/
+### RRL Naming Conventions
 
-PDFs collected specifically as citation sources for the Definition of Terms section in Chapter 1. File naming convention: `I--` prefix = international source, `L--` prefix = local (Philippine) source. Papers marked `(NOT USED)` in the filename were considered but rejected.
+Observed source prefixes:
 
-| File | Notes |
+| Prefix | Meaning |
 | :--- | :--- |
-| `Guide.txt` | Empty placeholder. No content. |
-| `I--Dlamini.pdf` | International source — pending use in Definition of Terms |
-| `I--Morris_et-al.pdf` | International source — pending use in Definition of Terms |
-| `I--YOGANANDHAM.pdf` | International source — pending use in Definition of Terms |
-| `L--Bongalonta_et -al.pdf` | Local source — pending use in Definition of Terms |
-| `L--Desello_and_Agner-(NOT USED).pdf` | Local source — explicitly marked as not used |
-| `L--Tambuli_and_Villarba.pdf` | Local source — pending use in Definition of Terms |
+| `L--` | Local or Philippine-focused source. |
+| `I--` | International source. |
+| `A--` | Algorithm/system/general technical source. |
+| `AI--` | Algorithm/technical source with international designation. |
+| `AL--` | Algorithm/technical source with local designation. |
 
----
+Observed processing suffixes:
 
-## RRL Topic Reference
+| Suffix | Meaning |
+| :--- | :--- |
+| `.pdf` | Source paper PDF. |
+| `_marked.md` | Markdown conversion or marked text extracted from a paper. |
+| `_summarized.md` | Structured review/summary for a paper. |
+| `_Compilation.md` | Subtopic-level compilation of selected summary sections. |
 
-Quick lookup for the 15 RRL topics used in `registry.md` and paper summaries.
+### RRL/00_RRL/ Subtopic Folders
 
-| # | Topic Name |
+`RRL/00_RRL/` is organized according to `RRL/topic-outline.md`. Counts below are current file counts inside each subfolder.
+
+| Folder | Files | Topic / Subtopic |
+| :--- | ---: | :--- |
+| `01_Irrelevant/` | 33 | Processed sources judged irrelevant or not useful. |
+| `1.A/` | 35 | Filipino Young Professionals as a Demographic |
+| `1.B/` | 35 | Financial Structure of Filipino Young Professionals |
+| `1.C/` | 89 | Financial Behavior of Filipino Young Professionals |
+| `2.A/` | 37 | Culturally Specific Financial Practices |
+| `2.B/` | 13 | Seasonal and Cyclical Spending Patterns |
+| `2.C/` | 3 | User-Declared Financial Preferences |
+| `3.A/` | 27 | Expense Categorization Frameworks |
+| `3.B/` | 11 | Expense Category Design Considerations |
+| `4.A/` | 57 | Landscape of Existing Systems |
+| `4.B/` | 55 | Limitations and Gaps in Existing Systems |
+| `5.A/` | 113 | Financial Behavioral Profiles in Personal Finance |
+| `5.B/` | 17 | Profile Dynamics and the Cold-Start Problem |
+| `5.C/` | 99 | Financial Behavioral Profile Classification Algorithm |
+| `6.A/` | 97 | Predictive Modeling in Personal Finance Systems |
+| `6.B/` | 71 | Spending Forecasting Algorithm |
+| `7.A/` | 41 | Budgeting Strategies as Domain Knowledge |
+| `7.B/` | 41 | Budget Recommendation in Personal Finance Systems |
+| `7.C/` | 21 | Budget Recommendation Algorithm |
+| `8.A/` | 87 | Anomaly Detection in Personal Finance Systems |
+| `8.B/` | 55 | Anomaly Detection Algorithm |
+| `9.A/` | 11 | Mobile-First Design Principles and Rationale |
+| `9.B/` | 0 | Mobile UX Design for Personal Finance. No folder currently present. |
+| `10.A/` | 33 | Data Privacy and Security in Personal Finance Systems |
+| `10.B/` | 29 | User Trust in Personal Finance Systems |
+| `11.A/` | 15 | Engagement Dynamics in Personal Finance Applications |
+| `11.B/` | 7 | Retention Mechanisms and Engagement Design |
+| `12.A/` | 31 | Evaluation Frameworks for Personal Finance Systems |
+| `12.B/` | 93 | Evaluation of Algorithmic Modules |
+
+### RRL Topic Reference
+
+Current major topics from `RRL/topic-outline.md`:
+
+| # | Topic |
 | :---: | :--- |
-| 1 | Spending and Budgeting Behavior of Filipino Young Professionals |
-| 2 | Existing Personal Finance and Budget Management Systems |
-| 3 | Mobile-First Design in Personal Finance Systems |
-| 4 | Budgeting Strategies and Budget Recommendation |
-| 5 | Budget Recommendation Algorithm |
-| 6 | Predictive Modeling in Personal Finance Systems |
-| 7 | LSTM as the Spending Forecasting Algorithm |
-| 8 | Anomaly Detection in Personal Finance Systems |
-| 9 | Anomaly Detection Algorithm |
-| 10 | User Behavioral Profiling in Filipino Personal Finance Contexts |
-| 11 | Profile Classification Algorithm |
-| 12 | Expense Categorization in Filipino Personal Finance Contexts |
-| 13 | Data Privacy, Security, and User Trust in Personal Finance Systems |
-| 14 | User Retention and Engagement in Personal Finance Systems |
-| 15 | System Evaluation |
+| 1 | Filipino Young Professionals and the Financial Problem |
+| 2 | Filipino Cultural Context in Personal Finance |
+| 3 | Expense Categorization in Personal Finance Systems |
+| 4 | Existing Personal Finance and Budget Management Systems |
+| 5 | Financial Behavioral Profiling |
+| 6 | Spending Forecasting |
+| 7 | Budget Recommendation |
+| 8 | Anomalous Spending Detection |
+| 9 | Mobile-First Design |
+| 10 | Data Privacy, Security, and User Trust |
+| 11 | User Retention and Engagement |
+| 12 | System Evaluation |
+
+### RRL Workflow
+
+Recommended workflow for adding or using literature:
+
+1. Put candidate PDFs in `RRL/00_Bucket/` or the active processing folder.
+2. Convert/mark PDFs into Markdown using `RRL/markify.py` or the `PDF-to-MD/` utility.
+3. Create or fill the matching `_summarized.md` file using `RRL/summarizer.md`.
+4. Place or copy the paper outputs into the relevant `RRL/00_RRL/<topic-subtopic>/` folder.
+5. Run `RRL/compilefy.py` inside the relevant topic folder to update that folder's `_Compilation.md`.
+6. Draft Chapter 2 sections from compilation files using `RRL/discusser.md`.
+
+Important: older index references to `RRL/README.md`, `RRL/registry.md`, `RRL/01_Reviews/`, `RRL/02_Related Literature/`, `RRL/03_Skills/`, and `RRL/04_Definition of Terms/` are stale. Those paths are not present in the current tree.
 
 ---
 
-## Key Cross-References
+## Cross-References
 
-| Task | Where to Go |
+| Task | Use |
 | :--- | :--- |
-| Understand the full system architecture | `Data/data-synthesis-handoff.md` |
-| Justify LSTM as the only ML model | `algorithm-approach-comparison.md` |
-| Find mu values for synthetic data | `Data/BSP-Data-on-Filipinos-in-Metro-Manila.xlsx` (Tables 2 and 7) |
-| Understand sigma/CV methodology | `Data/synthetic-data-parameters-handoff.md` Section 4 |
-| Write or review a Definition of Terms entry | `CHAPTER-1/definition-of-terms-guide.md` + `CHAPTER-1/Scratch/scratch.md` |
-| Check what terms still need definitions | `CHAPTER-1/definition-of-terms-list.md` |
-| Find citation sources for Definition of Terms | `RRL/04_Definition of Terms/` |
-| Get a fast summary of what Odin is and does | `RRL/odin-app-report.md` |
-| Address a panel revision | `Documents/Panel-Comments-and-Suggestions.md` |
-| Find papers on a specific RRL topic | Search `RRL/registry.md` by topic number or shorthand tag |
-| Add a new paper to the RRL | Follow `RRL/README.md` Section 5 pipeline; use skills in `RRL/03_Skills/` |
-| Process a paper in 00_Bucket | Run `converter.md` then `summarizer.md` then add row to `registry.md` |
-| Check quota status (local/international counts) | Bottom tally row of `RRL/registry.md` |
+| Explain what Odin is officially supposed to build | `Documents/Research-Proposal.md` |
+| Reconcile current architecture/module ideas | `BIBLE.md` |
+| Write Chapter 1 purpose/significance language | `CHAPTER-1/purpose-and-description.md` |
+| Justify or shape synthetic model-training columns | `Data/model-training-data-design.md` |
+| Design synthetic data generation | `Data/data-synthesis-handoff.md` and `Data/synthetic-data-parameters-handoff.md` |
+| Find local spending/income aggregates | `Data/BSP-Data-on-Filipinos-in-Metro-Manila.xlsx` |
+| Use pilot survey wording | `Documents/PRESURVEY - ODIN.md` |
+| Address panel comments | `Documents/Proposal Panel's Comments & Suggestions/Panel-Comments-and-Suggestions.md` |
+| Draft RRL topic sections | `RRL/topic-outline.md`, relevant `RRL/00_RRL/<topic>/` compilation files, and `RRL/discusser.md` |
+| Quickly evaluate one paper's relevance | Matching file in `RRL/02_Reviews/` or `_summarized.md` in `RRL/00_RRL/` |
+| Convert a PDF locally | `PDF-to-MD/README.md` or `RRL/markify.py` |
+| Move processed PDFs into the paper store | `RRL/movify.py` |
+
+---
+
+## Git/Tracking Notes
+
+Current untracked items observed during this update:
+
+| Path | Note |
+| :--- | :--- |
+| `Data/Family Income and Expenditure.csv` | Present in workspace but not tracked by git. |
+| `Data/archive.zip` | Present in workspace but not tracked by git. |
+| `PDF-to-MD/` | Present in workspace but not tracked by git. |
+
+Do not assume untracked files are safe to remove; they may be local research assets or active utilities.
