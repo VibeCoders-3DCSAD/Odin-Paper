@@ -302,15 +302,56 @@ During onboarding (first 7 days), the System shall classify the user via a quest
 
 | Question | Response options | Maps to |
 |----------|------------------|---------|
-| Is your monthly income roughly the same each month? | Yes / No | Income stability |
-| By how much does your income typically vary? | <10% / 10-25% / 25-50% / >50% | CV estimate |
-| What percentage of your income goes to bills you cannot skip? | <30% / 30-50% / 50-70% / >70% | Obligation ratio |
-| Do you have dependents (children, parents, siblings)? | Yes (number:___) / No | Obligation weight |
-| Do you have any loans or debts with minimum monthly payments? | Yes / No | Obligation weight |
+|  | Yes / No |  |
 
+1. **Is your monthly income roughly the same each month?**
+    - Response options:
+        - Yes
+        - No
+    - Maps to: Income stability
+2. **By how much does your income typically vary?**
+    - Response options:
+        - <10%
+        - 10-25%
+        - 25-50%
+        - Greater than 50%
+    - Maps to: CV estimate
 
+> PROP: It could be hard for users to think about the exact percentage their income varies. I propose to ask the user beforehand their salary amount/income amount. Maybe their latest one if they are Variable. Then, on this question, display the actual amount variation (e.g., for a salary of 25k, <10% becomes 22.5k-27.5k).
+
+3. **What percentage of your income goes to bills you cannot skip?**
+    - Response options:
+        - <30%
+        - 30-50%
+        - 50-70%
+        - >70%
+    - Maps to: Obligation ratio
+
+> PROP: Ibid.
+
+4. **Do you have dependents (children, parents, siblings)?**
+    - Response options:
+        - Yes (number:___)
+        - No
+    - Maps to: Obligation weight
+
+> ASK: (JOAQUIN): Does the number of dependents influence obligation weight? What is the difference between obligation weight and ratio?
+> ANS: (): ___
+
+5. **Do you have any loans or debts with minimum monthly payments?**
+    - Response options:
+        - Yes
+        - No
+    - Maps to: Obligation weight
+
+> ASK: (JOAQUIN): Does this not just fall under question 3?
+> ANS: (): ___
+
+> NOTE: The actual values in the questionnaire need to be backed up by research.
 
 The System shall compute an initial profile from these responses and present it to the user for confirmation.
+
+> NOTE: There needs to be a section detailing how the computation of the initial profile is done.
 
 ---
 
@@ -322,7 +363,7 @@ The System shall implement the following 14 expense categories, grounded in PSA 
 
 | Category Code | Category Name | FIES 2018 Correspondence | RRL Citation |
 |---------------|---------------|--------------------------|--------------|
-| FOOD | Food and beverages | Division 01 | PSA FIES 2018 |
+|  | Food and beverages | Division 01 | PSA FIES 2018 |
 | ALCOHOL | Alcohol and tobacco | Division 02 | PSA FIES 2018 |
 | CLOTHING | Clothing and footwear | Division 03 | PSA FIES 2018 |
 | HOUSING | Housing, water, electricity, gas, other fuels | Division 04 | PSA FIES 2018 |
@@ -336,6 +377,8 @@ The System shall implement the following 14 expense categories, grounded in PSA 
 | MISC | Miscellaneous goods and services | Division 12 | PSA FIES 2018 |
 | FINANCIAL_OBLIG | Financial obligations (debt payments, insurance premiums) | Not in FIES | BSP CFS 2021 |
 | SAVINGS | Savings and investments | Not in FIES | BSP CFS 2021 |
+
+1. **FOOD**
 
 ### Section 2. Category Aggregation into Groups.
 
