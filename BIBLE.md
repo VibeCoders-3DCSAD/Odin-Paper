@@ -156,16 +156,15 @@ Upon entering a transaction, the System shall:
 
 ### Section 4. Recurring Transaction Rules.
 
-The System shall generate recurring transactions automatically at the scheduled frequency. If a generated transaction would violate available balance (for expense or transfer), the System shall:
-
-- Postpone the transaction and notify the user.
-- Retry on the next scheduled date without penalty.
+The System shall generate recurring transactions automatically at the scheduled frequency. If a generated transaction would violate available balance (for expense or transfer), the System shall postpone the transaction and notify the user. The system shall then re-attempt on the next scheduled date and time.
 
 User may pause, edit, or delete any recurring template at any time.
 
+> NOTE: The footnote above should be moved to Section 5.
+
 ### Section 5. Transaction Editing and Deletion.
 
-Users may edit or delete any transaction (including recurring transactions) at any time. When a transaction is edited or deleted:
+Users may edit or delete any transaction (including recurring transactions) at any time. When a transaction is edited or deleted, the following procedures are done:
 
 - Available balance shall be recomputed immediately.
 - All downstream models (profile classification, forecasting, anomaly detection) shall be asynchronously re-trained or re-evaluated within 24 hours.
@@ -182,10 +181,14 @@ Users may not edit or delete transactions older than 13 months (retention limit)
 
 The System shall classify each user into exactly one of four financial behavioral profiles, determined by two binary dimensions:
 
-| Dimension | Values |
-|-----------|--------|
-| Income stability | Stable (S) or Variable (V) |
-| Obligation level | Flexible (F) or Obligated (O) |
+1. **Income stability**
+    - Values:
+        - Stable (S)
+        - Variable (V)
+2. **Obligation level**
+    - Values:
+        - Flexible (F)
+        - Obligated (O)
 
 The four profiles are: Stable-Flexible (S-F), Stable-Obligated (S-O), Variable-Flexible (V-F), Variable-Obligated (V-O).
 
@@ -196,7 +199,12 @@ Income stability shall be determined by the coefficient of variation (CV) of mon
 - **Stable:** CV < 0.25 (25%)
 - **Variable:** CV ≥ 0.25
 
+> NOTE: The proposed coefficient of variation of 0.25 is a placeholder. The true value must be discovered by the researchers based on surveys and analyses of related datasets.
+
 For cold-start (first **7 days** of transaction history), classification shall use onboarding questionnaire responses. The CV threshold of 0.25 is derived from BSP Consumer Finance Survey 2021 median income variability among employed Metro Manila respondents. This threshold shall be adjustable via system configuration without code change.
+
+> ASK: (JOAQUIN): Will 7 days truly suffice? That is something we need to discover or verify through research. The mention of 0.25 being derived from the BSP CFS is unverified. Can the source passage or inference be provided here?
+> ANS: (): ___
 
 ### Section 3. Obligation Level Thresholds.
 
@@ -205,7 +213,21 @@ Obligation level shall be determined by the obligation ratio (OR): total unavoid
 - **Flexible:** OR < 0.50
 - **Obligated:** OR ≥ 0.50
 
-Unavoidable expenses are defined as: rent/mortgage, utilities minimum payments, debt minimum payments, insurance premiums, government-mandated contributions (SSS, PhilHealth, Pag-IBIG), and documented family support (e.g., monthly remittance to parents). For cold-start, OR shall be estimated from onboarding questionnaire.
+> NOTE: The proposed obligation ratio of 0.50 is a placeholder. The true value must be discovered by the researchers based on surveys and analyses of related datasets.
+
+Unavoidable expenses are defined as:
+
+- Rent/mortgage
+- Utilities minimum payments
+- Debt minimum payments
+- Insurance premiums
+- Government-mandated contributions (SSS, PhilHealth, Pag-IBIG)
+- Documented family support (e.g., monthly remittance to parents)
+
+> ASK: (JOAQUIN): Is this an exhaustive list of unavoidable expenses? What literature/study/report backs this up?
+> ANS: (): ___
+
+For cold-start, OR shall be estimated from onboarding questionnaire.
 
 ### Section 4. Reclassification Triggers.
 
@@ -213,12 +235,20 @@ The System shall re-evaluate profile classification when any of the following co
 
 - Income CV changes by ±0.10 or more from classification baseline, sustained over 60 consecutive days
 - Obligation ratio changes by ±0.15 or more from classification baseline, sustained over 60 consecutive days
+
+> ASK: (JOAQUIN): What is the justification for the reclassification baseline values of income CV and obligation ratio? What about for the days sustained?
+> ANS: (): ___
+
 - User explicitly requests reclassification via settings menu
 - Ninety (90) days have elapsed since last classification (periodic refresh)
+
+> NOTE: It would help if it could be research how long do behavioral profiles typically change or shift on average. That could be the baseline length for the periodic refresh.
 
 Upon trigger detection, the System shall generate a reclassification recommendation and present it to the user with an explanation using SHAP values (see Section 5). No automatic reclassification shall occur without explicit user confirmation.
 
 If the user does not respond to a reclassification recommendation within 30 days, the System shall display a persistent notification (cannot be dismissed without action) on the dashboard: "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?" If the user still does not respond after 7 more days, the System may automatically apply the reclassification and log the event. The user can revert the change in Settings.
+
+> NOTE: "the System may automatically apply the reclassification" contradicts with "No automatic reclassification shall occur without explicit user confirmation".
 
 ### Section 5. Classification Algorithm.
 
@@ -228,21 +258,43 @@ Classification shall be performed using a Random Forest classifier with the foll
 - Maximum depth of 10 levels
 - Gini impurity as split criterion
 - Class weights balanced (to address potential profile imbalance in training data)
+
+> ASK: (JOAQUIN): Balanced how? What is potential profile imbalance in training data?
+> ANS: (): ___
+
 - Random state fixed at 42 for reproducibility
+
+> ASK: (JOAQUIN): Is the random state for testing purposes only?
+> ANS: (): ___
 
 **Features for classification** (shall include at minimum):
 
-| Feature | Source | Data type |
-|---------|--------|-----------|
-| Income CV (30d, 60d, 90d) | User transactions | Continuous |
-| Obligation ratio (30d, 60d, 90d) | User transactions | Continuous |
-| Income frequency (payments per 30d) | User transactions | Integer |
-| Income amount variance (mean absolute deviation) | User transactions | Continuous |
-| Fixed expense count (distinct payees with recurring flag) | User transactions | Integer |
-| Savings rate (savings/income, 30d) | User transactions | Continuous |
-| Transaction regularity score (entropy of inter-transaction intervals) | User transactions | Continuous |
+1. **Income CV (30d, 60d, 90d)**
+    - Source: User transactions
+    - Data type: Continuous
+2. **Obligation ratio (30d, 60d, 90d)**
+    - Source: User transactions
+    - Data type: Continuous
+3. **Income frequency (payments per 30d)**
+    - Source: User transactions
+    - Data type: Integer
+4. **Income amount variance (mean absolute deviation)**
+    - Source: User transactions
+    - Data type: Continuous
+5. **Fixed expense count (distinct payees with recurring flag)**
+    - Source: User transactions
+    - Data type: Integer
+6. **Savings rate (savings/income, 30d)**
+    - Source: User transactions
+    - Data type: Continuous
+7. **Transaction regularity score (entropy of inter-transaction intervals)**
+    - Source: User transactions
+    - Data type: Continuous
 
-**Explainability:** The System shall provide SHAP (SHapley Additive exPlanations) values for each classification prediction, presented as: "Your profile is [PROFILE] mainly because [FEATURE] was [VALUE], which differs from typical [OTHER PROFILE] users by [DIFFERENCE]."
+> ASK: (JOAQUIN): Are these the only features? Are source and data types the only properties? What is a continuous and integer data type in the context of features?
+> ANS: (): ___
+
+The System shall provide SHAP (SHapley Additive exPlanations) values for each classification prediction, presented as: "Your profile is [PROFILE] mainly because [FEATURE] was [VALUE], which differs from typical [OTHER PROFILE] users by [DIFFERENCE]."
 
 ### Section 6. Cold-Start Classification (Onboarding Questionnaire).
 
@@ -255,6 +307,8 @@ During onboarding (first 7 days), the System shall classify the user via a quest
 | What percentage of your income goes to bills you cannot skip? | <30% / 30-50% / 50-70% / >70% | Obligation ratio |
 | Do you have dependents (children, parents, siblings)? | Yes (number:___) / No | Obligation weight |
 | Do you have any loans or debts with minimum monthly payments? | Yes / No | Obligation weight |
+
+
 
 The System shall compute an initial profile from these responses and present it to the user for confirmation.
 
