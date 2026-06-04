@@ -25,6 +25,120 @@
 
 **Institutional Affiliation:** College of Computing and Information Sciences, University of Makati
 
+## Global Comments
+
+### 1. Opening Overall
+
+> **Claude:** Overall, this is a remarkably detailed specification. However, I note several recurring issues:  
+> (1) The document mixes prescriptive requirements ("shall") with research questions ("needs to be discovered"), which creates ambiguity about what is already decided versus what is still unknown.  
+> (2) Many thresholds and parameters are labeled as placeholders but later appear as fixed values in code-like specifications.  
+> (3) The relationship between synthetic data (BSP/PSA) and actual Filipino user behavior needs stronger justification, as synthetic data cannot fully capture cultural spending nuances.  
+> (4) The document would benefit from a single source of truth for all configurable parameters (e.g., a table in an appendix) rather than scattering them across articles.
+
+---
+
+### 2. On Contradictions and Inconsistencies (scattered, but synthesized here)
+
+> **Claude (multiple places):** The spec has contradictory requirements regarding negative available balance (Article II Section 3 allows warnings, Article V Section 2 says "shall never be negative"). Resolution needed.  
+> **Claude:** Reclassification triggers have a contradiction: "No automatic reclassification" vs "may automatically apply."  
+> **Claude:** The document uses "shall" and "should" inconsistently across sections.
+
+---
+
+### 3. On Missing Evaluation for Explainability
+
+> **Claude (Article XII):** This article is concise but missing evaluation criteria. How will researchers evaluate whether explainability outputs are effective? Suggest user comprehension test and trust rating.
+
+---
+
+### 4. On Real User Data vs Synthetic Data
+
+> **Claude (Article III Section 5 of PAPER SPEC, but applicable globally):** The statement "No real user data shall be used for training or fine-tuning any ML model" contradicts the weekly fine-tuning described in Article VII Section 2. Resolution needed.
+
+---
+
+### 5. On Terminology and Definitions
+
+> **Claude (Article XVI):** Missing definitions: Add "Budget Infeasibility", "Debt Hardship", "Surplus handling strategies".  
+> **Claude:** "Available balance: May not be negative" contradicts earlier NOTE – resolve consistently.
+
+---
+
+### 6. On Document Structure and Navigation
+
+> **Claude GLOBAL:** The document is extremely long and dense. Consider adding:
+> - A **master parameter table** (Appendix K) listing every configurable threshold (CV=0.25, OR=0.50, contamination=0.05, etc.) with source/justification.
+> - A **cross-reference index** showing where each term is defined and where it is used.
+> - **Hyperlinks** (if digital) from each "ASK" to its corresponding "ANS" when resolved.
+
+---
+
+### 7. On the Balance Between Prescription and Research
+
+> **Claude GLOBAL:** Many sections say "The System shall..." but then a NOTE says "this is a placeholder, must be discovered by research." This creates confusion. Recommend splitting the document into:
+> - **Part A: Frozen Requirements** (what is fixed for implementation)
+> - **Part B: Research Questions** (to be answered via surveys/literature)
+> - **Part C: Configurable Parameters** (defaults that can be changed without code)
+> 
+> Currently, all three are mixed.
+
+---
+
+### 9. On the Scope of "No Real User Data for Training"
+
+> **Claude GLOBAL:** Article III Section 5 of PAPER SPEC states no real user data shall be used for training. However, the system spec describes weekly fine-tuning on each user's data (Article VII Section 2). To resolve:
+> - Option A: Remove fine-tuning for the thesis; use only the global pre-trained model on synthetic data.
+> - Option B: Allow fine-tuning with explicit user consent and on-device training (data never leaves the phone).
+> 
+> Recommend Option A for ethics simplicity and thesis feasibility.
+
+---
+
+### 10. On the Definition of "Working Young Adult"
+
+> **Claude GLOBAL:** The target user is defined as "aged 20 to 40, employed, Metro Manila." However, many freelancers and gig workers in this age range have irregular income and multiple "jobs." The spec should clarify whether a user with **zero income in a given month** (e.g., between projects) is still considered "working" and whether they remain in the system. Suggestion: Add a minimum income frequency rule (e.g., at least one income transaction every 90 days to remain active).
+
+---
+
+### 11. On the Handling of "Paluwagan"
+
+> **Claude GLOBAL:** The current solution (custom subcategory under SAVINGS) is inadequate because receiving the pot would distort spending/savings. Since paluwagan is culturally significant, consider one of:
+> - Explicitly exclude it with a clear note that it cannot be modeled correctly.
+> - Add a minimal dedicated module that tracks contributions and payouts **without** affecting the main budget (i.e., a separate "rotating savings" ledger).
+> 
+> If excluded, mention this as a **key limitation** in the thesis.
+
+---
+
+### 12. On the Formatting of Code Snippets
+
+> **Claude GLOBAL:** The spec contains pseudo-code (e.g., in Article IX Section 3) without comments or clear variable naming. For the final thesis, all code snippets should follow a consistent style:
+> - Use `snake_case` for variables.
+> - Add inline comments explaining non‑obvious logic.
+> - Specify the language (e.g., Python, pseudocode).
+> 
+> This improves readability for panel members who may not be familiar with the algorithms.
+
+---
+
+### 13. On the Absence of a Disaster Recovery / Backup Plan
+
+> **Claude GLOBAL:** The spec describes failure conditions for ML modules (Article XIII Section 4) but does not address **data loss scenarios** (e.g., server crash, database corruption, user accidentally deleting all transactions). Recommend adding:
+> - Automated daily database backups (retention: 30 days).
+> - User‑initiated export/import of all data (CSV) as a manual backup mechanism.
+> - A "restore from backup" procedure for developers.
+
+---
+
+### 14. On the Document Version and Change Log
+
+> **Claude GLOBAL:** The document is version 2.0 dated 2026-06-03, but there is no change log or list of what changed from version 1.0. For a living specification, add a **Revision History** table at the beginning showing:
+> - Version number
+> - Date
+> - Author
+> - Summary of changes
+> - Resolution of which ASKs/NOTEs were addressed
+
 ---
 
 # SYSTEM SPECIFICATION
@@ -43,6 +157,8 @@ The mobile interface shall be tested on the following Android devices:
 
 Layout shall adapt to any width between 320dp and 450dp without horizontal scrolling for core flows. Desktop web version shall use a centered container (max-width 1200px) with multi-column layouts.
 
+> Claude: Section 1 (Platform Requirements) mentions testing on "the following Android devices" but the list is TODO. Recommend finalizing this list early, as device fragmentation affects UI testing. Include at least one low-end device (e.g., Samsung A series) and one mid-range device, since target users (young adults in Metro Manila) may not all have flagship phones.
+
 ### Section 2. Target User Definition.
 
 The System is designed exclusively for the following user population:
@@ -50,6 +166,9 @@ The System is designed exclusively for the following user population:
 - **Demographic scope:** Filipino working young adults aged 20 to 40 years inclusive
 - **Geographic scope:** Metro Manila (all 16 cities and 1 municipality)
 - **Employment status:** Currently employed (full-time, part-time, self-employed, freelancer, contractual, gig economy)
+
+> Claude: Section 2 defines target users as "Filipino working young adults aged 20 to 40 inclusive" in Metro Manila. ASK: What about users who live in Metro Manila but work remotely for companies outside Metro Manila? Or users who commute from neighboring provinces (Cavite, Rizal, Bulacan) but work in Metro Manila? The geographic scope as written excludes these commuters, yet they are economically integrated with Metro Manila.
+> ANS: (JOAQUIN): We shall change it to those living or working in Metro Manila.
 
 ---
 
@@ -79,6 +198,8 @@ The System shall accept financial data through exactly two input methods:
 
 > ASK: (JOAQUIN): Are all three transaction types considered in the two input methods?
 > ANS: (): ___
+
+> Claude: Section 1 lists "Manual transaction" and "Recurring transaction" as the two input methods. However, Section 2 includes "Transfer" as a transaction type. ASK: Does a transfer use the manual input method? If so, how does the UI handle selecting source and destination accounts? This should be explicitly stated.
 
 ### Section 2. Transaction Types.
 
@@ -154,6 +275,13 @@ Upon entering a transaction, the System shall:
 > ASK: (JOAQUIN): Does it truly end there?
 > ANS: (): ___
 
+> Claude: Section 3 says "If merchant name is not provided, the merchant novelty feature for anomaly detection defaults to 0." NOTE: This is a sensible default, but consider that a missing merchant name could also be a data quality issue worth flagging to the user (e.g., "Adding a merchant name helps Odin detect unusual patterns"). This could improve data completeness over time.
+
+> Claude: Section 3 contains a long NOTE about negative available balance. The NOTE argues that balance SHOULD be allowed to become negative. I agree with the NOTE's reasoning. However, the spec currently has contradictory requirements: "Available balance shall never be negative" (Article V Section 2) versus allowing it with warnings. RESOLUTION NEEDED: Choose one consistent rule. I recommend allowing negative balance with prominent warnings, as the NOTE suggests, because manual entry users may forget to record income.
+
+> Claude: Section 3 Step 2 validates that expense does not make balance negative. The NOTE suggests a warning instead of rejection. ASK: What about recurring transactions generated automatically that would cause negative balance? Section 4 says they are "postponed" and "re-attempt on the next scheduled date." That implies rejection, not warning. Should recurring expenses also have a warning option? Consistency needed.
+> ANS: (JOAQUIN A.K.A. J): You're right. It should send a warning, then reject.
+
 ### Section 4. Recurring Transaction Rules.
 
 The System shall generate recurring transactions automatically at the scheduled frequency. If a generated transaction would violate available balance (for expense or transfer), the System shall postpone the transaction and notify the user. The system shall then re-attempt on the next scheduled date and time.
@@ -172,6 +300,10 @@ Users may edit or delete any transaction (including recurring transactions) at a
 - The user shall be notified: "Transaction changed. Odin will update your forecasts within 24 hours."
 
 Users may not edit or delete transactions older than 13 months (retention limit).
+
+> Claude: Section 5 says users may not edit or delete transactions older than 13 months (retention limit). ASK: Is 13 months derived from any regulation (e.g., BSP data retention requirements for financial apps) or is it arbitrary? If arbitrary, consider aligning with tax record-keeping recommendations (usually 3 years in the Philippines) or with the DPA's retention period (which is based on legitimate purpose, not a fixed number).
+
+> ADD: (J): The alignment examples provided by Claude are just that: examples. It is correct that a valid basis from a report, study, or research needs to be used.
 
 ---
 
@@ -206,6 +338,14 @@ For cold-start (first **7 days** of transaction history), classification shall u
 > ASK: (JOAQUIN): Will 7 days truly suffice? That is something we need to discover or verify through research. The mention of 0.25 being derived from the BSP CFS is unverified. Can the source passage or inference be provided here?
 > ANS: (): ___
 
+> Claude: Section 2 defines income stability via coefficient of variation (CV) over 90 days. ASK: Why 90 days specifically? For freelancers with project-based income, 90 days may include only 2-3 projects, making CV unreliable. Consider a minimum number of income events (e.g., at least 5 income transactions) rather than a fixed window.
+
+> ADD: (J): Interesting proposal. Using the number of income events. Let's research if this is a valid method.
+
+> Claude: Section 2 mentions cold-start period of "first 7 days." ASK: Is 7 days enough to collect meaningful transaction data for CV calculation? A user might have only 1 or 2 income transactions in 7 days (e.g., weekly salary). CV cannot be computed on 2 data points. Recommend: cold-start uses questionnaire exclusively until a minimum of 5 income transactions or 30 days have passed, whichever is longer.
+
+> ADD: (J): Excellent point. Let's see what method we can use.
+
 ### Section 3. Obligation Level Thresholds.
 
 Obligation level shall be determined by the obligation ratio (OR): total unavoidable monthly expenses divided by total monthly income, averaged over 60 days:
@@ -229,6 +369,10 @@ Unavoidable expenses are defined as:
 
 For cold-start, OR shall be estimated from onboarding questionnaire.
 
+> Claude: Section 3 defines obligation ratio (OR) using "total unavoidable monthly expenses." The list includes "Government-mandated contributions (SSS, PhilHealth, Pag-IBIG)." NOTE: For employees, these are automatically deducted from salary and may not appear as separate expense transactions if the user records only net income. ASK: Should the system ask users during onboarding whether they record gross or net income? If net, mandatory contributions are already accounted for and should not be added again as expenses.
+
+> ADD: (J): Another excellent point. 
+
 ### Section 4. Reclassification Triggers.
 
 The System shall re-evaluate profile classification when any of the following conditions are met:
@@ -249,6 +393,12 @@ Upon trigger detection, the System shall generate a reclassification recommendat
 If the user does not respond to a reclassification recommendation within 30 days, the System shall display a persistent notification (cannot be dismissed without action) on the dashboard: "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?" If the user still does not respond after 7 more days, the System may automatically apply the reclassification and log the event. The user can revert the change in Settings.
 
 > NOTE: "the System may automatically apply the reclassification" contradicts with "No automatic reclassification shall occur without explicit user confirmation".
+
+> Claude: Section 4 reclassification triggers: "Income CV changes by ±0.10 or more" and "Obligation ratio changes by ±0.15 or more." PROP: These deltas are absolute (e.g., 0.25 to 0.35) or relative (25% increase)? Define clearly. Also, a user with CV=0.24 (stable) who changes to CV=0.26 (variable) would trigger reclassification. That's a 0.02 absolute change, not 0.10. The threshold as written would never trigger for crossing the stable/variable boundary. Suggest rephrasing: "CV crosses the stable/variable threshold (0.25) and remains on the other side for 60 days."
+
+> ADD: (J): Interesting proposal. Let's research if this can be a viable method, as well as its details if ever (e.g., how long the retention period should be).
+
+> Claude: Section 4 contains a contradiction noted by the original annotator: "No automatic reclassification" vs "may automatically apply." PROP: Resolve by making all reclassification require explicit user confirmation, but add a "remind me in 7 days" option. Automatic application should be removed entirely to maintain user trust and control.
 
 ### Section 5. Classification Algorithm.
 
@@ -295,6 +445,8 @@ Classification shall be performed using a Random Forest classifier with the foll
 > ANS: (): ___
 
 The System shall provide SHAP (SHapley Additive exPlanations) values for each classification prediction, presented as: "Your profile is [PROFILE] mainly because [FEATURE] was [VALUE], which differs from typical [OTHER PROFILE] users by [DIFFERENCE]."
+
+> Claude: Section 5 Random Forest: "Class weights balanced" - ASK: Balanced relative to what? If training data comes from synthetic generation with equal profile distribution (25% each), then no balancing is needed. If real data is imbalanced, specify the target distribution (e.g., balanced to 25% per profile). Also, "potential profile imbalance in training data" suggests the researchers expect certain profiles to be rarer. Which ones? Stable-Flexible might be most common; Variable-Obligated might be rarest. This should be hypothesized from literature.
 
 ### Section 6. Cold-Start Classification (Onboarding Questionnaire).
 
@@ -348,6 +500,10 @@ During onboarding (first 7 days), the System shall classify the user via a quest
 The System shall compute an initial profile from these responses and present it to the user for confirmation.
 
 > NOTE: There needs to be a section detailing how the computation of the initial profile is done.
+
+> Claude: Section 6 onboarding questionnaire: Question 2 asks for income variation percentage. The PROP suggests showing actual peso amounts based on user's stated income. I support this. However, ASK: Does the system ask for income amount before or during onboarding? The order of questions matters. Recommend: Ask for monthly income first, then use that to contextualize the variation question.
+
+> Claude: Section 6 Question 4 (dependents) and Question 5 (loans). ASK: Why are these separate from the obligation ratio question (Question 3)? The obligation ratio question already asks for percentage of income to unavoidable bills. Dependents and loans are contributors to that percentage but are not additive. Consider merging or clarifying that these questions are for context (e.g., for explainability, not for OR calculation).
 
 ---
 
@@ -425,6 +581,10 @@ The System shall implement the following 13 expense categories and their respect
     - SOCIAL PROTECTION
     - OTHER SERVICES
 
+> Claude: Section 1 lists 13 base categories derived from PCOICOP. NOTE: This is a strong choice. However, PCOICOP includes categories like "IMPUTED RENTALS FOR HOUSING" which are not relevant for personal finance (imputed rent is an economic concept for homeowners). ASK: Will the system include imputed rentals? If a user owns their home, they should not record "imputed rent" as an expense. Recommend removing purely economic concepts that have no cash flow.
+
+> ADD: (J): Agreed. The base categories above should be trimmed.
+
 ### Section 2. Category Aggregation into Groups.
 
 For budget recommendation and visualization, categories shall be aggregated into three groups:
@@ -437,12 +597,18 @@ For budget recommendation and visualization, categories shall be aggregated into
 
 > PROP: I propose a better aggregation of the categories into distinctive groups (e.g., Essentials, Discretionary) that use non-jargon plain language that users can easily understand.
 
+> Claude: Section 2 aggregates categories into "Essentials, Lifestyle, Enablers." The PROP proposes "plain language" alternatives. I agree. PROPOSED GROUPS: "Needs" (Essentials), "Wants" (Lifestyle), "Foundations" (Enablers - transport, communication, education, savings). "Foundations" still needs a better name. Or simply let users rename groups.
+
 ### Section 3. User Category Overrides.
 
 Users may create up to 5 custom subcategories under any base category. Custom subcategories must be mapped to exactly one base category for aggregation purposes. Users may not delete base categories. Category ambiguity (e.g., "Is coffee a FOOD or RESTAURANT?") shall be resolved by the user at transaction entry time via category selection; the System shall not auto-categorize.
 
 > ASK: (JOAQUIN): Do they not have permission to make groups, categories, and subcategories? Will that over-complicate things?
 > ANS: (): ___
+
+> Claude: Section 3: "The System shall not auto-categorize." ASK: Is this a deliberate design choice to maintain user control, or a limitation? The spec already uses ML for forecasting and anomaly detection. Auto-categorization based on merchant name (e.g., "7-Eleven" → FOOD) is a common PFM feature. PROP: Add optional auto-categorization with user override, as a future work item if not in scope.
+
+> ADD: (J): This is a pretty smart suggestion.
 
 ---
 
@@ -480,6 +646,8 @@ Available balance shall never be negative. All amounts in PHP, stored as integer
 
 > NOTE: The available balance SHOULD be able to become negative, as discussed earlier.
 
+> Claude: Section 2 defines available balance with the equation. The NOTE says balance SHOULD be able to become negative. As noted earlier, this is a critical inconsistency. PROP: Adopt the negative-balance-with-warning approach. Then update the equation to allow negative results, and add a system-wide "negative balance indicator" that appears on dashboard until balance returns to ≥0.
+
 ### Section 3. Account Separation.
 
 The System shall support up to 5 user-defined accounts. Each transaction must be associated with exactly one account. The available balance is computed per account. The user may transfer between accounts without affecting net worth.
@@ -488,6 +656,12 @@ The System shall support up to 5 user-defined accounts. Each transaction must be
 > ANS: (): ___
 
 > PROP: I propose that the first default account is named "Cash".
+
+> Claude: Section 3: "up to 5 user-defined accounts." ASK: Why 5? Is there a technical reason (database schema, UI complexity) or is it arbitrary? If arbitrary, consider raising to 10. Filipino users may have: Cash, E-wallet (GCash), E-wallet (Maya), Bank A, Bank B, Credit Card (treated as liability account), Paluwagan fund, etc. 5 may be too restrictive.
+
+> Claude: PROP: Add a default account type "Cash" as suggested. Also add "Credit Card" as a special account type where expenses increase liability (negative balance) rather than decreasing available balance. The current model treats all accounts as asset accounts. Credit cards are common among young adults and behave differently (you can spend money you don't have yet, up to a limit). This is a significant gap.
+
+> ADD: (J): I'm slightly against this proposal. This sorta multiplies complexity because we have to consider now another dimension which is account type.
 
 ---
 
@@ -505,6 +679,10 @@ Every budget shall consist of:
 
 > ASK: (JOAQUIN): Is this an exhaustive list of the properties of a Budget? Also, what is surplus/deficit, and how is it relevant in the system?
 > ANS: (): ___
+
+> Claude: Section 1 defines "surplus/deficit = allocated − actual." ASK: Is deficit handled differently from surplus? The spec only discusses surplus handling (Section 5). Deficit (spending more than allocated) should trigger alerts and possibly reduce next period's budget or adjust savings contributions. This is missing.
+
+> ADD: (J): Deficits should trigger the overspending detection submodule, iirc. Regarding the adjustment of the budgets, you raise a good point. I don't think any discussion about budget adjustment after overspending was made. We could probably also consider anomaly detections, and overall behavior. For example, if the user spent only 70% of the allocation for leisure, then reduce the size a bit. Though that also raises the question: what if the user actually needs to spend more for something suddenly? We need to allow a mechanism not just for downsizing allocations, but upsizing. It should also not conflict with the anomaly detection if possible. What do you guys think?
 
 ### Section 2. Budget Period Selection.
 
@@ -526,6 +704,10 @@ The System shall recommend a budget period based on user profile:
 > NOTE: Needs citations from RRL.
 
 Users may override the recommended period at any time.
+
+> Claude: Section 2 recommends budget periods based on profile. NOTE: Variable-Obligated users are recommended 14-day periods, but their obligations (rent, utilities, debt payments) are typically monthly. A 14-day budget may not align with bill due dates. PROP: For Obligated profiles, always recommend 30-day periods regardless of income stability, because obligations follow monthly cycles. Variable-Flexible can use 14 days.
+
+> ADD: (J): We have to be careful with these parameters. I suggest just validating these decisions with research.
 
 ### Section 3. Budgeting Strategy Templates.
 
@@ -568,6 +750,12 @@ The System shall offer the following configurable budgeting strategy templates (
 > NOTE: These budgeting strategies need validation from the RRL and benchmarks that they truly are the widely used strategies in the Filipino context.
 
 The user may select a template at budget creation. The System shall convert the template into LP constraints. The user may edit any allocation manually after generation.
+
+> Claude: Section 3 templates: "Zero-based" is described as "Income − Expenses = 0." The ASK correctly notes that all budgets sum to total budget. The distinguishing feature of zero-based budgeting is that every peso is assigned to a specific category (no unassigned "buffer"). Rename to "Zero-based (every peso assigned)" or "Detailed allocation" to avoid confusion.
+
+> Claude: Section 3 templates: "Pay-yourself-first" - The ASK asks if this is called reverse budgeting. Yes. Recommend using the more common term "Reverse budgeting" or "Savings-first" in the UI.
+
+> ADD: (J): Just remember that we're primarily Philippines-based.
 
 ### Section 4. Budget Recommendation Algorithm.
 
@@ -642,6 +830,10 @@ If the LP is infeasible:
 
 The LP shall then be run with only the debt minimum constraint and non-negativity, which is always feasible.
 
+> Claude: Section 4 LP constraints: The explanation of equation (1) is unclear: sum(allocation[category]) = forecast_income × (1 − savings_rate_target). NOTE: This implies that the total budget is income minus savings. But savings are also a category (allocation[SAVINGS]). ASK: Is SAVINGS included in the sum on the left? If yes, then the equation becomes: (spending categories + savings) = income × (1 - savings_rate_target). That is circular because savings_rate_target determines savings allocation. Clarify: The total amount available for spending (excluding savings) is income minus target savings. Savings is then allocated separately, possibly exceeding the target. Rewrite constraints to avoid this confusion.
+
+> Claude: Section 4: max_spending_per_category is derived from 90th percentile of historical spending. ASK: What about new categories with no history? The fallback is "50% of total budget" - that seems extremely high. A single category could consume half the budget. PROP: Use 30% as fallback, or derive from population averages (FIES) for that category.
+
 ### Section 5. Surplus Handling.
 
 At the end of a budget period, surplus (allocated but unspent amount) shall be handled per user selection from three strategies (benchmarked from RRL on reset vs. carryforward logic):
@@ -654,8 +846,8 @@ At the end of a budget period, surplus (allocated but unspent amount) shall be h
 1. **Save**
     - Rule: Surplus automatically transferred to primary savings goal
     - Default: Variable profiles
-1. **Rollover**
-    - Reset: Surplus returned to available balance, next period budget recomputed from zero
+1. **Reset**
+    - Rule: Surplus returned to available balance, next period budget recomputed from zero
     - Default: None (user must select)
 
 The System shall display the end-of-period surplus with the prompt: "You underspent by PHP[X]. What would you like to do with the leftover amount?" with the three options. If user does not respond within 7 days, default strategy per profile applies.
@@ -665,6 +857,10 @@ The System shall display the end-of-period surplus with the prompt: "You undersp
 Under Rollover strategy, the surplus amount is added to the next period's total budget. Category allocations for the next period shall be recomputed using the LP with the increased total budget, preserving the same allocation ratios (or applying updated user priorities). The surplus is not tied to specific categories.
 
 > GLOBAL: These enumerations should have their own heading or subsection, to include prose-style descriptions instead of relying on outlines and bullet-points.
+
+> Claude: Section 5: Under Rollover, "surplus is not tied to specific categories." ASK: What about category-specific surpluses? For example, if a user underspends on Food by 500 but overspends on Transport by 300, the net surplus is 200. If rolled over, should the 200 be added to total budget without adjusting category allocations? That could perpetuate the overspending in Transport. PROP: Implement category-level rollover: each category's surplus/deficit carries forward to the same category in the next period, with total budget adjusted accordingly. This is more complex but more accurate to user behavior.
+
+> Claude: Section 6 explainability example mentions "minimum savings" but the LP uses savings_rate_target which is a percentage, not a fixed amount. The example should show both: "minimum savings of PHP[X] (10% of your income)."
 
 ### Section 6. Explainability.
 
@@ -711,6 +907,10 @@ The System shall generate forecasts for the following four targets:
 
 > NOTE: Again, the terminologies are a bit inconsistent here. Properties should be checked for exhaustiveness and validity from RRL.
 
+> Claude: Section 1 Forecasting Targets: Savings balance trajectory and debt remaining balance are listed. ASK: How does the system forecast savings balance without knowing the user's future contributions? Contributions are discretionary (except for automated savings goals). The spec should clarify: savings trajectory forecast assumes the user follows the current budget recommendation (including savings contributions) and does not make unplanned withdrawals. This assumption should be stated in the explainability.
+
+> ADD: (J): I would argue that this is sorta implied already. The forecasting module should inform the user that Forecasts are inferential and informational only, and may not represent actual trends.
+
 ### Section 2. Forecasting Algorithm.
 
 All forecasts shall be generated using an LSTM (Long Short-Term Memory) architecture with the following specifications:
@@ -732,6 +932,12 @@ All forecasts shall be generated using an LSTM (Long Short-Term Memory) architec
 > GLOBAL: Model/algorithm design, development, and implementation plans were discussed by Joaquin and Charles. The outcome of the discussion is laid out in `model-training-data-design.md`. If not in context yet, be sure to ask for it.
 
 **Deployment:** The LSTM model shall be hosted on a cloud server (AWS Lambda or Google Cloud Run) with inference timeout 2500ms. The mobile app shall cache the most recent forecast for each target. If offline, the app shall display cached forecasts with a note: "Offline mode — forecasts from [DATE]." No forecast shall be attempted from the mobile device directly.
+
+> Claude: Section 2 LSTM specifications: "Input sequence length: 60 days" - ASK: For users with less than 60 days of history, does the model pad with zeros or use fallback? The cold-start fallback (Section 3) applies for <30 days, but between 30-60 days, the model would have insufficient sequence length. PROP: Use the available data (e.g., 30-59 days) as input, and set missing days to 0 or repeat the earliest value. Document this.
+
+> ASK: (J): Is this just a natural limit of LSTM? How can we get evaluations for the forecasting module if the evaluators have to wait 60 days for a forecast?
+
+> Claude: Section 2: "global LSTM model pre-trained on synthetic data (BSP/PSA)." ASK: BSP CFS and PSA FIES are survey data, not time-series transaction data. They provide aggregates (e.g., average monthly spending per category), not daily sequences. How will synthetic daily transactions be generated from these aggregates? This is a critical methodological gap. The document references model-training-data-design.md - that file must specify the synthetic data generation process in detail (e.g., using statistical models or generative AI).
 
 ### Section 3. Cold-Start Fallback.
 
@@ -756,9 +962,15 @@ For users with fewer than 30 days of transaction history (forecasting cold-start
 
 Fallback shall be replaced by user-specific LSTM predictions when 30 days of user data are available. The System shall notify the user: "Odin now has enough data to create personalized forecasts for you."
 
+> Claude: Section 3 Cold-start fallback: "FIES 2018 category means" - NOTE: FIES 2018 is now outdated (6+ years old). Inflation and spending patterns have changed significantly, especially post-pandemic. PROP: Use FIES 2023 when released, or adjust 2018 means by cumulative inflation (PSA inflation data) as a temporary measure.
+
+> ADD: (J): Yeah, why are we using FIES 2018? We can use the PSA FIES 2023 or a later version if found.
+
 ### Section 4. Explainability.
 
 Explainability for LSTM forecasts shall use temporal attention weights (extracted from a trained attention layer added to the LSTM) or feature perturbation (measure prediction change when each input feature is shuffled). SHAP shall NOT be used for LSTM due to computational constraints. The simpler method: "Your [CATEGORY] spending is predicted to increase because your spending in the last 7 days is [X] higher than your 30-day average."
+
+> Claude: Section 4 Explainability: "temporal attention weights" - ASK: The LSTM architecture specified does not include an attention layer. Adding attention changes the model architecture. Is attention part of the design? If not, use feature perturbation as the primary method. The simpler method described ("your spending in the last 7 days is X higher") does not require attention; it can be computed directly from data.
 
 ### Section 5. Evaluation Metrics.
 
@@ -794,6 +1006,14 @@ Compute IoF at day 30 for each user using their first 30 days of data (fallback 
 
 > NOTE: These two footnotes need to be in their respective evaluation metrics, preferably in subsections.
 
+> Claude: Section 5 Evaluation Metrics: MAE threshold "<15% of category mean" - ASK: For low-spending categories (e.g., EDUCATION where many users spend 0), 15% of mean may be a very small absolute number. A small absolute error could still be a large relative error. Consider using different metrics for sparse categories (e.g., sMAPE is already specified for this purpose). Clarify that MAE and RMSE are for high-volume categories only.
+
+> ADD: (J): It would be excellent if, globally, the purpose of all metrics are described. 
+
+> Claude: Section 5: "Action if exceeded for 3 weeks" - ASK: Why 3 weeks? This is a heuristic. PROP: Justify with concept drift literature: financial behavior typically changes slowly, so 3 weeks of degraded performance indicates a real shift or model issue, not noise.
+
+> ADD: (J): Good catch. All heuristics must be detected and should be validated.
+
 ---
 
 ## Article VIII: Anomaly Detection Module
@@ -812,6 +1032,8 @@ Anomaly detection shall be performed using Isolation Forest with the following s
 The Isolation Forest shall operate on a per-user basis, learning the user's baseline spending behavior from their transaction history (minimum 14 days required). For users with <14 days, anomaly detection shall be disabled and replaced by rule-based budget overspending alerts only.
 
 > NOTE: Actually, the budget overspending feature is always present. The anomaly detection and overspending detection features are separate. We can just simply say that there is no cold-start fallback for Isolation Forest.
+
+> Claude: Section 1: "Isolation Forest with contamination rate 0.05" - ASK: Is contamination rate fixed or adaptive? A fixed 0.05 means exactly 5% of transactions are flagged as anomalies regardless of actual behavior. This is problematic for users with very regular spending (should flag <1%) or very irregular spending (should flag >5%). PROP: Use adaptive contamination based on historical user behavior, or remove the fixed contamination parameter and use isolation forest's raw anomaly scores with a dynamic threshold (e.g., top 5% of scores, not exactly 5% of transactions).
 
 ### Section 2. Features for Anomaly Detection.
 
@@ -836,9 +1058,13 @@ Each expense transaction shall be evaluated on the following feature vector (8 d
 
 > NOTE: Properties need description as usual. Better to aggregate factors that affect anomaly detection (i.e., holidays, seasonalities, etc.) into one singular term (e.g., Event or Occasion or etc).
 
-*Day-of-period proportion* is calculated based on the user's currently active budget period. If the user has no active budget, the System defaults to a 30-day rolling period starting from the first day of the current month. The period resets when the user creates a new budget or at the end of the default rolling period.
+Day-of-period proportion is calculated based on the user's currently active budget period. If the user has no active budget, the System defaults to a 30-day rolling period starting from the first day of the current month. The period resets when the user creates a new budget or at the end of the default rolling period.
 
 > NOTE: This footnote should have gone to the description instead.
+
+> Claude: Section 2 Features: "Merchant novelty" - 1 if merchant not seen in last 60 days. ASK: What about merchants that appear, disappear, then reappear after 61 days? That would be flagged as novel again. Is that intended? Consider using a decay function rather than a hard cutoff.
+
+> Claude: Section 2: "Day-of-period proportion" depends on active budget period. ASK: What if the user has multiple overlapping budgets (e.g., monthly budget and a separate event budget)? The system only supports one active budget at a time per Article VI. Clarify that the anomaly detection period aligns with the single active budget period.
 
 ### Section 3. Excluded Events (Culturally Expected Spending Spikes).
 
@@ -854,6 +1080,12 @@ The following transactions shall NOT be flagged as anomalies regardless of Isola
 The System shall maintain a built-in holiday calendar for Metro Manila, pre-loaded with fixed holidays (e.g., Dec 25, Jan 1) and movable holidays (e.g., Holy Week) for the current and next year. The calendar shall be updated annually via a manual configuration file (JSON) that the development team updates based on official PSA proclamations. A fallback rule shall exclude any transaction between March 25 and April 10 if the year's Holy Week dates are not yet loaded.
 
 > PROP: I propose that the system connects to a calendar or holiday API instead.
+
+> Claude: Section 3 Excluded Events: The PROP suggests still detecting anomalies but sending informational notifications instead of warnings. I support this. PROP enhancement: Use a severity scale: Critical (red) for anomalies outside excluded periods; Informational (blue) for anomalies during holidays/fiestas; and allow users to configure whether they want informational alerts.
+
+> Claude: Section 3: "fallback rule shall exclude any transaction between March 25 and April 10 if Holy Week dates not loaded." ASK: March 25 to April 10 is 17 days. Holy Week is typically 7-8 days (Palm Sunday to Easter Sunday). This fallback is overly broad. PROP: Use a narrower fallback, e.g., the week containing Easter (computed via algorithm for the given year, even if holiday calendar not maintained). There are open-source algorithms for computing Easter dates.
+
+> ADD: (J): Again, it would be helpful to utilize a calendar or holiday API.
 
 ### Section 4. Whitelist Mechanism.
 
@@ -873,6 +1105,8 @@ The ±25% amount tolerance may still produce false negatives for large spending 
 > ASK: (JOAQUIN): Tolerance for what? Considering detected anomalies within a whitelist?
 > ANS: (): ___
 
+> Claude: Section 4 Whitelist: "all future transactions with same merchant name and within ±25% amount shall be suppressed." ASK: What about the same merchant but different category? Example: User buys groceries (FOOD) at SM Supermarket, then buys electronics (FURNISHINGS) at SM Appliance Store (same merchant name "SM"). Should the second be whitelisted? The current rule would suppress it because merchant name matches. PROP: Whitelist should be per (merchant, category) pair, or require user to confirm category matching.
+
 ### Section 5. Supplementary Rule-Based Detection.
 
 In addition to Isolation Forest, the System shall implement rule-based budget overspending detection:
@@ -883,6 +1117,8 @@ In addition to Isolation Forest, the System shall implement rule-based budget ov
 These rule-based alerts shall NOT be suppressed by whitelist or cultural exclusions.
 
 > NOTE: This feature should be named "Overspending Detection". It is not supplementary, it is a whole module (or submodule). It just doesn't implement any intelligent features, so it's sort of similar to the Goals Management and Debt Management modules.
+
+> Claude: Section 6 Alert Fatigue Prevention: The PROP suggests removing sensitivity adjustment for users. I partially agree: keep sensitivity as an advanced setting hidden behind an "Advanced" expander, not in main settings. Grouping and cooldown are sufficient for most users.
 
 ### Section 6. Alert Fatigue Prevention.
 
@@ -924,6 +1160,8 @@ For each anomaly alert, the System shall compute the deviation of each feature f
 
 FPR during synthetic evaluation: count of false positives (transactions flagged as anomalous but not injected as anomalies) per 7-day window per synthetic user. For real user evaluation, FPR is not directly measurable without labels. Instead, report user dismissal rate (% of alerts dismissed as "expected") and alert acknowledgement rate as proxies.
 
+> Claude: Section 8 Evaluation Metrics: FPR target "≤ 1.5" - ASK: 1.5 what? False positives per user per week? The description says "FP / active days × 7" - so it's a weekly rate. 1.5 false positives per week is reasonable. However, note that with contamination=0.05, a user with 100 transactions per week would have 5 flagged anomalies. If only 3.5 of those are true positives (recall 0.70), then false positives would be 1.5. The target is mathematically consistent with precision≥0.70 and recall≥0.65. Good.
+
 ---
 
 ## Article IX: Savings Goal Tracking
@@ -951,12 +1189,18 @@ A savings goal shall consist of the following required fields:
 
 > NOTE: Same deal.
 
+> Claude: Section 1 Goal Definition: The NOTE suggests that "Goal" is broader than "Savings Goal" and includes funds, insurance deposits, etc. However, the fields defined (target amount, contribution amount, contribution frequency) do not fit insurance (which has premiums, not contributions to a target) or investments (which have variable returns). PROP: Keep "Savings Goal" as is. For future work, create separate modules for Insurance and Investment tracking. Do not overload the Goal concept.
+
+> Claude: Section 1: "Linked source: Available balance (default) or specific income category." ASK: What does linking to a specific income category mean? Example: User wants to save 100% of freelance income for a goal. How is this enforced technically? Does the system automatically create a transaction from that income to savings? This needs more detail.
+
 ### Section 2. Multiple Concurrent Goals.
 
 The System shall support up to 5 concurrent savings goals. Users shall prioritize goals via drag-and-drop in the UI. The System shall apply contributions in priority order: when available balance is sufficient, it shall contribute to goal 1 first, then goal 2, etc., until all scheduled contributions are satisfied or balance is exhausted.
 
 > ASK: (JOAQUIN): Why only 5? And are the applied contributions sourced from the Budget as Financial Services or some other category?
 > ANS: (): ___
+
+> Claude: Section 2: "up to 5 concurrent savings goals." ASK: Why 5? Similar to accounts limit. If the limit is due to UI complexity, consider making it configurable with a warning beyond 5 (e.g., "Too many goals may reduce contribution effectiveness").
 
 ### Section 3. Progress State Calculation.
 
@@ -978,6 +1222,8 @@ else: state = "critical"
 
 Visual progress indicator: circular progress bar with color coding (green = ahead/on track, yellow = behind, red = critical).
 
+> Claude: Section 3 Progress State Calculation: The formula uses required_contribution = remaining_amount / contribution_frequency. But contribution_frequency is defined as days? The code shows days_remaining / contribution_frequency_days. ASK: Is contribution_frequency the number of remaining contributions, or the frequency in days? The variable naming is inconsistent. Rewrite the pseudo-code with clear names: remaining_contributions = days_remaining / frequency_days (rounded up). Then required_contribution = remaining_amount / remaining_contributions.
+
 ### Section 4. Savings Contribution Strategies.
 
 The System shall offer three contribution strategies:
@@ -997,6 +1243,8 @@ The System shall offer three contribution strategies:
 
 User may switch strategies at any time via Savings → Strategy.
 
+> Claude: Section 4 Savings Contribution Strategies: "Snowball (smallest balance first)" - ASK: In savings, "smallest balance" means the goal with the least accumulated savings so far, not the smallest target amount. This prioritizes nearly-empty goals. Is that intentional? The classic debt snowball prioritizes smallest outstanding balance (debt amount), which in savings would be smallest remaining amount (target - current), not smallest current balance. Clarify.
+
 ### Section 5. Notifications.
 
 The System shall send the following savings-related alerts:
@@ -1012,6 +1260,8 @@ The System shall send the following savings-related alerts:
     - Notification text: "Congratulations! You achieved your [GOAL NAME] goal."
 
 > NOTE: Again, same deal. Exhaustiveness and such.
+
+> Claude: Section 5 Notifications: "Behind schedule" triggers after 7 consecutive days of "behind" state. ASK: What if the user is "behind" but has no control (e.g., unexpected expense)? The notification should include an action: "Adjust contribution amount or postpone goal target date?"
 
 ---
 
@@ -1030,6 +1280,10 @@ A debt account shall consist of the following required fields:
 | Payment due day of month | 1-28 |
 | Remaining balance | Computed: principal − sum(payments) |
 
+> Claude: Section 1: "Interest rate (annual) 0% to 100%" - ASK: What about loans with compound interest (e.g., credit cards)? The simple annual interest model does not capture compounding. Credit card interest is typically daily or monthly compounding. PROP: Add a compounding frequency field (none, monthly, daily) and compute effective annual rate accordingly. Or limit to simple-interest loans (personal loans, salary loans) as scope, explicitly excluding credit card debt.
+
+> Claude: Section 1: "Payment due day of month: 1-28." ASK: What about due dates on 29th, 30th, 31st? Some loans have those dates. For February, if due date is 30th, the system needs a rule (e.g., last day of February). PROP: Allow 1-31, with validation for month lengths (e.g., if due day > month length, use last day).
+
 ### Section 2. Payoff Strategies.
 
 The System shall implement two payoff strategies with full switching capability:
@@ -1046,6 +1300,8 @@ When user switches strategies, the System shall:
 
 > ASK: (JOAQUIN): Was this process after switching strategies also done in Goal Management? Is it needed in Goal Management?
 > ANS: (): ___
+
+> Claude: Section 2 Payoff Strategies: The ASK asks whether Goal Management has the same switching process. It does not appear to. PROP: Add similar "before/after comparison" to Goal Management when switching contribution strategies, for consistency.
 
 ### Section 3. Projection Display.
 
@@ -1069,6 +1325,8 @@ The System shall not permit a monthly debt payment below the account's minimum p
 If the user's available balance is less than the sum of all minimum payments, the System shall display a debt hardship screen with: (1) a warning that minimum payments exceed available balance, (2) a recommendation to contact each creditor (displaying creditor contact information if provided by user), (3) a link to the National Credit Council's debt counseling page (if available), and (4) an option to proceed with reduced payments by acknowledging: "I understand that paying below minimum may incur fees." No automated contact is made.
 
 > NOTE: Debt Hardship as a term needs to be defined.
+
+> Claude: Section 4 Minimum Payment Validation: "hardship mode" - ASK: Is hardship mode a user-declared state or automatically detected? The spec says "if available balance is less than sum of all minimum payments" - that is automatic detection. PROP: When detected, the system should also offer to reschedule payments (e.g., propose a reduced payment plan to the user, not automatically to creditors). The user can then decide which debts to underpay.
 
 ### Section 5. Debt Alerts.
 
@@ -1096,6 +1354,8 @@ The System shall generate alerts for the following five categories:
 | Forecast-based advisory | "Your current spending suggests you may exceed budget by [AMOUNT]" | Forecasting |
 | Debt | Upcoming due date, missed payment, payoff milestone | Debt Management |
 
+> Claude: Section 1: "Forecast-based advisory: 'Your current spending suggests you may exceed budget by [AMOUNT]'" - ASK: When is this triggered? At what threshold? For example, if the forecast shows exceeding budget by >10% with >50% of period remaining. Define the triggering rule.
+
 ### Section 2. Delivery Method.
 
 All alerts shall be delivered as:
@@ -1105,6 +1365,8 @@ All alerts shall be delivered as:
 - Optional email digest (weekly summary of all alerts, user opt-in)
 
 > PROP: Do in-app and push notifs. only. We may not be able to do mailers, I think. Or maybe we can.
+
+> Claude: Section 2 Delivery Method: The PROP suggests no email digest. I agree for the thesis scope, but note that the evaluation (SUS) may include questions about notification preferences. Document that email is out of scope.
 
 ### Section 3. Alert Display Format.
 
@@ -1127,6 +1389,8 @@ Users may configure per alert category:
 
 > NOTE: Remember the discussion we had earlier about cooldown and sensitivity.
 
+> Claude: Section 4: "budget overspending which is mandatory" - ASK: Can users disable all notifications for a specific category? For example, a user might not care about exceeding a very flexible category like MISC. PROP: Allow per-category notification enable/disable, with overspending alerts still recorded in notification center but not pushed.
+
 ---
 
 ## Article XII: Explainability Requirements (Cross-Module)
@@ -1141,6 +1405,10 @@ All machine learning modules shall provide explainability as follows:
 | Anomaly Detection | Feature deviation ranking | "Flagged because amount was high for this category" |
 
 Explainability outputs shall be stored in the application log for audit and shall be viewable by the user via "Why?" button on any prediction or alert.
+
+> Claude: This article is concise but missing evaluation criteria. ASK: How will the researchers evaluate whether explainability outputs are effective? Consider adding: (1) User comprehension test: After seeing an explanation, can the user correctly state why a prediction was made? (2) Trust rating: On a 1-5 scale, does the explanation increase trust in the system? These could be part of the SUS or a separate post-task questionnaire.
+
+> Claude: "Explainability outputs shall be stored in the application log for audit" - ASK: For how long? Log retention should be specified (e.g., 30 days) to comply with data minimization under DPA.
 
 ---
 
@@ -1162,6 +1430,12 @@ The System shall be evaluated against the following characteristics with specifi
 The cyclomatic complexity limit of ≤10 applies to application business logic (e.g., transaction validation, budget recalculation, alert generation). ML training scripts, LP solver libraries, and data preprocessing pipelines are exempt. Wrapper functions that call these libraries shall be kept simple (≤10).
 
 > NOTE: Cyclomatic complexity needs to be defined. Thresholds also need to be justified and validated from benchmarks and studies.
+
+> Claude: Section 1: "Functional suitability: ≥98% of specified features passing manual test cases" - ASK: Who defines the test cases? The researchers should produce a test case traceability matrix mapping each requirement (from Articles I-XII) to at least one test case. This is not mentioned in appendices; consider adding as Appendix J.
+
+> Claude: Section 1: "Performance efficiency: ≤500ms for non-ML, ≤3000ms for ML predictions" - ASK: Is 3000ms (3 seconds) acceptable for a mobile app? Users may perceive 3 seconds as slow. Consider a lower target (≤1500ms) for ML predictions, with a loading indicator. 3 seconds could be the maximum acceptable (p99), not p95.
+
+> Claude: Section 1: "Cyclomatic complexity ≤10" - The NOTE says ML training scripts and LP solvers are exempt. ASK: What about the code that prepares inputs for ML models (feature extraction from transactions)? That is business logic and should be included. Clarify exemption only for third-party library code, not for wrapper functions that transform data.
 
 ### Section 2. System Usability Scale (SUS) Protocol.
 
@@ -1190,6 +1464,10 @@ Respondents shall be recruited from at least 4 different cities in Metro Manila 
 > ASK: (JOAQUIN): Is that enough to test ALL aspects of the system? Won't we need to test monthly forecasts?
 > ANS: (): ___
 
+> Claude: Section 2 SUS Protocol: "Target n=30" - The ASK notes minimum total of 50 evaluators. PROP: 30 is acceptable for a thesis (standard for SUS studies), but the stratification (6 per profile) sums to 24, not 30. The extra 6 can be unstratified. Ensure recruitment over-recruits to hit each stratum's minimum.
+
+> Claude: Section 2: "SUS shall be administered after 14 days of active system use (minimum 10 transaction entries)." ASK: What if a user does not reach 10 transactions in 14 days? They may be a low-activity user, but their SUS score is still valuable (reflects real-world usage). PROP: Administer after 14 days regardless of transaction count, but record transaction count as a covariate in analysis.
+
 ### Section 3. Algorithmic Module Evaluation Protocol.
 
 | Module | Validation method | Primary metrics | Secondary metrics | Synthetic data source |
@@ -1207,6 +1485,10 @@ Walk-forward validation shall be performed on synthetic data only. Real user dat
 
 **Acceptable thresholds for each metric are defined in the respective Articles.**
 
+> Claude: Section 3: Algorithmic Module Evaluation Protocol - The ASK asks about budget recommendation evaluation. PROP: Budget recommendation can be evaluated by adherence rate: percentage of users whose actual spending stays within ±20% of recommended category allocations over the budget period. Target ≥70%. Also measure user modification rate (how often users manually adjust recommendations) as a proxy for recommendation quality.
+
+> Claude: Section 3: "Walk-forward validation shall be performed on synthetic data only" - This is a strong limitation. ASK: After the pilot with real users (up to 30 days per user), can the researchers do a post-hoc evaluation using real data? For example, train on days 1-20, test on days 21-30 (10 days). This would be a weaker validation (small window) but still valuable to compare synthetic vs real performance. Recommend adding this as an exploratory analysis.
+
 ### Section 4. Failure Conditions and System Responses.
 
 | Condition | Detection | System Response | User notification |
@@ -1215,6 +1497,8 @@ Walk-forward validation shall be performed on synthetic data only. Real user dat
 | Anomaly detection F1 < 0.6 for 7 days | Weekly evaluation | Disable Isolation Forest; revert to rule-based only | "Spending alerts are temporarily simplified. Your data is safe." |
 | Classification accuracy < 0.80 on validation set | After each retraining | Do not deploy; retain previous model; alert developer | None |
 | Any module throws unhandled exception | Runtime error handler | Graceful degradation: disable module; serve fallback | "[Module] is temporarily unavailable. Please try again later." |
+
+> Claude: Section 4 Failure Conditions: "Forecast MAE > 20% for 14 days" - ASK: 20% of what? MAE is an absolute value, not a percentage. Should be "MAE > 20% of category mean" (consistent with earlier threshold). Also, what about categories with zero mean? Use sMAPE for those.
 
 ---
 
@@ -1231,6 +1515,10 @@ The System shall comply with the following Data Privacy Act requirements:
 - **Portability:** User may request CSV export of all transactions via Settings → Export Data.
 - **Deletion:** User may request deletion of all data via Settings → Delete Account, with confirmation. Deletion shall complete within 7 days.
 
+> Claude: Section 1: "Retention period: 13 months from last user activity." ASK: Why 13 months? This is unusual. Standard retention for financial data in other PFM apps is often 3-7 years or indefinite. The DPA allows retention as long as necessary for the purpose. If the purpose is to train ML models, 13 months may be insufficient to capture annual cycles (e.g., Christmas spending). PROP: Justify 13 months (13 = 12 months + 1 month grace for user to return) or extend to 24 months.
+
+> Claude: Section 1: "Anonymized research use" requires separate opt-in. This is good. However, ASK: What constitutes "anonymized" under DPA? The spec uses salting and hashing (Section 2). Salt stored only on device means the server cannot re-identify. That is strong. But the spec also says "dates truncated to month" - ASK: Can a sequence of monthly transactions with rounded amounts still be linked to an individual via unique patterns (e.g., exact rent amount on 1st of each month)? Consider adding noise (differential privacy) if true anonymization is required.
+
 ### Section 2. Technical Security Controls.
 
 | Control | Implementation | Standard |
@@ -1241,6 +1529,8 @@ The System shall comply with the following Data Privacy Act requirements:
 | Authentication | Biometric (FaceID/TouchID/Android Biometric) + 6-digit PIN fallback | OWASP MASVS |
 | Anonymization before server upload | User ID replaced with salted hash (SHA-256 with per-user salt stored only on device); no name/email sent | NIST SP 800-185 |
 
+> Claude: Section 2: "Anonymization before server upload: User ID replaced with salted hash (SHA-256 with per-user salt stored only on device)" - ASK: How does the server match a user's subsequent uploads if the salt is only on the device? The device must send the same hash each time. That means the hash is deterministic and can be used as a persistent identifier. This is pseudonymization, not anonymization. For true anonymization, the salt should be rotated periodically or the server should not be able to link uploads from the same user. Clarify which level is actually needed.
+
 ### Section 3. AI/ML Model Privacy.
 
 No user transaction data shall be used to train global models without:
@@ -1250,6 +1540,8 @@ No user transaction data shall be used to train global models without:
 - Option to delete user's data from training corpus via Settings → Privacy → Remove from Training
 
 Inference requests shall send only anonymized feature vectors (no raw transactions). The LSTM model shall run on a serverless function; no user data is persisted on the inference server beyond the request lifetime.
+
+> Claude: Section 3: "aggregation satisfying k-anonymity with k ≥ 20 before any model weight update" - ASK: k-anonymity on what attributes? On transaction-level data? Or on feature vectors? This is a strong requirement that may be infeasible for a small user base (<20 users per profile). Consider: For the thesis, there may be no real user data used for training at all (as stated in Article III Section 5 of the PAPER SPECIFICATION). If that's the case, this section is only for future deployment, not for the thesis evaluation.
 
 ### Section 4. Ethical Review and Disclaimers.
 
@@ -1262,6 +1554,10 @@ The System shall display the following disclaimer on first launch and annually t
 > This disclaimer must be prominent and displayed somewhere at the start, like in onboarding.
 
 Institutional ethics clearance shall be obtained from the University of Makati Research Ethics Committee prior to any user data collection for research purposes.
+
+> Claude: Section 4: "institutional ethics clearance shall be obtained from the University of Makati Research Ethics Committee" - This is mandatory. ASK: Has the application been submitted? Ethics clearance can take weeks to months. Start early. The timeline (Article V of PAPER SPEC) allocates 3 weeks for user evaluation, which likely includes ethics clearance. That may be insufficient.
+
+> ANS: (J): Submission of applications are after the first semester of 4th year I believe, after Thesis 1. Basically, it's a long time before we need to submit. We need to accomplish Chapters 1-3 first.
 
 ---
 
@@ -1285,6 +1581,14 @@ The following features and capabilities are explicitly **excluded** from the Sys
 Bank and e-wallet API integration is excluded because: (1) API registration fees (e.g., GCash requires a partnership agreement with undisclosed fees), (2) compliance with BSP circulars on data sharing requires legal review beyond thesis scope, (3) manual entry, while frictionful, is a deliberate design choice to increase user awareness (evidence from RRL: manual logging improves financial mindfulness). This is noted as a limitation and recommended for future work.
 
 > NOTE: This footnote should be part of the description or reason.
+
+> Claude: "Paluwagan ... users may create a custom subcategory under SAVINGS named 'Paluwagan'." ASK: Paluwagan has a unique mechanism: members contribute periodically, and one member receives the entire pot each cycle. This is not a savings goal (target amount with contributions) nor an expense. A custom subcategory under SAVINGS would treat contributions as savings (correct) but receiving the pot as a negative expense? That would distort spending patterns. PROP: Either (a) exclude paluwagan completely with a clear note that it cannot be modeled correctly, or (b) add a simple dedicated module that tracks contributions and payouts without affecting budgeting. (b) is better for Filipino context.
+
+> ADD: (J): I mean yeah it sucks, but paluwagan really is engraved in Filipino financial culture. Idk if a good percentage of society practices it, but yeah.
+
+> Claude: "Bank or e-wallet API integration is excluded because ... manual entry is a deliberate design choice." This justification is strong. However, ASK: Does the spec consider CSV/Excel import as a semi-automated input method? Many PFM apps allow importing bank statements. This would reduce friction while still requiring user action (downloading and uploading). Consider adding CSV import as a future work item or explicitly excluding it.
+
+> ANS: (J): We'll see if we can include it. We don't want to bloat our scope, so we'll have to deliberate this feature.
 
 ---
 
@@ -1317,6 +1621,16 @@ For the purpose of this specification, the following terms have the meanings ass
 | **Alert fatigue** | Desensitization to alerts due to excessive frequency or low relevance, resulting in ignored notifications. |
 
 > NOTE: THIS is the Definition of Terms I've been looking for! This needs to be higher up, around the very start, and include the MANY new terminologies we have.
+
+> Claude: The NOTE says this should be moved higher. I agree. Recommend placing it immediately after Article I (Platform and Target Users) or as an appendix. For readability, keep it here but cross-reference from earlier articles.
+
+> Claude: "Available balance: May not be negative" - This contradicts the NOTE in Article II Section 3. As noted multiple times, resolve this consistently.
+
+> Claude: "Behavioral drift (concept drift): statistically significant change (p < 0.05 by Mann-Whitney U test)" - ASK: Mann-Whitney U test compares two independent samples. For time-series drift, you would compare two windows (e.g., days 1-60 vs days 61-120) as independent samples. That is acceptable but note that overlapping windows violate independence. Specify that windows are non-overlapping.
+
+> Claude: "Cold-start period: Profile cold-start: first 7 days; Forecasting cold-start: first 30 days" - ASK: What about anomaly detection cold-start? Section VIII says "minimum 14 days required" before Isolation Forest is enabled. That should be defined here as a third cold-start period.
+
+> Claude: Missing definitions: Add "Budget Infeasibility" (Article VI Section 4), "Debt Hardship" (Article X Section 4), "Walk-forward validation" (already present, good), "Surplus handling strategies" (Rollover, Save, Reset).
 
 ---
 
