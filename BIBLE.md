@@ -653,208 +653,209 @@
 
 ### Section 1. Budget Structure.
 
-Every budget shall consist of:
+1. Every budget in the System shall consist of the following components. 
 
-- Total budget size (in PHP)
-- Budget period (time horizon in days: 7, 14, 30, or 90)
-- Per-category allocation (PHP amount per category, summing to total budget size)
-- Per-category actual spending (tracked from expense transactions)
-- Surplus/deficit = allocated − actual (per category and total)
+    A. The total budget size is the sum of allocated amounts across all categories for a given budget period. 
+    
+    B. The budget period is a time horizon measured in days, selectable from seven, fourteen, thirty, or ninety days. 
+    
+    C. For each category within the user's selected category set, the budget includes a per‑category allocation expressed in Philippine pesos, and a per‑category actual spending amount tracked from expense transactions recorded during the period. 
+    
+    D. The surplus or deficit for a category is defined as the allocated amount minus the actual spending, with a positive value indicating underspending and a negative value indicating overspending. 
+    
+        i. The same calculation applies to the total budget.
 
-> ASK: (JOAQUIN): Is this an exhaustive list of the properties of a Budget? Also, what is surplus/deficit, and how is it relevant in the system?
-> ANS: (): ___
+2. The System shall only create budgets that are feasible, meaning that there exists an allocation satisfying all hard constraints defined in Section 4. 
 
-> Claude: Section 1 defines "surplus/deficit = allocated − actual." ASK: Is deficit handled differently from surplus? The spec only discusses surplus handling (Section 5). Deficit (spending more than allocated) should trigger alerts and possibly reduce next period's budget or adjust savings contributions. This is missing.
-
-> ADD: (J): Deficits should trigger the overspending detection submodule, iirc. Regarding the adjustment of the budgets, you raise a good point. I don't think any discussion about budget adjustment after overspending was made. We could probably also consider anomaly detections, and overall behavior. For example, if the user spent only 70% of the allocation for leisure, then reduce the size a bit. Though that also raises the question: what if the user actually needs to spend more for something suddenly? We need to allow a mechanism not just for downsizing allocations, but upsizing. It should also not conflict with the anomaly detection if possible. What do you guys think?
+    A. A budget that violates any hard constraint is considered infeasible and triggers the infeasibility handling procedure also defined in Section 4.
 
 ### Section 2. Budget Period Selection.
 
-The System shall recommend a budget period based on user profile:
+1. The System shall recommend a budget period based on the user's financial behavioral profile. 
 
-1. **Stable-Flexible**
-    - Recommended period: 30 days
-    - Justification: Monthly salary cycle typical
-2. **Stable-Obligated**
-    - Recommended period: 30 days
-    - Justification: Monthly obligations align
-3. **Variable-Flexible**
-    - Recommended period: 14 days
-    - Justification: Shorter horizon reduces forecast error
-4. **Variable-Obligated**
-    - Recommended period: 14 days
-    - Justification: Shorter horizon reduces forecast error
+    A. For Stable‑Flexible users, the recommended period is thirty days, justified by the typical monthly salary cycle. 
+    
+    B. For Stable‑Obligated users, the recommended period is also thirty days, as monthly obligations align with this horizon. 
+    
+    C. For Variable‑Flexible users, the recommended period is fourteen days, as a shorter horizon reduces forecast error for variable income. 
+    
+    D. For Variable‑Obligated users, the recommended period is fourteen days, also to reduce forecast error. 
+    
+> [RRL NEEDED: These period recommendations require validation from literature on budget horizon effectiveness for different income stability profiles.] 
 
-> NOTE: Needs citations from RRL.
-
-Users may override the recommended period at any time.
-
-> Claude: Section 2 recommends budget periods based on profile. NOTE: Variable-Obligated users are recommended 14-day periods, but their obligations (rent, utilities, debt payments) are typically monthly. A 14-day budget may not align with bill due dates. PROP: For Obligated profiles, always recommend 30-day periods regardless of income stability, because obligations follow monthly cycles. Variable-Flexible can use 14 days.
-
-> ADD: (J): We have to be careful with these parameters. I suggest just validating these decisions with research.
+2. The user may override the recommended period at any time, and the System shall honour the user's selection.
 
 ### Section 3. Budgeting Strategy Templates.
 
-The System shall offer the following configurable budgeting strategy templates (benchmarked from RRL and existing PFM apps):
+1. The System shall offer four budgeting strategy templates that the user may select at budget creation. 
 
-1. **50/30/20**
-    - Allocation rule: 50% Essentials, 30% Lifestyle, 20% Savings
-    - Best for:
-        - General recommendation
-        - Stable income
+    A. The first is the Fifty‑Thirty‑Twenty strategy, which allocates fifty percent of the total budget to Essentials, thirty percent to Discretionary, and twenty percent to Financial Allocation (savings and debt prepayment). 
+    
+        i. This strategy is recommended as a general starting point for users with stable income.
 
-> ASK: (JOAQUIN): Why is this the general recommendation? What is the basis?
-> ANS: (): ___
+    B. The second is the Zero‑Based strategy, where every peso of income is assigned to a specific category, including savings and debt payments, leaving no unallocated buffer. 
+    
+        i. This means that the sum of all category allocations equals the forecast income minus the target savings rate, and every category has a non‑zero allocation. 
+        
+        ii. This strategy is recommended for detailed trackers and users with variable income who need to account for every peso.
 
-2. **Zero-based**
-    - Allocation rule: Income − Expenses = 0 (every peso assigned)
-    - Best for:
-        - Detailed trackers
-        - Variable income
+    C. The third is the Savings‑First strategy, also known as reverse budgeting or pay‑yourself‑first. 
+    
+        i. Under this strategy, the target savings contribution amount is deducted from forecast income first as a hard constraint, and the remaining amount is allocated across all expense categories. 
+        
+        ii. This strategy is recommended for users prioritising savings goals.
 
-> ASK: (JOAQUIN): Aren't all budgeting strategies zero-based? Don't all of them assign every peso to a group or category in the budget?
-> ANS: (): ___
+    D. The fourth is the Custom strategy, where the user manually defines percentage allocations per broad group or per category. 
+    
+        i. This strategy is recommended for advanced users who already know their preferred spending distribution.
 
-3. **Pay-yourself-first**
-    - Allocation rule: Savings deducted first, remainder for expenses
-    - Best for:
-        - Users prioritizing savings goals
-
-> ASK: (JOAQUIN): Isn't this called reverse budgeting?
-> ANS: (): ___
-
-3. **Custom**
-    - Allocation rule: User-defined percentages per group
-    - Best for:
-        - Advanced users
-
-> ASK: (JOAQUIN): The fundamentals of the budget formation is: (a) budget taxonomies (groups, categories), (b) allocation (percentage or absolute amount per group and category), (c) hierarchy (which allocation is fulfilled first), (d) budget horizon (how long that budget is worth for, before it is refreshed). Are these properties correct? Are they only and exactly what is needed? Is it correct to say these are the constraints that the LP will deal with? Were there any properties omitted? What other concerns are there?
-> ANS: (): ___
-
-> NOTE: These budgeting strategies need validation from the RRL and benchmarks that they truly are the widely used strategies in the Filipino context.
-
-The user may select a template at budget creation. The System shall convert the template into LP constraints. The user may edit any allocation manually after generation.
-
-> Claude: Section 3 templates: "Zero-based" is described as "Income − Expenses = 0." The ASK correctly notes that all budgets sum to total budget. The distinguishing feature of zero-based budgeting is that every peso is assigned to a specific category (no unassigned "buffer"). Rename to "Zero-based (every peso assigned)" or "Detailed allocation" to avoid confusion.
-
-> Claude: Section 3 templates: "Pay-yourself-first" - The ASK asks if this is called reverse budgeting. Yes. Recommend using the more common term "Reverse budgeting" or "Savings-first" in the UI.
-
-> ADD: (J): Just remember that we're primarily Philippines-based.
+> [OPEN: Team Decision] The naming of these strategies in the user interface should use plain Filipino‑friendly terms. For example, "Savings‑First" may be clearer as "Savings Muna" in Tagalog, but the team should decide whether to localise interface text. The technical names above are for specification purposes only.
 
 ### Section 4. Budget Recommendation Algorithm.
 
-Budget allocations shall be generated using Linear Programming (LP) with the following objective and constraints:
+1. Budget allocations shall be generated using Linear Programming. 
 
-> GLOBAL: There are numerous instances where terminologies for a concept are used interchangeably. There should be definite and exact terms that have uppercase first letters. For example. To denote the budget in its base essence, we use Budget. To denote the process of creating the Budget, we use Budget Formation. To denote the Budget as formatted, styled, and structured by the LP algorithm, we use Budget Recommendation.
+    A. The objective is to maximise the sum over categories of the user's declared priority weight for that category multiplied by the allocated amount. 
+    
+    B. Priorities range from one (lowest) to five (highest). 
 
-**Objective:** Maximize `sum(utility(category) × allocation[category])` where `utility(category)` is user-declared priority (1-5). Default priorities per profile are defined below.
+2. The default priorities per profile are defined as follows:
 
-1. **Stable-Flexible**
-    - High-priority categories (5):
-        - SAVINGS
-    - Medium (4)
-        - FOOD, RECREATION
-    - Low (3)
-        - All others
-2. **Stable-Obligated**
-    - High-priority categories (5):
-        - FINANCIAL_OBLIG, HOUSING
-    - Medium (4)
-        - HEALTH, SAVINGS
-    - Low (3)
-        - All others
-3. **Variable-Flexible**
-    - High-priority categories (5):
-        - SAVINGS
-    - Medium (4)
-        - ESSENTIALS group
-    - Low (3)
-        - All others
-4. **Variable-Obligated**
-    - High-priority categories (5):
-        - FINANCIAL_OBLIG, HOUSING
-    - Medium (4)
-        - HEALTH
-    - Low (3)
-        - All others
+    A. For Stable‑Flexible users:
 
-> NOTE: The categories listed above does not match the previously defined categories.
+        i. The highest priority (five) is assigned to Financial Allocation. 
 
-> ASK: (JOAQUIN): What about utilities 2 and 1?
-> ANS: (): ___
+        ii. Medium priority (four) is assigned to Essentials (specifically Food) and Discretionary (specifically Recreation). 
+        
+        iii. Low priority (three) is assigned to all remaining categories.
 
-> NOTE: The prioritization of budget categories also needs to be backed up by research.
+    B. For Stable‑Obligated users:
 
-Users may adjust priorities in Settings. The interface shall include a brief explanation: "Higher priority categories get more budget, subject to spending caps."
+        i. The highest priority (five) is assigned to Obligatory (specifically Housing and Financial Obligations such as debt minimum payments). 
+        
+        ii. Medium priority (four) is assigned to Essentials (specifically Health) and Financial Allocation. 
+        
+        iii. Low priority (three) is assigned to all remaining categories.
 
-**Constraints:**
+    C. For Variable‑Flexible users:
 
-1. `sum(allocation[category]) = forecast_income × (1 − savings_rate_target)` across all categories
-2. `allocation[FINANCIAL_OBLIG] ≥ minimum_debt_payments + insurance_premiums` (hard constraint)
-3. `allocation[SAVINGS] ≥ forecast_income × 0.10` (minimum savings rate, may be reduced by user override)
-4. `allocation[ESSENTIALS_GROUP] ≥ 0.50 × (forecast_income × (1 − savings_rate_target))` (spending floor)
-5. `allocation[LIFESTYLE_GROUP] ≤ 0.30 × (forecast_income × (1 − savings_rate_target))` (spending cap)
-6. `allocation[category] ≥ 0` for all categories
-7. If user selected "Pay-yourself-first": `allocation[SAVINGS] ≥ target_contribution_amount` (hard constraint)
-8. `allocation[category] ≤ max_spending_per_category` where `max_spending_per_category` is derived from the 90th percentile of the user's historical spending for that category (or 50% of total budget if no history). This prevents any single category from dominating.
+        i. The highest priority (five) is assigned to Financial Allocation. 
+        
+        ii. Medium priority (four) is assigned to the entire Essentials group. 
+        
+        iii. Low priority (three) is assigned to all remaining categories.
 
-> NOTE: The explanation of the constraints needs to be better, clearer, and in plain language yet maintaining complexity. The fields and equations also need to be explain; for example, I have no idea what savings_rate_target is, nor why the 1st equation is what it is.
+    D. For Variable‑Obligated users:
 
-**Infeasibility handling (sequential relaxation):**
+        i. The highest priority (five) is assigned to Obligatory (specifically Housing and Financial Obligations). 
+        
+        ii. Medium priority (four) is assigned to Essentials (specifically Health). 
+        
+        iii. Low priority (three) is assigned to all remaining categories.
 
-> NOTE: Define infeasibility, or, rather, Budget Infeasibility, or even just Budget Feasibility, as a binary concept and terminology.
+> [RRL NEEDED: Default priorities per profile require validation from literature on financial goal prioritisation among different user segments.]
 
-If the LP is infeasible:
-1. Reduce savings constraint (3) to zero.
-2. If still infeasible, reduce Essentials floor (4) from 50% to 40%, then 30%, then 20%.
-3. If still infeasible at 20%, drop the Essentials floor entirely.
-4. If still infeasible, the System shall display: "Your minimum debt payments and essential expenses exceed your predicted income by PHP[X]. Odin cannot create a balanced budget. Please consider debt restructuring or income increase. Contact a financial counselor if needed."
+3. The user may adjust priorities at any time in the Settings screen, with an explanation: "Higher priority categories get more budget, subject to spending caps."
 
-> NOTE: We have to be careful with how we handle Budget Infeasibility, and, again, we have to substantiate this process with research.
+4. The Linear Programming constraints are as follows:
 
-The LP shall then be run with only the debt minimum constraint and non-negativity, which is always feasible.
+    A. First, the sum of allocations across all categories must equal the forecast income multiplied by one minus the target savings rate. 
+    
+        i. The target savings rate is a percentage defined by the user, defaulting to ten percent. 
+        
+        ii. This equation ensures that the total budget available for spending is income after setting aside savings.
 
-> Claude: Section 4 LP constraints: The explanation of equation (1) is unclear: sum(allocation[category]) = forecast_income × (1 − savings_rate_target). NOTE: This implies that the total budget is income minus savings. But savings are also a category (allocation[SAVINGS]). ASK: Is SAVINGS included in the sum on the left? If yes, then the equation becomes: (spending categories + savings) = income × (1 - savings_rate_target). That is circular because savings_rate_target determines savings allocation. Clarify: The total amount available for spending (excluding savings) is income minus target savings. Savings is then allocated separately, possibly exceeding the target. Rewrite constraints to avoid this confusion.
+    B. Second, the allocation to Obligatory categories must be at least the sum of all minimum debt payments and insurance premiums. 
+    
+        i. This is a hard constraint that cannot be relaxed.
 
-> Claude: Section 4: max_spending_per_category is derived from 90th percentile of historical spending. ASK: What about new categories with no history? The fallback is "50% of total budget" - that seems extremely high. A single category could consume half the budget. PROP: Use 30% as fallback, or derive from population averages (FIES) for that category.
+    C. Third, the allocation to Financial Allocation must be at least forecast income multiplied by the target savings rate. 
+    
+        i. This constraint may be relaxed in the infeasibility handling procedure.
+
+    D. Fourth, the allocation to the Essentials group must be at least fifty percent of the total budget (forecast income after savings). 
+    
+        i. This is a spending floor designed to ensure basic needs are covered. 
+        
+        ii. This constraint may also be relaxed.
+
+    E. Fifth, the allocation to the Discretionary group must not exceed thirty percent of the total budget. 
+    
+        i. This is a spending cap designed to limit non‑essential spending.
+
+    F. Sixth, the allocation to any single detailed category must not exceed a category‑specific maximum. 
+    
+        i. This maximum is derived from the ninetieth percentile of the user's historical spending for that category, based on at least thirty days of data. 
+        
+        ii. If insufficient history exists, the maximum defaults to thirty percent of the total budget for Essentials categories and twenty percent for Discretionary categories. 
+        
+        iii. For Obligatory categories, the maximum is the sum of all known fixed obligations plus twenty percent as a buffer.
+
+    G. Seventh, if the user has selected the Savings‑First strategy, the allocation to Financial Allocation must be at least the user's target contribution amount, specified when creating the strategy. 
+    
+        i. This replaces the percentage‑based savings constraint.
+
+    H. Eighth, all category allocations must be greater than or equal to zero.
+
+5. When the Linear Programming problem is infeasible, meaning no allocation satisfies all hard constraints simultaneously, the System shall apply sequential relaxation. 
+
+    A. First, the savings constraint (Financial Allocation minimum) is reduced to zero. 
+    
+    B. If still infeasible, the Essentials floor is reduced from fifty percent to forty percent, then to thirty percent, then to twenty percent. 
+        
+    C. If still infeasible after reducing the Essentials floor to twenty percent, the Essentials floor is removed entirely. 
+    
+    D. If the problem remains infeasible with only the debt minimum constraint and non‑negativity, which is always feasible, the System shall display a message: "Your minimum debt payments and essential expenses exceed your predicted income by [amount in pesos]. Odin cannot create a balanced budget. Please consider debt restructuring or income increase. Contact a financial counselor if needed."
+
+> [OPEN: Team Decision] The sequential relaxation percentages and steps are provisional. The team may adjust these values based on testing with real user scenarios.
 
 ### Section 5. Surplus Handling.
 
-At the end of a budget period, surplus (allocated but unspent amount) shall be handled per user selection from three strategies (benchmarked from RRL on reset vs. carryforward logic):
+1. At the end of a budget period, any surplus (allocated but unspent amount) shall be handled according to one of three user‑selectable strategies. 
 
-> NOTE: Correct me (Joaquin) if I'm wrong, but surplus handling is a new concept in Odin. We'll have to back this up with research as usual.
+    A. Under the Rollover strategy, the surplus amount is added to the next period's total budget, and category allocations for the next period are recomputed using the Linear Programming solver with the increased total budget while preserving the same allocation ratios relative to the total. 
+    
+    B. Under the Save strategy, the surplus is automatically transferred to the user's primary savings goal as an additional contribution. 
+    
+    C. Under the Reset strategy, the surplus is returned to the available balance, and the next period's budget is recomputed from zero as if no prior surplus existed.
 
-1. **Rollover**
-    - Rule: Surplus added to next period's total budget
-    - Default: Stable profiles
-1. **Save**
-    - Rule: Surplus automatically transferred to primary savings goal
-    - Default: Variable profiles
-1. **Reset**
-    - Rule: Surplus returned to available balance, next period budget recomputed from zero
-    - Default: None (user must select)
+2. The default strategy per profile is Rollover for stable profiles (Stable‑Flexible and Stable‑Obligated) and Save for variable profiles (Variable‑Flexible and Variable‑Obligated). 
 
-The System shall display the end-of-period surplus with the prompt: "You underspent by PHP[X]. What would you like to do with the leftover amount?" with the three options. If user does not respond within 7 days, default strategy per profile applies.
+    A. The Reset strategy has no default; the user must select it explicitly.
 
-> NOTE: Ensure that these are verified and validated with research as actual surplus handling strategies.
+3. At the end of each budget period, the System shall display a prompt: "You underspent by [amount in pesos]. What would you like to do with the leftover amount?" with the three options presented. 
 
-Under Rollover strategy, the surplus amount is added to the next period's total budget. Category allocations for the next period shall be recomputed using the LP with the increased total budget, preserving the same allocation ratios (or applying updated user priorities). The surplus is not tied to specific categories.
+    A. If the user does not respond within seven days, the System shall apply the default strategy for that user's profile.
 
-> GLOBAL: These enumerations should have their own heading or subsection, to include prose-style descriptions instead of relying on outlines and bullet-points.
-
-> Claude: Section 5: Under Rollover, "surplus is not tied to specific categories." ASK: What about category-specific surpluses? For example, if a user underspends on Food by 500 but overspends on Transport by 300, the net surplus is 200. If rolled over, should the 200 be added to total budget without adjusting category allocations? That could perpetuate the overspending in Transport. PROP: Implement category-level rollover: each category's surplus/deficit carries forward to the same category in the next period, with total budget adjusted accordingly. This is more complex but more accurate to user behavior.
-
-> Claude: Section 6 explainability example mentions "minimum savings" but the LP uses savings_rate_target which is a percentage, not a fixed amount. The example should show both: "minimum savings of PHP[X] (10% of your income)."
+> [RRL NEEDED: The surplus handling strategies (Rollover, Save, Reset) and their default assignments require validation from literature on user preferences for windfall or surplus allocation.]
 
 ### Section 6. Explainability.
 
-Every budget recommendation shall be accompanied by an explanation in the following form:
+1. Every budget recommendation shall be accompanied by an explanation in plain language. 
 
-"Your [PERIOD]-day budget is PHP[TOTAL]. This is based on your predicted income of PHP[INCOME] and minimum savings of PHP[SAVINGS]. PHP[ESSENTIALS_AMOUNT] is allocated to Essentials because this category is required at [PERCENTAGE]% of your budget. To change any allocation, adjust your category priorities in Settings."
+    A. The explanation shall state the budget period, total budget amount, forecast income used, and target savings amount. 
+    
+    B. It shall then explain the major constraints that shaped the allocation. 
+    
+        i. For example: "Your 30‑day budget is 22,500 pesos. This is based on your predicted income of 30,000 pesos and a minimum savings target of 3,000 pesos (10 percent of your income). 11,250 pesos is allocated to Essentials because this category is required to be at least 50 percent of your budget. To change any allocation, adjust your category priorities in Settings."
 
-Additional explanation: "The budget recommendation maximizes your stated priorities. If you set FOOD priority to 5, the system will allocate as much as possible to FOOD without exceeding your Lifestyle group cap (30% of total) or your historical maximum for FOOD. To balance spending, adjust category priorities or set manual caps."
+2. Additional explanation shall be provided for users who wish to understand the optimisation: 
 
-> NOTE: For me (Joaquin), the explanations need to be better, less specific to one thing, and more encompassing of all details of the Budget Recommendation.
+    A. For example: "The budget recommendation maximises your stated priorities. If you set Food priority to 5, the system will allocate as much as possible to Food without exceeding your Discretionary group cap (30 percent of total) or your historical maximum for Food. To balance spending, adjust category priorities or set manual caps."
+
+    B. The explanation shall be accessible via a "Why?" button next to the recommended budget.
+
+### Section 7. Connection to Other Modules
+
+1. The budget recommendation module receives forecast income and category‑level spending forecasts from the LSTM module. 
+
+2. It also receives the user's financial behavioral profile from the Random Forest classifier, which determines the default priority weights. 
+
+3. The budget recommendation is displayed to the user, who may accept, modify, or reject it. 
+
+    A. Once accepted, the budget becomes active, and actual spending is tracked against it. 
+    
+4. Overspending alerts (defined in Article XI) compare actual spending to the accepted budget allocations.
 
 ---
 
