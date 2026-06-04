@@ -279,199 +279,155 @@
 
 ### Section 1. Profile Taxonomy.
 
-The System shall classify each user into exactly one of four financial behavioral profiles, determined by two binary dimensions:
+1. The System shall classify each user into exactly one of four financial behavioral profiles, determined by two binary dimensions. 
 
-1. **Income stability**
-    - Values:
-        - Stable (S)
-        - Variable (V)
-2. **Obligation level**
-    - Values:
-        - Flexible (F)
-        - Obligated (O)
-
-The four profiles are: Stable-Flexible (S-F), Stable-Obligated (S-O), Variable-Flexible (V-F), Variable-Obligated (V-O).
+    A. The first dimension is income stability, which takes the value Stable or Variable. 
+    
+    B. The second dimension is obligation level, which takes the value Flexible or Obligated. 
+    
+    C. The four resulting profiles are Stable‑Flexible, Stable‑Obligated, Variable‑Flexible, and Variable‑Obligated.
 
 ### Section 2. Income Stability Thresholds.
 
-Income stability shall be determined by the coefficient of variation (CV) of monthly net income over the preceding 90 days:
+1. Income stability shall be determined by the coefficient of variation of monthly net income over the preceding ninety days. 
 
-- **Stable:** CV < 0.25 (25%)
-- **Variable:** CV ≥ 0.25
+    A. The coefficient of variation is defined as the standard deviation of monthly net income divided by the mean monthly net income. 
+    
+    B. A user is classified as Stable if the coefficient of variation is less than 0.25, and Variable if the coefficient is 0.25 or greater.
 
-> NOTE: The proposed coefficient of variation of 0.25 is a placeholder. The true value must be discovered by the researchers based on surveys and analyses of related datasets.
+> [RRL NEEDED: CV threshold of 0.25] The proposed threshold of 0.25 is provisional. The researchers must validate this value through analysis of survey data (such as the BSP Consumer Finance Survey) or relevant literature on income variability among Filipino working young adults. Until validation is complete, the threshold shall remain configurable via system settings without requiring code changes.
 
-For cold-start (first **7 days** of transaction history), classification shall use onboarding questionnaire responses. The CV threshold of 0.25 is derived from BSP Consumer Finance Survey 2021 median income variability among employed Metro Manila respondents. This threshold shall be adjustable via system configuration without code change.
+2. For cold‑start classification during the first seven days of transaction history, the System shall use responses from the onboarding questionnaire to estimate income stability. 
 
-> ASK: (JOAQUIN): Will 7 days truly suffice? That is something we need to discover or verify through research. The mention of 0.25 being derived from the BSP CFS is unverified. Can the source passage or inference be provided here?
-> ANS: (): ___
-
-> Claude: Section 2 defines income stability via coefficient of variation (CV) over 90 days. ASK: Why 90 days specifically? For freelancers with project-based income, 90 days may include only 2-3 projects, making CV unreliable. Consider a minimum number of income events (e.g., at least 5 income transactions) rather than a fixed window.
-
-> ADD: (J): Interesting proposal. Using the number of income events. Let's research if this is a valid method.
-
-> Claude: Section 2 mentions cold-start period of "first 7 days." ASK: Is 7 days enough to collect meaningful transaction data for CV calculation? A user might have only 1 or 2 income transactions in 7 days (e.g., weekly salary). CV cannot be computed on 2 data points. Recommend: cold-start uses questionnaire exclusively until a minimum of 5 income transactions or 30 days have passed, whichever is longer.
-
-> ADD: (J): Excellent point. Let's see what method we can use.
+    A. The cold‑start period lasts until the user has accumulated either at least five income transactions or thirty days of history, whichever is longer. 
+    
+    B. Only after meeting this minimum data requirement shall the System compute the coefficient of variation from actual transaction data.
 
 ### Section 3. Obligation Level Thresholds.
 
-Obligation level shall be determined by the obligation ratio (OR): total unavoidable monthly expenses divided by total monthly income, averaged over 60 days:
+1. Obligation level shall be determined by the obligation ratio, defined as total unavoidable monthly expenses divided by total monthly income, averaged over the preceding sixty days. 
 
-- **Flexible:** OR < 0.50
-- **Obligated:** OR ≥ 0.50
+    A. A user is classified as Flexible if the obligation ratio is less than 0.50, and Obligated if the ratio is 0.50 or greater.
 
-> NOTE: The proposed obligation ratio of 0.50 is a placeholder. The true value must be discovered by the researchers based on surveys and analyses of related datasets.
+> [RRL NEEDED: Obligation ratio threshold of 0.50] The proposed threshold of 0.50 is provisional and must be validated through research. The definition of unavoidable expenses includes rent or mortgage, utility minimum payments, debt minimum payments, insurance premiums, government‑mandated contributions (SSS, PhilHealth, Pag‑IBIG), and documented family support such as monthly remittance to parents.
 
-Unavoidable expenses are defined as:
+2. For salaried employees whose mandatory contributions are automatically deducted from gross salary, the System shall ask the user during onboarding whether they record gross or net income. 
 
-- Rent/mortgage
-- Utilities minimum payments
-- Debt minimum payments
-- Insurance premiums
-- Government-mandated contributions (SSS, PhilHealth, Pag-IBIG)
-- Documented family support (e.g., monthly remittance to parents)
-
-> ASK: (JOAQUIN): Is this an exhaustive list of unavoidable expenses? What literature/study/report backs this up?
-> ANS: (): ___
-
-For cold-start, OR shall be estimated from onboarding questionnaire.
-
-> Claude: Section 3 defines obligation ratio (OR) using "total unavoidable monthly expenses." The list includes "Government-mandated contributions (SSS, PhilHealth, Pag-IBIG)." NOTE: For employees, these are automatically deducted from salary and may not appear as separate expense transactions if the user records only net income. ASK: Should the system ask users during onboarding whether they record gross or net income? If net, mandatory contributions are already accounted for and should not be added again as expenses.
-
-> ADD: (J): Another excellent point. 
+    A. If the user records net income (after deductions), then mandatory contributions are already accounted for and shall not be added again as separate expenses. 
+    
+    B. If the user records gross income, the System shall treat the contribution amounts as separate unavoidable expenses when they appear as transactions.
 
 ### Section 4. Reclassification Triggers.
 
-The System shall re-evaluate profile classification when any of the following conditions are met:
+1. The System shall re‑evaluate a user's profile classification when any of the following conditions occur. 
 
-- Income CV changes by ±0.10 or more from classification baseline, sustained over 60 consecutive days
-- Obligation ratio changes by ±0.15 or more from classification baseline, sustained over 60 consecutive days
+    A. First, the income coefficient of variation changes by an absolute difference of 0.10 or more from the baseline used for the current classification, sustained over sixty consecutive days. 
+    
+    B. Second, the obligation ratio changes by an absolute difference of 0.15 or more from the baseline, sustained over sixty consecutive days. 
+    
+    C. Third, the user explicitly requests reclassification via the settings menu. 
+    
+    D. Fourth, ninety days have elapsed since the last classification, providing a periodic refresh.
 
-> ASK: (JOAQUIN): What is the justification for the reclassification baseline values of income CV and obligation ratio? What about for the days sustained?
-> ANS: (): ___
+> [RRL NEEDED: Reclassification thresholds and sustained periods] The values of 0.10 for CV change, 0.15 for obligation ratio change, and the sixty‑day sustained period are provisional. These should be validated against literature on how long financial behavioral profiles typically take to shift.
 
-- User explicitly requests reclassification via settings menu
-- Ninety (90) days have elapsed since last classification (periodic refresh)
+2. Upon detection of any trigger, the System shall generate a reclassification recommendation and present it to the user with an explanation using SHAP values (see Section 5). 
 
-> NOTE: It would help if it could be research how long do behavioral profiles typically change or shift on average. That could be the baseline length for the periodic refresh.
-
-Upon trigger detection, the System shall generate a reclassification recommendation and present it to the user with an explanation using SHAP values (see Section 5). No automatic reclassification shall occur without explicit user confirmation.
-
-If the user does not respond to a reclassification recommendation within 30 days, the System shall display a persistent notification (cannot be dismissed without action) on the dashboard: "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?" If the user still does not respond after 7 more days, the System may automatically apply the reclassification and log the event. The user can revert the change in Settings.
-
-> NOTE: "the System may automatically apply the reclassification" contradicts with "No automatic reclassification shall occur without explicit user confirmation".
-
-> Claude: Section 4 reclassification triggers: "Income CV changes by ±0.10 or more" and "Obligation ratio changes by ±0.15 or more." PROP: These deltas are absolute (e.g., 0.25 to 0.35) or relative (25% increase)? Define clearly. Also, a user with CV=0.24 (stable) who changes to CV=0.26 (variable) would trigger reclassification. That's a 0.02 absolute change, not 0.10. The threshold as written would never trigger for crossing the stable/variable boundary. Suggest rephrasing: "CV crosses the stable/variable threshold (0.25) and remains on the other side for 60 days."
-
-> ADD: (J): Interesting proposal. Let's research if this can be a viable method, as well as its details if ever (e.g., how long the retention period should be).
-
-> Claude: Section 4 contains a contradiction noted by the original annotator: "No automatic reclassification" vs "may automatically apply." PROP: Resolve by making all reclassification require explicit user confirmation, but add a "remind me in 7 days" option. Automatic application should be removed entirely to maintain user trust and control.
+    A. No automatic reclassification shall occur without explicit user confirmation. 
+    
+    B. The user may accept or decline the recommended change. 
+    
+    C. If the user does not respond to the recommendation within thirty days, the System shall display a persistent, non‑dismissible notification on the dashboard stating, "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?" 
+    
+    D. The user must either accept or decline; there is no automatic application. This design ensures that the user retains full control over their profile classification at all times.
 
 ### Section 5. Classification Algorithm.
 
-Classification shall be performed using a Random Forest classifier with the following specifications:
+1. Classification shall be performed using a Random Forest classifier with the following specifications. 
 
-- Minimum of 100 decision trees
-- Maximum depth of 10 levels
-- Gini impurity as split criterion
-- Class weights balanced (to address potential profile imbalance in training data)
+    A. The forest shall contain a minimum of one hundred decision trees, each with a maximum depth of ten levels. 
+    
+    B. The split criterion shall be Gini impurity. 
+    
+    C. Class weights shall be balanced to address potential imbalance in the training data, meaning that the synthetic training dataset shall be generated with equal representation of all four profiles (twenty‑five percent each). 
+    
+    D. The random state shall be fixed at forty‑two for reproducibility, primarily for testing and development purposes.
 
-> ASK: (JOAQUIN): Balanced how? What is potential profile imbalance in training data?
-> ANS: (): ___
+2. The features used for classification shall include at minimum the following. 
 
-- Random state fixed at 42 for reproducibility
+    A. Income coefficient of variation computed over thirty‑day, sixty‑day, and ninety‑day windows. 
+    
+    B. Obligation ratio computed over the same three windows. 
+    
+    C. Income frequency measured as the number of income payments per thirty days. 
+    
+    D. Income amount variance using mean absolute deviation. 
+    
+    E. Fixed expense count, defined as the number of distinct payees with the recurring flag enabled. 
+    
+    F. Savings rate computed as savings divided by income over a thirty‑day window. 
+    
+    G. Transaction regularity score calculated as the entropy of inter‑transaction intervals.
 
-> ASK: (JOAQUIN): Is the random state for testing purposes only?
-> ANS: (): ___
+3. All features are continuous except income frequency and fixed expense count, which are integers. 
 
-**Features for classification** (shall include at minimum):
+    A. The data source for all features is the user's transaction history.
 
-1. **Income CV (30d, 60d, 90d)**
-    - Source: User transactions
-    - Data type: Continuous
-2. **Obligation ratio (30d, 60d, 90d)**
-    - Source: User transactions
-    - Data type: Continuous
-3. **Income frequency (payments per 30d)**
-    - Source: User transactions
-    - Data type: Integer
-4. **Income amount variance (mean absolute deviation)**
-    - Source: User transactions
-    - Data type: Continuous
-5. **Fixed expense count (distinct payees with recurring flag)**
-    - Source: User transactions
-    - Data type: Integer
-6. **Savings rate (savings/income, 30d)**
-    - Source: User transactions
-    - Data type: Continuous
-7. **Transaction regularity score (entropy of inter-transaction intervals)**
-    - Source: User transactions
-    - Data type: Continuous
+4. For each classification prediction, the System shall provide SHAP (SHapley Additive exPlanations) values. 
 
-> ASK: (JOAQUIN): Are these the only features? Are source and data types the only properties? What is a continuous and integer data type in the context of features?
-> ANS: (): ___
-
-The System shall provide SHAP (SHapley Additive exPlanations) values for each classification prediction, presented as: "Your profile is [PROFILE] mainly because [FEATURE] was [VALUE], which differs from typical [OTHER PROFILE] users by [DIFFERENCE]."
-
-> Claude: Section 5 Random Forest: "Class weights balanced" - ASK: Balanced relative to what? If training data comes from synthetic generation with equal profile distribution (25% each), then no balancing is needed. If real data is imbalanced, specify the target distribution (e.g., balanced to 25% per profile). Also, "potential profile imbalance in training data" suggests the researchers expect certain profiles to be rarer. Which ones? Stable-Flexible might be most common; Variable-Obligated might be rarest. This should be hypothesized from literature.
+    A. The explanation shall be presented to the user in a sentence such as, "Your profile is Stable‑Obligated mainly because your obligation ratio of 0.55 is higher than typical Flexible users, and your monthly spending coefficient of variation of 0.12 indicates stable income."
 
 ### Section 6. Cold-Start Classification (Onboarding Questionnaire).
 
-During onboarding (first 7 days), the System shall classify the user via a questionnaire containing at least the following items:
+1. During the initial seven‑day period before sufficient transaction data is available, the System shall classify the user using a questionnaire. 
 
-1. **Is your monthly income roughly the same each month?**
-    - Response options:
-        - Yes
-        - No
-    - Maps to: Income stability
-2. **By how much does your income typically vary?**
-    - Response options:
-        - <10%
-        - 10-25%
-        - 25-50%
-        - Greater than 50%
-    - Maps to: CV estimate
+2. The questionnaire shall contain at least the following items, presented in order.
 
-> PROP: It could be hard for users to think about the exact percentage their income varies. I propose to ask the user beforehand their salary amount/income amount. Maybe their latest one if they are Variable. Then, on this question, display the actual amount variation (e.g., for a salary of 25k, <10% becomes 22.5k-27.5k).
+    A. First, the System shall ask the user for their typical monthly income amount in Philippine pesos. 
+    
+        I. This amount is then used to contextualise subsequent questions.
 
-3. **What percentage of your income goes to bills you cannot skip?**
-    - Response options:
-        - <30%
-        - 30-50%
-        - 50-70%
-        - >70%
-    - Maps to: Obligation ratio
+    B. Second, the System shall ask, "Is your monthly income roughly the same each month?" with response options Yes or No. 
+    
+        I. This maps to the income stability dimension.
 
-> PROP: Ibid.
+    C. Third, the System shall ask, "By how much does your monthly income typically vary?" 
+    
+        I. The response options shall be presented both as percentages and as actual peso ranges based on the user's stated income. 
+        
+            1. For example, for a user with a monthly income of 25,000 pesos, the options would be: less than 10% (less than 2,500 pesos), 10‑25% (2,500 to 6,250 pesos), 25‑50% (6,250 to 12,500 pesos), and greater than 50% (more than 12,500 pesos). 
+            
+        II. This maps to an estimate of the coefficient of variation.
 
-4. **Do you have dependents (children, parents, siblings)?**
-    - Response options:
-        - Yes (number:___)
-        - No
-    - Maps to: Obligation weight
+    D. Fourth, the System shall ask, "What percentage of your monthly income goes to bills and expenses that you cannot skip?" 
+    
+        I. The response options shall be less than 30%, 30‑50%, 50‑70%, and greater than 70%. 
+        
+            1. To aid understanding, the System shall display the corresponding peso amounts based on the user's stated income. 
+            
+        II. This maps to the obligation ratio.
 
-> ASK: (JOAQUIN): Does the number of dependents influence obligation weight? What is the difference between obligation weight and ratio?
-> ANS: (): ___
+    E. Fifth, the System shall ask, "Do you have dependents such as children, parents, or siblings whom you support financially?" with response options Yes or No. 
+    
+        I. If the user answers Yes, the System shall ask for the number of dependents. 
+        
+        II. This provides context for explainability but does not directly adjust the obligation ratio calculation.
 
-5. **Do you have any loans or debts with minimum monthly payments?**
-    - Response options:
-        - Yes
-        - No
-    - Maps to: Obligation weight
+    F. Sixth, the System shall ask, "Do you have any loans or debts with required minimum monthly payments?" with response options Yes or No. 
+    
+        I. This also provides contextual information and is already captured in the obligation ratio question; it is retained to help users understand what counts as an unavoidable expense.
 
-> ASK: (JOAQUIN): Does this not just fall under question 3?
-> ANS: (): ___
+> [RRL NEEDED: Questionnaire response mapping to profiles] The exact algorithm for converting questionnaire responses into an initial profile classification must be validated through research. The provisional approach is to treat a "No" answer to income stability as Variable, and a "Yes" answer to the obligation percentage question at or above 50% as Obligated, with the remaining combinations producing the corresponding profiles.
 
-> NOTE: The actual values in the questionnaire need to be backed up by research.
+3. After the user completes the questionnaire, the System shall compute an initial profile and present it to the user for confirmation before proceeding to the main application.
 
-The System shall compute an initial profile from these responses and present it to the user for confirmation.
+### Section 7. Connection to Other Modules
 
-> NOTE: There needs to be a section detailing how the computation of the initial profile is done.
+1. The profile label produced by the Random Forest classifier shall be passed to the LSTM forecasting module as a contextual feature, and to the Isolation Forest anomaly detection module to provide profile‑aware baselines. 
 
-> Claude: Section 6 onboarding questionnaire: Question 2 asks for income variation percentage. The PROP suggests showing actual peso amounts based on user's stated income. I support this. However, ASK: Does the system ask for income amount before or during onboarding? The order of questions matters. Recommend: Ask for monthly income first, then use that to contextualize the variation question.
+2. The profile is also used by the budget recommendation module to select default priorities and constraints. 
 
-> Claude: Section 6 Question 4 (dependents) and Question 5 (loans). ASK: Why are these separate from the obligation ratio question (Question 3)? The obligation ratio question already asks for percentage of income to unavoidable bills. Dependents and loans are contributors to that percentage but are not additive. Consider merging or clarifying that these questions are for context (e.g., for explainability, not for OR calculation).
+3. When a user's profile changes through reclassification, all downstream modules shall receive the updated label within twenty‑four hours.
 
 ---
 
