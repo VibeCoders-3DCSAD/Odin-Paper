@@ -1428,74 +1428,119 @@ The user may view, edit, or delete whitelist entries in Settings under Anomaly D
 
 ### Section 1. Debt Account Definition.
 
-A debt account shall consist of the following required fields:
+1. A debt account in the System represents a liability that the user owes to a creditor, with a defined principal, interest rate, and repayment schedule. 
 
-| Field | Constraints |
-|-------|-------------|
-| Debt name | ≤ 50 characters |
-| Total principal amount | ≥ PHP 100, ≤ PHP 10,000,000 |
-| Interest rate (annual) | 0% to 100%, stored as decimal (e.g., 0.05 for 5%) |
-| Minimum monthly payment | ≥ PHP 0, ≤ principal amount |
-| Payment due day of month | 1-28 |
-| Remaining balance | Computed: principal − sum(payments) |
+2. Each debt account shall consist of the following required fields:
 
-> Claude: Section 1: "Interest rate (annual) 0% to 100%" - ASK: What about loans with compound interest (e.g., credit cards)? The simple annual interest model does not capture compounding. Credit card interest is typically daily or monthly compounding. PROP: Add a compounding frequency field (none, monthly, daily) and compute effective annual rate accordingly. Or limit to simple-interest loans (personal loans, salary loans) as scope, explicitly excluding credit card debt.
+    A. The debt name is a string of up to fifty characters, unique per user. 
+    
+    B. The total principal amount is the original amount borrowed, measured in Philippine pesos, with a minimum of one hundred pesos and a maximum of ten million pesos. 
+    
+    C. The annual interest rate is stored as a decimal, for example 0.05 for five percent, and may range from zero to one hundred percent inclusive. 
+    
+    D. The System assumes simple interest for all debt accounts. 
+    
+    E. Compound interest, such as that on credit card revolving balances, is not supported in this version. 
+    
+    F. The minimum monthly payment is the smallest amount the user must pay each month to keep the account in good standing, measured in pesos, and may be zero. 
+    
+    G. The payment due day of month is an integer from one to thirty‑one; if the due day is greater than the number of days in a given month, the System shall treat the due date as the last day of that month. 
+    
+    H. The remaining balance is computed as the principal amount minus the sum of all payments recorded against this debt account, and is automatically updated whenever a debt payment transaction is recorded.
 
-> Claude: Section 1: "Payment due day of month: 1-28." ASK: What about due dates on 29th, 30th, 31st? Some loans have those dates. For February, if due date is 30th, the system needs a rule (e.g., last day of February). PROP: Allow 1-31, with validation for month lengths (e.g., if due day > month length, use last day).
+2. The System shall also store, optionally, the creditor name and contact information, which may be displayed to the user during hardship scenarios as described in Section 4.
+
+> [OPEN: Team Decision] Compound interest for credit cards and similar revolving debt is explicitly excluded from the thesis scope. The System assumes that users will either pay credit card balances in full each month (thus incurring no interest) or will treat credit card debt as a separate simple‑interest loan with an agreed interest rate. If the team determines that compound interest is essential for the target users, a future version should add a compounding frequency field.
 
 ### Section 2. Payoff Strategies.
 
-The System shall implement two payoff strategies with full switching capability:
+1. The System shall implement two debt payoff strategies, and the user may switch between them at any time. 
 
-| Strategy | Allocation Rule | Optimization target |
-|----------|----------------|---------------------|
-| Avalanche | Pay minimums on all debts, surplus to highest interest rate | Minimize total interest paid |
-| Snowball | Pay minimums on all debts, surplus to smallest remaining balance | Minimize time to first debt payoff |
+    A. Under the Avalanche strategy, the System allocates any surplus payment amount (beyond the sum of all minimum monthly payments) to the debt with the highest annual interest rate. 
 
-When user switches strategies, the System shall:
-- Recalculate projected payoff dates and total interest for all debts
-- Retain already-made payments (no retroactive changes)
-- Display comparison: "If you switch to [OTHER STRATEGY], you would pay PHP[DIFF] more/less in total interest."
+        i. This strategy minimises the total interest paid over the life of all debts. 
+    
+    B. Under the Snowball strategy, the System allocates surplus payment amount to the debt with the smallest remaining balance, regardless of interest rate. 
+    
+        i. This strategy minimises the time to the first debt payoff, providing psychological motivation.
 
-> ASK: (JOAQUIN): Was this process after switching strategies also done in Goal Management? Is it needed in Goal Management?
-> ANS: (): ___
+2. When the user switches from one strategy to another, the System shall recalculate the projected payoff dates and total interest for all debts under the new strategy. 
 
-> Claude: Section 2 Payoff Strategies: The ASK asks whether Goal Management has the same switching process. It does not appear to. PROP: Add similar "before/after comparison" to Goal Management when switching contribution strategies, for consistency.
+    A. Retained payments already made are not changed retroactively. 
+    
+    B. The System shall display a comparison message: "If you switch from Avalanche to Snowball, you would pay an additional 1,200 pesos in total interest, but you would pay off your smallest debt three months earlier. Continue?" 
+    
+    C. The user must confirm the switch before it takes effect.
+
+3. The surplus payment amount is defined as the user's total available funds allocated to debt repayment in a given month, minus the sum of all minimum monthly payments. 
+
+    A. The total available funds allocated to debt repayment is determined by the budget recommendation module (Article VI) as part of the Obligatory category allocation. 
+    
+    B. The user may also manually specify a higher debt repayment amount.
 
 ### Section 3. Projection Display.
 
-For each debt account and for the aggregate, the System shall display:
+1. For each debt account individually, and for the aggregate of all debt accounts, the System shall display the following projections:
 
-- Remaining balance (current)
-- Projected payoff date (date when balance ≤ 0, assuming minimum payments plus surplus as per strategy)
-- Total interest projected under current strategy
-- Total interest projected under alternative strategy (for comparison)
+    A. The remaining balance is shown in pesos, updated after each payment transaction. 
+    
+    B. The projected payoff date is the date when the remaining balance is expected to reach zero or less, assuming the user makes the minimum monthly payment each month plus any surplus allocated according to the selected payoff strategy. 
+    
+    C. The total interest projected under the current strategy is the sum of all future interest payments until payoff, assuming no changes to the payment schedule. 
+    
+    D. The total interest projected under the alternative strategy is also shown for comparison, with an explanation of the difference.
 
-> ASK: (JOAQUIN): Ibid.
-> ANS: (): ___
+2. The projection calculations assume that the user continues to follow the selected strategy and that no additional debt is incurred. 
+
+    A. The System shall display a disclaimer: "Projections assume you make all minimum payments on time and do not take on new debt."
 
 ### Section 4. Minimum Payment Validation.
 
-The System shall not permit a monthly debt payment below the account's minimum payment unless:
+1. The System shall not permit a recorded monthly debt payment that is below the account's minimum monthly payment unless one of two conditions is met. 
 
-- The user explicitly overrides with a confirmation dialog: "Paying below the minimum may incur late fees and damage your credit score. Continue anyway? (Yes/No)"
-- The user's available balance is less than the sum of all minimum payments (hardship mode).
+    A. First, the user may explicitly override the minimum payment by confirming a dialog that states: "Paying below the minimum may incur late fees and damage your credit score. Continue anyway? Yes / No." 
+    
+    B. Second, if the user's available balance across all accounts is less than the sum of all minimum payments for the month, the System shall automatically enter hardship mode.
 
-If the user's available balance is less than the sum of all minimum payments, the System shall display a debt hardship screen with: (1) a warning that minimum payments exceed available balance, (2) a recommendation to contact each creditor (displaying creditor contact information if provided by user), (3) a link to the National Credit Council's debt counseling page (if available), and (4) an option to proceed with reduced payments by acknowledging: "I understand that paying below minimum may incur fees." No automated contact is made.
+2. When hardship mode is detected, the System shall display a debt hardship screen that includes three elements. 
 
-> NOTE: Debt Hardship as a term needs to be defined.
+    A. First, a warning that the user's total minimum payments exceed their available balance. 
+    
+    B. Second, a recommendation to contact each creditor, displaying the creditor's name and contact information if the user has provided it. 
+    
+    C. Third, a link to the National Credit Council's debt counselling page if available. 
+    
+3. The System shall also display an option for the user to proceed with reduced payments by acknowledging: "I understand that paying below the minimum may incur fees and affect my credit score." No automated contact with creditors is made.
 
-> Claude: Section 4 Minimum Payment Validation: "hardship mode" - ASK: Is hardship mode a user-declared state or automatically detected? The spec says "if available balance is less than sum of all minimum payments" - that is automatic detection. PROP: When detected, the system should also offer to reschedule payments (e.g., propose a reduced payment plan to the user, not automatically to creditors). The user can then decide which debts to underpay.
+> [OPEN: Team Decision] The definition of "available balance is less than the sum of all minimum payments" is evaluated at the time the user attempts to record debt payments, typically at the end of the month before due dates. The System does not automatically detect hardship in advance; the user must initiate the payment recording process. A future enhancement could proactively alert the user when upcoming minimum payments exceed projected available balance based on the LSTM forecast.
 
 ### Section 5. Debt Alerts.
 
-The System shall send the following debt-related notifications:
+1. The System shall send the following debt‑related notifications:
 
-| Alert | Trigger |
-|-------|---------|
-| Upcoming due date | 3 days before payment due date |
-| Missed payment | Payment not recorded by due date + 1 day |
-| Payoff milestone | 50% paid, 100% paid |
+    A. Three days before a debt account's payment due date, the System shall send an upcoming due date reminder: "Your [debt name] payment of [minimum amount] pesos is due on [date]." 
+    
+    B. If the due date passes and no payment has been recorded for that month by the following day, the System shall send a missed payment alert: "Your [debt name] payment was due yesterday. Please record your payment to avoid late fees." 
+    
+    C. When a debt account reaches fifty percent paid (remaining balance is less than or equal to half of the original principal), the System shall send a milestone notification: "You have paid off 50% of your [debt name]!" 
+    
+    D. When the remaining balance reaches zero, the System shall send a payoff notification: "Congratulations! You have fully paid off your [debt name]."
+
+2. All debt alerts are delivered via in‑app notification. 
+
+3. The user may enable push notifications for debt alerts separately from other alert categories.
+
+### Section 6. Connection to Other Modules
+
+1. The debt management module receives the user's available balance from the account management system (Article V) to validate minimum payments and detect hardship. 
+
+2. It receives the forecasted income and the Obligatory category allocation from the budget recommendation module (Article VI) to determine the surplus amount available for debt repayment beyond minimum payments. 
+
+3. The debt payoff projections are displayed in the forecasting module's debt remaining balance view (Article VII Section 1). 
+
+4. The debt alerts are passed to the Alerts and Notifications module (Article XI). 
+
+5. The debt management module does not interact directly with the Random Forest or Isolation Forest models.
 
 ---
 
