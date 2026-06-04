@@ -185,7 +185,7 @@
 
     A. The merchant name is optional but recommended; if omitted, the merchant novelty feature for anomaly detection defaults to zero. 
     
-        I. The description field is also optional. 
+        i. The description field is also optional. 
         
     B. For recurring transactions, the required fields are amount, category, frequency, start date, and account; an end date is optional.
 
@@ -199,23 +199,23 @@
 
     A. An income transaction represents a cash inflow into an account, moving from an external source to the available balance. 
     
-        I. Income may be recurring with frequencies of daily, weekly, monthly, yearly, or a custom interval. 
+        i. Income may be recurring with frequencies of daily, weekly, monthly, yearly, or a custom interval. 
         
-        II. Examples include salary, freelance payment, and remittance.
+        ii. Examples include salary, freelance payment, and remittance.
 
     B. An expense transaction represents a cash outflow from an account, moving from available balance to an expense category. 
     
-        I. Expense may also be recurring with the same frequency options. 
+        i. Expense may also be recurring with the same frequency options. 
         
-        II. Examples include groceries, rent, electricity bills, debt repayment, and savings deposits.
+        ii. Examples include groceries, rent, electricity bills, debt repayment, and savings deposits.
 
     C. A transfer transaction moves cash from one account to another without changing net worth. 
     
-        I. Transfer may be recurring with daily, weekly, or monthly frequencies. 
+        i. Transfer may be recurring with daily, weekly, or monthly frequencies. 
         
-        II. Examples include moving money from a cash account to an e‑wallet account. 
+        ii. Examples include moving money from a cash account to an e‑wallet account. 
         
-        III. When a transfer is recorded, the System shall subtract the amount from the source account's balance and add the same amount to the destination account's balance.
+        iii. When a transfer is recorded, the System shall subtract the amount from the source account's balance and add the same amount to the destination account's balance.
 
 ### Section 3. Manual Entry Workflow.
 
@@ -223,31 +223,31 @@
 
     A. First, the amount shall be validated. 
     
-        I. For income and expense, the amount must be greater than zero Philippine pesos. 
+        i. For income and expense, the amount must be greater than zero Philippine pesos. 
         
-        II. For transfer, the amount may be positive; a negative amount is not permitted, as the direction of transfer is captured by the source and destination account selection.
+        ii. For transfer, the amount may be positive; a negative amount is not permitted, as the direction of transfer is captured by the source and destination account selection.
 
     B. Second, for an expense transaction, the System shall check whether deducting the amount would make the available balance negative. 
     
-        I. If so, the System shall display a warning message explaining that this transaction will result in a negative balance, and prompt the user to confirm whether they wish to proceed. 
+        i. If so, the System shall display a warning message explaining that this transaction will result in a negative balance, and prompt the user to confirm whether they wish to proceed. 
         
             1. The user may confirm the deduction and accept the negative balance, or cancel the transaction. 
             
             2. This warning mechanism exists because users may occasionally forget to record income transactions, and preventing negative balances entirely would create unnecessary friction. 
         
-        II. The System shall display a persistent warning badge on the dashboard whenever any account balance is negative, and shall continue to show this badge until the balance returns to zero or positive.
+        ii. The System shall display a persistent warning badge on the dashboard whenever any account balance is negative, and shall continue to show this badge until the balance returns to zero or positive.
 
     C. Third, for an income transaction, the System shall add the amount to the available balance of the selected account. 
     
-        I. For an expense transaction, the System shall subtract the amount from the available balance. 
+        i. For an expense transaction, the System shall subtract the amount from the available balance. 
         
-        II. For a transfer, the System shall subtract the amount from the source account and add it to the destination account.
+        ii. For a transfer, the System shall subtract the amount from the source account and add it to the destination account.
 
     D. Fourth, after the transaction is saved, the System shall store it with a timestamp in ISO 8601 format. 
     
-        I. The transaction shall then be used to update downstream models, including profile classification, spending forecasts, and anomaly detection baselines. 
+        i. The transaction shall then be used to update downstream models, including profile classification, spending forecasts, and anomaly detection baselines. 
         
-        II. These updates may occur asynchronously, but shall complete within twenty‑four hours.
+        ii. These updates may occur asynchronously, but shall complete within twenty‑four hours.
 
 ### Section 4. Recurring Transaction Rules.
 
@@ -255,7 +255,7 @@
 
     A. If a generated expense or transfer transaction would cause the available balance to become negative, the System shall not create the transaction. 
 
-        I. Instead, it shall postpone the transaction, notify the user of the postponement, and re‑attempt generation on the next scheduled date and time. 
+        i. Instead, it shall postpone the transaction, notify the user of the postponement, and re‑attempt generation on the next scheduled date and time. 
         
     B. The user may pause, edit, or delete any recurring template at any time.
 
@@ -385,37 +385,37 @@
 
     A. First, the System shall ask the user for their typical monthly income amount in Philippine pesos. 
     
-        I. This amount is then used to contextualise subsequent questions.
+        i. This amount is then used to contextualise subsequent questions.
 
     B. Second, the System shall ask, "Is your monthly income roughly the same each month?" with response options Yes or No. 
     
-        I. This maps to the income stability dimension.
+        i. This maps to the income stability dimension.
 
     C. Third, the System shall ask, "By how much does your monthly income typically vary?" 
     
-        I. The response options shall be presented both as percentages and as actual peso ranges based on the user's stated income. 
+        i. The response options shall be presented both as percentages and as actual peso ranges based on the user's stated income. 
         
             1. For example, for a user with a monthly income of 25,000 pesos, the options would be: less than 10% (less than 2,500 pesos), 10‑25% (2,500 to 6,250 pesos), 25‑50% (6,250 to 12,500 pesos), and greater than 50% (more than 12,500 pesos). 
             
-        II. This maps to an estimate of the coefficient of variation.
+        ii. This maps to an estimate of the coefficient of variation.
 
     D. Fourth, the System shall ask, "What percentage of your monthly income goes to bills and expenses that you cannot skip?" 
     
-        I. The response options shall be less than 30%, 30‑50%, 50‑70%, and greater than 70%. 
+        i. The response options shall be less than 30%, 30‑50%, 50‑70%, and greater than 70%. 
         
             1. To aid understanding, the System shall display the corresponding peso amounts based on the user's stated income. 
             
-        II. This maps to the obligation ratio.
+        ii. This maps to the obligation ratio.
 
     E. Fifth, the System shall ask, "Do you have dependents such as children, parents, or siblings whom you support financially?" with response options Yes or No. 
     
-        I. If the user answers Yes, the System shall ask for the number of dependents. 
+        i. If the user answers Yes, the System shall ask for the number of dependents. 
         
-        II. This provides context for explainability but does not directly adjust the obligation ratio calculation.
+        ii. This provides context for explainability but does not directly adjust the obligation ratio calculation.
 
     F. Sixth, the System shall ask, "Do you have any loans or debts with required minimum monthly payments?" with response options Yes or No. 
     
-        I. This also provides contextual information and is already captured in the obligation ratio question; it is retained to help users understand what counts as an unavoidable expense.
+        i. This also provides contextual information and is already captured in the obligation ratio question; it is retained to help users understand what counts as an unavoidable expense.
 
 > [RRL NEEDED: Questionnaire response mapping to profiles] The exact algorithm for converting questionnaire responses into an initial profile classification must be validated through research. The provisional approach is to treat a "No" answer to income stability as Variable, and a "Yes" answer to the obligation percentage question at or above 50% as Obligated, with the remaining combinations producing the corresponding profiles.
 
@@ -435,104 +435,133 @@
 
 ### Section 1. Base Category Taxonomy.
 
-The System shall implement the following 13 expense categories and their respective subcategories, grounded in the 2020 Philippine Classification of Individual Consumption According to Purpose and cross-validated against BSP CFS 2021:
+1. The System shall implement expense categories grounded in the 2020 Philippine Classification of Individual Consumption According to Purpose (PCOICOP), cross‑validated against the BSP Consumer Finance Survey 2021. 
 
-> NOTE: Just recently learned about the PCOICOP. Jackpot! That's what we'll use for the expense category taxonomy.
+    A. However, categories that represent purely economic concepts with no corresponding cash flow shall be excluded. 
+    
+        i. Specifically, imputed rentals for housing, which represent the economic value of owner‑occupied housing, shall not appear as a user‑selectable category because no actual expense transaction occurs.
 
-1. FOOD AND NON-ALCOHOLIC BEVERAGES
-    - FOOD
-    - NON-ALCOHOLIC BEVERAGES
-    - SERVICES FOR PROCESSING PRIMARY GOODS FOR FOOD AND NON-ALCOHOLIC BEVERAGES
-2. ALCOHOLIC BEVERAGES, TOBACCO AND NARCOTICS
-    - ALCOHOLIC BEVERAGES
-    - ALCOHOL PRODUCTION SERVICES
-    - TOBACCO
-    - NARCOTICS
-3. CLOTHING AND FOOTWEAR
-    - CLOTHING
-    - FOOTWEAR
-4. HOUSING, WATER, ELECTRICITY, GAS AND OTHER FUELS
-    - ACTUAL RENTALS FOR HOUSING
-    - IMPUTED RENTALS FOR HOUSING
-    - MAINTENANCE, REPAIR AND SECURITY OF THE DWELLING
-    - WATER SUPPLY AND MISCELLANEOUS SERVICES RELATING TO THE DWELLING
-    - ELECTRICITY, GAS AND OTHER FUELS
-5. FURNISHINGS, HOUSEHOLD EQUIPMENT AND ROUTINE HOUSEHOLD MAINTENANCE
-    - FURNITURE, FURNISHINGS, AND LOOSE CARPETS
-    - HOUSEHOLD TEXTILES
-    - HOUSEHOLD APPLIANCES
-    - GLASSWARE, TABLEWARE AND HOUSEHOLD UTENSILS
-    - TOOLS AND EQUIPMENT FOR HOUSE AND GARDEN
-    - GOODS AND SERVICES FOR ROUTINE HOUSEHOLD MAINTENANCE
-6. HEALTH
-    - MEDICINES AND HEALTH PRODUCTS
-    - OUTPATIENT CARE SERVICES
-    - INPATIENT CARE SERVICES
-    - OTHER HEALTH SERVICES
-7. TRANSPORT
-    - PURCHASE OF VEHICLES
-    - OPERATION OF PERSONAL TRANSPORT EQUIPMENT
-    - PASSENGER TRANSPORT SERVICES
-    - TRANSPORT SERVICES OF GOODS
-8. INFORMATION AND COMMUNICATION
-    - Information and communication equipment
-    - SOFTWARE EXCLUDING GAMES
-    - INFORMATION AND COMMUNICATION SERVICES
-9. RECREATION, SPORT AND CULTURE
-    - RECREATIONAL DURABLES
-    - OTHER RECREATIONAL GOODS
-    - GARDEN PRODUCTS AND PETS
-    - RECREATIONAL SERVICES
-    - CULTURAL GOODS
-    - CULTURAL SERVICES
-    - NEWSPAPERS, BOOKS AND STATIONERY
-    - PACKAGE HOLIDAYS (S)
-10. EDUCATION SERVICES
-    - EARLY CHILDHOOD AND PRIMARY EDUCATION
-    - SECONDARY EDUCATION  (S)
-    - POST-SECONDARY NON-TERTIARY EDUCATION (S)
-    - TERTIARY EDUCATION (S)
-    - EDUCATION NOT DEFINED BY LEVEL (S)
-11. RESTAURANTS AND ACCOMMODATION SERVICES
-    - FOOD AND BEVERAGE SERVING SERVICES
-    - ACCOMMODATION SERVICES
-12. INSURANCE AND FINANCIAL SERVICES
-    - INSURANCE
-    - FINANCIAL SERVICES
-13. PERSONAL CARE, SOCIAL PROTECTION AND MISCELLANEOUS GOODS AND SERVICES
-    - PERSONAL CARE
-    - OTHER PERSONAL EFFECTS
-    - SOCIAL PROTECTION
-    - OTHER SERVICES
+2. The following base categories shall be implemented, each with its associated subcategories as listed. 
 
-> Claude: Section 1 lists 13 base categories derived from PCOICOP. NOTE: This is a strong choice. However, PCOICOP includes categories like "IMPUTED RENTALS FOR HOUSING" which are not relevant for personal finance (imputed rent is an economic concept for homeowners). ASK: Will the system include imputed rentals? If a user owns their home, they should not record "imputed rent" as an expense. Recommend removing purely economic concepts that have no cash flow.
+    A. The System shall store transactions at the most granular subcategory level, but shall also maintain a mapping from each subcategory to one of four broad groups: Essentials, Obligatory, Discretionary, and Financial Allocation. 
+    
+        i. This mapping is defined in Section 2.
 
-> ADD: (J): Agreed. The base categories above should be trimmed.
+3. The following base categories shall be implemented, each with its associated subcategories as listed:
+
+    A. Food and Non‑Alcoholic Beverages — includes Food, Non‑Alcoholic Beverages, and Services for Processing Primary Goods for Food and Non‑Alcoholic Beverages. 
+    
+        i. Mapped to Essentials.
+
+    B. Alcoholic Beverages, Tobacco and Narcotics — includes Alcoholic Beverages, Alcohol Production Services, Tobacco, and Narcotics. 
+    
+        i. Mapped to Discretionary.
+
+    C. Clothing and Footwear — includes Clothing and Footwear. 
+    
+        i. Mapped to Discretionary.
+
+    D. Housing, Water, Electricity, Gas and Other Fuels — includes Actual Rentals for Housing, Maintenance Repair and Security of the Dwelling, Water Supply and Miscellaneous Services Relating to the Dwelling, and Electricity Gas and Other Fuels. 
+    
+        i. Imputed rentals are excluded. 
+        
+        ii. Actual rent payments are mapped to Obligatory.
+        
+        iii. Utilities (water, electricity, gas) are mapped to Essentials. 
+        
+        iv. Maintenance and repair services are mapped to Discretionary.
+
+    E. Furnishings, Household Equipment and Routine Household Maintenance — includes Furniture Furnishings and Loose Carpets, Household Textiles, Household Appliances, Glassware Tableware and Household Utensils, Tools and Equipment for House and Garden, and Goods and Services for Routine Household Maintenance. 
+    
+        i. Mapped to Discretionary.
+
+    F. Health — includes Medicines and Health Products, Outpatient Care Services, Inpatient Care Services, and Other Health Services. 
+    
+        i. Mapped to Essentials.
+
+    G. Transport — includes Purchase of Vehicles, Operation of Personal Transport Equipment, Passenger Transport Services, and Transport Services of Goods. 
+    
+        i. Mapped to Obligatory for essential commuting (public transport, fuel for work travel). 
+        
+        ii. Mapped to Discretionary for vehicle purchases and non‑essential travel. 
+        
+        iii. The System shall not auto‑classify; the user selects the category at transaction entry, and the mapping follows the selected subcategory.
+
+    H. Information and Communication — includes Information and Communication Equipment, Software Excluding Games, and Information and Communication Services (such as mobile data, internet, and postpaid plans). 
+    
+        i. Mapped to Obligatory for basic communication services (mobile plan, home internet). 
+        
+        ii. Mapped to Discretionary for device purchases.
+
+    I. Recreation, Sport and Culture — includes Recreational Durables, Other Recreational Goods, Garden Products and Pets, Recreational Services, Cultural Goods, Cultural Services, Newspapers Books and Stationery, and Package Holidays. 
+    
+        i. Mapped to Discretionary.
+
+    J. Education Services — includes Early Childhood and Primary Education, Secondary Education, Post‑Secondary Non‑Tertiary Education, Tertiary Education, and Education Not Defined by Level. 
+    
+        i. Mapped to Obligatory.
+
+    K. Restaurants and Accommodation Services — includes Food and Beverage Serving Services (dining out) and Accommodation Services (hotels, resorts). 
+    
+        i. Mapped to Discretionary.
+
+    L. Insurance and Financial Services — includes Insurance premiums (health, life, vehicle) and Financial Services (bank fees, remittance fees). 
+    
+        i. Insurance premiums are mapped to Obligatory. 
+        
+        ii. Financial services fees are mapped to Discretionary unless the user designates them as essential.
+
+    M. Personal Care, Social Protection and Miscellaneous Goods and Services — includes Personal Care (haircuts, cosmetics, toiletries), Other Personal Effects, Social Protection (voluntary contributions beyond mandatory), and Other Services. 
+    
+        i. Mapped to Discretionary for personal care and miscellaneous. 
+        
+        ii. Mapped to Obligatory for documented social protection contributions.
 
 ### Section 2. Category Aggregation into Groups.
 
-For budget recommendation and visualization, categories shall be aggregated into three groups:
+1. For forecasting (LSTM) and budget recommendation, the thirteen base categories shall be aggregated into four broad groups, which serve as the forecast targets and the primary budget allocation units. 
 
-| Group | Member Categories | Aggregation Rule |
-|-------|-------------------|------------------|
-| Essentials | FOOD, HOUSING, HEALTH, FINANCIAL_OBLIG | Sum of category amounts |
-| Lifestyle | ALCOHOL, CLOTHING, FURNISHINGS, RECREATION, RESTAURANT, MISC | Sum of category amounts |
-| Enablers | TRANSPORT, COMMS, EDUCATION, SAVINGS | Sum of category amounts |
+    A. The mapping from each base category to a broad group is defined below.
 
-> PROP: I propose a better aggregation of the categories into distinctive groups (e.g., Essentials, Discretionary) that use non-jargon plain language that users can easily understand.
+2. The four broad groups are the following:
 
-> Claude: Section 2 aggregates categories into "Essentials, Lifestyle, Enablers." The PROP proposes "plain language" alternatives. I agree. PROPOSED GROUPS: "Needs" (Essentials), "Wants" (Lifestyle), "Foundations" (Enablers - transport, communication, education, savings). "Foundations" still needs a better name. Or simply let users rename groups.
+    A. The Essentials group includes Food and Non‑Alcoholic Beverages, the utilities portion of Housing (electricity, water, gas), and Health. 
+    
+        i. These are expenses necessary for basic survival and well‑being.
+
+    B. The Obligatory group includes contractual and unavoidable payments: rent (actual rentals), debt minimum payments (tracked via a separate debt management module but recorded as expenses under a Obligatory subcategory), insurance premiums, government contributions, basic transport for commuting, basic communication services (mobile and internet), education expenses, and documented family support. 
+    
+        i. These expenses are fixed in amount or timing and cannot be easily reduced in the short term.
+
+    C. The Discretionary group includes all remaining categories: alcoholic beverages and tobacco, clothing and footwear, non‑essential housing maintenance, furnishings and appliances, non‑essential transport, recreational equipment and services, dining out, accommodation, personal care, and miscellaneous goods. 
+    
+        i. These expenses are optional and can be adjusted based on available surplus.
+
+    D. The Financial Allocation group includes savings deposits, investment contributions, and debt principal prepayments (beyond minimum payments). 
+    
+        i. These are treated as allocations rather than expenses, though they appear as outflows from available balance. 
+        
+            1. The distinction is important for the budget LP: financial allocations are not counted as "spending" in the same sense as Essentials, Obligatory, or Discretionary expenses.
+
+> [OPEN: Team Decision] The mapping of specific subcategories to these four groups may be adjusted based on user feedback or cultural context. For example, some users may consider mobile data an Essential rather than Obligatory. The System shall allow users to override the default group mapping for any subcategory via Settings → Categories, but such overrides apply only to that user's budgeting and forecasting; the ML models continue to use the standard mapping for training and inference.
 
 ### Section 3. User Category Overrides.
 
-Users may create up to 5 custom subcategories under any base category. Custom subcategories must be mapped to exactly one base category for aggregation purposes. Users may not delete base categories. Category ambiguity (e.g., "Is coffee a FOOD or RESTAURANT?") shall be resolved by the user at transaction entry time via category selection; the System shall not auto-categorize.
+1. Users may create up to five custom subcategories under any base category. 
 
-> ASK: (JOAQUIN): Do they not have permission to make groups, categories, and subcategories? Will that over-complicate things?
-> ANS: (): ___
+    A. Each custom subcategory must be mapped to exactly one base category for aggregation purposes, and must also be assigned to one of the four broad groups (Essentials, Obligatory, Discretionary, or Financial Allocation). 
+    
+    B. The user may delete custom subcategories but may not delete or rename base categories.
 
-> Claude: Section 3: "The System shall not auto-categorize." ASK: Is this a deliberate design choice to maintain user control, or a limitation? The spec already uses ML for forecasting and anomaly detection. Auto-categorization based on merchant name (e.g., "7-Eleven" → FOOD) is a common PFM feature. PROP: Add optional auto-categorization with user override, as a future work item if not in scope.
+2. When a user creates a custom subcategory, the System shall prompt the user to select the appropriate broad group with a brief explanation: "Choose whether this expense is essential for survival, obligatory like rent or debt payments, discretionary like entertainment, or a financial allocation like savings."
 
-> ADD: (J): This is a pretty smart suggestion.
+3. The System shall not perform automatic categorisation of transactions. 
+
+    A. All category assignments must be made by the user at transaction entry time. 
+    
+    B. This design choice prioritises user awareness and control over automation, and is supported by literature suggesting that manual logging improves financial mindfulness.
+
+> [FUTURE WORK] Optional auto‑categorisation based on merchant name or transaction description is recommended as a future enhancement. The current version excludes this feature to maintain scope focus.
 
 ---
 
