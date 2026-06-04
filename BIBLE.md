@@ -1049,20 +1049,65 @@
 
 ### Section 1. Primary Detection Method.
 
-Anomaly detection shall be performed using Isolation Forest with the following specifications:
+1. Anomaly detection shall be performed using Isolation Forest, an unsupervised algorithm that isolates anomalies by randomly partitioning the feature space. 
 
-- Contamination rate: 0.05 (expect 5% of transactions anomalous)
-- Number of estimators: 100
-- Max samples: 256 (or number of transactions if fewer)
-- Random state: 42
+2. The model shall operate on a per‑user basis, learning the user's baseline spending behaviour from their transaction history. 
 
-> NOTE: Same stuff as last time.
+3. A minimum of fourteen days of transaction history is required before the Isolation Forest is enabled. 
+    
+4. For users with fewer than fourteen days, anomaly detection shall be disabled, and only rule‑based budget overspending alerts (described in Section 5) shall be shown.
 
-The Isolation Forest shall operate on a per-user basis, learning the user's baseline spending behavior from their transaction history (minimum 14 days required). For users with <14 days, anomaly detection shall be disabled and replaced by rule-based budget overspending alerts only.
+5. The Isolation Forest shall use the following specifications:
 
-> NOTE: Actually, the budget overspending feature is always present. The anomaly detection and overspending detection features are separate. We can just simply say that there is no cold-start fallback for Isolation Forest.
+    A. The number of estimators (decision trees) is one hundred. 
+    
+    B. The maximum number of samples used to train each tree is two hundred fifty‑six, or the total number of transactions if fewer. 
+    
+    C. The random state is fixed at forty‑two for reproducibility. 
+    
+    D. The contamination rate, which represents the expected proportion of anomalous transactions in the data, shall not be fixed at a constant value. 
+    
+        i. Instead, the System shall use the raw anomaly scores produced by Isolation Forest and apply a dynamic threshold: the top five percent of scores by transaction volume shall be flagged as anomalies. 
+    
+        ii. This approach adapts to each user's actual spending variability rather than forcing exactly five percent of transactions to be flagged regardless of behaviour.
 
-> Claude: Section 1: "Isolation Forest with contamination rate 0.05" - ASK: Is contamination rate fixed or adaptive? A fixed 0.05 means exactly 5% of transactions are flagged as anomalies regardless of actual behavior. This is problematic for users with very regular spending (should flag <1%) or very irregular spending (should flag >5%). PROP: Use adaptive contamination based on historical user behavior, or remove the fixed contamination parameter and use isolation forest's raw anomaly scores with a dynamic threshold (e.g., top 5% of scores, not exactly 5% of transactions).
+6. The feature vector for each expense transaction shall consist of eight dimensions, derived from the transaction and the user's historical data. 
+
+    A. All features are normalised or standardised before being passed to the Isolation Forest.
+
+7. The feature vector dimensions are the following:
+
+    A. The amount deviation feature is calculated as the transaction amount minus the median amount for the same detailed category over the preceding thirty days, divided by the interquartile range of amounts for that category over the same period. 
+    
+        i. The result is capped at plus or minus five to prevent extreme outliers from dominating.
+
+    B. The amount‑to‑income ratio is calculated as the transaction amount divided by the user's monthly income (updated when new income transactions are recorded). 
+    
+        i. This feature identifies transactions that are unusually large relative to the user's earning capacity.
+
+    C. The category average ratio is calculated as the transaction amount divided by the average amount for the same detailed category over the preceding thirty days. 
+    
+        i. A value substantially greater than one indicates an unusually large transaction for that category.
+
+    D. The days since payday feature captures the number of days between the transaction date and the most recent payday. 
+    
+        i. This helps distinguish normal payday spending spikes from off‑cycle unusual spending.
+
+    E. The `is_recurring` flag, a binary feature, indicates whether the transaction is part of a recurring template (as defined in Article II). 
+    
+        i. Recurring transactions are rarely anomalous and this feature helps the model suppress false positives on regular bills.
+
+    F. The detailed category is encoded as a one‑hot vector representing the specific subcategory selected by the user. 
+
+        i. The broad LSTM category (Essentials, Obligatory, Discretionary, or Financial Allocation) is also included as an additional categorical feature.
+
+    G. The day of month (one to thirty‑one) and day of week (zero to six) are included as cyclical features to capture monthly bill cycles and weekday versus weekend spending patterns.
+
+    H. The merchant novelty flag is set to one if the merchant name has not appeared in any transaction by this user in the preceding sixty days, and zero otherwise. 
+    
+        i. When the user does not provide a merchant name, this flag defaults to zero.
+
+> [OPEN: Team Decision] The merchant novelty flag uses a hard sixty‑day cutoff. An alternative approach using a decay function (where novelty decays gradually over time) may produce smoother results but adds complexity. The hard cutoff is acceptable for the thesis scope.
 
 ### Section 2. Features for Anomaly Detection.
 
@@ -1095,101 +1140,135 @@ Day-of-period proportion is calculated based on the user's currently active budg
 
 > Claude: Section 2: "Day-of-period proportion" depends on active budget period. ASK: What if the user has multiple overlapping budgets (e.g., monthly budget and a separate event budget)? The system only supports one active budget at a time per Article VI. Clarify that the anomaly detection period aligns with the single active budget period.
 
-### Section 3. Excluded Events (Culturally Expected Spending Spikes).
+### Section 3. Occasions
 
-The following transactions shall NOT be flagged as anomalies regardless of Isolation Forest score, based on RRL on Filipino cultural spending patterns:
+1. Certain transactions that would otherwise be flagged as anomalies shall be excluded from alert generation because they represent culturally expected spending spikes. 
 
-- Transactions between December 15 and January 5 (Christmas and New Year)
-- Transactions during Holy Week (exact dates vary yearly; the System shall use a manually maintained JSON configuration file)
-- Transactions during user's declared home barangay fiesta dates (±3 days, user-configurable in profile)
-- Transactions manually whitelisted by user (see Section 4)
+    A. The System shall still compute anomaly scores for these transactions for internal logging and model evaluation, but shall not generate user notifications unless the user has enabled informational alerts.
 
-> PROP: I think the anomaly detection module should still detect anomalies during these occasions, but, instead of sending out warnings, it could send out information notifs. In this way, the user isn't blindsided by the system, and anomalies hiding in these seasonalities can still be detected.
+2. The following periods are excluded from anomaly alerting:
 
-The System shall maintain a built-in holiday calendar for Metro Manila, pre-loaded with fixed holidays (e.g., Dec 25, Jan 1) and movable holidays (e.g., Holy Week) for the current and next year. The calendar shall be updated annually via a manual configuration file (JSON) that the development team updates based on official PSA proclamations. A fallback rule shall exclude any transaction between March 25 and April 10 if the year's Holy Week dates are not yet loaded.
+    A. Transactions between December fifteen and January five (the extended Christmas and New Year period) shall not trigger anomaly alerts. 
+    
+    B. Transactions during Holy Week (from Palm Sunday to Easter Sunday) shall not trigger alerts. 
+    
+    C. For Holy Week dates, the System shall use an annually updated holiday calendar stored as a JSON configuration file. 
+    
+    D. If the current year's Holy Week dates are not yet loaded, the System shall compute Easter using an algorithmic method (such as the Anonymous Gregorian algorithm) as a fallback, rather than using an overly broad date range.
 
-> PROP: I propose that the system connects to a calendar or holiday API instead.
+    E. Transactions during the user's declared home barangay fiesta dates, plus or minus three days, shall not trigger alerts. The user may configure their home barangay and fiesta dates in the profile settings.
 
-> Claude: Section 3 Excluded Events: The PROP suggests still detecting anomalies but sending informational notifications instead of warnings. I support this. PROP enhancement: Use a severity scale: Critical (red) for anomalies outside excluded periods; Informational (blue) for anomalies during holidays/fiestas; and allow users to configure whether they want informational alerts.
+    F. Transactions manually whitelisted by the user, as described in Section 3, are permanently excluded from anomaly alerts regardless of amount or timing.
 
-> Claude: Section 3: "fallback rule shall exclude any transaction between March 25 and April 10 if Holy Week dates not loaded." ASK: March 25 to April 10 is 17 days. Holy Week is typically 7-8 days (Palm Sunday to Easter Sunday). This fallback is overly broad. PROP: Use a narrower fallback, e.g., the week containing Easter (computed via algorithm for the given year, even if holiday calendar not maintained). There are open-source algorithms for computing Easter dates.
+3. For excluded transactions, the System may still provide an informational notification if the anomaly score exceeds the threshold, but the notification shall be labelled as informational rather than a warning. 
 
-> ADD: (J): Again, it would be helpful to utilize a calendar or holiday API.
+    A. The user may configure whether informational alerts are shown.
+
+> [OPEN: Team Decision] The System shall not automatically connect to a calendar or holiday API, as this adds external dependencies and potential failure points. A manually maintained JSON holiday calendar updated annually is sufficient for the thesis scope. The researchers may recommend API integration as future work.
 
 ### Section 4. Whitelist Mechanism.
 
-When a transaction is flagged as anomalous, the System shall present the user with a notification: "PHP[AMOUNT] at [MERCHANT] appears unusual for your [CATEGORY] spending. Was this expected?" The user may select:
+1. When a transaction is flagged as anomalous, the System shall present the user with a notification stating, "[Amount in pesos] at [merchant name] appears unusual for your [category] spending. Was this expected?" 
 
-- **"Yes, expected"** → Add to whitelist: all future transactions with same merchant name and within ±25% amount shall be suppressed from anomaly alerts.
-- **"No, unexpected"** → Keep as anomaly; no whitelist entry.
-- **"Remind me later"** → Dismiss notification but do not whitelist.
+2. The user may select from three responses.
 
-Whitelist entries shall be stored per user and may be viewed/edited in Settings → Anomaly Detection → Whitelist.
+    A. If the user selects "Yes, expected," the System shall add an entry to the whitelist. 
+    
+        i. Each whitelist entry contains the merchant name, the detailed category of the transaction, and an amount tolerance of plus or minus twenty‑five percent. 
+        
+        ii. Future transactions with the same merchant name and same detailed category, and with an amount within the tolerance range, shall be suppressed from anomaly alerts. 
+        
+        iii. If the user selects "Always allow this merchant regardless of amount," the whitelist entry stores no amount tolerance, and all future transactions with that merchant name and category are suppressed.
 
-> ASK: (JOAQUIN): What do whitelist entries contain? Is it a transaction amount, a specific date and time, category, and a pattern type (weekly, monthly, etc.)? Or is there more? 
-> ANS: (): ___
+    B. If the user selects "No, unexpected," the transaction remains flagged as an anomaly, and no whitelist entry is created. 
+    
+    C. If the user selects "Remind me later," the notification is dismissed for this transaction but no whitelist entry is created.
+    
+        i. Future similar transactions may still trigger alerts.
 
-The ±25% amount tolerance may still produce false negatives for large spending variations. Users may also whitelist a merchant entirely regardless of amount by selecting "Always allow this merchant" in the whitelist settings.
+The user may view, edit, or delete whitelist entries in Settings under Anomaly Detection → Whitelist.
 
-> ASK: (JOAQUIN): Tolerance for what? Considering detected anomalies within a whitelist?
-> ANS: (): ___
+### Section 5. Overspending Detection.
 
-> Claude: Section 4 Whitelist: "all future transactions with same merchant name and within ±25% amount shall be suppressed." ASK: What about the same merchant but different category? Example: User buys groceries (FOOD) at SM Supermarket, then buys electronics (FURNISHINGS) at SM Appliance Store (same merchant name "SM"). Should the second be whitelisted? The current rule would suppress it because merchant name matches. PROP: Whitelist should be per (merchant, category) pair, or require user to confirm category matching.
+1. In addition to Isolation Forest, the System shall implement rule‑based budget overspending detection as a separate submodule. 
 
-### Section 5. Supplementary Rule-Based Detection.
+    A. This submodule does not use machine learning and operates independently of the anomaly detection whitelist or cultural exclusions.
 
-In addition to Isolation Forest, the System shall implement rule-based budget overspending detection:
+3. The System shall generate an alert when any category exceeds eighty percent of its budget allocation with more than twenty‑five percent of the budget period remaining. 
 
-- Alert if a category exceeds 80% of its budget with >25% of period remaining
-- Alert if any category exceeds 100% of its budget at any time
+4. The System shall generate a critical alert when any category exceeds one hundred percent of its budget allocation at any time.
 
-These rule-based alerts shall NOT be suppressed by whitelist or cultural exclusions.
+5. These overspending alerts are mandatory and cannot be disabled by the user, though the user may configure notification delivery method (in‑app only or push). 
 
-> NOTE: This feature should be named "Overspending Detection". It is not supplementary, it is a whole module (or submodule). It just doesn't implement any intelligent features, so it's sort of similar to the Goals Management and Debt Management modules.
-
-> Claude: Section 6 Alert Fatigue Prevention: The PROP suggests removing sensitivity adjustment for users. I partially agree: keep sensitivity as an advanced setting hidden behind an "Advanced" expander, not in main settings. Grouping and cooldown are sufficient for most users.
+    A. The alerts are displayed regardless of whether the transactions would otherwise be considered anomalous or culturally expected.
 
 ### Section 6. Alert Fatigue Prevention.
 
-The System shall implement the following mechanisms:
+1. The System shall implement three mechanisms to prevent alert fatigue:
 
-| Mechanism | Specification |
-|-----------|---------------|
-| Cooldown | No more than 3 anomaly alerts per user per 24-hour period (rule-based alerts excluded) |
-| Grouping | Multiple anomalies detected within 2 hours bundled into a single notification |
-| Acknowledgement | User may snooze anomaly alerts for 7 days via Settings → Notifications |
-| Sensitivity adjustment | User may adjust contamination rate from 0.05 (default) to 0.02 (more sensitive) or 0.10 (less sensitive) |
+    A. First, a cooldown period limits anomaly alerts to no more than three per user per twenty‑four hour period. 
+    
+        i. Rule‑based overspending alerts are excluded from this cooldown. 
+        
+    B. Second, multiple anomalies detected within two hours are bundled into a single notification that lists all affected transactions. 
+    
+    C. Third, the user may snooze all anomaly alerts for seven days via Settings → Notifications.
 
-> PROP: Having users configure sensitivity may be too technical for a PFM app. I propose to only use the grouping mechanism.
+> [OPEN: Team Decision] Sensitivity adjustment (allowing the user to change the contamination threshold) is not exposed in the main settings. It may be added as an advanced setting hidden behind an expander, but for the thesis scope the default dynamic threshold (top five percent of anomaly scores) is sufficient. The team may decide to omit sensitivity adjustment entirely.
 
 ### Section 7. Explainability.
 
-For each anomaly alert, the System shall compute the deviation of each feature from the user's baseline (median or mean). The explanation shall be the feature with the largest standardized deviation. Example: "This transaction was flagged because the amount (PHP 5,000) is 2.5 standard deviations above your usual Food spending." This requires no per-transaction model fitting and is instantaneous.
+1. For each anomaly alert, the System shall compute the deviation of each continuous feature from the user's baseline. 
+
+    A. The baseline for amount deviation is the category median over the preceding thirty days.
+    
+    B. The baseline for amount‑to‑income ratio is the user's typical ratio for that category.
+        
+    C. The baseline for days since payday is the user's typical distribution of transaction timing. 
+        
+    D. The explanation shall present the feature with the largest standardised deviation.
+
+2. For example: "This transaction was flagged because the amount (5,000 pesos) is 2.5 standard deviations above your usual Food spending of 800 pesos." 
+
+    A. For a merchant novelty flag: "This transaction was flagged because you have never spent at this merchant before in the last 60 days."
+
+3. This explanation method requires no per‑transaction model fitting and is instantaneous, as it uses pre‑computed summary statistics.
 
 ### Section 8. Evaluation Metrics.
 
-1. **Precision**
-    - Target: ≥ 0.70
-    - Calculation: TP/(TP+FP) on labeled anomalous transactions
-    - Validation: Weekly on synthetic data
-2. **Recall**
-    - Target: ≥ 0.65
-    - Calculation: TP/(TP+FN)
-    - Validation: Same
-3. **F1**
-    - Target: ≥ 0.675
-    - Calculation: 2 × (P×R)/(P+R)
-    - Validation: Same
-4. **False positive rate (per user per week)**
-    - Target: ≤ 1.5
-    - Calculation: FP / active days × 7
-    - Validation: Same
+1. The anomaly detection module shall be evaluated on synthetic data using walk‑forward validation. 
 
-> GLOBAL: The properties of evaluation metrics should be uniform as much as possible.
+    A. The synthetic dataset shall include injected anomalies at a rate of approximately five percent, distributed across categories and amount deviations. 
+    
+    B. The validation window uses thirty days of training data, tests on the next seven days, and rolls forward for thirteen iterations.
 
-FPR during synthetic evaluation: count of false positives (transactions flagged as anomalous but not injected as anomalies) per 7-day window per synthetic user. For real user evaluation, FPR is not directly measurable without labels. Instead, report user dismissal rate (% of alerts dismissed as "expected") and alert acknowledgement rate as proxies.
+2. Precision, defined as true positives divided by the sum of true positives and false positives, shall have a target of at least 0.70. 
 
-> Claude: Section 8 Evaluation Metrics: FPR target "≤ 1.5" - ASK: 1.5 what? False positives per user per week? The description says "FP / active days × 7" - so it's a weekly rate. 1.5 false positives per week is reasonable. However, note that with contamination=0.05, a user with 100 transactions per week would have 5 flagged anomalies. If only 3.5 of those are true positives (recall 0.70), then false positives would be 1.5. The target is mathematically consistent with precision≥0.70 and recall≥0.65. Good.
+3. Recall, defined as true positives divided by the sum of true positives and false negatives, shall have a target of at least 0.65. 
+
+4. The F1 score, the harmonic mean of precision and recall, shall have a target of at least 0.675.
+
+5. The false positive rate per user per week, calculated as the number of false positives divided by active days multiplied by seven, shall have a target of no more than 1.5 false positives per week. 
+
+    A. This target is mathematically consistent with the precision and recall targets given a typical transaction volume.
+
+6. For real user evaluation where true labels are not available, the System shall report the user dismissal rate (percentage of alerts that the user marks as "Yes, expected") and the alert acknowledgement rate as proxies for precision. 
+
+    A. A low dismissal rate (many users marking alerts as expected) indicates excessive false positives.
+
+### Section 8. Connection to Other Modules
+
+1. The Isolation Forest anomaly detection module receives the user's financial behavioural profile from the Random Forest classifier, which is used as a categorical feature. 
+
+    A. The rule‑based overspending detection submodule receives the current active budget allocations from the budget recommendation module. 
+    
+    B. Anomaly alerts and overspending alerts are both passed to the Alerts and Notifications module (Article XI). 
+    
+    C. The user's whitelist entries are stored and consulted before any anomaly alert is generated.
+
+2. In the thesis version, the Isolation Forest does not compare transactions against LSTM forecasts. 
+
+> [FUTURE WORK] Incorporating forecasted category spending as an additional feature for anomaly detection is recommended for future versions.
 
 ---
 
@@ -1197,100 +1276,151 @@ FPR during synthetic evaluation: count of false positives (transactions flagged 
 
 ### Section 1. Goal Definition.
 
-A savings goal shall consist of the following required fields:
+1. A savings goal in the System represents a target amount that the user wishes to accumulate over time through regular contributions. 
 
-> NOTE: Actually, I believe the appropriate terminology for this is "Goal", because it encompasses not just savings but funds, insurance deposits, investment deposits, etc. The point is all of these follow the same structure as savings; a static amount, a deposit rate (amount per day), and a predicted achievement date (from forecasting module).
+2. Each goal shall consist of the following required fields. 
+    
+    A. The goal name is a string of up to fifty characters and must be unique per user. 
+    
+    B. The target amount is the desired total accumulation, measured in Philippine pesos, with a minimum of one hundred pesos and a maximum of ten million pesos. 
+    
+    C. The target date is the date by which the user wishes to achieve the goal, which must be at least seven days from the goal creation date and no more than ten years into the future. 
+    
+    D. The contribution amount is the amount the user commits to contributing per contribution frequency, with a minimum of ten pesos per contribution. 
+    
+    E. The contribution frequency is selectable from daily, weekly, bi‑weekly, or monthly. 
+    
+    F. The linked source is the account from which contributions are deducted.
+    
+        i. The default is the available balance of the user's primary cash account, but the user may select any specific income category or account.
 
-> NOTE: Actually, investments should have their own module, since they have interest which can affect the rate. Also, they do not really count as a goal; they have no end goal.
+3. The System shall treat savings goals as financial allocation targets. 
 
-1. **Goal name**
-    - Constraints: ≤ 50 characters, unique per user
-2. **Target amount**
-    - Constraints: ≥ PHP 100, ≤ PHP 10,000,000
-3. **Target date**
-    - Constraints: ≥ 7 days from creation, ≤ 10 years
-4. **Contribution amount**
-    - Constraints: ≥ PHP 10 per contribution
-5. **Contribution frequency**
-    - Constraints: Daily, weekly, bi-weekly, monthly
-6. **Linked source**
-    - Constraints: Available balance (default) or specific income category
+    A. Contributions to a savings goal are recorded as expense transactions under the Financial Allocation broad group, with a detailed category named after the goal. 
+    
+    B. When a contribution is made, the System subtracts the amount from the linked source account's available balance and adds it to the goal's current accumulated amount.
 
-> NOTE: Same deal.
+3. The System does not support investment goals with variable returns, insurance premium tracking, or any goal type where the accumulation amount is not deterministic. 
 
-> Claude: Section 1 Goal Definition: The NOTE suggests that "Goal" is broader than "Savings Goal" and includes funds, insurance deposits, etc. However, the fields defined (target amount, contribution amount, contribution frequency) do not fit insurance (which has premiums, not contributions to a target) or investments (which have variable returns). PROP: Keep "Savings Goal" as is. For future work, create separate modules for Insurance and Investment tracking. Do not overload the Goal concept.
-
-> Claude: Section 1: "Linked source: Available balance (default) or specific income category." ASK: What does linking to a specific income category mean? Example: User wants to save 100% of freelance income for a goal. How is this enforced technically? Does the system automatically create a transaction from that income to savings? This needs more detail.
+    A. These are explicitly excluded from the thesis scope. 
+    
+> [FUTURE WORK] Separate modules for investment tracking and insurance management are recommended for future versions.
 
 ### Section 2. Multiple Concurrent Goals.
 
-The System shall support up to 5 concurrent savings goals. Users shall prioritize goals via drag-and-drop in the UI. The System shall apply contributions in priority order: when available balance is sufficient, it shall contribute to goal 1 first, then goal 2, etc., until all scheduled contributions are satisfied or balance is exhausted.
+1. The System shall support up to five concurrent savings goals per user. 
 
-> ASK: (JOAQUIN): Why only 5? And are the applied contributions sourced from the Budget as Financial Services or some other category?
-> ANS: (): ___
+    A. When multiple goals exist, the user shall prioritise them via drag‑and‑drop in the user interface. 
+    
+    B. The System shall apply contributions in priority order during each contribution cycle. 
+    
+    C. The contribution cycle runs daily: for each goal, the System checks whether the current date matches the goal's contribution schedule based on its frequency. 
+    
+    D. For daily goals, every day is a contribution date. 
+    
+    E. For weekly goals, contributions occur on the same day of the week as the creation date. 
+    
+    F. For bi‑weekly goals, contributions occur every fourteen days. 
+    
+    G. For monthly goals, contributions occur on the same day of the month as the creation date, or on the last day of the month if that day does not exist in a given month.
 
-> Claude: Section 2: "up to 5 concurrent savings goals." ASK: Why 5? Similar to accounts limit. If the limit is due to UI complexity, consider making it configurable with a warning beyond 5 (e.g., "Too many goals may reduce contribution effectiveness").
+2. When a contribution date arrives for a goal, the System shall attempt to deduct the contribution amount from the linked source account. 
+
+    A. If the available balance is sufficient, the deduction occurs and the goal's accumulated amount increases. 
+    
+    B. If the available balance is insufficient, the System shall skip the contribution for that goal and proceed to the next lower‑priority goal. 
+    
+    C. The skipped contribution is not queued or retried later. 
+    
+        i. The user is notified of the skipped contribution and may manually contribute later or adjust the contribution amount.
+
+3. After processing all goals that have a contribution on the current date, any remaining available balance is left untouched for discretionary spending or future contributions. 
+
+    A. The System does not automatically redistribute unused contribution capacity.
+
+4. The limit of five concurrent goals is based on user interface complexity and cognitive load. 
+
+> [OPEN: Team Decision] If the team determines that users may need more than five goals, the limit may be increased to ten with appropriate UI changes such as collapsible sections or a goals summary screen.
 
 ### Section 3. Progress State Calculation.
 
-For each goal at each contribution date, state shall be computed as:
+1. For each goal at each contribution date, the System shall compute the progress state as follows:
 
-```
-remaining_amount = target_amount − current_amount
-contribution_frequency = max(1, days_remaining / contribution_frequency_days)
+    A. The remaining amount is the target amount minus the current accumulated amount. 
+    
+    B. The number of remaining contributions is calculated as the number of contribution dates between the current date and the target date, based on the goal's contribution frequency. 
+    
+    C. If the number of remaining contributions is zero (the target date has passed), the goal state is evaluated as achieved or failed based on whether the accumulated amount meets or exceeds the target.
 
-required_contribution = remaining_amount / contribution_frequency
+2. The required contribution per period is the remaining amount divided by the number of remaining contributions. 
 
-if current_contribution ≥ 1.10 × required_contribution: state = "ahead"
-elif current_contribution ≥ 0.90 × required_contribution: state = "on_track"
-elif current_contribution ≥ 0.50 × required_contribution: state = "behind"
-else: state = "critical"
-```
+    A. If the user's actual contribution amount (the amount the user has committed to contribute each period, not necessarily the amount actually contributed after skipped contributions) is greater than or equal to 1.10 times the required contribution, the state is "ahead." 
+    
+    B. If the actual contribution amount is between 0.90 and 1.10 times the required contribution, the state is "on track." 
+    
+    C. If the actual contribution amount is between 0.50 and 0.90 times the required contribution, the state is "behind." 
+    
+    D. If the actual contribution amount is less than 0.50 times the required contribution, the state is "critical."
 
-> GLOBAL: For code snippets, descriptive additions like comments and better variable names are a must.
+3. The System shall display a circular progress indicator for each goal, using colour coding: green for ahead or on track, yellow for behind, and red for critical. 
 
-Visual progress indicator: circular progress bar with color coding (green = ahead/on track, yellow = behind, red = critical).
-
-> Claude: Section 3 Progress State Calculation: The formula uses required_contribution = remaining_amount / contribution_frequency. But contribution_frequency is defined as days? The code shows days_remaining / contribution_frequency_days. ASK: Is contribution_frequency the number of remaining contributions, or the frequency in days? The variable naming is inconsistent. Rewrite the pseudo-code with clear names: remaining_contributions = days_remaining / frequency_days (rounded up). Then required_contribution = remaining_amount / remaining_contributions.
+    A. Hovering or tapping the indicator shows the numeric percentage and the state description.
 
 ### Section 4. Savings Contribution Strategies.
 
-The System shall offer three contribution strategies:
+1. The System shall offer three contribution allocation strategies that determine how surplus funds (beyond the scheduled contributions) are distributed across multiple goals. 
 
-1. **Goal-based (priority order)**
-    - Allocation rule: Contribute to goal 1 first, then goal 2, etc.
-    - Default for profile: All profiles
-2. **Snowball (smallest balance first)**
-    - Allocation rule: Contribute minimum to all goals, surplus to smallest-balance goal
-    - Default for profile: Variable-Flexible
-3. **Avalanche (highest priority first)**
-    - Allocation rule: Contribute minimum to all goals, surplus to highest user-ranked goal
-    - Default for profile: Stable-Obligated
+    A. These strategies apply only when the user has more than one goal and when the available balance after all scheduled contributions is positive.
 
-> ASK: (JOAQUIN): How is the minimum defined? And what is the basis for these contribution strategies? What benchmark or study backs this up?
-> ANS: (): ___
+2. The three contribution allocation strategies are the following:
 
-User may switch strategies at any time via Savings → Strategy.
+    A. Under the Goal‑based strategy, which is the default for all profiles, any surplus is allocated to the highest‑priority goal first. 
+    
+        i. After that goal's target is reached, surplus flows to the next‑highest priority goal, and so on. 
+        
+        ii. This strategy aligns with the user's explicit ranking of goals.
 
-> Claude: Section 4 Savings Contribution Strategies: "Snowball (smallest balance first)" - ASK: In savings, "smallest balance" means the goal with the least accumulated savings so far, not the smallest target amount. This prioritizes nearly-empty goals. Is that intentional? The classic debt snowball prioritizes smallest outstanding balance (debt amount), which in savings would be smallest remaining amount (target - current), not smallest current balance. Clarify.
+    B. Under the Snowball strategy, which is offered as an alternative for Variable‑Flexible users, the System allocates surplus to the goal with the smallest remaining amount (target minus current accumulated). 
+    
+        i. The rationale is to provide psychological motivation by paying off smaller goals quickly, analogous to the debt snowball method.
+
+    C. Under the Avalanche strategy, which is offered as an alternative for Stable‑Obligated users, the System allocates surplus to the goal with the highest user‑ranked priority. 
+    
+        i. This is identical to the Goal‑based strategy in outcome but emphasises the interest analogy. 
+        
+        ii. The name is retained for consistency with debt management terminology.
+
+3. The user may switch strategies at any time via Savings → Strategy. 
+
+    A. When switching, the System shall recalculate projected completion dates for all goals under the new strategy and display a comparison: "If you switch to Snowball, Goal A would be completed 3 months earlier, but Goal B would be completed 2 months later."
+
+> [RRL NEEDED] The assignment of default strategies to profiles (Goal‑based for all profiles, with Snowball and Avalanche as alternatives) requires validation from literature on savings motivation and goal prioritisation. The researchers should survey target users or cite existing studies on what drives savings behaviour among Filipino young adults.
 
 ### Section 5. Notifications.
 
-The System shall send the following savings-related alerts:
+1. The System shall send the following savings‑related notifications:
 
-1. **Milestone reached**
-    - Trigger: Progress crosses 25%, 50%, 75%
-    - Notification text: "You're 50% of the way to your [GOAL NAME] goal!"
-2. **Behind schedule**
-    - Trigger: State = "behind" for 7 consecutive days
-    - Notification text: "Your [GOAL NAME] goal is behind schedule. Consider increasing contributions."
-3. **Goal achieved**
-    - Trigger: Current amount ≥ target amount
-    - Notification text: "Congratulations! You achieved your [GOAL NAME] goal."
+    A. When a goal reaches twenty‑five percent, fifty percent, or seventy‑five percent of its target amount, the System shall send a milestone notification: "You're 50% of the way to your [goal name] goal!" 
+    
+    B. When a goal has been in the "behind" state for seven consecutive days, the System shall send an advisory notification: "Your [goal name] goal is behind schedule. Consider increasing your contribution amount or adjusting the target date." 
+    
+        i. The user may dismiss this notification, but it will reappear every seven days until the goal returns to on track or ahead, or until the user updates the goal's parameters.
 
-> NOTE: Again, same deal. Exhaustiveness and such.
+    C. When a goal's accumulated amount reaches or exceeds the target amount, the System shall send a congratulatory notification: "Congratulations! You achieved your [goal name] goal." 
+    
+        i. The goal is then marked as completed and is removed from the active goals list. 
+        
+        ii. The user may archive completed goals for historical reference.
 
-> Claude: Section 5 Notifications: "Behind schedule" triggers after 7 consecutive days of "behind" state. ASK: What if the user is "behind" but has no control (e.g., unexpected expense)? The notification should include an action: "Adjust contribution amount or postpone goal target date?"
+### Section 6. Connection to Other Modules
+
+1. The savings goal tracking module receives forecasted savings balance trajectory from the LSTM forecasting module (Article VII), which is displayed as a projection line on the goal progress chart. 
+
+2. The module also receives the user's available balance from the account management system (Article V) to determine whether scheduled contributions can be fulfilled. 
+
+3. When a contribution is skipped due to insufficient balance, the module sends a notification to the Alerts and Notifications module (Article XI). 
+
+4. The contribution allocation strategies are evaluated independently; they do not interact with the budget recommendation module's surplus handling strategies (Article VI Section 5), as the two mechanisms operate on different time scales and purposes.
 
 ---
 
