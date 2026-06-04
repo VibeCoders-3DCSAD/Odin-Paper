@@ -949,17 +949,24 @@ A savings goal shall consist of the following required fields:
 6. **Linked source**
     - Constraints: Available balance (default) or specific income category
 
+> NOTE: Same deal.
+
 ### Section 2. Multiple Concurrent Goals.
 
 The System shall support up to 5 concurrent savings goals. Users shall prioritize goals via drag-and-drop in the UI. The System shall apply contributions in priority order: when available balance is sufficient, it shall contribute to goal 1 first, then goal 2, etc., until all scheduled contributions are satisfied or balance is exhausted.
+
+> ASK: (JOAQUIN): Why only 5? And are the applied contributions sourced from the Budget as Financial Services or some other category?
+> ANS: (): ___
 
 ### Section 3. Progress State Calculation.
 
 For each goal at each contribution date, state shall be computed as:
 
 ```
-required_contribution = (target_amount − current_amount) / 
-                        max(1, days_remaining / contribution_frequency_days)
+remaining_amount = target_amount − current_amount
+contribution_frequency = max(1, days_remaining / contribution_frequency_days)
+
+required_contribution = remaining_amount / contribution_frequency
 
 if current_contribution ≥ 1.10 × required_contribution: state = "ahead"
 elif current_contribution ≥ 0.90 × required_contribution: state = "on_track"
@@ -967,17 +974,26 @@ elif current_contribution ≥ 0.50 × required_contribution: state = "behind"
 else: state = "critical"
 ```
 
+> GLOBAL: For code snippets, descriptive additions like comments and better variable names are a must.
+
 Visual progress indicator: circular progress bar with color coding (green = ahead/on track, yellow = behind, red = critical).
 
 ### Section 4. Savings Contribution Strategies.
 
 The System shall offer three contribution strategies:
 
-| Strategy | Allocation Rule | Default for profile |
-|----------|----------------|---------------------|
-| Goal-based (priority order) | Contribute to goal 1 first, then goal 2, etc. | All profiles |
-| Snowball (smallest balance first) | Contribute minimum to all goals, surplus to smallest-balance goal | Variable-Flexible |
-| Avalanche (highest priority first) | Contribute minimum to all goals, surplus to highest user-ranked goal | Stable-Obligated |
+1. **Goal-based (priority order)**
+    - Allocation rule: Contribute to goal 1 first, then goal 2, etc.
+    - Default for profile: All profiles
+2. **Snowball (smallest balance first)**
+    - Allocation rule: Contribute minimum to all goals, surplus to smallest-balance goal
+    - Default for profile: Variable-Flexible
+3. **Avalanche (highest priority first)**
+    - Allocation rule: Contribute minimum to all goals, surplus to highest user-ranked goal
+    - Default for profile: Stable-Obligated
+
+> ASK: (JOAQUIN): How is the minimum defined? And what is the basis for these contribution strategies? What benchmark or study backs this up?
+> ANS: (): ___
 
 User may switch strategies at any time via Savings → Strategy.
 
@@ -985,11 +1001,17 @@ User may switch strategies at any time via Savings → Strategy.
 
 The System shall send the following savings-related alerts:
 
-| Milestone | Trigger | Notification text |
-|-----------|---------|-------------------|
-| Milestone reached | Progress crosses 25%, 50%, 75% | "You're 50% of the way to your [GOAL NAME] goal!" |
-| Behind schedule | State = "behind" for 7 consecutive days | "Your [GOAL NAME] goal is behind schedule. Consider increasing contributions." |
-| Goal achieved | Current amount ≥ target amount | "Congratulations! You achieved your [GOAL NAME] goal." |
+1. **Milestone reached**
+    - Trigger: Progress crosses 25%, 50%, 75%
+    - Notification text: "You're 50% of the way to your [GOAL NAME] goal!"
+2. **Behind schedule**
+    - Trigger: State = "behind" for 7 consecutive days
+    - Notification text: "Your [GOAL NAME] goal is behind schedule. Consider increasing contributions."
+3. **Goal achieved**
+    - Trigger: Current amount ≥ target amount
+    - Notification text: "Congratulations! You achieved your [GOAL NAME] goal."
+
+> NOTE: Again, same deal. Exhaustiveness and such.
 
 ---
 
@@ -1022,6 +1044,9 @@ When user switches strategies, the System shall:
 - Retain already-made payments (no retroactive changes)
 - Display comparison: "If you switch to [OTHER STRATEGY], you would pay PHP[DIFF] more/less in total interest."
 
+> ASK: (JOAQUIN): Was this process after switching strategies also done in Goal Management? Is it needed in Goal Management?
+> ANS: (): ___
+
 ### Section 3. Projection Display.
 
 For each debt account and for the aggregate, the System shall display:
@@ -1031,14 +1056,19 @@ For each debt account and for the aggregate, the System shall display:
 - Total interest projected under current strategy
 - Total interest projected under alternative strategy (for comparison)
 
+> ASK: (JOAQUIN): Ibid.
+> ANS: (): ___
+
 ### Section 4. Minimum Payment Validation.
 
 The System shall not permit a monthly debt payment below the account's minimum payment unless:
 
 - The user explicitly overrides with a confirmation dialog: "Paying below the minimum may incur late fees and damage your credit score. Continue anyway? (Yes/No)"
-- Or the user's available balance is less than the sum of all minimum payments (hardship mode).
+- The user's available balance is less than the sum of all minimum payments (hardship mode).
 
 If the user's available balance is less than the sum of all minimum payments, the System shall display a debt hardship screen with: (1) a warning that minimum payments exceed available balance, (2) a recommendation to contact each creditor (displaying creditor contact information if provided by user), (3) a link to the National Credit Council's debt counseling page (if available), and (4) an option to proceed with reduced payments by acknowledging: "I understand that paying below minimum may incur fees." No automated contact is made.
+
+> NOTE: Debt Hardship as a term needs to be defined.
 
 ### Section 5. Debt Alerts.
 
@@ -1074,6 +1104,8 @@ All alerts shall be delivered as:
 - Push notification (if user grants permission, with user-configurable opt-out per category)
 - Optional email digest (weekly summary of all alerts, user opt-in)
 
+> PROP: Do in-app and push notifs. only. We may not be able to do mailers, I think. Or maybe we can.
+
 ### Section 3. Alert Display Format.
 
 Each alert shall contain:
@@ -1092,6 +1124,8 @@ Users may configure per alert category:
 - Enable/disable (except budget overspending which is mandatory)
 - Sensitivity (low/medium/high) for anomaly and forecast-based alerts
 - Cooldown period (1 to 24 hours) for duplicate alerts
+
+> NOTE: Remember the discussion we had earlier about cooldown and sensitivity.
 
 ---
 
@@ -1127,11 +1161,15 @@ The System shall be evaluated against the following characteristics with specifi
 
 The cyclomatic complexity limit of ≤10 applies to application business logic (e.g., transaction validation, budget recalculation, alert generation). ML training scripts, LP solver libraries, and data preprocessing pipelines are exempt. Wrapper functions that call these libraries shall be kept simple (≤10).
 
+> NOTE: Cyclomatic complexity needs to be defined. Thresholds also need to be justified and validated from benchmarks and studies.
+
 ### Section 2. System Usability Scale (SUS) Protocol.
 
 **Target score:** ≥68 (industry average). A secondary stretch goal is ≥74 (85th percentile). The lower target accounts for the absence of bank sync (a known friction point).
 
 **Sample size:** Target n=30. If n<30 but ≥20 after 4 weeks of recruitment, the study shall proceed with a post-hoc power analysis reporting the minimum detectable effect size.
+
+> NOTE: Score and size need to be validated.
 
 **Respondent profile stratification:**
 
@@ -1142,9 +1180,15 @@ The cyclomatic complexity limit of ≤10 applies to application business logic (
 | Variable-Flexible | 6 |
 | Variable-Obligated | 6 |
 
+> ASK: (JOAQUIN): Why these minimum counts? I believe our minimum total count is 50 evaluators.
+> ANS: (): ___
+
 Respondents shall be recruited from at least 4 different cities in Metro Manila (e.g., Manila, Quezon City, Makati, Taguig). No minimum per district.
 
 **Administration:** SUS shall be administered after 14 days of active system use (minimum 10 transaction entries). Each user shall complete the standard 10-item Likert scale (1-5). Scoring per Brooke (1996): odd items contribute 1−score, even items contribute score−1, sum × 2.5.
+
+> ASK: (JOAQUIN): Is that enough to test ALL aspects of the system? Won't we need to test monthly forecasts?
+> ANS: (): ___
 
 ### Section 3. Algorithmic Module Evaluation Protocol.
 
@@ -1154,7 +1198,12 @@ Respondents shall be recruited from at least 4 different cities in Metro Manila 
 | Anomaly detection | Walk-forward (30d train, 7d test, 13 iterations) | Precision, Recall, F1, FP rate | AUC-ROC | Same + injected anomalies (5%) |
 | Profile classification | Rolling window (60d train, 30d test, 6 iterations) | Accuracy, Precision, Recall, F1 | Confusion matrix | Same + onboarding sim |
 
-*Walk-forward validation shall be performed on synthetic data only.* Real user data collected during the pilot (max 30 days per user) is insufficient for 60-day training windows. Therefore, ML module performance metrics shall be reported based on synthetic test sets. Real user evaluation shall report SUS scores, task completion rates, and qualitative feedback only.
+> ASK: (JOAQUIN): What about the budget recommendation module? And, as always, is this list exhaustive?
+> ANS: (): ___
+
+Walk-forward validation shall be performed on synthetic data only. Real user data collected during the pilot (max 30 days per user) is insufficient for 60-day training windows. Therefore, ML module performance metrics shall be reported based on synthetic test sets. Real user evaluation shall report SUS scores, task completion rates, and qualitative feedback only.
+
+> GLOBAL: Markdown styles like bold and italic must be minimized as much as possible. Text must be in prose form as much as possible.
 
 **Acceptable thresholds for each metric are defined in the respective Articles.**
 
@@ -1173,7 +1222,7 @@ Respondents shall be recruited from at least 4 different cities in Metro Manila 
 
 ### Section 1. Compliance with RA 10173 (Data Privacy Act of 2012).
 
-The System shall comply with the following DPA requirements:
+The System shall comply with the following Data Privacy Act requirements:
 
 - **Consent:** All personal financial data shall be processed only with user consent obtained via explicit opt-in screen before first transaction entry.
 - **Purpose limitation:** Data shall be used only for budget recommendation, forecasting, anomaly detection, and profile classification as described in this document.
@@ -1206,7 +1255,11 @@ Inference requests shall send only anonymized feature vectors (no raw transactio
 
 The System shall display the following disclaimer on first launch and annually thereafter:
 
-> "Odin's predictions and recommendations are for informational purposes only. You retain full responsibility for all financial decisions. Odin is not a financial advisor. Do not make major financial decisions solely based on automated outputs."
+> NOTE: Should just be one-time.
+
+"Odin's predictions and recommendations are for informational purposes only. You retain full responsibility for all financial decisions. Odin is not a financial advisor. Do not make major financial decisions solely based on automated outputs."
+
+> This disclaimer must be prominent and displayed somewhere at the start, like in onboarding.
 
 Institutional ethics clearance shall be obtained from the University of Makati Research Ethics Committee prior to any user data collection for research purposes.
 
@@ -1229,7 +1282,9 @@ The following features and capabilities are explicitly **excluded** from the Sys
 | Tax computation | Requires professional certification |
 | Paluwagan (informal rotating savings) dedicated module | No dedicated module; however, users may create a custom subcategory under SAVINGS named "Paluwagan" and manually record contributions and payouts. Future work may include a dedicated tracker. |
 
-**Note on bank API exclusion:** Bank and e-wallet API integration is excluded because: (1) API registration fees (e.g., GCash requires a partnership agreement with undisclosed fees), (2) compliance with BSP circulars on data sharing requires legal review beyond thesis scope, (3) manual entry, while frictionful, is a deliberate design choice to increase user awareness (evidence from RRL: manual logging improves financial mindfulness). This is noted as a limitation and recommended for future work.
+Bank and e-wallet API integration is excluded because: (1) API registration fees (e.g., GCash requires a partnership agreement with undisclosed fees), (2) compliance with BSP circulars on data sharing requires legal review beyond thesis scope, (3) manual entry, while frictionful, is a deliberate design choice to increase user awareness (evidence from RRL: manual logging improves financial mindfulness). This is noted as a limitation and recommended for future work.
+
+> NOTE: This footnote should be part of the description or reason.
 
 ---
 
@@ -1260,6 +1315,8 @@ For the purpose of this specification, the following terms have the meanings ass
 | **Avalanche method** | A debt payoff strategy prioritizing highest interest rate first to minimize total interest paid. |
 | **Snowball method** | A debt payoff strategy prioritizing smallest outstanding balance first to build repayment momentum. |
 | **Alert fatigue** | Desensitization to alerts due to excessive frequency or low relevance, resulting in ignored notifications. |
+
+> NOTE: THIS is the Definition of Terms I've been looking for! This needs to be higher up, around the very start, and include the MANY new terminologies we have.
 
 ---
 
