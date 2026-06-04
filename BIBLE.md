@@ -1548,71 +1548,211 @@ The user may view, edit, or delete whitelist entries in Settings under Anomaly D
 
 ### Section 1. Alert Types.
 
-The System shall generate alerts for the following five categories:
+1. The System shall generate alerts for five categories, each originating from a specific module. 
 
-| Category | Specific alerts | Source module |
-|----------|----------------|---------------|
-| Budget overspending | Category > 80% of budget (warning), >100% (critical) | Rule-based |
-| Anomaly | Unusual transaction detected | Isolation Forest |
-| Savings milestone | 25%, 50%, 75%, 100% progress | Savings Goal Tracking |
-| Forecast-based advisory | "Your current spending suggests you may exceed budget by [AMOUNT]" | Forecasting |
-| Debt | Upcoming due date, missed payment, payoff milestone | Debt Management |
+    A. The first category is budget overspending, which includes two specific alerts: 
+    
+        i. A warning when a category exceeds eighty percent of its budget allocation with more than twenty‑five percent of the budget period remaining.
+        
+        ii. A critical alert when any category exceeds one hundred percent of its budget allocation at any time. 
+        
+        iii. These alerts originate from the rule‑based overspending detection submodule (Article VIII Section 4).
 
-> Claude: Section 1: "Forecast-based advisory: 'Your current spending suggests you may exceed budget by [AMOUNT]'" - ASK: When is this triggered? At what threshold? For example, if the forecast shows exceeding budget by >10% with >50% of period remaining. Define the triggering rule.
+    B. The second category is anomaly detection, which triggers when the Isolation Forest identifies a transaction as anomalous and the transaction is not excluded by cultural period rules or whitelist (Article VIII Sections 1 through 3). 
+    
+    C. The third category is savings milestone, which includes alerts at twenty‑five, fifty, and seventy‑five percent progress toward a savings goal, as well as goal achievement (Article IX Section 5). 
+    
+    D. The fourth category is forecast‑based advisory, which provides proactive guidance when current spending patterns suggest a future budget violation. 
+    
+    E. The fifth category is debt management, which includes upcoming due date reminders, missed payment alerts, and payoff milestones (Article X Section 5).
+
+2. For forecast‑based advisory alerts, the trigger condition is defined as follows. 
+
+    A. The System shall evaluate daily whether the user's current spending trajectory, extrapolated linearly to the end of the budget period, would exceed the total budget by more than ten percent, and whether more than fifty percent of the budget period remains. 
+    
+        i. If both conditions are true, the System shall generate an advisory alert: "Your current spending suggests you may exceed your budget by [amount in pesos] by the end of the period. Consider reducing discretionary spending." 
+        
+        ii. The threshold of ten percent and fifty percent remaining are configurable via system parameters but shall not be user‑adjustable in the thesis version.
 
 ### Section 2. Delivery Method.
 
-All alerts shall be delivered as:
+1. All alerts shall be delivered as in‑app notifications, appearing in a notification centre accessible via a bell icon badge on the dashboard. 
 
-- In-app notification (bell icon badge, displayed in notification center)
-- Push notification (if user grants permission, with user-configurable opt-out per category)
-- Optional email digest (weekly summary of all alerts, user opt-in)
+    A. The badge displays a count of unread alerts. 
 
-> PROP: Do in-app and push notifs. only. We may not be able to do mailers, I think. Or maybe we can.
+2. When the user opens the notification centre, alerts are grouped by category and sorted chronologically with the most recent first.
 
-> Claude: Section 2 Delivery Method: The PROP suggests no email digest. I agree for the thesis scope, but note that the evaluation (SUS) may include questions about notification preferences. Document that email is out of scope.
+3. If the user grants permission, the System shall also send push notifications to the user's mobile device for all alert categories except forecast‑based advisory, which is in‑app only by default. 
+
+4. The user may separately configure push notification preferences per category, enabling or disabling push for anomaly, savings milestone, and debt alerts. 
+
+5. Budget overspending alerts are mandatory and cannot be disabled for either in‑app or push delivery. 
+
+    A. The user may only choose whether to receive push notifications for them.
+
+6. Email digests are excluded from the thesis scope. 
+
+> [FUTURE WORK] A weekly email summary of alerts may be added in a future version.
 
 ### Section 3. Alert Display Format.
 
-Each alert shall contain:
+1. Each alert shall contain a title, a body, an action button, and a dismiss button. 
 
-| Field | Example |
-|-------|---------|
-| Title | "Budget Overspending Alert" |
-| Body | "You have used 85% of your Food budget with 10 days remaining." |
-| Action button | "View Budget" (opens budget screen) |
-| Dismiss button | "Acknowledge" |
+    A. The title briefly identifies the alert category, for example "Budget Overspending Warning" or "Unusual Transaction Detected." 
+    
+    B. The body provides a specific description. 
+    
+        i. For a budget overspending alert: "You have used 85% of your Food budget with 10 days remaining." 
+        
+        ii. For an anomaly alert: "PHP 4,800 at OnlineShop is higher than your usual PHP 700 for online shopping." 
+        
+        iii. For a forecast advisory: "Your current spending suggests you may exceed your total budget by PHP 1,500 by the end of the month."
+
+    C. The action button opens the relevant screen where the user can take corrective action. 
+    
+        i. For budget alerts, the action button opens the budget screen showing the affected category. 
+        
+        ii. For anomaly alerts, the action button opens the transaction list filtered to the flagged transaction, with the whitelist options available. 
+        
+        iii. For forecast advisories, the action button opens the forecasting dashboard. 
+        
+        iv. For savings milestones, the action button opens the savings goal detail screen. 
+        
+        v. For debt alerts, the action button opens the debt management screen.
+
+    D. The dismiss button acknowledges the alert and removes it from the notification centre. 
+    
+        i. Dismissed alerts are logged but not shown again. 
+        
+        ii. The user may also clear all alerts at once using a "Clear all" button.
 
 ### Section 4. User Alert Configuration.
 
-Users may configure per alert category:
+1. Users may configure alert preferences per category in Settings → Notifications, with the following exceptions. 
 
-- Enable/disable (except budget overspending which is mandatory)
-- Sensitivity (low/medium/high) for anomaly and forecast-based alerts
-- Cooldown period (1 to 24 hours) for duplicate alerts
+    A. Budget overspending alerts are mandatory; the user cannot disable them but may choose to receive them only in‑app without push notifications. 
+    
+    B. For anomaly detection alerts, the user may enable or disable them entirely, or set them to informational only (no push, only in‑app). 
+    
+    C. For forecast‑based advisory alerts, the user may enable or disable them. 
+    
+    D. For savings milestone alerts, the user may enable or disable them. 
+    
+    E. For debt alerts, the user may enable or disable them.
 
-> NOTE: Remember the discussion we had earlier about cooldown and sensitivity.
+2. The user may also set a cooldown period for duplicate alerts, ranging from one to twenty‑four hours, which applies to anomaly detection alerts only. 
 
-> Claude: Section 4: "budget overspending which is mandatory" - ASK: Can users disable all notifications for a specific category? For example, a user might not care about exceeding a very flexible category like MISC. PROP: Allow per-category notification enable/disable, with overspending alerts still recorded in notification center but not pushed.
+    A. Within the cooldown period, if the same category and similar magnitude anomaly occurs again, no new alert is generated. 
+    
+    B. The cooldown is per category, not per merchant or amount.
+
+3. Sensitivity adjustment (low, medium, high) for anomaly detection is not exposed to users in the main settings. 
+
+4. The dynamic threshold described in Article VIII Section 1 (top five percent of anomaly scores) is fixed. 
+
+> [OPEN: Team Decision] If the team determines that users require sensitivity control, it may be added as an advanced setting behind an expander. The thesis scope does not require this feature.
+
+### Section 5. Alert Persistence and Acknowledgment
+
+1. Unread alerts remain in the notification centre until the user dismisses them or acknowledges them by tapping the action button. 
+
+2. Alerts do not expire automatically. 
+
+3. When the user taps the action button and performs the suggested action (for example, viewing the budget screen), the alert is marked as read but remains in the notification centre under a "History" section until manually cleared.
+
+4. For anomaly alerts that include whitelist options, the acknowledgment choices ("Yes, expected," "No, unexpected," "Remind me later") are presented within the alert itself. 
+
+    A. Selecting "Yes, expected" creates a whitelist entry and dismisses the alert. 
+    
+    B. Selecting "No, unexpected" dismisses the alert without whitelisting. 
+    
+    C. Selecting "Remind me later" dismisses the alert but schedules a reminder notification for the same transaction after twenty‑four hours, unless the user has already whitelisted or dismissed it permanently.
+
+### Section 6. Connection to Other Modules
+
+1. The Alerts and Notifications module receives alerts from:
+
+    A. The rule‑based overspending detection submodule (Article VIII Section 4).
+    
+    B. The Isolation Forest anomaly detection module (Article VIII).
+    
+    C. The savings goal tracking module (Article IX Section 5).
+    
+    D. The forecasting module (Article VII Section 1 for advisory alerts).
+    
+    E. The debt management module (Article X Section 5). 
+
+2. The module stores alert history locally on the device and, if the user is logged in, synchronises to the server for multi‑device consistency. 
+
+3. The module does not directly interact with the Random Forest or LSTM models except to receive alert triggers.
 
 ---
 
 ## Article XII: Explainability Requirements (Cross-Module)
 
-All machine learning modules shall provide explainability as follows:
+1. All machine learning modules in the System shall provide human‑readable explanations for their predictions and alerts. 
 
-| Module | Method | Output format |
-|--------|--------|---------------|
-| Financial Behavioral Profile Classification | SHAP | Feature contribution list (top 3 features) |
-| Budget Recommendation | Constraint satisfaction + feature importance | Template sentence + editable parameters |
-| Forecasting (Expense/Income) | Attention weights or perturbation-based importance | "Your [CATEGORY] is predicted to [increase/decrease] because [REASON]" |
-| Anomaly Detection | Feature deviation ranking | "Flagged because amount was high for this category" |
+2. The explanation method, output format, and evaluation approach vary by module as defined below.
 
-Explainability outputs shall be stored in the application log for audit and shall be viewable by the user via "Why?" button on any prediction or alert.
+    A. For the Financial Behavioral Profile classification module using Random Forest, explainability shall be provided using SHAP (SHapley Additive exPlanations). 
+    
+        i. The System shall compute SHAP values for each classification prediction and present the top three features that most influenced the classification. 
+        
+        ii. The output format shall be a sentence constructed from the feature names, their values, and the difference from typical users of other profiles. 
+        
+            a. For example: "Your profile is Stable‑Obligated mainly because your obligation ratio of 0.55 is higher than typical Flexible users, and your monthly spending coefficient of variation of 0.12 indicates stable income." 
+            
+        iii. The SHAP values shall be stored in the application log for audit purposes and shall be retained for thirty days, after which they are anonymised by removing user identifiers.
+        
+    B. For the budget recommendation module using Linear Programming, explainability shall be provided by listing the active constraints that shaped the allocation and the user's priority settings that influenced the objective function. 
+    
+        i. The output format is a template sentence followed by a list of the most binding constraints. 
+        
+        ii. The template shall state: "Your [period]-day budget is [total] pesos. This is based on your predicted income of [income] and minimum savings target of [savings]." 
+        
+        iii. Then the System shall add one or two sentences explaining the major constraints: "[amount] pesos is allocated to Essentials because this category is required to be at least [percentage] percent of your budget. [amount] pesos is allocated to Discretionary because this category is capped at [percentage] percent." 
+        
+        iv. The explanation shall be accessible via a "Why?" button on the budget recommendation screen. 
+        
+        v. The user may then edit any allocation manually, and the System shall note which constraints were overridden.
 
-> Claude: This article is concise but missing evaluation criteria. ASK: How will the researchers evaluate whether explainability outputs are effective? Consider adding: (1) User comprehension test: After seeing an explanation, can the user correctly state why a prediction was made? (2) Trust rating: On a 1-5 scale, does the explanation increase trust in the system? These could be part of the SUS or a separate post-task questionnaire.
+    C. For the forecasting module using LSTM, explainability shall be provided using a feature perturbation method rather than SHAP, as SHAP is computationally expensive for sequential models. 
+    
+        i. For each forecast, the System shall measure how the prediction changes when each input feature is set to a baseline value or shuffled. 
+        
+        ii. The feature causing the largest change is identified as the most influential. 
+        
+        iii. For user‑facing explanations, the System shall not present raw perturbation values. 
+        
+            a. Instead, it shall generate a simple template sentence based on observable patterns: "Your Discretionary spending is predicted to increase because your spending in the last seven days is [amount] higher than your thirty‑day average." 
+            
+        iv. If no single feature dominates, the System shall state: "Your forecast is consistent with your recent spending patterns." 
+        
+        v. The LSTM architecture does not include an attention layer in this version, so attention‑based explanations are not available.
 
-> Claude: "Explainability outputs shall be stored in the application log for audit" - ASK: For how long? Log retention should be specified (e.g., 30 days) to comply with data minimization under DPA.
+    D. For the anomaly detection module using Isolation Forest, explainability shall be provided by computing the deviation of each continuous feature from the user's baseline, using pre‑computed summary statistics (median and interquartile range per category). 
+    
+        i. The feature with the largest standardised deviation determines the explanation. 
+        
+        ii. The output format shall be a sentence such as: "This transaction was flagged because the amount (5,000 pesos) is 2.5 standard deviations above your usual Food spending of 800 pesos." 
+        
+        iii. For the merchant novelty feature, the explanation shall be: "This transaction was flagged because you have never spent at this merchant before in the last 60 days." 
+        
+        iv. This method requires no per‑transaction model fitting and is instantaneous.
+
+2. All explanation outputs shall be stored in the application log for audit purposes, with a retention period of thirty days. 
+
+3. After thirty days, the logs shall be anonymised by removing user identifiers and rounding amounts to the nearest hundred pesos. 
+
+4. The user may view the explanation for any prediction or alert by tapping a "Why?" button next to the relevant interface element. 
+
+5. The explanation shall be displayed in a modal dialog that also includes a link to Settings → Explainability where the user can learn more about how the System makes decisions.
+
+> [OPEN: Team Decision] The effectiveness of explainability outputs shall be evaluated as part of the user study. The researchers may include two additional measures in the post‑task questionnaire. First, a comprehension check: after showing a user an explanation for a profile classification, ask the user to select which feature was most important from a list. Second, a trust rating: on a scale of one to five, ask the user whether the explanation increased their trust in the System's recommendation. These measures are not mandatory for the thesis but are recommended for a complete evaluation. If the team decides to include them, they should be added to the evaluation protocol in Article XIII.
+
+6. The explainability module does not directly connect to other modules except through the storage and retrieval of explanations for display. 
+
+7. The SHAP values for classification and the perturbation results for forecasting are computed at prediction time and stored alongside the prediction results.
 
 ---
 
@@ -1620,89 +1760,197 @@ Explainability outputs shall be stored in the application log for audit and shal
 
 ### Section 1. ISO/IEC 25010:2023 Quality Characteristics.
 
-The System shall be evaluated against the following characteristics with specific measures and thresholds:
+1. The System shall be evaluated against six quality characteristics from the ISO/IEC 25010:2023 standard, each with a specific measure, acceptable threshold, and evaluation method.
 
-| Characteristic | Measure | Acceptable threshold | Evaluation method |
-|----------------|---------|----------------------|-------------------|
-| Functional suitability | Percentage of specified features passing manual test cases | ≥ 98% | Manual test script (n=50 test cases) |
-| Performance efficiency | Time from user action to UI response (p95) | ≤ 500ms for non-ML, ≤ 3000ms for ML predictions | Automated load testing (n=100 iterations) |
-| Usability | System Usability Scale (SUS) score | ≥ 68 (industry average) | SUS survey (target n=30) |
-| Reliability | Mean time between failures (MTBF) during 2-hour simulated use | ≥ 4 hours | Crash rate monitoring during pilot |
-| Security | Number of critical vulnerabilities per OWASP Top 10 | 0 | Static analysis + penetration test |
-| Maintainability | Cyclomatic complexity per function (excluding UI bindings) | ≤ 10 | Static code analysis (SonarQube) |
+    A. Functional suitability measures the percentage of specified features that pass manual test cases. 
+    
+        i. The acceptable threshold is at least ninety‑eight percent. 
+        
+        ii. Evaluation shall be performed using a manual test script containing fifty test cases, each mapped to a specific requirement from Articles I through XII. 
+        
+        iii. The test case traceability matrix shall be included in Appendix J of the thesis.
 
-The cyclomatic complexity limit of ≤10 applies to application business logic (e.g., transaction validation, budget recalculation, alert generation). ML training scripts, LP solver libraries, and data preprocessing pipelines are exempt. Wrapper functions that call these libraries shall be kept simple (≤10).
+    B. Performance efficiency measures the time from user action to user interface response at the ninety‑fifth percentile. 
+    
+        i. For non‑machine‑learning operations such as transaction entry, budget viewing, and alert acknowledgment, the acceptable threshold is 500 milliseconds or less. 
+        
+        ii. For machine learning predictions, including profile classification, spending forecast, and anomaly detection, the acceptable threshold is 1500 milliseconds or less at the ninety‑fifth percentile, with a maximum acceptable of 3000 milliseconds at the ninety‑ninth percentile. 
+        
+        iii. Evaluation shall use automated load testing with one hundred iterations per operation.
 
-> NOTE: Cyclomatic complexity needs to be defined. Thresholds also need to be justified and validated from benchmarks and studies.
+    C. Usability shall be measured using the System Usability Scale. 
+    
+        i. The acceptable threshold is a score of 68 or higher, which represents the industry average. 
+        
+        ii. A secondary stretch goal is 74 or higher, representing the eighty‑fifth percentile. 
+        
+        iii. The evaluation protocol is detailed in Section 2.
 
-> Claude: Section 1: "Functional suitability: ≥98% of specified features passing manual test cases" - ASK: Who defines the test cases? The researchers should produce a test case traceability matrix mapping each requirement (from Articles I-XII) to at least one test case. This is not mentioned in appendices; consider adding as Appendix J.
+    D. Reliability shall be measured as mean time between failures during two hours of simulated continuous use. 
+    
+        i. The acceptable threshold is four hours or more between crashes or unhandled exceptions. 
+        
+        ii. Evaluation shall be performed by running the application through a scripted sequence of user actions and monitoring crash logs.
 
-> Claude: Section 1: "Performance efficiency: ≤500ms for non-ML, ≤3000ms for ML predictions" - ASK: Is 3000ms (3 seconds) acceptable for a mobile app? Users may perceive 3 seconds as slow. Consider a lower target (≤1500ms) for ML predictions, with a loading indicator. 3 seconds could be the maximum acceptable (p99), not p95.
+    E. Security shall be measured as the number of critical vulnerabilities identified per the OWASP Top Ten. 
+    
+        i. The acceptable threshold is zero critical vulnerabilities. 
+        
+        ii. Evaluation shall use static code analysis and a basic penetration test focused on authentication, data storage, and network communication.
 
-> Claude: Section 1: "Cyclomatic complexity ≤10" - The NOTE says ML training scripts and LP solvers are exempt. ASK: What about the code that prepares inputs for ML models (feature extraction from transactions)? That is business logic and should be included. Clarify exemption only for third-party library code, not for wrapper functions that transform data.
+    F. Maintainability shall be measured by cyclomatic complexity per function, excluding user interface binding code and third‑party library calls. 
+    
+        i. The acceptable threshold is ten or less for all application business logic functions, including transaction validation, budget recalculation, alert generation, and feature extraction for machine learning models. 
+        
+        ii. Machine learning training scripts, Linear Programming solver libraries, and data preprocessing pipelines are exempt, but wrapper functions that call these libraries shall have cyclomatic complexity of ten or less. 
+        
+        iii. Evaluation shall use static code analysis with a tool such as SonarQube.
+
+> [RRL NEEDED] The cyclomatic complexity threshold of ten is provisional and should be validated against software engineering benchmarks for maintainability. The threshold is commonly cited in industry standards; the researchers should cite a relevant source such as McCabe's original paper or a software quality textbook.
 
 ### Section 2. System Usability Scale (SUS) Protocol.
 
-**Target score:** ≥68 (industry average). A secondary stretch goal is ≥74 (85th percentile). The lower target accounts for the absence of bank sync (a known friction point).
+1. The System Usability Scale shall be administered after each participant has used the System actively for fourteen days. 
 
-**Sample size:** Target n=30. If n<30 but ≥20 after 4 weeks of recruitment, the study shall proceed with a post-hoc power analysis reporting the minimum detectable effect size.
+    A. Active use is defined as recording at least ten transaction entries during the fourteen‑day period. 
+    
+    B. If a participant does not reach ten transactions, the SUS shall still be administered at day fourteen, but the transaction count shall be recorded as a covariate in the analysis.
 
-> NOTE: Score and size need to be validated.
+2. The target sample size is thirty participants. 
 
-**Respondent profile stratification:**
+    A. If after four weeks of recruitment the sample size is between twenty and twenty‑nine, the study shall proceed with a post‑hoc power analysis reporting the minimum detectable effect size. 
 
-| Stratum | Minimum count |
-|---------|---------------|
-| Stable-Flexible | 6 |
-| Stable-Obligated | 6 |
-| Variable-Flexible | 6 |
-| Variable-Obligated | 6 |
+    B. The sample shall be stratified by financial behavioural profile, with a minimum of six participants per profile. 
 
-> ASK: (JOAQUIN): Why these minimum counts? I believe our minimum total count is 50 evaluators.
-> ANS: (): ___
+    C. The four profiles sum to twenty‑four participants.
 
-Respondents shall be recruited from at least 4 different cities in Metro Manila (e.g., Manila, Quezon City, Makati, Taguig). No minimum per district.
+        i. The remaining six participants may be from any profile without stratification. 
 
-**Administration:** SUS shall be administered after 14 days of active system use (minimum 10 transaction entries). Each user shall complete the standard 10-item Likert scale (1-5). Scoring per Brooke (1996): odd items contribute 1−score, even items contribute score−1, sum × 2.5.
+    D. Recruitment shall occur from at least four different cities in Metro Manila, for example Manila, Quezon City, Makati, and Taguig, but no minimum number of participants is required per city.
 
-> ASK: (JOAQUIN): Is that enough to test ALL aspects of the system? Won't we need to test monthly forecasts?
-> ANS: (): ___
+3. Each participant shall complete the standard ten‑item System Usability Scale questionnaire, with items scored on a five‑point Likert scale from strongly disagree to strongly agree. 
 
-> Claude: Section 2 SUS Protocol: "Target n=30" - The ASK notes minimum total of 50 evaluators. PROP: 30 is acceptable for a thesis (standard for SUS studies), but the stratification (6 per profile) sums to 24, not 30. The extra 6 can be unstratified. Ensure recruitment over-recruits to hit each stratum's minimum.
+    A. Scoring shall follow the Brooke (1996) method: for odd‑numbered items, subtract one from the score; for even‑numbered items, subtract the score from five; sum all converted scores; multiply the sum by 2.5 to obtain a score from zero to one hundred. 
+    
+    B. The mean score across all participants shall be reported with a confidence interval.
 
-> Claude: Section 2: "SUS shall be administered after 14 days of active system use (minimum 10 transaction entries)." ASK: What if a user does not reach 10 transactions in 14 days? They may be a low-activity user, but their SUS score is still valuable (reflects real-world usage). PROP: Administer after 14 days regardless of transaction count, but record transaction count as a covariate in analysis.
+4. The SUS shall be administered in person or via an online form. 
+
+    A. The researcher shall read the standardised instructions: "Please rate your agreement with the following statements about Odin. There are no right or wrong answers. Your honest feedback helps us improve the system."
+
+> [OPEN: Team Decision] The fourteen‑day period may be insufficient for users with monthly obligations to experience all system features, such as budget period rollover or end‑of‑month surplus handling. The researchers may consider extending the evaluation period to thirty days for a subset of participants, or acknowledge this as a limitation in the thesis.
 
 ### Section 3. Algorithmic Module Evaluation Protocol.
 
-| Module | Validation method | Primary metrics | Secondary metrics | Synthetic data source |
-|--------|-------------------|-----------------|-------------------|----------------------|
-| Forecasting | Walk-forward (60d train, 7d test, 26 iterations) | MAE, RMSE, sMAPE | Forecast bias, IoF | BSP CFS 2021 + PSA FIES 2018 |
-| Anomaly detection | Walk-forward (30d train, 7d test, 13 iterations) | Precision, Recall, F1, FP rate | AUC-ROC | Same + injected anomalies (5%) |
-| Profile classification | Rolling window (60d train, 30d test, 6 iterations) | Accuracy, Precision, Recall, F1 | Confusion matrix | Same + onboarding sim |
+1. Each machine learning module shall be evaluated using walk‑forward validation on synthetic data. 
 
-> ASK: (JOAQUIN): What about the budget recommendation module? And, as always, is this list exhaustive?
-> ANS: (): ___
+    A. The synthetic dataset shall be generated from the BSP Consumer Finance Survey 2021 and the PSA Family Income and Expenditure Survey. 
+    
+    B. No real user data shall be used for training or validation.
+    
+        i. The pilot user data, if collected, shall be used only for final inference demonstration and not for metric calculation.
 
-Walk-forward validation shall be performed on synthetic data only. Real user data collected during the pilot (max 30 days per user) is insufficient for 60-day training windows. Therefore, ML module performance metrics shall be reported based on synthetic test sets. Real user evaluation shall report SUS scores, task completion rates, and qualitative feedback only.
+2. For the Random Forest classification module, validation shall use a rolling window of sixty days of training data and thirty days of test data, rolling forward by thirty days for six iterations. 
 
-> GLOBAL: Markdown styles like bold and italic must be minimized as much as possible. Text must be in prose form as much as possible.
+    A. The primary metrics are accuracy, precision, recall, and F1 score, each measured per class and macro‑averaged. 
+    
+    B. The acceptable threshold for accuracy is 0.85 or higher. 
+    
+    C. The confusion matrix shall be reported. 
+    
+    D. This evaluation shall be performed before the user study to confirm model performance.
 
-**Acceptable thresholds for each metric are defined in the respective Articles.**
+3. For the LSTM forecasting module, validation shall use walk‑forward with sixty days of training data and seven days of test data, rolling forward by seven days for twenty‑six iterations. 
 
-> Claude: Section 3: Algorithmic Module Evaluation Protocol - The ASK asks about budget recommendation evaluation. PROP: Budget recommendation can be evaluated by adherence rate: percentage of users whose actual spending stays within ±20% of recommended category allocations over the budget period. Target ≥70%. Also measure user modification rate (how often users manually adjust recommendations) as a proxy for recommendation quality.
+    A. The primary metrics are Mean Absolute Error (MAE) as a percentage of category mean, Root Mean Square Error (RMSE) as a percentage of category mean, and symmetric Mean Absolute Percentage Error (sMAPE). 
+    
+    B. The acceptable thresholds are: 
+    
+        i. MAE less than fifteen percent of category mean for Essentials and Discretionary.
+        
+        ii. RMSE less than twenty percent of category mean for Essentials and Discretionary.
+        
+        iii. sMAPE less than twenty‑five percent for Essentials and Discretionary, and less than thirty percent for Obligatory and Financial Allocation. 
+        
+    C. Improvement over Fallback shall be reported but does not have an acceptability threshold for the thesis.
+    
+        i. The researchers shall note whether the LSTM outperforms the fallback.
 
-> Claude: Section 3: "Walk-forward validation shall be performed on synthetic data only" - This is a strong limitation. ASK: After the pilot with real users (up to 30 days per user), can the researchers do a post-hoc evaluation using real data? For example, train on days 1-20, test on days 21-30 (10 days). This would be a weaker validation (small window) but still valuable to compare synthetic vs real performance. Recommend adding this as an exploratory analysis.
+4. For the Isolation Forest anomaly detection module, validation shall use walk‑forward with thirty days of training data and seven days of test data, rolling forward by seven days for thirteen iterations. 
+
+    A. The synthetic test set shall have anomalies injected at approximately five percent of transactions, with amounts two or more standard deviations above the category mean. 
+    
+    B. The primary metrics are precision, recall, F1 score, and false positive rate per user per week. 
+    
+    C. The acceptable thresholds are: precision at least 0.70, recall at least 0.65, F1 at least 0.675, and false positive rate no more than 1.5 per week.
+
+5. For the budget recommendation module, which uses Linear Programming rather than machine learning, evaluation shall measure adherence rate. 
+
+    A. Adherence rate is defined as the percentage of users whose actual spending stays within plus or minus twenty percent of the recommended category allocation for at least three of the four broad groups, averaged over the budget period. 
+    
+    B. The acceptable threshold is seventy percent or higher. 
+    
+    C. The researchers shall also report the manual modification rate, defined as the percentage of users who manually adjust the recommended allocation before accepting the budget, as a proxy for recommendation quality. 
+    
+    D. A high modification rate (above fifty percent) suggests that the default priorities or constraints do not match user preferences.
+
+> [RRL NEEDED] The three‑week threshold for triggering retraining or logging warnings (mentioned in earlier articles for forecasting and anomaly detection) is provisional. The researchers should justify this based on concept drift literature or adjust the threshold after pilot testing. In the thesis version, because models are frozen and not retrained on real user data, the three‑week threshold applies only to synthetic evaluation and serves as a diagnostic for model stability, not an automatic action trigger.
 
 ### Section 4. Failure Conditions and System Responses.
 
-| Condition | Detection | System Response | User notification |
-|-----------|-----------|-----------------|-------------------|
-| Forecast MAE > 20% for 14 days | Daily cron job | Log warning; continue current model; flag for retraining | None (developer notified) |
-| Anomaly detection F1 < 0.6 for 7 days | Weekly evaluation | Disable Isolation Forest; revert to rule-based only | "Spending alerts are temporarily simplified. Your data is safe." |
-| Classification accuracy < 0.80 on validation set | After each retraining | Do not deploy; retain previous model; alert developer | None |
-| Any module throws unhandled exception | Runtime error handler | Graceful degradation: disable module; serve fallback | "[Module] is temporarily unavailable. Please try again later." |
+1. The System shall detect and respond to the following failure conditions. 
 
-> Claude: Section 4 Failure Conditions: "Forecast MAE > 20% for 14 days" - ASK: 20% of what? MAE is an absolute value, not a percentage. Should be "MAE > 20% of category mean" (consistent with earlier threshold). Also, what about categories with zero mean? Use sMAPE for those.
+2. For each condition, the detection method, system response, and user notification are defined.
+
+3. When the LSTM forecast Mean Absolute Error exceeds twenty percent of the category mean for any broad group for fourteen consecutive days during synthetic evaluation, the System shall log a warning. 
+
+    A. The warning shall be visible to the developer in the application logs. 
+    
+    B. No automatic action is taken, as the model is frozen for the thesis. 
+    
+    C. The researchers may manually retrain the model with different hyperparameters offline.
+
+4. When the Isolation Forest anomaly detection F1 score falls below 0.6 for seven consecutive days during synthetic evaluation, the System shall log a warning. 
+
+    A. The System shall continue to use the Isolation Forest for anomaly detection.
+    
+        i. No automatic fallback to rule‑only occurs, as the synthetic evaluation is offline. 
+        
+    B. In a deployed version, the System would disable Isolation Forest and revert to rule‑based overspending alerts only, but this is not implemented in the thesis.
+
+5. When the Random Forest classification accuracy on the validation set falls below 0.80 after a retraining run (which occurs only during development, not during user evaluation), the System shall not deploy the new model. 
+
+    A. The previous model shall be retained, and the developer shall be alerted. 
+    
+    B. This condition is not applicable during the user evaluation because no retraining occurs.
+
+6. When any module throws an unhandled exception at runtime during user evaluation, the System shall catch the exception, log it, and continue operating with graceful degradation. 
+
+    A. For the forecasting module, if an exception occurs, the System shall display a fallback message: "Forecasts are temporarily unavailable. Please check your internet connection and try again later." 
+    
+    B. For the anomaly detection module, if an exception occurs, the System shall not show anomaly alerts until the next restart, and shall display: "Spending alerts are temporarily simplified. Your data is safe." 
+    
+    C. For the classification module, if an exception occurs during inference, the System shall use the last known profile and display: "Your financial profile is using saved data. Some recommendations may be less accurate."
+
+7. The System shall also include a disaster recovery and backup plan. 
+
+    A. Automated daily backups of the server database shall be retained for thirty days. 
+    
+    B. The user may export all their transaction data as a CSV file via Settings → Export Data, and may import a previously exported CSV file to restore data after account deletion or device change. 
+    
+    C. A developer restore procedure shall be documented in the system administrator manual. 
+    
+    D. This backup mechanism is for data loss scenarios such as server corruption or user error, not for real‑time synchronisation.
+
+### Section 5. Connection to Other Modules
+
+1. The evaluation framework described in this article is not a runtime module but a development‑time and evaluation‑time protocol. 
+
+2. The metrics defined here are computed offline using Python scripts on synthetic data, or manually during user evaluation for the System Usability Scale. 
+
+3. The results of evaluation shall be reported in the thesis findings chapter. 
+
+4. No runtime module consumes these metrics; they are for research purposes only.
 
 ---
 
@@ -1710,131 +1958,389 @@ Walk-forward validation shall be performed on synthetic data only. Real user dat
 
 ### Section 1. Compliance with RA 10173 (Data Privacy Act of 2012).
 
-The System shall comply with the following Data Privacy Act requirements:
+1. The System shall comply with the Data Privacy Act of 2012 in all aspects of personal financial data processing. 
 
-- **Consent:** All personal financial data shall be processed only with user consent obtained via explicit opt-in screen before first transaction entry.
-- **Purpose limitation:** Data shall be used only for budget recommendation, forecasting, anomaly detection, and profile classification as described in this document.
-- **Retention period:** 13 months from last user activity. After 13 months of inactivity, data shall be anonymized (user ID removed, transactions rounded to nearest PHP 100, dates truncated to month).
-- **Anonymized research use:** Anonymized data may be used for aggregate research **only if** the user has given explicit opt-in consent on a separate screen during onboarding. The opt-in screen shall state: "Allow Odin to use your anonymized data to improve financial models for all users? This does not identify you personally." Users who do not opt in shall have their data permanently deleted after 13 months.
-- **Portability:** User may request CSV export of all transactions via Settings → Export Data.
-- **Deletion:** User may request deletion of all data via Settings → Delete Account, with confirmation. Deletion shall complete within 7 days.
+2. Consent shall be obtained via an explicit opt‑in screen shown before the user can enter any transaction. 
 
-> Claude: Section 1: "Retention period: 13 months from last user activity." ASK: Why 13 months? This is unusual. Standard retention for financial data in other PFM apps is often 3-7 years or indefinite. The DPA allows retention as long as necessary for the purpose. If the purpose is to train ML models, 13 months may be insufficient to capture annual cycles (e.g., Christmas spending). PROP: Justify 13 months (13 = 12 months + 1 month grace for user to return) or extend to 24 months.
+    A. The opt‑in screen shall state: "Odin collects and processes your financial transactions to provide budget recommendations, spending forecasts, anomaly detection, and profile classification. Your data is stored encrypted and is not shared with third parties. You may delete your data at any time." 
 
-> Claude: Section 1: "Anonymized research use" requires separate opt-in. This is good. However, ASK: What constitutes "anonymized" under DPA? The spec uses salting and hashing (Section 2). Salt stored only on device means the server cannot re-identify. That is strong. But the spec also says "dates truncated to month" - ASK: Can a sequence of monthly transactions with rounded amounts still be linked to an individual via unique patterns (e.g., exact rent amount on 1st of each month)? Consider adding noise (differential privacy) if true anonymization is required.
+    B. The user must tap "I agree" to proceed; declining prevents use of the application.
+
+4. Purpose limitation shall be strictly observed. 
+
+    A. Data shall be used only for the following purposes: generating budget recommendations, producing spending forecasts, detecting anomalous transactions, classifying financial behavioural profiles, and displaying transaction history to the user. 
+    
+    B. No data shall be used for any other purpose without new consent.
+
+5. Retention period shall be thirteen months from the date of the user's last activity. 
+
+    A. User activity includes any transaction entry, budget change, or login. 
+    
+    B. After thirteen months of inactivity, the user's data shall be anonymised as follows: the user identifier is removed and replaced with a random non‑reversible token; transaction amounts are rounded to the nearest one hundred pesos; transaction dates are truncated to the month only; all merchant names and descriptions are deleted. 
+    
+    C. If the user has not given explicit opt‑in for anonymised research use (see below), the data shall be permanently deleted instead of anonymised.
+
+> [RRL NEEDED: Retention period of thirteen months] The choice of thirteen months is provisional and requires validation from either Bangko Sentral ng Pilipinas data retention guidelines, a provision of the Data Privacy Act, or literature on financial data retention for personal finance management systems. If no authoritative source supports thirteen months, the team should adopt a standard period such as twenty‑four months or align with tax record‑keeping recommendations (typically three years in the Philippines). The researchers must resolve this before final submission.
+
+6. Data portability shall be supported. 
+
+    A. The user may request a CSV export of all their transactions, including date, amount, category, merchant name (if provided), and account, via Settings → Export Data. 
+    
+    B. The export file shall be generated within five minutes of the request and shall be downloadable via a secure link that expires after twenty‑four hours.
+
+7. Data deletion shall be supported. 
+
+    A. The user may request deletion of all their data via Settings → Delete Account. 
+    
+    B. The System shall display a confirmation dialog: "This will permanently delete all your transactions, budgets, goals, and settings. This action cannot be undone. Continue?" 
+    
+    C. Upon confirmation, the System shall immediately delete all user data from the local device and send a deletion request to the server. 
+    
+    D. The server shall complete deletion within seven days, and the user shall receive an email confirmation if an email address was provided.
+
+7. For anonymised research use, the System shall obtain separate explicit opt‑in consent on a distinct screen during onboarding. 
+
+    A. The opt‑in screen shall state: "Allow Odin to use your anonymised data to improve financial models for all users? Your data will be stripped of all identifiers, amounts will be rounded, and dates will be truncated to month. This does not identify you personally. You may opt out at any time in Settings." 
+    
+    B. Users who do not opt in shall have their data permanently deleted after the retention period rather than anonymised. 
+    
+    C. Users who opt in may later withdraw consent via Settings → Privacy → Remove from Research, and their data shall be excluded from future research datasets.
 
 ### Section 2. Technical Security Controls.
 
-| Control | Implementation | Standard |
-|---------|----------------|----------|
-| In-transit encryption | TLS 1.3 minimum for all server communications | NIST SP 800-52 |
-| At-rest encryption (server) | AES-256-GCM for stored transaction data | FIPS 197 |
-| Local storage (mobile) | Encrypted SQLite (SQLCipher) with 256-bit key derived from user PIN/biometric | SQLCipher 4.x |
-| Authentication | Biometric (FaceID/TouchID/Android Biometric) + 6-digit PIN fallback | OWASP MASVS |
-| Anonymization before server upload | User ID replaced with salted hash (SHA-256 with per-user salt stored only on device); no name/email sent | NIST SP 800-185 |
+1. The System shall implement the following technical security controls. 
 
-> Claude: Section 2: "Anonymization before server upload: User ID replaced with salted hash (SHA-256 with per-user salt stored only on device)" - ASK: How does the server match a user's subsequent uploads if the salt is only on the device? The device must send the same hash each time. That means the hash is deterministic and can be used as a persistent identifier. This is pseudonymization, not anonymization. For true anonymization, the salt should be rotated periodically or the server should not be able to link uploads from the same user. Clarify which level is actually needed.
+    A. For in‑transit encryption, all communications between the mobile application and the server shall use TLS version 1.3 minimum, following NIST SP 800‑52 guidelines. 
+    
+    B. For at‑rest encryption on the server, stored transaction data shall be encrypted using AES‑256‑GCM, compliant with FIPS 197. 
+    
+    C. The encryption keys shall be managed using a key management service and shall not be stored in source code.
+
+2. For local storage on the mobile device, the System shall use an encrypted SQLite database via SQLCipher with a 256‑bit key derived from the user's six‑digit PIN or biometric authentication. 
+
+    A. The key is derived using PBKDF2 with 100,000 iterations. The PIN is stored only as a salted hash; the biometric authentication invokes the device's secure hardware.
+
+3. For authentication, the user shall set a six‑digit PIN during onboarding. 
+
+    A. If the device supports biometric authentication (FaceID, TouchID, or Android Biometric), the user may enable biometric login as an alternative to the PIN. 
+    
+    B. The PIN is required as a fallback. 
+    
+    C. The System shall lock after five failed authentication attempts and require a thirty‑second cooldown.
+
+4. For anonymisation before server upload, the System shall pseudonymise user data, not fully anonymise it, because the server must be able to associate subsequent uploads from the same user to maintain a coherent transaction history. 
+
+    A. The user identifier sent to the server shall be a salted hash: SHA‑256 of the user's local unique identifier concatenated with a per‑device salt that is stored only on the device. 
+    
+    B. This produces a deterministic but non‑reversible identifier. 
+    
+    C. The server cannot reverse the hash to obtain the original user identifier, and without the device‑local salt, the hash cannot be recomputed from other data. 
+    
+    D. This scheme achieves pseudonymisation as defined under the Data Privacy Act. 
+    
+    E. For true anonymisation after account deletion or retention expiry, the server shall delete the mapping entirely.
+
+> [OPEN: Team Decision] The pseudonymisation scheme described above is sufficient for the thesis scope because no real user data is used for training global models. If the System were to be deployed commercially, a more robust anonymisation scheme with differential privacy would be required. The team should document this as a limitation.
 
 ### Section 3. AI/ML Model Privacy.
 
-No user transaction data shall be used to train global models without:
+1. No user transaction data shall be used to train or fine‑tune any global machine learning model during the thesis study. 
 
-- Explicit opt-in consent separate from general Terms of Service (checkbox: "Allow anonymized data to improve Odin for everyone")
-- Aggregation satisfying k-anonymity with k ≥ 20 before any model weight update
-- Option to delete user's data from training corpus via Settings → Privacy → Remove from Training
+    A. This includes the Random Forest classifier, the LSTM forecasting model, and the Isolation Forest anomaly detector. 
+    
+2. All models shall be pre‑trained exclusively on synthetic data generated from public surveys (BSP CFS 2021 and PSA FIES). 
 
-Inference requests shall send only anonymized feature vectors (no raw transactions). The LSTM model shall run on a serverless function; no user data is persisted on the inference server beyond the request lifetime.
+3. The models shall be frozen before any user data is collected. 
 
-> Claude: Section 3: "aggregation satisfying k-anonymity with k ≥ 20 before any model weight update" - ASK: k-anonymity on what attributes? On transaction-level data? Or on feature vectors? This is a strong requirement that may be infeasible for a small user base (<20 users per profile). Consider: For the thesis, there may be no real user data used for training at all (as stated in Article III Section 5 of the PAPER SPECIFICATION). If that's the case, this section is only for future deployment, not for the thesis evaluation.
+    A. This design ensures that no personal financial information influences the model weights.
+
+4. Inference requests sent from the mobile application to the server shall contain only the minimal feature vector required for each prediction. 
+
+    A. For the Random Forest, the feature vector includes the user's aggregated statistics (income CV, obligation ratio, etc.) but no raw transaction details. 
+    
+    B. For the LSTM, the feature vector includes the last sixty days of daily aggregated spending per broad group, calendar features, and the user's profile, but no merchant names, descriptions, or detailed category information beyond the four broad groups. 
+    
+    C. For the Isolation Forest, the feature vector includes the transaction amount, category, day‑of‑period proportion, and merchant novelty flag, but not the merchant name string itself. 
+    
+    D. The server shall not persist any feature vectors beyond the request lifetime; logs shall be disabled for inference requests.
+
+5. For future deployment beyond the thesis, if the researchers ever consider using real user data for model improvement, the following conditions shall apply. 
+
+    A. Explicit opt‑in consent separate from the general Terms of Service shall be required. 
+    
+    B. Data shall be aggregated to satisfy k‑anonymity with k ≥ 20 before any model weight update. 
+    
+        i. That is, any batch of data used for training shall contain at least twenty users who cannot be distinguished from each other on the set of quasi‑identifiers (income quintile, profile, age bracket, city). 
+        
+        ii. This is a strong requirement that may be infeasible for a small user base. 
+        
+        iii. For the thesis, because no real user data is used for training, the k‑anonymity condition is not evaluated. 
+        
+> [FUTURE WORK] A production deployment would need to either maintain a large user base or forgo personalised fine‑tuning.
+
+6. Users shall have the right to request removal of their data from any training corpus. 
+
+    A. A Settings → Privacy → Remove from Training option shall be provided. 
+    
+    B. Upon selection, the user's data shall be excluded from any future training batches. 
+    
+    C. This applies to future versions only.
+    
+        i. For the thesis, there is no training corpus to remove from.
 
 ### Section 4. Ethical Review and Disclaimers.
 
-The System shall display the following disclaimer on first launch and annually thereafter:
+1. The System shall display the following disclaimer on first launch. 
 
-> NOTE: Should just be one-time.
+    A. The disclaimer shall be shown in a modal dialog that the user must scroll to the bottom and tap "I understand" before proceeding to the main application: "Odin's predictions and recommendations are for informational purposes only. You retain full responsibility for all financial decisions. Odin is not a financial advisor. Do not make major financial decisions solely based on automated outputs."
 
-"Odin's predictions and recommendations are for informational purposes only. You retain full responsibility for all financial decisions. Odin is not a financial advisor. Do not make major financial decisions solely based on automated outputs."
+2. Institutional ethics clearance shall be obtained from the University of Makati Research Ethics Committee prior to any user data collection for the study. 
 
-> This disclaimer must be prominent and displayed somewhere at the start, like in onboarding.
+    A. The ethics application shall include the informed consent form (in English and Tagalog), the data privacy notice, the onboarding questionnaire, the SUS questionnaire, and a description of the synthetic data generation and model training procedures. 
+    
+    B. The researchers shall start the ethics application process early, as review may take several weeks. 
+    
+    C. The timeline in Article V of the Paper Specification allocates three weeks for user evaluation, which may be insufficient if ethics clearance is not obtained in advance.
 
-Institutional ethics clearance shall be obtained from the University of Makati Research Ethics Committee prior to any user data collection for research purposes.
+3. The informed consent form shall include, at minimum, the following elements: 
 
-> Claude: Section 4: "institutional ethics clearance shall be obtained from the University of Makati Research Ethics Committee" - This is mandatory. ASK: Has the application been submitted? Ethics clearance can take weeks to months. Start early. The timeline (Article V of PAPER SPEC) allocates 3 weeks for user evaluation, which likely includes ethics clearance. That may be insufficient.
+    A. A description of the study purpose.
+    
+    B. description of procedures (fourteen days of system use, transaction entry, completing a questionnaire).
+    
+    C. A statement that participation is voluntary and may be withdrawn at any time without penalty.
+    
+    D. A description of risks (none beyond those of ordinary app use) and benefits (improved financial awareness).
+    
+    E. A statement about data privacy and retention.
+    
+    F. Contact information for the researchers and the ethics committee.
+    
+    G. Signature lines for the participant and the researcher. 
+    
+4. A copy shall be provided to the participant.
 
-> ANS: (J): Submission of applications are after the first semester of 4th year I believe, after Thesis 1. Basically, it's a long time before we need to submit. We need to accomplish Chapters 1-3 first.
+### Section 5. Connection to Other Modules
+
+1. The privacy and security controls described in this article are implemented at the infrastructure and application layers. 
+
+2. They affect how data flows between modules.
+
+    A. For example, the pseudonymised user identifier is used by the server to retrieve the correct stored data for each user, but the server never sees the raw user identifier. 
+    
+3. The encryption requirements apply to the local storage used by all modules (transactions, budgets, goals, debts). 
+
+4. The consent and deletion mechanisms affect the data lifecycle for all user data collected by any module. 
+
+5. No machine learning module has special access beyond the feature vectors described in Section 3.
 
 ---
 
 ## Article XV: Scope and Delimitations (Exclusions)
 
-The following features and capabilities are explicitly **excluded** from the System:
+1. The following features and capabilities are explicitly excluded from the System for the thesis version, with the reasons for exclusion stated for each.
 
-| Exclusion | Reason |
-|-----------|--------|
-| Bank or e-wallet API integration | Registration fees and compliance complexity; manual entry is a deliberate design choice to increase mindfulness |
-| Optical Character Recognition (OCR) of receipts | Increases complexity beyond thesis scope |
-| Investment tracking (stocks, mutual funds, crypto) | Not part of core PFM for target users per RRL |
-| Multi-currency support | Target users operate in PHP only |
-| Non-Filipino users | Geographic and cultural delimitation |
-| Users outside Metro Manila | Validation scope limitation |
-| Automated bill payment | Security and regulatory complexity |
-| Credit score monitoring | Requires third-party API with recurring fees |
-| Tax computation | Requires professional certification |
-| Paluwagan (informal rotating savings) dedicated module | No dedicated module; however, users may create a custom subcategory under SAVINGS named "Paluwagan" and manually record contributions and payouts. Future work may include a dedicated tracker. |
+    A. Bank or e‑wallet API integration is excluded. 
+    
+        i. Application programming interface registration fees for Philippine financial institutions such as GCash and Maya require formal partnership agreements with undisclosed fees and legal review. 
+        
+        ii. Compliance with Bangko Sentral ng Pilipinas circulars on data sharing adds complexity beyond the thesis scope. 
+        
+        iii. Furthermore, manual transaction entry is a deliberate design choice supported by literature indicating that manual logging increases financial mindfulness. 
+        
+        iv. This exclusion is noted as a limitation, and API integration is recommended for future work.
 
-Bank and e-wallet API integration is excluded because: (1) API registration fees (e.g., GCash requires a partnership agreement with undisclosed fees), (2) compliance with BSP circulars on data sharing requires legal review beyond thesis scope, (3) manual entry, while frictionful, is a deliberate design choice to increase user awareness (evidence from RRL: manual logging improves financial mindfulness). This is noted as a limitation and recommended for future work.
+    B. Optical character recognition of receipts is excluded. 
+    
+        i. The ability to photograph a receipt and automatically extract transaction details would reduce user friction but introduces computer vision complexity and accuracy requirements that are not central to the personal finance management objectives of the thesis.
 
-> NOTE: This footnote should be part of the description or reason.
+    C. Investment tracking for stocks, mutual funds, cryptocurrency, or any asset with variable returns is excluded. 
+    
+        i. These instruments require different modelling assumptions, including price volatility and market data integration, which are outside the defined scope of a personal finance management system for young adults focused on budgeting, saving, and debt management.
 
-> Claude: "Paluwagan ... users may create a custom subcategory under SAVINGS named 'Paluwagan'." ASK: Paluwagan has a unique mechanism: members contribute periodically, and one member receives the entire pot each cycle. This is not a savings goal (target amount with contributions) nor an expense. A custom subcategory under SAVINGS would treat contributions as savings (correct) but receiving the pot as a negative expense? That would distort spending patterns. PROP: Either (a) exclude paluwagan completely with a clear note that it cannot be modeled correctly, or (b) add a simple dedicated module that tracks contributions and payouts without affecting budgeting. (b) is better for Filipino context.
+    D. Multi‑currency support is excluded. 
+    
+        i. The System operates exclusively in Philippine pesos. 
+        
+        ii. All amounts are stored as integer centavos of PHP. 
+        
+        iii. Foreign currency transactions, if any, must be manually converted by the user at the time of entry.
 
-> ADD: (J): I mean yeah it sucks, but paluwagan really is engraved in Filipino financial culture. Idk if a good percentage of society practices it, but yeah.
+    E. Non‑Filipino users are excluded. 
+    
+        i. The System is designed for the Filipino cultural and financial context, including local spending patterns, holidays, and financial products. 
+        
+        ii. Geographic scope is limited to individuals who live or work in Metro Manila, as defined in Article I Section 2.
 
-> Claude: "Bank or e-wallet API integration is excluded because ... manual entry is a deliberate design choice." This justification is strong. However, ASK: Does the spec consider CSV/Excel import as a semi-automated input method? Many PFM apps allow importing bank statements. This would reduce friction while still requiring user action (downloading and uploading). Consider adding CSV import as a future work item or explicitly excluding it.
+    F. Users outside Metro Manila are excluded from the evaluation, though the application may function for them. 
+    
+        i. The validation study recruits participants only from Metro Manila cities, consistent with the geographic delimitation.
 
-> ANS: (J): We'll see if we can include it. We don't want to bloat our scope, so we'll have to deliberate this feature.
+    G. Automated bill payment is excluded. 
+    
+        i. The System does not initiate payments to creditors, utilities, or any third party. 
+        
+        ii. All payments are manually recorded by the user. 
+        
+        iii. This exclusion is due to security and regulatory complexity, including requirements for payment system operator licences.
+
+    H. Credit score monitoring is excluded. 
+    
+        i. Accessing credit scores in the Philippines requires third‑party API integration with recurring fees and compliance with the Credit Information Corporation regulations, which is outside the thesis budget and timeline.
+
+    I. Tax computation is excluded. 
+    
+        i. Tax preparation requires professional certification and knowledge of each user's specific deductions, dependents, and filing status. 
+        
+        ii. The System does not provide tax advice.
+
+    J. Paluwagan, the informal rotating savings and credit association practised in the Philippines, is excluded as a dedicated module. 
+    
+        i. Users may create a custom subcategory under the Financial Allocation broad group named "Paluwagan" and manually record contributions as expenses and payouts as negative expenses or transfers. 
+        
+        ii. However, this treatment distorts spending patterns because receiving the pot appears as a negative expense rather than a cash inflow. 
+        
+        iii. The researchers acknowledge this as a limitation. 
+        
+        iv. A dedicated module that tracks contributions and payouts without affecting the main budget is recommended for future work.
+
+    K. CSV or spreadsheet import is excluded. 
+    
+        i. The System does not accept batch uploads of transactions from bank‑exported files or manually created spreadsheets. 
+        
+        ii. All transactions must be entered manually. 
+        
+> [FUTURE WORK] CSV import may be added in a future version to reduce data entry friction while preserving user control.
+
+2. Optical character recognition of receipts and CSV import are both excluded for the same reason: the thesis focuses on the machine learning models and budget recommendation engine, not on data ingestion automation. 
+
+    A. The researchers explicitly delimit these features to maintain scope.
+
+3. All exclusions listed in this article are permanent for the thesis version. 
+
+    A. They may be reconsidered for future versions of the System beyond the academic requirement.
 
 ---
 
 ## Article XVI: Definitions of Terms (Operational)
 
-For the purpose of this specification, the following terms have the meanings assigned:
+1. For the purpose of this specification, the following terms have the meanings assigned.
 
-| Term | Definition |
-|------|------------|
-| **Available balance** | Starting balance plus sum of income minus sum of expenses minus savings contributions minus debt payments. May not be negative. |
-| **Behavioral drift (concept drift)** | A statistically significant change (p < 0.05 by Mann-Whitney U test) in any classification feature over a 60-day sliding window. |
-| **Cold-start period** | The initial phase of user activity. Subdivided into: *Profile cold-start*: First 7 days – classification uses onboarding questionnaire; *Forecasting cold-start*: First 30 days – forecasts use population fallbacks (FIES/BSP). After 30 days, LSTM predictions replace fallbacks. |
-| **Coefficient of variation (CV)** | Standard deviation of monthly net income divided by mean monthly net income. |
-| **Expense category** | A classification label assigned to a financial transaction, grounded in PSA FIES 2018 taxonomy. |
-| **Financial behavioral profile** | A classification of a user based on income stability (stable/variable) and obligation level (flexible/obligated). |
-| **Obligation ratio** | Sum of unavoidable monthly expenses divided by total monthly income, averaged over 60 days. |
-| **Paluwagan** | An informal rotating savings and credit association practiced in the Philippines. (Excluded from v1.0 as a dedicated module but can be tracked via custom category.) |
-| **Personal Finance Management System (PFMS)** | A software system designed to help individuals track, plan, and manage personal income, expenses, savings, and debt. |
-| **Walk-forward validation** | A time-series model evaluation method in which the model is trained on past data and tested on successive future periods, rolling forward incrementally. |
-| **Random Forest** | An ensemble machine learning algorithm that constructs multiple decision trees and aggregates their outputs for classification. |
-| **LSTM (Long Short-Term Memory)** | A type of recurrent neural network architecture suited to learning from sequential time-series data. |
-| **Linear Programming (LP)** | A mathematical optimization method used to allocate limited resources subject to defined constraints. |
-| **Isolation Forest** | An unsupervised anomaly detection algorithm that isolates anomalies by randomly partitioning feature space. |
-| **SHAP** | SHapley Additive exPlanations — a game-theoretic method for explaining machine learning model outputs. |
-| **LIME** | Local Interpretable Model-agnostic Explanations — a method for explaining individual predictions. (Used only for reference; anomaly detection uses feature deviation ranking.) |
-| **FIES** | Family Income and Expenditure Survey — conducted by the Philippine Statistics Authority (PSA). |
-| **BSP CFS** | Bangko Sentral ng Pilipinas Consumer Finance Survey. |
-| **Avalanche method** | A debt payoff strategy prioritizing highest interest rate first to minimize total interest paid. |
-| **Snowball method** | A debt payoff strategy prioritizing smallest outstanding balance first to build repayment momentum. |
-| **Alert fatigue** | Desensitization to alerts due to excessive frequency or low relevance, resulting in ignored notifications. |
+    A. Available balance is the sum of a specific account's starting balance plus all income transactions minus all expense transactions minus all savings contributions minus all debt payments, as defined in Article V Section 2. 
+    
+        i. Available balance may become negative, in which case the System displays a persistent warning badge. 
+        
+        ii. This definition corrects any prior contradictory statements that disallowed negative balances.
 
-> NOTE: THIS is the Definition of Terms I've been looking for! This needs to be higher up, around the very start, and include the MANY new terminologies we have.
+    B. Behavioural drift (concept drift) refers to a statistically significant change in any classification feature over a sixty‑day sliding window, detected by a Mann‑Whitney U test with a significance level of p < 0.05. 
+    
+        i. The two windows compared are non‑overlapping, for example days one through sixty compared with days sixty‑one through one hundred twenty.
 
-> Claude: The NOTE says this should be moved higher. I agree. Recommend placing it immediately after Article I (Platform and Target Users) or as an appendix. For readability, keep it here but cross-reference from earlier articles.
+    C. Budget feasibility is a binary property indicating whether a set of budget allocations satisfies all hard constraints defined in Article VI Section 4, including debt minimum payments, savings minimum, and group floors and caps. 
+    
+        i. A budget that violates any hard constraint is infeasible.
 
-> Claude: "Available balance: May not be negative" - This contradicts the NOTE in Article II Section 3. As noted multiple times, resolve this consistently.
+    D. Budget infeasibility is the condition in which no allocation satisfies all hard constraints simultaneously. 
+    
+        i. The System handles infeasibility through sequential relaxation as described in Article VI Section 4, culminating in a message recommending debt restructuring or income increase if even the relaxed constraints cannot be satisfied.
 
-> Claude: "Behavioral drift (concept drift): statistically significant change (p < 0.05 by Mann-Whitney U test)" - ASK: Mann-Whitney U test compares two independent samples. For time-series drift, you would compare two windows (e.g., days 1-60 vs days 61-120) as independent samples. That is acceptable but note that overlapping windows violate independence. Specify that windows are non-overlapping.
+    E. Budget period is the time horizon over which a budget applies, measured in days. 
+    
+        i. The System supports periods of seven, fourteen, thirty, and ninety days. 
+        
+        ii. The recommended period depends on the user's financial behavioural profile.
 
-> Claude: "Cold-start period: Profile cold-start: first 7 days; Forecasting cold-start: first 30 days" - ASK: What about anomaly detection cold-start? Section VIII says "minimum 14 days required" before Isolation Forest is enabled. That should be defined here as a third cold-start period.
+    F. Coefficient of variation (CV) is the standard deviation of monthly net income divided by the mean monthly net income, used to classify income stability. 
+    
+        i. A CV below 0.25 indicates Stable income; a CV of 0.25 or above indicates Variable income. 
+        
+        ii. This threshold is provisional and requires validation from research.
 
-> Claude: Missing definitions: Add "Budget Infeasibility" (Article VI Section 4), "Debt Hardship" (Article X Section 4), "Walk-forward validation" (already present, good), "Surplus handling strategies" (Rollover, Save, Reset).
+    G. Cold‑start period is subdivided into three phases. 
+    
+        i. Profile cold‑start lasts for the first seven days of transaction history or until the user has at least five income transactions, whichever is longer; during this phase, classification uses the onboarding questionnaire. 
+        
+        ii. Forecasting cold‑start lasts for the first thirty days of transaction history; during this phase, forecasts use population fallbacks from FIES and BSP surveys. 
+        
+        iii. Anomaly detection cold‑start lasts for the first fourteen days of transaction history; during this phase, Isolation Forest is disabled and only rule‑based overspending alerts are shown.
+
+    H. Debt hardship is a condition automatically detected when the user's available balance is less than the sum of all minimum monthly payments for debts due in the current month. 
+    
+        i. Upon detection, the System displays a hardship screen with creditor contact information and a recommendation to seek counselling.
+
+    I. Expense category is a classification label assigned to a financial transaction, grounded in the 2020 Philippine Classification of Individual Consumption According to Purpose. 
+    
+        i. The System uses thirteen base categories with subcategories, as listed in Article IV Section 1.
+
+    J. Financial behavioural profile (FBP) is a classification of a user based on income stability (Stable or Variable) and obligation level (Flexible or Obligated). 
+    
+        i. The four profiles are Stable‑Flexible, Stable‑Obligated, Variable‑Flexible, and Variable‑Obligated.
+
+    K. Forecast bias is a metric calculated as the mean of (forecast minus actual) divided by the mean of actual, expressed as a decimal. 
+    
+        i. An acceptable range is between negative 0.10 and positive 0.10, indicating no systematic over‑forecasting or under‑forecasting.
+
+    L. Improvement over Fallback (IoF) is a metric calculated as the Mean Absolute Error of the fallback model minus the MAE of the LSTM model, divided by the MAE of the fallback model, expressed as a percentage. 
+    
+        i. A positive value indicates that the LSTM outperforms the fallback.
+
+    M. Isolation Forest is an unsupervised anomaly detection algorithm that isolates anomalies by randomly partitioning feature space. 
+    
+        i. The System uses a per‑user Isolation Forest with one hundred estimators and a dynamic anomaly threshold based on the top five percent of anomaly scores.
+
+    N. Linear Programming (LP) is a mathematical optimisation method used to allocate budget amounts across categories subject to constraints, maximising a weighted sum of category allocations where the weights are user‑defined priorities.
+
+    O. LSTM (Long Short‑Term Memory) is a type of recurrent neural network suited to learning from sequential time‑series data. 
+    
+        i. The System uses a two‑layer LSTM with input sequence length of sixty days to forecast daily spending across four broad groups.
+
+    P. Obligation ratio is the sum of unavoidable monthly expenses divided by total monthly income, averaged over the preceding sixty days. 
+    
+        i. A ratio below 0.50 indicates Flexible; a ratio of 0.50 or above indicates Obligated. 
+        
+        ii. This threshold is provisional and requires validation from research.
+
+    Q. Paluwagan is an informal rotating savings and credit association practised in the Philippines. 
+    
+        i. The System does not include a dedicated module for paluwagan. 
+        
+        ii. Users may approximate it via a custom subcategory under Financial Allocation, but this treatment is acknowledged as a limitation. 
+        
+        iii. A dedicated tracker is recommended as future work.
+
+    R. Personal finance management system (PFMS) is a software system designed to help individuals track, plan, and manage personal income, expenses, savings, and debt. 
+    
+        i. Odin is one such system.
+
+    S. Pseudonymisation is the processing of personal data such that the data can no longer be attributed to a specific data subject without the use of additional information, which is kept separately and subject to technical and organisational measures. 
+    
+        i. The System implements pseudonymisation for server uploads using a salted hash of the user identifier, with the salt stored only on the device.
+
+    T. Random Forest is an ensemble machine learning algorithm that constructs multiple decision trees and aggregates their outputs for classification. 
+    
+        i. The System uses Random Forest for financial behavioural profile classification.
+
+    U. sMAPE (symmetric Mean Absolute Percentage Error) is a forecasting accuracy metric calculated as the average of the absolute difference divided by the average of the forecast and actual values, expressed as a percentage. 
+    
+        i. It is used for low‑volume categories where MAE may be misleading.
+
+    V. Surplus handling strategies are the three methods by which the System treats unspent budget amounts at the end of a budget period. 
+    
+        i. Rollover adds the surplus to the next period's total budget. 
+        
+        ii. Save transfers the surplus to the user's primary savings goal. 
+        
+        iii. Reset returns the surplus to available balance and recomputes the next period's budget from zero. 
+        
+        iv. Default strategies are assigned by financial behavioural profile.
+
+    W. Walk‑forward validation is a time‑series model evaluation method in which the model is trained on past data and tested on successive future periods, rolling forward incrementally. 
+    
+        i. The System uses walk‑forward validation for all machine learning modules on synthetic data.
+
+    X. Whitelist is a user‑maintained list of merchant‑category pairs that are exempt from anomaly detection alerts. 
+    
+        i. Whitelist entries may include an amount tolerance of plus or minus twenty‑five percent, or may be set to always allow regardless of amount.
 
 ---
 
