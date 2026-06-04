@@ -863,141 +863,185 @@
 
 ### Section 1. Forecasting Targets.
 
-The System shall generate forecasts for the following four targets:
+1. The System shall generate forecasts for four targets, each at configurable granularities and horizons. 
 
-1. **Per-category expense**
-    - Granularity:
-        - Daily, weekly, monthly
-    - Horizon (days):
-        - 7, 14, 30, 90
-    - User-selectable: Yes (total or per-category view)
-2. **Total income**
-    - Granularity:
-        - Daily, weekly, monthly
-    - Horizon (days):
-        - 7, 14, 30, 90
-    - User-selectable: Yes
-3. **Savings balance trajectory**
-    - Granularity:
-        - Daily
-    - Horizon (days):
-        - 180
-    - User-selectable: Yes
-4. **Debt remaining balance**
-    - Granularity:
-        - Daily
-    - Horizon (days):
-        - Until projected payoff date
-    - User-selectable: Yes
+    A. The first target is per‑category expense, forecast at the level of the four broad groups: Essentials, Obligatory, Discretionary, and Financial Allocation. 
+    
+        i. Forecast granularities include daily, weekly, and monthly aggregates. 
+        
+        ii. Horizons include seven, fourteen, thirty, and ninety days. 
+        
+        iii. The user may select the horizon per view, either for total spending or per category.
 
-> NOTE: Again, the terminologies are a bit inconsistent here. Properties should be checked for exhaustiveness and validity from RRL.
+    B. The second target is total income, forecast at daily, weekly, or monthly granularity over the same horizons of seven, fourteen, thirty, and ninety days. 
+    
+    C. The third target is savings balance trajectory, forecast at daily granularity over a horizon of one hundred eighty days. 
+    
+        i. This forecast assumes that the user follows the current budget recommendation, including planned savings contributions, and does not make unplanned withdrawals. 
+        
+    D. The fourth target is debt remaining balance, forecast at daily granularity until the projected payoff date, assuming the user follows the selected debt payoff strategy (avalanche or snowball) with minimum payments and any surplus allocated according to that strategy.
 
-> Claude: Section 1 Forecasting Targets: Savings balance trajectory and debt remaining balance are listed. ASK: How does the system forecast savings balance without knowing the user's future contributions? Contributions are discretionary (except for automated savings goals). The spec should clarify: savings trajectory forecast assumes the user follows the current budget recommendation (including savings contributions) and does not make unplanned withdrawals. This assumption should be stated in the explainability.
-
-> ADD: (J): I would argue that this is sorta implied already. The forecasting module should inform the user that Forecasts are inferential and informational only, and may not represent actual trends.
+2. All forecasts shall include a disclaimer displayed prominently in the forecasting interface: "Forecasts are inferential and informational only, based on your past spending and current budget. Actual future spending may differ."
 
 ### Section 2. Forecasting Algorithm.
 
-All forecasts shall be generated using an LSTM (Long Short-Term Memory) architecture with the following specifications:
+1. All forecasts shall be generated using a Long Short‑Term Memory (LSTM) network with the following architecture. 
 
-- Input sequence length: 60 days (configurable)
-- Number of LSTM layers: 2
-- Units per layer: 64 (first), 32 (second)
-- Dropout rate: 0.2 after each LSTM layer
-- Output activation: Linear (for regression)
-- Loss function: Huber loss (δ = 1.0)
-- Optimizer: Adam (learning rate = 0.001)
-- Batch size: 32
-- Epochs: 100 with early stopping (patience = 10)
+    A. The input sequence length is sixty days of daily data. 
+    
+    B. The network has two LSTM layers, with sixty‑four units in the first layer and thirty‑two units in the second layer. 
+    
+    C. A dropout rate of 0.2 is applied after each LSTM layer to reduce overfitting. 
+    
+    D. The output layer uses linear activation for regression. 
+    
+    E. The loss function is Huber loss with a delta parameter of 1.0, which is less sensitive to outliers than mean squared error. 
+    
+    F. The optimizer is Adam with a learning rate of 0.001. 
+    
+    G. Training uses a batch size of thirty‑two for up to one hundred epochs, with early stopping after ten epochs without improvement in validation loss.
 
-> NOTE: Personally, the way these specifications are formatted feel bare. Maybe implement subsections?
+2. The input features for the LSTM include:
 
-**Training regime:** The System shall maintain a **global LSTM model** pre-trained on synthetic data (BSP/PSA). Weekly, the global model shall be fine-tuned (3 epochs, learning rate 0.0001) on each user's data individually. This reduces compute from hours to seconds per user. Retraining from scratch shall occur only when model architecture changes.
+    A. The daily amounts for each of the four broad groups (Essentials, Obligatory, Discretionary, Financial Allocation).
+    
+    B. Total daily spending.
+    
+    C. The user's income amount (updated when new income transactions are recorded).
+    
+    D. The user's financial behavioral profile label from the Random Forest classifier.
+    
+    E. Calendar features including day of week (zero to six) and day of month (one to thirty‑one).
+    
+    F. Event flags indicating whether the day is a payday, a declared holiday, within the thirteenth‑month pay period (typically December), or within the Christmas period (December fifteen to January five).
 
-> GLOBAL: Model/algorithm design, development, and implementation plans were discussed by Joaquin and Charles. The outcome of the discussion is laid out in `model-training-data-design.md`. If not in context yet, be sure to ask for it.
+3. For users with fewer than sixty days of history, the LSTM shall use the available data as the input sequence. 
 
-**Deployment:** The LSTM model shall be hosted on a cloud server (AWS Lambda or Google Cloud Run) with inference timeout 2500ms. The mobile app shall cache the most recent forecast for each target. If offline, the app shall display cached forecasts with a note: "Offline mode — forecasts from [DATE]." No forecast shall be attempted from the mobile device directly.
+    A. Missing days before the user's first transaction are set to zero. 
+    
+    B. For users with between thirty and fifty‑nine days of history, the model accepts the variable‑length sequence.
+    
+        i. The architecture is designed to handle sequences shorter than the maximum length by masking or by repeating the earliest available values. 
+        
+    C. For users with fewer than thirty days of history, the LSTM is not used.
+    
+        i. The System falls back to population‑based forecasts as described in Section 3.
 
-> Claude: Section 2 LSTM specifications: "Input sequence length: 60 days" - ASK: For users with less than 60 days of history, does the model pad with zeros or use fallback? The cold-start fallback (Section 3) applies for <30 days, but between 30-60 days, the model would have insufficient sequence length. PROP: Use the available data (e.g., 30-59 days) as input, and set missing days to 0 or repeat the earliest value. Document this.
+4. The LSTM model shall be pre‑trained on synthetic transaction data generated from the BSP Consumer Finance Survey 2021 and the PSA Family Income and Expenditure Survey. 
 
-> ASK: (J): Is this just a natural limit of LSTM? How can we get evaluations for the forecasting module if the evaluators have to wait 60 days for a forecast?
+    A. The synthetic data generation process produces daily sequences of spending across the four broad groups, respecting the aggregate category means and variability reported in the surveys. 
+    
+> [OPEN: The detailed synthetic data generation procedure is documented in the companion file model‑training‑data‑design.md, which the researchers should reference for reproducibility.]
 
-> Claude: Section 2: "global LSTM model pre-trained on synthetic data (BSP/PSA)." ASK: BSP CFS and PSA FIES are survey data, not time-series transaction data. They provide aggregates (e.g., average monthly spending per category), not daily sequences. How will synthetic daily transactions be generated from these aggregates? This is a critical methodological gap. The document references model-training-data-design.md - that file must specify the synthetic data generation process in detail (e.g., using statistical models or generative AI).
+5. In the thesis version, the LSTM model shall be deployed as a frozen pre‑trained model. 
+
+    A. No fine‑tuning on individual user data shall occur, because the thesis ethical protocol prohibits using real user data for training or updating models. 
+    
+    B. This is a deliberate scope limitation; the model uses only the global pre‑trained weights and the user's own transaction history as input features at inference time. 
+    
+    C. The System shall not perform weekly fine‑tuning as previously contemplated. 
+    
+> [FUTURE WORK] Fine‑tuning on user data with explicit consent and on‑device training is recommended for future versions beyond the thesis.
+
+6. The LSTM model shall be hosted on a cloud server, such as AWS Lambda or Google Cloud Run, with an inference timeout of 2500 milliseconds. 
+
+    A. The mobile application shall cache the most recent forecast for each target. 
+    
+    B. When offline, the application shall display cached forecasts with a note stating, "Offline mode — forecasts from [date]." 
+    
+    C. No forecast inference shall be attempted directly from the mobile device.
 
 ### Section 3. Cold-Start Fallback.
 
-For users with fewer than 30 days of transaction history (forecasting cold-start period), the System shall use population-level fallbacks:
+1. For users with fewer than thirty days of transaction history, the System shall use population‑level fallbacks instead of LSTM forecasts.
 
-1. **Expense forecasts**
-    - Fallback source: FIES 2018 category means
-    - Stratification: User's income quintile from onboarding
-2. **Income forecasts**
-    - Fallback source: BSP CFS 2021 median by occupation
-    - Stratification: Occupation category from onboarding
-3. **Savings trajectory**
-    - Fallback source: 5% of monthly income contributed linearly
-    - Stratification: None
-4. **Debt payoff**
-    - Fallback source: User-entered debt terms (interest, minimum payment)
-    - Stratification: None
+2. For expense forecasts, the fallback source is the Family Income and Expenditure Survey category means, stratified by the user's income quintile as reported during onboarding. 
 
-> NOTE: Terms are inconsistent, properties need to be exhaustive, properties need to be supported with research.
+    A. The researchers shall use the most recent available FIES data at the time of development. 
+    
+> [RRL NEEDED: If the most recent FIES is older than three years, the researchers should adjust historical means by cumulative inflation using PSA inflation data as a temporary measure. The specific adjustment method requires validation.]
 
-> GLOBAL: I made this global comment to address all enumerations. Check if terms are inconsistent, properties are exhaustive, and properties are supported with research. Ensure that properties are described with clearer plain language but maintains the same complexity. Ensure that subsections are used for clarity.
+3. For income forecasts, the fallback source is the BSP Consumer Finance Survey median income by occupation category, stratified by the user's occupation as reported during onboarding.
 
-Fallback shall be replaced by user-specific LSTM predictions when 30 days of user data are available. The System shall notify the user: "Odin now has enough data to create personalized forecasts for you."
+4. For savings trajectory forecasts, the fallback assumes a linear contribution of five percent of monthly income to savings, with no withdrawals.
 
-> Claude: Section 3 Cold-start fallback: "FIES 2018 category means" - NOTE: FIES 2018 is now outdated (6+ years old). Inflation and spending patterns have changed significantly, especially post-pandemic. PROP: Use FIES 2023 when released, or adjust 2018 means by cumulative inflation (PSA inflation data) as a temporary measure.
+5. For debt payoff forecasts, the fallback uses the user‑entered debt terms, including principal, interest rate, minimum payment, and due date. No population data is required.
 
-> ADD: (J): Yeah, why are we using FIES 2018? We can use the PSA FIES 2023 or a later version if found.
+6. When the user accumulates thirty days of transaction history, the System shall automatically switch from fallback forecasts to LSTM forecasts. 
+
+    A. Upon switching, the System shall display a notification: "Odin now has enough data to create personalised forecasts for you."
 
 ### Section 4. Explainability.
 
-Explainability for LSTM forecasts shall use temporal attention weights (extracted from a trained attention layer added to the LSTM) or feature perturbation (measure prediction change when each input feature is shuffled). SHAP shall NOT be used for LSTM due to computational constraints. The simpler method: "Your [CATEGORY] spending is predicted to increase because your spending in the last 7 days is [X] higher than your 30-day average."
+1. Explainability for LSTM forecasts shall use a feature perturbation method rather than SHAP, which is computationally expensive for sequential models. 
 
-> Claude: Section 4 Explainability: "temporal attention weights" - ASK: The LSTM architecture specified does not include an attention layer. Adding attention changes the model architecture. Is attention part of the design? If not, use feature perturbation as the primary method. The simpler method described ("your spending in the last 7 days is X higher") does not require attention; it can be computed directly from data.
+    A. For each forecast, the System shall measure how the prediction changes when each input feature is shuffled or set to a baseline value. 
+    
+    B. The feature that causes the largest change in prediction is identified as the most influential.
+
+2. For user‑facing explanations, the System shall not present raw perturbation values. 
+
+    A. Instead, it shall generate a simple template sentence based on observable patterns. 
+    
+    B. For example: "Your Discretionary spending is predicted to increase because your spending in the last seven days is 850 pesos higher than your thirty‑day average." 
+    
+    C. The System shall also state the confidence indirectly by comparing the forecast to the user's historical range: "Forecast for tomorrow is 1,200 pesos, which is within your typical daily range of 500 to 2,000 pesos."
+
+> [OPEN: Team Decision] The attention‑based explainability method mentioned in the BIBLE is not implemented because the LSTM architecture in this version does not include an attention layer. Adding attention would change the model architecture and increase complexity. The feature perturbation method described above is sufficient for the thesis scope.
 
 ### Section 5. Evaluation Metrics.
 
-The forecasting module shall be evaluated weekly using walk-forward validation on synthetic data.
+1. The forecasting module shall be evaluated weekly using walk‑forward validation on synthetic data. 
 
-1. **Mean Absolute Error (MAE)**
-    - Formula: (1/n) × Σ|actual − forecast|
-    - Acceptable threshold: < 15% of category mean
-    - Action if exceeded for 3 weeks: Retrain model; if persists, revert to fallback
-2. **Root Mean Square Error (RMSE)**
-    - Formula: √[(1/n) × Σ(actual − forecast)²]
-    - Acceptable threshold: < 20% of category mean
-    - Action if exceeded for 3 weeks: Same as above
-3. **Symmetric Mean Absolute Percentage Error (sMAPE)**
-    - Formula: (1/n) × Σ(|actual−forecast|/(|actual|+|forecast|)/2) × 100
-    - Acceptable threshold: < 25% (except HEALTH, FINANCIAL_OBLIG, SAVINGS: <30%)
-    - Action if exceeded for 3 weeks: Same as above
-4. **Improvement over fallback (IoF)**
-    - Formula: (MAE_fallback − MAE_LSTM) / MAE_fallback × 100%
-    - Acceptable threshold: ≥ 20%
-    - Action if exceeded for 3 weeks: If IoF < 20% after 30 days, log warning; consider model retraining
-5. **Forecast bias**
-    - Formula: Mean(forecast − actual) / mean(actual)
-    - Acceptable threshold: Between −0.10 and +0.10
-    - Action if exceeded for 3 weeks: Persistent bias indicates systematic error
+    A. The synthetic test set is distinct from the training set and represents six months of simulated user activity. 
+    
+    B. The evaluation uses a rolling window: train on the first sixty days, test on the next seven days, then roll forward by seven days, repeating for a total of twenty‑six iterations.
 
-> ASK: (JOAQUIN): Why 3 weeks specifically?
-> ANS: (): ___
+2. The primary metric is Mean Absolute Error (MAE), calculated as the average absolute difference between forecast and actual spending. 
 
-Bias = (1/n) Σ ((forecast_t − actual_t) / actual_t). Acceptable range: systematic error <10% in either direction.
+    A. The acceptable threshold is less than fifteen percent of the category mean for high‑volume categories (Essentials and Discretionary). 
+    
+    B. For low‑volume categories (Obligatory and Financial Allocation, where many users have zero spending on many days), MAE is less informative.
+    
+        i. The System shall instead rely on sMAPE as defined below.
 
-Compute IoF at day 30 for each user using their first 30 days of data (fallback vs LSTM trained on days 1-30, test on days 31-37).
+3. The secondary metric is Root Mean Square Error (RMSE), calculated as the square root of the average squared difference. 
 
-> NOTE: These two footnotes need to be in their respective evaluation metrics, preferably in subsections.
+    A. The acceptable threshold is less than twenty percent of the category mean for high‑volume categories.
 
-> Claude: Section 5 Evaluation Metrics: MAE threshold "<15% of category mean" - ASK: For low-spending categories (e.g., EDUCATION where many users spend 0), 15% of mean may be a very small absolute number. A small absolute error could still be a large relative error. Consider using different metrics for sparse categories (e.g., sMAPE is already specified for this purpose). Clarify that MAE and RMSE are for high-volume categories only.
+4. The tertiary metric is the symmetric Mean Absolute Percentage Error (sMAPE), calculated as the average of the absolute difference divided by the average of the forecast and actual values, expressed as a percentage. 
 
-> ADD: (J): It would be excellent if, globally, the purpose of all metrics are described. 
+    A. The acceptable threshold is less than twenty‑five percent for Essentials and Discretionary. 
+    
+    B. The acceptable threshold is less than thirty percent for Obligatory and Financial Allocation.
 
-> Claude: Section 5: "Action if exceeded for 3 weeks" - ASK: Why 3 weeks? This is a heuristic. PROP: Justify with concept drift literature: financial behavior typically changes slowly, so 3 weeks of degraded performance indicates a real shift or model issue, not noise.
+5. The fourth metric is Improvement over Fallback (IoF), calculated as the MAE of the fallback model minus the MAE of the LSTM model, divided by the MAE of the fallback model, expressed as a percentage. 
 
-> ADD: (J): Good catch. All heuristics must be detected and should be validated.
+    A. The acceptable threshold is twenty percent or higher. 
+    
+    B. If IoF remains below twenty percent after thirty days of user data collection, the System shall log a warning, but no automatic retraining occurs because the model is frozen for the thesis.
+
+6. The fifth metric is forecast bias, calculated as the mean of (forecast minus actual) divided by the mean of actual. 
+
+    A. The acceptable range is between negative 0.10 and positive 0.10, indicating that the model does not systematically over‑forecast or under‑forecast.
+
+> [RRL NEEDED: The three‑week persistence threshold for action (exceeding acceptable metrics for three consecutive weeks) is provisional. The researchers should justify this based on concept drift literature or adjust the threshold after pilot testing.]
+
+7. If any metric exceeds its acceptable threshold for three consecutive weeks on the synthetic evaluation, the researchers shall log the issue and consider retraining the model from scratch using a different hyperparameter configuration. 
+
+    A. In the thesis context, this retraining would occur offline, not automatically.
+
+### Section 6. Connection to Other Modules
+
+1. The LSTM forecasting module receives the user's financial behavioral profile from the Random Forest classifier as an input feature. 
+
+    A. The forecasted amounts for the four broad groups are passed to the budget recommendation module as the basis for total budget calculation and category floor/cap constraints. 
+    
+    B. The forecasted savings balance trajectory is displayed in the savings goal tracking interface. 
+    
+    C. The forecasted debt remaining balance is displayed in the debt management interface. 
+    
+    D. The Isolation Forest anomaly detection module does not directly consume LSTM forecasts in the thesis version, but future versions may compare actual transactions against forecasted category amounts to improve anomaly detection.
 
 ---
 
