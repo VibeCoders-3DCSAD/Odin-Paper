@@ -300,10 +300,6 @@ The System shall provide SHAP (SHapley Additive exPlanations) values for each cl
 
 During onboarding (first 7 days), the System shall classify the user via a questionnaire containing at least the following items:
 
-| Question | Response options | Maps to |
-|----------|------------------|---------|
-|  | Yes / No |  |
-
 1. **Is your monthly income roughly the same each month?**
     - Response options:
         - Yes
@@ -359,26 +355,75 @@ The System shall compute an initial profile from these responses and present it 
 
 ### Section 1. Base Category Taxonomy.
 
-The System shall implement the following 14 expense categories, grounded in PSA FIES 2018 and cross-validated against BSP CFS 2021:
+The System shall implement the following 13 expense categories and their respective subcategories, grounded in the 2020 Philippine Classification of Individual Consumption According to Purpose and cross-validated against BSP CFS 2021:
 
-| Category Code | Category Name | FIES 2018 Correspondence | RRL Citation |
-|---------------|---------------|--------------------------|--------------|
-|  | Food and beverages | Division 01 | PSA FIES 2018 |
-| ALCOHOL | Alcohol and tobacco | Division 02 | PSA FIES 2018 |
-| CLOTHING | Clothing and footwear | Division 03 | PSA FIES 2018 |
-| HOUSING | Housing, water, electricity, gas, other fuels | Division 04 | PSA FIES 2018 |
-| FURNISHINGS | Furnishings, household equipment, routine maintenance | Division 05 | PSA FIES 2018 |
-| HEALTH | Health | Division 06 | PSA FIES 2018 |
-| TRANSPORT | Transport | Division 07 | PSA FIES 2018 |
-| COMMS | Communication | Division 08 | PSA FIES 2018 |
-| RECREATION | Recreation and culture | Division 09 | PSA FIES 2018 |
-| EDUCATION | Education | Division 10 | PSA FIES 2018 |
-| RESTAURANT | Restaurants and accommodation | Division 11 | PSA FIES 2018 |
-| MISC | Miscellaneous goods and services | Division 12 | PSA FIES 2018 |
-| FINANCIAL_OBLIG | Financial obligations (debt payments, insurance premiums) | Not in FIES | BSP CFS 2021 |
-| SAVINGS | Savings and investments | Not in FIES | BSP CFS 2021 |
+> NOTE: Just recently learned about the PCOICOP. Jackpot! That's what we'll use for the expense category taxonomy.
 
-1. **FOOD**
+1. FOOD AND NON-ALCOHOLIC BEVERAGES
+    - FOOD
+    - NON-ALCOHOLIC BEVERAGES
+    - SERVICES FOR PROCESSING PRIMARY GOODS FOR FOOD AND NON-ALCOHOLIC BEVERAGES
+2. ALCOHOLIC BEVERAGES, TOBACCO AND NARCOTICS
+    - ALCOHOLIC BEVERAGES
+    - ALCOHOL PRODUCTION SERVICES
+    - TOBACCO
+    - NARCOTICS
+3. CLOTHING AND FOOTWEAR
+    - CLOTHING
+    - FOOTWEAR
+4. HOUSING, WATER, ELECTRICITY, GAS AND OTHER FUELS
+    - ACTUAL RENTALS FOR HOUSING
+    - IMPUTED RENTALS FOR HOUSING
+    - MAINTENANCE, REPAIR AND SECURITY OF THE DWELLING
+    - WATER SUPPLY AND MISCELLANEOUS SERVICES RELATING TO THE DWELLING
+    - ELECTRICITY, GAS AND OTHER FUELS
+5. FURNISHINGS, HOUSEHOLD EQUIPMENT AND ROUTINE HOUSEHOLD MAINTENANCE
+    - FURNITURE, FURNISHINGS, AND LOOSE CARPETS
+    - HOUSEHOLD TEXTILES
+    - HOUSEHOLD APPLIANCES
+    - GLASSWARE, TABLEWARE AND HOUSEHOLD UTENSILS
+    - TOOLS AND EQUIPMENT FOR HOUSE AND GARDEN
+    - GOODS AND SERVICES FOR ROUTINE HOUSEHOLD MAINTENANCE
+6. HEALTH
+    - MEDICINES AND HEALTH PRODUCTS
+    - OUTPATIENT CARE SERVICES
+    - INPATIENT CARE SERVICES
+    - OTHER HEALTH SERVICES
+7. TRANSPORT
+    - PURCHASE OF VEHICLES
+    - OPERATION OF PERSONAL TRANSPORT EQUIPMENT
+    - PASSENGER TRANSPORT SERVICES
+    - TRANSPORT SERVICES OF GOODS
+8. INFORMATION AND COMMUNICATION
+    - Information and communication equipment
+    - SOFTWARE EXCLUDING GAMES
+    - INFORMATION AND COMMUNICATION SERVICES
+9. RECREATION, SPORT AND CULTURE
+    - RECREATIONAL DURABLES
+    - OTHER RECREATIONAL GOODS
+    - GARDEN PRODUCTS AND PETS
+    - RECREATIONAL SERVICES
+    - CULTURAL GOODS
+    - CULTURAL SERVICES
+    - NEWSPAPERS, BOOKS AND STATIONERY
+    - PACKAGE HOLIDAYS (S)
+10. EDUCATION SERVICES
+    - EARLY CHILDHOOD AND PRIMARY EDUCATION
+    - SECONDARY EDUCATION  (S)
+    - POST-SECONDARY NON-TERTIARY EDUCATION (S)
+    - TERTIARY EDUCATION (S)
+    - EDUCATION NOT DEFINED BY LEVEL (S)
+11. RESTAURANTS AND ACCOMMODATION SERVICES
+    - FOOD AND BEVERAGE SERVING SERVICES
+    - ACCOMMODATION SERVICES
+12. INSURANCE AND FINANCIAL SERVICES
+    - INSURANCE
+    - FINANCIAL SERVICES
+13. PERSONAL CARE, SOCIAL PROTECTION AND MISCELLANEOUS GOODS AND SERVICES
+    - PERSONAL CARE
+    - OTHER PERSONAL EFFECTS
+    - SOCIAL PROTECTION
+    - OTHER SERVICES
 
 ### Section 2. Category Aggregation into Groups.
 
@@ -390,9 +435,14 @@ For budget recommendation and visualization, categories shall be aggregated into
 | Lifestyle | ALCOHOL, CLOTHING, FURNISHINGS, RECREATION, RESTAURANT, MISC | Sum of category amounts |
 | Enablers | TRANSPORT, COMMS, EDUCATION, SAVINGS | Sum of category amounts |
 
+> PROP: I propose a better aggregation of the categories into distinctive groups (e.g., Essentials, Discretionary) that use non-jargon plain language that users can easily understand.
+
 ### Section 3. User Category Overrides.
 
 Users may create up to 5 custom subcategories under any base category. Custom subcategories must be mapped to exactly one base category for aggregation purposes. Users may not delete base categories. Category ambiguity (e.g., "Is coffee a FOOD or RESTAURANT?") shall be resolved by the user at transaction entry time via category selection; the System shall not auto-categorize.
+
+> ASK: (JOAQUIN): Do they not have permission to make groups, categories, and subcategories? Will that over-complicate things?
+> ANS: (): ___
 
 ---
 
@@ -411,12 +461,15 @@ Available Balance → Debt Payment (principal + interest)
 
 No other flows (e.g., direct expense from savings goal) shall be implemented.
 
+> ASK: (JOAQUIN): Really? This is an exhaustive list of states?
+> ANS: (): ___
+
 ### Section 2. Available Balance Definition.
 
 Available balance is defined as:
 
 ```
-Available Balance = Starting Balance 
+Available Balance   = Starting Balance 
                     + sum(Income transactions) 
                     − sum(Expense transactions) 
                     − sum(Savings contributions) 
@@ -425,9 +478,16 @@ Available Balance = Starting Balance
 
 Available balance shall never be negative. All amounts in PHP, stored as integer centavos (e.g., 100.00 = 10000 centavos) to avoid floating-point errors.
 
+> NOTE: The available balance SHOULD be able to become negative, as discussed earlier.
+
 ### Section 3. Account Separation.
 
-The System shall support up to 5 user-defined accounts (e.g., "Cash", "GCash", "Maya", "Bank A", "Bank B"). Each transaction must be associated with exactly one account. The available balance is computed per account. The user may transfer between accounts without affecting net worth.
+The System shall support up to 5 user-defined accounts. Each transaction must be associated with exactly one account. The available balance is computed per account. The user may transfer between accounts without affecting net worth.
+
+> ASK: (JOAQUIN): Why only 5 Accounts?
+> ANS: (): ___
+
+> PROP: I propose that the first default account is named "Cash".
 
 ---
 
@@ -443,16 +503,27 @@ Every budget shall consist of:
 - Per-category actual spending (tracked from expense transactions)
 - Surplus/deficit = allocated − actual (per category and total)
 
+> ASK: (JOAQUIN): Is this an exhaustive list of the properties of a Budget? Also, what is surplus/deficit, and how is it relevant in the system?
+> ANS: (): ___
+
 ### Section 2. Budget Period Selection.
 
 The System shall recommend a budget period based on user profile:
 
-| Profile | Recommended period | Justification (RRL-derived) |
-|---------|-------------------|----------------------------|
-| Stable-Flexible | 30 days | Monthly salary cycle typical |
-| Stable-Obligated | 30 days | Monthly obligations align |
-| Variable-Flexible | 14 days | Shorter horizon reduces forecast error |
-| Variable-Obligated | 14 days | Shorter horizon reduces forecast error |
+1. **Stable-Flexible**
+    - Recommended period: 30 days
+    - Justification: Monthly salary cycle typical
+2. **Stable-Obligated**
+    - Recommended period: 30 days
+    - Justification: Monthly obligations align
+3. **Variable-Flexible**
+    - Recommended period: 14 days
+    - Justification: Shorter horizon reduces forecast error
+4. **Variable-Obligated**
+    - Recommended period: 14 days
+    - Justification: Shorter horizon reduces forecast error
+
+> NOTE: Needs citations from RRL.
 
 Users may override the recommended period at any time.
 
@@ -460,29 +531,87 @@ Users may override the recommended period at any time.
 
 The System shall offer the following configurable budgeting strategy templates (benchmarked from RRL and existing PFM apps):
 
-| Strategy | Allocation Rule | Best for |
-|----------|-----------------|----------|
-| 50/30/20 | 50% Essentials, 30% Lifestyle, 20% Savings | General recommendation, stable income |
-| Zero-based | Income − Expenses = 0 (every peso assigned) | Detailed trackers, variable income |
-| Pay-yourself-first | Savings deducted first, remainder for expenses | Users prioritizing savings goals |
-| Custom | User-defined percentages per group | Advanced users |
+1. **50/30/20**
+    - Allocation rule: 50% Essentials, 30% Lifestyle, 20% Savings
+    - Best for:
+        - General recommendation
+        - Stable income
 
-The user may select a template at budget creation. The System shall convert the template into LP constraints (see Section 4). The user may edit any allocation manually after generation.
+> ASK: (JOAQUIN): Why is this the general recommendation? What is the basis?
+> ANS: (): ___
+
+2. **Zero-based**
+    - Allocation rule: Income − Expenses = 0 (every peso assigned)
+    - Best for:
+        - Detailed trackers
+        - Variable income
+
+> ASK: (JOAQUIN): Aren't all budgeting strategies zero-based? Don't all of them assign every peso to a group or category in the budget?
+> ANS: (): ___
+
+3. **Pay-yourself-first**
+    - Allocation rule: Savings deducted first, remainder for expenses
+    - Best for:
+        - Users prioritizing savings goals
+
+> ASK: (JOAQUIN): Isn't this called reverse budgeting?
+> ANS: (): ___
+
+3. **Custom**
+    - Allocation rule: User-defined percentages per group
+    - Best for:
+        - Advanced users
+
+> ASK: (JOAQUIN): The fundamentals of the budget formation is: (a) budget taxonomies (groups, categories), (b) allocation (percentage or absolute amount per group and category), (c) hierarchy (which allocation is fulfilled first), (d) budget horizon (how long that budget is worth for, before it is refreshed). Are these properties correct? Are they only and exactly what is needed? Is it correct to say these are the constraints that the LP will deal with? Were there any properties omitted? What other concerns are there?
+> ANS: (): ___
+
+> NOTE: These budgeting strategies need validation from the RRL and benchmarks that they truly are the widely used strategies in the Filipino context.
+
+The user may select a template at budget creation. The System shall convert the template into LP constraints. The user may edit any allocation manually after generation.
 
 ### Section 4. Budget Recommendation Algorithm.
 
 Budget allocations shall be generated using Linear Programming (LP) with the following objective and constraints:
 
-**Objective:** Maximize `sum(utility(category) × allocation[category])` where utility(category) is user-declared priority (1-5). Default priorities per profile are defined below.
+> GLOBAL: There are numerous instances where terminologies for a concept are used interchangeably. There should be definite and exact terms that have uppercase first letters. For example. To denote the budget in its base essence, we use Budget. To denote the process of creating the Budget, we use Budget Formation. To denote the Budget as formatted, styled, and structured by the LP algorithm, we use Budget Recommendation.
 
-**Default category priorities per profile:**
+**Objective:** Maximize `sum(utility(category) × allocation[category])` where `utility(category)` is user-declared priority (1-5). Default priorities per profile are defined below.
 
-| Profile | High-priority categories (5) | Medium (4) | Low (3) |
-|---------|------------------------------|------------|---------|
-| Stable-Flexible | SAVINGS | FOOD, RECREATION | All others |
-| Stable-Obligated | FINANCIAL_OBLIG, HOUSING | HEALTH, SAVINGS | All others |
-| Variable-Flexible | SAVINGS | ESSENTIALS group | All others |
-| Variable-Obligated | FINANCIAL_OBLIG, HOUSING | HEALTH | All others |
+1. **Stable-Flexible**
+    - High-priority categories (5):
+        - SAVINGS
+    - Medium (4)
+        - FOOD, RECREATION
+    - Low (3)
+        - All others
+2. **Stable-Obligated**
+    - High-priority categories (5):
+        - FINANCIAL_OBLIG, HOUSING
+    - Medium (4)
+        - HEALTH, SAVINGS
+    - Low (3)
+        - All others
+3. **Variable-Flexible**
+    - High-priority categories (5):
+        - SAVINGS
+    - Medium (4)
+        - ESSENTIALS group
+    - Low (3)
+        - All others
+4. **Variable-Obligated**
+    - High-priority categories (5):
+        - FINANCIAL_OBLIG, HOUSING
+    - Medium (4)
+        - HEALTH
+    - Low (3)
+        - All others
+
+> NOTE: The categories listed above does not match the previously defined categories.
+
+> ASK: (JOAQUIN): What about utilities 2 and 1?
+> ANS: (): ___
+
+> NOTE: The prioritization of budget categories also needs to be backed up by research.
 
 Users may adjust priorities in Settings. The interface shall include a brief explanation: "Higher priority categories get more budget, subject to spending caps."
 
@@ -497,7 +626,11 @@ Users may adjust priorities in Settings. The interface shall include a brief exp
 7. If user selected "Pay-yourself-first": `allocation[SAVINGS] ≥ target_contribution_amount` (hard constraint)
 8. `allocation[category] ≤ max_spending_per_category` where `max_spending_per_category` is derived from the 90th percentile of the user's historical spending for that category (or 50% of total budget if no history). This prevents any single category from dominating.
 
+> NOTE: The explanation of the constraints needs to be better, clearer, and in plain language yet maintaining complexity. The fields and equations also need to be explain; for example, I have no idea what savings_rate_target is, nor why the 1st equation is what it is.
+
 **Infeasibility handling (sequential relaxation):**
+
+> NOTE: Define infeasibility, or, rather, Budget Infeasibility, or even just Budget Feasibility, as a binary concept and terminology.
 
 If the LP is infeasible:
 1. Reduce savings constraint (3) to zero.
@@ -505,29 +638,43 @@ If the LP is infeasible:
 3. If still infeasible at 20%, drop the Essentials floor entirely.
 4. If still infeasible, the System shall display: "Your minimum debt payments and essential expenses exceed your predicted income by PHP[X]. Odin cannot create a balanced budget. Please consider debt restructuring or income increase. Contact a financial counselor if needed."
 
+> NOTE: We have to be careful with how we handle Budget Infeasibility, and, again, we have to substantiate this process with research.
+
 The LP shall then be run with only the debt minimum constraint and non-negativity, which is always feasible.
 
 ### Section 5. Surplus Handling.
 
 At the end of a budget period, surplus (allocated but unspent amount) shall be handled per user selection from three strategies (benchmarked from RRL on reset vs. carryforward logic):
 
-| Strategy | Rule | Default for profile |
-|----------|------|---------------------|
-| Rollover | Surplus added to next period's total budget | Stable profiles |
-| Save | Surplus automatically transferred to primary savings goal | Variable profiles |
-| Reset | Surplus returned to available balance, next period budget recomputed from zero | None (user must select) |
+> NOTE: Correct me (Joaquin) if I'm wrong, but surplus handling is a new concept in Odin. We'll have to back this up with research as usual.
+
+1. **Rollover**
+    - Rule: Surplus added to next period's total budget
+    - Default: Stable profiles
+1. **Save**
+    - Rule: Surplus automatically transferred to primary savings goal
+    - Default: Variable profiles
+1. **Rollover**
+    - Reset: Surplus returned to available balance, next period budget recomputed from zero
+    - Default: None (user must select)
 
 The System shall display the end-of-period surplus with the prompt: "You underspent by PHP[X]. What would you like to do with the leftover amount?" with the three options. If user does not respond within 7 days, default strategy per profile applies.
 
+> NOTE: Ensure that these are verified and validated with research as actual surplus handling strategies.
+
 Under Rollover strategy, the surplus amount is added to the next period's total budget. Category allocations for the next period shall be recomputed using the LP with the increased total budget, preserving the same allocation ratios (or applying updated user priorities). The surplus is not tied to specific categories.
+
+> GLOBAL: These enumerations should have their own heading or subsection, to include prose-style descriptions instead of relying on outlines and bullet-points.
 
 ### Section 6. Explainability.
 
 Every budget recommendation shall be accompanied by an explanation in the following form:
 
-> "Your [PERIOD]-day budget is PHP[TOTAL]. This is based on your predicted income of PHP[INCOME] and minimum savings of PHP[SAVINGS]. PHP[ESSENTIALS_AMOUNT] is allocated to Essentials because this category is required at [PERCENTAGE]% of your budget. To change any allocation, adjust your category priorities in Settings."
+"Your [PERIOD]-day budget is PHP[TOTAL]. This is based on your predicted income of PHP[INCOME] and minimum savings of PHP[SAVINGS]. PHP[ESSENTIALS_AMOUNT] is allocated to Essentials because this category is required at [PERCENTAGE]% of your budget. To change any allocation, adjust your category priorities in Settings."
 
 Additional explanation: "The budget recommendation maximizes your stated priorities. If you set FOOD priority to 5, the system will allocate as much as possible to FOOD without exceeding your Lifestyle group cap (30% of total) or your historical maximum for FOOD. To balance spending, adjust category priorities or set manual caps."
+
+> NOTE: For me (Joaquin), the explanations need to be better, less specific to one thing, and more encompassing of all details of the Budget Recommendation.
 
 ---
 
@@ -537,12 +684,32 @@ Additional explanation: "The budget recommendation maximizes your stated priorit
 
 The System shall generate forecasts for the following four targets:
 
-| Target | Granularity | Horizon (days) | User-selectable |
-|--------|-------------|----------------|-----------------|
-| Per-category expense | Daily, weekly, monthly | 7, 14, 30, 90 | Yes (total or per-category view) |
-| Total income | Daily, weekly, monthly | 7, 14, 30, 90 | Yes |
-| Savings balance trajectory | Daily | 180 | Yes |
-| Debt remaining balance | Daily | Until projected payoff date | Yes |
+1. **Per-category expense**
+    - Granularity:
+        - Daily, weekly, monthly
+    - Horizon (days):
+        - 7, 14, 30, 90
+    - User-selectable: Yes (total or per-category view)
+2. **Total income**
+    - Granularity:
+        - Daily, weekly, monthly
+    - Horizon (days):
+        - 7, 14, 30, 90
+    - User-selectable: Yes
+3. **Savings balance trajectory**
+    - Granularity:
+        - Daily
+    - Horizon (days):
+        - 180
+    - User-selectable: Yes
+4. **Debt remaining balance**
+    - Granularity:
+        - Daily
+    - Horizon (days):
+        - Until projected payoff date
+    - User-selectable: Yes
+
+> NOTE: Again, the terminologies are a bit inconsistent here. Properties should be checked for exhaustiveness and validity from RRL.
 
 ### Section 2. Forecasting Algorithm.
 
@@ -558,7 +725,11 @@ All forecasts shall be generated using an LSTM (Long Short-Term Memory) architec
 - Batch size: 32
 - Epochs: 100 with early stopping (patience = 10)
 
+> NOTE: Personally, the way these specifications are formatted feel bare. Maybe implement subsections?
+
 **Training regime:** The System shall maintain a **global LSTM model** pre-trained on synthetic data (BSP/PSA). Weekly, the global model shall be fine-tuned (3 epochs, learning rate 0.0001) on each user's data individually. This reduces compute from hours to seconds per user. Retraining from scratch shall occur only when model architecture changes.
+
+> GLOBAL: Model/algorithm design, development, and implementation plans were discussed by Joaquin and Charles. The outcome of the discussion is laid out in `model-training-data-design.md`. If not in context yet, be sure to ask for it.
 
 **Deployment:** The LSTM model shall be hosted on a cloud server (AWS Lambda or Google Cloud Run) with inference timeout 2500ms. The mobile app shall cache the most recent forecast for each target. If offline, the app shall display cached forecasts with a note: "Offline mode — forecasts from [DATE]." No forecast shall be attempted from the mobile device directly.
 
@@ -566,12 +737,22 @@ All forecasts shall be generated using an LSTM (Long Short-Term Memory) architec
 
 For users with fewer than 30 days of transaction history (forecasting cold-start period), the System shall use population-level fallbacks:
 
-| Forecast target | Fallback source | Stratification |
-|----------------|----------------|----------------|
-| Expense forecasts | FIES 2018 category means | User's income quintile from onboarding |
-| Income forecasts | BSP CFS 2021 median by occupation | Occupation category from onboarding |
-| Savings trajectory | 5% of monthly income contributed linearly | None |
-| Debt payoff | User-entered debt terms (interest, minimum payment) | None |
+1. **Expense forecasts**
+    - Fallback source: FIES 2018 category means
+    - Stratification: User's income quintile from onboarding
+2. **Income forecasts**
+    - Fallback source: BSP CFS 2021 median by occupation
+    - Stratification: Occupation category from onboarding
+3. **Savings trajectory**
+    - Fallback source: 5% of monthly income contributed linearly
+    - Stratification: None
+4. **Debt payoff**
+    - Fallback source: User-entered debt terms (interest, minimum payment)
+    - Stratification: None
+
+> NOTE: Terms are inconsistent, properties need to be exhaustive, properties need to be supported with research.
+
+> GLOBAL: I made this global comment to address all enumerations. Check if terms are inconsistent, properties are exhaustive, and properties are supported with research. Ensure that properties are described with clearer plain language but maintains the same complexity. Ensure that subsections are used for clarity.
 
 Fallback shall be replaced by user-specific LSTM predictions when 30 days of user data are available. The System shall notify the user: "Odin now has enough data to create personalized forecasts for you."
 
@@ -583,17 +764,35 @@ Explainability for LSTM forecasts shall use temporal attention weights (extracte
 
 The forecasting module shall be evaluated weekly using walk-forward validation on synthetic data.
 
-| Metric | Formula | Acceptable threshold | Action if exceeded for 3 weeks |
-|--------|---------|----------------------|--------------------------------|
-| MAE | (1/n) × Σ|actual − forecast| | < 15% of category mean | Retrain model; if persists, revert to fallback |
-| RMSE | √[(1/n) × Σ(actual − forecast)²] | < 20% of category mean | Same as above |
-| sMAPE | (1/n) × Σ(|actual−forecast|/(|actual|+|forecast|)/2) × 100 | < 25% (except HEALTH, FINANCIAL_OBLIG, SAVINGS: <30%) | Same as above |
-| Improvement over fallback (IoF) | (MAE_fallback − MAE_LSTM) / MAE_fallback × 100% | ≥ 20% | If IoF < 20% after 30 days, log warning; consider model retraining |
-| Forecast bias | Mean(forecast − actual) / mean(actual) | Between −0.10 and +0.10 | Persistent bias indicates systematic error |
+1. **Mean Absolute Error (MAE)**
+    - Formula: (1/n) × Σ|actual − forecast|
+    - Acceptable threshold: < 15% of category mean
+    - Action if exceeded for 3 weeks: Retrain model; if persists, revert to fallback
+2. **Root Mean Square Error (RMSE)**
+    - Formula: √[(1/n) × Σ(actual − forecast)²]
+    - Acceptable threshold: < 20% of category mean
+    - Action if exceeded for 3 weeks: Same as above
+3. **Symmetric Mean Absolute Percentage Error (sMAPE)**
+    - Formula: (1/n) × Σ(|actual−forecast|/(|actual|+|forecast|)/2) × 100
+    - Acceptable threshold: < 25% (except HEALTH, FINANCIAL_OBLIG, SAVINGS: <30%)
+    - Action if exceeded for 3 weeks: Same as above
+4. **Improvement over fallback (IoF)**
+    - Formula: (MAE_fallback − MAE_LSTM) / MAE_fallback × 100%
+    - Acceptable threshold: ≥ 20%
+    - Action if exceeded for 3 weeks: If IoF < 20% after 30 days, log warning; consider model retraining
+5. **Forecast bias**
+    - Formula: Mean(forecast − actual) / mean(actual)
+    - Acceptable threshold: Between −0.10 and +0.10
+    - Action if exceeded for 3 weeks: Persistent bias indicates systematic error
+
+> ASK: (JOAQUIN): Why 3 weeks specifically?
+> ANS: (): ___
 
 Bias = (1/n) Σ ((forecast_t − actual_t) / actual_t). Acceptable range: systematic error <10% in either direction.
 
 Compute IoF at day 30 for each user using their first 30 days of data (fallback vs LSTM trained on days 1-30, test on days 31-37).
+
+> NOTE: These two footnotes need to be in their respective evaluation metrics, preferably in subsections.
 
 ---
 
@@ -608,24 +807,38 @@ Anomaly detection shall be performed using Isolation Forest with the following s
 - Max samples: 256 (or number of transactions if fewer)
 - Random state: 42
 
+> NOTE: Same stuff as last time.
+
 The Isolation Forest shall operate on a per-user basis, learning the user's baseline spending behavior from their transaction history (minimum 14 days required). For users with <14 days, anomaly detection shall be disabled and replaced by rule-based budget overspending alerts only.
+
+> NOTE: Actually, the budget overspending feature is always present. The anomaly detection and overspending detection features are separate. We can just simply say that there is no cold-start fallback for Isolation Forest.
 
 ### Section 2. Features for Anomaly Detection.
 
 Each expense transaction shall be evaluated on the following feature vector (8 dimensions):
 
-| Feature | Calculation |
-|---------|-------------|
-| Amount deviation | (amount − category_30d_median) / category_30d_IQR (capped at ±5) |
-| Day-of-period proportion | transaction_date_days_into_period / period_total_days |
-| Category velocity | number of transactions in category last 7 days |
-| Time since last transaction (same category) | hours (capped at 168) |
-| Day of week | 0-6 (Monday-Sunday) |
-| Week of month | 1-5 |
-| Holiday proximity | 1 if within ±3 days of known holiday, else 0 |
-| Merchant novelty | 1 if merchant name not seen in last 60 days, else 0 |
+1. **Amount deviation**
+    - Calculation: (amount − category_30d_median) / category_30d_IQR (capped at ±5)
+2. **Day-of-period proportion**
+    - Calculation: transaction_date_days_into_period / period_total_days
+3. **Category velocity**
+    - Calculation: number of transactions in category last 7 days
+4. **Time since last transaction (same category)**
+    - Calculation: hours (capped at 168)
+5. **Day of week**
+    - Calculation: 0-6 (Monday-Sunday)
+6. **Week of month**
+    - Calculation: 1-5
+7. **Holiday proximity**
+    - Calculation: 1 if within ±3 days of known holiday, else 0
+8. **Merchant novelty**
+    - Calculation: 1 if merchant name not seen in last 60 days, else 0
+
+> NOTE: Properties need description as usual. Better to aggregate factors that affect anomaly detection (i.e., holidays, seasonalities, etc.) into one singular term (e.g., Event or Occasion or etc).
 
 *Day-of-period proportion* is calculated based on the user's currently active budget period. If the user has no active budget, the System defaults to a 30-day rolling period starting from the first day of the current month. The period resets when the user creates a new budget or at the end of the default rolling period.
+
+> NOTE: This footnote should have gone to the description instead.
 
 ### Section 3. Excluded Events (Culturally Expected Spending Spikes).
 
@@ -636,7 +849,11 @@ The following transactions shall NOT be flagged as anomalies regardless of Isola
 - Transactions during user's declared home barangay fiesta dates (±3 days, user-configurable in profile)
 - Transactions manually whitelisted by user (see Section 4)
 
+> PROP: I think the anomaly detection module should still detect anomalies during these occasions, but, instead of sending out warnings, it could send out information notifs. In this way, the user isn't blindsided by the system, and anomalies hiding in these seasonalities can still be detected.
+
 The System shall maintain a built-in holiday calendar for Metro Manila, pre-loaded with fixed holidays (e.g., Dec 25, Jan 1) and movable holidays (e.g., Holy Week) for the current and next year. The calendar shall be updated annually via a manual configuration file (JSON) that the development team updates based on official PSA proclamations. A fallback rule shall exclude any transaction between March 25 and April 10 if the year's Holy Week dates are not yet loaded.
+
+> PROP: I propose that the system connects to a calendar or holiday API instead.
 
 ### Section 4. Whitelist Mechanism.
 
@@ -648,7 +865,13 @@ When a transaction is flagged as anomalous, the System shall present the user wi
 
 Whitelist entries shall be stored per user and may be viewed/edited in Settings → Anomaly Detection → Whitelist.
 
+> ASK: (JOAQUIN): What do whitelist entries contain? Is it a transaction amount, a specific date and time, category, and a pattern type (weekly, monthly, etc.)? Or is there more? 
+> ANS: (): ___
+
 The ±25% amount tolerance may still produce false negatives for large spending variations. Users may also whitelist a merchant entirely regardless of amount by selecting "Always allow this merchant" in the whitelist settings.
+
+> ASK: (JOAQUIN): Tolerance for what? Considering detected anomalies within a whitelist?
+> ANS: (): ___
 
 ### Section 5. Supplementary Rule-Based Detection.
 
@@ -658,6 +881,8 @@ In addition to Isolation Forest, the System shall implement rule-based budget ov
 - Alert if any category exceeds 100% of its budget at any time
 
 These rule-based alerts shall NOT be suppressed by whitelist or cultural exclusions.
+
+> NOTE: This feature should be named "Overspending Detection". It is not supplementary, it is a whole module (or submodule). It just doesn't implement any intelligent features, so it's sort of similar to the Goals Management and Debt Management modules.
 
 ### Section 6. Alert Fatigue Prevention.
 
@@ -670,18 +895,32 @@ The System shall implement the following mechanisms:
 | Acknowledgement | User may snooze anomaly alerts for 7 days via Settings → Notifications |
 | Sensitivity adjustment | User may adjust contamination rate from 0.05 (default) to 0.02 (more sensitive) or 0.10 (less sensitive) |
 
+> PROP: Having users configure sensitivity may be too technical for a PFM app. I propose to only use the grouping mechanism.
+
 ### Section 7. Explainability.
 
 For each anomaly alert, the System shall compute the deviation of each feature from the user's baseline (median or mean). The explanation shall be the feature with the largest standardized deviation. Example: "This transaction was flagged because the amount (PHP 5,000) is 2.5 standard deviations above your usual Food spending." This requires no per-transaction model fitting and is instantaneous.
 
 ### Section 8. Evaluation Metrics.
 
-| Metric | Target | Calculation | Validation |
-|--------|--------|-------------|------------|
-| Precision | ≥ 0.70 | TP/(TP+FP) on labeled anomalous transactions | Weekly on synthetic data |
-| Recall | ≥ 0.65 | TP/(TP+FN) | Same |
-| F1 | ≥ 0.675 | 2 × (P×R)/(P+R) | Same |
-| False positive rate (per user per week) | ≤ 1.5 | FP / active days × 7 | Same |
+1. **Precision**
+    - Target: ≥ 0.70
+    - Calculation: TP/(TP+FP) on labeled anomalous transactions
+    - Validation: Weekly on synthetic data
+2. **Recall**
+    - Target: ≥ 0.65
+    - Calculation: TP/(TP+FN)
+    - Validation: Same
+3. **F1**
+    - Target: ≥ 0.675
+    - Calculation: 2 × (P×R)/(P+R)
+    - Validation: Same
+4. **False positive rate (per user per week)**
+    - Target: ≤ 1.5
+    - Calculation: FP / active days × 7
+    - Validation: Same
+
+> GLOBAL: The properties of evaluation metrics should be uniform as much as possible.
 
 FPR during synthetic evaluation: count of false positives (transactions flagged as anomalous but not injected as anomalies) per 7-day window per synthetic user. For real user evaluation, FPR is not directly measurable without labels. Instead, report user dismissal rate (% of alerts dismissed as "expected") and alert acknowledgement rate as proxies.
 
@@ -693,14 +932,22 @@ FPR during synthetic evaluation: count of false positives (transactions flagged 
 
 A savings goal shall consist of the following required fields:
 
-| Field | Constraints |
-|-------|-------------|
-| Goal name | ≤ 50 characters, unique per user |
-| Target amount | ≥ PHP 100, ≤ PHP 10,000,000 |
-| Target date | ≥ 7 days from creation, ≤ 10 years |
-| Contribution amount | ≥ PHP 10 per contribution |
-| Contribution frequency | Daily, weekly, bi-weekly, monthly |
-| Linked source | Available balance (default) or specific income category |
+> NOTE: Actually, I believe the appropriate terminology for this is "Goal", because it encompasses not just savings but funds, insurance deposits, investment deposits, etc. The point is all of these follow the same structure as savings; a static amount, a deposit rate (amount per day), and a predicted achievement date (from forecasting module).
+
+> NOTE: Actually, investments should have their own module, since they have interest which can affect the rate. Also, they do not really count as a goal; they have no end goal.
+
+1. **Goal name**
+    - Constraints: ≤ 50 characters, unique per user
+2. **Target amount**
+    - Constraints: ≥ PHP 100, ≤ PHP 10,000,000
+3. **Target date**
+    - Constraints: ≥ 7 days from creation, ≤ 10 years
+4. **Contribution amount**
+    - Constraints: ≥ PHP 10 per contribution
+5. **Contribution frequency**
+    - Constraints: Daily, weekly, bi-weekly, monthly
+6. **Linked source**
+    - Constraints: Available balance (default) or specific income category
 
 ### Section 2. Multiple Concurrent Goals.
 
