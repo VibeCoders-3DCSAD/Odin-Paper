@@ -569,52 +569,83 @@
 
 ### Section 1. Financial Flow State Machine.
 
-The System shall model financial flows according to the following state machine:
+1. The System shall model financial flows according to a simple state machine. 
 
-```
-Income → Available Balance
-Available Balance → Expense Category (any)
-Available Balance → Savings Goal (contribution)
-Available Balance → Debt Payment (principal + interest)
-```
+    A. Income transactions add funds to the available balance of the selected account. 
+    
+    B. Expense transactions subtract funds from the available balance, with the amount allocated to a specific expense category. 
+    
+    C. Savings goal contributions subtract funds from the available balance and add them to the goal's accumulated amount. 
+    
+    D. Debt payments subtract funds from the available balance and reduce the outstanding balance of the specified debt account.
 
-No other flows (e.g., direct expense from savings goal) shall be implemented.
+2. No other flows are implemented. 
 
-> ASK: (JOAQUIN): Really? This is an exhaustive list of states?
-> ANS: (): ___
+    A. In particular, expenses cannot be paid directly from a savings goal, and debt payments cannot be made directly from a savings goal. 
+    
+    B. All outflows must pass through the available balance of a cash or bank account.
 
 ### Section 2. Available Balance Definition.
 
-Available balance is defined as:
+1. Available balance for a given account is defined as the starting balance plus the sum of all income transactions into that account, minus the sum of all expense transactions from that account, minus the sum of all savings contributions drawn from that account, minus the sum of all debt payments drawn from that account. 
 
-```
-Available Balance   = Starting Balance 
-                    + sum(Income transactions) 
-                    − sum(Expense transactions) 
-                    − sum(Savings contributions) 
-                    − sum(Debt payments)
-```
+    A. This calculation may result in a negative value.
 
-Available balance shall never be negative. All amounts in PHP, stored as integer centavos (e.g., 100.00 = 10000 centavos) to avoid floating-point errors.
+2. The System shall permit negative available balances. 
 
-> NOTE: The available balance SHOULD be able to become negative, as discussed earlier.
+    A. When a transaction would cause a balance to become negative, the System shall first display a warning message explaining that the transaction will result in a negative balance, and prompt the user to confirm whether they wish to proceed. 
+    
+        i. If the user confirms, the transaction is recorded and the balance becomes negative. 
+        
+        ii. If the user cancels, the transaction is not recorded.
 
-> Claude: Section 2 defines available balance with the equation. The NOTE says balance SHOULD be able to become negative. As noted earlier, this is a critical inconsistency. PROP: Adopt the negative-balance-with-warning approach. Then update the equation to allow negative results, and add a system-wide "negative balance indicator" that appears on dashboard until balance returns to ≥0.
+3. Whenever any account has a negative available balance, the System shall display a persistent warning badge on the dashboard, visible in all main views. 
+
+    A. The warning shall state that one or more accounts are overdrawn and that the user should review recent transactions or add missing income. 
+    
+    B. The badge shall disappear only when all account balances return to zero or positive.
+
+4. All amounts shall be stored in Philippine pesos as integer centavos, for example 100.00 pesos stored as 10000 centavos, to avoid floating‑point rounding errors.
 
 ### Section 3. Account Separation.
 
-The System shall support up to 5 user-defined accounts. Each transaction must be associated with exactly one account. The available balance is computed per account. The user may transfer between accounts without affecting net worth.
+1. The System shall support up to ten user‑defined accounts. 
 
-> ASK: (JOAQUIN): Why only 5 Accounts?
-> ANS: (): ___
+    A. The default first account is named "Cash". 
+    
+    B. The user may add, rename, or delete accounts at any time, subject to the limit of ten active accounts. 
+    
+    C. When an account is deleted, all transactions associated with that account must be reassigned to another account before deletion is permitted, or the user may choose to delete the account and all its transactions permanently.
 
-> PROP: I propose that the first default account is named "Cash".
+2. Each transaction must be associated with exactly one account. 
 
-> Claude: Section 3: "up to 5 user-defined accounts." ASK: Why 5? Is there a technical reason (database schema, UI complexity) or is it arbitrary? If arbitrary, consider raising to 10. Filipino users may have: Cash, E-wallet (GCash), E-wallet (Maya), Bank A, Bank B, Credit Card (treated as liability account), Paluwagan fund, etc. 5 may be too restrictive.
+    A. Transfer transactions are an exception: they associate with both a source account and a destination account. 
+    
+    B. The System shall compute available balance separately for each account. 
+    
+    C. Transfers do not affect net worth, only the distribution of funds across accounts.
 
-> Claude: PROP: Add a default account type "Cash" as suggested. Also add "Credit Card" as a special account type where expenses increase liability (negative balance) rather than decreasing available balance. The current model treats all accounts as asset accounts. Credit cards are common among young adults and behave differently (you can spend money you don't have yet, up to a limit). This is a significant gap.
+> [OPEN: Team Decision] Credit card accounts are not explicitly modelled in this version. A credit card would behave as a liability account where spending increases the outstanding balance rather than decreasing available cash. The current scope assumes that users record credit card payments as expenses at the time of payment, not at the time of swipe. If the team decides to include credit card support, a dedicated account type with separate rules would be required. For the thesis, this is recommended as future work.
 
-> ADD: (J): I'm slightly against this proposal. This sorta multiplies complexity because we have to consider now another dimension which is account type.
+### Section 4. Transaction Recording and Balance Update Order
+
+1. When a user records a transaction, the System shall update the account balance immediately after validation and confirmation of any negative balance warning. 
+
+    A. For income, the amount is added to the account balance. 
+    
+    B. For expense, the amount is subtracted. 
+    
+    C. For transfer, the amount is subtracted from the source account and added to the destination account in a single atomic operation.
+    
+        i. If either subtraction would cause a negative balance, the warning and confirmation process applies to the source account, and the transfer is not partially applied.
+
+2. Recurring transactions scheduled for a future date shall not affect current balances. 
+
+    A. At the time of automatic generation, the same validation and warning rules apply. 
+    
+    B. If a recurring expense would cause a negative balance, the System shall not create the transaction, shall log the postponement, and shall notify the user. 
+    
+        i. The transaction shall be re‑attempted on the next scheduled date.
 
 ---
 
