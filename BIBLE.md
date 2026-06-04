@@ -4,9 +4,9 @@
 
 **Document Type:** Technical Specification
 
-**Version:** 2.0
+**Version:** 3.0
 
-**Date:** 2026-06-03
+**Date:** 2026-06-04
 
 **Authors:**
 - Gabion, Stefanie S.
@@ -149,26 +149,25 @@
 
 ### Section 1. Platform Requirements.
 
-The System shall be implemented as a mobile-first application. The System must be accessible via web browser on desktop devices, but all core user flows (transaction entry, budget viewing, alert acknowledgment) shall be fully operable on a mobile screen width of 375dp or less.
+1. The System shall be implemented as a mobile‑first application. 
 
-The mobile interface shall be tested on the following Android devices:
+    A. All core user flows, such as transaction entry, budget viewing, and alert acknowledgment, must be fully operable on a mobile screen width of 375 density‑independent pixels or less, and the layout shall adapt to any width between 320 and 450 dp without requiring horizontal scrolling. 
 
-> TODO: Define Android devices used in system evaluation.
+    B. A desktop web version shall also be provided, using a centered container with a maximum width of 1200 pixels and multi‑column layouts where appropriate. 
 
-Layout shall adapt to any width between 320dp and 450dp without horizontal scrolling for core flows. Desktop web version shall use a centered container (max-width 1200px) with multi-column layouts.
-
-> Claude: Section 1 (Platform Requirements) mentions testing on "the following Android devices" but the list is TODO. Recommend finalizing this list early, as device fragmentation affects UI testing. Include at least one low-end device (e.g., Samsung A series) and one mid-range device, since target users (young adults in Metro Manila) may not all have flagship phones.
+> [OPEN - Team]: The specific Android device models to be used for system evaluation are not yet finalised. The team should select at least one low‑end device, such as a Samsung A series handset, and one mid‑range device, as many target users may not own flagship phones. This section should be updated once the evaluation devices are procured.
 
 ### Section 2. Target User Definition.
 
-The System is designed exclusively for the following user population:
+1. The System is designed exclusively for the following user population. 
 
-- **Demographic scope:** Filipino working young adults aged 20 to 40 years inclusive
-- **Geographic scope:** Metro Manila (all 16 cities and 1 municipality)
-- **Employment status:** Currently employed (full-time, part-time, self-employed, freelancer, contractual, gig economy)
+    A. Demographically, it targets Filipino working young adults aged twenty to forty years inclusive. 
+    
+    B. Geographically, it includes individuals who either live or work in Metro Manila, covering any of its sixteen cities and one municipality. 
+    
+    C. Employment status includes anyone currently employed, whether full‑time, part‑time, self‑employed, freelancer, contractual, or working in the gig economy.
 
-> Claude: Section 2 defines target users as "Filipino working young adults aged 20 to 40 inclusive" in Metro Manila. ASK: What about users who live in Metro Manila but work remotely for companies outside Metro Manila? Or users who commute from neighboring provinces (Cavite, Rizal, Bulacan) but work in Metro Manila? The geographic scope as written excludes these commuters, yet they are economically integrated with Metro Manila.
-> ANS: (JOAQUIN): We shall change it to those living or working in Metro Manila.
+2. This geographic definition intentionally includes commuters who reside in neighbouring provinces such as Cavite, Rizal, or Bulacan but work in Metro Manila, as these individuals are economically integrated with the target area.
 
 ---
 
@@ -176,134 +175,103 @@ The System is designed exclusively for the following user population:
 
 ### Section 1. Permitted Input Methods.
 
-The System shall accept financial data through exactly two input methods:
+1. The System shall accept financial data through exactly two input methods. 
 
-1. **Manual transaction**
-    - Description: User types transaction details manually and directly
-    - Required fields:
-        - Amount
-        - Category
-        - Date
-        - Account
-        - Merchant name (optional)
-        - Description (optional)
-2. **Recurring transaction**
-    - Description: User defines a repeating transaction pattern
-    - Required fields:
-        - Amount
-        - Category
-        - Frequency
-        - Start date, end date (optional)
-        - Account
+    A. The first is manual transaction entry, where the user types transaction details directly into the application. 
+    
+    B. The second is recurring transaction definition, where the user specifies a repeating transaction pattern that the System then generates automatically on the scheduled dates.
 
-> ASK: (JOAQUIN): Are all three transaction types considered in the two input methods?
-> ANS: (): ___
+2. For manual entry, the required fields are amount, category, date, and account. 
 
-> Claude: Section 1 lists "Manual transaction" and "Recurring transaction" as the two input methods. However, Section 2 includes "Transfer" as a transaction type. ASK: Does a transfer use the manual input method? If so, how does the UI handle selecting source and destination accounts? This should be explicitly stated.
+    A. The merchant name is optional but recommended; if omitted, the merchant novelty feature for anomaly detection defaults to zero. 
+    
+        I. The description field is also optional. 
+        
+    B. For recurring transactions, the required fields are amount, category, frequency, start date, and account; an end date is optional.
+
+3. Transfers between accounts use the manual input method. 
+
+    A. In the user interface, when the user selects the transfer transaction type, the System shall display source account and destination account selectors instead of a single account field.
 
 ### Section 2. Transaction Types.
 
-The System shall support exactly three transaction types:
+1. The System shall support exactly three transaction types.
 
-1. **Income**
-    - Description: A cash inflow into an account
-    - Direction: Source → Available balance
-    - Recurring supported: Yes (daily, weekly, monthly, yearly, custom)
-    - Examples:
-        - Salary
-        - Freelance payment
-        - Remittance
-2. **Expense**
-    - Description: A cash outflow from an account
-    - Direction: Available balance → Expense category
-    - Recurring supported: Yes (daily, weekly, monthly, yearly, custom)
-    - Examples:
-        - Groceries
-        - Rent
-        - Electricity bill
-        - Debt repayment
-        - Savings deposit
-3. **Transfer**
-    - Description: A transfer of cash amounts from one account to another
-    - Direction: Account → Account
-    - Recurring supported: Yes (daily, weekly, monthly)
-    - Examples:
-        - Moving money from "Cash" account to "E-Wallet" account
+    A. An income transaction represents a cash inflow into an account, moving from an external source to the available balance. 
+    
+        I. Income may be recurring with frequencies of daily, weekly, monthly, yearly, or a custom interval. 
+        
+        II. Examples include salary, freelance payment, and remittance.
 
-> ASK: (JOAQUIN): Putting the required fields in Section 1 instead of here implies that all three transaction types follow the prescribed fields in the input methods. Is that really appropriate?
-> ANS: (): ___
+    B. An expense transaction represents a cash outflow from an account, moving from available balance to an expense category. 
+    
+        I. Expense may also be recurring with the same frequency options. 
+        
+        II. Examples include groceries, rent, electricity bills, debt repayment, and savings deposits.
+
+    C. A transfer transaction moves cash from one account to another without changing net worth. 
+    
+        I. Transfer may be recurring with daily, weekly, or monthly frequencies. 
+        
+        II. Examples include moving money from a cash account to an e‑wallet account. 
+        
+        III. When a transfer is recorded, the System shall subtract the amount from the source account's balance and add the same amount to the destination account's balance.
 
 ### Section 3. Manual Entry Workflow.
 
-Manual transaction entry shall include the following fields:
+1. When a user manually enters a transaction, the System shall perform the following validations and actions in sequence. 
 
-- Amount
-- Category
-- Date
-- Account
-- Merchant name (free text, max 100 characters, optional but recommended)
-- Description (optional)
+    A. First, the amount shall be validated. 
+    
+        I. For income and expense, the amount must be greater than zero Philippine pesos. 
+        
+        II. For transfer, the amount may be positive; a negative amount is not permitted, as the direction of transfer is captured by the source and destination account selection.
 
-> NOTE: Some of the fields are not included in Section 1.
+    B. Second, for an expense transaction, the System shall check whether deducting the amount would make the available balance negative. 
+    
+        I. If so, the System shall display a warning message explaining that this transaction will result in a negative balance, and prompt the user to confirm whether they wish to proceed. 
+        
+            1. The user may confirm the deduction and accept the negative balance, or cancel the transaction. 
+            
+            2. This warning mechanism exists because users may occasionally forget to record income transactions, and preventing negative balances entirely would create unnecessary friction. 
+        
+        II. The System shall display a persistent warning badge on the dashboard whenever any account balance is negative, and shall continue to show this badge until the balance returns to zero or positive.
 
-If merchant name is not provided, the merchant novelty feature for anomaly detection defaults to 0.
+    C. Third, for an income transaction, the System shall add the amount to the available balance of the selected account. 
+    
+        I. For an expense transaction, the System shall subtract the amount from the available balance. 
+        
+        II. For a transfer, the System shall subtract the amount from the source account and add it to the destination account.
 
-> NOTE: The footnote above should be moved to the anomaly detection section instead.
-
-Upon entering a transaction, the System shall:
-
-1. Validate that amount:
-    - Greater than PHP 0.00 for income and expense
-    - Amount may be positive or negative for transfer.
-
-> ASK: (JOAQUIN): Are those two validation criteria the only ones needed? And why can amount transferred be negative?
-> ANS: (): ___
-
-2. For expense, validate that:
-    - Available balance after deduction is greater than or equal to 0. If violation, reject with an error message.
-
-> NOTE: It should send a warning message instead, and prompt the user to confirm deduction and subsequent negative balance. Include in the balance feature the ability to display negative balance, and persistent warning badges or notifications that the balance is negative and that a re-assessment and recalibration of actual present funds should be done. There are situations that could lead to this, caused by forgetting to input incomes and such, and supported by the fact that the systme relies on manual transaction entry and no external validation other than user's account of current balance.
-
-3. For income, add amount to available balance.
-
-> NOTE: The expense and transfer transactions were not included here. I've created a placeholder.
-
-4. For expense, subtract amount from available balance.
-5. For transfer, subtract amount from source account's balance, and add amount to destination account's balance.
-6. Store transaction with timestamp (ISO 8601).
-
-> ASK: (JOAQUIN): Does it truly end there?
-> ANS: (): ___
-
-> Claude: Section 3 says "If merchant name is not provided, the merchant novelty feature for anomaly detection defaults to 0." NOTE: This is a sensible default, but consider that a missing merchant name could also be a data quality issue worth flagging to the user (e.g., "Adding a merchant name helps Odin detect unusual patterns"). This could improve data completeness over time.
-
-> Claude: Section 3 contains a long NOTE about negative available balance. The NOTE argues that balance SHOULD be allowed to become negative. I agree with the NOTE's reasoning. However, the spec currently has contradictory requirements: "Available balance shall never be negative" (Article V Section 2) versus allowing it with warnings. RESOLUTION NEEDED: Choose one consistent rule. I recommend allowing negative balance with prominent warnings, as the NOTE suggests, because manual entry users may forget to record income.
-
-> Claude: Section 3 Step 2 validates that expense does not make balance negative. The NOTE suggests a warning instead of rejection. ASK: What about recurring transactions generated automatically that would cause negative balance? Section 4 says they are "postponed" and "re-attempt on the next scheduled date." That implies rejection, not warning. Should recurring expenses also have a warning option? Consistency needed.
-> ANS: (JOAQUIN A.K.A. J): You're right. It should send a warning, then reject.
+    D. Fourth, after the transaction is saved, the System shall store it with a timestamp in ISO 8601 format. 
+    
+        I. The transaction shall then be used to update downstream models, including profile classification, spending forecasts, and anomaly detection baselines. 
+        
+        II. These updates may occur asynchronously, but shall complete within twenty‑four hours.
 
 ### Section 4. Recurring Transaction Rules.
 
-The System shall generate recurring transactions automatically at the scheduled frequency. If a generated transaction would violate available balance (for expense or transfer), the System shall postpone the transaction and notify the user. The system shall then re-attempt on the next scheduled date and time.
+1. The System shall generate recurring transactions automatically at their scheduled frequencies. 
 
-User may pause, edit, or delete any recurring template at any time.
+    A. If a generated expense or transfer transaction would cause the available balance to become negative, the System shall not create the transaction. 
 
-> NOTE: The footnote above should be moved to Section 5.
+        I. Instead, it shall postpone the transaction, notify the user of the postponement, and re‑attempt generation on the next scheduled date and time. 
+        
+    B. The user may pause, edit, or delete any recurring template at any time.
 
 ### Section 5. Transaction Editing and Deletion.
 
-Users may edit or delete any transaction (including recurring transactions) at any time. When a transaction is edited or deleted, the following procedures are done:
+1. Users may edit or delete any transaction, whether manual or recurring, at any time, subject to the retention limit described below. 
 
-- Available balance shall be recomputed immediately.
-- All downstream models (profile classification, forecasting, anomaly detection) shall be asynchronously re-trained or re-evaluated within 24 hours.
-- Budget actuals shall be updated.
-- The user shall be notified: "Transaction changed. Odin will update your forecasts within 24 hours."
+    A. When a transaction is edited or deleted, the System shall immediately recompute the available balance for the affected account. 
+    
+    B. All downstream models—profile classification, spending forecasts, and anomaly detection—shall be asynchronously retrained or re‑evaluated within twenty‑four hours. 
+    
+    C. Budget actuals shall be updated immediately. 
+    
+    D. The user shall receive a notification stating, "Transaction changed. Odin will update your forecasts within 24 hours."
 
-Users may not edit or delete transactions older than 13 months (retention limit).
-
-> Claude: Section 5 says users may not edit or delete transactions older than 13 months (retention limit). ASK: Is 13 months derived from any regulation (e.g., BSP data retention requirements for financial apps) or is it arbitrary? If arbitrary, consider aligning with tax record-keeping recommendations (usually 3 years in the Philippines) or with the DPA's retention period (which is based on legitimate purpose, not a fixed number).
-
-> ADD: (J): The alignment examples provided by Claude are just that: examples. It is correct that a valid basis from a report, study, or research needs to be used.
+> [RRL NEEDED: Retention limit] Users may not edit or delete transactions older than thirteen months from the transaction date. The choice of thirteen months is provisional and requires validation from either Bangko Sentral ng Pilipinas data retention guidelines, the Data Privacy Act's legitimate purpose principle, or a relevant study on financial data retention periods. If no authoritative source supports thirteen months, the team should adopt a more standard period such as twenty‑four months or align with tax record‑keeping recommendations (typically three years in the Philippines).
 
 ---
 
