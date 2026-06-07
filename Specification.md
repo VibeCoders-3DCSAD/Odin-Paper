@@ -25,120 +25,6 @@
 
 **Institutional Affiliation:** College of Computing and Information Sciences, University of Makati
 
-## Global Comments
-
-### 1. Opening Overall
-
-> **Claude:** Overall, this is a remarkably detailed specification. However, I note several recurring issues:  
-> (1) The document mixes prescriptive requirements ("shall") with research questions ("needs to be discovered"), which creates ambiguity about what is already decided versus what is still unknown.  
-> (2) Many thresholds and parameters are labeled as placeholders but later appear as fixed values in code-like specifications.  
-> (3) The relationship between synthetic data (BSP/PSA) and actual Filipino user behavior needs stronger justification, as synthetic data cannot fully capture cultural spending nuances.  
-> (4) The document would benefit from a single source of truth for all configurable parameters (e.g., a table in an appendix) rather than scattering them across articles.
-
----
-
-### 2. On Contradictions and Inconsistencies (scattered, but synthesized here)
-
-> **Claude (multiple places):** The spec has contradictory requirements regarding negative available balance (Article II Section 3 allows warnings, Article V Section 2 says "shall never be negative"). Resolution needed.  
-> **Claude:** Reclassification triggers have a contradiction: "No automatic reclassification" vs "may automatically apply."  
-> **Claude:** The document uses "shall" and "should" inconsistently across sections.
-
----
-
-### 3. On Missing Evaluation for Explainability
-
-> **Claude (Article XII):** This article is concise but missing evaluation criteria. How will researchers evaluate whether explainability outputs are effective? Suggest user comprehension test and trust rating.
-
----
-
-### 4. On Real User Data vs Synthetic Data
-
-> **Claude (Article III Section 5 of PAPER SPEC, but applicable globally):** The statement "No real user data shall be used for training or fine-tuning any ML model" contradicts the weekly fine-tuning described in Article VII Section 2. Resolution needed.
-
----
-
-### 5. On Terminology and Definitions
-
-> **Claude (Article XVI):** Missing definitions: Add "Budget Infeasibility", "Debt Hardship", "Surplus handling strategies".  
-> **Claude:** "Available balance: May not be negative" contradicts earlier NOTE – resolve consistently.
-
----
-
-### 6. On Document Structure and Navigation
-
-> **Claude GLOBAL:** The document is extremely long and dense. Consider adding:
-> - A **master parameter table** (Appendix K) listing every configurable threshold (CV=0.25, OR=0.50, contamination=0.05, etc.) with source/justification.
-> - A **cross-reference index** showing where each term is defined and where it is used.
-> - **Hyperlinks** (if digital) from each "ASK" to its corresponding "ANS" when resolved.
-
----
-
-### 7. On the Balance Between Prescription and Research
-
-> **Claude GLOBAL:** Many sections say "The System shall..." but then a NOTE says "this is a placeholder, must be discovered by research." This creates confusion. Recommend splitting the document into:
-> - **Part A: Frozen Requirements** (what is fixed for implementation)
-> - **Part B: Research Questions** (to be answered via surveys/literature)
-> - **Part C: Configurable Parameters** (defaults that can be changed without code)
-> 
-> Currently, all three are mixed.
-
----
-
-### 9. On the Scope of "No Real User Data for Training"
-
-> **Claude GLOBAL:** Article III Section 5 of PAPER SPEC states no real user data shall be used for training. However, the system spec describes weekly fine-tuning on each user's data (Article VII Section 2). To resolve:
-> - Option A: Remove fine-tuning for the thesis; use only the global pre-trained model on synthetic data.
-> - Option B: Allow fine-tuning with explicit user consent and on-device training (data never leaves the phone).
-> 
-> Recommend Option A for ethics simplicity and thesis feasibility.
-
----
-
-### 10. On the Definition of "Working Young Adult"
-
-> **Claude GLOBAL:** The target user is defined as "aged 20 to 40, employed, Metro Manila." However, many freelancers and gig workers in this age range have irregular income and multiple "jobs." The spec should clarify whether a user with **zero income in a given month** (e.g., between projects) is still considered "working" and whether they remain in the system. Suggestion: Add a minimum income frequency rule (e.g., at least one income transaction every 90 days to remain active).
-
----
-
-### 11. On the Handling of "Paluwagan"
-
-> **Claude GLOBAL:** The current solution (custom subcategory under SAVINGS) is inadequate because receiving the pot would distort spending/savings. Since paluwagan is culturally significant, consider one of:
-> - Explicitly exclude it with a clear note that it cannot be modeled correctly.
-> - Add a minimal dedicated module that tracks contributions and payouts **without** affecting the main budget (i.e., a separate "rotating savings" ledger).
-> 
-> If excluded, mention this as a **key limitation** in the thesis.
-
----
-
-### 12. On the Formatting of Code Snippets
-
-> **Claude GLOBAL:** The spec contains pseudo-code (e.g., in Article IX Section 3) without comments or clear variable naming. For the final thesis, all code snippets should follow a consistent style:
-> - Use `snake_case` for variables.
-> - Add inline comments explaining non‑obvious logic.
-> - Specify the language (e.g., Python, pseudocode).
-> 
-> This improves readability for panel members who may not be familiar with the algorithms.
-
----
-
-### 13. On the Absence of a Disaster Recovery / Backup Plan
-
-> **Claude GLOBAL:** The spec describes failure conditions for ML modules (Article XIII Section 4) but does not address **data loss scenarios** (e.g., server crash, database corruption, user accidentally deleting all transactions). Recommend adding:
-> - Automated daily database backups (retention: 30 days).
-> - User‑initiated export/import of all data (CSV) as a manual backup mechanism.
-> - A "restore from backup" procedure for developers.
-
----
-
-### 14. On the Document Version and Change Log
-
-> **Claude GLOBAL:** The document is version 2.0 dated 2026-06-03, but there is no change log or list of what changed from version 1.0. For a living specification, add a **Revision History** table at the beginning showing:
-> - Version number
-> - Date
-> - Author
-> - Summary of changes
-> - Resolution of which ASKs/NOTEs were addressed
-
 ---
 
 # SYSTEM SPECIFICATION
@@ -151,9 +37,9 @@
 
 1. The System shall be implemented as a mobile‑first application. 
 
-    A. All core user flows, such as transaction entry, budget viewing, and alert acknowledgment, must be fully operable on a mobile screen width of 375 density‑independent pixels or less, and the layout shall adapt to any width between 320 and 450 dp without requiring horizontal scrolling. 
+    1.1. All core user flows must be fully operable on a mobile screen width of 375 density‑independent pixels or less, and the layout shall adapt to any width between 320 and 450 dp without requiring horizontal scrolling. 
 
-    B. A desktop web version shall also be provided, using a centered container with a maximum width of 1200 pixels and multi‑column layouts where appropriate. 
+    1.2.. A desktop web version shall also be provided, using a centered container with a maximum width of 1200 pixels and multi‑column layouts where appropriate. 
 
 > [OPEN - Team]: The specific Android device models to be used for system evaluation are not yet finalised. The team should select at least one low‑end device, such as a Samsung A series handset, and one mid‑range device, as many target users may not own flagship phones. This section should be updated once the evaluation devices are procured.
 
@@ -161,11 +47,11 @@
 
 1. The System is designed exclusively for the following user population. 
 
-    A. Demographically, it targets Filipino working young adults aged twenty to forty years inclusive. 
+    1.1. Demographically, it targets Filipino working young adults aged twenty to forty years inclusive. 
     
-    B. Geographically, it includes individuals who either live or work in Metro Manila, covering any of its sixteen cities and one municipality. 
+    1.2. Geographically, it includes individuals who either live or work in Metro Manila, covering any of its sixteen cities and one municipality. 
     
-    C. Employment status includes anyone currently employed, whether full‑time, part‑time, self‑employed, freelancer, contractual, or working in the gig economy.
+    1.3. Employment status includes anyone currently employed, whether full‑time, part‑time, self‑employed, freelancer, contractual, or working in the gig economy.
 
 2. This geographic definition intentionally includes commuters who reside in neighbouring provinces such as Cavite, Rizal, or Bulacan but work in Metro Manila, as these individuals are economically integrated with the target area.
 
@@ -177,99 +63,97 @@
 
 1. The System shall accept financial data through exactly two input methods. 
 
-    A. The first is manual transaction entry, where the user types transaction details directly into the application. 
+    1.1. The first is manual transaction entry, where the user types transaction details directly into the application. 
     
-    B. The second is recurring transaction definition, where the user specifies a repeating transaction pattern that the System then generates automatically on the scheduled dates.
+    1.1. The second is recurring transaction definition, where the user specifies a repeating transaction pattern that the System then generates automatically on the scheduled dates.
 
 2. For manual entry, the required fields are amount, category, date, and account. 
 
-    A. The merchant name is optional but recommended; if omitted, the merchant novelty feature for anomaly detection defaults to zero. 
-    
-        i. The description field is also optional. 
+    2.1. The merchant name is optional but recommended; if omitted, the merchant novelty feature for anomaly detection defaults to zero. The description field is also optional. 
         
-    B. For recurring transactions, the required fields are amount, category, frequency, start date, and account; an end date is optional.
+    2.2. For recurring transactions, the required fields are amount, category, frequency, start date, and account; an end date is optional.
 
 3. Transfers between accounts use the manual input method. 
 
-    A. In the user interface, when the user selects the transfer transaction type, the System shall display source account and destination account selectors instead of a single account field.
+    3.1. In the user interface, when the user selects the transfer transaction type, the System shall display source account and destination account selectors instead of a single account field.
 
 ### Section 2. Transaction Types.
 
 1. The System shall support exactly three transaction types.
 
-    A. An income transaction represents a cash inflow into an account, moving from an external source to the available balance. 
+    1.1. An income transaction represents a cash inflow into an account, moving from an external source to the available balance. 
     
-        i. Income may be recurring with frequencies of daily, weekly, monthly, yearly, or a custom interval. 
+        1.1.1. Income may be recurring with frequencies of daily, weekly, monthly, yearly, or a custom interval. 
         
-        ii. Examples include salary, freelance payment, and remittance.
+        1.1.2. Examples include salary, freelance payment, and remittance.
 
-    B. An expense transaction represents a cash outflow from an account, moving from available balance to an expense category. 
+    1.2. An expense transaction represents a cash outflow from an account, moving from available balance to an expense category. 
     
-        i. Expense may also be recurring with the same frequency options. 
+        1.2.1. Expense may also be recurring with the same frequency options. 
         
-        ii. Examples include groceries, rent, electricity bills, debt repayment, and savings deposits.
+        1.2.2. Examples include groceries, rent, electricity bills, debt repayment, and savings deposits.
 
-    C. A transfer transaction moves cash from one account to another without changing net worth. 
+    1.3. A transfer transaction moves cash from one account to another without changing net worth. 
     
-        i. Transfer may be recurring with daily, weekly, or monthly frequencies. 
+        1.3.1. Transfer may be recurring with daily, weekly, or monthly frequencies. 
         
-        ii. Examples include moving money from a cash account to an e‑wallet account. 
+        1.3.2. Examples include moving money from a cash account to an e‑wallet account. 
         
-        iii. When a transfer is recorded, the System shall subtract the amount from the source account's balance and add the same amount to the destination account's balance.
+        1.3.3. When a transfer is recorded, the System shall subtract the amount from the source account's balance and add the same amount to the destination account's balance.
 
 ### Section 3. Manual Entry Workflow.
 
 1. When a user manually enters a transaction, the System shall perform the following validations and actions in sequence. 
 
-    A. First, the amount shall be validated. 
+    1.1. First, the amount shall be validated. 
     
-        i. For income and expense, the amount must be greater than zero Philippine pesos. 
+        1.1.1. For income and expense, the amount must be greater than zero Philippine pesos. 
         
-        ii. For transfer, the amount may be positive; a negative amount is not permitted, as the direction of transfer is captured by the source and destination account selection.
+        1.1.2. For transfer, the amount may be positive; a negative amount is not permitted, as the direction of transfer is captured by the source and destination account selection.
 
-    B. Second, for an expense transaction, the System shall check whether deducting the amount would make the available balance negative. 
-    
-        i. If so, the System shall display a warning message explaining that this transaction will result in a negative balance, and prompt the user to confirm whether they wish to proceed. 
-        
-            1. The user may confirm the deduction and accept the negative balance, or cancel the transaction. 
-            
-            2. This warning mechanism exists because users may occasionally forget to record income transactions, and preventing negative balances entirely would create unnecessary friction. 
-        
-        ii. The System shall display a persistent warning badge on the dashboard whenever any account balance is negative, and shall continue to show this badge until the balance returns to zero or positive.
+    1.2. Second, for an expense transaction, the System shall check whether deducting the amount would make the available balance negative.
 
-    C. Third, for an income transaction, the System shall add the amount to the available balance of the selected account. 
-    
-        i. For an expense transaction, the System shall subtract the amount from the available balance. 
+        1.2.1. If so, the System shall display a warning message explaining that this transaction will result in a negative balance, and prompt the user to confirm whether they wish to proceed.
         
-        ii. For a transfer, the System shall subtract the amount from the source account and add it to the destination account.
+            1.2.1.1. The user may confirm the deduction and accept the negative balance, or cancel the transaction.
 
-    D. Fourth, after the transaction is saved, the System shall store it with a timestamp in ISO 8601 format. 
+            1.2.1.2. This warning mechanism exists because users may occasionally forget to record income transactions, and preventing negative balances entirely would create unnecessary friction.
+
+        1.2.2. The System shall display a persistent warning badge on the dashboard whenever any account balance is negative, and shall continue to show this badge until the balance returns to zero or positive.
+
+    1.3. Third, for an income transaction, the System shall add the amount to the available balance of the selected account. 
     
-        i. The transaction shall then be used to update downstream models, including profile classification, spending forecasts, and anomaly detection baselines. 
+        1.3.1 For an expense transaction, the System shall subtract the amount from the available balance. 
         
-        ii. These updates may occur asynchronously, but shall complete within twenty‑four hours.
+        1.3.2. For a transfer, the System shall subtract the amount from the source account and add it to the destination account.
+
+    1.4. Fourth, after the transaction is saved, the System shall store it with a timestamp in ISO 8601 format. 
+    
+        1.4.1. The transaction shall then be used to update downstream models, including profile classification, spending forecasts, and anomaly detection baselines. 
+        
+        1.4.2. These updates may occur asynchronously, but shall complete within twenty‑four hours.
 
 ### Section 4. Recurring Transaction Rules.
 
 1. The System shall generate recurring transactions automatically at their scheduled frequencies. 
 
-    A. If a generated expense or transfer transaction would cause the available balance to become negative, the System shall not create the transaction. 
+    1.1. If a generated expense or transfer transaction would cause the available balance to become negative, the System shall not create the transaction. 
 
-        i. Instead, it shall postpone the transaction, notify the user of the postponement, and re‑attempt generation on the next scheduled date and time. 
+        1.1.1. Instead, it shall postpone the transaction, notify the user of the postponement, and re‑attempt generation on the next scheduled date and time. 
         
-    B. The user may pause, edit, or delete any recurring template at any time.
+    1.2. The user may pause, edit, or delete any recurring template at any time.
 
 ### Section 5. Transaction Editing and Deletion.
 
 1. Users may edit or delete any transaction, whether manual or recurring, at any time, subject to the retention limit described below. 
 
-    A. When a transaction is edited or deleted, the System shall immediately recompute the available balance for the affected account. 
+    1.1. When a transaction is edited or deleted, the System shall immediately recompute the available balance for the affected account. 
     
-    B. All downstream models—profile classification, spending forecasts, and anomaly detection—shall be asynchronously retrained or re‑evaluated within twenty‑four hours. 
+    1.2. All downstream models—profile classification, spending forecasts, and anomaly detection—shall be asynchronously retrained or re‑evaluated within twenty‑four hours. 
     
-    C. Budget actuals shall be updated immediately. 
+    1.3. Budget actuals shall be updated immediately. 
     
-    D. The user shall receive a notification stating, "Transaction changed. Odin will update your forecasts within 24 hours."
+    1.4. The user shall receive a notification stating, "Transaction changed. Odin will update your forecasts within 24 hours."
 
 > [RRL NEEDED: Retention limit] Users may not edit or delete transactions older than thirteen months from the transaction date. The choice of thirteen months is provisional and requires validation from either Bangko Sentral ng Pilipinas data retention guidelines, the Data Privacy Act's legitimate purpose principle, or a relevant study on financial data retention periods. If no authoritative source supports thirteen months, the team should adopt a more standard period such as twenty‑four months or align with tax record‑keeping recommendations (typically three years in the Philippines).
 
@@ -281,101 +165,101 @@
 
 1. The System shall classify each user into exactly one of four financial behavioral profiles, determined by two binary dimensions. 
 
-    A. The first dimension is income stability, which takes the value Stable or Variable. 
+    1.1. The first dimension is income stability, which takes the value Stable or Variable. 
     
-    B. The second dimension is obligation level, which takes the value Flexible or Obligated. 
+    1.2. The second dimension is obligation level, which takes the value Flexible or Obligated. 
     
-    C. The four resulting profiles are Stable‑Flexible, Stable‑Obligated, Variable‑Flexible, and Variable‑Obligated.
+    1.3. The four resulting profiles are Stable‑Flexible, Stable‑Obligated, Variable‑Flexible, and Variable‑Obligated.
 
 ### Section 2. Income Stability Thresholds.
 
 1. Income stability shall be determined by the coefficient of variation of monthly net income over the preceding ninety days. 
 
-    A. The coefficient of variation is defined as the standard deviation of monthly net income divided by the mean monthly net income. 
+    1.1. The coefficient of variation is defined as the standard deviation of monthly net income divided by the mean monthly net income. 
     
-    B. A user is classified as Stable if the coefficient of variation is less than 0.25, and Variable if the coefficient is 0.25 or greater.
+    1.2. A user is classified as Stable if the coefficient of variation is less than 0.25, and Variable if the coefficient is 0.25 or greater.
 
 > [RRL NEEDED: CV threshold of 0.25] The proposed threshold of 0.25 is provisional. The researchers must validate this value through analysis of survey data (such as the BSP Consumer Finance Survey) or relevant literature on income variability among Filipino working young adults. Until validation is complete, the threshold shall remain configurable via system settings without requiring code changes.
 
 2. For cold‑start classification during the first seven days of transaction history, the System shall use responses from the onboarding questionnaire to estimate income stability. 
 
-    A. The cold‑start period lasts until the user has accumulated either at least five income transactions or thirty days of history, whichever is longer. 
+    2.1. The cold‑start period lasts until the user has accumulated either at least five income transactions or thirty days of history, whichever is longer. 
     
-    B. Only after meeting this minimum data requirement shall the System compute the coefficient of variation from actual transaction data.
+    2.2. Only after meeting this minimum data requirement shall the System compute the coefficient of variation from actual transaction data.
 
 ### Section 3. Obligation Level Thresholds.
 
 1. Obligation level shall be determined by the obligation ratio, defined as total unavoidable monthly expenses divided by total monthly income, averaged over the preceding sixty days. 
 
-    A. A user is classified as Flexible if the obligation ratio is less than 0.50, and Obligated if the ratio is 0.50 or greater.
+    1.1. A user is classified as Flexible if the obligation ratio is less than 0.50, and Obligated if the ratio is 0.50 or greater.
 
 > [RRL NEEDED: Obligation ratio threshold of 0.50] The proposed threshold of 0.50 is provisional and must be validated through research. The definition of unavoidable expenses includes rent or mortgage, utility minimum payments, debt minimum payments, insurance premiums, government‑mandated contributions (SSS, PhilHealth, Pag‑IBIG), and documented family support such as monthly remittance to parents.
 
 2. For salaried employees whose mandatory contributions are automatically deducted from gross salary, the System shall ask the user during onboarding whether they record gross or net income. 
 
-    A. If the user records net income (after deductions), then mandatory contributions are already accounted for and shall not be added again as separate expenses. 
+    2.1. If the user records net income (after deductions), then mandatory contributions are already accounted for and shall not be added again as separate expenses. 
     
-    B. If the user records gross income, the System shall treat the contribution amounts as separate unavoidable expenses when they appear as transactions.
+    2.2. If the user records gross income, the System shall treat the contribution amounts as separate unavoidable expenses when they appear as transactions.
 
 ### Section 4. Reclassification Triggers.
 
 1. The System shall re‑evaluate a user's profile classification when any of the following conditions occur. 
 
-    A. First, the income coefficient of variation changes by an absolute difference of 0.10 or more from the baseline used for the current classification, sustained over sixty consecutive days. 
+    1.1. First, the income coefficient of variation changes by an absolute difference of 0.10 or more from the baseline used for the current classification, sustained over sixty consecutive days. 
     
-    B. Second, the obligation ratio changes by an absolute difference of 0.15 or more from the baseline, sustained over sixty consecutive days. 
+    1.2. Second, the obligation ratio changes by an absolute difference of 0.15 or more from the baseline, sustained over sixty consecutive days. 
     
-    C. Third, the user explicitly requests reclassification via the settings menu. 
+    1.3. Third, the user explicitly requests reclassification via the settings menu. 
     
-    D. Fourth, ninety days have elapsed since the last classification, providing a periodic refresh.
+    1.4. Fourth, ninety days have elapsed since the last classification, providing a periodic refresh.
 
 > [RRL NEEDED: Reclassification thresholds and sustained periods] The values of 0.10 for CV change, 0.15 for obligation ratio change, and the sixty‑day sustained period are provisional. These should be validated against literature on how long financial behavioral profiles typically take to shift.
 
-2. Upon detection of any trigger, the System shall generate a reclassification recommendation and present it to the user with an explanation using SHAP values (see Section 5). 
+2. Upon detection of any trigger, the System shall generate a reclassification recommendation and present it to the user with an explanation using SHAP values (see Section 5).
 
-    A. No automatic reclassification shall occur without explicit user confirmation. 
-    
-    B. The user may accept or decline the recommended change. 
-    
-    C. If the user does not respond to the recommendation within thirty days, the System shall display a persistent, non‑dismissible notification on the dashboard stating, "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?" 
-    
+    A. No automatic reclassification shall occur without explicit user confirmation.
+
+    B. The user may accept or decline the recommended change.
+
+    C. If the user does not respond to the recommendation within thirty days, the System shall display a persistent, non-dismissible notification on the dashboard stating, "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?"
+
     D. The user must either accept or decline; there is no automatic application. This design ensures that the user retains full control over their profile classification at all times.
 
 ### Section 5. Classification Algorithm.
 
 1. Classification shall be performed using a Random Forest classifier with the following specifications. 
 
-    A. The forest shall contain a minimum of one hundred decision trees, each with a maximum depth of ten levels. 
+    1.1. The forest shall contain a minimum of one hundred decision trees, each with a maximum depth of ten levels. 
     
-    B. The split criterion shall be Gini impurity. 
+    1.2. The split criterion shall be Gini impurity. 
     
-    C. Class weights shall be balanced to address potential imbalance in the training data, meaning that the synthetic training dataset shall be generated with equal representation of all four profiles (twenty‑five percent each). 
+    1.3. Class weights shall be balanced to address potential imbalance in the training data, meaning that the synthetic training dataset shall be generated with equal representation of all four profiles (twenty‑five percent each). 
     
-    D. The random state shall be fixed at forty‑two for reproducibility, primarily for testing and development purposes.
+    1.4. The random state shall be fixed at forty‑two for reproducibility, primarily for testing and development purposes.
 
 2. The features used for classification shall include at minimum the following. 
 
-    A. Income coefficient of variation computed over thirty‑day, sixty‑day, and ninety‑day windows. 
+    2.1. Income coefficient of variation computed over thirty‑day, sixty‑day, and ninety‑day windows. 
     
-    B. Obligation ratio computed over the same three windows. 
+    2.2. Obligation ratio computed over the same three windows. 
     
-    C. Income frequency measured as the number of income payments per thirty days. 
+    2.3. Income frequency measured as the number of income payments per thirty days. 
     
-    D. Income amount variance using mean absolute deviation. 
+    2.4. Income amount variance using mean absolute deviation. 
     
-    E. Fixed expense count, defined as the number of distinct payees with the recurring flag enabled. 
+    2.5. Fixed expense count, defined as the number of distinct payees with the recurring flag enabled. 
     
-    F. Savings rate computed as savings divided by income over a thirty‑day window. 
+    2.6. Savings rate computed as savings divided by income over a thirty‑day window. 
     
-    G. Transaction regularity score calculated as the entropy of inter‑transaction intervals.
+    2.7. Transaction regularity score calculated as the entropy of inter‑transaction intervals.
 
 3. All features are continuous except income frequency and fixed expense count, which are integers. 
 
-    A. The data source for all features is the user's transaction history.
+    3.1. The data source for all features is the user's transaction history.
 
 4. For each classification prediction, the System shall provide SHAP (SHapley Additive exPlanations) values. 
 
-    A. The explanation shall be presented to the user in a sentence such as, "Your profile is Stable‑Obligated mainly because your obligation ratio of 0.55 is higher than typical Flexible users, and your monthly spending coefficient of variation of 0.12 indicates stable income."
+    4.1. The explanation shall be presented to the user in a sentence such as, "Your profile is Stable‑Obligated mainly because your obligation ratio of 0.55 is higher than typical Flexible users, and your monthly spending coefficient of variation of 0.12 indicates stable income."
 
 ### Section 6. Cold-Start Classification (Onboarding Questionnaire).
 
@@ -383,39 +267,39 @@
 
 2. The questionnaire shall contain at least the following items, presented in order.
 
-    A. First, the System shall ask the user for their typical monthly income amount in Philippine pesos. 
+    2.1. First, the System shall ask the user for their typical monthly income amount in Philippine pesos. 
     
-        i. This amount is then used to contextualise subsequent questions.
+        2.1.1. This amount is then used to contextualise subsequent questions.
 
-    B. Second, the System shall ask, "Is your monthly income roughly the same each month?" with response options Yes or No. 
+    2.2. Second, the System shall ask, "Is your monthly income roughly the same each month?" with response options Yes or No. 
     
-        i. This maps to the income stability dimension.
+        2.2.1. This maps to the income stability dimension.
 
-    C. Third, the System shall ask, "By how much does your monthly income typically vary?" 
+    2.3. Third, the System shall ask, "By how much does your monthly income typically vary?" 
     
-        i. The response options shall be presented both as percentages and as actual peso ranges based on the user's stated income. 
+        2.3.1. The response options shall be presented both as percentages and as actual peso ranges based on the user's stated income. 
         
-            1. For example, for a user with a monthly income of 25,000 pesos, the options would be: less than 10% (less than 2,500 pesos), 10‑25% (2,500 to 6,250 pesos), 25‑50% (6,250 to 12,500 pesos), and greater than 50% (more than 12,500 pesos). 
+            2.3.1.1. For example, for a user with a monthly income of 25,000 pesos, the options would be: less than 10% (less than 2,500 pesos), 10‑25% (2,500 to 6,250 pesos), 25‑50% (6,250 to 12,500 pesos), and greater than 50% (more than 12,500 pesos). 
             
-        ii. This maps to an estimate of the coefficient of variation.
+        2.3.2. This maps to an estimate of the coefficient of variation.
 
-    D. Fourth, the System shall ask, "What percentage of your monthly income goes to bills and expenses that you cannot skip?" 
+    2.4. Fourth, the System shall ask, "What percentage of your monthly income goes to bills and expenses that you cannot skip?" 
     
-        i. The response options shall be less than 30%, 30‑50%, 50‑70%, and greater than 70%. 
+        2.4.1. The response options shall be less than 30%, 30‑50%, 50‑70%, and greater than 70%. 
         
-            1. To aid understanding, the System shall display the corresponding peso amounts based on the user's stated income. 
+            2.4.1.1. To aid understanding, the System shall display the corresponding peso amounts based on the user's stated income. 
             
-        ii. This maps to the obligation ratio.
+        2.4.2. This maps to the obligation ratio.
 
-    E. Fifth, the System shall ask, "Do you have dependents such as children, parents, or siblings whom you support financially?" with response options Yes or No. 
+    2.5. Fifth, the System shall ask, "Do you have dependents such as children, parents, or siblings whom you support financially?" with response options Yes or No. 
     
-        i. If the user answers Yes, the System shall ask for the number of dependents. 
+        2.5.1. If the user answers Yes, the System shall ask for the number of dependents. 
         
-        ii. This provides context for explainability but does not directly adjust the obligation ratio calculation.
+        2.5.2. This provides context for explainability but does not directly adjust the obligation ratio calculation.
 
-    F. Sixth, the System shall ask, "Do you have any loans or debts with required minimum monthly payments?" with response options Yes or No. 
+    2.6. Sixth, the System shall ask, "Do you have any loans or debts with required minimum monthly payments?" with response options Yes or No. 
     
-        i. This also provides contextual information and is already captured in the obligation ratio question; it is retained to help users understand what counts as an unavoidable expense.
+        2.6.1. This also provides contextual information and is already captured in the obligation ratio question; it is retained to help users understand what counts as an unavoidable expense.
 
 > [RRL NEEDED: Questionnaire response mapping to profiles] The exact algorithm for converting questionnaire responses into an initial profile classification must be validated through research. The provisional approach is to treat a "No" answer to income stability as Variable, and a "Yes" answer to the obligation percentage question at or above 50% as Obligated, with the remaining combinations producing the corresponding profiles.
 
@@ -437,43 +321,43 @@
 
 1. The System shall implement expense categories grounded in the 2020 Philippine Classification of Individual Consumption According to Purpose (PCOICOP), cross‑validated against the BSP Consumer Finance Survey 2021. 
 
-    A. However, categories that represent purely economic concepts with no corresponding cash flow shall be excluded. 
+    1.1. However, categories that represent purely economic concepts with no corresponding cash flow shall be excluded. 
     
-        i. Specifically, imputed rentals for housing, which represent the economic value of owner‑occupied housing, shall not appear as a user‑selectable category because no actual expense transaction occurs.
+        1.1.1. Specifically, imputed rentals for housing, which represent the economic value of owner‑occupied housing, shall not appear as a user‑selectable category because no actual expense transaction occurs.
 
 2. The following base categories shall be implemented, each with its associated subcategories as listed. 
 
-    A. The System shall store transactions at the most granular subcategory level, but shall also maintain a mapping from each subcategory to one of four broad groups: Essentials, Obligatory, Discretionary, and Financial Allocation. 
+    2.1. The System shall store transactions at the most granular subcategory level, but shall also maintain a mapping from each subcategory to one of four broad groups: Essentials, Obligatory, Discretionary, and Financial Allocation. 
     
-        i. This mapping is defined in Section 2.
+        2.1.1. This mapping is defined in Section 2.
 
 3. The following base categories shall be implemented, each with its associated subcategories as listed:
 
-    A. Food and Non‑Alcoholic Beverages — includes Food, Non‑Alcoholic Beverages, and Services for Processing Primary Goods for Food and Non‑Alcoholic Beverages. 
+    3.1. Food and Non‑Alcoholic Beverages — includes Food, Non‑Alcoholic Beverages, and Services for Processing Primary Goods for Food and Non‑Alcoholic Beverages. 
     
-        i. Mapped to Essentials.
+        3.1.1. Mapped to Essentials.
 
-    B. Alcoholic Beverages, Tobacco and Narcotics — includes Alcoholic Beverages, Alcohol Production Services, Tobacco, and Narcotics. 
+    3.2. Alcoholic Beverages, Tobacco and Narcotics — includes Alcoholic Beverages, Alcohol Production Services, Tobacco, and Narcotics. 
     
-        i. Mapped to Discretionary.
+        3.2.1. Mapped to Discretionary.
 
-    C. Clothing and Footwear — includes Clothing and Footwear. 
+    3.3. Clothing and Footwear — includes Clothing and Footwear. 
     
-        i. Mapped to Discretionary.
+        3.3.1. Mapped to Discretionary.
 
-    D. Housing, Water, Electricity, Gas and Other Fuels — includes Actual Rentals for Housing, Maintenance Repair and Security of the Dwelling, Water Supply and Miscellaneous Services Relating to the Dwelling, and Electricity Gas and Other Fuels. 
+    3.4. Housing, Water, Electricity, Gas and Other Fuels — includes Actual Rentals for Housing, Maintenance Repair and Security of the Dwelling, Water Supply and Miscellaneous Services Relating to the Dwelling, and Electricity Gas and Other Fuels. 
     
-        i. Imputed rentals are excluded. 
+        3.4.1. Imputed rentals are excluded. 
         
-        ii. Actual rent payments are mapped to Obligatory.
+        3.4.2. Actual rent payments are mapped to Obligatory.
         
-        iii. Utilities (water, electricity, gas) are mapped to Essentials. 
+        3.4.3. Utilities (water, electricity, gas) are mapped to Essentials. 
         
-        iv. Maintenance and repair services are mapped to Discretionary.
+        3.4.4. Maintenance and repair services are mapped to Discretionary.
 
-    E. Furnishings, Household Equipment and Routine Household Maintenance — includes Furniture Furnishings and Loose Carpets, Household Textiles, Household Appliances, Glassware Tableware and Household Utensils, Tools and Equipment for House and Garden, and Goods and Services for Routine Household Maintenance. 
+    3.5. Furnishings, Household Equipment and Routine Household Maintenance — includes Furniture Furnishings and Loose Carpets, Household Textiles, Household Appliances, Glassware Tableware and Household Utensils, Tools and Equipment for House and Garden, and Goods and Services for Routine Household Maintenance. 
     
-        i. Mapped to Discretionary.
+        3.5.1. Mapped to Discretionary.
 
     F. Health — includes Medicines and Health Products, Outpatient Care Services, Inpatient Care Services, and Other Health Services. 
     
@@ -587,23 +471,23 @@
 
 ### Section 2. Available Balance Definition.
 
-1. Available balance for a given account is defined as the starting balance plus the sum of all income transactions into that account, minus the sum of all expense transactions from that account, minus the sum of all savings contributions drawn from that account, minus the sum of all debt payments drawn from that account. 
+1. Available balance for a given account is defined as the starting balance plus the sum of all income transactions into that account, minus the sum of all expense transactions from that account, minus the sum of all savings contributions drawn from that account, minus the sum of all debt payments drawn from that account.
 
-    A. This calculation may result in a negative value.
+    1.1. This calculation may result in a negative value.
 
-2. The System shall permit negative available balances. 
+2. The System shall permit negative available balances.
 
-    A. When a transaction would cause a balance to become negative, the System shall first display a warning message explaining that the transaction will result in a negative balance, and prompt the user to confirm whether they wish to proceed. 
-    
-        i. If the user confirms, the transaction is recorded and the balance becomes negative. 
-        
-        ii. If the user cancels, the transaction is not recorded.
+    2.1. When a transaction would cause a balance to become negative, the System shall first display a warning message explaining that the transaction will result in a negative balance, and prompt the user to confirm whether they wish to proceed.
 
-3. Whenever any account has a negative available balance, the System shall display a persistent warning badge on the dashboard, visible in all main views. 
+        2.1.1. If the user confirms, the transaction is recorded and the balance becomes negative.
 
-    A. The warning shall state that one or more accounts are overdrawn and that the user should review recent transactions or add missing income. 
-    
-    B. The badge shall disappear only when all account balances return to zero or positive.
+        2.1.2. If the user cancels, the transaction is not recorded.
+
+3. Whenever any account has a negative available balance, the System shall display a persistent warning badge on the dashboard, visible in all main views.
+
+    3.1. The warning shall state that one or more accounts are overdrawn and that the user should review recent transactions or add missing income.
+
+    3.2. The badge shall disappear only when all account balances return to zero or positive.
 
 4. All amounts shall be stored in Philippine pesos as integer centavos, for example 100.00 pesos stored as 10000 centavos, to avoid floating‑point rounding errors.
 
@@ -933,22 +817,22 @@
     
 > [OPEN: The detailed synthetic data generation procedure is documented in the companion file model‑training‑data‑design.md, which the researchers should reference for reproducibility.]
 
-5. In the thesis version, the LSTM model shall be deployed as a frozen pre‑trained model. 
+5. In the thesis version, the LSTM model shall be deployed as a frozen pre-trained model.
 
-    A. No fine‑tuning on individual user data shall occur, because the thesis ethical protocol prohibits using real user data for training or updating models. 
-    
-    B. This is a deliberate scope limitation; the model uses only the global pre‑trained weights and the user's own transaction history as input features at inference time. 
-    
-    C. The System shall not perform weekly fine‑tuning as previously contemplated. 
-    
-> [FUTURE WORK] Fine‑tuning on user data with explicit consent and on‑device training is recommended for future versions beyond the thesis.
+    A. No fine-tuning on individual user data shall occur, because the thesis ethical protocol prohibits using real user data for training or updating models.
 
-6. The LSTM model shall be hosted on a cloud server, such as AWS Lambda or Google Cloud Run, with an inference timeout of 2500 milliseconds. 
+    B. This is a deliberate scope limitation; the model uses only the global pre-trained weights and the user's own transaction history as input features at inference time.
 
-    A. The mobile application shall cache the most recent forecast for each target. 
-    
-    B. When offline, the application shall display cached forecasts with a note stating, "Offline mode — forecasts from [date]." 
-    
+    C. The System shall not perform weekly fine-tuning as previously contemplated.
+
+    D. The following statement is deleted: ~~"The System shall retrain the LSTM weekly on each user's accumulated transaction history."~~
+
+6. The LSTM model shall be hosted on a cloud server, such as AWS Lambda or Google Cloud Run, with an inference timeout of 2500 milliseconds.
+
+    A. The mobile application shall cache the most recent forecast for each target.
+
+    B. When offline, the application shall display cached forecasts with a note stating, "Offline mode — forecasts from [date]."
+
     C. No forecast inference shall be attempted directly from the mobile device.
 
 ### Section 3. Cold-Start Fallback.
@@ -1256,7 +1140,7 @@ The user may view, edit, or delete whitelist entries in Settings under Anomaly D
 
     A. A low dismissal rate (many users marking alerts as expected) indicates excessive false positives.
 
-### Section 8. Connection to Other Modules
+### Section 9. Connection to Other Modules
 
 1. The Isolation Forest anomaly detection module receives the user's financial behavioural profile from the Random Forest classifier, which is used as a categorical feature. 
 
@@ -2044,37 +1928,27 @@ The user may view, edit, or delete whitelist entries in Settings under Anomaly D
 
 ### Section 3. AI/ML Model Privacy.
 
-1. No user transaction data shall be used to train or fine‑tune any global machine learning model during the thesis study. 
+1. No user transaction data shall be used to train or fine-tune any global machine learning model during the thesis study.
 
-    A. This includes the Random Forest classifier, the LSTM forecasting model, and the Isolation Forest anomaly detector. 
-    
-2. All models shall be pre‑trained exclusively on synthetic data generated from public surveys (BSP CFS 2021 and PSA FIES). 
+    A. This includes the Random Forest classifier, the LSTM forecasting model, and the Isolation Forest anomaly detector.
 
-3. The models shall be frozen before any user data is collected. 
+2. All models shall be pre-trained exclusively on synthetic data generated from public surveys (BSP CFS 2021 and PSA FIES).
+
+3. The models shall be frozen before any user data is collected.
 
     A. This design ensures that no personal financial information influences the model weights.
 
-4. Inference requests sent from the mobile application to the server shall contain only the minimal feature vector required for each prediction. 
+4. Inference requests sent from the mobile application to the server shall contain only the minimal feature vector required for each prediction.
 
-    A. For the Random Forest, the feature vector includes the user's aggregated statistics (income CV, obligation ratio, etc.) but no raw transaction details. 
-    
-    B. For the LSTM, the feature vector includes the last sixty days of daily aggregated spending per broad group, calendar features, and the user's profile, but no merchant names, descriptions, or detailed category information beyond the four broad groups. 
-    
-    C. For the Isolation Forest, the feature vector includes the transaction amount, category, day‑of‑period proportion, and merchant novelty flag, but not the merchant name string itself. 
-    
+    A. For the Random Forest, the feature vector includes the user's aggregated statistics (income CV, obligation ratio, etc.) but no raw transaction details.
+
+    B. For the LSTM, the feature vector includes the last sixty days of daily aggregated spending per broad group, calendar features, and the user's profile, but no merchant names, descriptions, or detailed category information beyond the four broad groups.
+
+    C. For the Isolation Forest, the feature vector includes the transaction amount, category, day-of-period proportion, and merchant novelty flag, but not the merchant name string itself.
+
     D. The server shall not persist any feature vectors beyond the request lifetime; logs shall be disabled for inference requests.
 
-5. For future deployment beyond the thesis, if the researchers ever consider using real user data for model improvement, the following conditions shall apply. 
-
-    A. Explicit opt‑in consent separate from the general Terms of Service shall be required. 
-    
-    B. Data shall be aggregated to satisfy k‑anonymity with k ≥ 20 before any model weight update. 
-    
-        i. That is, any batch of data used for training shall contain at least twenty users who cannot be distinguished from each other on the set of quasi‑identifiers (income quintile, profile, age bracket, city). 
-        
-        ii. This is a strong requirement that may be infeasible for a small user base. 
-        
-        iii. For the thesis, because no real user data is used for training, the k‑anonymity condition is not evaluated. 
+5. The following statement is added as a clear ethical declaration: "For the duration of this thesis, all machine learning models remain frozen on their synthetic-data pre-training. No real user data—whether from pilot users, evaluation participants, or any other source—is used for model training, fine-tuning, or weight updates of any kind."
         
 > [FUTURE WORK] A production deployment would need to either maintain a large user base or forgo personalised fine‑tuning.
 
@@ -2226,11 +2100,11 @@ The user may view, edit, or delete whitelist entries in Settings under Anomaly D
 
 1. For the purpose of this specification, the following terms have the meanings assigned.
 
-    A. Available balance is the sum of a specific account's starting balance plus all income transactions minus all expense transactions minus all savings contributions minus all debt payments, as defined in Article V Section 2. 
-    
-        i. Available balance may become negative, in which case the System displays a persistent warning badge. 
-        
-        ii. This definition corrects any prior contradictory statements that disallowed negative balances.
+    A. Available balance is the sum of a specific account's starting balance plus all income transactions minus all expense transactions minus all savings contributions minus all debt payments, as defined in Article V Section 2.
+
+        i. Available balance may become negative, in which case the System displays a persistent warning badge.
+
+        ii. This definition supersedes any prior contradictory statements.
 
     B. Behavioural drift (concept drift) refers to a statistically significant change in any classification feature over a sixty‑day sliding window, detected by a Mann‑Whitney U test with a significance level of p < 0.05. 
     
