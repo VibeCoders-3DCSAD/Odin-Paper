@@ -1,0 +1,91 @@
+```yaml
+paper_id: "10.1145/3559540"
+designation: "international"
+title: "Generative Adversarial Networks in Time Series: A Systematic Literature Review"
+authors: "Brophy, E.; Wang, Z.; She, Q.; Ward, T."
+year: 2023
+venue: "ACM Computing Surveys"
+odin_topics:
+  - "6.A"
+  - "8.A"
+  - "10.A"
+  - "12.A"
+shorthand_tags:
+  - "/predictive-modeling"
+  - "/anomaly-detection"
+  - "/data-privacy"
+  - "/evaluation-frameworks"
+tldr: "Generative adversarial networks for time series data are reviewed, covering discrete and continuous variants, applications in augmentation, imputation, denoising, anomaly detection, and privacy preservation."
+problem_and_motivation: "Time series data generation faces challenges of data shortage, missing values, noise, and privacy regulations. Existing methods like autoregressive models are deterministic and not truly generative. GANs offer a promising solution but lack standardized evaluation and face training instability."
+approach:
+  - "Conducts a systematic literature review of GAN variants for time series data generation."
+  - "Classifies GANs into discrete-variant and continuous-variant categories based on data type."
+  - "Evaluates architectures including RNNs, LSTMs, CNNs, TCNs, and bidirectional networks."
+  - "Discusses evaluation metrics such as MMD, DTW, FID, TSTR, and TRTS for quality assessment."
+  - "Reviews privacy techniques including differential privacy and federated learning for synthetic data."
+findings:
+  - "num: LSTM-CNN with binary cross-entropy achieved MMD of 0.006 on sinewave generation."
+  - "num: BiGridLSTM-CNN achieved the lowest DTW of 13.0158 for ECG generation on MIT-BIH dataset."
+  - "GANs can generate high-fidelity physiological signals but struggle with long-term dependencies."
+  - "Evaluation metrics for time series GANs lack consensus compared to image-based GANs."
+  - "Differential privacy can be added to GANs to resist membership inference attacks with modest quality loss."
+key_figures_tables:
+  - "Figure 2: Basic GAN architecture with generator and discriminator → Two-player minimax game."
+  - "Table 2: List of GAN architectures and their evaluation metrics → No standard benchmark exists."
+  - "Figure 9: TimeGAN framework combining unsupervised and supervised learning → Preserves temporal dynamics."
+  - "Table 3: Sinewave generation results across architectures → LSTM-CNN with BCE gives lowest MMD."
+key_equations:
+  - equation: "\\min_G \\max_D V(G,D) = \\mathbb{E}_{x\\sim p_{data}}[\\log D(x)] + \\mathbb{E}_{z\\sim p_z}[\\log(1-D(G(z)))]"
+    explanation: "Original GAN minimax objective."
+  - equation: "MMD[F,X,Y] = \\left[ \\frac{1}{m^2}\\sum_{i,j=1}^m k(x_i,x_j) - \\frac{2}{mn}\\sum_{i,j=1}^{m,n} k(x_i,y_j) + \\frac{1}{n^2}\\sum_{i,j=1}^n k(y_i,y_j) \\right]^{1/2}"
+    explanation: "Kernel two-sample test for distribution similarity."
+definitions:
+  - term: "GAN"
+    definition: "Generative adversarial network with generator and discriminator networks."
+  - term: "LSTM"
+    definition: "Long short-term memory network for sequential data."
+  - term: "MMD"
+    definition: "Maximum mean discrepancy for comparing distributions."
+  - term: "DTW"
+    definition: "Dynamic time warping for sequence alignment."
+  - term: "TSTR"
+    definition: "Train on synthetic test on real evaluation method."
+critical_citations:
+  - "[Goodfellow et al., 2014] — Introduced original GAN framework."
+  - "[Radford et al., 2015] — Developed DCGAN for images."
+  - "[Yu et al., 2017] — Proposed SeqGAN for discrete sequences."
+relevance:
+  topics:
+    - code: "6.A"
+      name: "Predictive Modeling in Personal Finance Systems"
+      justification: "Reviews GANs for time series forecasting and generation applicable to spending prediction."
+    - code: "8.A"
+      name: "Anomaly Detection in Personal Finance Systems"
+      justification: "Covers GAN-based anomaly detection in time series data."
+    - code: "10.A"
+      name: "Data Privacy and Security in Personal Finance Systems"
+      justification: "Discusses differential privacy and federated learning for synthetic data generation."
+    - code: "12.A"
+      name: "Evaluation Frameworks for Personal Finance Systems"
+      justification: "Evaluates metrics like MMD, DTW, and TSTR for time series GANs."
+  contribution: "This systematic review provides a taxonomy of time series GANs (discrete vs continuous) that can inform Odin's spending forecasting module (6.A) by identifying suitable architectures like LSTM-CNN for sequential financial data. The evaluation metrics discussed, including MMD and DTW, directly support Odin's algorithmic evaluation (12.A) for synthetic transaction generation. The privacy-preserving techniques such as differential privacy (10.A) offer methods to generate synthetic financial data without compromising user confidentiality. The anomaly detection applications (8.A) demonstrate how GANs can identify irregular spending patterns, which can be adapted for Odin's fraud or anomaly detection subsystem."
+  directly_justifies:
+    - "GANs can generate high-fidelity synthetic time series data for data augmentation."
+    - "Differential privacy can be added to GANs to prevent membership inference attacks."
+    - "LSTM-CNN architectures achieve lower MMD than RNN-only models for ECG generation."
+    - "No standardized evaluation metric exists for time series GANs."
+  limits:
+    - "Time series GANs are application-specific and do not generalize well across domains."
+    - "Training instability remains a challenge with mode collapse and vanishing gradients."
+    - "Most architectures have fixed sequence length constraints, limiting adaptability."
+  mapping_rationale: "The paper was screened against Odin's functional domains. Behavioral profiling (5.A-C) was rejected because the review does not address user classification or profile dynamics. Spending forecasting (6.A-B) was selected as the paper extensively covers time series prediction and generation using GANs, directly applicable to forecasting user spending. Budget recommendation (7.A-C) was rejected as no claims about budget strategies or recommendation algorithms appear. Anomaly detection (8.A) was selected due to section 5.4 on detecting outliers in time series, relevant for identifying unusual transactions. Expense categorization (3.A-B) was not addressed. Mobile-first design (9.A-B) and user retention (11.A-B) are absent. Data privacy (10.A) was selected due to Section 7 on differential privacy and federated learning, critical for PFMS handling sensitive financial data. System evaluation (12.A) was selected because Section 6 thoroughly reviews evaluation metrics for GANs, informing how Odin should assess its generative modules. Savings/debt management (13.A-B) are not covered. Borderline cases like 8.B (algorithm) were subsumed under 8.A as the review discusses algorithms broadly."
+limitations:
+  - "The review does not propose novel architectures or empirical benchmarks. [unacknowledged]"
+  - "Training instability and mode collapse are discussed but solutions are not systematically compared. [unacknowledged]"
+  - "No standardized dataset for benchmarking time series GANs exists, acknowledged in Section 3.3."
+remember_this:
+  - "GANs generate high-fidelity ECG with DTW as low as 13.02."
+  - "Differential privacy in GANs resists membership inference attacks."
+  - "No consensus exists on evaluation metrics for time series GANs."
+  - "LSTM-CNN architectures balance quality and training stability."
+```

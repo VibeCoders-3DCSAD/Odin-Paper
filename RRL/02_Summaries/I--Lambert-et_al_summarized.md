@@ -1,0 +1,98 @@
+```yaml
+paper_id: "f7c3e1a0-2b5d-4a8f-9c6e-1d2b3a4c5d6e" # UUIDv5 generated from title
+designation: "international"
+title: "Relationship between family resources, financial stress, with financial management among Filipino millennials"
+authors: "Lambert, M. J. C. M.; Jusoh, Z. M.; Zainudin, N."
+year: 2025
+venue: "Jurnal Pengguna Malaysia"
+odin_topics:
+  - "1.A"
+  - "1.C"
+  - "5.A"
+  - "7.A"
+  - "13.A"
+  - "13.B"
+shorthand_tags:
+  - "/filipino-young-professionals"
+  - "/financial-behavior"
+  - "/behavioral-profiles"
+  - "/budgeting"
+  - "/savings-management"
+  - "/debt-management"
+tldr: "Financial stress negatively affects financial management among Filipino millennials (β = -0.724), while millennial characteristics positively influence it (β = 0.480)."
+problem_and_motivation: "Financial well-being among Filipinos is low despite economic growth, with high financial stress and limited literacy. Millennials face additional pressures from job instability, rising costs, and family obligations. Existing research lacks an integrated understanding of how family resources and financial stress jointly shape financial management in this population."
+approach:
+  - "Quantitative correlational design with cross-sectional survey of 400 Filipino millennials in Eastern Visayas, Philippines."
+  - "Multistage random sampling from three cities (Tacloban, Ormoc, Baybay) with Slovin's formula for sample size."
+  - "Online self-administered questionnaire adapted from Pew surveys, Frufonga’s financial stress scale, and Rajnah’s financial management instrument."
+  - "Structural Equation Modelling (SEM) using PLS-SEM and SPSS v26 to test relationships between millennial characteristics, financial stress, and financial management."
+  - "Dollahite's ABCD-XYZ Resource Management Model of Crisis/Stress used as the theoretical framework."
+findings:
+  - "num: Financial stress has a strong negative effect on financial management (β = -0.724, p < .001)."
+  - "num: Millennial characteristics have a positive effect on financial management (β = 0.480, p < .001)."
+  - "Higher millennial traits (adaptability, collaboration, tech-savviness) are associated with better budgeting, bill payment, and saving practices."
+  - "Financial stress leads to poorer cash management, credit management, retirement planning, and emergency fund behavior."
+  - "Millennial characteristics scale had excellent reliability (Cronbach's α = 0.935); financial stress scale also excellent (α = 0.919)."
+key_figures_tables:
+  - "Table 5: Structural model for millennial characteristics → financial management (β=0.480, p<.001) → positive trait influence."
+  - "Table 6: Structural model for financial stress → financial management (β=-0.724, p<.001) → strong negative impact."
+  - "Table 2: Millennial characteristics mean score 4.80/5 → high self-rated adaptability and tech-savviness."
+  - "Table 3: Financial stress mean score 2.23/5 → moderate stress levels overall."
+key_equations:
+  - equation: "None."
+    explanation: ""
+definitions:
+  - term: "SEM"
+    definition: "Structural Equation Modelling, a multivariate statistical technique for testing relationships between observed and latent variables."
+  - term: "ABCD-XYZ model"
+    definition: "Dollahite's integrated resource management and stress theory framework for family crisis response."
+  - term: "Millennial characteristics"
+    definition: "Generational traits including optimism, achievement focus, family orientation, and technological proficiency."
+critical_citations:
+  - "[Dollahite, 1991] — Provides the integrated ABCD-XYZ theoretical framework."
+  - "[Lusardi & Mitchell, 2021] — Links financial stress to reduced literacy and impulsive decisions."
+  - "[Pew Research Centre, 2021] — Documents millennial financial challenges and traits."
+  - "[Delafrooz & Paim, 2011] — Establishes negative stress-financial wellness relationship."
+relevance:
+  topics:
+    - code: "1.A"
+      name: "Filipino Young Professionals as a Demographic"
+      justification: "Focuses exclusively on Filipino millennials aged 20-40."
+    - code: "1.C"
+      name: "Financial Behavior of Filipino Young Professionals"
+      justification: "Examines financial management practices (budgeting, saving, bill payment)."
+    - code: "5.A"
+      name: "Financial Behavioral Profiles in Personal Finance"
+      justification: "Operationalizes millennial characteristics as a behavioral profile influencing financial decisions."
+    - code: "7.A"
+      name: "Budgeting Strategies as Domain Knowledge"
+      justification: "Financial management includes household income/expense estimation and bill payment timing."
+    - code: "13.A"
+      name: "Savings Goal Management in PFMS"
+      justification: "Measures retirement saving and emergency fund behavior as part of financial management."
+    - code: "13.B"
+      name: "Debt Management in PFMS"
+      justification: "Financial stress item includes debt-related concerns; findings inform debt reduction interventions."
+  contribution: "This paper quantifies the dual effect of financial stress and positive generational traits on financial management, providing empirical benchmarks for Odin's spending forecasting and budget recommendation modules. The negative coefficient for stress (-0.724) directly informs anomaly detection thresholds for stress-induced spending deviations. The positive millennial trait coefficient (0.480) supports behavioral profiling cold-start initialization using age and digital engagement proxies. Recommendations for mobile-based financial planning tools align with Odin's mobile-first design requirements, while stress-coping intervention suggestions guide user retention strategies."
+  directly_justifies:
+    - "Financial stress reduces financial management effectiveness by 0.724 standardized units per unit increase in stress."
+    - "Millennial characteristics such as digital literacy and adaptability improve financial management by 0.480 standardized units."
+    - "Debt and housing affordability are central stressors requiring policy and product interventions."
+    - "Mobile-based financial planning tools should leverage millennials' technological proficiency."
+  limits:
+    - "Sample limited to Eastern Visayas region, not nationally representative of all Filipino millennials."
+    - "Cross-sectional design prevents causal inference; only correlational relationships established."
+    - "Self-reported data may introduce social desirability bias in financial management scores."
+    - "All measures adapted from Western instruments; potential cultural validity concerns. [unacknowledged]"
+  mapping_rationale: "This paper was screened against Odin's functional domains. Behavioral profiling (5.A) applies because millennial characteristics are treated as a financial behavioral profile. Spending forecasting (6) and anomaly detection (8) were rejected since no predictive modeling or outlier analysis is performed. Budget recommendation (7.A) is supported via financial management practices that include budgeting. Savings and debt management (13.A, 13.B) apply because the paper measures saving behaviors and identifies debt as a key stressor. Mobile-first design (9) and data privacy (10) are not addressed. Engagement dynamics (11) are indirectly mentioned in retention recommendations but not tested. System evaluation (12) is absent. The topic codes 1.A (demographic) and 1.C (financial behavior) are included as foundational context."
+limitations:
+  - "Sample from only three cities in Eastern Visayas limits generalizability."
+  - "Cross-sectional design cannot establish causality between stress and financial management."
+  - "Potential common method bias from single-source self-report surveys."
+  - "No qualitative follow-up to explain how millennials negotiate financial stress in daily life. [unacknowledged]"
+remember_this:
+  - "Financial stress reduces financial management by 0.724 standardized units."
+  - "Millennial traits improve financial management by 0.480 standardized units."
+  - "Debt and housing cost are primary stressors for Filipino millennials."
+  - "Mobile tools and stress-coping interventions are recommended."
+```

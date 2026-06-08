@@ -1,0 +1,91 @@
+```yaml
+paper_id: "10.3389/fpsyg.2023.1162916"
+designation: "international"
+title: "Influences of mental accounting on consumption decisions: asymmetric effect of a scarcity mindset"
+authors: "Cheng, L.; Yu, Y.; Wang, Y.; Zheng, L."
+year: 2023
+venue: "Frontiers in Psychology"
+odin_topics:
+  - "1.C"
+  - "2.C"
+  - "5.A"
+  - "7.A"
+shorthand_tags:
+  - "/financial-behavior"
+  - "/user-preferences"
+  - "/behavioral-profiles"
+  - "/budgeting-strategies"
+tldr: "Mental accounting influences hedonic vs utilitarian consumption; scarcity mindset asymmetrically reduces hedonic spending from windfall gains but does not affect hard-earning money."
+problem_and_motivation: "Previous research established that mental accounting affects consumption, but the role of a scarcity mindset as a boundary condition remained unclear. Understanding this interaction is important because scarcity mindset alters how consumers process financial resources. The gap is that prior work did not examine asymmetric effects across windfall versus hard-earning gains."
+approach:
+  - "Conducted online experiments with two samples: 319 Chinese college students and 294 Chinese adults."
+  - "Used a 2 (mental account: windfall vs hard-earning) × 2 (consumption: hedonic vs utilitarian) between-subjects design."
+  - "Measured scarcity mindset using a three-item self-report scale (Pitesa and Thau, 2018) on a 5-point Likert scale."
+  - "Participants randomly assigned to condition and chose between hedonic (e.g., restaurant dinner) and utilitarian (e.g., canteen deposit) options."
+  - "Analyzed data using chi-square tests and logistic regression to test moderation."
+findings:
+  - "num: Consumers with windfall gains were more likely to choose hedonic consumption (student sample: Cohen's d=0.68, p<0.001; adult sample: d=0.38, p=0.001)."
+  - "Scarcity mindset moderated the windfall-to-hedonic effect for students (B=−0.66, p=0.026) and adults (B=−1.28, p<0.001)."
+  - "Under high scarcity mindset, windfall gains did not increase hedonic preference; effect was significant only under low scarcity."
+  - "For hard-earning gains, scarcity mindset did not significantly affect utilitarian vs hedonic choices (adult sample p=0.212)."
+  - "Main effect of scarcity mindset on consumption decisions was significant for students (B=−0.39, p=0.003) but not adults."
+key_figures_tables:
+  - "Figure 1A: Student sample choice proportions → Windfall leads to hedonic, hard-earning to utilitarian."
+  - "Figure 1B: Adult sample similar pattern but weaker → Utilitarian preference overall stronger."
+  - "Figure 2A: Moderation for students → High scarcity reduces hedonic preference from windfall."
+  - "Figure 2B: Moderation for adults → Stronger inhibitory effect of scarcity on windfall hedonic spending."
+key_equations:
+  - equation: "None."
+    explanation: ""
+definitions:
+  - term: "Mental accounting"
+    definition: "Cognitive operations by which consumers code, categorize, and evaluate financial activities, violating fungibility."
+  - term: "Scarcity mindset"
+    definition: "Belief that resources are limited and one can never have enough, focusing attention on scarce resources."
+  - term: "Hedonic consumption"
+    definition: "Consumption focused on pleasure, enjoyment, and experiential aspects."
+  - term: "Utilitarian consumption"
+    definition: "Consumption focused on necessity, usefulness, and functional goals."
+  - term: "Windfall gains"
+    definition: "Unexpected or easily obtained money, e.g., lottery winnings."
+  - term: "Hard-earning gains"
+    definition: "Money obtained through effort, e.g., salary or part-time work."
+critical_citations:
+  - "[Thaler, 1985] — Foundational mental accounting theory."
+  - "[Thaler, 1999] — Defined mental accounting operations."
+  - "[Mani et al., 2013] — Scarcity mindset impairs cognitive function."
+  - "[Shah et al., 2012] — Scarcity frames value and decision making."
+relevance:
+  topics:
+    - code: "1.C"
+      name: "Financial Behavior of Filipino Young Professionals"
+      justification: "Examines how mental accounting and scarcity mindset influence spending choices."
+    - code: "2.C"
+      name: "User-Declared Financial Preferences"
+      justification: "Reveals how users' perceived scarcity affects their preference for hedonic vs utilitarian purchases."
+    - code: "5.A"
+      name: "Financial Behavioral Profiles in Personal Finance"
+      justification: "Identifies individual differences (scarcity mindset) that moderate spending patterns."
+    - code: "7.A"
+      name: "Budgeting Strategies as Domain Knowledge"
+      justification: "Mental accounting is a budgeting heuristic that Odin could leverage."
+  contribution: "Odin can use mental accounting principles to categorize user spending intentions based on income source (windfall vs regular). The moderation effect of scarcity mindset suggests that Odin should adjust budget recommendations when users exhibit high resource scarcity perceptions. For users with high scarcity mindset, Odin should nudge utilitarian spending over hedonic for windfall gains. This paper also justifies a behavioral profiling module that assesses scarcity mindset to personalize financial advice."
+  directly_justifies:
+    - "Consumers with high scarcity mindset reduce hedonic spending from windfall gains (Cheng et al., 2023)."
+    - "Mental accounting leads to non-fungible treatment of money, affecting category-specific budgets."
+    - "Scarcity mindset does not alter utilitarian spending from hard-earning money."
+  limits:
+    - "Study used hypothetical scenarios rather than real spending data."
+    - "Scarcity mindset measured by self-report, not experimentally manipulated. [unacknowledged]"
+    - "Samples from China only; may not generalize to Filipino young professionals. [unacknowledged]"
+  mapping_rationale: "This paper was screened against Odin's functional domains. Behavioral profiling and classification (Domain 5) applies because scarcity mindset is a psychological trait that moderates spending behavior, informing profile dynamics. Spending forecasting (Domain 6) is not directly addressed as no predictive modeling is used. Budget recommendation (Domain 7) is relevant because mental accounting provides domain knowledge for how users allocate windfall vs regular income. Anomaly detection and expense categorization are not relevant. The topic codes selected: 1.C (financial behavior) captures the core outcome; 5.A (behavioral profiles) captures the individual difference variable; 7.A (budgeting strategies) captures the mental accounting heuristic; 2.C (user preferences) captures the hedonic/utilitarian choice. Rejected codes include 3.A (expense categorization) because the paper does not propose a categorization framework, and 11.A (engagement) because no retention mechanisms are studied. Borderline case: 13.A (savings) – while saving is mentioned, the focus is on consumption, not savings goal management."
+limitations:
+  - "Self-reported scarcity mindset scale may not capture actual resource constraints. [unacknowledged]"
+  - "Only two product types per condition; lacks generalizability to real-world choices. [unacknowledged]"
+  - "No manipulation check for mental accounting condition. [unacknowledged]"
+remember_this:
+  - "Windfall gains increase hedonic spending; scarcity mindset blocks this effect."
+  - "Hard-earning money consistently drives utilitarian consumption regardless of scarcity."
+  - "num: Scarcity mindset reduced hedonic preference with B=−0.66 (students) and B=−1.28 (adults)."
+  - "Mental accounting violates fungibility; money source changes spending behavior."
+```

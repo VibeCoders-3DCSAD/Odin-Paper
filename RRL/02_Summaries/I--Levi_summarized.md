@@ -1,0 +1,92 @@
+```yaml
+paper_id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d"
+designation: "international"
+title: "Personal Financial Information Presentation and Consumer Spending"
+authors: "Levi, Y."
+year: 2025
+venue: "Unknown"
+odin_topics:
+  - "5.A"
+  - "7.A"
+  - "7.B"
+  - "11.A"
+  - "13.A"
+shorthand_tags:
+  - "/behavioral-profiles"
+  - "/budgeting-strategies"
+  - "/budget-recommendation"
+  - "/engagement"
+  - "/savings-goals"
+tldr: "Presenting net worth as a monthly cash flow under a consumption frame with a salient spending comparison reduces discretionary spending by 15% in a field experiment."
+problem_and_motivation: "Consumers exhibit strong spending habits and inertia, yet existing savings tools like financial education and tax subsidies are costly or benefit only the wealthy. It is unclear whether simple changes in information presentation within online financial apps can influence spending without altering economic variables."
+approach:
+  - "Randomized field experiment with 3,138 users of an online account aggregation app over 25 months."
+  - "Users received a personalized index converting net worth to inflation-protected lifetime monthly cash flow."
+  - "Treatments varied index framing (Financial Sustainability Index with fear appeal vs. neutral Life Annuity Index) and salience (context plot comparing index to historical spending vs. no plot)."
+  - "Outcome variables include discretionary spending, spending categories, cash withdrawals, and login frequency."
+  - "Analysis uses individual and time fixed effects with standard errors clustered at consumer level."
+findings:
+  - "num: Users exposed to consumption frame (FSI) and context plot reduced discretionary spending by 15% relative to control."
+  - "num: Effect persisted for 8 months after experiment removal, with gradual convergence after 9 months."
+  - "num: Restaurant spending fell 14%, clothing 20%, entertainment 14%, travel 24%, and cash withdrawals 25%."
+  - "No significant change in non-discretionary categories (gas, groceries, utilities)."
+  - "Login frequency increased similarly across all treated groups, ruling out attention as the driver."
+key_figures_tables:
+  - "Figure 4: Monthly discretionary spending coefficients by treatment → FSI-Plot groups diverge immediately and remain lower throughout."
+  - "Table 5: Treatment effects on discretionary spending → FSI-Plot and FSI-Plot-inf show 15% reduction vs. control; other groups not significant."
+  - "Table 7: Treatment effects by spending category → Largest reductions in restaurants, clothing, entertainment, travel, and cash."
+key_equations:
+  - equation: "y_{i,t} = \\sum_{j=2}^{5} \\beta_j TG_{j,i} \\text{Intra}_t + \\sum_{j=2}^{5} \\gamma_j TG_{j,i} \\text{Post}_t + \\delta_i + \\theta_j + \\epsilon_{i,t}"
+    explanation: "Fixed effects regression with treatment interactions for experiment and post periods."
+definitions:
+  - term: "FSI"
+    definition: "Financial Sustainability Index – consumption-framed name of the personalized index."
+  - term: "LAI"
+    definition: "Life Annuity Index – neutral-framed name of the personalized index."
+  - term: "Discretionary spending"
+    definition: "Spending on categories like entertainment, restaurants, clothing, travel; easy to adjust."
+  - term: "Context plot"
+    definition: "Time series plot comparing index level to user's historical monthly spending."
+critical_citations:
+  - "[Goldstein, Hershfield, Benartzi, 2016] — Illusion of wealth when net worth is a lump sum."
+  - "[Benartzi, Previtero, Thaler, 2011] — Framing affects annuity valuation and demand."
+  - "[Karlan et al., 2016] — Salient reminders promote staying within means."
+relevance:
+  topics:
+    - code: "5.A"
+      name: "Financial Behavioral Profiles in Personal Finance"
+      justification: "Paper shows different spending responses based on framing and salience, informing behavioral classification."
+    - code: "7.A"
+      name: "Budgeting Strategies as Domain Knowledge"
+      justification: "Personalized annuitized net worth provides a benchmark for sustainable spending."
+    - code: "7.B"
+      name: "Budget Recommendation in Personal Finance Systems"
+      justification: "The index acts as an implicit budget recommendation that users follow."
+    - code: "11.A"
+      name: "Engagement Dynamics in Personal Finance Applications"
+      justification: "Treatments increased login frequency, showing information design affects engagement."
+    - code: "13.A"
+      name: "Savings Goal Management in PFMS"
+      justification: "Reducing discretionary spending directly increases savings, supporting goal achievement."
+  contribution: "Odin's budget recommendation module can adopt a personalized annuitized net worth as a dynamic spending benchmark. The behavioral profiling module should incorporate framing effects (consumption vs. neutral) and salience (context plots) to predict user responses. Engagement design can leverage salient comparisons to increase attention and prompt action without changing economic incentives. Savings goal management can benefit from showing users the trade-off between current spending and lifetime monthly cash flow."
+  directly_justifies:
+    - "Presenting net worth as monthly cash flow under a consumption frame reduces discretionary spending by 15%."
+    - "A salient comparison between the index and past spending is necessary for the framing effect to work."
+    - "The spending reduction persists for months after the treatment is removed."
+    - "Cash withdrawals decrease by 25%, indicating additional savings beyond observed discretionary categories."
+  limits:
+    - "Data may be incomplete if users did not link all accounts, biasing net worth and index calculation."
+    - "Sample consists of relatively wealthy users (average net worth $1.1M), limiting generalizability."
+    - "Real assets like real estate are not included in the app's net worth."
+  mapping_rationale: "The paper directly addresses behavioral responses to information design (5.A), provides a benchmark that functions as a budget recommendation (7.B) and budgeting strategy (7.A), demonstrates increased app logins (11.A), and shows spending reduction that increases savings (13.A). Codes related to expense categorization (3.A), anomaly detection (8.A), and debt management (13.B) were rejected because the paper does not address those. Algorithm-specific codes (6.B, 7.C) were rejected as the intervention is a field experiment, not an ML model."
+limitations:
+  - "Data may not include all consumer accounts, potentially offsetting spending changes in unobserved accounts."
+  - "Net worth estimation omits real estate and some retirement or debt accounts, biasing the personalized index."
+  - "Sample is wealthier than average U.S. population, limiting generalizability to lower-income users."
+  - "Experiment was conducted in 2014 before pre-registration became common."
+remember_this:
+  - "A 15% reduction in discretionary spending lasted 8 months after treatment removal."
+  - "Consumption frame and salient context together drive behavior change."
+  - "Effect strongest on tempting categories like restaurants and clothing."
+  - "Login frequency increased but did not explain spending differences."
+```

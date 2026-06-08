@@ -1,0 +1,1198 @@
+informatio n
+SystematicReview
+Evolving Strategies in Machine Learning: A Systematic Review
+of Concept Drift Detection
+GurgenHovakimyan1,*,† andJorgeMiguelBravo1,2,3,4,5,†
+1 NOVAIMS—InformationManagementSchool,NewUniversityofLisbon,1070-312Lisbon,Portugal;
+jbravo@novaims.unl.pt
+2 DepartmentofEconomics,UniversitéParis-DauphinePSL,75775Paris,France
+3 CentrodeInvestigaçãoemGestãodeInformação(MagIC),1070-312Lisbon,Portugal
+4 BRU-ISCTE-IUL,1649-026Lisbon,Portugal
+5 CEFAGE-UE,7000-809Évora,Portugal
+* Correspondence:20231150@novaims.unl.pt
+† Theseauthorscontributedequallytothiswork.
+Abstract:Inthiscomprehensiveliteraturereview,werigorouslyadheretothePRISMA(Preferred
+ReportingItemsforSystematicReviewsandMeta-Analyses)guidelinesforourprocessandreporting.
+Thisreviewemploysaninnovativemethodintegratingtheadvancednaturallanguageprocessing
+modelT5(Text-to-TextTransferTransformer)toenhancetheaccuracyandefficiencyofscreeningand
+dataextractionprocesses. Weassessstrategiesforhandlingtheconceptdriftinmachinelearning
+usinghigh-impactpublicationsfromnotabledatabasesthatweremadeaccessibleviatheIEEEand
+ScienceDirectAPIs.Thechronologicalanalysiscoveringthepasttwodecadesprovidesahistorical
+perspectiveonmethodologicaladvancements,recognizingtheirstrengthsandweaknessesthrough
+citationmetricsandrankings.Thisreviewaimstotracethegrowthandevolutionofconceptdrift
+mitigationstrategiesandtoprovideavaluableresourcethatguidesfutureresearchanddeepens
+ourunderstandingofthisrapidlychangingfield.Keyfindingshighlighttheeffectivenessofdiverse
+methodologiessuchasdriftdetectionmethods,window-basedmethods,unsupervisedstatistical
+methods,andneuralnetworktechniques.However,challengesremain,particularlywithimbalanced
+data,computationalefficiency,andtheapplicationofconceptdriftdetectiontonon-tabulardatalike
+images. Thisreviewaimstotracethegrowthandevolutionofconceptdriftmitigationstrategies
+Citation:Hovakimyan,G.;Bravo,J.M.
+andprovideavaluableresourcethatguidesfutureresearchanddeepensourunderstandingofthis
+EvolvingStrategiesinMachine
+rapidlychangingfield.
+Learning:ASystematicReviewof
+ConceptDriftDetection.Information
+Keywords: concept drift; systematic review; machine learning; types of concept drift; adaptive
+2024,15,786. https://doi.org/
+strategies;ScienceDirectAPI;IEEEAPI;streamingdata;non-stationaryenvironments;evolvingdata
+10.3390/info15120786
+streams
+AcademicEditors:SunilJha,
+MalgorzataRatajandXiaoruiZhang
+Received:15October2024
+1. RationaleforaLiteratureReviewonConceptDriftDetection
+Revised:21November2024
+1.1. Introduction
+Accepted:4December2024
+Published:7December2024 Intheeraofbigdataandcontinuousinformationstreams,machinelearningmodelsare
+widelyemployedtopredict,classify,andanalyzedatainvariousdomains,suchasfinance,
+healthcare, the semiconductor industry, and customer service. These models typically
+assume that the underlying data distribution remains static over time. However, this
+Copyright: © 2024 by the authors.
+assumptionoftenfailsbecauseofconceptdrift,wherechangesinthestatisticalproperties
+Licensee MDPI, Basel, Switzerland.
+ofthetargetvariableovertimecandegrademodelperformance. Conceptdriftresearch
+Thisarticleisanopenaccessarticle
+focusesonmethodologiesfordetecting,understanding,andadaptingtothesechanges,
+distributed under the terms and
+aimingtokeepmodelsaccurateandreliable[1]. Traditionalclassifiersmaystruggleinsuch
+conditionsoftheCreativeCommons
+environments,leadingtopoorperformance[2]asthefundamentalpatternsintrainingdata
+Attribution(CCBY)license(https://
+creativecommons.org/licenses/by/ evolve,causingmodeldegradationandreducedaccuracyovertime[3].
+4.0/).
+Information2024,15,786.https://doi.org/10.3390/info15120786 https://www.mdpi.com/journal/information
+
+Information2024,15,786 2of24
+1.2. ImportanceofConceptDriftDetection
+Conceptdrift,characterizedbychangesindatapatternsovertime,necessitatescontin-
+uousadvancementsinmachinelearning,especiallyinclassificationandregressiontasks.
+Designingmodelsthatcanadapttothesechangesiscrucialformaintainingperformance[4].
+Therelevanceofthisresearchisunderscoredbyitsdirectimpactonmodelaccuracyand
+decision-makingprocesses.
+Thereal-worldimplicationsofconceptdriftareevidentacrossvarioussectors. For
+example, in fraud detection, systems that monitor credit card transactions must adapt
+toevolvingcustomerbehaviorsandclassimbalances,wheregenuinetransactionsvastly
+outnumberfraudulentones[5]. Financialtimeseriesinstockmarketpredictionareprone
+toconceptdrift,affectingforecastingaccuracyasmodelsbecomeoutdated[6].
+Inthesemiconductorindustry,monitoringthehealthofexpensiveequipmentiscritical.
+Traditionalmethodslikestatisticalprocesscontrol(SPC)oftenfailtodetectdriftsearly
+enoughforpreventiveaction[7]. Similarly,healthcaremonitoringinvolvestrackingpatient
+datafortheearlydetectionofhealthconditionchanges,whichiscrucialduringpandemics
+likeCOVID-19[8].
+Otherexamplesincluderecommendationsystemsine-commerce,suchasthoseused
+by Amazon and Netflix, which must adapt to changing user preferences to remain ef-
+fective [9], and image classification, where long-term deployments face shifting visual
+environmentsanddetectingconceptdriftisvitalformaintainingmodelaccuracy[10].
+These examples highlight the pervasive and critical nature of concept drift across
+multipledomains,emphasizingtheneedforcontinuousresearchanddevelopmentindrift
+detectionmethodologies.
+1.3. ObjectivesoftheSystematicLiteratureReview
+Theprimarygoalofthisliteraturereviewistoilluminatethelandscapeofexisting
+methods employed in detecting concept drift. We aim to comprehensively categorize
+thedifferentdetectiontechniquestounderstandtheavailabletools. Thiseffortinvolves
+classifying methods based on criteria such as their underlying algorithms, application
+domains,andperformancemetrics. Additionally,weendeavortodiscerneachmethod’s
+strengths and weaknesses, identify the most effective strategies, and understand their
+limitations. Thisanalysiswillguidepractitionersinselectingappropriatemethods.
+Furthermore, we aim to pinpoint and analyze emerging trends and relatively less
+exploredtopicsforfutureresearch. Wehighlighttheseareasbyfocusingonpromising
+avenues that warrant further investigation. An integral element of our endeavor is to
+updatetheinformationinexistingliteraturereviewpapers,servingasatimelyandrelevant
+resourceinthisfast-paceddomain. Byachievingtheseobjectives,weintendtocontributea
+detailedandactionablesynthesisofcurrentknowledgeinconceptdriftdetection,facilitat-
+ingfurtheradvancementsinthisfield.
+1.4. ScopeoftheReview
+Thisreviewcomprehensivelyexaminesvariousconceptdriftdetectionmethodsde-
+velopedoverthelasttwodecades. Itincludesanin-depthanalysisofstatisticaltechniques,
+machinelearningapproaches,anddeeplearningmethods.Wealsodiscussthedatasets,and
+theircharacteristics,widelyusedinconceptdriftdetection. Furthermore,weevaluatethe
+frameworksandtoolscommonlyemployedinthisfield,providingaholisticunderstanding
+of the landscape. This review aims to offer a thorough and up-to-date synthesis of the
+methodologiesandresourcespertinenttoconceptdriftdetectionbycoveringtheseareas.
+1.5. TheoreticalFoundationsofConceptDrift
+Concept drift can be understood through the lens of well-established theoretical
+frameworks,includingstatisticallearningtheory,Bayesianinference,informationtheory,
+andonlinelearningtheory.Theseframeworksprovideastructuredbasisforunderstanding
+thechallengesandmethodologiesassociatedwithdriftdetection.
+
+Information2024,15,786 3of24
+1. StatisticalLearningTheory
+Statisticallearningtheoryunderpinsthegeneralizationcapabilityofmachinelearning
+models. ThistheoryassumesthatthejointprobabilitydistributionP(X,Y)remainsstatic
+overtime. However,conceptdriftviolatesthisassumption,leadingtodegradedmodel
+performance. WhenP(X)orP(Y|X)changes,theempiricalriskminimizationprincipleno
+longerholds. Adaptivetechniquesarenecessarytoaddresstheseviolationsandrestore
+modelperformance[11].
+2. Bayesian Inference Bayesian inference provides a probabilistic framework for
+updatingmodelbeliefsasnewdatabecomeavailable. Conceptdriftcanbeviewedasa
+continuousprocessofupdatingpriordistributionstoadapttoevolvingevidence[12].
+Example: Infinancialforecasting,Bayesianmodelsdynamicallyupdatepredictionsto
+reflectchangesinmarketconditions,ensuringmoreaccurateriskassessments.
+3. InformationTheoryInformation-theoreticmeasures,suchasentropyandKullback–
+Leibler(KL)divergence,arecommonlyusedtoquantifychangesindatadistributions[13].
+Example: KLdivergencecanbeusedtocomparethestatisticalpropertiesofincoming
+datastreamswithhistoricaldata,flaggingsignificantdeviationsaspotentialdrift.
+4. OnlineLearningTheory
+Onlinelearningtheorydealswithincrementalmodelupdatesasnewdataarrives.
+Thisframeworkemphasizesbalancingstability(preservingpastknowledge)withplasticity
+(adaptingtonewpatterns)[14].
+Example: Online learning models used in recommendation systems can adapt to
+changinguserpreferenceswithoutrequiringafullretrainingofthesystem.
+PracticalImplicationsTheintegrationofthesetheoreticalframeworksintoconcept
+driftdetectionmethodsenhancestheiradaptabilityandeffectiveness:
+• Statistical learning theory highlights the necessity of adaptive models to address
+changingdistributions.
+• Bayesianinferenceprovidesanaturalmechanismforgradualdriftadaptation.
+• Information-theoreticmeasuresenableprecisequantificationofvirtualdrift.
+• Changedetectiontheoryoffersrobusttoolsforidentifyingabruptchanges.
+• Onlinelearningframeworksensurescalabilityandreal-timeadaptability.
+Bygroundingconceptdriftdetectioninthesefoundationaltheories,researcherscan
+developrobust,adaptablemodelstailoredtothecomplexitiesofdynamicenvironments.
+2. Methodology
+ThisliteraturereviewfollowedthePRISMAguidelines,ensuringacomprehensive
+andunbiasedapproach. Themethodologicalprocesswasstructuredwithinfourcrucial
+stages: theidentification,screening,eligibility,andinclusionofstudies.
+2.1. IdentificationofResearch
+Theinitialresearchwasconductedontwoprimarydatabases,IEEEandScienceDirect,
+utilizingtheirinherentApplicationProgrammingInterfaces(APIs)andPythonSDK.This
+ledtotheidentificationof450potentialstudies. Oursearchencompassedacomprehensive
+overviewofallrelevanttopics,withsearchqueriesincludingtermssuchasthefollowing:
+• Conceptdrift;
+• Changedetectionadaptiveenvironment;
+• Evolvingdatastreams;
+• Unstableenvironment;
+• Driftdetection;
+• Distributionchange;
+• Onlinelearning;
+• Non-stationaryenvironments.
+Aswedelveddeeperintotheliteratureduringourreviewprocess,wefoundadditional
+keypapersinthereferencessectionsofvariousarticles.Theserelevantpublications,curated
+
+Information2024,15,786 4of24
+fromplatformslikeSpringer,ResearchGate,andACMDigitalLibrary,contributedanextra
+40 studies. Therefore, our review process expanded, ultimately examining 490studies,
+enhancingthecomprehensivenessofourresearchbase.
+2.2. InclusionandExclusionCriteria
+Toensuretherelevanceandqualityofthecollectedliterature,weestablishedstrict
+inclusionandexclusioncriteria.Paperstobeincludedhadtoaddressconceptdriftdetection
+methodologiesexplicitly, provideempiricalevaluations, andbepublishedinreputable
+journalsorconferences. Conversely,weexcludedpapersthatfocusedsolelyongeneral
+machinelearningconceptswithoutspecificrelevancetoconceptdriftdetection.
+Fromourinitialpoolof490studies,thesecriteriaallowedustosiftdownto356papers
+that satisfied all conditions. To further underscore the quality of our chosen literature,
+weconductedacitationanalysistoidentifythemostinfluentialarticlesonconceptdrift
+detection. Thiswascalculatedasthenumberofcitationsdividedbythenumberofyears
+sincethearticle’spublication[15],asgivenbythefollowingformula:
+TotalNumberofCitations
+AdjustedCitationRate= .
+YearsSincePublication
+2.3. ScreeningProcess
+Upongatheringthearticles,weutilizedthesophisticatedText-to-TextTransferTrans-
+former (T5) model [16] to summarize abstracts for relevance. This innovative natural
+languageprocessing(NLP)-aidedscreeningprocesswasappliedtothepreviouslyidenti-
+fied356studies. Theaimwastoidentifyarticlesthatadequatelymetourinclusioncriteria,
+whichrequiredtheworkstobepeer-reviewed,writteninEnglish,andpublishedineither
+research journals or conference proceedings. Each study needed to demonstrate appli-
+cationsorsimulationsrelatedtoconceptdriftandimplementorevaluatetechniquesfor
+detectingconceptdrift. Furthermore,theoutcomesofthestudieshadtoinvolvemeasuring
+orobservingtheeffectivenessoftheconceptdriftdetectiontechniques. Adheringtothese
+criteria,wenarrowedourpoolto254articles. Thisrigorousscreeningprocessyieldeda
+finalselectionofarticlesthatwasefficientandaccurate.
+2.4. EligibilityAssessment
+Theeligibilityassessmentphaseaimedtoensurethattheincludedstudiesadhered
+strictly to the pre-established quality and relevance criteria. From the 254 studies that
+passedtheinitialscreening,weconductedameticulousfull-textreviewofeachpaperto
+ascertainitscompliancewithourinclusioncriteria. Thisprocessemphasizedtherelevance
+ofeachpapertoourresearchquestions,thescopeoftheinvestigation,anditsalignment
+withtheobjectivesofthisreview.
+Duringthisphase,wedelveddeeperintothestudies’methods,results,andconclu-
+sions. Weperformedthiscarefulexaminationtoincludeonlyhigh-qualityandrelevant
+studiesinourreview. Weverifiedthateachstudyutilizedconceptdriftdetectiontech-
+niquesandspecificallyappliedthemtothecentraltopicsofourreview. Studiesthatused
+thesetechniquesforunrelatedtaskswereexcludedtomaintainthefocusandrelevanceof
+ourreview.
+Thisdiligentsteprefinedourfocus,resultinginaconcentratedpoolof111studies.
+Thethoroughnessemployedatthisstageunderscoresthetrustworthinessandreliabilityof
+ourreview,maintainingtheresonanceandqualityoftheincludedresearch.
+2.5. QualityAssessment
+The objective of the quality assessment was to evaluate methodological rigor and
+potential sources of bias in the included studies, ensuring reliable and valid findings.
+WeusedanadaptedNewcastle–OttawaScale(NOS)formethodologicalstudies[17]and
+CASP(CriticalAppraisalSkillsProgramme)-likechecklistsforempiricalandapplication
+studies[18].
+
+Information2024,15,786 5of24
+Thekeycriteriausedfortheassessmentincludedmethodologicalclarity,empirical
+validation, reproducibility, andpracticalrelevance. Methodologicalclarityinvolvedas-
+sessingwhethertheconceptdriftproblemwasclearlydefinedandwhethermethodsand
+algorithmsweredescribedindetail. Empiricalvalidationincludedevaluatingtherelevance
+andqualityofdatasets;theclarityandrelevanceofperformancemetrics,suchasaccuracy
+anddetectiondelay;andwhethermethodswerecomparedwithexistingbaselinemeth-
+ods. Weassessedreproducibilitybycheckingtheavailabilityofdata,code,andstepsto
+reproducethestudyforreplicationandthetransparencyofthestudy’smethodologyand
+reporting. Finally,wedeterminedthepracticalrelevancebasedonwhetherthemethods
+wereapplicabletoreal-worldscenariosandtheoverallimpactandcontributiontothefield.
+Eachstudywasratedonascalefrom1to5foreachcriterion,andtheoverallqualityscores
+werecalculated.
+Thestudiesconsideredhighquality(ascoreof4–5)hadsolidfoundationswithclear
+problemstatements,detailedandrigorousmethodologies,robustvalidations,andhightrans-
+parency. Those of moderate quality (3–4) provided clear methodologies but had some
+limitationsindataavailabilityorcomparativeanalysis—theyofferedusefulinsightsbut
+requiredcarefulinterpretation. Thoseoflowquality(below3)hadunclearproblemstate-
+mentsandinsufficientmethodologicaldetail—theyhadmethodologicalweaknessesand
+wereconsideredwithcaution. Table1liststheaggregatedqualityresults.
+Table1.Summaryofthequalityassessmentscores.
+QualityCategory ScoreRange NumberofStudies PercentageofTotal
+High 4–5 51 45%
+Moderate 3–4 45 41%
+Low Below3 15 14%
+Total 111 100%
+Bysystematicallyassessingthestudyqualityandaccountingforbiases,thisquality
+assessmentenhancedthereliabilityofourreviewonconceptdriftdetection.
+2.6. SynthesisofResults
+Theincludedstudiesvariedinstudydesign,drifttypes,datatypes,andmethods. Key
+characteristicsincludedthefollowing:
+• StudyDesigns—supervised,semi-supervised,andunsupervised.
+• DriftTypes—pattern-basedanddistribution-based.
+• DataTypes—syntheticandreal.
+• Methods—driftdetectionmechanisms,window-basedmechanisms,unsupervised
+andsemi-supervisedmethods,ensemblemethods,andneuralnetworks.
+The studies were categorized based on the type of concept drift and the methods
+used for detecting concept drift. Examining existing studies from the last two decades
+revealed that concept drift can be grouped into two primary categories: distribution-
+andpattern-based.
+Distribution-basedconceptdriftconcernschangesinthestatisticalpropertiesofdata
+over time, impacting machine learning model performance. These alterations may be
+sudden,incremental,gradual,orrecurrent. Conversely,pattern-baseddriftreflectschanges
+withindatarelationshipsandpatterns,whichcaninvolvemodificationstoassociations
+betweenfeatures,decisionboundaries,orinputandtargetvariables.
+Figures1and2illustratethesecategoriesfurther. Notably,distribution-baseddrift
+canappearasvirtualconceptdrift,realconceptdrift,orviatheintroductionofanovel
+class. Virtual drift involves changes in input feature distributions without impacting
+thetargetvariable. Realconceptdrift, whichisimpactfulacrosshealthcare, economics,
+andfinancialmarkets,involveschangestotheconditionalprobabilityp(Y|X). Lastly,novel
+classappearanceintroducesnew,previouslyunseenclassesintothedatastream.
+
+Information2024,15,786 6of24
+Figure1.Distribution-basedconceptdrift:Thefigureshowsvariousconceptdriftscenarios,where
+differentshapesrepresentdifferentclassesandchangesindatadistributionandclassrelationships.
+Figure2.Pattern-basedconceptdrift:Thefigureillustratesdifferenttypesofconceptdriftovertime,
+wherechangesindatadistributionoccurinsudden,incremental,reoccurring,andgradualpatterns.
+Pattern-baseddriftcanbesudden,incremental,gradual,orrecurrent. Suddendrift
+typicallycharacterizesinstantaneousdatadistributionchanges,whileincrementaldrift
+involves slow, continuous data changes. Meanwhile, gradual drift signifies consistent
+changesoveranextendedperiod,andrecurrentdriftexhibitsperiodicalandcyclicalshifts
+indatadistribution.
+TheabovedescribedconceptdrifttypesaresummarizedinTable2.
+
+Information2024,15,786 7of24
+Table2.Summaryoftheconceptdrifttypes.
+DriftType Description Real-WorldExample
+ChangesinP(X)withoutaltering Seasonalvariationsincustomer
+VirtualDrift
+P(Y|X). transactions.
+Introductionofnewfraud
+ChangesinP(Y|X),affectingmodel
+RealDrift schemesincreditcard
+accuracy.
+transactions.
+Abrupt,significantchangesindata Marketcrashesinfinancial
+SuddenDrift
+distribution. forecasting.
+E-commercetrendsshifting
+GradualDrift Slow,continuouschangesovertime.
+duringholidayseasons.
+Progressiveevolutionofdata Evolvinguserpreferencesin
+IncrementalDrift
+distribution. recommendationsystems.
+Cyclicalchangesindata
+RecurrentDrift Seasonalsalespatternsinretail.
+distribution.
+Mostresearchersconcentrateonspecifictypesofdrifts.Additionally,wenoticedsignif-
+icantsimilaritiesbetweenseveralconceptdriftdetectionmechanismtypes. Consequently,
+wecategorizeddriftdetectionmechanismsintofivemaintypes.
+Driftdetectionmechanism. Fordriftdetectionmechanisms(DDMs),techniquessuch
+as statistical tests and control charts are commonly used. These methods show high
+accuracyindetectingdistribution-baseddrifts.
+Window-basedmechanism(WBM):Methodsemployingawindow-basedmechanism
+(WBM),likeslidingwindowsandtime-basedwindows,areusedtomanagedatastreams.
+Theseapproachesareeffectiveforreal-timedriftdetection.
+Unsupervised and semi-supervised methods: Unsupervised and semi-supervised
+methods(USSMs)includeclusteringandsemi-supervisedlearning. Thesemethodsare
+adaptabletochangesinreal-worlddatapatternsandareoftenusedtodetectnovelclasses.
+Ensemblemethod: Ensemblemethods(EMs)combinemultiplemodelstoimprove
+detectionaccuracyandrobustness. Studiesdemonstratehighperformanceacrossvarious
+datatypes.
+Neuralnetworks: Advancedneuralnetwork(NN)modelsareemployedfordetecting
+complexdrifts. Althoughrelativelynewinconceptdriftdetection,thesemethodsshow
+highadaptabilityandaccuracy.
+3. Results
+3.1. StudySelection
+Inourexplorationoftheconceptdriftcarriedoutacrossaselectedpoolof111eligi-
+blestudies,weembarkedonacomprehensiveanalysis. Thisanalysisresultedinafinal
+ensembleof65high-impactstudies. Ourprimaryfocuswasonthedifferenttypesofcon-
+ceptdriftrepresentedinthesestudies,formingafundamentalaspectofourforthcoming
+discussions. Thisincludedexaminingthespecificstrategiesemployedtomitigateconcept
+drift,evaluatingthestrengthsandweaknessesoftheseapproaches,andassessingtheir
+practicalapplicability. Wealsospotlightedthecommonlyinvokedcomparisonmetrics,
+frameworks,anddatasetssupportingacomparativestudyofconceptdriftdetectionstrate-
+gies. Themeticulousfindingsfromourexhaustiveanalysisofthese65studiesformedthe
+backboneofourcomprehensivereview. InFigure3,weprovideanillustrativediagram
+tofurtherelucidateourmeticulousselectionprocessanditsresultingreductionsateach
+stage. ThisPRISMAdiagramsummarizesthescreeningandeligibilityassessmentstages
+andthereasonsforexclusionateachphase. Byreferringtothisvisualaid, readerscan
+moreeasilycomprehendourmeticulousstep-by-stepapproachandappreciatethedepth
+ofoursystematicreviewprocess.
+
+Information2024,15,786 8of24
+Identification of studies via database and registers
+noitacfiitnedI
+Sourcesofrecordsidentified Recordsremovedbeforescreening
+• Databases(n=2+3) • Ineligible(n=72)
+• Registers(n=450+40) • Otherreasons(citations)(n=62)
+gnineercS
+Recordsscreened(n=356) Recordsexcluded(n=102)
+Reportssoughtforretrieval(n=254) Notretrieved(n=0)
+Reportsexcluded
+Reportsassessedforeligibility(n=111) • Noncentraltopic(n=39)
+• Nocomparativeanalysis(n=32)
+• Limitedscope(n=28)
+• Lackofdata(n=20)
+• Non-replicability(n=16)
+• Literaturereview(n=4)
+• Language(n=3)
+• Unreliablesource(n=1)
+dedulcnI
+Reportsofincludedstudiesn=65
+Figure3.PRISMAflowdiagramillustratingtheselectionprocessofthestudies.
+3.2. StudyCharacteristics
+Theincludedstudieswerediverseregardingthestudydesign,drifttypes,andmeth-
+odsusedforconceptdriftdetection. Table3summarizesthesecharacteristics.
+
+Information2024,15,786 9of24
+Table3.Summaryofthecharacteristicsoftheincludedstudies.
+Study DriftType Method Findings
+DDM[19] Sudden+Gradual DDM Detectsabruptandgradualdriftsbyerrorratechanges.
+EarlyDDM(EDDM)[20] Sudden+Gradual DDM Improvesgradualdriftdetectionusingclassificationerrordistances.
+Hoeffding’sDDM(HDDM)[21] Sudden+Gradual DDM Non-parametriconlinedetectionforabruptandgradualdrifts.
+FastHoeffding’sDDM(FHDDM)[22] Sudden+Gradual DDM+WBM EnhancesHDDMspeedandsensitivityforabruptandgradualdrifts.
+ReactiveDDM(RDDM)[23] Sudden+Gradual+Reoccuring DDM Quicklydetectsabruptandgradualdriftsviatheerrorrate.
+AccurateDDM(ACDDM)[24] Sudden+Gradual+Reoccuring DDM Identifiesabrupt,gradual,andrecurringdriftswithhighaccuracy.
+Diversity-measureDDM(DMDDM)[25] Sudden+Gradual+Reoccuring DDM Usesclassifierdiversitytodetectvariousdrifttypes.
+DDMwithfalsepositiverate(DDM-FP-M)[26] Sudden+Gradual+Reoccuring DDM Controlsfalsepositiveswhiledetectingvariousdrifttypes.
+Distinguishesnoisefromdriftsanddetectsgradualand
+Noise-tolerantDDM[27] Sudden+Gradual+Reoccuring DDM
+abruptchanges.
+GroupDDM[28] Sudden+Gradual+Reoccuring DDM Detectsmultipledrifttypesindatastreamssimultaneously.
+Detectsdriftusinghypothesistestsondatastreamsandbalances
+Detectingconceptdriftusingstatisticaltesting(STEPD)[29] Sudden+Gradual WBM
+falsepositiveswithdetectionsensitivityeffectively.
+Learningfromtime-changingdatawithadaptivewindowing(ADWIN)[30] Sudden+Gradual WBM Detectssuddenandgradualdriftefficiently;sensitivetonoise.
+Usesstableandreactivelearnerstodetectconceptdriftefficientlyand
+Pairedlearnersforconceptdrift(PL)[31] Sudden+Gradual WBM
+outperformsothermethodswithfewerresources.
+Utilizesmultiplesemi-randomdecisiontreesfordriftdetection,
+Miningconcept-driftingdatastreamswithmultiplesemi-randomdecisiontrees(MSRTs)[32] Sudden+Gradual+Reoccuring WBM adaptingdynamically,anddemonstratesimprovedperformancein
+timeandaccuracy.
+Doublewindow–basedclassificationalgorithmforconcept-driftingdatastreams[32] Sudden+Gradual WBM Employsthedoublewindowmechanism
+Dynamicfinancialdistresspredictionusinginstanceselectionforthedisposalofconcept DiscussesfourWBMtypes:fullmemory,nomemory,fixedsize,and
+- WBM
+drift[33] adaptablesize.
+Classifierensemblefortextstreams[34] Sudden+Gradual WBM Experimentswithtextualdata
+EWMAcharts[4] Sudden+Gradual WBM Maintainsaconstantfalsepositiveratewithoutstoringdatapoints
+iForestASD[35] Sudden+Gradual+Reoccuring WBM Usesslidingwithisolationforestwindowsforanomalydetection.
+CombinestextcategorizationandSVMfortheearlydetectionof
+TRIOalgorithm[36] Gradual WBM
+gradualdrifts
+Integratesdriftandvolatilitydetectiontohandlehigh-volumeand
+SEEDalgorithm[37] Sudden+Gradual WBM
+high-velocitydata.
+
+Information2024,15,786 10of24
+Table3.Cont.
+Study DriftType Method Findings
+Combinesevolutionaryalgorithmswithdecisiontreesfor
+CEVOT[38] Sudden+Gradual WBM
+incrementaladaptation.
+Dynamicalsystemstools[39] Sudden+Gradual WBM Usesdynamicalmodelsfordetectingsubtlechanges
+Fisher’sexacttest[40] Sudden+Gradual WBM AdaptstheFishertestforefficientdriftdetection.
+McDiarmiddriftdetection[41] Sudden+Gradual WBM NovelapproachtodetectconceptdriftusingMcDiarmid’sinequality.
+Bayesianapproach[42] Sudden WBM Bayesianmethodspecificallyfordetectingabruptconceptdrift.
+Gaussianmixturemodels[43] Sudden+Gradual+Reoccuring WBM Detectsrapidchangesinindustrialsettings.
+Learn++withslidingtimewindow[44] Sudden+Gradual+Reoccuring WBM Addressesimbalancedclassification
+Just-in-timelearning(JITL)[45,46] Sudden+Gradual+Reoccuring WBM Integrateswithwindowmechanismsforsoftsensordesign.
+IntegratesSVMintomethodologiestomanageconcept
+ShiftingwindowmechanismforSVMs[47,48] Sudden+Gradual+Reoccuring WBM
+drifteffectively.
+Spectralentropyandbernoullimap[49] Sudden+Gradual WBM EmploysspectralentropycombinedwiththeBernoullimap.
+Multi-slidingwindowsfordrifttypeidentification[50] - WBM Mainfocusisonthedetectionofdrifttype.
+Classificationandnovelclassdetectioninconcept-driftingdatastreamsundertime
+NovelClass USSM Addressesthenovelclassdetectionproblem
+constraints[51]
+SUNemploysk-modesanddecisiontreestoidentifyconcept
+SUNalgorithm[52] Sudden+Gradual USSM
+drifteffectively.
+Usescorrelationinformationtodetectconceptdriftinmulti-stream
+Detectionofconceptdriftforlearningfromstreamdata[53] Sudden+Gradual USSM
+datamodels.
+Recognizinginputspaceandtargetconceptdriftswithscarcelylabeledandunlabeled Usesactivelearningandclassifiercertaintytodetectdriftswith
+Sudden+Gradual+Reoccuring USSM
+instances[54] minimallabeleddata.
+Tracksthenumberofsamplesintheuncertaintyregionasametricto
+Margindensitydriftdetection(MD3)[55] Sudden+Gradual USSM
+detectdrift.
+Withpredict–detectframework,includesadversarialforethoughtand
+Handlingadversarialconceptdriftinstreamingdata[56] Sudden USSM
+contextfordriftdetectionandmitigation.
+Asaproactiveapproach,usesunsupervisedlearningandstatistical
+DetectA:abruptconceptdriftdetectioninnon-stationaryenvironments[57] Sudden USSM
+comparisonsforefficientdriftdetection.
+IncludesELBND,LE,andadaptivemethodsusingNLMSmetrics
+Conceptdriftrobustadaptivenoveltydetectionfordatastreams[58] NovelClass USSM
+andexcelsinrobustdriftdetection.
+
+Information2024,15,786 11of24
+Table3.Cont.
+Study DriftType Method Findings
+Presentsacluster-basedapproachfordetectingnoveltyand
+OLINDDAtechnique[59] NovelClass USSM
+conceptdrift
+Asamicro-cluster-basedtechnique,ensureshighperformancein
+Onlinereliablesemi-supervisedlearningonevolvingdatastreams[60] Sudden+Gradual+Reoccuring USSM
+semi-supervisedenvironmentswithlimitedlabeleddata.
+Semi-supervisedclassificationondatastreamswithrecurringconceptdriftandconcept UsesanESCRframeworkemploysJensen–Shannondivergenceand
+Sudden+Gradual+Reoccuring USSM
+evolution[61] clusteringforefficientandaccuratedriftdetection.
+Conformalpredictionforsemi-supervisedclassificationondatastreams(CPSSDS) Proposesasemi-supervisedframeworkwithconformalprediction
+Reoccuring USSM
+algorithm[62] andself-trainingforefficientdriftdetectioninevolvingdatastreams.
+Asasemi-supervisedframework,usesdynamicmicro-clustersand
+Novelsemi-supervisedclassificationapproachforevolvingdatastreams[63] Sudden+Gradual+Reoccuring USSM
+onlineupdatesforefficientconceptdriftdetection.
+EmploysAEframeworkthatcombinesvariedlearning
+Robustensemblelearningforminingnoisydatastreams[64] Sudden+Gradual EM algorithm-basedclassifiers,enhancingperformanceonnoisydata
+streams.
+Mergesdecisiontreesandclusteringtoenhanceclassification
+Adaptiveensembleclassifierforminingconcept-driftingdatastreams[65] Sudden+Gradual EM
+accuracyandadaptability.
+Transformsblock-basedensemblesforefficientreactionstosudden
+Onlineaccuracyupdatedensemble(OAUE)[3] Sudden+Gradual+Reoccuring EM
+andgradualconceptdrifts.
+Balancesclasssamplesusingdynamicweightedvoting,excellingin
+Ensembleofsubsetonlinesequentialextremelearningmachine(ESOS-ELM)[66] Sudden+Gradual EM
+bothstationaryandnon-stationaryenvironments.
+UsetimeweightingandAdaboost-SVMforsuperiorfinancial
+DEVE-ATandADASVM-TWalgorithms[67] Sudden+Gradual+Reoccuring EM
+distressprediction.
+Usesselectiveresampling,clustering,anddynamicupdatesto
+Gradualresamplingensemble(GRE)algorithm[68] Gradual EM
+achievesuperiorperformanceacrossvariousdrifttypes.
+Balancesclassdistributionsandperiodicallyupdatesmembersfor
+Selection-basedresamplingensemble(SRE) Sudden+Gradual+Reoccuring EM
+robustperformanceacrossconceptdrifts.
+Combinesdynamicsamplingandensembleclassification,adaptingto
+Handlingimbalanceddatawithconceptdrift(HIDC)[69] Sudden+Gradual+Reoccuring EM
+ensureaccuracydespiteconceptdriftandclassimbalance.
+Preprocesseddynamicclassifierensembleselectionforhighlyimbalanceddrifteddata Integratespreprocessinganddynamicselection,enhancing
+Sudden+Gradual EM
+streams[70] performanceinimbalancedandnon-stationarydata.
+Employsadaptivesubspacesanddynamictrainingtoachieve
+AESAKNNS[71] Gradual EM
+superioradaptationtoconceptdriftinmulti-labeldatasets.
+
+Information2024,15,786 12of24
+Table3.Cont.
+Study DriftType Method Findings
+Withaquicklearningspeed,usesasingle-stepLSEmethodfor
+Extremelearningmachine(ELM)[66] Sudden+Gradual+Reoccuring NN
+trainingSLFN,bypassingiterativegradientdescentmethods.
+Determinesneuronquantityandrandomlyselectsactivation
+FastincrementalELMalgorithm[72] Sudden+Gradual+Reoccuring NN
+functionstoachieveimprovedaccuracyinclassification.
+Performsbetterthantraditionalensembleapproachesonseveral
+FP-ELM[73] Sudden+Gradual+Reoccuring NN
+regressionandclassificationproblemswithconceptdrift.
+Balancesclassesanddetectdrift,reducingprocessingtime,providing
+GPU-acceleratedELM[74] Sudden+Gradual+Reoccuring NN
+effectivereal-timebigdatamining.
+Outperformsseveralexistingmethodsonvariousmulti-class
+Meta-cognitiveonlinesequentialELM(MOS-ELM)[75] Sudden+Gradual+Reoccuring NN
+datasets,effectivelyhandlingbothimbalanceddataandconceptdrift
+UsesELMandadriftdetectionthresholdtoensuresuperioraccuracy
+DynamicELM(DELM)[76] Sudden+Gradual+Reoccuring NN
+andadaptabilityinvariousconceptdriftscenarios.
+Employsdatareductionandrepositorysizelimitation,providing
+EvolvingspikingNN(eSNN)[77] Gradual+Reoccuring NN
+higheraccuracyinonlinelearningenvironments.
+IntegratesaDDMandALDkernelfilter,enhancingprediction
+Meta-RKOS-ELM-DDM[78] Sudden+Gradual+Reoccuring NN
+accuracyandlearningefficiency.
+MergesrecurrentkernelOS-ELMwithDDMandtherecursivekernel
+Meta-RRKOS-ELM[79] Sudden+Gradual+Reoccuring NN methodtoachieveenhancedperformanceandefficiencyin
+handlingdrift.
+ForIoTservices,usessmoothactivationandatime-basedforgetting
+I-LSTM[80] Gradual+Reoccuring NN mechanismtoachievesuperioranomalydetectionin
+time-seriesdata.
+Usesadaptivedepthunitsinanensembletoachievesuperior
+SEOA[81] Sudden+Gradual+Reoccuring NN performance,balance,speed,andgeneralizationinhandling
+conceptdrift.
+
+Information2024,15,786
+13of24
+3.3. FindingsonConceptDriftDetectionMethods
+Thestudieswerecategorizedbasedonthemethodsusedfordetectingconceptdrift.
+Thissectiondetailsthefindingsforeachcategory.
+DDMs . The concept of drift detection was significantly advanced by the work of
+Gamaetal. in2004withtheirintroductionoftheDDM[19]. Thismethodhassincebecome
+abenchmark,inspiringnumeroussubsequenttechniquesthateitherbuilduponormodify
+theoriginalalgorithm. ThemainstructureoftheDDMisprovidedinAlgorithm 1.
+Algorithm1:Generalalgorithmfordriftdetectionmechanisms.
+Input: Datastreamcontinuouslyenteringthesystem
+Output: Updatedmodel,responsivetotheconceptdrift
+FunctionDetectDrift(data):
+whilenewdataavailabledo
+| Calculateerrorrate | p   |     |     |     |
+| ------------------ | --- | --- | --- | --- |
+t
+| Computestandarddeviations |     | t : |     |     |
+| ------------------------- | --- | --- | --- | --- |
+(cid:114)
+|     |     | p t (1−p t ) |     |     |
+| --- | --- | ------------ | --- | --- |
+s =
+t t
+| // Set the    | minimum error | rate and standard  | deviation | based |
+| ------------- | ------------- | ------------------ | --------- | ----- |
+| on historical | data or       | the initial stable | period    |       |
+Set p min astheminimumobservederrorrate
+| Sets asthestandarddeviationcorrespondingto |     |     | p   |     |
+| ------------------------------------------ | --- | --- | --- | --- |
+| min                                        |     |     | min |     |
+Setwarninglevelthreshold:
+|     | p +s | ≥ p +2×s  |     |     |
+| --- | ---- | --------- | --- | --- |
+|     | t    | t min min |     |     |
+Setdriftlevelthreshold:
+|     | p +s | ≥ p +3×s  |     |     |
+| --- | ---- | --------- | --- | --- |
+|     | t    | t min min |     |     |
+ifwarningleveldetectedthen
+Initiateanewmodel
+end
+ifdriftleveldetectedthen
+Replacecurrentmodel
+end
+end
+TheDDMoperatesbasedonStatisticalProcessControls(SPCs)[82]bymonitoringthe
+errorrateofapredictivemodelovertime. Asnewdatapointsareprocessed,thealgorithm
+calculates the error rate p and its standard deviation s . The method sets two critical
+|     | t   | t   |     |     |
+| --- | --- | --- | --- | --- |
+thresholds: awarninglevelandadriftlevel. Thewarninglevelthresholdisdefinedas
+p +s ≥ p +2×s , indicating potential concept drift and prompting the system
+t t min min
+to initiate a new model. The drift level threshold, defined as p t +s t ≥ p +3×s ,
+min min
+confirmsthedrift,leadingtothereplacementofthecurrentmodel.
+Thisapproachallowsthesystemtodynamicallyadapttochangesinthedatastream,
+maintainingmodelaccuracyandperformance.ThepioneeringworkbyGamaetal.laidthe
+foundationformanyadvanceddriftdetectionmethodsthatincorporatevariousenhance-
+mentsandmodificationstoimprovedetectionaccuracyandresponsivenesstodifferent
+types of drifts. While DDM is efficient for real-time applications, it can produce false
+positivesinnoisyenvironments. Itslimitationsindetectinggradualdrifthaveledtothe
+developmentofextensionslikeEDDM[20].
+
+Information2024,15,786 14of24
+WBMs.WBMsarepivotalinthedetectionofconceptdriftwithindatastreams.Byutiliz-
+ingasystematicapproachthatcomparesthestatisticalcharacteristicsofhistoricaldatawith
+newlyobserveddata,thesemethodseffectivelymonitorandidentifyshiftsindatadistribution.
+Typically,theseapproachesinvolvetheuseoftwodistinctdatawindows,onestatic(historical)
+andonedynamic(adjustingwithnewdata),allowingforthecontinuousassessmentand
+identificationofchangesovertime.
+Severalseminalpapers, thoughpublishedoveradecadeago, continuetoserveas
+benchmarksinthefieldofconceptdriftdetection. Notably,theresearchpaper“Detecting
+ConceptDriftUsingStatisticalTesting”byKyosukeNishidafrom2007[29]introduced
+the STEPD algorithm, which remains influential. Meanwhile, Albert Bifet’s 2007 work
+“LearningfromTime-changingDatawithAdaptiveWindowing”(ADWIN)[30]hasmade
+substantialcontributionstoadaptivelearningstrategies. Basedonthesepapers,manynew
+advancedtechniqueshavebeendeveloped.
+Thegeneralstructureofthewindow-basedconceptDDMsisdescribedinAlgorithm 2.
+Algorithm2:WBMforconceptdriftdetection
+Input: Datastreamcontinuouslyenteringthesystem
+Output: Updatedmodel,responsivetotheconceptdrift
+FunctionDetectDrift(data):
+Definewindowtypes(Sliding,Fixed,Adaptive)
+Initializemodelwithinitialtrainingset
+whilenewdataavailabledo
+Updatewindowwithincomingdata
+ifwindowtypeisadaptivethen
+Adjustwindowsizebasedondriftdetection
+else
+Maintainfixedorslidewindow
+end
+Detectpotentialdriftusingstatisticaltestsorerrormonitoring
+ifdriftdetectedthen
+Retrainorupdatethemodelwithdatawithinthecurrentwindow
+Optionallyadjustensemblemodels
+Evaluatemodelperformance
+Adjustwindowstrategybasedonperformancefeedback
+Triggeralertsorautomatedresponses
+end
+Provideupdatedpredictions
+end
+WBMslikeADWINaremostlyresponsivetosuddendrifts,butarecomputationally
+intensive. Theymaystrugglewithgradualdriftduetotheirfocusondistinctstatistical
+shifts. Anotherchallengeforlearningisthatthefeedback(thegroundtruthofmassflow)
+isnotavailableatall;itcanonlybeapproximatelyestimatedbyretrospectivelyinspecting
+thehistoricaldata. Anadditionalchallengeistodealwithspecificone-sidedoutliersthat
+canbeeasilymistakenforchanges[83].
+USSMs: USSMsdetectconceptdriftbyleveragingclustering,densityestimation,and
+othertechniquestomonitorchangesindatadistributions. Thesemethodsareparticularly
+effective in scenarios with sparse labeled data or mixed data streams containing both
+categoricalandnumericalvalues. USSMshavegainedsignificantattentionoverthepast
+twodecadesduetotheirabilitytohandlecomplex,real-worlddatasetsanddetectnovel
+classesastheyemerge[84]. USSMsfocusonidentifyingchangesindatapatternswithout
+relyingheavilyonlabels. Forinstance,clustering-basedapproachesmonitortheformation
+andevolutionofclustersovertime,flaggingneworsignificantlyalteredclustersaspotential
+
+Information2024,15,786 15of24
+drifts. This makes USSMs especially valuable in applications like fraud detection and
+cybersecurity,wheredatastreamsmayexhibitunexpectedpatternsornovelbehaviors[59].
+USSMsoftenrelyonclusteringtechniquestogroupsimilardatapointsintoclusters,
+representingstablepatternsinthedata. Whennewdatapointsdeviatesignificantlyfrom
+theseclusters,theyareflaggedasdriftevents. Novelclassdetection,akeyapplicationof
+USSMs,identifiespreviouslyunseencategoriesinthedatastream,makingthesemethods
+highlyadaptableindynamicenvironmentssuchasnetworksecurityore-commerce[59].
+Density-basedmethodswithinUSSMsprovideprobabilisticinterpretationsfordriftdetec-
+tion. Thesemethodscalculatethedensityofdatapointsinagivenspace,withsignificant
+densitychangesindicatingpotentialdrift[85]. USSMsexhibitseveraladvantages. These
+methodscandetectnovelpatternsandcategories,makingthemidealfordynamicenviron-
+mentswithminimallabeleddata. However,USSMsalsopresentnotabledisadvantages.
+Clusteringanddensityestimationmethodsarecomputationallyexpensive,especiallywith
+high-dimensionaldatastreams. Furthermore,USSMsarepronetofalsepositivesinnoisy
+datasetsasoutlierscanbemisclassifiedasdriftevents[86].
+EMs: EMshavebecomeexceedinglypopularforconceptdriftdetectionduetotheir
+abilitytocombinemultiplemodels,improvingpredictiveperformanceandrobustness. By
+leveragingthediversityofindividualmodels,EMscaneffectivelyadapttochangesindata
+distribution,makingthemhighlysuitablefordynamicenvironmentswhereconceptdrift
+isprevalent. Thisadaptabilityisparticularlyvaluableinaddressingimbalanceddatasets,
+whereensemblealgorithmsprovidesuperiorperformancebyemphasizingminorityclasses
+andimprovingtheoveralldetectionrate[3].
+Ensembletechniquesliketheonlineaccuracyupdatedensemble(OAUE)adaptmodel
+weightsbasedonrecentperformance,ensuringthattheensembleremainsresponsivetocur-
+rentdatapatterns. Thisdynamicadjustmentalignswithdecisiontheory,whereweighting
+modelsbasedontheirsuitabilitytothecurrentdatadistributionenhancesrobustness[3].
+OAUE,forinstance,continuouslyevaluatesmodelperformanceandre-weightsorreplaces
+individualmodelsasneeded,maintaininghighaccuracyinnon-stationaryenvironments.
+EMsarealsoeffectiveinhandlingrecurringdriftsbypreservingpreviouslytrainedmodels
+thatcanquicklybereactivatedwhensimilarpatternsreappear.
+ThetheoreticalfoundationofEMsliesinensemblelearningtheory,whichemphasizes
+theuseofdiverseclassifierstoreducebiasandvariance. Bycombiningpredictionsfrom
+multiplemodels,ensemblemethodsmitigateoverfittingandimprovegeneralization[3].
+Techniqueslikebaggingandboostingarecommonlyemployedtotraindiverseclassifiers,
+whileweightingstrategiesprioritizemodelsmostattunedtocurrentdatadistributions.
+ThesemethodsenableEMstohandlebothabruptandgradualdrifts,aswellasrecurring
+patterns,withminimallossinaccuracy.
+WhileEMsexhibitseveraladvantages,theyalsocomewithnotabledrawbacks. EMs
+providehighaccuracyandadaptability,makingthemeffectiveacrossavarietyofapplica-
+tiondomainssuchasfrauddetection,predictivemaintenance,andreal-timerecommenda-
+tionsystems. However,theircomputationaldemandsaresignificantduetotheoverhead
+ofmaintainingmultiplemodelsanddynamicallyadjustingtheirweights. Thiscomplex-
+ityrequiressophisticatedmanagementstrategiestoensurethattheensembleoptimally
+adaptswithoutincurringexcessiveresourcecosts. Additionally,EMsmayfacescalability
+challengesinhigh-velocitydatastreamswherequickresponsesarecritical.
+Despitethesechallenges,ensemblemethodscontinuetobeacornerstoneinconcept
+drift detection research. Their versatility and robustness make them indispensable for
+real-worldapplications,especiallyindomainswheredatadistributionsarehighlyvolatile
+orimbalanced.
+NNs:Neuralnetworks(NNs)haveattractedsignificantattentioninthefieldofconcept
+driftdetectionbecauseoftheirpowerfullearningcapabilitiesandadaptabilitytochanging
+datadistributions. Byleveragingdeeplearningtechniques,NNscaneffectivelycapture
+complex patterns and relationships within data streams, making them well suited for
+dynamicenvironments. Amongthevariousneuralnetworkapproaches,thosefromthe
+
+Information2024,15,786 16of24
+extreme learning machine (ELM) family have become particularly popular. ELMs are
+widelyusedinlargedatasetsandonlinelearningapplicationsduetotheirfastlearning
+speed. Unlikeiterativegradientdescentmethods,suchasbackpropagation,ELMsutilizea
+single-stepleastsquareestimation(LSE)methodfortrainingasingle-hidden-layerfeed-
+forwardnetwork(SLFN),makingthemhighlyefficient[66].
+Neuralnetworks,particularlydeeparchitectures,arecapableofmodelingcomplex,
+non-linearrelationshipsinhigh-dimensionalandunstructureddata. Incrementallearning
+methods, such as ELMs, enhance adaptability for data streams with frequent drift [66].
+LSTM (long short-term memory) networks are another popular approach for handling
+sequentialdata. Theirabilitytoretaintemporaldependenciesmakesthemhighlyeffective
+indetectingconceptdriftintime-seriesdata.Tomaintainstabilityindynamicenvironments,
+regularizationtechniqueslikeelasticweightconsolidation(EWC)havebeendeveloped.
+EWCminimizescatastrophicforgettingbypreservingcriticalparameterswhileadapting
+tonewdata,ensuringthatpreviouslylearnedknowledgeisnotoverwritten[77].
+The theoretical foundations of NNs in drift detection are grounded in statistical
+learningandneuralcomputation,emphasizingadaptabilityandgeneralization. ELMs,in
+particular,aredesignedforefficientdriftdetection,achievinghighaccuracywhilereducing
+computationaloverhead.TechniqueslikedropoutandEWCfurtherimprovetherobustness
+ofneuralnetworksbypreventingoverfittingandmitigatingcatastrophicforgetting[6].
+WhileNNsexcelinadaptabilityandaccuracy,theyalsohavenotabledisadvantages.
+NNs are computationally intensive, requiring significant resources for training and in-
+ference,whichcanlimittheirscalabilityinreal-timeapplications. Additionally,theyare
+pronetocatastrophicforgetting,wherethemodel’sperformanceonpreviouslyseendata
+degradesasitlearnsnewpatterns. RegularizationtechniqueslikeEWCprovidesolutions
+tothisissuebutaddtothecomplexityofimplementation. Despitethesechallenges,the
+flexibility and robustness of NNs make them invaluable in domains such as financial
+time-seriesanalysis,frauddetection,anddynamicpricing,wheredatadistributionsevolve
+continuously[6].
+3.4. ComparisonofConceptDriftDetectionMethods
+Toobjectivelyassesstheperformanceofconceptdriftdetectionmethods,thissection
+incorporatesfindingsfromcomparativestudiesthatevaluateaccuracy,computationalcost,
+andapplicabilityacrossvariousdatatypesanddriftscenarios.
+Recent studies have systematically compared these methods, providing deeper in-
+sightsintotheirrelativeperformanceacrossvariouscontexts. Barrosetal. presentedtwo
+papersin2018and2019whereresearchersevaluateddifferentmethodsacrossmultiple
+datasetsanddrifttypes. Theirstudieshighlightedtherobustnessofensembletechniques,
+particularly their adaptability to diverse drift scenarios, though computational cost re-
+mainedachallenge[87,88]. OtherimportantfindingswereprovidedbyPoenaru-Olaruet
+al. (2022). Theresearchersanalyzedthereliabilityofconceptdriftdetectorsinreal-time
+applications. Theirresearchcomparederrorrate-basedanddatadistribution-basedde-
+tectors,revealingtrade-offsbetweendetectiondelayandfalsealarmrates[89]. Hinderet
+al. (2023)providedasurveyandstandardizedexperimentstobenchmarkunsupervised
+driftdetectionmethods. TheirstudyunderscoredtheeffectivenessofUSSMsinscenarios
+withsparselabelsbutnotedtheirsusceptibilitytonoise[90]. Last, butnotleast, LSTM
+networks[91]areparticularlyeffectiveinhandlingsequentialdataastheyretaintemporal
+dependenciescrucialfordetectingconceptdriftintime-seriesapplications. Forinstance,
+Lobo et al. (2018) demonstrated the effectiveness of evolving spiking neural networks,
+inspiredbyLSTMs,foronlinelearningoverdriftingdatastreams[77].
+KeyObservations
+1. Accuracy vs. Computational Cost: While neural networks (NNs) and ensemble
+methods(EMs)providethehighestaccuracy,theircomputationalcostlimitstheirreal-
+timeapplicability.Incontrast,driftdetectionmechanisms(DDMs)andwindow-based
+mechanisms(WBMs)offerabalancebetweenaccuracyandefficiency.
+
+Information2024,15,786 17of24
+2. SpecializedUseCases: Unsupervisedandsemi-supervisedmethods(USSMs)excel
+innovelclassdetection,andWBMsareidealforstreamingenvironments. EMsand
+NNsarebettersuitedforcomplex,evolvingdatadistributions.
+3. EmergingTrends: Hybridapproachescombininglightweightmethods(e.g.,DDMs)
+withadaptivetechniques(e.g.,NNs)showpromiseinbalancingcomputationaleffi-
+ciencywithdetectionaccuracy.
+ThefindingsaresummarizedinTable4.
+Table4.Comparisonoftheconceptdriftdetectionmethods.
+Method Accuracy ComputationalCost Applicability
+DDM High Low Costeffectiveandeasytoapplyinrealtime
+WorksbetterwithgradualdriftthanDDMandeasy
+WBM Medium Medium
+toapplyinrealtime
+USSM Medium Medium Worksbestwithnovelclassdetection
+Canbeappliedtovariousdatatypesbutwith
+EM VeryHigh High
+highercomputationalcost
+NN VeryHigh High Mostlyhavehighercostbuthigheraccuracy
+3.5. OtherNotableFindingsonConceptDriftDetectionMethods
+Inreviewingnumerouspapersonconceptdriftdetectionusingdifferentmethods,several
+keycomparisoncriteriaemergedthatarecommonlyusedtoevaluatetheperformanceofthese
+approaches. Thesecriteriacanbeusedtocomprehensivelyassessamodel’seffectiveness
+andefficiencyinhandlingdynamicdatastreams. Themaincomparisoncriteriaincluded
+thefollowing.
+Prequentialerror.TheprequentialerrormeasurementmethoddevelopedbyDawid[92]is
+mostlyusedtocomputeamodel’saccuracy. Theprequentialerrorisoftencalculatedusing
+commonevaluationmetricssuchasaccuracy. Theincrementalcalculationforaccuracy
+(Acc)inaprequentialcontextcanbeexpressedasfollows:
+Acc t+1 = t×A t c + c t + 1 δ t+1 ,
+where Acc t+1 istheaccuracyafterobservingthe(t+1)thinstance, Acc t istheaccuracy
+afterobservingthetthinstance,andδ t+1 isthebinaryindicatorofwhethertheprediction
+forthe(t+1)thinstanceiscorrect(1ifcorrect,0ifincorrect).
+Handlingimbalancedclassification. Manyreal-worlddatastreamsareimbalanced,
+and some classes are significantly under-represented. Evaluating how models handle
+imbalancedclassificationisessentialasitaffectsamodel’sabilitytolearnfromminority
+classes and maintain high overall accuracy. Common strategies to address imbalanced
+classificationincludethefollowing:
+• Resamplingtechniques—methodssuchasSMOTE(syntheticminorityover-sampling
+technique)anditsvariantsarewidelyusedtobalancedatasets. Recentadvancements,
+suchasadaptiveoversamplingtechniques,focusonregionspronetoclassification
+errors[93].
+• Cost-sensitivelearning—adjustingthelearningalgorithmtopenalizethemisclassifi-
+cationsofaminorityclassmoreheavily[94].
+• Syntheticdatageneration—creatingsyntheticexamplesofaminorityclasstobalance
+thedataset[95].
+TheeffectivenessofthesestrategiesistypicallyassessedusingmetricslikeF1score,
+precision–recallcurves,andareaunderthecurve(AUC)forreceiveroperatingcharacteristic
+(ROC)analysis.
+
+Information2024,15,786
+18of24
+Comparisonofspeed: Thespeedofmodeltrainingandpredictionisacriticalfactor,
+especiallyinreal-timeapplications. Variousmetricsareusedtomeasureandcomparethe
+computationalefficiencyofdifferentapproaches:
+• Trainingtime—incrementallearningmodelslikeHoeffdingtreesarewellsuitedfor
+reducingthetrainingoverheadindatastreams. Oneofthemostpopularapproaches
+inconceptdriftisconsideredHoeffidingtrees[96].
+• Predictiontime—thetimetakentomakepredictionsonnewdatapoints.
+• Throughput—thenumberofdatapointsprocessedperunittime. DDM’smaintain
+highthroughputwithminimalcomputationaloverhead,makingthemsuitablefor
+high-speedapplications.
+• Latency—the delay before the system starts to output predictions after receiving
+newdata[97].
+Evaluatingthesemetricshelpsusunderstandthetrade-offsbetweenmodelcomplexity,
+accuracy,andcomputationaldemandssuchthatthechosenapproachcanmeetthereal-time
+requirementsoftheapplication.
+Datasetcharacteristics: Researcherscommonlyutilizearangeofbenchmarkdatasets
+tothoroughlyevaluatetheperformanceandrobustnessofvariousconceptdriftdetection
+methods. Thesedatasetsrepresentdiversereal-worldscenarios,includingdifferenttypes
+and magnitudes of concept drift, class imbalances, and varying data distributions. In
+Table5,wesummarizethemaindatasetsandtheircharacteristicsusedfortheconceptdrift
+detectionproblem.
+ManyofthesedatasetsareimplementedandtestedwithintheMOA(MassiveOnline
+Analysis, ver. 24.07.0)framework, awidelyusedopen-sourcesoftwarefordatastream
+mining.
+The THU-Concept-Drift-Datasets are relatively new. These datasets are free and
+integratedwithconvenientinterfacesfordatastreamgenerationandmanipulation,making
+themanexcellentresourcefortestingandcomparingconceptdriftdetectionmethods[98].
+Table5.Summaryofthedatasetsusedforconceptdriftdetection.
+| DatasetType | Name | Characteristics | ShortDescription |
+| ----------- | ---- | --------------- | ---------------- |
+Datapointsgeneratedfromthreeattributes,withconceptdrift
+| Synthetic | SEAConcepts | Abruptdrift |     |
+| --------- | ----------- | ----------- | --- |
+introducedbychangingthedecisionboundary.
+Representsamovinghyperplaneinamulti-dimensionalspace,
+Synthetic Hyperplane Gradualdrift withdriftsimulatedbychangingthehyperplane’spositionor
+orientationovertime.
+AvariantoftheHyperplanedatasetwherethehyperplanerotates
+| Synthetic | RotatingHyperplane | Continuousdrift |     |
+| --------- | ------------------ | --------------- | --- |
+overtime,introducingsmoothconceptdrift.
+Suddenand Instancesgeneratedbasedonseveralcentroids,withdriftintroduced
+| Synthetic | RandomRBF |              |                                                        |
+| --------- | --------- | ------------ | ------------------------------------------------------ |
+|           |           | gradualdrift | bymovingthecentroidsorchangingtheirstandarddeviations. |
+ElectricityMarket Abruptand Containselectricitypricedata,withthetaskofpredictingprice
+Real-world
+|     | (Elec2) | gradualdrift | changesundervaryingmarketconditions. |
+| --- | ------- | ------------ | ------------------------------------ |
+Flightdelayinformation,usedtopredictdelaysbasedonhistorical
+Conceptdriftdueto
+Real-world Airlines data,reflectingdriftfromchangingflightpatternsand
+changingfactors
+weatherconditions.
+|            |             | Variousattack | Networkintrusiondetectiondatasetwithdifferenttypesofattacks, |
+| ---------- | ----------- | ------------- | ------------------------------------------------------------ |
+| Real-world | KDDCup1999  |               |                                                              |
+|            |             | patterns      | usedtoevaluaterobustnessagainstvaryingattackpatterns.        |
+|            |             | Gradualand    | Weatherpredictiondatasetincorporatingbothgradualandabrupt    |
+| Real-world | WeatherData |               |                                                              |
+|            |             | abruptdrift   | driftduetoseasonalvariationsandunexpectedevents.             |
+Creditcardtransactiondatasetusedtodetectfraudulentactivities,
+| Real-world   | CreditCardFraud |                |                                                     |
+| ------------ | --------------- | -------------- | --------------------------------------------------- |
+|              |                 | Classimbalance | characterizedbyasignificantimbalancebetweenfraudand |
+| (imbalanced) | Detection       |                |                                                     |
+non-fraudcases.
+Usedfordiseasepredictiontasks,wheretheincidenceofthe
+Imbalanced MedicalData Rareevents conditionismuchlowerthanthatofthenon-condition,testingthe
+algorithm’sabilitytodetectrareevents.
+
+Information2024,15,786 19of24
+Table5.Cont.
+DatasetType Name Characteristics ShortDescription
+THU-Concept-Drift- Gradual,sudden, Decisionboundaryisastraightline,withdriftsimulatedbyrotating
+Linear
+Datasets recurrent,abruptdrift theline.
+THU-Concept-Drift- Sampleswithodd/evenangleareasbelongtodifferentclasses,
+CakeRotation Rotationaldrift
+Datasets withdriftsimulatedbyrotatingthedisk.
+THU-Concept-Drift- Sampleswithodd/evenx+yareasbelongtodifferentclasses,
+ChocolateRotation Rotationaldrift
+Datasets withdriftintroducedbyrotatingthechocolateplate.
+Featurestwotoruseswheresamplesindifferenttorusesbelongto
+THU-Concept-Drift- Overlapping
+RollingTorus differentclasses,withdriftsimulatedbyrollingathirdtorusoverthe
+Datasets categories
+firsttwo.
+4. ConclusionsandFutureWorkDirections
+This systematic literature review explored the evolving strategies in concept drift
+detectionoverthepasttwodecades.Byanalyzingawiderangeofmethodologies,including
+DDMs,WBMs,USSMs,EMs,andNNtechniques,weprovideacomprehensiveoverview
+ofhowthefieldhasprogressedandadaptedtothedynamicnatureofdatastreams. Our
+reviewhighlightsthesignificantcontributionsofvariousalgorithmsandframeworks,each
+addressingspecificchallengesassociatedwithconceptdrift.
+Theuseofsyntheticandreal-worlddatasetshasbeencrucialinevaluatingtheperfor-
+manceofthesemethods. DatasetssuchasSEAConcepts,Hyperplane,ElectricityMarket,
+andCreditCardFraudDetectionhavebeeninstrumentalintestingtheadaptabilityand
+robustnessofconceptdriftdetectionalgorithms. Additionally, theTHU-Concept-Drift-
+DatasetsandtheMOA(MassiveOnlineAnalysis)frameworkhaveemergedasvaluable
+resourcesforresearchers, offeringdiversescenariostorigorouslytestandcomparedif-
+ferentmethods. However,furthereffortsshouldfocusoncuratingbenchmarkdatasets
+thatincludereal-worldcomplexities,suchasnoisyenvironments,mixeddrifttypes,and
+high-dimensionaldata,tobetterreflectpracticalapplications.
+Despite the extensive research and numerous advancements in the field, several
+weak points remain. One major limitation is the handling of imbalanced data, which
+continuestoposesignificantchallengesformanyalgorithms. Whilesomemethodshave
+beenspecificallydesignedtoaddressclassimbalance,furtherresearchisneededtodevelop
+moreeffectiveandgeneralizablesolutions. Forexample,integratingdynamicensemble
+methods with adaptive resampling techniques could address imbalances in streaming
+environments. Recommendation: Investigatehybridframeworkscombiningoversampling
+withadaptivecost-sensitivealgorithmstoimproveperformanceonimbalanceddatasets.
+Anotherareathatrequiresattentionisthecomputationalefficiencyofconceptdrift
+detectionmethods. Asthevolumeandvelocityofdatastreamsincrease,theneedforfast
+andscalablealgorithmsbecomesmorecritical. Manycurrentapproachesstillstrugglewith
+highcomputationalcosts,whichcanlimittheirapplicabilityinreal-timeenvironments.
+Recommendation: Explore parallel computing and hardware acceleration, such as GPU-
+optimizedneuralnetworks,andinvestigatelightweight,low-latencydetectionmodelsfor
+deploymentinreal-timescenarios.
+Additionally,conceptdriftdetectioninregressiontaskshasnotbeenasthoroughly
+analyzedasinclassificationtasks. Manyexistingstudiesfocusonclassification,leaving
+agapinunderstandingandeffectivelyaddressingconceptdriftinregressionscenarios.
+Moreresearchisneededtodeveloprobustmethodsforregressiontasks,wherethecontin-
+uousnatureofthetargetvariablepresentsuniquechallenges. Recommendation: Develop
+regression-specific drift detection metrics and algorithms that focus on subtle shifts in
+continuousrelationships,suchaschangesincorrelationstructuresorerrorvariance.
+Theapplicationofconceptdriftdetectionmethodstonon-tabulardatasets,suchas
+imageandtime-seriesdata,remainsunderexplored. Mostcurrentapproachesaredesigned
+fortabulardata,andadaptingthesemethodstohandleimagedata’shigh-dimensionaland
+complexnaturepresentsasignificantchallenge. Techniquessuchasconvolutionalneural
+
+Information2024,15,786 20of24
+networks(CNNs)andgraphneuralnetworks(GNNs)couldbeadaptedtodirectlyintegrate
+drift detection into their architectures. Recommendation: Investigate the application of
+unsupervisedfeatureextractiontechniques,suchasautoencoders,combinedwithdomain-
+specificneuralarchitecturestohandlenon-tabulardataeffectively.
+Anotherpressingissueisthelimitedfocusonunsuperviseddriftdetectionmethods,
+whicharecriticalforscenarioswherelabeleddataarescarceorunavailable. Advancing
+clustering-basedanddensity-basedtechniquestohandlehigh-dimensional,noisydatais
+apromisingdirection. Recommendation: Incorporateself-supervisedlearningtechniques
+togeneratepseudo-labels,enablingmoreeffectivedriftdetectioninunlabeleddatasets.
+Developapproachesthatrequirelesscomputationalcost.
+Moreover,themajorityofexistingstudiesfocusonsyntheticandcontrolleddatasets,
+whichmaynotfullycapturethecomplexitiesofreal-worlddatastreams. Moreresearchis
+neededondiverseandrepresentativedatasetstoensurethattheproposedmethodscan
+be effectively generalized to practical applications. Recommendation: Curate real-world
+benchmarkdatasetswithannotationsforknowndrifttypes,includingcontextualmetadata,
+toimprovethepracticalevaluationofdriftdetectionmethods.
+Finally,theevaluationofconceptdriftdetectionmethodswouldbenefitfromthede-
+velopmentofstandardizedprotocols. Existingevaluationcriteriaoftenemphasizeaccuracy
+whileneglectingpracticalmetricssuchasdetectiondelay,computationalthroughput,and
+memoryfootprint. Recommendation: Establishaunifiedevaluationframeworkincorporat-
+ingdetectionlatency,scalabilitymetrics,andresourceusagealongsidetraditionalaccuracy
+measurestopromotepracticalapplicability.
+Insummary, whilesignificantprogresshasbeenmadeinthefieldofconceptdrift
+detection,ongoingresearchisessentialtoaddresstheexistinglimitations. Byleveraging
+advancedmachinelearningtechniquesandincorporatingdiversedatasets,futurestudies
+can further enhance the robustness and efficiency of concept drift detection methods,
+ensuringtheirapplicabilityinawiderangeofdynamicandevolvingdataenvironments.
+AuthorContributions:Conceptualization,J.M.B.andG.H.;methodology,G.H.andJ.M.B.;software,
+G.H.;validation,G.H.;formalanalysis,G.H.;investigation,G.H.;resources,G.H.;datacuration,G.H.;
+writing—originaldraftpreparation,G.H.;writing—reviewandediting,J.M.B.;visualization,G.H.;
+supervision,J.M.B.Allauthorshavereadandagreedtothepublishedversionofthemanuscript.
+Funding:ThisresearchwasfundedbynationalfundsthroughtheFCT—FundaçãoparaaCiência
+eaTecnologia,I.P.,grantsUIDB/04152/2020—CentrodeInvestigaçãoemGestãodeInformação
+(MagIC)andUIDB/00315/2020—BRU-ISCTE-IUL.
+DataAvailabilityStatement:Nonewdatawerecreatedoranalyzedinthisstudy.
+ConflictsofInterest:Theauthorsdeclarenoconflictsofinterest.
+References
+1. Lu,J.;Liu,A.;Dong,F.;Gu,F.;Gama,J.;Zhang,G. LearningunderConceptDrift:AReview. IEEETrans.Knowl.DataEng.2019,
+31,2346–2363. https://doi.org/10.1109/TKDE.2018.2876857.
+2. Iwashita,A.S.;Papa,J.P. AnOverviewonConceptDriftLearning. IEEEAccess2019,7,1532–1547. https://doi.org/10.1109/
+ACCESS.2018.2886026.
+3. Brzezinski,D.;Stefanowski,J.Combiningblock-basedandonlinemethodsinlearningensemblesfromconceptdriftingdata
+streams. Inf.Sci.2014,265,50–67. https://doi.org/10.1016/j.ins.2013.12.011.
+4. Ross,G.J.;Adams,N.M.;Tasoulis,D.K.;Hand,D.J. Exponentiallyweightedmovingaveragechartsfordetectingconceptdrift.
+PatternRecognit.Lett.2012,33,191–198. https://doi.org/10.1016/j.patrec.2011.08.019.
+5. DalPozzolo,A.;Boracchi,G.;Caelen,O.;Alippi,C.;Bontempi,G. Creditcardfrauddetectionandconcept-driftadaptation
+withdelayedsupervisedinformation. InProceedingsofthe2015InternationalJointConferenceonNeuralNetworks(IJCNN),
+Killarney,Ireland,12–17July2015;pp.1–8. https://doi.org/10.1109/IJCNN.2015.7280527.
+6. Cavalcante, R.C.; Oliveira, A.L.I. An approach to handle concept drift in financial time series based on Extreme Learning
+MachinesandexplicitDriftDetection. InProceedingsofthe2015InternationalJointConferenceonNeuralNetworks(IJCNN),
+Killarney,Ireland,12–17July2015;pp.1–8. https://doi.org/10.1109/IJCNN.2015.7280721.
+7. Munirathinam,S. Driftdetectionanalyticsforiotsensors. ProcediaComput.Sci.2021,180,903–912.
+
+Information2024,15,786 21of24
+8. Susnjak,T.;Maddigan,P. Forecastingpatientflowswithpandemicinducedconceptdriftusingexplainablemachinelearning.
+EPJDataSci.2023,12,11.
+9. Žliobaite˙,I.;Pechenizkiy,M.;Gama,J. Anoverviewofconceptdriftapplications. InBigDataAnalysis:NewAlgorithmsforaNew
+Society;Springer:Cham,Switzerland,2016;pp.91–114.
+10. Langenkämper,D.;VanKevelaer,R.;Purser,A.;Nattkemper,T.W. Gear-inducedconceptdriftinmarineimagesanditseffecton
+deeplearningclassification. Front.Mar.Sci.2020,7,506.
+11. Vapnik,V.N. Anoverviewofstatisticallearningtheory. IEEETrans.NeuralNetw.1999,10,988–99.
+12. Murphy,K.P. MachineLearning:AProbabilisticPerspective; MITPress:Cambridge,MA,USA,2012.
+13. Hershey,J.R.;Olsen,P.A. ApproximatingtheKullbackLeiblerdivergencebetweenGaussianmixturemodels. InProceedingsof
+the2007IEEEInternationalConferenceonAcoustics,SpeechandSignalProcessing-ICASSP’07,Honolulu,HI,USA,15–20April
+2007.
+14. Shalev-Shwartz,S. Onlinelearningandonlineconvexoptimization.Found.TrendsMach.Learn. 2012,4,107–94.
+15. Paul,J.;Feliciano-Cestero,M.M. FivedecadesofresearchonforeigndirectinvestmentbyMNEs: Anoverviewandresearch
+agenda. J.Bus.Res.2021,124,800–812. https://doi.org/10.1016/j.jbusres.2020.04.017.
+16. Raffel,C.;Shazeer,N.;Roberts,A.;Lee,K.;Narang,S.;Matena,M.;Zhou,Y.;Li,W.;Liu,P.J. ExploringtheLimitsofTransfer
+LearningwithaUnifiedText-to-TextTransformer. J.Mach.Learn.Res.2020,21,1–67.
+17. Wells,G.A.;Shea,B.;O’Connell,D.;Peterson,J.;Welch,V.;Losos,M.;Tugwell,P. TheNewcastle-OttawaScale(NOS)forAssessing
+theQualityofNonrandomisedStudiesinMeta-Analyses;OttawaHospitalResearchInstitute:Ottawa,ON,Canada,2000.
+18. CriticalAppraisalSkillsProgramme. CASPQualitativeResearchChecklist; CriticalAppraisalSkillsProgramme:Oxford,UK,2017.
+19. Gama,J.; Medas,P.; Castillo,G.; Rodrigues,P. Learningwithdriftdetection. InProceedingsoftheAdvancesinArtificial
+Intelligence–SBIA2004:17thBrazilianSymposiumonArtificialIntelligence,SaoLuis,Maranhao,Brazil,29September–1Ocotber
+2004;Proceedings17;Springer:Berlin/Heidelberg,Germany,2004;pp.286–295.
+20. Baena-Garcıa,M.;delCampo-Ávila,J.;Fidalgo,R.;Bifet,A.;Gavalda,R.;Morales-Bueno,R. Earlydriftdetectionmethod. In
+ProceedingsoftheFourthInternationalWorkshoponKnowledgeDiscoveryfromDataStreams,Philadelphia,PA,USA,20
+August2006;Citeseer:Princeton,NJ,USA,2006;Volume6,pp.77–86.
+21. Frías-Blanco, I.; Campo-Ávila, J.d.; Ramos-Jiménez, G.; Morales-Bueno, R.; Ortiz-Díaz, A.; Caballero-Mota, Y. Online and
+Non-Parametric Drift Detection Methods Based on Hoeffding’s Bounds. IEEE Trans. Knowl. Data Eng. 2015, 27, 810–823.
+https://doi.org/10.1109/TKDE.2014.2345382.
+22. Pesaranghader,A.;Viktor,H.L. Fasthoeffdingdriftdetectionmethodforevolvingdatastreams. InProceedingsoftheMachine
+Learning and Knowledge Discovery in Databases: European Conference, ECML PKDD 2016, Riva del Garda, Italy, 19–23
+September2016;Proceedings,PartII16;Springer:Cham,Switzerland,2016;pp.96–111.
+23. Barros,R.S.;Cabral,D.R.;Gonçalves,P.M.,Jr.;Santos,S.G. RDDM:Reactivedriftdetectionmethod. ExpertSyst. Appl. 2017,
+90,344–355.
+24. Yan,M.M.W. Accuratedetectingconceptdriftinevolvingdatastreams. ICTExpress2020,6,332–338.
+25. Mahdi,O.A.;Pardede,E.;Ali,N.;Cao,J. Diversitymeasureasanewdriftdetectionmethodindatastreaming. Knowl.-BasedSyst.
+2020,191,105227.
+26. Wang,P.;Jin,N.;Fehringer,G. ConceptdriftdetectionwithFalsePositiverateformulti-labelclassificationinIoTdatastream. In
+Proceedingsofthe2020InternationalConferenceonUK-ChinaEmergingTechnologies(UCET),Glasgow,UK,20–21August
+2020;pp.1–4. https://doi.org/10.1109/UCET51115.2020.9205421.
+27. Wang,P.;Jin,N.;Woo,W.L.;Woodward,J.R.;Davies,D. Noisetolerantdriftdetectionmethodfordatastreammining. Inf.Sci.
+2022,609,1318–1333.
+28. Yu,H.;Liu,W.;Lu,J.;Wen,Y.;Luo,X.;Zhang,G. Detectinggroupconceptdriftfrommultipledatastreams. PatternRecognit.
+2023,134,109113.
+29. Nishida,K.;Yamauchi,K. Detectingconceptdriftusingstatisticaltesting. InProceedingsoftheInternationalConferenceon
+DiscoveryScience,Sendai,Japan,1–4October2007;Springer:Berlin/Heidelberg,Germany,2007;pp.264–269.
+30. Bifet,A.;Gavalda,R.Learningfromtime-changingdatawithadaptivewindowing. InProceedingsofthe2007SIAMInternational
+ConferenceonDataMining,Minneapolis,MN,USA,26–28April2007;SIAM:Philadelphia,PA,USA,2007;pp.443–448.
+31. Bach,S.H.;Maloof,M.A. PairedLearnersforConceptDrift. InProceedingsofthe2008EighthIEEEInternationalConferenceon
+DataMining,Pisa,Italy,5–19December2008;pp.23–32. https://doi.org/10.1109/ICDM.2008.119.
+32. Li, P.; Hu, X.; Wu, X. Miningconcept-driftingdata streamswithmultiple semi-randomdecisiontrees. InProceedingsof
+the International Conference on Advanced Data Mining and Applications, Chengdu, China, 8–10 October 2008; Springer:
+Berlin/Heidelberg,Germany,2008;pp.733–740.
+33. Sun,J.;Li,H. Dynamicfinancialdistresspredictionusinginstanceselectionforthedisposalofconceptdrift. ExpertSyst.Appl.
+2011,38,2566–2576.
+34. Yang,B.;Zhang,Y.;Li,X. Classifyingtextstreamsbykeywordsusingclassifierensemble. DataKnowl.Eng.2011,70,775–793.
+35. Ding,Z.;Fei,M. Ananomalydetectionapproachbasedonisolationforestalgorithmforstreamingdatausingslidingwindow.
+IFACProc.Vol.2013,46,12–17.
+36. Marseguerra,M. EarlydetectionofgradualconceptdriftsbytextcategorizationandSupportVectorMachinetechniques:The
+TRIOalgorithm. Reliab.Eng.Syst.Saf.2014,129,1–9.
+
+Information2024,15,786 22of24
+37. Huang, D.T.J.; Koh, Y.S.; Dobbie, G.; Pears, R. DetectingVolatilityShiftinDataStreams. InProceedingsofthe2014IEEE
+InternationalConferenceonDataMining,Shenzhen,China,14–17December2014;pp.863–868. https://doi.org/10.1109/ICDM.
+2014.50.
+38. Jankowski,D.;Jackowski,K.;Cyganek,B. Learningdecisiontreesfromdatastreamswithconceptdrift. ProcediaComput.Sci.
+2016,80,1682–1691.
+39. daCosta,F.G.;Rios,R.A.;deMello,R.F. Usingdynamicalsystemstoolstodetectconceptdriftindatastreams. ExpertSyst.Appl.
+2016,60,39–50.
+40. deLimaCabral,D.R.;deBarros,R.S.M. ConceptdriftdetectionbasedonFisher’sExacttest. Inf.Sci.2018,442,220–234.
+41. Pesaranghader,A.;Viktor,H.L.;Paquet,E. McDiarmiddriftdetectionmethodsforevolvingdatastreams. InProceedingsofthe
+2018InternationalJointConferenceonNeuralNetworks(IJCNN),RiodeJaneiro,Brazil,8–13July2018;IEEE:Piscataway,NJ,
+USA,2018;pp.1–9.
+42. Cano,A.;Gómez-Olmedo,M.;Moral,S. ABayesianapproachtoabruptconceptdrift. Knowl.-BasedSyst.2019,185,104909.
+43. Diaz-Rozo, J.; Bielza, C.; Larrañaga, P. Machine-tool condition monitoring with Gaussian mixture models-based dynamic
+probabilisticclustering. Eng.Appl.Artif.Intell.2020,89,103434.
+44. Wang,L.;Wu,C. DynamicimbalancedbusinesscreditevaluationbasedonLearn++withslidingtimewindowandweight
+samplingandFCMwithmultiplekernels. Inf.Sci.2020,520,305–323.
+45. Alakent,B. Softsensordesignusingtransductivemovingwindowlearner. Comput.Chem.Eng.2020,140,106941.
+46. Urhan, A.; Alakent, B. Integrating adaptive moving window and just-in-time learning paradigms for soft-sensor design.
+Neurocomputing2020,392,23–37.
+47. Gâlmeanu,H.;Andonie,R. WeightedIncremental–DecrementalSupportVectorMachinesforconceptdriftwithshiftingwindow.
+NeuralNetw.2022,152,528–541.
+48. Jain,M.;Kaur,G.;Saxena,V.AK-MeansclusteringandSVMbasedhybridconceptdriftdetectiontechniquefornetworkanomaly
+detection. ExpertSyst.Appl.2022,193,116510.
+49. Chikushi,R.T.M.;deBarros,R.S.M.;daSilva,M.G.N.M.;Maciel,B.I.F. Usingspectralentropyandbernoullimaptohandle
+conceptdrift. ExpertSyst.Appl.2021,167,114114.
+50. Husheng,G.;Hai,L.;Qiaoyan,R.;Wenjian,W. ConceptDriftTypeIdentificationBasedonMulti-SlidingWindows. Inf.Sci.2021,
+585,1–23.
+51. Masud,M.;Gao,J.;Khan,L.;Han,J.;Thuraisingham,B.M. Classificationandnovelclassdetectioninconcept-driftingdata
+streamsundertimeconstraints. IEEETrans.Knowl.DataEng.2010,23,859–874.
+52. Wu,X.;Li,P.;Hu,X. Learningfromconceptdriftingdatastreamswithunlabeleddata. Neurocomputing2012,92,145–155.
+53. Lee,J.;Magoules,F. Detectionofconceptdriftforlearningfromstreamdata. InProceedingsofthe2012IEEE14thInternational
+ConferenceonHighPerformanceComputingandCommunication&2012IEEE9thInternationalConferenceonEmbedded
+SoftwareandSystems,Liverpool,UK,25–27June2012;IEEE:Piscataway,NJ,USA,2012;pp.241–245.
+54. Lughofer,E.;Weigl,E.;Heidl,W.;Eitzinger,C.;Radauer,T. Recognizinginputspaceandtargetconceptdriftsindatastreams
+withscarcelylabeledandunlabelledinstances. Inf.Sci.2016,355,127–151.
+55. Sethi,T.S.;Kantardzic,M. Onthereliabledetectionofconceptdriftfromstreamingunlabeleddata. ExpertSyst. Appl. 2017,
+82,77–99.
+56. Sethi,T.S.;Kantardzic,M. Handlingadversarialconceptdriftinstreamingdata. ExpertSyst.Appl.2018,97,18–40.
+57. Escovedo,T.;Koshiyama,A.;daCruz,A.A.;Vellasco,M. DetectA:Abruptconceptdriftdetectioninnon-stationaryenvironments.
+Appl.SoftComput.2018,62,119–133.
+58. Cejnek,M.;Bukovsky,I. Conceptdriftrobustadaptivenoveltydetectionfordatastreams. Neurocomputing2018,309,46–53.
+59. Spinosa,E.J.;deLeonF.deCarvalho,A.P.;Gama,J. Olindda:Acluster-basedapproachfordetectingnoveltyandconceptdriftin
+datastreams. InProceedingsofthe2007ACMsymposiumonAppliedcomputing,Seoul,RepublicofKorea,11–15March2007;
+pp.448–452.
+60. Din,S.U.;Shao,J.;Kumar,J.;Ali,W.;Liu,J.;Ye,Y. Onlinereliablesemi-supervisedlearningonevolvingdatastreams. Inf.Sci.
+2020,525,153–171.
+61. Zheng,X.;Li,P.;Hu,X.;Yu,K. Semi-supervisedclassificationondatastreamswithrecurringconceptdriftandconceptevolution.
+Knowl.-BasedSyst.2021,215,106749.
+62. Tanha,J.; Samadi,N.; Abdi,Y.; Razzaghi-Asl,N. CPSSDS:Conformalpredictionforsemi-supervisedclassificationondata
+streams. Inf.Sci.2022,584,212–234.
+63. Liao,G.;Zhang,P.;Yin,H.;Deng,X.;Li,Y.;Zhou,H.;Zhao,D. Anovelsemi-supervisedclassificationapproachforevolvingdata
+streams. ExpertSyst.Appl.2023,215,119273.
+64. Zhang,P.;Zhu,X.;Shi,Y.;Guo,L.;Wu,X. Robustensemblelearningforminingnoisydatastreams. Decis.SupportSyst.2011,
+50,469–479.
+65. Farid,D.M.;Zhang,L.;Hossain,A.;Rahman,C.M.;Strachan,R.;Sexton,G.;Dahal,K. Anadaptiveensembleclassifierformining
+conceptdriftingdatastreams. ExpertSyst.Appl.2013,40,5895–5906.
+66. Mirza,B.;Lin,Z.;Liu,N. Ensembleofsubsetonlinesequentialextremelearningmachineforclassimbalanceandconceptdrift.
+Neurocomputing2015,149,316–329.
+
+Information2024,15,786 23of24
+67. Sun,J.;Fujita,H.;Chen,P.;Li,H. Dynamicfinancialdistresspredictionwithconceptdriftbasedontimeweightingcombined
+withAdaboostsupportvectormachineensemble. Knowl.-BasedSyst.2017,120,4–14.
+68. Ren,S.;Liao,B.;Zhu,W.;Li,Z.;Liu,W.;Li,K. Thegradualresamplingensembleforminingimbalanceddatastreamswith
+conceptdrift. Neurocomputing2018,286,150–166.
+69. Ancy,S.;Paulraj,D. Handlingimbalanceddatawithconceptdriftbyapplyingdynamicsamplingandensembleclassification
+model. Comput.Commun.2020,153,553–560.
+70. Zyblewski,P.;Sabourin,R.;Woz´niak,M. Preprocesseddynamicclassifierensembleselectionforhighlyimbalanceddrifteddata
+streams. Inf.Fusion2021,66,138–154.
+71. Alberghini,G.;Junior,S.B.;Cano,A. Adaptiveensembleofself-adjustingnearestneighborsubspacesformulti-labeldriftingdata
+streams. Neurocomputing2022,481,228–248.
+72. Xu,S.;Wang,J. Afastincrementalextremelearningmachinealgorithmfordatastreamsclassification. ExpertSyst.Appl.2016,
+65,332–344.
+73. Liu,D.;Wu,Y.;Jiang,H. FP-ELM:Anonlinesequentiallearningalgorithmfordealingwithconceptdrift. Neurocomputing2016,
+207,322–334.
+74. Krawczyk,B. GPU-acceleratedextremelearningmachinesforimbalanceddatastreamswithconceptdrift. ProcediaComput.Sci.
+2016,80,1692–1701.
+75. Mirza,B.;Lin,Z. Meta-cognitiveonlinesequentialextremelearningmachineforimbalancedandconcept-driftingdataclassifica-
+tion. NeuralNetw.2016,80,79–94.
+76. Xu,S.;Wang,J. Dynamicextremelearningmachinefordatastreamclassification. Neurocomputing2017,238,433–449.
+77. Lobo,J.L.;Laña,I.;DelSer,J.;Bilbao,M.N.;Kasabov,N. Evolvingspikingneuralnetworksforonlinelearningoverdriftingdata
+streams. NeuralNetw.2018,108,1–19.
+78. Liu,Z.;Loo,C.K.;Seera,M. Meta-cognitiverecurrentrecursivekernelOS-ELMforconceptdrifthandling. Appl.SoftComput.
+2019,75,494–507.
+79. Liu,Z.;Loo,C.K.;Pasupa,K.;Seera,M. Meta-cognitiverecurrentkernelonlinesequentialextremelearningmachinewithkernel
+adaptivefilterforconceptdrifthandling. Eng.Appl.Artif.Intell.2020,88,103327.
+80. Xu,R.;Cheng,Y.;Liu,Z.;Xie,Y.;Yang,Y. ImprovedLongShort-TermMemorybasedanomalydetectionwithconceptdrift
+adaptivemethodforsupportingIoTservices. FutureGener.Comput.Syst.2020,112,228–242.
+81. Guo,H.;Zhang,S.;Wang,W. Selectiveensemble-basedonlineadaptivedeepneuralnetworksforstreamingdatawithconcept
+drift. NeuralNetw.2021,142,437–456.
+82. Gama,J.;Rodrigues,P.P.;Spinosa,E.;Carvalho,A. Knowledgediscoveryfromdatastreams. InWebIntelligenceandSecurity;IOS
+Press:Amsterdam,TheNetherlands,2010;pp.125–138
+83. Gama,J.;Žliobaite˙,I.;Bifet,A.;Pechenizkiy,M.;Bouchachia,A. Asurveyonconceptdriftadaptation. ACMComput.Surv.2014,
+46,1–37.https://doi.org/10.1145/2523813.
+84. Žliobaite˙,I. Learningunderconceptdrift:Anoverview. arXiv2010,arXiv:1010.4784.
+85. Cui,Z.;Tian,H.;Shen,H.. EffectiveDensity-BasedConceptDriftDetectionforEvolvingDataStreams. InProceedingsofthe
+InternationalConferenceonParallelandDistributedComputing:ApplicationsandTechnologies,Jeju,RepublicofKorea,16
+August2023;SpringerNature:Singapore,2023;pp.190–201.
+86. Li,Q.;Xiong,Q.;Ji,S.;Yu,Y.;Wu,C.;Gao,M. Incrementalsemi-supervisedextremelearningmachineformixeddatastream
+classification. ExpertSyst.Appl.2021,185,115591.
+87. Barros,R.S.;Santos,S.G.. Alarge-scalecomparisonofconceptdriftdetectors. Inf.Sci.2018,451,348–370.
+88. deBarros,R.S.;deCarvalho,Santos,S.G. Anoverviewandcomprehensivecomparisonofensemblesforconceptdrift. Inf.Fusion
+2019,52,213–44.
+89. Poenaru-Olaru, L.; Cruz, L.; van Deursen, A.; Rellermeyer, J.S. Are concept drift detectors reliable alarming systems?—A
+comparativestudy. InProceedingsofthe2022IEEEInternationalConferenceonBigData(BigData),Osaka,Japan,17–20
+December2022;pp.3364–3373.
+90. Hinder, F.; Vaquet, V.; Hammer, B. Oneortwothingsweknowaboutconceptdrift—Asurveyonmonitoringinevolving
+environments.PartA:Detectingconceptdrift. Front.Artif.Intell.2024,7,1330257.
+91. Sherstinsky, A.Fundamentalsofrecurrentneuralnetwork(RNN)andlongshort-termmemory(LSTM)network. Phys. D
+NonlinearPhenom.2020,404,132306.
+92. Dawid,A.P. Presentpositionandpotentialdevelopments:Somepersonalviewsstatisticaltheorytheprequentialapproach. J.R.
+Stat.Soc.Ser.A(Gen.)1984,147,278–290.
+93. Chawla,N.V.;Bowyer,K.W.;Hall,L.O.;Kegelmeyer,W.P. SMOTE:Syntheticminorityover-samplingtechnique. J.Artif.Intell.
+Res.2002,16,321–357.
+94. Liu,W.;Zhang,H.;Ding,Z.;Liu,Q.;Zhu,C. Acomprehensiveactivelearningmethodformulticlassimbalanceddatastreams
+withconceptdrift. Knowl.-BasedSyst.2021,215,106778.
+95. Tang,B.;He,H.KernelADASYN: Kernelbasedadaptivesyntheticdatagenerationforimbalancedlearning. InProceedingsof
+the2015IEEECongressonEvolutionaryComputation(CEC),Sendai,Japan,25–28May2015;pp.664–671.
+96. Domingos,P.;Hulten,G. Mininghigh-speeddatastreams. InProceedingsoftheSixthACMSIGKDDInternationalConference
+onKnowledgeDiscoveryandDataMining,Boston,MA,USA,1August2000;pp.71–80.
+
+Information2024,15,786 24of24
+97. Marrs,G.R.;Hickey,R.J.;Black,M.M.Theimpactoflatencyononlineclassificationlearningwithconceptdrift.InProceedingsof
+theInKnowledgeScience,EngineeringandManagement:4thInternationalConference,KSEM2010,Belfast,NorthernIreland,
+UK,1–3September2010;Proceedings4;Springer:Berlin/Heidelberg,Germany,2010;pp.459–469.
+98. Liu,Z.;Hu,S.;He,X. Real-TimeSafetyAssessmentofDynamicSystemsinNon-StationaryEnvironments:AReviewofMethods
+andTechniques. InProceedingsofthe2023CAASymposiumonFaultDetection,SupervisionandSafetyforTechnicalProcesses
+(SAFEPROCESS),Yibin,China,22–24September2023;pp.1–6. https://doi.org/10.1109/SAFEPROCESS58597.2023.10295743.
+Disclaimer/Publisher’sNote: Thestatements, opinionsanddatacontainedinallpublicationsaresolelythoseoftheindividual
+author(s)andcontributor(s)andnotofMDPIand/ortheeditor(s).MDPIand/ortheeditor(s)disclaimresponsibilityforanyinjuryto
+peopleorpropertyresultingfromanyideas,methods,instructionsorproductsreferredtointhecontent.

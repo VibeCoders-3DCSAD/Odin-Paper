@@ -1,0 +1,93 @@
+```yaml
+paper_id: "123e4567-e89b-12d3-a456-426614174000"
+designation: "algorithm-specific"
+title: "Impact of Mental Representation on Consumer Behaviors: Implications for Mental Budgeting and Prediction Algorithm Preferences"
+authors: "Fei, L."
+year: 2023
+venue: "University of Chicago Booth School of Business"
+odin_topics:
+  - "3.A"
+  - "5.A"
+  - "6.B"
+  - "7.A"
+  - "7.C"
+  - "12.A"
+shorthand_tags:
+  - "/expense-categorization"
+  - "/behavioral-profiles"
+  - "/spending-forecasting-algorithm"
+  - "/budgeting-strategies"
+  - "/budget-recommendation-algorithm"
+  - "/evaluation-frameworks"
+tldr: "Mental representation of expenditures forms a hierarchical taxonomy that predicts spending adjustment based on taxonomic distance, and people prefer prediction algorithms that replicate the event being predicted."
+problem_and_motivation: "Consumers often deviate from budgets, but existing budgeting theories assume single-level categories and cannot explain how people adjust spending across related items. Understanding how mental representation drives spending decisions and algorithm preferences is crucial for improving personal finance systems."
+approach:
+  - "Study 1a used successive pile-sort with 27 MTurk participants to elicit hierarchical taxonomies of 38 common expenditures, recovering consensus via Cultural Consensus Model."
+  - "Study 1b tested stability of taxonomies over three months with 50 participants."
+  - "Studies 2a-2c measured self-reported spending adjustment and substitutability/complementarity ratings to isolate taxonomic distance effects."
+  - "Study 3 examined consequential choices for promotional items using the recovered taxonomy."
+  - "Study 4 analyzed over 7 million grocery shopping trips to test real-world spending patterns when taxonomically close items are on sale."
+findings:
+  - "num: 27 participants showed consensus in hierarchical expenditure representations (first latent root ratio > 3:1)."
+  - "num: Taxonomic distance significantly predicted spending adjustment, with closer items adjusted 31% more than distant items (Study 2a)."
+  - "Taxonomic distance effects persisted even after controlling for substitutability and complementarity (Study 2c)."
+  - "num: In grocery data, a sale on an item increased spending on taxonomically close items by 12% compared to distant items."
+key_figures_tables:
+  - "Figure 1.3: MDS reduction of expenditure pile-sort data → Consumers cluster items into meaningful groups like groceries, entertainment."
+  - "Figure 1.5: Spending adjustment by taxonomic distance → Greater adjustment for taxonomically close items."
+  - "Figure 2.1: Likelihood-to-use and replicativeness rating → Positive correlation between algorithm replicativeness and preference."
+key_equations:
+  - equation: "None."
+    explanation: ""
+definitions:
+  - term: "Taxonomic distance"
+    definition: "The level in a hierarchical taxonomy at which two items are categorized together; smaller distance means more closely related."
+  - term: "Mental budgeting"
+    definition: "Cognitive operations where consumers track spending against specific topical accounts rather than total wealth."
+  - term: "Prediction by replication"
+    definition: "Preference for prediction algorithms that mimic the generative process of the event being predicted."
+critical_citations:
+  - "[Thaler, 1985] — Introduced mental accounting and non-fungibility of money."
+  - "[Heath and Soll, 1996] — Established budgeting categories and typicality effects."
+  - "[Henderson and Peterson, 1992] — First suggested hierarchical mental accounts."
+relevance:
+  topics:
+    - code: "3.A"
+      name: "Expense Categorization Frameworks"
+      justification: "Paper recovers hierarchical taxonomy of expenditures using pile-sort method."
+    - code: "5.A"
+      name: "Financial Behavioral Profiles in Personal Finance"
+      justification: "Taxonomic distance predicts individual spending adjustment patterns."
+    - code: "6.B"
+      name: "Spending Forecasting Algorithm"
+      justification: "Chapter 2 shows users prefer algorithms that replicate event processes, informing forecasting algorithm design."
+    - code: "7.A"
+      name: "Budgeting Strategies as Domain Knowledge"
+      justification: "Mental budgeting with hierarchical categories provides strategy insights."
+    - code: "7.C"
+      name: "Budget Recommendation Algorithm"
+      justification: "Taxonomic distance can guide budget adjustment recommendations."
+    - code: "12.A"
+      name: "Evaluation Frameworks for Personal Finance Systems"
+      justification: "Preferences for replication algorithms provide evaluation criteria for prediction modules."
+  contribution: "This dissertation provides two key contributions for Odin. First, it establishes that users' mental representation of expenditures is hierarchical, meaning spending adjustment after budget deviations depends on taxonomic distance. Odin's budget recommendation module can use this insight to suggest adjustments on taxonomically close categories rather than generic cuts. Second, it demonstrates that users prefer prediction algorithms that replicate the generative process of the event (e.g., simulating die rolls rather than using regression). Odin's spending forecasting algorithm should therefore adopt process-similar models (e.g., bootstrapping or simulation) to increase user trust and adoption. The hierarchical taxonomy also directly informs expense categorization design by revealing natural groupings. Finally, the findings provide an evaluation metric: algorithms that mimic mental representation structures will be better received."
+  directly_justifies:
+    - "Overspending on an item leads to greater spending reduction on taxonomically close items than distant items."
+    - "Users prefer prediction algorithms that replicate the event's generative process over statistical models with equal accuracy."
+    - "Hierarchical expenditure taxonomies are consensual and stable over time, enabling personalization from cold start."
+  limits:
+    - "Studies focused on US participants; applicability to Filipino young professionals requires validation."
+    - "Taxonomic distance effects may diminish for absolute necessities like rent or utilities."
+    - "Prediction algorithm preferences tested on simple events (die rolls, sports); complex financial forecasting may differ."
+  mapping_rationale: "This paper addresses mental representation and its effects on spending adjustment (domains: expense categorization, spending forecasting, budget recommendation) and prediction algorithm preferences (domain: system evaluation). Selected codes 3.A (expense categorization frameworks) because Study 1 recovers hierarchical taxonomies. 5.A (behavioral profiles) because taxonomic distance captures individual differences in spending adjustment. 6.B (spending forecasting) because Chapter 2's prediction by replication directly informs how users evaluate forecasting algorithms. 7.A (budgeting strategies) and 7.C (budget recommendation algorithm) because the hierarchical adjustment mechanism improves budget recommendations. 12.A (evaluation frameworks) because user preferences for replication provide a novel evaluation criterion. Rejected codes: 1.A (Filipino young professionals) as no Philippines-specific data; 10.A (data privacy) not discussed; 13.A/B (savings/debt) not primary. Borderline: 8.A anomaly detection – not directly addressed."
+limitations:
+  - "Lab studies use hypothetical scenarios; real behavior may differ. [unacknowledged]"
+  - "Grocery data analysis cannot confirm individual budget tracking; assumes average effects."
+  - "Sample sizes in pile-sort studies (N=27, N=50) are modest for consensus modeling."
+remember_this:
+  - "Taxonomic distance predicts spending adjustment more than substitutability alone."
+  - "Consumers share a consensual hierarchical representation of common expenditures."
+  - "People prefer prediction algorithms that replicate the event's generative process."
+  - "Sales on one item increase spending on taxonomically close items by 12 percent."
+  - "Mental representation shapes both budgeting and algorithm choices in finance apps."
+```
