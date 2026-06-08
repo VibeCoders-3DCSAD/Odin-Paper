@@ -1,0 +1,408 @@
+ScienceTalks11(2024)100387
+ContentslistsavailableatScienceDirect
+Science Talks
+journal homepage: www.elsevier.es/sctalk
+When machine learning meets econometrics: Can it build a better measure
+to predict multidimensional poverty and examine unmeasurable economic
+conditions?
+⁎
+EmmanuelA.Onsaya,b, ,JomarF.Rabajantea
+aGraduateSchool,UniversityofthePhilippinesLosBaños,Laguna4030,Philippines
+bPartidoInstituteofEconomics,PartidoStateUniversity,CamarinesSur4422,Philippines
+A R T I C L E I N F O A B S T R A C T
+Keywords: Povertyisasoldashumancivilization,hardtoeradicate,multidimensional,anddifficulttomeasure.Themethods
+Machinelearning usedtomeasurepovertytodayarecostly,labor-intensive,andtime-consuming.Therefore,policymakersfinditdiffi-
+Econometrics culttotargetpolicieswhenputtingpovertyreductioninitiativesintoaction.Indigenouscommunitiesareamongthe
+Multidimensionalpoverty
+mostdisadvantagedandvulnerablepopulationsinsociety.Theirsocioeconomicsituationsarecomplexandmultifac-
+Indigenouspeople
+eted.Whileresearchonpovertyisusuallygeneric,pronetolargesamplingerrors,andintendedtoguidenationalpol-
+Economicdevelopment
+icy,researchonindigenouspeopleisqualitative.Thus,tomeasuremultidimensionalpovertywithdisaggregated
+Povertyalleviation
+techniques,thisworkblendsmachinelearningandeconometrics.Researcherswhohavebeenstudyingpovertyworld-
+widecanreplicatealloftheapproaches,strategies,andresourcesusedinthisstudy.WiththebestR-squareandaccu-
+racy,randomforestmodelsperformbetterthanallregressorsandclassifierscombined.Italsoconfirmsthecausal
+relationshipandcurrenteconometricassociationbetweenmultidimensionalcharacteristicsandpovertyconse-
+quences.Thisstudydemonstratestheviabilityofusingmachinelearningtopredictpovertyinawaythatcansave
+costs,cutlabor,andmaximizetimetoempowerindigenouscommunitiesandalleviatethepovertyofimpoverished
+societiesinthepoorestregionofLuzon,Philippines.
+VideoandPresentationstothisarticlecanbefoundonlineathttps://
+doi.org/10.1016/j.sctalk.2024.100387.
+⁎
+Correspondingauthorat:GraduateSchool,UniversityofthePhilippinesLosBaños,Laguna4030,Philippines.
+E-mailaddress:eaonsay@up.edu.ph(E.A.Onsay).
+http://dx.doi.org/10.1016/j.sctalk.2024.100387
+Received4March2024;Receivedinrevisedform12July2024;Accepted18July2024
+2772-5693/©2024TheAuthors.PublishedbyElsevierLtd.ThisisanopenaccessarticleundertheCCBYlicense(http://creativecommons.org/licenses/by/4.0/).
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Figuresandtables
+Fig.1.Comprehensivepovertyanalyticsatdisaggregatedapproaches.
+2
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Abucayanisthemostimpoverishedlocality.SanJose,SanBenito,and
+Pandayhavethefewestimpoverishedhouseholds.Whilepovertyiswide-
+spreadintheIsarogSector,itisnotassevereinthePoblacioncommunity.
+Watt'sIndexclaimsthatIsarogcommunitieshaveagreaterprevalenceof
+poverty.Poorhouseholdsandpeoplearereflectedthroughpovertyinci-
+dence,whichrepresentstheheadcountratioofthoselivingbelowthepov-
+ertylineandfoodthresholdsinthePhilippines,relativetothetotalnumber
+ofhouseholdsandpopulation[1,2,11,18,21].
+Fig.2.Resultsofmultidimensionalpovertyevaluationatdisaggregationandcombinationthroughthemultipleconstructsandindicators.
+About63.70%ofpeopleliveinpovertyand51.10%ofindividualsdo
+nothaveaccesstofood.Thedynamicsofeducation,income,andhealth
+allclearly demonstratepoverty. InthePhilippines,householdswitha
+monthlyincomeofPhP10,481(about186.18USD)andbelowforafamily
+offiveareconsideredpoor.Itisimportanttoconsiderthatdifferentregions
+mayhavedifferentpovertylines,soitispre-requisitetoidentifythepoverty
+lineinyourareabeforeapplyingoursuggestedMLmodels.Multidimen-
+sionalPovertydeprivationreferstothe15economicvariablesthatwe
+haveemployed,whichserveaspredictorsorindependentvariablesinour
+econometricandmachinelearningmodels.Itoffersamorecomprehensive
+approach.Insteadofusinganindex,weemploybinaryanddummydatato
+capturenon-linearrelationships[1,2,21,23].
+3
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Fig.3.Classificationresultsandpredictivemarginsofmultidimensionalvariables.
+Asafactorimpactinghealthdynamics,theresultsindicatethathouse-
+holdsizeisastrongpredictorofpoverty.Povertyismorelikelytobeexpe-
+rienced by informal settlers than by formal settlers. Furthermore, the
+chanceoffallingintopovertyincreaseswiththenumberofhousehold
+members[1,2,6,20,24].
+Fig.4.Averagerootmeanssquareerrorofmachinelearningregressorsforimpoverishedsocieties.
+4
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+WithanRMSEof0.3298,therandomforestmethodperformsbetter
+thantheothers,LightGBMat0.3642andXGBoostat0.4001.Theseresults
+arederivedfromMLmodels(regressors)displayedonvideoslides15and
+17.Thereasonwhyrandomforestperformedthebestisthatitcanidentify
+explanatoryfactors,findnonlinearcorrelationsbetweenexplanatoryand
+dependentvariables,andestimatefeatureimportance,whichprovidesin-
+sightintothefeaturesthathavethegreatestinfluenceonthecategorization
+process.Althoughtheoutcomeofmachinelearning(ML)isdependenton
+thecontextofthedata,resultsfromMLappliedtosimilardatasetsand
+modelsinotherlocationswouldbecomparable.Maybetheonlythings
+thatwouldchangearethepredictors.TheMLmodelissustainableinthis
+waysinceitrequiresalargeamountofdata,andthedataweutilizedis
+availableinthePhilippineseverytwoyearsafterthecensus.Furthermore,
+even with cross-sectional data, different regions can apply machine
+learningoncethedataisaccessibleforthem,becauseamedium-termsocial
+outcomecanbepredictedbyanMLmodel[1,2,19,10,15].
+Fig.5.Averagemeansquareerrorofmachinelearningregressorsforimpoverishedsocieties.
+5
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Fortheentiremunicipality,therandomforestregressionalgorithmhas
+thelowestmeansquareerror,at0.0792.XGBoost(0.4722)andLightGBM
+(0.1242)areinitswake.TheMLmodelsweusedarespecifictotheareas
+westudied.Therefore,weinitiallyemployed econometricstoidentify
+properpredictorsforMLmodelsthatarespecifictoourlocalcontext.How-
+ever,thepovertymodels(logistic)andtheMLmodels(regressorsandclas-
+sifiers) are generic and can be applied to other regions or countries.
+Consequently,repeatabilityishighlyfeasibleinthisregard.Otherregions
+oftheworldwouldneedtoidentifytheirownpredictors,butthemodels
+weusedcouldalsoworkforthem[1,2,15,22].
+Fig.6.AverageR-squareofmachinelearningregressorsforimpoverishedsocieties.
+WithanR-squareof0.4221,thelinearregressionhasthelowestvalue.
+TherandomforestregressorproducedthehighestR-square,0.92075.It
+suggeststhattheregressionthatbestmatchestheregressionlineandhas
+thelowesterrorscoreistherandomforestregression.Sincethedataexam-
+inedinthispaperisbasedonacomprehensivecensusofallpopulationsin-
+cludingindigenouspeople,therearenoknownlimits.Asaresult,itremains
+exempttosamplingerrorandupholdsthesampleassumptionsofinternal
+andexternalvalidity.Thewritersthoroughlyexamineandfilterthedata's
+multidimensionalvariables.Thedatasetiswell-sizedanddevoidofwell-
+knownbiases.Buttimeisoftheessence.Ittakestimetocreatetrustworthy
+andverifiabledatasetsandmodels[1,2,12,13,14].
+6
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Fig.7.Performanceevaluationofmachinelearningregressorsforimpoverishedsocieties.
+Withanaccuracyof0.9108,therandomforestregressionclassifierhas
+thehighestperformance.ThealgorithmswiththelowestaccuracyareBag-
+ging(0.8437)andDecisionTree(0.8418).TheR-squaresfortheSVM,
+AdaBoost,GaussianNB,andPerceptronare0.86–0.87.Therandomforest
+classificationhasthegreatestaccuracyrateof95.94%inpipelinealgo-
+rithms.Concerningthefutureimprovements,theutilizationofeconometric
+modelsandpredictiveanalyticsdatasetshasthepotentialtogenerateem-
+piricaldatathatstrengthenspovertytheoriesthatapplytoentirepopula-
+tions, including indigenous populations. This would contribute to the
+existingbodyofknowledgeaboutthedearthofmultidimensionalpoverty
+metricsindevelopingnationslikethePhilippines,especiallyforindigenous
+populations.Applyingthemodelstoallothertribesinthenationandutiliz-
+ingartificialneuralnetworkscouldbothenhanceforecastaccuracyand
+yieldimprovements[1,2,8,16,17].
+7
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Fig.8.Indigenouscommunities'populationanalytics.
+Indigenouspeoplemakeupabout11.84%ofallhouseholdsinGoa,
+CamarinesSur.SanPedroAroro,Payatan,andBalaynanarethemostpop-
+ulousindigenoustribes,withrespectivetotalpopulationdistributionsof
+92.50%,68.66%,and46.30%[3,4,7,11].
+8
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Fig.9.Multidimensionalsocioeconomicevaluationandpovertyexaminationofindigenouspeopletribes.
+Thereare1660housesofindigenouspeopleand8022personsintotal.
+Eighty-twopercentofpeopleliveinpoverty,and71%donothaveaccessto
+| food. Evaluation | resultsfor schooling | are largely constant | throughout |
+| ---------------- | -------------------- | -------------------- | ---------- |
+barangays,suggestingthatmostchildrenintheneighborhoodarenoten-
+| rolled in school | or have stopped | enrolling as educational | levels rise |
+| ---------------- | --------------- | ------------------------ | ----------- |
+[3,4,7,11,18].
+9
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Fig.10.Indigenouspeoplepovertyanalytics.
+ThePooresttribeistheAbucayanTribewhiletheLeastPoortribeisthe
+SalogTribe[1,3,4,21,23].
+Fig.11.IPClassificationPredictionMargins.
+LivingbelowthepovertylevelismorecommonamongIPinformalset-
+tlers.Moreover,theprobabilityofpovertyincreaseswiththenumberof
+householdmembers.TheresultsoftheEstatcategorizationarepositive.
+Overall,86.14%ofcaseswereappropriatelyclassified[3,4,5,9,25].
+10
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Fig.12.Averagemeansquareerror(MSE)ofmachinelearningregressorsinIPmodeling.
+AfterLightGBMandXGBoost,therandomforestregressionmethodhas
+thelowestmeansquareerror(0.5497).Causalitytestsusingeconometrics
+(logitandprobitregression)wereinitiallyperformedtoidentifypredictors
+fortheMLmodels.Allthemultidimensionalindicatorsusedinthemodel
+(Fig.9)andreflectedinthevideohaveacausalrelationshipwithpoverty
+forIPgroups.Thefollowingvariableshavebeenfoundtohavecausality:
+HealthandNutrition,Housing,WaterandSanitation,BasicEducation,In-
+comeandLivelihood,andPeaceandOrder.Sincethesevariablesarecaus-
+allylinkedtopoverty,theyserveaspredictorsintheMLmodels.Giventhat
+thesevariableshaveacausalrelationshipandarepredictorsofpovertyin
+themodels,ourpolicymappingandtargetinganalysisfocusesonthesevar-
+iables.Weconcentrateonaddressingthesevariablesinordertoimprove
+policies,asdoingsowouldalleviatepovertyandpromotedevelopment
+[3,4,15,22].
+11
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Fig.13.AverageR-squareofmachinelearningregressorsforIndigenousCommunities.
+Ofallthetechniques,linearregressionhasthelowestR-square,at
+0.4222.NextareapolynomialalgorithmandanSVR.WithanR-square
+of0.9208,therandomforestregressorproducedthehighestresults,al-
+thoughCatBoost,XGBoost,andLightGBMallperformedsimilarly.Itim-
+plies that the random forest regression is the one that most closely
+resemblestheregressionlineandhasthelowesterrorscore[3,4,12,13,14].
+12
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+Fig.14.PerformanceevaluationofMLclassifiersatrandomandpipelineforIP.
+Foralltribesatrandom(α),therandomforestregressionclassifierhas Acknowledgments
+thehighestaccuracy(90.69%);K-NearestNeighbour,GradientBoost,and
+Logisticfollow.Atpipeline(Ω),therandomforestclassificationhasthe Wewouldliketoexpressourprofoundgratitudetothefollowingorga-
+greatestaccuracyrateat94.89%.Thenexttwoclassificationstrategiesare nizationsandindividualsfortheirvitalsupportofourresearch:Elsevier's
+gradientboostandlogistic.Theresultsaffirmthatall15indicatorsserve ScienceTalksforprovidingusaplatformtodisseminateourstudy'sre-
+aspredictorsofpoverty,andtherandomforestalgorithmemergesasthe viewsthroughvideopresentation,whichsupporteconomicdevelopment
+mosteffectivemodelforpovertyprediction.Therefore,itiscrucialtoad- and poverty alleviation; University of the Philippines Los Baños
+dressalltheseindicatorsadequatelysincetheyaretherootcausesofpoverty. GraduateSchoolforresearchdevelopmentandanalysis;PartidoState
+Byformulatingpoliciesthattargeteachpredictor,povertycanbealleviated, University for financial and logistic support; De La Salle University
+leadingtoadvancementsineconomicdevelopment[3,4,8,16,17]. SchoolofEconomicsforinsightfulfeedbackandreview;andLGUGoa
+CamarinesSurforprovidingthenecessarydata.Intermsofauthorization
+andlogisticalsupport,wewouldliketoexpressoursincereappreciationto
+CRediTauthorshipcontributionstatement
+Hon.Pan,MarcelS.,Engr.MorielPrado,Ms.PreseBradecina,Mr.Rafael
+EmmanuelA.Onsay:Writing–originaldraft,Visualization,Valida- Belleza,Mr.JudeZairC.Paladan,Ms.KescheiJoanaVillarCañaveras,
+Mr.HermanB.JungcoII,Mr.ChrisOcampo,andMr.JobertRonabio.
+tion,Projectadministration,Methodology,Investigation,Fundingacquisi-
+WealsoadmireProf.JerroldTubayandProf.NeilJeromeEgarquinfor
+tion, Formal analysis, Data curation, Conceptualization. Jomar F.
+Rabajante:Writing–review&editing,Validation,Supervision,Software, their support in mathematical analysis, and we owe Prof. Jason
+AlinsunurinandProf.JeffersonArapocfortheirhelpwitheconometrics.
+Resources, Project administration, Methodology, Funding acquisition,
+We are deeply grateful to Prof. Eva Marie Aragones and Prof. Alellie
+Formalanalysis,Conceptualization.
+Sobreviñasfortheirinvaluablecontributionstothepovertymodels.We
+verymuchappreciatetheinvaluableassistancewithediting,curation,
+Dataavailability andlogisticsprovidedbyProf.RolanJonG.Bulao,SirKevinC.Baltar,
+Mr.MarkReyPardiñas,Ms.SpottyKankan,Mr.JackNoy,Mr.KingUkay,
+Wehavesharedourdatapublicly.Thelinkstoourdatasetswerepro- andMs.SakuraKok.Furthermore,weareincrediblygratefultothepolicy-
+videdthroughthereferencessection(Ref.1,2,3,4) makers, government representatives, and stakeholders who have
+13
+
+E.A.Onsay,J.F.Rabajante ScienceTalks11(2024)100387
+contributedsignificantinsightsandfeedbacktodevelopandimplement [14] MengxiaoLiu,HuShan,YongGe,GerardB.M.Heuvelink,ZhoupengRen,Xiaoran
+Huang,“Usingmultiplelinearregressionandrandomforeststoidentifyspatialpoverty
+policysolutions.Ultimately,wegivetheAlmightyGodthehighestpraise determinantsinruralChina.”spatial,Statistics42(2021), 100461.
+forknowledge,power,andwisdom. [15] PaPaMin,YenWenGan,SitiNursyuhadaBintiHamzah,ThianSongOng,MdShohel
+Sayeed,Povertypredictionusingmachinelearningapproach,J.SouthwestJiaotong
+Univ.57,no.1(2022).
+Funding
+[16] AishwaryaMujumdar,V.Vaidehi,Diabetespredictionusingmachinelearningalgo-
+rithms,Proc.Comput.Sci.165(2019)292–299.
+ThisworkwassupportedbythePartidoStateUniversity(PovertyAlle- [17] GuberneyMuñetón-Santa,LuisCarlosManrique-Ruiz,Predictingmultidimensional
+viationandEconomicDevelopmentProject2022–2025)andUniversityof povertywithmachinelearningalgorithms:anopendatasourceapproachusingspatial
+data,Sociol.Sci.12(5)(2023)296.
+thePhilippinesLosBaños(GraduateSchool2023–2025).
+[18] RA11315,Community-BasedMonitoringActof2018,https://www.officialgazette.gov.
+ph/downloads/2019/04apr/20190417-RA-11315-RRD.pdf2024.
+Ethicsstatement [19] JomarF.Rabajante,JerroldM.Tubay,HiromuIto,TakashiUehara,SatoshiKakishima,
+SatoruMorita,JinYoshimura,DieterEbert,Host-parasiteredqueendynamicswith
+phase-lockedraregenotypes,Sci.Adv.2(3)(2016), e1501548.
+Allgraphsandfigurespresentedinthisworkwereproducedandvisual- [20] BenjaminSeebohmRowntree,Poverty:Astudyoftownlife,Macmillan,1902.
+izedbytheauthors.Theutilizationofallphotosinthevideopresentation [21] Alellie Borel Sobreviñas, Examining chronic and transient poverty using the
+community-basedmonitoringsystem(CBMS)data:thecaseofthemunicipalityof
+hasobtainedformalconsentfromthesubject,university,government, Orion,DLSUBusinessEcon.Rev.30(1)(2020)111–129.
+andstakeholders.TheconductofthisstudywasapprovedbyPartidoState [22] ThomasPaveSohnesen,NielsStender,Israndomforestasuperiormethodologyfor
+University and the University of the Philippines Los Baños. The Goa, predictingpoverty?Anempiricalassessment,PovertyPublicPolicy9(1)(2017)
+118–133.
+CamarinesSurLocalGovernmentUnitgavepermissionfortheresultsof
+[23] AubreyD.Tabuga,ChristianD.Mina,CeliaM.Reyes,RoninaD.Asis,MariaBlesilaG.
+theprocesseddatatobeused,manipulated,analyzed,andcommunicated. Datu,DynamicsofPovertyinthePhilippines:DistinguishingtheChronicfromtheTran-
+Researchersvoluntarilyconductthedataanalysisandprocedures;theyare sientPoor.No.2011-31,PIDSDiscussionPaperSeries,2011.
+[24] UnitedNations,Facingthechallengeofmeasuringtheunmeasurable,https://www.un.
+notacomponentofanyexperiment.Ourhumandataaresecondary,indi-
+org/en/development/desa/news/statistics/measuring-the-unmeasurable.html2012.
+rect,andsocioeconomicinnature;theydon'tentailanylaboratorywork. [25] JeffreyM.Wooldridge,MokhtarulWadud,JennyLye,IntroductoryEconometrics:Asia
+Thus,ethicalclearancesarenotrequired.Furthermore,thisstudydoes PacificEditionwithOnlineStudyTools12Months,CengageAU,2016.
+notinvolveanyanimaltesting,directhumanvolunteers,ordataacquired
+fromsocialmediaplatforms.
+EmmanuelA.OnsayisaCertifiedPublicAccountant,econo-
+mist, data analyst, econometrician, assistant professor,
+extensionist, and researcher at Partido State University,
+Declarationofinterests CamarinesSur,Philippines.HecompletedtheMasterinApplied
+EconomicsatDeLaSalleUniversity(DLSU)SchoolofEconom-
+Theauthorsdeclarethattheyhavenoknowncompetingfinancialinter- i
+a
+c
+n
+s
+d
+.H
+re
+e
+co
+g
+g
+ra
+n
+d
+it
+u
+io
+a
+n
+te
+s
+d
+.H
+w
+e
+it
+a
+h
+ls
+5
+os
+p
+u
+u
+c
+b
+c
+l
+e
+ic
+ss
+a
+f
+t
+u
+io
+ll
+n
+y
+s
+fi
+,
+n
+an
+is
+d
+he
+4
+d
+r
+a
+e
+n
+se
+i
+a
+n
+r
+t
+c
+e
+h
+rn
+a
+a
+w
+tio
+ar
+n
+d
+a
+s
+l
+estsorpersonalrelationshipsthatcouldhaveappearedtoinfluencethe
+exchangeprogram,theSakuraScienceExchangeProgramof
+workreportedinthispaper. JapanScienceandTechnologyAgencyandKochiUniversity
+Japan.Hewasawarded2UniversityPresidentialCitationsfor
+ResearchandCompetitiveGraduateStudies.Healsoreceived
+References 2KilyabAwardsforresearch,variouspublicationawards,and
+citationawards.Atthispoint,hebagged25bestpaperawards
+indifferentconferencesacrossregions.In2023,hebecame
+[1] E.A.Onsay,J.Rabajante,Measuringtheunmeasurablemultidimensionalpovertyfor
+theyoungestrecipientoftheOutstandingFacultyAwardofPartidoStateUniversity.Heisalso
+economicdevelopment:datasets,algorithms,andmodelsfromthepoorestregionof
+theyoungestresearcherfromhisinstitutiontobeincludedintheWorld'sScientistsrankingsby
+Luzon,Philippines,DataBriefJ.(2024),https://doi.org/10.1016/j.dib.2024.110150. theADScientificIndex.Currently,heisacandidateforthedegreeofDoctorofPhilosophyby
+[2] EmmanuelOnsay,JomarRabajante,Datasetonmeasuringtheunmeasurablemultidi-
+ResearchinDataScience(Analytics)andInformatics,specializinginEconomics,Business,and
+mensionalruralpovertyforeconomicdevelopment:analysisfromthepoorestdistrict
+QuantitativeSocialScienceAnalyticsattheUniversityofthePhilippinesLosBañosGraduate
+ofthepoorestprovinceinthepoorestregionofLuzon,Philippines,MendeleyDataV1
+School.HisdissertationfocusesonMeasuringtheunmeasurableaspectsofsociety.Hisre-
+(2023),https://doi.org/10.17632/s76nh7dm4v.1.
+[3] EmmanuelA.Onsay,“Povertyprofileandhealthdynamicsofindigenouspeople.”Int searchinterestandspecializationlieindataanalytics,povertyeconomics,publiceconomics,
+rev,Soc.Sci.Res.2(2022)1–27. appliedeconometrics,impactevaluation,environmentaleconomics,businessanalytics,and
+accountancy.
+[4] EmmanuelOnsay,JomarRabajante,MeasuringtheUnmeasurableSocio-Economic
+ConditionsandMultidimensionalPovertyofIndigenousPeople:Datasetsfromthe
+PoorestRegionofLuzon,Philippines,vol.V1,HarvardDataverse,2023,https://doi.
+org/10.7910/DVN/QSZKUP. JomarF.Rabajanteisaprofessor5andUPScientistIIIofthe
+[5] JohnH.Aldrich,ForrestD.Nelson,LinearProbability,Logit,andProbitModels,vol.45, InstituteofMathematicalSciencesandPhysics(IMSP),and
+Sage,1984. DeanoftheGraduateSchoolUniversityofthePhilippinesLos
+[6] SabinaAlkire,ValuingFreedoms:Sen’sCapabilityApproachandPovertyReduction, Baños(UPLB),Laguna,Philippines.Heholdsanappointment
+OxfordUniversityPress,USA,2005. asaJuniorAssociateattheQuantitativeLifeSciencesGroup
+[7] SamiBibi,MeasuringPovertyinaMultidimensionalPerspective:AReviewofLitera- oftheAbdusSalamInternationalCentreforTheoreticalPhysics
+ture,2005. inTriesteItalyfromyear2019to2024.Heservedasaresearch
+[8] ChrisBrowne,DavidS.Matteson,LindenMcBride,HuLeiqiu,YanyanLiu,YingSun, collaborator/consultanttotheAsianDevelopmentBank,United
+JiamingWen,ChristopherB.Barrett,Multivariaterandomforestpredictionofpoverty NationsPopulationFund,ZuelligFamilyFoundation,WorldVi-
+andmalnutritionprevalence,PLoSOne16(2021), e0255519. sion/STARTNetwork,PhilRice,DepartmentofFinance,Task
+[9] JamesFoster,JoelGreer,ErikThorbecke,Aclassofdecomposablepovertymeasures, ForceT3,SupremeCourtofthePhilippines,andProvinceofBa-
+Econometrica(1984)761–766. taaninmodelingthedynamicsofinfectiousdiseases.Heisone
+[10] TrevorHastie,RobertTibshirani,JeromeH.Friedman,JeromeH.Friedman,TheEle- oftheproponentsandtheco-chairforprogramimplementation
+mentsofStatisticalLearning:DataMining,Inference,andPrediction,vol.2,springer, ofthefirstandonlyPhDAppliedMathematicsdegreeprogram
+NewYork,2009. inthePhilippinesandPhDbyResearch(DataAnalyticsandInformatics)programsinUPLB.He
+[11] JonathanHaughton,ShahidurR.Khandker,HandbookonPoverty+Inequality,World isaholderofaDoctorofScienceinMathematicalandSystemsEngineering-Environmentand
+BankPublications,2009. EnergySystemsfromShizuokaUniversity(NationalUniversity),HamamatsuCity,Shizuoka,
+[12] ShanHu,YongGe,MengxiaoLiu,ZhoupengRen,XiningZhang,Village-levelpoverty JapanundertheJapaneseGovernmentMonbukagakushoscholarshipgrant.Hisresearchinter-
+identificationusingmachinelearning,high-resolutionimages,andgeospatialdata, estslieinmathematicalmodeling,dataanalytics,andquantitativeriskassessmentofcomplex
+Int.J.Appl.EarthObs.Geoinf.107(2022), 102694. biologicalandsocialsystems.
+[13] QingLi,YuShuai,DamienÉchevin,MinFan,Ispovertypredictablewithmachinelearn-
+ing?AstudyofDHSdatafromKyrgyzstan,SocioEcon.Plan.Sci.81(2022), 101195.
+14
