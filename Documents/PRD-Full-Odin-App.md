@@ -132,7 +132,7 @@ Confirmed primary screens:
 - Create a budget recommendation module as a deep module. It should consume current balance, profile, protected categories, goals, obligations, and forecast outputs, then return explainable category allocations.
 - Create a forecasting module as a deep module. It should support cold-start forecasts, personalized forecasts, total forecasts, per-category forecasts, and metadata explaining whether the result is personalized or fallback-based.
 - The primary forecast visualization should include a next-month multi-line graph for Essentials, Discretionary, Financial Allocation, and Obligatory spending.
-- Create an anomaly and overage detection module as a deep module. It should detect unusual transaction behavior, budget-risk conditions, culturally expected exceptions, and user-whitelisted intentional outliers.
+- Create an anomaly and overspending detection module as a deep module. It should detect unusual transaction behavior, budget-risk conditions, culturally expected exceptions, and user-whitelisted intentional outliers.
 - Create a savings goal module as a deep module. It should manage goals, contributions, progress states, prioritization, and projected achievement dates.
 - Create a debt management module as a deep module. It should manage debt accounts and compute Avalanche and Snowball repayment projections.
 - Create an alerts and notifications module as a deep module. It should centralize alert generation, acknowledgement, notification preferences, cooldown behavior, and alert fatigue controls.
