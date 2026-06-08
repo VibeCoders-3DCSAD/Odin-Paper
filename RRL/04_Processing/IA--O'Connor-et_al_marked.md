@@ -1,0 +1,2144 @@
+Review
+A Review of Electricity Price Forecasting Models in the
+Day-Ahead, Intra-Day, and Balancing Markets
+CiaranO’Connor1,* ,MohamedBahloul2,StevenPrestwich3,*andAndreaVisentin3
+1 SFICRTinArtificialIntelligence,SchoolofComputerScience&IT,UniversityCollegeCork,
+T12YN60Cork,Ireland
+2 Water&EnergyTransitionUnit,VlaamseInstellingvoorTechnologischOnderzoek,
+2400Mol,Belgium;mohamed.bahloul@vito.be
+3 InsightCentreforDataAnalytics,SchoolofComputerScience&IT,UniversityCollegeCork,
+T12YN60Cork,Ireland;andrea.visentin@ucc.ie
+* Correspondence:119226305@umail.ucc.ie(C.O.);s.prestwich@cs.ucc.ie(S.P.)
+Abstract: Electricitypriceforecastingplaysafundamentalroleinensuringefficientmarket
+operation and informed decision making. With the growing integration of renewable
+energy,priceshavebecomemorevolatileanddifficulttopredict,increasingthenecessity
+ofaccurateforecastinginbidding,scheduling,andriskmanagement. Thispaperprovides
+a comprehensive review of point forecasting models for electricity markets, covering
+classical statistical approaches both with and without exogenous inputs, and modern
+machinelearninganddeeplearningtechniques,includingensemblemethodsandhybrid
+architectures. Unlikestandardreviewsfocusedsolelyontheday-aheadmarket,weassess
+modelperformanceacrossday-ahead,intra-day,andbalancingmarkets,witheachposing
+unique challenges due to differences in time resolution, data availability, and market
+AcademicEditors:SebastijanSeme structure. Throughthismarket-specificlens,thepapermergesinsightsfromabroadset
+andKlemenSredenšek of studies; identifies persistent challenges, such as data quality, model interpretability,
+Received:30May2025 andgeneralisability;andoutlinespromisingdirectionsforfutureresearch. Ourfindings
+Revised:7June2025 highlightthestrongperformanceofhybridandensemblemodelsintheday-aheadmarket,
+Accepted:10June2025
+the dominance of recurrent neural networks in the intra-day market, and the relative
+Published:12June2025
+effectivenessofsimplerstatisticalmodelssuchasLEARinthebalancingmarket,where
+Citation: O’Connor,C.;Bahloul,M.;
+volatilityanddatasparsityremaincriticalchallenges.
+Prestwich,S.;Visentin,A.AReviewof
+ElectricityPriceForecastingModelsin
+Keywords: electricitypriceforecasting;day-aheadmarket;intra-daymarket;balancing
+theDay-Ahead,Intra-Day,and
+market;machinelearning;deeplearning;hybridmodels
+BalancingMarkets.Energies2025,18,
+3097. https://doi.org/10.3390/
+en18123097
+Correction Statement: This article
+1. Introduction
+has been republished with a minor
+change. Thechangedoesnotaffect Electricitypriceforecasting(EPF)playsafundamentalroleinenergymarkets,enabling
+thescientificcontentofthearticleand
+marketparticipantstooptimisetradingstrategies,mitigatefinancialrisks,andmaintain
+furtherdetailsareavailablewithinthe
+gridstability. However,forecastingwithaccuracyhasbecomeincreasinglydifficultdueto
+backmatterofthewebsiteversionof
+therapidexpansionofrenewableenergysourcessuchaswind,solar,andhydroelectric
+thisarticle.
+power. This challenge is especially evident in real-time markets such as the intra-day
+Copyright:©2025bytheauthors.
+market(IDM)andbalancingmarket(BM),whereforecasterrorsinrenewablesrequirereal-
+LicenseeMDPI,Basel,Switzerland.
+timecorrections[1]. Whilepolicyincentives,decliningtechnologycosts,andregulatory
+Thisarticleisanopenaccessarticle
+distributedunderthetermsand mechanismslikefeed-intariffshaveacceleratedrenewableadoption[2,3],theseenergy
+conditionsoftheCreativeCommons sourcesintroducesignificantvariabilityanduncertaintyintoelectricitymarkets. Unlike
+Attribution(CCBY)license traditionalcommodities,electricitycannotbestoredefficiently,requiringreal-timebalanc-
+(https://creativecommons.org/
+ingofsupplyanddemand. Asaresult,short-termpricefluctuationsarehighlysensitiveto
+licenses/by/4.0/).
+Energies2025,18,3097 https://doi.org/10.3390/en18123097
+
+Energies2025,18,3097 2of40
+renewablegenerationforecasts,regulatoryinterventions,andunforeseendisruptionssuch
+asgeneratoroutagesortransmissionconstraints. ThesecomplexitiesmakeEPFparticularly
+challenging,aspricesexhibithighvolatility,non-linearity,andsuddenspikes.
+1.1. PointForecastingMethods
+EPF approaches can be broadly divided into point forecasts and probabilistic fore-
+casts. Point forecasts generate single-valued predictions that are easy to interpret and
+supportparsimoniouspredictor–targetrelationships,typicallyundertheassumptionof
+homoscedasticity. Historically,pointforecastinghasbeendominatedbystatisticalmod-
+elsduetotheirinterpretabilityandabilitytocapturetemporaldependencies. Classical
+methodsincludeautoregressive(AR)models,bothwithoutandwithexogenousinputs
+(ARX),whichhavebeenextendedtoautoregressiveintegratedmovingaverage(ARIMA)
+anditsvariantswithseasonality(SARIMA)andexogenousinputs(ARIMAX).Toaccount
+forvolatility,theseareoftenpairedwithGeneralisedARConditionalHeteroscedasticity
+(GARCH)models,whichmodeltime-varyingvariancewithinalinearframework. More
+recentdevelopmentsincorporateregularisationtechniquestoimprovegeneralisationin
+high-dimensionalsettings. TheLeastAbsoluteShrinkageandSelectionOperator(LASSO)
+utilisesl regularisationtoenhancelinearregression,whiletheLasso-EstimatedAR(LEAR)
+1
+modelextendsARframeworksusingelasticnetstoapplyboth l and l regularisation.
+1 2
+Although these methods remain widely used, they often struggle to capture the non-
+linearities, regime shifts, and extreme price fluctuations that typify modern electricity
+markets—particularlythosewithhighrenewableenergypenetration[4].
+Toovercomethelimitationsoftraditionalstatisticalmodels,machinelearning(ML)
+anddeeplearning(DL)techniqueshavegainedprominenceinEPF,offeringgreaterflexi-
+bilityformodellingcomplex,non-linearrelationships. MLapproachessuchasSupport
+VectorMachine(SVM),RandomForest(RF),andgradientboostingalgorithms(e.g.,XGB,
+LGBM)haveshownstrongperformanceinuncoveringintricatepatternswithinmarket
+data[5–7]. DLmodels,particularlyrecurrentneuralnetworks(RNNs),havebeenwidely
+adoptedintheday-aheadmarket(DAM)duetotheirabilitytolearnhierarchicalfeature
+representationsandcapturetemporaldependencies[8,9]. Despitetheirpredictivepower,
+thesemodelsoftenrequirelargedatasets,entailsignificantcomputationalcosts,andare
+pronetooverfitting. Inresponse,hybridapproachesthatcombinestatistical,ML,andDL
+componentshavegainedtraction,aimingtoexploitthestrengthsofeachparadigm. These
+integrated models offer a promising path forward, balancing interpretability, computa-
+tionalcost,andaccuracytoimproveforecastingperformanceinincreasinglyvolatileand
+data-richelectricitymarkets.
+1.2. RelatedWorkandLiteratureGap
+EPFhasbeenextensivelystudied,withearlyresearchfocusingprimarilyonstatistical
+techniqueswithintheDAM.Thefoundationalreviewsin[10,11]establishedthedominance
+of statistical models, which remained the standard for over a decade. However, these
+workspredatethewidespreadadoptionofML,DL,andhybridapproachesthatintegrate
+non-linear and data-driven techniques to further improve forecasting accuracy. More
+recent surveys have updated the literature to reflect the growing use of ML and DL in
+EPF[4,12–14];yetacriticalgapremains: mostreviewscontinuetofocusalmostexclusively
+ontheDAM,neglectingtheincreasinglyimportantIDMandBM.
+Thesereal-timemarketsposeuniquechallengesduetohighertemporalresolution
+and greater sensitivity to renewable energy fluctuations, making accurate forecasting
+essentialformanagingsupply–demandimbalancesinsystemswithincreasingrenewable
+penetration. Given the rapid evolution of forecasting methodologies and the growing
+
+Energies2025,18,3097 3of40
+importance of the IDM and BM, there is a growing need for a comprehensive, cross-
+marketreview. Thispaperaddressesthisgapbyexaminingtheprogressionfromclassical
+statisticalmodelstomodernML-basedtechniquesacrossallthreeshort-termmarkets. By
+analysingemergingmethodologiesanddistinctforecastingchallengesintheDAM,IDM,
+and BM, we aim to provide researchers and practitioners with a timely and structured
+resource for navigating the evolving EPF landscape. The key novelty of this work lies
+in its comprehensive, methodologically structured review of point forecasting models
+acrossallthreemajorshort-termelectricitymarkets—day-ahead,intra-day,andbalancing—
+highlighting how model performance and suitability vary with market structure, data
+requirements,andvolatilitycharacteristics.
+Thestructureofthispaperisasfollows: Section2providesabackgroundofelectricity
+spotmarkets,theDAM,IDM,andBM.InSection3,weprovideanoverviewofstatistical,
+ML,DL,andhybridmodelsutilisedinEPF.Thekeyfindingsforpredictivemodelsineach
+spotmarketarediscussedinSection4. Finally,Section5summarisesourfindings.
+2. Background: ElectricityMarketStructure
+EPFishighlydependentonmarketstructure,asdifferentelectricitymarketsoperate
+ondistincttimeframes(seeFigure1)andtemporalgranularity,andexhibitvaryinglevelsof
+pricevolatility. ThefinancialinstrumentsshowninFigure1,includingforwards,capacity
+markets, and financial transmission rights, are described in more detail in Section 2.4.
+Short-termelectricitymarkets,includingtheDAM,IDM,andBM,playacrucialrolein
+electricitytrading,eachintroducinguniqueforecastingchallengesduetodifferencesin
+marketmechanisms,tradingfrequency,andrelianceonreal-timedata.Understandingthese
+marketstructuresisessentialforselectingappropriateforecastingmodels,asmethodologies
+mustbetailoredtoeachmarket’suniquecharacteristics. Thissectionprovidesanoverview
+ofshort-termelectricitymarkets,highlightingtheirstructuraldifferencesandthespecific
+forecastingdifficultiestheypresent.
+Financial Physical
+Forwards/
+Capacity/ Day-Ahead Intraday Balancing Dispatch
+FTR
+Years Months Weeks Days Hours Minutes Seconds Real-time
+Figure1.Temporalgranularityforeachoftherelevantmarkets.
+2.1. Day-AheadMarket
+TheDAMfunctionsasaforwardschedulingmechanisminwhichparticipantscommit
+toelectricitytradesonedaypriortodelivery. Pricesandtradingvolumesaredetermined
+throughmarket-clearingauctionsbasedonforecastedsupplyanddemand,typicallyusing
+optimisationalgorithmssuchasEUPHEMIAinEuropeanmarkets[15,16]. WhiletheDAM
+displaysmorestablepricescomparedtoreal-timemarkets,forecastingremainschallenging
+duetotheincreasingpenetrationofrenewableenergysources,particularlywindandsolar.
+These sources introduce volatility, as their generation depends on weather conditions,
+complicatingbothsupplyanddemandforecasts[17].
+
+Energies2025,18,3097 4of40
+EarlyDAMforecastingmethodsreliedonstatisticaltime-seriesmodels,duetotheir
+abilitytocapturetemporaldependencies. However,thesemodelsstrugglewithnon-linear
+pricedynamicsandsuddenregimeshifts. MLandDLapproacheshavesincedemonstrated
+strongperformancebycapturingcomplex,non-linearrelationshipswithinmarketdata.
+TechniquessuchasXGBandLSTM,andhybridmodelssuchasLEAR-DNN,haveproven
+to be stand out performers, improving forecasting accuracy by incorporating multiple
+influencingfactors,includingweatherconditions,fuelprices,anddemandtrends[4,18–21].
+2.2. Intra-DayMarket
+TheIDMfacilitatescontinuoustrading,allowingmarketparticipantstoadjusttheir
+positionsinresponsetoreal-timefluctuationsinsupplyanddemand. UnliketheDAM,
+wheretradesarescheduledadayinadvance,theIDMoperatesonshortertimeframes,
+with transactions occurring from a few hours up to 30 min before delivery. This high-
+frequencytradingenvironmentisparticularlysensitivetorenewablegenerationvariability,
+unexpectedoutages,andshiftingdemandpatterns,makingaccurateforecastingincreas-
+inglyimportant[22]. ForecastingintheIDMpresentsuniquechallengesduetotheneed
+for real-time adaptation to evolving market conditions. Traditional statistical models,
+while effective for longer time horizons, struggle to capture the higher-frequency, non-
+stationarynatureofIDMpricedynamics. InlinewiththeDAM,MLandDLapproaches
+havedemonstratedstrongperformanceinprocessinglargedatasets,detectingintricate
+patterns,andeffectivelyincorporatinghigh-resolutiontemporaldata[23–26].Thesemodels
+integratediversereal-timedatasources,enablingmorepreciseshort-termpricepredictions
+inhigh-frequencytradingenvironments,whilehybridapproachesthatcombinestatistical
+andML-basedtechniquesarebeingincreasinglyexploredtoimprovepredictiveaccuracy,
+modelinterpretability,andreal-timebiddingstrategyoptimisation[26–28].
+2.3. BalancingMarket
+TheBMoperatesinrealtime,ensuringthatelectricitysupplymatchesactualsystem
+demand. Unlike the DAM and IDM, where trades are scheduled in advance, the BM
+respondstolast-minutesupply–demandimbalances,renewableenergyfluctuations,and
+generatoroutages,makingitthemostvolatilemarket[1,29]. Operatingonextremelyshort
+timehorizons(5min),BMEPFisparticularlychallenging,asBMpricesmustreflectrapid
+correctiveactionstakenbythetransmissionsystemoperator[30].WhileMLandDLmodels
+havedemonstratedstrongforecastingperformanceintheDAM,andtoalesserextentin
+theIDM,simplerstatisticalapproacheshaveprovenmoreeffectiveforBMforecastingdue
+totheirabilitytohandlesharppricespikeswithoutoverfitting[31,32]. Incontrast,MLand
+DLmodels,whichexcelincapturingcomplexpatterns,oftenstrugglewithoverfitting,and
+havedifficultymodellinghigh-frequencyfluctuationsandsuddenregimeshifts.Toaddress
+theselimitations,hybridapproachesutilisingstatisticalandMLmodelsarebeingexplored,
+whilereal-timedataintegration,incorporatingweatherconditions,gridfrequency,and
+systemconstraints,remainsakeyfocusforimprovingBMEPF[33,34].
+Figure 2 illustrates the aligned trading timelines for the day-ahead, intra-day, and
+balancingmarkets,includingtypicalsubmissiontimesandtradingintervals.
+
+Energies2025,18,3097 5of40
+12:00Submission|14:00PricesPublished
+DAM DAMTrading:24HourlyIntervals00:00-00:00
+.
+12:00 14:00 00:00 00:00
+Submissiontypically5–60minsbeforedelivery|Pricespublishedinreal-time
+IDM
+IDMTrading:Rolling15–60minperiods
+.
+00:00 08:00 16:00 00:00
+Submissiontypically1–15minsbeforedelivery|Pricespublishedinreal-time
+BM BMTrading:5–15minintervals
+.
+00:00 08:00 16:00 00:00
+Figure 2. Aligned DAM, IDM, and BM trading timelines, with submission and trading details.
+CreatedbytheauthorsbasedonSEMOpxdocumentationandEuropeanmarketrules[35,36].
+2.4. OtherElectricityMarkets
+In addition to the DAM, IDM, and BM, several other markets play fundamental
+rolesintheoveralltradingofelectricity. Anoverviewofthesemarketsandtheirunique
+characteristicsisprovidedbelow:
+• Forwardmarket:AllowsparticipantstohedgepositionsinDAM,IDM,andBMthrough
+contracts-for-difference[37]. Contracts-for-differenceenableparticipantstolockina
+strikeprice,providingprotectionagainstpricevolatility. Forecastinginthismarket
+requirespredictinglong-termpricetrendsandmovements.
+• Ancillarymarkets: Supportthepowergrid’sstabilityandreliabilitythroughservices
+likefrequencyregulation,spinningreserve,voltagecontrol,andblackstartcapabilities.
+Accurateforecastinginancillarymarketsensurestheavailabilityofresourcesneeded
+tomaintaingridstability. Thisinvolvessophisticatedmodelsconsideringreal-time
+operationaldataanddynamicsupplyanddemandconditions[38].
+• Capacity market: Ensures sufficient generation capacity to meet peak demand. Ca-
+pacity providers receive payments for committing to supply electricity or reduce
+demandduringpeakperiods,incentivisinginvestmentinnewcapacity[39]. Fore-
+castinginthecapacitymarketinvolvespredictingpeakdemandperiodsandcapacity
+resourceavailability.
+• Financialtransmissionrightsauctions: Managecongestioncostsandprovidefinancial
+hedgesagainstpricedifferencesacrossmarketzones. Financialtransmissionrights
+entitleholderstopaymentsbasedonpricedifferencesbetweenlocations. Forecasting
+inthismarketinvolvespredictingcongestionpatternsandpricedifferentials,requiring
+anunderstandingofgridoperationsandtransmissionconstraints[40].
+Whiletheforward,ancillary,andcapacitymarketsareintegraltothebroaderfunc-
+tioningoftheelectricitysystem,thisreviewfocusesexclusivelyontheDAM,IDM,andBM
+duetotheirdirectrelevancetoshort-termpricevolatility,renewableintegrationchallenges,
+andreal-timetradingdynamics. Marketsorientedtowardlong-termhedging,suchasthe
+forwardmarketandfinancialtransmissionrightsauctions,areexcluded,astheirlonger
+timehorizonsanddistinctpricingmechanismsfalloutsidetheprimaryscopeofthisstudy.
+
+Energies2025,18,3097 6of40
+3. PredictiveModels
+AccurateEPFrequiresmodelsthatcaneffectivelycapturediversemarketdynamics,
+accommodatehighvolatility,andadjusttoreal-timeconditions. Inthissection,wereview
+keypredictivemodels,includingstatistical,ML,DL,andhybridapproaches,highlighting
+theirapplicationandsuitabilityacrosseachspotmarket. Webeginbydiscussingstatistical
+models,distinguishingbetweenthosethatrelysolelyonhistoricalpricedataandthose
+thatincorporateexogenousinputs. Incontrast,MLandDLtechniquesareevaluatedfor
+theirstrengthinmodellingcomplex,non-linearrelationshipsinherentinvolatilemarkets.
+Drawing on insights from previous reviews [4,10–14,19], we assess the strengths and
+limitations of these methods while extending the focus beyond the DAM to real-time
+markets,namely,theIDMandBM,whereforecastingchallengesareamplifiedbyshorter
+decisionwindowsandgreatervolatility.
+3.1. StatisticalMethodsWithoutExogenousInputs
+StatisticalmodelsthatrelysolelyonhistoricalpricedataarewidelyusedinEPFto
+identifyunderlyingpatternssuchastrends,seasonality,andautocorrelation.Commontech-
+niquesincludeAR,ARIMA,GARCH,aswellassimplerapproacheslikenaivemodelsand
+exponentialsmoothing(ES).Thesemethodshavetraditionallyperformedwellinrelatively
+stablemarketssuchastheDAM,wherepricedynamicstendtobemorepredictable[19,41].
+However,inmorevolatileenvironmentsliketheIDMandBM,wherepriceshocksand
+non-linearbehavioursarefrequent,thesemodelsoftenstruggletomaintainforecasting
+accuracy[31,32,42,43]. Inthissubsection,wereviewbothsimpleandadvancedstatistical
+methodswithoutexogenousinputs,highlightingtheirapplicabilityandlimitationsacross
+differentmarketconditions.
+3.1.1. AutoregressiveModel
+TheARmodelisafoundationaltime-seriesforecastingtechniquewherethedependent
+variableisregressedagainstitsownlaggedvalues,assumingalinearrelationship. AnAR
+modeloforder p,denotedAR(p),expressesthecurrentvaluey asalinearcombinationof
+t
+its ppreviousvalues,denotedas
+p
+∑
+y t = ϕ 0 + ϕ i y t−i +ϵ t , (1)
+i=1
+whereϕ isaninterceptterm,ϕ areARcoefficients,andϵ iswhitenoise. ARmodelsare
+0 i t
+suitableforstationarytimeserieswhichexhibitaconstantmeanandvarianceovertime,
+andserveasabuildingblockformorecomplexmodelslikeARMAandARIMA.
+ARmodelsareparticularlyadeptatcapturingmean-reversionbehaviour,acommon
+characteristicinelectricityprices. However,inpractice,simpleARmodelsoftenstruggleto
+handlesuddenvolatilityandpriceshocks,asevidencedbystudiesintheIndianDAM[44].
+Toaddresstheselimitations,combiningARwithvolatilitymodelssuchasGARCHhas
+proveneffectiveinenhancingaccuracyinmoreturbulentsettings. Whilethesimplicity
+ofARmodelsmakesthemvaluablebaselines[45],theyarefrequentlyoutperformedby
+advancedmethods,suchasDLmodelslikeNBEATSx,thatarebetterequippedtomodel
+non-linearpricedynamics. Moreover,evidencefromItaly’sDAMsuggeststhatincorpo-
+ratingexternalfactorsviaextensionslikeARX,intandemwithGARCH,isconsiderably
+beneficialforimprovedforecastperformance[46]. IntheIDM,ARmodelsdemonstrate
+limitedforecastingaccuracyduetotheirinabilitytocapturetime-varyingcross-hourdepen-
+dencies[47],buttheirperformanceimprovessignificantlywhenextendedwithexogenous
+variablesorhybridapproaches[48].TheirperformanceintheIDMisfurtherimprovedwith
+regularisationandexogenousvariables,oftenoutperformingmorecomplexmodels[49].
+
+Energies2025,18,3097 7of40
+IntheBM,ARmodelsremainrelativelyunderexplored,withmoderatelystrongperfor-
+mance,albeitinashort3-monthtestperiod[43]. Overall,weseeatrendofARmodels
+underperformingcomparedtomorecomplexmodelswhichutiliseexogenousoutputs.
+3.1.2. AutoregressiveIntegratedMovingAverageModel
+TheARIMAmodelisawidelyusedtime-seriesforecastingapproachthatcombines
+threecomponents:theARtermcapturestemporaldependencies,asoutlinedinEquation(1);
+the integrated (I) component achieves stationarity through differencing, ∇dy = (1−
+t
+B)dy ,toremovetrendsandensureconstantstatisticalproperties;andthemovingaverage
+t
+(MA)termmodelstheimpactofpastforecasterrors,y t = θ 0 +ϵ t +∑q j=1 θ j ϵ t−j ,whereϵ t
+denoteswhitenoise. ThesecomponentsareunifiedintotheARIMAframework,denoted
+ARIMA(p,d,q),andexpressedcompactlyas
+ϕ (B)∇dy = θ (B)ϵ , (2)
+p t q t
+where ϕ (B) and θ (B) are polynomials in the backshift operator B. ARIMA has been
+p q
+widelyappliedinEPFintheDAM,provingeffectiveinhandlingnon-stationarybehaviour—
+suchasnon-constantmean,variance,andseasonality—asdemonstratedinmarketslike
+Spain and California [50]. However, its fundamentallylinear structurelimits its ability
+to capture non-linear dynamics, such as abrupt price spikes and regime shifts [51]. To
+overcometheseshortcomings,hybridapproaches,suchasintegratingwavelettransforms
+withARIMA,havebeenproposedtobettermanagevolatility[52]. Despitetheseenhance-
+ments,ARIMAmodelstendtoexcelonlyinlinearsettingsandoftenrequireadditional
+techniquestohandlecomplexnon-linearpatternseffectively[5]. Recentstudieshavehigh-
+lightedARIMA’slimitationswhencomparedtoadvancedmodelslikegraphconvolutional
+networks,whichcanmoreeffectivelycapturespatialdependenciesandintricatenon-linear
+relationships,especiallyforshort-termlocationalmarginalpriceforecasting[53]. Moreover,
+incorporatingGARCH-typespecificationsintoARIMAframeworkshasbeenshownto
+improveforecastaccuracyintheDAM,particularlyforgeneratingreliabledensityfore-
+casts[44,46]. IntheGermanIDM,ARIMAmodelsperformwellfordailyaverageprice
+forecastingwhenappliedtodeseasonaliseddata,thoughtheiraccuracyislargelydepen-
+dentonseasonaladjustmentsratherthanthemodel’sinherentpredictivestrength[54]. The
+incorporationofaseasonalcomponentwithSARIMAdisplaysimprovedperformance,
+provingmorecapableatcapturingintra-daypricepatterns,butitsperformanceremains
+limitedinhighlyvolatiletradingperiods,wheremoreadaptivemodelslikeXGBandLSTM
+demonstratesuperioraccuracy[55]. BeyondboththeDAMandIDM,ARIMAstrugglesto
+capturethereal-timedynamicsandextremevolatilitycharacteristicoftheBM[42],though
+definitive conclusions are limited by short evaluation periods and the use of the mean
+absolutepercentageerror(MAPE),whichisunsuitablewhenpricesarefrequentlycloseto
+zero. Furthermore,intheIrishBMweseeARIMAoutperformedbybothmorecomplex
+MLandDLmodels, aswellasthestatisticalmodelLEAR,acrossmultiplemetrics[32].
+Overall,ARIMAstrugglesinallthreespotmarkets,withparticularlypoorperformancein
+real-timemarkets,wheremodelswithexogenousinputscontinuetostandout.
+3.1.3. GeneralisedAutoregressiveConditionalHeteroscedasticityModel
+The GARCH model is utilised in EPF to model time-varying volatility, capturing
+volatilityclusteringbyallowingtheconditionalvariancetodependonpastsquaredresid-
+uals and variances, unlike standard time-series models that assume constant variance.
+InaGARCH(p,q)model,thetimeseriesy istypicallyassumedtofollowy = µ +ϵ ,
+t t t t
+where ϵ = σz , z ∼ N(0,1), and the conditional variance σ2 evolves according to
+t t t t t
+
+Energies2025,18,3097 8of40
+σ2 = α +∑p α ϵ2 +∑q β σ2 . Here,α isaconstant,α capturestheimpactoflagged
+t 0 i=1 i t−i j=1 j t−j 0 i
+shocks,andβ modelsthepersistenceofvolatility.
+j
+GARCHmodelshavebeenwidelyusedtomodelvolatilityinderegulatedelectricity
+markets[44,56]. Extensionssuchasthek-factorGIGARCHmodel,whichincorporateslong
+memoryandstochasticvolatility,havedemonstratedimprovedforecastingaccuracyin
+marketsliketheGermanDAM[57].Enhancedversions,includingEGARCHandTGARCH,
+integrateadditionalmarketdrivers,suchasdemandfluctuationsandrenewableenergy
+inputs,tobettercapturevolatilityclusteringandasymmetry[46]. Moreover,recentstudies
+haveshownthatGARCH-tmodelscoupledwithLASSOfeatureselectioncaneffectively
+manageheteroscedasticityand,insomecases,evenoutperformcertainMLapproachesin
+NewZealand’sDAM[58]. GARCHmodels,whenappliedinisolation,oftenunderperform
+inEPFduetotheirlimitedabilitytocapturecomplexmarketdynamics,andwhiletheir
+useintheIDMandBMremainsunderexplored,theirlimitationsintheDAMsuggestthey
+areunlikelytoperformwellinmorevolatilereal-timemarketswithoutintegrationwith
+AR-typeorML/DLmethods.
+3.1.4. ExponentialSmoothingModel
+ESisasimpleyeteffectiveforecastingmethodthatassignsexponentiallydecreasing
+weightstopastobservations,allowingrecentdatatohavemoreinfluenceontheforecast.
+VariantslikeHolt’slinearmethodintroduceatrendcomponent,andHolt–Wintersextends
+thistoincorporateseasonality,eitheradditivelyormultiplicatively. Moreadvancedver-
+sions,suchasTBATSandES-Transformers,furtherenhanceperformancebyincorporating
+trigonometricseasonality,Box–Coxtransformations,andARMAerrorstructures.
+Holt’sEShasdemonstratedstrongaccuracyinforecastingresidentialelectricitycon-
+sumption,oftenachievingalowerMAPEcomparedtoalternativemethods[59]. Building
+onthisfoundation,recentinnovationstoESincorporateTransformerarchitecturestoen-
+hance both long- and short-term forecasting performance [60]. Meanwhile, the TBATS
+modelextendstraditionalESbyintegratingfeaturesliketrigonometricseasonalityand
+ARMA error components, which has led to improved performance in contexts such as
+Denmark’sDAMandphotovoltaicsystemdata[61,62]. However,TBATScanstrugglein
+scenarioslackingexternalregressors,endingupbeingoutperformedbyRNNmodels,more
+suitedtonon-linearsettings[63]. HybridmodelsthatcombineESwithadditionalsmooth-
+ingandtrendtechniques,suchasSVR-CDSESandFunctionalARX(FARX),havealsobeen
+exploredtoimprovelong-termforecastsforenergydemandandelectricityprices[64,65].
+Nonetheless,whenappliedtovolatilemarketsliketheBM,traditionalESmethodsfallshort
+incapturingrapidpricefluctuations,echoingsimilarlimitationsobservedwithARIMA
+models[42]. Overall, ESisasimpleandinterpretablemodel, butitperformspoorlyin
+theBMand,whileitsapplicationintheIDMremainsunexplored,itslimitedadaptability
+suggestssimilarlyweakperformanceinmorevolatilereal-timemarkets.
+3.1.5. NaiveModel
+AnaivemodelservesasasimplebaselineforEPF,typicallyusingthepreviousthours
+ofpricestoforecastthenextthoursor,inseasonalvariants,replicatethepricefromthe
+corresponding period in the previous cycle. Common variants include a random walk
+approach,wherethemostrecentpriceisusedasthenextprediction,andseasonalnaive
+models,whichassumethatpricepatternsrepeatatfixedintervals(e.g.,dailyorweekly
+cycles).However,thedefinitionofanaivemodelvariesacrossstudies,oftendictatedbythe
+specificmarketstructure,ortheyareusedasabenchmarktoevaluatetheperformanceof
+morecomplexmodels. Despitetheirsimplicity,naivemodelshaveproveneffectiveinvari-
+ousmarkets,suchastheLithuanianDAM,whereaseasonalnaiveapproachworkedwell
+
+Energies2025,18,3097 9of40
+forseasonalpatterns[66].NaivemodelsremainawidelyusedbenchmarkintheIDM,often
+performingcompetitivelydespitetheirsimplicity. Inmorevolatileconditions,augmenting
+themwithLASSOhassignificantlyimprovedaccuracy[67]. Someimplementationsrelyon
+themostrecentpriceofthecorrespondinghourlyproduct,demonstratingstrongperfor-
+manceandoftenrivallingmorecomplexstatisticalmethods[68]. Intradingapplications,
+theyhaveshowneconomicvalueasacompetitivebaseline[69]. WhenleveragingDAM
+prices as predictors, naive models remain a strong reference, though they are typically
+outperformedbyLASSOandARX[25]. Whiletheyperformwellunderstableconditions,
+theystrugglewithsuddenpricefluctuationsandintra-daymarketvolatility[48]. Despite
+exhibitingsignificantforecastingerrorsfordailyaverageandhourlyprices,theyaccurately
+capturegeneralmarketbehaviourinstableperiods[54]. Additionally,inthecontinuous
+tradingregime,expertlinearmodelsshowonlymarginalimprovementsovernaivebench-
+marks, reinforcing their relevance in real-time markets [70]. In the more real-time BM,
+naive models remain a valuable baseline, especially for quick approximations, though
+theyarelessaccuratethanmodelslikeARIMAorLEAR[31,32]. Anaivebaselineremains
+apopularchoiceinreal-timemarketsduetotheirabilitytoquicklyadapttoshort-term
+pricefluctuationsandleveragestrongautocorrelationsinhigh-frequencydata,providinga
+simplebenchmarkforevaluatingmorecomplexmodels.
+3.2. StatisticalMethodswithExogenousInputs
+Statisticalmodelswithexogenousinputsextendtime-seriesmodelsbyincorporating
+externalpredictors. ModelssuchasARX,ARIMAX,theirvariantsFARXandSARIMAX,
+alongwithtransferfunction(TF)andcopulamodels,leverageadditionalinformation,such
+asrenewablegeneration,demandforecasts,andfuelprices,toimproveaccuracy.
+3.2.1. ARX-TypeModels
+ARXmodelsextendthetraditionalAR-basedmodelsfromSection3.1.1byincorporat-
+ingexogenousinputstoaccountforexternalfactorsinfluencingelectricityprices. AnARX
+modeloforder p,denotedARX(p),expressesthecurrentvaluey asalinearcombination
+t
+ofits ppreviousvaluesandqexogenousinputsx ,asfollows:
+t
+p q
+∑ ∑
+y t = ϕ 0 + ϕ i y t−i + θ j x t−j +ϵ t , (3)
+i=1 j=1
+whereϕ isaninterceptterm,ϕ representsARcoefficients,θ representsthecoefficients
+0 i j
+fortheexogenousinputsx t−j ,andϵ t istheerrorterm. TheFARXmodelintroducesnon-
+parametricterms,allowingittomodelcomplex,non-linearinteractionsbetweenvariables.
+IncorporatingexogenousvariableslikedemandandfuelpricesimprovesARXmodels’
+accuracyinDAM[46],whileFARXmodelsfurtherreduceerrorsbyintegratingweather
+data[65]. However,MLmodelsgenerallyoutperformARXincapturingcomplexprice
+dynamics [19]. ARX models have been effectively applied in the IDM, demonstrating
+strong performance in forecasting price spreads and predicting the direction of price
+changes, providing economic value in electricity trading [71]. However, their accuracy
+canbeimprovedbyincorporatingregularisationtechniquessuchasLASSO,whichhelp
+mitigateoverfittinginhigh-dimensionalsettings[25]. ARXmodelshavealsobeenexplored
+for predicting whether intra-day prices will exceed day-ahead prices, though they can
+beoutperformedbyotherlinearmodelssuchasLASSOorelasticnetinforecastingIDM
+index values [72]. Further improvements have been demonstrated when ARX models
+arecombinedwithregularisationtechniquestorefineparameterselectionandimprove
+predictivestability[73]. IntheBM,asforARmodelsweseelittleattentionontheuseof
+ARXmodels. Regardingthecurrentliterature,ARXmodelsperformmoderatelywell[43],
+
+Energies2025,18,3097 10of40
+albeitwithashorttestperiodandunsuitablychosenMAPEmetric. Overall,ARXmodels
+improveuponARmodelsbyincorporatingexogenousinputs,particularlybenefitingIDM
+forecasting, where demand shifts and fuel prices influence prices. While they enhance
+accuracyacrossmarkets,theiredgeislesspronouncedinDAM,whereMLandDLmodels
+excel,andinBM,wheregainsoversimplermethodsaremarginal.
+3.2.2. ARIMAXModel
+Like ARX, the ARIMAX model extends the ARX with the differenced (I) and MA
+termsfromtheARIMAmodelinSection3.1.2. Thiscanbefurtherextendedwiththeaddi-
+tionofseasonalcomponentswithSARIMAX,makingitidealformarketswithrecurring
+seasonalpatterns.
+ARIMAX’sincorporationofexogenousvariables,likedemandandrenewableenergy,
+resultsinimprovedaccuracyoverARIMA[46]. ThefurtheruseofseasonalityinSARIMAX
+modelsfurtherimprovestheirpredictivepower,especiallyinmarketswithstrongseasonal
+patternsliketheLeipzigPowerExchangeandEuropeanPowerExchange[74],aswellas
+Denmark’sDAM[61]. SARIMAXmodelsperformwellincapturingexternalfactorsbut
+areoftenoutperformedbyadvancedmodelslikeLSTMduringmarketvolatility[75,76].
+IntheIDM,SARIMAXmodelsdemonstratedconsistentandreliableperformanceforEPF,
+outperforming DL approaches and effectively capturing extreme price fluctuation [72].
+ThoughunexploredintheBM,ARIMAXanditsvariantsarelikelytooutperformARIMA
+andARmodelsduetotheirabilitytoincorporateexogenousvariables,afeaturethathas
+contributedtotheirsuccessintheDAMandIDM.
+3.2.3. LASSOModels
+LASSOisalinearregressiontechniquethatincorporatesL regularisationtoenforce
+1
+sparsity by shrinking some coefficients to exactly zero. This makes it well suited for
+high-dimensionalforecastingproblems,suchasEPF,wherevariableselectionandmodel
+interpretability are important. The LASSO estimate βˆ is obtained by minimising the
+penalisedleastsquaresobjective:
+(cid:32) (cid:33)
+T p
+βˆ =argmin ∑ (y −x ⊤ β)2+λ ∑ |β | , (4)
+t t j
+β t=1 j=1
+whereλcontrolsthedegreeofshrinkage.
+LASSOperformswellintheDAMbutstruggleswithcollinearityinhighlycorrelated
+data and is generally outperformed by bagging [48], as well as more complex ML and
+DLmodels [77]. LASSO effectivelycapturesthe ARintra-day dependencystructureof
+electricityprices,providingstrongforecastingperformancewhilemitigatingoverfitting
+throughautomaticparameterselection[47]. Itconsistentlyselectskeyexplanatoryvari-
+ables,offeringstatisticallyrobustinsightsintomarketdynamicsandimprovingpredictive
+performanceincontinuoustradingsettings[25,78]. However,itstruggleswithcollinear-
+ityinhighlycorrelatedmarketdata[48], wherealternativeregularisationmethodslike
+Orthogonal Matching Pursuit show promise for improved stability [70]. While LASSO
+balancescomplexityandaccuracywhencombinedwithbootstraptechniquesforproba-
+bilisticforecasting[79],itisoftenoutperformedbymorecomplexmodelslikeGRUand
+LSTM, particularly when modelling spread values [68]. Additionally, it demonstrates
+strongdistributionalfitbuttendstounderestimatevolatilitycomparedtoneuralnetwork
+(NN)-basedapproaches[80]. LASSOperformswellintheDAMandIDM,butitstruggles
+withcollinearity,volatility,andspreadvalues,oftenbeingoutperformedbybagging,ML,
+andDLmodels,whileintheBM,researchremainsfocusedontheLEARmodel.
+
+Energies2025,18,3097 11of40
+3.2.4. LEARModels
+The LEAR model, introduced as LASSO X in [81], combines AR with elastic net
+regularisation,enablingautomaticlagselectionwhilehandlingmulticollinearityamong
+predictors. Building on the AR structure outlined in Equation (1), where future values
+areregressedonpastlags,LEARestimatesthecoefficientsβbyminimisingthepenalised
+lossfunction:
+(cid:32) (cid:33)
+T p p
+βˆ =argmin ∑ (y −x β)2+λ ∑ |β |+λ ∑ β2 (5)
+t t 1 j 2 j
+β t=1 j=1 j=1
+Here, λ controls the L sparsitypenalty, while λ introduces an L penaltyfromridge
+1 1 2 2
+regression,enablingthemodeltoretaincorrelatedpredictorswhileimprovingrobustness.
+LEARremainsastandoutperformerintheDAM,andastandardbaselinefornew
+proposed models, regardless of the proposed model being statistical, ML, DL, or a hy-
+bridapproach. IntheDAM,LEARdisplaysstrongperformance,automatingthevariable
+selectionandhandlingofmulticollinearity,leadingtoitoutperformingtraditionalARmod-
+els[81]. Carefulhyperparametertuningiscrucialforbalancingcomplexityandpreventing
+overfitting,butregardlessithasprovedastrongperformeragainsttopDLarchitecturesin
+multiplemarkets[4]. LEARexcelsincapturingdistributiontailsforriskmanagement[82],
+butcombiningitwithothermodelslikeGARCHcanfurtherimproveaccuracy[58]. While
+effectiveforprobabilisticforecasting[83],LEARisoftenoutperformedbyDLmodelsinthe
+DAM[45,84,85]. IntheBM,LEARshowsremarkableresults,outperformingmorecomplex
+MLandDLmodels,whichstrugglewithoverfitting[32,86]. LEARexcelsintheDAMas
+abaselinemodel,whileintheIDM,LASSOremainsthepreferredchoice,withLEARyet
+tobetested. Despiteoutperformingtraditionalmodels,LEARisoftensurpassedbyDL
+modelsintheDAMbutoutperformsmorecomplexMLandDLapproachesintheBM.
+3.2.5. TransferFunctionModel
+TheTFmodelstherelationshipbetweeninputvariablesandpricechanges, which
+makestheTFmodeleffectiveinmarketswithstablepricedynamicsandclearexternal
+drivers. TFmodelscapturerelationshipsbetweenpricesandexternalvariables,andhave
+beenshowntoimproveEPFaccuracyinSpainandCalifornia[87]. However,theystruggle
+withthehigh-frequencynatureofhourlypricesduetolinearassumptions. Comparisons
+show ML and DL models outperform TF models, highlighting the need for non-linear
+approachesinEPF[19,88]. TFmodelsremainuntestedintheIDMandBMbutareunlikely
+toperformwellduetotheirvolatility.
+3.2.6. CopulaModel
+Thecopulamodelprovidesaflexibleframeworkforcapturingthedependencestruc-
+turebetweenmultiplevariables,withoutassumingaspecificdistribution. Copulamodels
+effectivelycapturemultivariaterelationshipsinelectricitymarkets,showinghowrenew-
+ableenergysources, especiallywind, affectpricesandvolatility[89]. ADVINEcopula
+integratedintoaspatio-temporalmodelenhancesprobabilisticforecastingbyaddressing
+non-linear and non-stationary patterns, outperforming baseline models [90]. However,
+liketheTFmodel,thecopulamodelremainsuntestedinreal-timemarkets,anditsweak
+performanceintheDAMsuggestsitmaystrugglefurther.
+3.3. MachineLearningMethods
+MLmodelsareincreasinglyutilisedforEPFduetotheirabilitytocapturecomplex,
+non-linearmarketdynamicswithoutbeinglimitedbyassumptionsofstationarity. The
+modelsdiscussedincludeK-NearestNeighbors(KNN),SupportVectorRegression(SVR),
+
+Energies2025,18,3097 12of40
+RF,XGB,andLGBM.Aselectricitymarketsbecomemorevolatile,MLmodelsareessential
+forcapturingnon-linearpatternsandadaptingtorapidfluctuationsinpricedynamics.
+3.3.1. K-NearestNeighbours
+KNNisasimple,non-parametric,instance-basedlearningalgorithm. Inthecontextof
+EPF,KNNpredictsthetargetvaluey byidentifyingthekmostsimilarpastobservations
+t
+in the feature space, typically using a distance metric such as Euclidean distance. For
+real-valuedfeaturevectorsx ,x
+∈Rd,thisdistanceisdefinedas
+t s
+(cid:118)
+(cid:117)
+(cid:117)∑ d
+d(x ,x ) = (cid:116) (x −x )2 (6)
+t s t,i s,i
+i=1
+Topreventfeaturesmeasuredondifferentscalesfromdominatingthedistancecomputation,
+normalisationtozeromeanandunitvarianceiscommonlyapplied. Oncedistancesare
+computed,thek nearestneighboursareselected,andthepredictedvalueyˆ istypically
+t
+theaverageoftheirobservedvalues. Thechoiceofkiscritical: smallvaluesmayleadto
+overfitting,whilelargevaluescanover-smooththedata,missingimportantlocalpatterns.
+In the DAM, KNN demonstrates mixed performance, with techniques like SVM
+and principle component analysis (PCA) improving both accuracy and efficiency [91].
+Feature selection methods [92,93] and the inclusion of meteorological data [94] further
+enhanceperformance. Despitetheseimprovements,KNNoftenunderperformscompared
+toadvancedensemblemodelslikeRFandXGBduetoitssensitivitytoneighbourselection
+and distance metrics [77,86,95,96]. Its accuracy in predicting extreme price peaks can
+beconstrainedbydatasetimbalances[97]. IntheIDM,KNNstruggleswithrapidprice
+fluctuationsandhigh-frequencydynamics,underperformingagainstensemblemethods
+likeXGBandDLmodels[55]. IntheBM,researchislimited,butKNN’schallengeswith
+datasetimbalancesremain[97]. Notably, itisoutperformedbybothmorecomplexML
+modelsandsimplerstatisticalapproaches,withaperformancegapthatislesspronounced
+intheDAMandIDM[32,86].Overall,KNN’sinstance-basedapproachlacksadaptabilityto
+volatile,high-frequencymarkets,anditisconsistentlyoutperformedbyensemblemethods.
+3.3.2. SupportVectorRegression
+SVRaimstofindaregressionfunction f(x )thatpredictsthetargetvaluey within
+t t
+a margin of tolerance ϵ, while maintaining model flatness and minimising prediction
+error. Thisisachievedbyminimisingthenorm ∥w∥2 oftheweightvector w, subjectto
+constraints involving slack variables ξ and ξ∗ that account for deviations beyond the
+t t
+ϵ-insensitive tube. A regularisation parameter C balances the trade-off between model
+complexity and tolerance to error, influencing the model’s ability to generalise. SVR
+shows mixed performance across electricity markets and is generally outperformed in
+theDAMbytree-basedmodelssuchasRFandXGB,withstudiesintheAustralianNEM
+alsoreportingweakerresultscomparedtoNNsduetolimitedtunabilityandlessefficient
+optimisation[98]. However,hybridapproachessuchasSOM-SVRandSVR-ARIMAhave
+shownimprovedhandlingofnon-stationarybehaviours[99,100],andradialbasisfunction
+(RBF)kernelshavefurtherenhancedaccuracy[19]. Despitetheseenhancements,SVRstill
+struggleswithextremepricespikes[9,101],thoughitperformscompetitivelyinlocational
+marginalpriceforecasting[102]. IntheIDM,SVRachievesmoderateaccuracybutisoften
+outperformedbytree-basedensembleslikeXGBandDLmodelsduetoitslimitedability
+to adapt to high-frequency price fluctuations [55]. In the BM, SVR performs poorly, as
+DLmodelswithseasonalattentionmechanismscaptureextremepricefluctuationsmore
+effectively [103]. A broader comparison of ML models highlights SVR’s limitations in
+
+Energies2025,18,3097 13of40
+handlingBMvolatility,rankingittheweakestamongtopstatisticalandMLmethods[32].
+Overall,SVR’sperformancedeclinesfromDAMtoBM,withhybridmodelsimproving
+outcomesbutstilltrailingensembleandDLapproachesinreal-timemarkets.
+3.3.3. RandomForest
+RFisanensemblelearningalgorithmthatconstructsmultipledecisiontreesusing
+bootstrappedsubsetsofthetrainingdataandaggregatestheirpredictionstoimproveaccu-
+racyandrobustness. Ateachsplit,RFrandomlyselectsasubsetoffeaturestodetermine
+thebestsplit,reducingcorrelationamongtreesandloweringvariance. Thefinalprediction
+iscomputedastheaverageoftheoutputsfromallNtreesintheensemble:
+yˆ = 1 ∑ N T(x ;Θ ), (7)
+t t n
+N
+n=1
+whereT(x ;Θ )isthepredictionfromthen-thtreewithparametersΘ .
+t n n
+RFdemonstratesstrongperformanceacrosstheDAM,IDM,andBM,aswellasin
+broaderenergydemandforecastingapplications[64]. Itsabilitytohandlemulti-output
+tasks regarding prices and demand was demonstrated in the Spanish DAM [104]. RF
+effectivelycapturesintricatemarketdynamics,surpassingtraditionalstatisticalmodelsand
+remainingcompetitiveagainststate-of-the-artMLmethods[19,105]. Unlikemodelssuch
+asSVR,whichstrugglewithoverfitting,RFbenefitsfromitsensemblestructure,which
+reduces variance and improves generalisation. Online adaptive variants of RF address
+concept drift, a key challenge in EPF, by adjusting to evolving market conditions and
+improvingreal-timeforecastingaccuracy[95]. Additionally,hybridRFmodelsintegrating
+DL components further enhance prediction performance by refining feature extraction
+andreducingforecastingerrors,asdemonstratedintheNordPoolDAM[106,107]. Inthe
+IDM,RFmaintainscompetitiveaccuracywhenpairedwithfeatureselectiontechniques
+but is typically outperformed by gradient boosting models (e.g., XGB, LGBM), which
+better handle short-term market fluctuations and extreme price spikes [55]. While RF
+remains a stable and interpretable model, its reliance on bagging rather than boosting
+resultsinslightlyweakeradaptabilityinhighlyvolatileintra-daytradingconditions. RFis
+wellsuitedforreal-timedatastreamsandfinancialdecisionmaking[108],thoughittrails
+behindmodelslikeLEARandXGBinpoint-basedforecastingmetrics[32,86]. However,RF
+remainscompetitiveinfinancialperformanceevaluations,oftenachievinglowertrading
+riskandmorestableprofitmarginsthanhighlysensitiveDLmodels[109]. Additionally,
+RF’slowercomputationalcomplexitycomparedtoDNNsmakesitamoreaccessiblechoice
+foroperationalforecasting. RFremainsastrongmodelacrosstheDAM,IDM,andBM,
+balancingaccuracy,interpretability,andscalability. Itdeliversreliablemid-termforecastsin
+theDAM,butintheIDM,itlagsbehindboostingmethodsinhandlingshort-termvolatility.
+IntheBM,RFoffersconsistentperformancewithlowercomputationalcost,thoughXGB
+andLGBMbettercaptureextremepricefluctuationsforEPF.
+3.3.4. GradientBoosting
+Gradientboostingalgorithms,likeXGBandLGBM,areefficient,high-performance
+algorithmsthatbuildensemblesofdecisiontreessequentially,witheachnewtreecorrecting
+theresidualsofpreviouspredictions,withtheobjectivefunction
+n M
+Obj= ∑ L(y ,yˆ )+ ∑ Ω(f ), (8)
+t t m
+t=1 m=1
+
+Energies2025,18,3097 14of40
+whereL(y ,yˆ )isthelossfunctionandΩ(f )representsanelasticnettopenalisemodel
+t t m
+complexity. Predictionsareupdatediterativelyasyˆ
+(m)
+= yˆ
+(m−1)
++ηf (x ),andthefinal
+t t m t
+outputistheinitialmeanpointforecasty plusthesumofalltreepredictions:
+0
+M
+∑
+yˆ = y + ηf (x ). (9)
+t 0 m t
+m=1
+WhileXGBemployslevel-wisetreegrowth,LGBMintroducesaleaf-wisegrowthstrategy
+andefficiencyfeaturessuchasGradient-basedOne-SideSampling(GOSS)andExclusive
+FeatureBundling(EFB),enablingscalabilitytolargedatasets.
+In the DAM, XGB consistently outperforms models like ARIMA, KNN, and SVR,
+especially when combined with feature selection techniques or integrated into hybrid
+frameworks with deep neural networks (DNNs) [107,110], improving wind speed fore-
+castingwithhistoricaldata[111],andshowinghighaccuracyincapturingkeyvariables
+likerenewableenergypenetration[107]. XGB’soptimisedhyperparametersreduceerrors
+inloadforecasting[112], anditsrobustnessisvalidatedinshort-termEPF[113]. Inthe
+Nord Pool DAM, XGB surpasses models like SVM and RF due to its efficient boosting
+process[106]. LGBMalsoperformswell,excellinginsmartmanufacturing[114]andwind
+powerforecasting[115],efficientlyhandlinglargedatasets. XGBandLGBMalsoperform
+well,efficientlyhandlinglargedatasetsandoutperformingmodelslikeDNNintheIrish
+DAM[32]. IntheIDM,XGBshowsmixedresults,underperformingsimplerregularised
+modelsduetochallengeswithhyperparametertuningandcapturingintra-daydependen-
+cies[49]. Itperformscompetitivelyagainstthenaivebenchmarkfordailyaverageprices
+butstruggleswithshort-termpricepeaks[54].LSTMmodelsoutperformXGBbycapturing
+short-termvolatilitymoreeffectively[55]. IntheBM,bothXGBandLGBMperformmore
+consistently,excellingintheUKBMinbiddingandriskmanagement[116],thoughtheyare
+occasionallyoutperformedbysimplermodels[58]. XGBbenefitsfromincorporatingkey
+marketvariableslikenetimbalancevolumeandlossofloadprobability,thoughitisoften
+surpassedbyDLmodelsinhandlingextremepricefluctuations,withLGBMperforming
+poorerthantheotherstatistical,ML,andDLmodels[103]. IntheIrishBM,bothXGBand
+LGBMexcel,outperformingotherMLandDLmodels[86,109,117],onlycomingupshortto
+LEAR[32].Overall,XGBdemonstratesstrong,versatileperformanceacrosstheDAM,IDM,
+andBM,withstrengthsinhybridframeworksandreal-timemarketadaptation,thoughits
+effectivenessintheIDMislimitedbyintra-daycomplexity.
+3.4. DeepLearningMethods
+Overthepasttwodecades,DLhasemergedasapowerfulextensionofNNs,driven
+byinnovationssuchasHinton’sefficienttrainingofdeepbeliefnetworksthroughgreedy
+layer-wisepretraining[118]. Thisbreakthroughenabledthetrainingofdeepernetworks
+beyondtraditionalmodelslikeMLPs,leadingtosignificantimprovementsingeneralisa-
+tion [119]. DL has since been widely applied across fields like image recognition [120],
+speechrecognition[121],andmachinetranslation[122],withnotablesuccessinenergy-
+related applications, particularly wind power forecasting [123,124]. In EPF, DL models
+suchasDNNs,convolutionalneuralnetworks(CNNs),LSTMs,andgatedrecurrentunits
+(GRUs)haveprovensuccessfulatcapturingcomplextemporaldependencies.
+
+Energies2025,18,3097 15of40
+3.4.1. DeepNeuralNetworks
+DNNsareartificialneuralnetworks(ANNs)withmultiplehiddenlayers,allowing
+themtomodelcomplex,non-linearrelationshipsinEPF.Foraninputvectorx ,eachhidden
+t
+layerlappliesatransformationutilisingthelayer’sweightW(l) andbiasb(l):
+(cid:16) (cid:17)
+Z (l) = σ W (l)∗Z (l−1)+b (l) (10)
+where σ(·) represents a non-linear activation function. The input layer uses Z(0) = x ,
+t
+withthefinalpredictiontypicallygivenbyasingle-outputneuronwithlinearactivation:
+yˆ = W(L)Z(L−1)+b(L). Model parameters are learned by minimizing a loss function
+t
+usingstochasticgradientdescentoritsvariants,whileoverfittingisaddressedthrough
+techniquessuchasdropoutandL /L regularisationtoenhancegeneralisation.
+1 2
+DNNshaveshownstrongperformanceinEPF,particularlyintheDAM,wherethey
+oftenoutperformtraditionalstatisticalandMLmethods[19]. However,theireffectiveness
+dependsonproperhyperparametertuning,asseeninstudieswherebenchmarkconstraints
+limited performance [125–127]. Enhancements such as incorporating inter-market fea-
+tures [6] and training on order book data [128] have improved accuracy. Despite their
+abilitytomodelnon-linearrelationships,DNNsdonotalwaysoutperformsimplermodels
+intheDAM,withsimplermodelssuchasLASSOandtree-basedmethodsoftenyielding
+betterpointandprobabilisticforecastsduetotheirinterpretabilityandstability[14]. In
+hybridframeworks,DNNsperformwellinmulti-marketsettings[85],particularlywhen
+combinedwithfeatureselectiontechniqueslikeXGB,whichimprovesmodelefficiency
+androbustness[110]. IntheIDM,whileDNNsdisplaysomestrongperformancerelative
+toclassicalmodelslikeLASSO,RNNmodelssuchasLSTMsandGRUsoutperformthem
+in capturing short-term price fluctuations, particularly when leveraging spread values
+betweenday-aheadandintra-dayprices[68]. Incontrast,intheEPEXIDM,DNNsper-
+formedsimilarlytoLSTM-basedmodelsbutwereoutperformedbyLASSObasedmodels
+in probabilistic forecasting, underscoring potential challenges of DL in capturing price
+volatility[80]. InmorevolatilemarketsliketheBM,DNNmodels,despitetheirabilityto
+modelnon-linearrelationshipsintheDAM,andIDMtoalesserdegree,areoftenoutper-
+formedbysimplermodelssuchasLASSOandLEAR[32]. Thisislargelyattributedtotheir
+tendencytooverfitandover-reacttopricespikes. Inaddition,tree-basedmethodssuchas
+RFandXGBoftenyieldbetterpointandprobabilisticforecasts[31,109]. Overall,DNNs
+excelintheDAM,outperformingsimplerstatisticalandMLmodelsbycapturingcomplex,
+non-linearrelationships,variableinteractions,andtemporaldependenciesthataredifficult
+tomodelexplicitly. However,intheIDM,theydisplaymixedperformance,beingoutper-
+formedbyLSTMsandGRUs,whichbetterhandleshort-termpricefluctuations. IntheBM,
+DNNsareoutperformedbysimpler,moreinterpretablemodelslikeLASSO,RF,andXGB,
+whichprovemorecapableofdealingwithpricespikesandissuessurroundingoverfitting.
+WhileDNNsbenefitfromhybridframeworksandfeatureselection,theircomputational
+demandsandsusceptibilitytooverfittingpresentlimitationsinvolatile,real-timemarkets.
+3.4.2. ConvolutionalNeuralNetworks
+CNNsareaclassofDLmodelsoriginallydesignedforspatialdatabutincreasingly
+appliedtotime-seriesforecastingduetotheirabilitytoextractlocalpatternsandhierar-
+chicalfeaturesthroughconvolutionaloperations. ACNNprocessesaninputsequence
+x byapplyingaseriesofconvolutionalfiltersacrosstheinputtocomputefeaturemaps,
+t
+wheretheoutputofeachlayeristypicallycomputedasinEquation(10). Poolinglayersare
+oftenusedtoreducedimensionalityandincreaserobustnesstonoise,whilefullyconnected
+layerstranslatetheextractedfeaturesintofinalpredictions.
+
+Energies2025,18,3097 16of40
+IntheDAM,CNNshavedemonstratedstrongperformance,particularlyinfeature
+extraction and capturing non-linear market dynamics [53,129]. Integrating CNNs with
+dimensionalityreductiontechniqueslikePCAhasbeenshowntoreduceoverfittingand
+computationalcostswhilemaintainingcompetitiveaccuracy[129]. CNNautoencoders
+havealsoproveneffective,outperformingGRUsduetotheirefficienthandlingofhigh-
+dimensionaldata[130]. However,CNNstendtoperformslightlyworsethanDNNsand
+GRUsincertainEPFapplications[19],likelyduetotheirlimitedabilitytocapturelong-
+termdependencieswithoutadditionalmechanismslikerecurrentlayers. HybridCNN
+architectureshavebeenproposedtoaddresstheselimitations. Forexample,combining
+1D-CNNs with self-attention mechanisms enhances forecasting accuracy by capturing
+bothlocalandlong-rangetemporaldependencies[131]. However,theseimprovements
+comeatthecostofincreasedmodelcomplexityandcomputationaloverhead. IntheIDM,
+CNNseffectivelycapturelocaltemporaldependenciesandshort-termpricefluctuations.
+However,theyareconsistentlyoutperformedbyattention-basedmodelsandLSTMs,which
+bettermodelintra-daypatternsandadapttomarketdynamics[55]. CNNsstrugglewith
+thehigh-frequencynatureofIDMdata,astheylackthesequentialmemorycapabilities
+inherentinrecurrentarchitectures. IntheBM,CNNshaveshownweakerperformance
+thanotherDLmodels,particularlyintheUKmarket,wheretheyunderperformLSTMs,
+GRUs,andtheproposedSA-BiLSTMduetotheirlimitedabilitytocaptureseasonalityand
+extremepricespikes,likelystemmingfromtheirspatiallyconstrainedfilterdesign[103].
+Overall,CNNsdemonstratemoderatesuccessintheDAM,leveragingtheirstrengthin
+featureextractiontomodelnon-linearpatterns. However,theirlackoftemporalmemory
+mechanisms results in comparatively poorer performance in the IDM and BM, where
+capturinglong-termdependenciesandextremeeventsiscrucial. Hybridarchitecturesthat
+integrateCNNswithrecurrentorattention-basedlayershaveshownpromise,buttheir
+addedcomplexitymaylimittheirpracticalapplicationinreal-timeEPFscenarios.
+3.4.3. LongShort-TermMemory
+LSTMnetworks,introducedby[132],areatypeofRNNdesignedtocapturelong-term
+dependenciesinsequentialdatathroughagatingmechanismthatregulatesinformation
+flowacrosstimesteps. EachLSTMcellmaintainstwokeycomponents: ahiddenstate
+h , which represents the output at time t; and a cell state c , which stores long-term
+t t
+contextualinformation. Thecellstateisupdatedviathreegates,theforgetgatef ,input
+t
+gate i , andoutputgate o , whichcontrolwhatinformationisdiscarded, updated, and
+t t
+exposed,respectively. Theforgetgatedetermineswhichpartsofthepreviouscellstatec t−1
+areretained:
+f t = σ(W f [h t−1 ,x t ]+b f ) (11)
+Theinputgatedecideswhichnewinformationisaddedtothecellstate:
+i t = σ(W i [h t−1 ,x t ]+b i ) (12)
+Theoutputgategovernsthecontributionofthecurrentcellstatetothehiddenstate:
+o t = σ(W o [h t−1 ,x t ]+b o ) (13)
+Theupdatedcellstateiscomputedbyblendingretainedandnewinformation:
+c t = f t ⊙c t−1 +i t ⊙tanh(W c [h t−1 ,x t ]+b c ) (14)
+
+Energies2025,18,3097 17of40
+Finally,thehiddenstateh isupdatedas
+t
+h = o ⊙tanh(c ) (15)
+t t t
+Here,σdenotesthesigmoidactivationfunction,and⊙denoteselement-wisemultiplication.
+This gated structure enables LSTMs to retain and update information over long time
+horizons, making them well suited where temporal dependencies and delayed effects
+arecommon.
+IntheDAM,LSTMmodelshaveconsistentlyoutperformedstatisticalmodels,demon-
+strating strong predictive performance when capturing complex temporal dependen-
+cies[18,19,133]. Hybridarchitectures,suchasCNN-LSTMcombinations,haveimproved
+accuracybyimprovingfeatureextraction[134,135]. However, performancegainsoften
+dependheavilyondatasetsizeandthecarefulselectionofhyperparameters[136,137]. In
+marketslikeTurkeyandNewSouthWales,LSTMssurpassedGRUsincapturingseasonal
+andevent-drivenpricefluctuations[138,139]. IntheIDM,LSTMsexhibitmixedperfor-
+mance. WhileoutperformingclassicalmodelssuchasARXintheTurkishIDM[68],LSTMs
+areoftenmatchedoroutperformedbyGRUsduetothelatter’scomputationalefficiency
+andeffectivegatingmechanisms[140]. IntheGermanIDM,LSTMsdemonstratedsuperior
+performancefordailyaverageandhourlypriceforecasting[54],butsimplerlinearmodels
+stilloutperformLSTMswhenintra-dayvolatilityincreases[80]. LSTMssimilarlyproduce
+variedresultsintheBM.IntheDutchBM,univariateLSTMsoutperformtheirmultivariate
+counterpartsandlinearregressionforshort-termforecasts,thoughperformancedeterio-
+ratesforlongerforecastinghorizons[141]. IntheIrishBM,LSTMswithinmulti-headed
+DNN-RNN architectures, struggle to capture short-term price patterns, struggle with
+overfitting, andareoutperformedbystatisticalmodelslikeLEAR[32,109]. Conversely,
+LSTMsachievestrongresultsintheUKBM,wherenon-linearpricefluctuationsaremore
+effectivelycaptured[103],particularlywhenimplementedwithseasonalattentionmecha-
+nismslikeSA-BiLSTM,whichenhancethemodel’sabilitytotrackextremepriceevents.
+Recent advances in EPF increasingly integrate bidirectional LSTM (BiLSTM) networks
+intohybridframeworksthatcombinemulti-stagepreprocessingandensemblelearning
+tocapturecomplexbidirectionaltemporaldependencies,decomposenoisysignals,and
+adapttoevolvingmarketdynamics—especiallyinhigh-volatility,high-frequencysettings.
+These models capture forward and backward temporal dependencies, offering a more
+comprehensiveunderstandingofmarketsequences. Forexample,ref. [101]proposeda
+CatBoost-BiLSTMhybridthatcombinesgradient-boostedfeatureselectionwithbidirec-
+tional recurrent learning, outperforming conventional ML models by improving input
+relevanceandtemporalpatterncapture. Attentionmechanismsfurtherenhancebidirec-
+tionallearning,asdemonstratedby[142],whoproposedaBiLSTMattentionhybridwith
+EEMDtoimprovespikedetectionandcapturenon-lineartemporalvolatilityinteractions
+inDAMforecasts,achievinghigheraccuracyduringpriceanomalies. Overall,LSTMand
+BiLSTMmodelsdemonstratestrongperformanceintheDAM,particularlywhenenhanced
+withhybridarchitecturesandattentionmechanisms. However,theireffectivenessinthe
+IDM and BM is mixed, often depending on market volatility, forecasting horizon, and
+modeldesign.
+3.4.4. GatedRecurrentUnits(GRUs)
+GRUs are a simplified variant of LSTM networks that retain the ability to model
+long-rangedependencieswhilereducingcomputationalcomplexity. UnlikeLSTMs,which
+
+Energies2025,18,3097 18of40
+use separate input and forget gates (see Section 3.4.3, Equations (11–14)), GRUs merge
+theseintoasingleupdategate:
+z t = σ(W z [h t−1 ,x t ]+b z ) (16)
+Theyalsointroducearesetgate:
+r t = σ(W r [h t−1 ,x t ]+b r ) (17)
+Thecandidateactivationh˜ iscomputedas
+t
+h˜ t =tanh(W h [r t ⊙h t−1 ,x t ]+b h ) (18)
+andthefinalhiddenstateisupdatedvia
+h t = (1−z t )⊙h t−1 +z t ⊙h˜ t (19)
+Here,σdenotesthesigmoidactivationfunctionand⊙denoteselement-wisemultiplication,
+asinSection3.4.3. Byreducingthenumberofgatesandremovingtheexplicitcellstate,
+GRUsofferamorecomputationallyefficientalternativetoLSTMs.
+GRUshaveachievedsuperioraccuracyoverstatisticalandMLmodelsinelectricity
+marketssuchastheTurkishDAM[18]. GRUshavealsoproveneffectiveforshort-termEPF
+tasks[19],withapplicationsshowingthatintegratingGRUswithbaggedregressiontrees
+improvesmid-termforecastingaccuracywhenhandlingnon-linearmarketfluctuations[63].
+IntheNewYorkelectricitymarket,CNN-basedmodelsoutperformedGRUs,indicatingpo-
+tentiallimitationswhenforecastinghigh-dimensionalpricepatterns[130]. However,GRU
+modelsregaintheircompetitiveedgeinhybridarchitectures;forinstance,intheIranian
+DAM,GRUmodelscombinedwithstackedautoencodersachievedimprovedlong-term
+performance[140]. Additionalenhancements,suchashyperparametertuningandhybrid
+approaches,furtherbolsterperformance,asseeninmodelsleveragingperiodicpattern
+extractiontechniques[58,143]. HybridmodelscombiningGRUswithtree-basedmethods
+have improved accuracy by dynamically adjusting model weights based on intra-day
+marketpatterns[144]. Additionally,ref.[145]introducedaGRUvariantwithnoise-robust
+training,improvingforecastreliabilityintheDAM,particularlyduringperiodsofincreased
+renewablegeneration. IntheTurkishIDM,GRUsachievedthelowestMAEandRMSE,
+outperformingstatisticalmodelsandhighlightingtheirsuitabilityforshort-termintra-day
+forecasting[68]. Theircomputationalefficiency,combinedwitheffectivelearningofhourly
+pricepatterns,makesGRUsparticularlyusefulformarketswithhigh-frequencytrading.
+IntheBritishBM,GRUsdeliveredcompetitiveresultsbutwereultimatelyoutperformed
+bySA-BiLSTM,whichdemonstratedsuperioraccuracyduetoitsseasonalattentionmecha-
+nisms[103]. Overall,GRUsperformwellacrossallthreemarketsbutdisplaymixedresults
+incomparisontootherDLarchitectures. WhileGRUsoutperformLSTMsincomputational
+efficiencyandshowstrongresultsintheDAMandIDM,theytendtostruggleintheBM,
+particularlyduringextremepriceevents,wheremodelswithstrongerregularisationand
+morecapableofmitigatingoverfittingperformmorereliably.
+3.4.5. TemporalFusionTransformers
+TemporalFusionTransformers(TFTs)areattention-basedDLmodelsspecificallyde-
+signedformulti-horizontime-seriesforecasting,combiningrecurrentandTransformer-style
+self-attentionlayerstocapturebothshort-termdynamicsandlong-rangedependencies.
+TFTs employ variable selection networks to filter relevant input features and utilise an
+interpretablemulti-headattentionmechanismtoweightemporalpatternsdynamically. For
+
+Energies2025,18,3097 19of40
+(cid:18) (cid:19)
+eachtime-stept,theattentionscoreiscomputedasα =softmax
+Q√K⊤
+,whereQandK
+t
+dk
+arelearnedqueryandkeymatrices,andd isthedimensionalityofthekeyvectors.
+k
+TFTmodelshavedemonstratedstrongperformanceinforecastingapplications,out-
+performing ARIMA, LSTM, and XGB in photovoltaic power prediction, owing to their
+interpretabilityandabilitytocapturecomplextemporalrelationshipsviastaticcovariates
+anddynamicvariables[146]. Inenergyconsumptionforecasting,TFTsoutperformLSTMs
+andtemporalconvolutionalnetworks,deliveringlowererrorratesandgreaterstabilityin
+PolandandNordPool’sDAMs[147,148]. However,thesemodelsarepronetooverfitting
+when applied to smaller datasets, necessitating careful regularisation [145]. While TFT
+applicationsintheIDMarelimited,astudyintheNordPoolmarketshowstheirabilityto
+captureshort-termpricedynamicsusingdomain-specificfeatureslikerenewableforecasts
+andcross-borderflows[72],thoughsimplermodelslikeLSTMandGRUsoftenachieve
+comparable performance in intra-day markets due to the rapid price fluctuations and
+reduced availability of relevant exogenous predictors. TFT models have shown strong
+performanceintheBM,outperformingLSTMvariantsandstatisticalmodelsinforecast-
+ingimbalancepricesbyleveragingadaptiveandseasonalattentionmechanismstotrack
+extreme price spikes and volatility [103]. Overall, TFTs perform well across each spot
+market,demonstratingstrongresultsintheDAMandBMduetotheirflexiblehandlingof
+dynamictemporalpatterns. IntheIDMandBM,TFTmodelsremainunderutilised,and
+althoughtheyshowpromiseincapturingintra-daydynamics,theyareoutperformedby
+otherDLmodels.
+3.4.6. DeepAR
+DeepARisaprobabilisticforecastingmodelbasedonARRNNs, whereeachtime
+series is modelled conditionally on its past values and covariates. At each time step t,
+DeepARpredictsthedistributionofthenextvaluey t giventhehistoryy t−n andexogenous
+inputsx bylearningtheparametersofalikelihoodfunction,oftenGaussianornegative
+t
+binomial,withthemodeltrainedtomaximizethelikelihoodofobservedsequences.
+DeepAR has proven effective at capturing seasonality and trends, outperforming
+traditionalmethods[149]. InDAMEPF,ithandleslargesetsofrelatedtimeseries,though
+isoutperformedbymodelsincorporatingheteroscedasticity[145]. IntheNordPoolIDM,
+DeepARdisplaysweakperformance,beingoutperformedbyLR,ARX,SARIMAX,and
+TFT[72]. Overall,DeepARremainslargelyunderexploredineachspotmarket,withpoor
+resultsinboththeDAMandIDM,withnotestinghavingoccurredinanyBMtodate.
+3.4.7. Prophet
+Prophetisadecomposabletime-seriesforecastingmodeldesignedtocapturenon-
+linear trends with seasonality and holiday effects using a generalised additive model
+framework. Themodelexpressesthetimeseriesasy = g(t)+s(t)+h(t)+ϵ ,whereg(t)
+t t
+modelsthetrend,s(t)representsperiodicseasonalityusingFourierseries,h(t)accountsfor
+holidayeffects,andϵ istheerrorterm. Prophetautomaticallydetectschangepointsinthe
+t
+trendandfitsthemusingpiecewiselinearorlogisticgrowthcurves,makingitespecially
+usefulfordatasetswithstrongseasonalcomponentsandstructuralshifts.
+IntheItalianDAM,Prophetwasappliedalongsideseasonalandtrenddecomposition
+using LOESS (STL), improving forecast accuracy by isolating important patterns and
+reducingnoise[150]. ExtensionssuchasNeuralProphethaveincorporatedDLtechniques
+to handle lagged variables and AR terms, resulting in improved short- and long-term
+electricityloadpredictionsthroughbetterseasonalityandtrendextraction[151]. Prophet
+hasalsobeenemployedforunivariateforecastingofexogenousvariables,suchasweather,
+where it enhanced real-time EPF performance by effectively modelling both periodic
+
+Energies2025,18,3097 20of40
+and non-periodic patterns [97]. Despite these applications, Prophet remains relatively
+unexploredintheIDMandBM,wherehighervolatilityandshorterforecastinghorizons
+present challenges that the model’s simplistic structure may struggle to handle. The
+model’srelianceonpredefinedseasonalpatternsmakesitlessadaptivetothedynamic
+pricebehaviourcharacteristicofreal-timemarkets,limitingitsutilityforEPFapplications.
+3.5. HybridModels
+Hybrid models integrate statistical, ML, and DL techniques to utilise the comple-
+mentary strengths of each approach in EPF. These models are particularly effective in
+capturingthecomplex,non-linear,andvolatiledynamicsofelectricitymarkets. Bycombin-
+ingtheinterpretabilityoflinearmodels,theadaptabilityofML,andthesequentiallearning
+capabilitiesofDL,hybridframeworksofferaflexibleandrobustforecastingsolution.
+3.5.1. StatisticalHybridModels
+Hybrid statistical models combine the interpretability of classical time-series tech-
+niqueswiththeflexibilityandnon-linearityofMLorDLcomponents. Thesemodelsare
+typicallydesignedtoleveragethestrengthsofARstructures—wellsuitedforcapturinglin-
+eardependencies—whileenhancingadaptabilitytovolatilityandnon-stationaritythrough
+non-linearelementsorregularisationschemes. Onecommonclassofhybridmodelsinte-
+gratesexogenousinputmodelswithregularisationtechniques. Forinstance,FARX-LASSO
+andfARX-ENmodelsextendtheARXframeworkbyintroducingLASSOorelasticnet
+regularisation,whichhelpcontroloverfittingandimprovepredictiverobustnessinhigh-
+dimensionalsettings[19]. Thesemodelsretainalinearstructureforinterpretability,while
+penalisinguninformativeinputsandmulticollinearity. Anotherprominenthybridfamily
+includescombinationsoflinearARforecastingandconditionalvariancemodelling. The
+ARIMA-GARCHhybridremainseffectiveforjointlymodellinglinearautocorrelationand
+non-linearvolatility,particularlyinhigh-volatilityenvironmentslikeelectricitymarkets
+withfrequentpricespikes[44]. Thesemodelsallowforsimultaneousmeanandvariance
+forecasting,improvingbothpointandrisk-awareforecasts. Statistical–MLhybridsfurther
+improveperformancebypairinglineardecompositionwithnon-linearlearning. Examples
+includeWavelet-ARIMAwithRBFnetworks(WARIMA-RBF)andSelf-OrganisingMaps
+with SVR (SOM-SVR). These models decompose the time series into components (e.g.,
+trend,seasonality,noise)andapplynon-linearlearnerstoeach,capturingbothglobaland
+localpricedynamics[4]. DLhasalsobeenintegratedwithstatisticalbaselinestooptimise
+parameterselectionandcapturedeepertemporalpatterns. TheDNN–LEARhybrid,for
+example,combinesDNNswithLASSO–elasticnetAR,improvingaccuracyinDAMEPF
+whilepreservingmodelinterpretabilitythroughsparsefeatureselection[4].
+Recentcontributionshaveproposedhybridstailoredtospecificmarketordatachal-
+lenges. IntheU.S.DAMandBM(PJMandNYISO),[152]introducedaSARIMA–LSTM
+modelaugmentedwithwaveletdecomposition,effectivelycombiningseasonalARforecast-
+ingwithLSTMnetworkstohandlebothperiodicandnon-linearstructures. IntheCAISO
+market, ref. [153] demonstrated that combining robust PCA for outlier detection with
+linearregressionimprovesforecastaccuracyinheteroscedasticenvironments. Outsideof
+deregulatedmarkets,ref.[154]proposedanovelhybridforCameroon’sregulatedsystem:
+aWOA-GMHES(1,N)model,blendingWhaleOptimisationAlgorithmsandGreyHoltES.
+Thismodelshowshighaccuracyunderdatascarcityconditions,highlightinghybridisa-
+tion’spotentialinresource-constrainedenvironments. Overall,statisticalhybridmodels
+offeraflexibleandmodularapproachtoEPF,allowingresearcherstotailormodelstospe-
+cificmarketconditions—suchasvolatility,highdimensionality,ordatairregularities—by
+integratinglinearstructure,regularisation,andnon-linearlearninginaunifiedframework.
+
+Energies2025,18,3097 21of40
+3.5.2. MachineLearningHybridModels
+MLhybridmodelscombinediversepredictivealgorithms—oftenspanningtree-based
+ensembles,NNs,anddecompositiontechniques—toenhancetheaccuracy,robustness,and
+adaptabilityofEPF.Thesehybridsareparticularlysuitedtoenvironmentswithhighvolatil-
+ity, non-linear patterns, or limited data interpretability, leveraging the complementary
+strengthsofdifferentMLmodels. Severalhybridmodelsintegratefeatureselection,signal
+decomposition,andnon-linearregressors. Forinstance,ref.[106]proposedahybridthat
+combinesautomaticrelevancedeterminationwithExtraTreesRegression,effectivelycaptur-
+ingthetrend,seasonality,andvolatilityinDAMsbyisolatingrelevantinputsandreducing
+overfitting through ensemble learning. Similarly, ref. [155] employed a decomposition-
+enhancedhybridusingvariationalmodedecomposition(VMD)andensembleempirical
+modedecomposition(EEMD)withanextremelearningmachinesoptimisedbydifferential
+evolution. Thismodelexcelledinhandlingnon-lineardynamicsinmarketssuchasSpain
+andAustralia,outperformingbaselineMLandstatisticalmodels.
+Otherhybridframeworksaimtobridgeshort-andlong-termforecastingcapabilities.
+Ref. [156]developedaFourier-augmentedhybridthatintegratesdata-drivenMLwith
+market-basedpredictivesignals. ByapplyingFourieranalysis,themodelisolatesdomi-
+nantfrequencycomponents,improvingaccuracyacrossbothhigh-frequencyvolatilityand
+long-termtrends,makingitparticularlyeffectiveinbalancingsignalnoiseandseasonal
+pricecycles. Atthemicrogridandhouseholdlevels,MLhybridshavebeenusedtomodel
+consumptionpatternsinfluencedbydynamicpricing. Ref.[157]introducedahybridbased
+onXGB,optimisedforreal-timeresidentialdemandprediction. Bytreatingelectricityprice
+asanexogenousinput,themodelcapturesusersensitivitytopricesignals,significantly
+improvingaccuracyforshort-horizonloadforecasting—criticalfordemand-responseand
+smartgridapplications. Inalarge-scaleDAMcontext,ref.[110]proposedathree-stage
+hybridforShandong’smarketinChina,integratingaday-similarityalgorithm,XGB-based
+featureselection,andanadaptivelyoptimisedDNN.Thisarchitectureachievedhighaccu-
+racyin96-pointforecastingbyleveraginghistoricalanaloguesanddeepfeatureabstraction,
+illustratingthebenefitofcombiningsimilarity-basedreasoningwithsupervisedlearning.
+Robustness to data quality issues has also been addressed through hybridisation.
+TheOANQRmodelby[158]combinesoutlierdetection,VMD,andnon-crossingquantile
+regression, targeting the high volatility and distributional asymmetry of the Singapore
+DAM.Thismodelproducesprobabilisticforecaststhatremainstableeveninthepresence
+ofpriceshocksanddataanomalies. Finally,morecomprehensivehybridframeworksincor-
+poratemultiplepredictiveparadigms. Ref.[159]proposedanensemblearchitecturethat
+mergesRF,SVM,LSTM,ARIMA,andES.Thisfull-spectrumhybridleveragesstrengths
+fromstatistical,tree-based,andDLmodels,achievingstate-of-the-artperformanceacross
+electricity and financial price series. Its ability to adapt to dynamic market conditions
+highlightstheutilityofensemble-of-hybridsstrategiesinvolatilemulti-scaleforecasting
+environments. Insummary,MLhybridmodelsexcelinscenariosdemandingadaptability,
+high-dimensionallearning,androbusttreatmentofnoiseornon-stationarity. Thesearchi-
+tecturesareincreasinglyeffectiveinbothaggregatemarketforecasting(DAM)andgranular
+applications(residentialdemand),particularlywhentheycombinesignaldecomposition,
+advancedfeatureselection,andoptimisednon-linearlearning.
+3.5.3. DeepLearningHybridModels
+DLhybridmodelsfuseconvolutional,recurrent,andattention-basedarchitectures
+withstatisticalandMLtechniquestocapturecomplextemporal,spatial,andfeatureinter-
+actionsinEPF.Thesemodelsareparticularlyadeptatmanaginghigh-frequencyvolatility,
+extractingmulti-scalepatterns,andimprovingaccuracythroughlearnedrepresentations
+
+Energies2025,18,3097 22of40
+andensemblestrategies.EarlyhybriddesignsleveragedCNNsforlocalpatternrecognition
+andpairedthemwithtraditionallearners. Forinstance,theCNN–SVRmodelappliescon-
+volutionallayersforfeatureextractionbeforeregressionwithSVM,improvingshort-term
+EPFaccuracythroughnon-linearkerneladaptation[8].Similarly,CNN-LSTMhybridshave
+shownstrongperformanceintheIranianDAMbycapturingbothspatialcorrelationsand
+sequentialdependencies[9]. RecurrenthybridmodelsremaincentraltoDL-basedEPF.The
+GRU–LSTMarchitecturecombinesGRUsandLSTMcellstosimultaneouslymodelshort-
+andlong-termdependencies,improvingaccuracyinDAMEPF[106]. Extensionsofthis
+ideaincludecombinationswithtrend-awaremodels: Ref.[151]proposedanLSTM–Neural
+ProphethybridthatcapturesARtrendsalongsidedeeptemporaldependencies,while[160]
+introducedaProphet–LSTMmodeloptimisedwithabackpropagationNNtoimprove
+convergenceandreduceforecasterror.
+HybridstackingensembleshavefurtherextendedDLmodelsbyintegratingthem
+intomulti-modelframeworks. Forexample,ref.[161]developedahybridstackingmodel
+combiningXGB,CatBoost,LGBM,NODE,GRU,andLSTM,usingLASSOasameta-learner,
+achievinghighshort-termaccuracyintheAustralianDAMbybalancingtree-basedinter-
+pretabilityandrecurrentnetworkflexibility. Asimilarhigh-performanceframeworkwas
+proposedby[162],whereaCNN–GRUhybridwithattentionmechanismsoutperformed
+bothstandaloneDLandTransformermodelsintheDAMbyprioritisingrelevanttempo-
+ral features. Attention-based hybrids are gaining traction for their ability to selectively
+weightkeytimestepsorfeatures. IntheOntarioDAM,ref.[131]integratedmulti-head
+self-attentionwitha1D-CNNandamutualinformation–basedfeatureselectionstrategy,
+improving both computational efficiency and accuracy. Similarly, ref. [163] introduced
+TriConvGRU,ahybridcombiningconvolutionalandrecurrentlayerstoextractmulti-scale
+temporal–spatialfeatures,outperformingstatisticalandDLmodelsinthesamemarket.
+HybridDLframeworksarealsoprovingusefulinreal-timemarkets. InDenmark’sDK1
+IDM,ref. [55]proposedamodelthatcombinesLSTM-basedforecastingwitharule-based
+tradingstrategy, achievingprofitableoutcomesbyleveragingreal-timeIDMandDAM
+price signals for renewable energy trading. Multi-source and multi-market forecasting
+hasbenefitedfromDLhybridisation,asref.[164]introducedahybridforSpain’sDAM
+andderivativesmarketthatcombinesANNsforprice,wind,andsolarforecastswitha
+temperature-adjustedsimilar-daydemandpredictor,achievingaccurate2–10dayforecasts.
+In the French EPEX DAM, ref. [165] proposed the DF-RNN hybrid, jointly optimising
+time-seriesdecompositionandsequenceforecasting,yieldingsuperiormid-andlong-term
+performance. Cross-market generalisability has been explored through decomposition-
+basedDLhybrids. Ref.[166]introducedahybridintegratingSTLwithGRUandLGBM,
+demonstratinghighinterpretabilityandaccuracyinboththeU.S.PJMfrequencyregulation
+BMandtheAustralianQueenslandDAM.
+Multi-layeredarchitectureshaveproveneffective,suchasaCNN–BiLSTM–ARhybrid
+from [167] that combines convolutional layers for local pattern extraction, BiLSTM for
+sequentiallearning,andanARcomponentforlineartrendreinforcement. Appliedtothe
+UKandGermanDAMs,themodelshowednotableimprovementsinforecastaccuracy,
+aided by hyperparameter tuning for architectural balance. Transformer-based hybrids
+have extended these capabilities, with [168] introducing a Transformer–BiLSTM model
+thatintegratesself-attentionwithbidirectionalsequencemodellingtocapturelong-range
+dependenciesandshort-termvolatility,outperformingstandaloneLSTMandGRUmodels
+inDAMsettings. Ensemblebi-forecastingarchitecturesofferanovelpathtowardinter-
+valprediction,with[169]proposingahybridfortheAustralianDAMcombiningadeep
+belief network (DBN), BiLSTM, and Improved Complete EEMD with Adaptive Noise,
+which,usingamultiple-inputmultiple-outputstructureandalinearoperatormechanism,
+
+Energies2025,18,3097 23of40
+achieved high-accuracy point and interval forecasts while maintaining interpretability.
+Ref. [170] developed a hybrid BiLSTM-GRU model that outperformed traditional and
+DL baselines in forecasting NYISO BM prices by capturing both long- and short-term
+dependencies. AdvancedbidirectionalhybridapproachesarealsobeingappliedtotheBM,
+wherevolatilityispronounced. IntheBritishBM,ref.[103]demonstratedthatBiLSTM-
+based ensembles—such as CEEMD–RF–IRSA–BiLSTM and TVFEMD–RF–CNN–ISCA–
+BiLSTM—achievedsuperiorperformanceovertraditionalMLmodels. Theseframeworks
+integratedecomposition(CEEMD,TVFEMD),ensemblelearning(RF),optimisationstrate-
+gies(IRSA,ISCA),andDL,producinghighlyrobustforecastsunderdynamicconditions.
+Advancedhybridmodels—particularlythosecombiningBiLSTMwithattentionmecha-
+nismsandsignaldecompositiontechniques—excelatcapturingbothlocalfluctuationsand
+globalmarkettrendstoaddresscomplexconditionsinDAMandBM.ByintegratingDL’s
+abilitytomodelnon-linearityandlong-rangedependencieswithcomplementarymethods
+likedecomposition(fornoisereduction)andstructuredensembles(forrobustness),these
+frameworksconsistentlyoutperformstandalonemodels,demonstratingsuperioraccuracy
+inshort-andmid-termEPFacrossdiversemarketstructures.
+4. Discussion
+EPFhasevolvedintoamultidisciplinarychallenge,shapedbygrowingmarketcom-
+plexity,renewableintegration,andthedemandsofhigh-frequencytradingandgridbalanc-
+ing. Thisdiscussionaimstoconnectinsightsfromtheprecedingreviewofstatistical,ML,
+DL,andhybridmodelsacrosstheDAM,IDM,andBM.Ratherthanevaluatingmodels
+in isolation, we examine their performance through the lens of market-specific dynam-
+ics,forecastingobjectives,andmethodologicaltrade-offs. Particularattentionisgivento
+thesuitabilityofeachmodellingparadigmunderdifferentvolatilitylevelsandtemporal
+constraints,aswellasthepersistentchallengesposedbyevaluationmetricselectionand
+modelgeneralisability.
+4.1. Overview
+ThetrendsinTables1and2showaprogressionfromstatisticalmethods,predomi-
+nantlyusedinearlierstudiessuchas[43,44],tomoresophisticatedMLapproaches. How-
+ever,from2017and2018onwards,therehasbeenamarkedshifttowardDLmodels. These
+methodshavebeenprimarilyappliedtotheDAMand,toalesserextent,theIDMandBM.
+Table3extendsthisanalysisbeyondEPFtoincludeapplicationsinwindpower,photo-
+voltaic,andloadforecasting,withmodelslikeCatBoost-BiLSTMandattentionmechanisms
+showingstrongadaptabilityandsuccessinmanaginghigh-dimensionaldatasets[143].
+Focusinginmoredepth,Table1,forEPFpre-2020,revealsaclearevolutioninmethod-
+ologicalapproachesandmarketfocus. TheDAMdominatestheliterature,reflectingits
+centralroleinelectricitytrading. Earlyforecastingeffortsprimarilyreliedonstatistical
+modelssuchasARIMA,ARX,andGARCH,whichwereeffectiveatcapturinglineartrends
+and seasonal patterns. However, these models struggled to handle the increasing non-
+linearityandvolatilitybroughtaboutbytheintegrationofrenewableenergysources. As
+marketdynamicsgrewmorecomplexanddatasetsbecamelarger,thefocusshiftedtoward
+modelswithbuilt-inregularisation,suchasLASSOandLEAR,aswellasMLtechniques
+bettersuitedtocapturingnon-linearpricebehaviours. Fromaround2017onwards,DL
+models began to emerge, often in hybrid configurations that combined statistical, ML,
+andDLelementstoimproveperformanceandinterpretability. Whilestatisticalmodels
+remainedrelevant,thebroadertrendreflectsagrowingrelianceondata-drivennon-linear
+andhybridapproachestoaddresstheincreasingvolatilityandcomplexityofmarkets.
+
+Energies2025,18,3097
+24of40
+Post-2020 EPF sees a clear methodological shift toward hybrid techniques and an
+expandingfocusonreal-timemarketssuchastheIDMandBM,asseeninTable2. While
+the DAM continues to be widely studied, there is a growing emphasis on addressing
+the volatility and rapid fluctuations inherent in real-time markets. From 2022 onward,
+the focus on more real-time markets accelerated, with an increasing number of studies
+targetingIDMandBMexplicitly. However, theyremaincomparativelyunderexplored,
+highlightingavaluableopportunityforfutureresearchintounifiedforecastingframeworks
+thatcansupportoperationaldecisionmakingacrossthefullspectrumofelectricitymarkets.
+StatisticalandMLmodelsremainpopular,butDLarchitectureslikeLSTMsandGRUshave
+gainedtractionfortheirabilitytocapturenon-lineardependenciesandtemporalpatterns.
+MorerecentstudiesalsointroduceTransformer-basedarchitecturesandseasonal-trend-
+awaremodels,reflectingthefield’songoingevolutiontowardrobust,high-resolution,and
+real-time predictiveapproaches. Furthermore, the growingadoption ofhybridmodels
+highlights the rising complexity of electricity markets, positioning them as the leading
+approachforbalancinginterpretability,accuracy,andadaptabilitymarkets.
+Table1.LiteratureonpredictivemodelsforEPFbefore2020.InterestinDAMdominates.The✓is
+theapproachpresentedherein.
+| Reference         |           | Statistical | ML  | DL  | Hybrid | DAM | IDM | BM Other |
+| ----------------- | --------- | ----------- | --- | --- | ------ | --- | --- | -------- |
+|                   |           | ✓           |     |     |        | ✓   |     |          |
+| Nogalesetal.      | 2002[87]  |             |     |     |        |     |     |          |
+|                   |           | ✓           |     |     |        | ✓   |     |          |
+| Contrerasetal.    | 2003[50]  |             |     |     |        |     |     |          |
+| Sansometal.       | 2003[98]  |             | ✓   |     |        | ✓   |     |          |
+|                   |           | ✓           |     |     |        | ✓   |     |          |
+| Cuaresmaetal.     | 2004[51]  |             |     |     |        |     |     |          |
+| Conejoetal.       | 2005[52]  | ✓           |     |     |        | ✓   |     |          |
+|                   |           | ✓           |     |     |        | ✓   |     |          |
+| Knitteletal.      | 2005[56]  |             |     |     |        |     |     |          |
+|                   |           | ✓           |     |     |        | ✓   |     |          |
+| Zhouetal.         | 2006[171] |             |     |     |        |     |     |          |
+| Fanetal.          | 2007[99]  |             | ✓   |     | ✓      | ✓   |     |          |
+|                   |           | ✓           |     |     |        | ✓   |     |          |
+| Garciaetal.       | 2008[88]  |             |     |     |        |     |     |          |
+|                   |           | ✓           |     |     |        | ✓   |     |          |
+| Diongueetal.      | 2009[57]  |             |     |     |        |     |     |          |
+| Linetal.          | 2010[172] | ✓           | ✓   |     |        | ✓   |     |          |
+|                   |           | ✓           | ✓   |     | ✓      | ✓   |     |          |
+| Cheetal.          | 2010[100] |             |     |     |        |     |     |          |
+| Jakavsaetal.      | 2011[74]  | ✓           |     |     |        | ✓   |     |          |
+|                   |           | ✓           | ✓   |     |        |     |     | ✓        |
+| Meietal.          | 2014[108] |             |     |     |        |     |     |          |
+|                   |           | ✓           |     |     |        | ✓   |     | ✓        |
+| Klaeboeetal.      | 2015[43]  |             |     |     |        |     |     |          |
+| Poplawskietal.    | 2015[42]  | ✓           | ✓   |     |        |     |     | ✓        |
+|                   |           | ✓           |     |     |        |     | ✓   |          |
+| Zieletal.         | 2016[47]  |             |     |     |        |     |     |          |
+| Uniejewskietal.   | 2016[81]  | ✓           |     |     |        | ✓   |     |          |
+|                   |           | ✓           |     |     |        | ✓   |     |          |
+| Girishetal.       | 2016[44]  |             |     |     |        |     |     |          |
+|                   |           | ✓           | ✓   |     |        | ✓   |     |          |
+| Feijooetal.       | 2016[91]  |             |     |     |        |     |     |          |
+| Gonzalezetal.     | 2016[104] | ✓           | ✓   |     |        | ✓   |     |          |
+|                   |           | ✓           | ✓   |     | ✓      | ✓   |     |          |
+| Yangetal.         | 2017[5]   |             |     |     |        |     |     |          |
+| Lagoetal.         | 2018[19]  | ✓           | ✓   | ✓   | ✓      | ✓   |     |          |
+|                   |           | ✓           |     | ✓   |        | ✓   |     |          |
+| Ritaetal.         | 2018[66]  |             |     |     |        |     |     |          |
+|                   |           | ✓           |     | ✓   |        | ✓   |     |          |
+| Ugurluetal.       | 2018[18]  |             |     |     |        |     |     |          |
+| Kuoetal.          | 2018[138] |             | ✓   | ✓   | ✓      | ✓   |     |          |
+|                   |           |             |     | ✓   |        | ✓   |     |          |
+| Chinnathambietal. | 2018[133] |             |     |     |        |     |     |          |
+| Jiangetal.        | 2018[173] | ✓           |     | ✓   | ✓      | ✓   |     |          |
+|                   |           | ✓           |     | ✓   | ✓      | ✓   |     |          |
+| Changetal.        | 2018[139] |             |     |     |        |     |     |          |
+|                   |           | ✓           |     |     | ✓      | ✓   |     |          |
+| Zhangetal.        | 2018[174] |             |     |     |        |     |     |          |
+| Kathetal.         | 2018[69]  | ✓           |     |     |        |     | ✓   |          |
+|                   |           |             | ✓   | ✓   |        | ✓   |     |          |
+| Zhuetal.          | 2018[136] |             |     |     |        |     |     |          |
+|                   |           |             | ✓   |     |        | ✓   |     |          |
+| Johannesenetal.   | 2019[94]  |             |     |     |        |     |     |          |
+| Zhouetal.         | 2019[137] |             | ✓   | ✓   | ✓      | ✓   |     |          |
+
+Energies2025,18,3097
+25of40
+Table1.Cont.
+| Reference        |           | Statistical | ML  | DL  | Hybrid | DAM | IDM | BM Other |
+| ---------------- | --------- | ----------- | --- | --- | ------ | --- | --- | -------- |
+|                  |           | ✓           |     | ✓   | ✓      | ✓   |     |          |
+| Xuetal.          | 2019[7]   |             |     |     |        |     |     |          |
+| Zahidetal.       | 2019[8]   |             | ✓   | ✓   | ✓      | ✓   |     |          |
+|                  |           |             |     | ✓   | ✓      | ✓   |     |          |
+| Changetal.       | 2019[175] |             |     |     |        |     |     |          |
+|                  |           |             | ✓   | ✓   | ✓      | ✓   |     |          |
+| Zahidetal.       | 2019[8]   |             |     |     |        |     |     |          |
+| Atefetal.        | 2019[125] |             | ✓   | ✓   |        | ✓   |     |          |
+|                  |           | ✓           |     | ✓   |        | ✓   |     |          |
+| Luoetal.         | 2019[126] |             |     |     |        |     |     |          |
+| Lagoetal.        | 2019[6]   |             |     | ✓   | ✓      | ✓   |     |          |
+|                  |           | ✓           |     | ✓   |        | ✓   |     |          |
+| Karabiberetal.   | 2019[61]  |             |     |     |        |     |     |          |
+|                  |           |             | ✓   |     |        | ✓   |     |          |
+| Johannesenetal.  | 2019[94]  |             |     |     |        |     |     |          |
+| Schnurchetal.    | 2019[128] | ✓           | ✓   | ✓   |        | ✓   |     |          |
+|                  |           | ✓           |     | ✓   |        |     | ✓   |          |
+| Oksuzetal.       | 2019[68]  |             |     |     |        |     |     |          |
+| Uniejewskietal.  | 2019[25]  | ✓           |     |     |        |     | ✓   |          |
+|                  |           | ✓           |     |     |        | ✓   | ✓   |          |
+| Maciejowskaetal. | 2019[71]  |             |     |     |        |     |     |          |
+|                  |           |             | ✓   |     |        | ✓   |     |          |
+| Alietal.         | 2019[92]  |             |     |     |        |     |     |          |
+| Schnurchetal.    | 2019[128] | ✓           | ✓   | ✓   |        | ✓   |     |          |
+Table 2. Literature on predictive models for EPF after 2020. Real-time markets begin to attract
+attention.The✓istheapproachpresentedherein.
+| Reference          |           | Statistical | ML  | DL  | Hybrid | DAM | IDM | BM Other |
+| ------------------ | --------- | ----------- | --- | --- | ------ | --- | --- | -------- |
+| Marcjaszetal.      | 2020[67]  | ✓           |     |     |        |     | ✓   |          |
+|                    |           |             | ✓   |     |        |     |     | ✓        |
+| Lucasetal.         | 2020[116] |             |     |     |        |     |     |          |
+| Khanetal.          | 2020[129] |             |     | ✓   |        | ✓   |     |          |
+|                    |           | ✓           |     |     |        |     | ✓   |          |
+| Narajewskietal.    | 2020[78]  |             |     |     |        |     |     |          |
+|                    |           | ✓           | ✓   | ✓   | ✓      | ✓   |     |          |
+| Lietal.            | 2021[21]  |             |     |     |        |     |     |          |
+| Lagoetal.          | 2021[4]   | ✓           |     | ✓   | ✓      |     |     |          |
+|                    |           |             | ✓   |     |        | ✓   |     |          |
+| Karaetal.          | 2021[105] |             |     |     |        |     |     |          |
+| Ozenetal.          | 2021[48]  | ✓           |     |     |        | ✓   |     |          |
+|                    |           |             | ✓   |     |        | ✓   |     |          |
+| Wangetal.          | 2022[95]  |             |     |     |        |     |     |          |
+|                    |           | ✓           |     | ✓   | ✓      | ✓   |     |          |
+| Lehnaetal.         | 2022[75]  |             |     |     |        |     |     |          |
+| Narajewskietal.    | 2022[31]  | ✓           |     | ✓   | ✓      |     |     | ✓        |
+|                    |           | ✓           | ✓   | ✓   |        | ✓   |     |          |
+| Tschoraetal.       | 2022[82]  |             |     |     |        |     |     |          |
+| Xieetal.           | 2022[107] |             | ✓   | ✓   |        | ✓   |     |          |
+|                    |           | ✓           | ✓   | ✓   | ✓      | ✓   |     |          |
+| Zhangetal.         | 2022[101] |             |     |     |        |     |     |          |
+|                    |           |             | ✓   | ✓   | ✓      | ✓   |     |          |
+| Mengetal.          | 2022[135] |             |     |     |        |     |     |          |
+| Yangetal.          | 2022[53]  | ✓           |     | ✓   | ✓      | ✓   |     |          |
+|                    |           | ✓           | ✓   | ✓   |        |     | ✓   |          |
+| Kotsiasetal.       | 2022[72]  |             |     |     |        |     |     |          |
+|                    |           | ✓           | ✓   | ✓   | ✓      | ✓   |     |          |
+| Iqbaletal.         | 2022[63]  |             |     |     |        |     |     |          |
+|                    |           | ✓           | ✓   | ✓   | ✓      | ✓   |     |          |
+| Beltranetal.       | 2022[96]  |             |     |     |        |     |     |          |
+|                    |           |             |     | ✓   |        | ✓   |     |          |
+| Jkedrzejewskietal. | 2022[14]  |             |     |     |        |     |     |          |
+| Alkawazetal.       | 2022[106] | ✓           | ✓   |     | ✓      | ✓   |     |          |
+|                    |           |             |     | ✓   | ✓      | ✓   |     |          |
+| Rezaeietal.        | 2022[140] |             |     |     |        |     |     |          |
+|                    |           | ✓           | ✓   | ✓   | ✓      |     |     | ✓        |
+| Yangetal.          | 2022[130] |             |     |     |        |     |     |          |
+| Serafinetal.       | 2022[79]  | ✓           |     |     |        |     | ✓   |          |
+|                    |           |             | ✓   | ✓   | ✓      | ✓   |     |          |
+| Heidarpanahetal.   | 2023[9]   |             |     |     |        |     |     |          |
+| Billeetal.         | 2023[46]  | ✓           |     |     | ✓      | ✓   |     |          |
+|                    |           |             |     | ✓   | ✓      | ✓   |     |          |
+| Xiongetal.         | 2023[144] |             |     |     |        |     |     |          |
+|                    |           | ✓           | ✓   | ✓   | ✓      | ✓   |     |          |
+| Kapooretal.        | 2023[58]  |             |     |     |        |     |     |          |
+| Marcjaszetal.      | 2023[83]  | ✓           |     | ✓   | ✓      | ✓   |     |          |
+|                    |           | ✓           |     | ✓   | ✓      | ✓   |     |          |
+| Olivaresetal.      | 2023[45]  |             |     |     |        |     |     |          |
+| Gunduzetal.        | 2023[84]  | ✓           |     | ✓   | ✓      | ✓   |     |          |
+|                    |           |             |     | ✓   |        | ✓   |     |          |
+| Stefenonetal.      | 2023[150] |             |     |     |        |     |     |          |
+
+Energies2025,18,3097
+26of40
+Table2.Cont.
+|                  | Reference          |           | Statistical | ML  | DL  | Hybrid | DAM | IDM | BM  | Other |
+| ---------------- | ------------------ | --------- | ----------- | --- | --- | ------ | --- | --- | --- | ----- |
+|                  |                    |           | ✓           |     |     |        |     | ✓   |     |       |
+| Poggietal.       |                    | 2023[54]  |             |     |     |        |     |     |     |       |
+| Molinetal.       |                    | 2023[141] | ✓           |     | ✓   |        |     |     | ✓   |       |
+|                  |                    |           | ✓           |     | ✓   | ✓      | ✓   |     |     |       |
+| Yangetal.        |                    | 2024[85]  |             |     |     |        |     |     |     |       |
+|                  |                    |           | ✓           | ✓   | ✓   | ✓      |     | ✓   |     |       |
+| Kiliccetal.      |                    | 2024[55]  |             |     |     |        |     |     |     |       |
+| Ghimireetal.     |                    | 2024[176] |             | ✓   | ✓   | ✓      |     | ✓   |     |       |
+|                  |                    |           | ✓           |     | ✓   | ✓      | ✓   |     |     |       |
+| Bozlaketal.      |                    | 2024[76]  |             |     |     |        |     |     |     |       |
+|                  | Lisietal.          | 2024[65]  | ✓           |     |     | ✓      | ✓   |     |     |       |
+|                  |                    |           | ✓           | ✓   | ✓   | ✓      | ✓   |     |     |       |
+| Kitsatoglouetal. |                    | 2024[77]  |             |     |     |        |     |     |     |       |
+|                  |                    |           |             | ✓   | ✓   |        |     |     | ✓   |       |
+| Pengetal.        |                    | 2024[97]  |             |     |     |        |     |     |     |       |
+| Huangetal.       |                    | 2024[110] |             | ✓   | ✓   | ✓      | ✓   |     |     |       |
+|                  |                    |           |             |     | ✓   |        | ✓   |     |     |       |
+| Pourdaryaeietal. |                    | 2024[131] |             |     |     |        |     |     |     |       |
+|                  | Shietal. 2024[145] |           |             | ✓   | ✓   | ✓      | ✓   |     |     |       |
+|                  |                    |           | ✓           | ✓   |     |        |     | ✓   |     |       |
+| Englundetal.     |                    | 2024[49]  |             |     |     |        |     |     |     |       |
+|                  |                    |           | ✓           | ✓   | ✓   |        | ✓   |     | ✓   |       |
+| O’Connoretal.    |                    | 2024[32]  |             |     |     |        |     |     |     |       |
+| Uniejewskietal.  |                    | 2024[73]  | ✓           |     |     |        | ✓   |     |     |       |
+|                  |                    |           | ✓           |     | ✓   |        | ✓   |     |     |       |
+| Bozlaketal.      |                    | 2024[76]  |             |     |     |        |     |     |     |       |
+|                  |                    |           | ✓           |     | ✓   |        | ✓   |     |     |       |
+| Yangetal.        |                    | 2024[85]  |             |     |     |        |     |     |     |       |
+|                  |                    |           |             | ✓   | ✓   | ✓      |     |     | ✓   |       |
+| Dengetal.        |                    | 2024[103] |             |     |     |        |     |     |     |       |
+|                  |                    |           | ✓           |     | ✓   |        | ✓   |     |     |       |
+| Jiangetal.       |                    | 2024[148] |             |     |     |        |     |     |     |       |
+| Guoetal.         |                    | 2024[152] | ✓           | ✓   | ✓   | ✓      | ✓   |     |     |       |
+|                  |                    |           | ✓           |     |     |        | ✓   |     |     |       |
+| Nyangonetal.     |                    | 2024[153] |             |     |     |        |     |     |     |       |
+|                  |                    |           | ✓           |     | ✓   | ✓      | ✓   |     |     |       |
+| Sapnkenetal.     |                    | 2024[154] |             |     |     |        |     |     |     |       |
+| Chenetal.        |                    | 2024[161] |             | ✓   | ✓   | ✓      | ✓   |     |     |       |
+|                  |                    |           |             |     | ✓   | ✓      | ✓   |     |     |       |
+| Laitsosetal.     |                    | 2024[162] |             |     |     |        |     |     |     |       |
+| Ehsanietal.      |                    | 2024[163] | ✓           | ✓   | ✓   | ✓      |     |     | ✓   |       |
+|                  |                    |           | ✓           | ✓   | ✓   | ✓      | ✓   |     |     |       |
+| Mubaraketal.     |                    | 2024[167] |             |     |     |        |     |     |     |       |
+|                  |                    |           |             | ✓   | ✓   | ✓      | ✓   |     |     |       |
+| Khanetal.        |                    | 2024[168] |             |     |     |        |     |     |     |       |
+| Nieetal.         |                    | 2024[169] |             | ✓   | ✓   | ✓      | ✓   |     |     |       |
+|                  |                    |           | ✓           | ✓   | ✓   | ✓      |     |     | ✓   |       |
+| Hajigholametal.  |                    | 2024[170] |             |     |     |        |     |     |     |       |
+| Nickelsenetal.   |                    | 2025[70]  | ✓           |     |     |        |     | ✓   |     |       |
+|                  |                    |           | ✓           |     | ✓   |        | ✓   |     |     |       |
+| Agakishievetal.  |                    | 2025[80]  |             |     |     |        |     |     |     |       |
+|                  |                    |           | ✓           | ✓   |     |        | ✓   |     | ✓   |       |
+| O’Connoretal.    |                    | 2025[86]  |             |     |     |        |     |     |     |       |
+| O’Connoretal.    |                    | 2025[109] | ✓           | ✓   | ✓   |        | ✓   |     | ✓   |       |
+|                  |                    |           |             |     | ✓   | ✓      | ✓   |     |     |       |
+| Chenetal.        |                    | 2025[158] |             |     |     |        |     |     |     |       |
+| Yanetal.         |                    | 2025[165] | ✓           | ✓   | ✓   | ✓      | ✓   |     |     |       |
+|                  |                    |           |             | ✓   | ✓   |        |     |     | ✓   |       |
+|                  | Cuetal. 2025[166]  |           |             |     |     |        |     |     |     |       |
+Table3. LiteratureonpredictivemodelsusedoutsideofEPForwithEPF.Whenpaperslookat
+EPFandexternalfields,theyunilaterallylookattheDAMwiththeexternalmarket. The✓isthe
+approachpresentedherein.
+|                 | Reference |           | Statistical | ML  | DL  | Hybrid | DAM | IDM | BM  | Other |
+| --------------- | --------- | --------- | ----------- | --- | --- | ------ | --- | --- | --- | ----- |
+|                 |           |           |             | ✓   | ✓   |        |     |     |     | ✓     |
+| Zhuetal.        |           | 2018[136] |             |     |     |        |     |     |     |       |
+|                 |           |           |             | ✓   |     |        | ✓   |     |     | ✓     |
+|                 | Alietal.  | 2019[92]  |             |     |     |        |     |     |     |       |
+|                 |           |           | ✓           | ✓   | ✓   | ✓      | ✓   |     |     | ✓     |
+| Mujeebetal.     |           | 2019[127] |             |     |     |        |     |     |     |       |
+|                 |           |           |             | ✓   | ✓   | ✓      | ✓   |     |     | ✓     |
+| Ashfaqetal.     |           | 2019[93]  |             |     |     |        |     |     |     |       |
+| Caietal.        |           | 2020[111] | ✓           | ✓   | ✓   |        |     |     |     | ✓     |
+|                 |           |           | ✓           | ✓   | ✓   |        | ✓   |     |     | ✓     |
+| Salinasetal.    |           | 2020[149] |             |     |     |        |     |     |     |       |
+|                 |           |           | ✓           | ✓   | ✓   |        |     |     |     | ✓     |
+| Rafietal.       |           | 2021[113] |             |     |     |        |     |     |     |       |
+| Memarzadehetal. |           | 2021[134] |             |     | ✓   | ✓      | ✓   |     |     | ✓     |
+|                 |           |           | ✓           | ✓   | ✓   |        |     |     |     | ✓     |
+| Lopezetal.      |           | 2022[146] |             |     |     |        |     |     |     |       |
+| Ishaketal.      |           | 2022[59]  | ✓           |     |     |        |     |     |     | ✓     |
+|                 |           |           |             | ✓   |     |        |     |     |     | ✓     |
+| Cantilloetal.   |           | 2022[102] |             |     |     |        |     |     |     |       |
+|                 |           |           | ✓           |     |     | ✓      |     |     |     | ✓     |
+| Arrietaetal.    |           | 2022[90]  |             |     |     |        |     |     |     |       |
+
+Energies2025,18,3097
+27of40
+Table3.Cont.
+| Reference      |           | Statistical | ML DL | Hybrid | DAM IDM | BM  | Other |
+| -------------- | --------- | ----------- | ----- | ------ | ------- | --- | ----- |
+|                |           | ✓           |       |        | ✓       |     | ✓     |
+| Duranteetal.   | 2022[89]  |             |       |        |         |     |       |
+| Qingheetal.    | 2022[112] | ✓           | ✓ ✓✓  | ✓      |         |     | ✓     |
+|                |           |             | ✓ ✓   | ✓      |         |     | ✓     |
+| Suvarnaetal.   | 2022[114] |             |       |        |         |     |       |
+|                |           | ✓           | ✓ ✓   |        |         |     | ✓     |
+| Lopezetal.     | 2022[146] |             |       |        |         |     |       |
+| Shohanetal.    | 2022[151] |             | ✓     | ✓      |         |     | ✓     |
+|                |           | ✓           | ✓     | ✓      |         |     | ✓     |
+| Bashiretal.    | 2022[160] |             |       |        |         |     |       |
+| Wooetal.       | 2022[60]  | ✓           | ✓     | ✓      |         |     | ✓     |
+|                |           | ✓           | ✓ ✓   |        |         |     | ✓     |
+| Gellertetal.   | 2022[62]  |             |       |        |         |     |       |
+|                |           | ✓           | ✓     |        |         |     | ✓     |
+| Seyedetal.     | 2023[115] |             |       |        |         |     |       |
+| Naziretal.     | 2023[147] |             | ✓     |        |         |     | ✓     |
+|                |           | ✓           | ✓ ✓   | ✓      |         |     | ✓     |
+| Raoetal.       | 2023[64]  |             |       |        |         |     |       |
+| Gomezetal.     | 2023[142] | ✓           | ✓ ✓   | ✓      | ✓       |     | ✓     |
+|                |           |             | ✓ ✓   |        | ✓       |     | ✓     |
+| Parizadetal.   | 2024[157] |             |       |        |         |     |       |
+|                |           |             | ✓     |        |         |     | ✓     |
+| Zhangetal.     | 2024[143] |             |       |        |         |     |       |
+| Williamsetal.  | 2025[159] | ✓           | ✓ ✓   | ✓      |         |     | ✓     |
+|                |           | ✓           |       |        | ✓       |     | ✓     |
+| Belengueretal. | 2025[164] |             |       |        |         |     |       |
+TheliteraturesummarisedinTable3highlightsthedominantapproachesincross-
+domain forecasting, where EPF is paired with applications such as wind power, load,
+photovoltaic,andconsumptionforecasting. Notably,inallcaseswhereEPFisconsidered,
+thefocusisexclusivelyontheDAM,reflectingthelowerbarrierforentrytowardsforecast-
+ingthemarket. Asignificantnumberofthesestudiesemployhybridmodelstocapture
+thecomplex,non-linear,andtemporalpatternscommonacrossdomains,underscoringthe
+overlappingcharacteristicsofeffectiveEPF,andsettingswithsimilarpredictors.
+4.2. ForecastingMethods
+The landscape of EPF is shaped by a diverse range of modelling techniques, each
+with varying strengths depending on market structure, volatility, and data availabil-
+ity. This section categorises these methods into three groups—statistical, ML, and DL
+models—highlighting their roles, performance, and suitability across the DAM, IDM,
+andBM.
+4.2.1. StatisticalModels
+IntheevolvinglandscapeofEPF,classicalstatisticalmodelssuchasAR,ARIMA,and
+GARCHcontinuetoserveasvaluablebenchmarksbutoftenfallshortincapturingthe
+fullcomplexityofmodernmarkets. ARandARIMAmodelsareparticularlyeffectivein
+structured environments like the DAM, where they capture mean reversion and linear
+trends, especially when extended with exogenous inputs (ARX, ARIMAX) or volatility
+models (GARCH). However, they have seen a decline in rankings with the prevalence
+of ML and DL models, which are proving more capable of modelling markets that are
+growingincreasinglycomplex,wherenon-linearities,regimeshifts,andpricespikesare
+moreprevalent. ESmethods,includingTBATSandES-basedhybrids,offersimplicityand
+interpretabilitybuttendtounderperforminvolatileorreal-timeconditionsunlessenhanced
+by architectures like the ES Transformer. While enhancements like SARIMAX, hybrid
+wavelet-basedextensions,andregularisationimproveaccuracy,thesemodelsaregenerally
+outperformedbyMLandDLapproaches,whichbettercapturecross-hourdependencies,
+non-lineardynamics,andpricevolatility. RegularisedmodelslikeLASSOandLEARexcel
+in the DAM and IDM due to their robustness and feature selection capabilities. LEAR,
+in particular, emerges as a strong contender in the BM, outperforming more complex
+
+Energies2025,18,3097 28of40
+modelsbyavoidingoverfitting—acommonissueforbothMLandDLmethodsinshort,
+noisydatasets. TFandcopulamodels,whiletheoreticallyappealingforcapturingcomplex
+dependencies,remainlargelyuntestedinreal-timemarketsandhaveshownlimitedsuccess,
+evenintheDAM.Thewidespreaduseofnaivemodelsasbenchmarks,especiallyinthe
+IDMandBM,reflectstheirpracticalutilityinreal-timeforecastingduetotheirsimplicity
+andresponsiveness,thoughtheiraccuracylagsbehindmoreadvancedmethods. Overall,
+theliteratureindicatesthatwhilestatisticalmodelsstillholdrelevance—particularlyin
+hybrid structures—the future of EPF lies in flexible, data-driven models that integrate
+exogenousinputs,capturetemporaldynamics,andadapttotheincreasinglyvolatilenature
+ofelectricitymarkets.
+4.2.2. MachineLearningModels
+IntheDAM,MLmodelslikeKNN,SVR,RF,andXGBshowvariedperformance,with
+KNNoftenstrugglingduetoitssensitivitytoneighbourselectionanddatasetimbalances,
+whichhinderitsabilitytocaptureextremepricepeaks. Incontrast,ensemblemodelslike
+RFandXGBexcel,provingmorecapableathandlingcomplexmarketdynamics. RF,in
+particular,standsoutforitsstrongperformanceacrosstheDAM,IDM,andBM,showing
+theabilitytocapturemulti-outputtasksandadapttoevolvingmarketconditionsthrough
+online variants. XGB performs well in capturing key variables like renewable energy
+penetrationbutfaceschallengesintheIDMduetodifficultieswithhyperparametertuning,
+intra-daydependencies,short-termpricefluctuations,andextremevolatility,whereDL
+modelslikeLSTMorGRUshowsuperiorperformanceincapturingshort-termvolatility.
+XGBexcelsintheBM[116],particularlyforbiddingandriskmanagement,thoughitis
+sometimesoutperformedbysimplermodelslikeLEAR[32]. Overall,whileRFandXGB
+deliverstrongperformanceinboththeDAMandreal-timemarkets,theiradaptabilityto
+capturingintra-dayvolatilityandextremepricemovementsremainslimitedcompared
+toDLmodels,reinforcingthegrowingdominanceofhybridanddata-drivenapproaches
+inEPF.
+4.2.3. DeepLearningModels
+DLmodelshavemadesignificantstridesinEPF,particularlyintheDAM,wherethey
+consistently outperform statistical and ML models, proving more capable at capturing
+complex,non-linearrelationshipsandtemporaldependencies.DNNsexcelinmulti-market
+settingswhencombinedwithfeatureselectiontechniqueslikeXGB,improvingbothmodel
+efficiencyandrobustness. However,theirperformancecanbehinderedbyhyperparameter
+tuning challenges, and despite their power, simpler models such as LASSO and tree-
+based methods often provide superior forecasts due to their interpretability and lower
+computationalcost. IntheIDM,whileDNNsshowsomestrongperformance,theyare
+frequentlyoutperformedbyRNNslikeLSTMsandGRUs,whichhandleshort-termprice
+fluctuations more effectively. This is particularly evident in real-time markets, where
+DL models struggle to adapt to rapid price changes without more advanced attention
+mechanisms. IntheBM,DLmodelsoftenlagbehindMLmodels,andsimplerstatistical
+modelsduetopersistentissuescapturingtheextremevolatilityandsuddenpricespikes
+characteristic of these markets, leading to consistent overfitting. Despite their strong
+performanceintheDAM,thelackofadaptabilityinreal-time,high-volatilitymarketslimits
+thebroaderapplicationofDLmodelsintheIDMandBM.Simplermodelswithbuiltin
+regularisationprovetobebettersuitedforcapturingshort-termvolatilityinthesemarkets,
+althoughpotentialremainsforstatistical-DLhybridmodelswhichremainunderexplored
+intheBM.Overall,whileDLmodelsarepowerfultoolsformodellingnon-lineardynamics
+
+Energies2025,18,3097 29of40
+intheDAM,theirperformanceintheIDMandBMismixed,oftenrequiringenhancements
+suchasattentionmechanismsorhybridarchitecturestofullyleveragetheirpotential.
+4.2.4. HybridModels
+Hybrid models have emerged as a powerful class of tools in EPF, addressing the
+limitationsofstandalonestatistical,ML,andDLmodels. Statisticalhybridmodels,suchas
+ARIMA-GARCHandFARX-LASSO,effectivelycombinethelinearinterpretabilityofAR
+frameworkswithenhancedhandlingofvolatility,non-stationarity,andmulticollinearity
+throughtheintegrationofregularisationtechniquesandconditionalvariancemodelling.
+ThesemodelsareparticularlyeffectiveinstructuredmarketsliketheDAM,whereperiod-
+icityandlargedatasetssupportdecomposition-basedapproaches. Similarly,statistical–ML
+hybrids,includingcombinationslikeWARIMA-RBFandSOM-SVR,applynon-linearlearn-
+erstodecomposedcomponentsofthetimeseries,achievingimprovedaccuracythrough
+multi-resolutionlearning. Morerecentinnovationsextendhybridisationtoincorporate
+PCA,evolutionaryalgorithms,andattentionmechanisms,demonstratingversatilityeven
+indata-scarceornoisyenvironments. InML/DLhybrids,architecturesexploitthecomple-
+mentarystrengthsoftree-basedensembles,RNNs,andsignaldecompositionmethodsto
+modelnon-linearitiesandshort-termvolatilityacrossallmarkettypes. ML-basedhybrids,
+such as XGB with adaptive DNNs or ensemble frameworks integrating RF, SVM, and
+ARIMA,haveshownexceptionalperformanceinDAMsettings. Thesemodelsleverage
+featureselection,Fourier/waveletdecomposition,androbustregularisationtoimprove
+generalisability and interpretability. DL hybrid models push these boundaries further
+byfusingCNNs,LSTMs,GRUs,andattentionmechanismsintocomplexmulti-layered
+or ensemble-based systems capable of tracking high-frequency patterns and structural
+shiftsintheIDMandBM.Notably,BiLSTM-basedhybridsintegratedwithdecomposition
+techniquesandmeta-heuristicoptimisationstrategieshavedemonstratedstate-of-the-art
+performance in volatile, real-time markets such as the British BM. Hybrid models con-
+sistentlyoutperformstandaloneapproachesacrossmarkets,especiallywhenaddressing
+market-specificchallengeslikeseasonality,noise,datasparsity,andregimeshifts. Their
+abilitytobalanceaccuracy,interpretability,andadaptabilityhasestablishedthemasthe
+dominantparadigminDAMandIDMforecasting. However,applicationsinBMremain
+underexplored,representingakeyopportunityforfutureresearch.
+4.3. InputDataRequirementsandModelSensitivities
+Theeffectivenessofelectricitypriceforecastingmodelsiscloselytiedtothequality
+andavailabilityofinputdata. Classicalstatisticalmethods,particularlyunivariatemodels
+likeARorARIMA,primarilyrelyonhistoricalpricedataandtendtoberelativelyrobust
+tomissingvaluesorincompletedatasets,makingthemsuitablewhenexogenousinputs
+arelimitedorunavailable. Incontrast,modelssuchasARX,SARIMAX,andLEARextend
+these frameworks by incorporating exogenous variables—including demand forecasts,
+renewablegeneration,andfuelprices—whichenhancesaccuracybutincreasessensitiv-
+itytodataquality. Machinelearningmodels, includingtree-basedensembleslikeXGB
+andLGBM,generallyrequireextensiveandwell-structuredfeaturesets;whiletheyare
+moreflexibleinhandlingmissingdatathroughinternalmechanismssuchasimputation
+or feature importance weighting, their performance still depends on the relevance and
+completenessofinputfeatures. Deeplearningmodels,particularlyrecurrentarchitectures
+likeLSTMandGRU,demandlargevolumesofhigh-quality,multivariatetime-seriesdata
+toeffectivelycapturetemporaldynamics. Thesemodelsarehighlysensitivetomissingor
+noisyinputs,oftenrequiringcarefulpreprocessingsuchasnormalization,interpolation,
+andfeatureengineering. Consequently,thechoiceofforecastingmodelmustconsidernot
+
+Energies2025,18,3097 30of40
+onlypredictiveperformancebutalsothefeasibilityofobtainingthenecessaryinputdata,
+especiallyinreal-timemarketswheredatagranularityandtimelinessarecritical.
+4.4. ForecastingAcrosstheDay-Ahead,Intra-Day,andBalancingMarkets
+TheDAMremainsthemostextensivelystudiedandmethodologicallymatureamong
+electricityspotmarkets,largelyduetoitsstructurednature,longerforecastinghorizon,the
+availabilityofmultiplepublicdatasets,andrelativelylowerdependenceonhigh-frequency
+or real-time exogenous variables. Statistical models such as AR, ARIMA, and seasonal
+variantshavehistoricallyperformedwellinthiscontext,especiallywhenenhancedwith
+exogenous inputs, volatility models like GARCH, or regularisation techniques such as
+LASSO,ridge,andelasticnets. MLmodels,particularlytree-basedensembleslikeXGBand
+RF,alsodemonstratestrongandconsistentperformanceintheDAM,balancingaccuracy
+andcomputationalefficiency. DLmethods—especiallyRNNvariantssuchasLSTM,GRU,
+and hybrid CNN-LSTM architectures—outperform statistical approaches by capturing
+long-termdependenciesandcomplexnon-linearpatterns,particularlywhenintegrated
+withattentionmechanismsanddecompositiontechniques. TheDAM’srelativelystable
+temporalstructureallowsthesemodelstocapitaliseonseasonalityandtrendinformation,
+makingitanidealenvironmentformethodologicalinnovationandbenchmarking.
+Incontrast,theIDMpresentsgreaterforecastingchallengesduetoitshigh-frequency
+nature,limitedleadtime,andsusceptibilitytoshort-termvolatilitydrivenbyrenewables,
+loadfluctuations,andmarkettradingbehaviour. Manymodelsthatperformwellinthe
+DAM struggle in the IDM, particularly time-series models like ARIMA and SARIMA,
+whichlacktheflexibilitytorespondtofast-changingconditions. WhileMLmodelssuch
+asXGBandLASSOhavefoundmoderatesuccess,theirperformanceisoftenhinderedby
+difficultiesincapturingintra-daydependenciesandabruptpricechanges. DLmodelslike
+LSTMandGRUperformbetterinthisspace,particularlywhenpairedwithfeatureselec-
+tionorhybriddecompositionmethods. Thelackofconsistentlyavailablehigh-resolution
+exogenousdatafurtherlimitsmodelperformanceintheIDM,underscoringtheneedfor
+modelsthatcanadaptrapidlywithminimalpriorinformation. TheBMistheleaststudied
+andmostvolatileofthethree,withveryshortforecastinghorizonsandahighdegreeof
+unpredictabilityduetoitsinherentstochasticnature,diminishestheeffectivenessofmany
+conventionalapproaches. Simplermodelslikenaivebenchmarksoftenperformcompeti-
+tivelybycapitalisingonstrongautocorrelationsinreal-timeprices. Hybridapproachesand
+DLmodelswithattentionmechanisms—particularlyBiLSTM-basedensemblesandTrans-
+formerhybrids—arebeginningtoshowpromiseintheBMbycapturingrapidpricespikes
+and noise patterns more effectively. Notably, statistical models like LEAR consistently
+outperformmorecomplexDLarchitectures,likelyduetotheirrobustness,lowertendency
+tooverfit, andbetterhandlingofsparseandvolatiledata. WhilehybridandDL-based
+modelsareadvancing,theBMstilllacksmethodologicalconsensus,withcontrastingmodel
+performance,provinganattractiveavenueforfutureresearch.
+4.5. RegionalTrendsinModelUsage
+While electricity price forecasting methodologies are broadly applicable, their de-
+ployment often reflects regional market characteristics, regulatory structures, and data
+availability. Forinstance,SARIMAXandTBATSmodelshaveseennotableapplicationin
+EuropeanmarketssuchasDenmarkandGermany,wherestrongseasonalpatternsand
+structured DAM environments favour statistical approaches. In contrast, markets like
+theIrishandBritishbalancingmarketsfavoursimplermodelssuchasLEARandnaive
+baselines due to their robustness in high-volatility, low-data settings. In New Zealand,
+GARCHmodelswithfeatureselectionhaveoutperformedsomeMLmodels,likelydue
+
+Energies2025,18,3097 31of40
+totheircapacitytomodelvolatilityinderegulatedmarketswithlimitedreal-timedata.
+Meanwhile,advancedDLandhybridmethodsaremorefrequentlyexploredinresearch
+ontheChinese, Iranian, andNorthAmericanmarkets, wherelargerdatasetsandmore
+computationalresourcesareavailable. Theseregionaltrendssuggestthatmodelselection
+isoftenshapedlessbyuniversalperformanceandmorebylocalconstraints,includingdata
+resolution,marketrules,andintegrationofrenewables.
+4.6. EvaluationMetrics—PersistentIssues
+TheselectionofevaluationmetricsinEPFcontinuestopresentmethodologicalchal-
+lenges,particularlywhenapplieduniformlyacrossmarketswithvaryingvolatility,time
+resolution, and regulatory conditions. Commonly used metrics such as mean absolute
+error (MAE), mean squared error (MSE), and mean absolute percentage error (MAPE)
+offersimplicityandinterpretabilitybutfallshortincapturingthenuanceddemandsof
+different forecasting environments. MAE, while less sensitive to outliers than MSE, is
+scale-dependentandunder-penaliseslargeerrors—anissueinvolatilemarketsliketheBM,
+wheresuddenpricespikescanhavesignificantfinancialconsequences. MSE,bycontrast,
+exaggeratestheimpactofextremedeviations,whichmayoverstatemodeldeficienciesin
+high-variancesettings,whereevenaccuratemodelsoccasionallymissrareevents.Bothmet-
+ricsalsoobscurethecomparativeeffectivenessofmodelsacrossdifferentmarketcontexts
+duetotheirunstandardisednature. MAPE,despiteitspopularityinindustry,performs
+poorlywhenactualpricesapproachzero,whichfrequentlyoccursinreal-timeandhigh-
+renewable-penetrationmarkets. Thisresultsinundefinedordisproportionatelyinflated
+errorvalues,renderingthemetricunreliable. ThesymmetricMAPE(sMAPE)attemptsto
+addressthisinstabilitybutintroducesinterpretationaldifficultiesofitsown. Therelative
+MAE (rMAE), which compares model performance to a benchmark such as a naive or
+LASSOmodel,offersmoreinformativecontextforevaluation,especiallyintheIDMand
+BM,wheresimplemodelsoftenprovidestrongbaselines. However,itsusefulnesshinges
+ontheappropriatenessofthebenchmark,whichvariessubstantiallyacrossstudies. The
+weightedMAE(WMAE)introducesthepossibilityofassigningeconomicoroperational
+importancetocertainobservations,suchaspeak-hourprices,butitslimitedadoptionin
+academicworkhighlightsadisconnectbetweenresearchpracticeandoperationalpriorities.
+Apersistentissueacrosstheliteratureistheuniformapplicationofthesemetricsregardless
+oftheforecasthorizon,datagranularity,orintendeduseoftheforecast,whetherfortrading,
+scheduling,orregulatorycompliance. Forexample,usingthesamemetricstoevaluate
+more stable DAM forecasts and volatile IDM and BM forecasts fails to account for the
+differentriskprofilesanderrortolerancesinvolved. Untilamorecontext-sensitiveand
+application-awareframeworkiswidelyadopted,theevaluationofEPFmodelswillremain
+fragmentedandpotentiallymisleading,hinderingthedevelopmentofrobust,transferable,
+andoperationallyrelevantforecastingsolutions.
+5. Conclusions
+ThisreviewhasmappedtheevolutionofEPFmethodologies,withafocusontheDAM,
+IDM,andBM.Thefieldhasprogressedfromearlyrelianceonlinearstatisticalmodels,such
+asARIMA,ARX,andGARCH,toML,DL,andhybridarchitecturescapableofmodelling
+complex, non-linear market dynamics. While the DAM remains the most thoroughly
+studiedandmethodologicallydevelopedmarket,theIDMandBMhavegainedincreasing
+attention due to their operational relevance in real-time forecasting, particularly in the
+contextofrenewableintegrationandsystemflexibility. Ouranalysishighlightsthatno
+singleclassofmodelsconsistentlyoutperformsothersacrossallmarketcontexts. However,
+hybridapproaches,combiningtheinterpretabilityofstatisticalmodelswiththeadaptability
+
+Energies2025,18,3097 32of40
+ofMLandDL,frequentlydemonstratestrongperformance.Theseframeworks,particularly
+whenenhancedwithdecompositiontechniques,featureselection,attentionmechanisms,
+and ensembles, offer a balance between accuracy and flexibility. However, they often
+comewithaddedcomplexity,highercomputationaldemands,andreducedtransparency,
+whichcanlimittheirdeploymentinoperationalsettings. Significantchallengesremain,
+particularlyinvolatileanddata-scarceenvironments,includingtheIDMandBM.
+Statisticalmodels,whileefficientandinterpretable,struggletocaptureregimeshifts
+andrapidfluctuations. DLmodels,includingLSTM,GRU,andTransformer-basedarchitec-
+tures,requirelargevolumesofhigh-qualitydataandarepronetooverfittinginlow-data
+orhigh-noiseenvironments. Additionally,theinconsistentavailabilityofhigh-frequency
+exogenous variables, such as renewable generation forecasts, demand anomalies, and
+cross-borderflows,limitsforecastingaccuracyandgeneralisabilityacrossmarkettypes
+andgeographies. Compoundingtheseissuesisthelackofstandardisationinback-testing
+andreal-timeevaluationprotocols,withinappropriateuseofmetricslikeMAPElimiting
+theevaluationandcomparisonofmodels. Thesechallengesareexacerbatedbythelack
+of standardised benchmarks, open datasets, and reproducible code for hybrid models,
+creatingadditionalbarriersfortestingtheseapproachesacrossdifferentgeographiesor
+markettypes,particularlywhentransitioningfromDAMtoreal-timeapplications.
+Looking ahead, the future of EPF lies in the development of models that are not
+onlyaccuratebutalsoscalable,interpretable,androbustacrossdiversemarketstructures.
+ImprovingmodelperformanceintheIDMandBM,integratinghigher-resolutionexoge-
+nousdata,andadaptingsuccessfulhybridstrategiesfromDAM,load,andphotovoltaic
+forecastingrepresentvaluabledirections. Equallyimportantisthecreationofstandardised
+benchmarkingframeworks,theavailabilityofopendatasets,andsystematicmulti-market
+validationtofacilitatepracticaldeployment. Aselectricitymarketsgrowincreasinglyde-
+centralised,data-driven,andrenewable-centric,robustforecastingwillremainfundamental
+tofacilitatingefficienttrading,reliablesystemoperations,andagilemarketdesign.
+Inparallelwithmethodologicaladvances,theuseofforecastpricevaluescontinues
+toexpandacrosselectricitymarkets. Promisingapplicationsincludestrategicbiddingin
+wholesaleandbalancingmarkets,real-timedispatchoptimisation,andportfolioriskman-
+agement. Inretailandprosumercontexts,forecastpricessupportdemand-sideresponse,
+tariffdesign,andlocalenergytrading. Additionally,systemoperatorsandaggregators
+areincreasinglyleveragingforecastedpricesforcongestionmanagement,reservealloca-
+tion,andancillaryservicescheduling. Asmarketmechanismsgrowmoredynamicand
+decentralised,theintegrationofaccurateandinterpretablepriceforecastsintooperational
+decisionmakingwillbeessentialforachievingflexibility,efficiency,andresilienceacross
+electricitysystems.
+AuthorContributions:Studyconceptionanddesign:C.O.andA.V.;acquisition,analysis,drawing
+figures,andinterpretationofdata:C.O.andA.V.;draftingofmanuscript:C.O.,A.V.andS.P.;critical
+revision: C.O., A.V. and S.P.; Review & Editing: M.B. All authors have read and agreed to the
+publishedversionofthemanuscript.
+Funding:ThisworkwasconductedwiththefinancialsupportofScienceFoundationIrelandunder
+GrantNos.12/RC/2289-P2and18/CRT/6223,whichareco-fundedundertheEuropeanRegional
+DevelopmentFund.ThisresearchwaspartiallysupportedbytheEU’sHorizonDigital,Industry,and
+SpaceprogramundergrantagreementID101092989-DATAMITE.ForthepurposeofOpenAccess,
+theauthorhasappliedaCCBYpubliccopyrightlicensetoanyAuthorAcceptedManuscriptversion
+arisingfromthissubmission.
+InstitutionalReviewBoardStatement:Notapplicable.
+InformedConsentStatement:Notapplicable.
+
+Energies2025,18,3097 33of40
+DataAvailabilityStatement:ThedatawassourcedfromtheSEMOandSEMOpxwebsites,compris-
+inghistoricalandforward-lookingdatadatingfrom2019to2022.Forinterestedreadersthedatafor
+theDAMandBMcanbeaccessedherehttps://github.com/ciaranoc123/Balance-Market-Forecast.
+ConflictsofInterest:Theauthorsdeclarenoconflictsofinterest.
+References
+1. Ortner,A.;Totschnig,G. ThefuturerelevanceofelectricitybalancingmarketsinEurope-A2030casestudy. EnergyStrategyRev.
+2019,24,111–120.[CrossRef]
+2. Koecklin,M.T.;Longoria,G.;Fitiwi,D.Z.;DeCarolis,J.F.;Curtis,J. Publicacceptanceofrenewableelectricitygenerationand
+transmissionnetworkdevelopments:InsightsfromIreland. EnergyPolicy2021,151,112185.[CrossRef]
+3. Meles,T.H.;Ryan,L. Adoptionofrenewablehomeheatingsystems:Anagent-basedmodelofheatpumpsinIreland. Renew.
+Sustain.EnergyRev.2022,169,112853.[CrossRef]
+4. Lago,J.;Marcjasz,G.;DeSchutter,B.;Weron,R. Forecastingday-aheadelectricityprices:Areviewofstate-of-the-artalgorithms,
+bestpracticesandanopen-accessbenchmark. Appl.Energy2021,293,116983.[CrossRef]
+5. Yang,Z.;Ce,L.;Lian,L. Electricitypriceforecastingbyahybridmodel,combiningwavelettransform,ARMAandkernel-based
+extremelearningmachinemethods. Appl.Energy2017,190,291–305.[CrossRef]
+6. Lago,J.;DeRidder,F.;Vrancx,P.;DeSchutter,B.Forecastingday-aheadelectricitypricesinEurope:Theimportanceofconsidering
+marketintegration. Appl.Energy2018,211,890–903.[CrossRef]
+7. Xu,J.;Baldick,R. Day-aheadpriceforecastinginERCOTmarketusingneuralnetworkapproaches. InProceedingsoftheTenth
+ACMInternationalConferenceonFutureEnergySystems,Phoenix,AZ,USA,25–28June2019;pp.486–491.
+8. Zahid,M.;Ahmed,F.;Javaid,N.;Abbasi,R.A.;ZainabKazmi,H.S.;Javaid,A.;Bilal,M.;Akbar,M.;Ilahi,M. Electricitypriceand
+loadforecastingusingenhancedconvolutionalneuralnetworkandenhancedsupportvectorregressioninsmartgrids. Electronics
+2019,8,122.[CrossRef]
+9. Heidarpanah,M.;Hooshyaripor,F.;Fazeli,M. DailyelectricitypriceforecastingusingartificialintelligencemodelsintheIranian
+electricitymarket. Energy2023,263,126011.[CrossRef]
+10. Aggarwal,S.K.;Saini,L.M.;Kumar,A. Electricitypriceforecastinginderegulatedmarkets:Areviewandevaluation. Int.J.Electr.
+PowerEnergySyst.2009,31,13–22.[CrossRef]
+11. Weron, R. Electricity price forecasting: A review of the state-of-the-art with a look into the future. Int. J. Forecast. 2014,
+30,1030–1081.[CrossRef]
+12. Zhang,F.;Fleyeh,H. Areviewofsingleartificialneuralnetworkmodelsforelectricityspotpriceforecasting. InProceedingsof
+the201916thInternationalConferenceontheEuropeanEnergyMarket(EEM),Ljubljana,Slovenia,18–20September2019;IEEE:
+Piscataway,NJ,USA,2019;pp.1–6.
+13. Acarog˘lu,H.;GarcíaMárquez,F.P. Comprehensivereviewonelectricitymarketpriceandloadforecastingbasedonwindenergy.
+Energies2021,14,7473.[CrossRef]
+14. Je˛drzejewski,A.;Lago,J.;Marcjasz,G.;Weron,R. Electricitypriceforecasting:Thedawnofmachinelearning. IEEEPowerEnergy
+Mag.2022,20,24–31.[CrossRef]
+15. Newbery,D.;Strbac,G.;Viehoff,I. ThebenefitsofintegratingEuropeanelectricitymarkets. EnergyPolicy2016,94,253–263.
+[CrossRef]
+16. Ilea,V.;Bovo,C. Europeanday-aheadelectricitymarketcoupling:Discussion,modeling,andcasestudy. Electr.PowerSyst.Res.
+2018,155,80–92.
+17. Martinez-Anido,C.B.;Brinkman,G.;Hodge,B.M.Theimpactofwindpoweronelectricityprices. Renew.Energy2016,94,474–487.
+[CrossRef]
+18. Ugurlu,U.;Oksuz,I.;Tas,O. Electricitypriceforecastingusingrecurrentneuralnetworks. Energies2018,11,1255.[CrossRef]
+19. Lago,J.;DeRidder,F.;DeSchutter,B. Forecastingspotelectricityprices:Deeplearningapproachesandempiricalcomparisonof
+traditionalalgorithms. Appl.Energy2018,221,386–405.[CrossRef]
+20. Chen,Y.;Wang,Y.;Ma,J.;Jin,Q. BRIM:Anaccurateelectricityspotpricepredictionscheme-basedbidirectionalrecurrentneural
+networkandintegratedmarket. Energies2019,12,2241.[CrossRef]
+21. Li,W.;Becker,D.M. Day-aheadelectricitypricepredictionapplyinghybridmodelsofLSTM-baseddeeplearningmethodsand
+featureselectionalgorithmsunderconsiderationofmarketcoupling. Energy2021,237,121543.[CrossRef]
+22. Shinde,P.;Amelin,M. Aliteraturereviewofintradayelectricitymarketsandprices. InProceedingsofthe2019IEEEMilan
+PowerTech,Milan,Italy,23–27June2019;pp.1–6.
+
+Energies2025,18,3097 34of40
+23. Monteiro,C.;Ramirez-Rosado,I.J.;Fernandez-Jimenez,L.A.;Conde,P. Short-termpriceforecastingmodelsbasedonartificial
+neuralnetworksforintradaysessionsintheIberianelectricitymarket. Energies2016,9,721.[CrossRef]
+24. Andrade,J.R.;Filipe,J.;Reis,M.;Bessa,R.J. Probabilisticpriceforecastingforday-aheadandintradaymarkets: Beyondthe
+statisticalmodel. Sustainability2017,9,1990.[CrossRef]
+25. Uniejewski,B.;Marcjasz,G.;Weron,R. Understandingintradayelectricitymarkets:Variableselectionandveryshort-termprice
+forecastingusingLASSO. Int.J.Forecast.2019,35,1533–1547.[CrossRef]
+26. Narajewski,M.;Ziel,F.Ensembleforecastingforintradayelectricityprices:Simulatingtrajectories. Appl.Energy2020,279,115801.
+[CrossRef]
+27. Koch,C.;Hirth,L. Short-termelectricitytradingforsystembalancing:Anempiricalanalysisoftheroleofintradaytradingin
+balancingGermany’selectricitysystem. Renew.Sustain.EnergyRev.2019,113,109275.[CrossRef]
+28. Birkeland,D.;AlSkaif,T. ResearchareasandmethodsofinterestinEuropeanintradayelectricitymarketresearch—Asystematic
+literaturereview. Sustain.EnergyGridsNetw.2024,38,101368.[CrossRef]
+29. Zachmann,G.;Hirth,L.;Heussaff,C.;Schlecht,I.;Mühlenpfordt,J.;Eicke,A. TheDesignoftheEuropeanElectricityMarket–Current
+ProposalsandWaysAhead; EuropeanParliament:Luxembourg,2023.
+30. Dumas,J.;Boukas,I.;deVillena,M.M.;Mathieu,S.;Cornélusse,B. Probabilisticforecastingofimbalancepricesinthebelgian
+context. InProceedingsofthe201916thInternationalConferenceontheEuropeanEnergyMarket(EEM),Ljubljana,Slovenia,
+18–20September2019;IEEE:Piscataway,NJ,USA,2019;pp.1–7.
+31. Narajewski,M. ProbabilisticforecastingofGermanelectricityimbalanceprices. Energies2022,15,4976.[CrossRef]
+32. O’Connor,C.;Collins,J.;Prestwich,S.;Visentin,A. ElectricityPriceForecastingintheIrishBalancingMarket. EnergyStrategyRev.
+2024,54,101436.[CrossRef]
+33. VanderVeen,R.A.;Hakvoort,R.A.Theelectricitybalancingmarket:Exploringthedesignchallenge. Util.Policy2016,43,186–194.
+[CrossRef]
+34. Eicke,A.;Ruhnau,O.;Hirth,L. Electricitybalancingasamarketequilibrium.EnergyEcon.2021,102,105455.[CrossRef]
+35. SEMO. MarketsandTimelines.Availableonline:https://www.sem-o.com/markets(accessedon9June2025).
+36. Silva-Rodriguez,L.;Sanjab,A.;Fumagalli,E.;Virag,A.;Gibescu,M. Shorttermwholesaleelectricitymarketdesigns:Areviewof
+identifiedchallengesandpromisingsolutions. Renew.Sustain.EnergyRev.2022,160,112228.[CrossRef]
+37. Peura,H.;Bunn,D.W. Renewablepowerandelectricityprices:Theimpactofforwardmarkets. Manag.Sci.2021,67,4772–4788.
+[CrossRef]
+38. Rancilio,G.;Rossi,A.;Falabretti,D.;Galliani,A.;Merlo,M. Ancillaryservicesmarketsineurope: Evolutionandregulatory
+trade-offs. Renew.Sustain.EnergyRev.2022,154,111850.[CrossRef]
+39. Cramton,P.;Ockenfels,A.;Stoft,S. Capacitymarketfundamentals. Econ.EnergyEnviron.Policy2013,2,27–46.[CrossRef]
+40. Sarkar,V.;Khaparde,S.A. Acomprehensiveassessmentoftheevolutionoffinancialtransmissionrights. IEEETrans.PowerSyst.
+2008,23,1783–1795.[CrossRef]
+41. Maciejowska,K.;Weron,R. Short-andmid-termforecastingofbaseloadelectricitypricesintheUK:Theimpactofintra-dayprice
+relationshipsandmarketfundamentals. IEEETrans.PowerSyst.2015,31,994–1005.[CrossRef]
+42. Popławski,T.;Dudek,G.;Łyp,J. ForecastingmethodsforbalancingenergymarketinPoland. Int.J.Electr.PowerEnergySyst.
+2015,65,94–101.[CrossRef]
+43. Klæboe,G.;Eriksrud,A.L.;Fleten,S.E. Benchmarkingtimeseriesbasedforecastingmodelsforelectricitybalancingmarketprices.
+EnergySyst.2015,6,43–61.[CrossRef]
+44. Girish,G.P. SpotelectricitypriceforecastinginIndianelectricitymarketusingautoregressive-GARCHmodels. EnergyStrategy
+Rev.2016,11,52–57.[CrossRef]
+45. Olivares,K.G.;Challu,C.;Marcjasz,G.;Weron,R.;Dubrawski,A. Neuralbasisexpansionanalysiswithexogenousvariables:
+ForecastingelectricitypriceswithNBEATSx. Int.J.Forecast.2023,39,884–900.[CrossRef]
+46. Billé,A.G.;Gianfreda,A.;DelGrosso,F.;Ravazzolo,F. Forecastingelectricitypriceswithexpert,linear,andnonlinearmodels.
+Int.J.Forecast.2023,39,570–586.[CrossRef]
+47. Ziel,F. Forecastingelectricityspotpricesusinglasso:Oncapturingtheautoregressiveintradaystructure. IEEETrans.PowerSyst.
+2016,31,4977–4987.[CrossRef]
+48. Özen,K.;Yıldırım,D. Applicationofbagginginday-aheadelectricitypriceforecastingandfactoraugmentation. EnergyEcon.
+2021,103,105573.[CrossRef]
+49. Englund,A. EvaluationofMachineLearningModelsforIntradayPriceForecastingintheRenewableEnergySector.Master’s
+Thesis,UppsalaUniversity,Uppsala,Sweden,2024.
+50. Contreras,J.;Espinola,R.;Nogales,F.J.;Conejo,A.J. ARIMAmodelstopredictnext-dayelectricityprices. IEEETrans.PowerSyst.
+2003,18,1014–1020.[CrossRef]
+
+Energies2025,18,3097 35of40
+51. Cuaresma,J.C.;Hlouskova,J.;Kossmeier,S.;Obersteiner,M. Forecastingelectricityspot-pricesusinglinearunivariatetime-series
+models. Appl.Energy2004,77,87–106.[CrossRef]
+52. Conejo,A.J.;Plazas,M.A.;Espinola,R.;Molina,A.B. Day-aheadelectricitypriceforecastingusingthewavelettransformand
+ARIMAmodels. IEEETrans.PowerSyst.2005,20,1035–1042.[CrossRef]
+53. Yang,Y.;Tan,Z.;Yang,H.;Ruan,G.;Zhong,H.;Liu,F. Short-termelectricitypriceforecastingbasedongraphconvolution
+networkandattentionmechanism. IETRenew.PowerGener.2022,16,2481–2492.[CrossRef]
+54. Poggi,A.;DiPersio,L.;Ehrhardt,M. Electricitypriceforecastingviastatisticalanddeeplearningapproaches:Thegermancase.
+AppliedMath2023,3,316–342.[CrossRef]
+55. Kılıç,D.K.;Nielsen,P.;Thibbotuwawa,A. IntradayElectricityPriceForecastingviaLSTMandTradingStrategyforthePower
+Market:ACaseStudyoftheWestDenmarkDK1GridRegion. Energies2024,17,2909.[CrossRef]
+56. Knittel,C.R.;Roberts,M.R. Anempiricalexaminationofrestructuredelectricityprices. EnergyEcon.2005,27,791–817.[CrossRef]
+57. Diongue,A.K.;Guegan,D.;Vignal,B. Forecastingelectricityspotmarketpriceswithak-factorGIGARCHprocess. Appl.Energy
+2009,86,505–510.[CrossRef]
+58. Kapoor,G.;Wichitaksorn,N. ElectricitypriceforecastinginNewZealand:Acomparativeanalysisofstatisticalandmachine
+learningmodelswithfeatureselection. Appl.Energy2023,347,121446.[CrossRef]
+59. Ishak,I.;Othman,N.S.;Harun,N.H. ForecastingelectricityconsumptionofMalaysia’sresidentialsector: Evidencefroman
+exponentialsmoothingmodel. F1000Research2022,11,54.[CrossRef]
+60. Woo,G.;Liu,C.;Sahoo,D.;Kumar,A.;Hoi,S. Etsformer:Exponentialsmoothingtransformersfortime-seriesforecasting. arXiv
+2022,arXiv:2202.01381.
+61. Karabiber,O.A.;Xydis,G. ElectricitypriceforecastingintheDanishday-aheadmarketusingtheTBATS,ANNandARIMA
+methods. Energies2019,12,928.[CrossRef]
+62. Gellert,A.;Fiore,U.;Florea,A.;Chis,R.;Palmieri,F. Forecastingelectricityconsumptionandproductioninsmarthomesthrough
+statisticalmethods. Sustain.CitiesSoc.2022,76,103426.[CrossRef]
+63. Iqbal,R.;Mokhlis,H.;Khairuddin,A.S.M.;Ismail,S.;Muhammad,M.A.OptimizedGatedRecurrentUnitforMid-TermElectricity
+PriceForecasting. Comput.Syst.Sci.Eng.2022,43.[CrossRef]
+64. Rao,C.;Zhang,Y.;Wen,J.;Xiao,X.;Goh,M. EnergydemandforecastinginChina:Asupportvectorregression-compositional
+datasecondexponentialsmoothingmodel. Energy2023,263,125955.[CrossRef]
+65. Lisi,F.;Shah,I. Jointcomponentestimationforelectricitypriceforecastingusingfunctionalmodels. Energies2024,17,3461.
+[CrossRef]
+66. Beigaite,R.;Krilavicˇius,T.;Man,K.L. ElectricityPriceForecastingforNordPoolData. InProceedingsofthe2018International
+ConferenceonPlatformTechnologyandService(PlatCon),Jeju,RepublicofKorea,29–31January2018;pp.1–6.[CrossRef]
+67. Marcjasz,G.;Uniejewski,B.;Weron,R. Beatingthenaïve—CombiningLASSOwithnaïveintradayelectricitypriceforecasts.
+Energies2020,13,1667.[CrossRef]
+68. Oksuz,I.;Ugurlu,U. Neuralnetworkbasedmodelcomparisonforintradayelectricitypriceforecasting. Energies2019,12,4557.
+[CrossRef]
+69. Kath,C.;Ziel,F. Thevalueofforecasts:Quantifyingtheeconomicgainsofaccuratequarter-hourlyelectricitypriceforecasts.
+EnergyEcon.2018,76,411–423.[CrossRef]
+70. Nickelsen, D.; Müller, G. Bayesian hierarchical probabilistic forecasting of intraday electricity prices. Appl. Energy 2025,
+380,124975.[CrossRef]
+71. Maciejowska,K.;Nitka,W.;Weron,T. Day-aheadvs. Intraday—Forecastingthepricespreadtomaximizeeconomicbenefits.
+Energies2019,12,631.[CrossRef]
+72. Kotsias,P.C. ForecastingElectricityPricesforIntradayMarketswithMachineLearning:Anexploratorycomparisonofthestate
+oftheart.IETConf.Proc.2022,2024.
+73. Uniejewski,B. Regularizationforelectricitypriceforecasting. arXiv2024,arXiv:2404.03968.[CrossRef]
+74. Jakaša, T.; Androcˇec, I.; Sprcˇic´, P. Electricity price forecasting—ARIMA model approach. In Proceedings of the 2011 8th
+internationalconferenceontheEuropeanenergymarket(EEM),Zagreb,Croatia,25–27May2011;IEEE:Piscataway,NJ,USA,
+2011;pp.222–225.
+75. Lehna,M.;Scheller,F.;Herwartz,H. Forecastingday-aheadelectricityprices:Acomparisonoftimeseriesandneuralnetwork
+modelstakingexternalregressorsintoaccount. EnergyEcon.2022,106,105742.[CrossRef]
+76. Bozlak,Ç.B.;Yas¸ar,C.F. Anoptimizeddeeplearningapproachforforecastingday-aheadelectricityprices. Electr.PowerSyst.Res.
+2024,229,110129.[CrossRef]
+77. Kitsatoglou,A.;Georgopoulos,G.;Papadopoulos,P.;Antonopoulos,H. AnensembleapproachforenhancedDay-Aheadprice
+forecastinginelectricitymarkets. ExpertSyst.Appl.2024,256,124971.[CrossRef]
+
+Energies2025,18,3097 36of40
+78. Narajewski,M.;Ziel,F. Econometricmodellingandforecastingofintradayelectricityprices. J.Commod.Mark.2020,19,100107.
+[CrossRef]
+79. Serafin, T.; Marcjasz, G.; Weron, R. Tradingonshort-termpathforecastsofintradayelectricityprices. EnergyEcon. 2022,
+112,106125.[CrossRef]
+80. Agakishiev,I.;Härdle,W.K.;Kopa,M.;Kozmik,K.;Petukhina,A. Multivariateprobabilisticforecastingofelectricitypriceswith
+tradingapplications. EnergyEcon.2025,141,108008.[CrossRef]
+81. Uniejewski,B.;Nowotarski,J.;Weron,R. Automatedvariableselectionandshrinkageforday-aheadelectricitypriceforecasting.
+Energies2016,9,621.[CrossRef]
+82. Tschora,L.;Pierre,E.;Plantevit,M.;Robardet,C. Electricitypriceforecastingontheday-aheadmarketusingmachinelearning.
+Appl.Energy2022,313,118752.[CrossRef]
+83. Marcjasz,G.;Narajewski,M.;Weron,R.;Ziel,F. Distributionalneuralnetworksforelectricitypriceforecasting. EnergyEcon.2023,
+125,106843.[CrossRef]
+84. Gunduz,S.;Ugurlu,U.;Oksuz,I. Transferlearningforelectricitypriceforecasting. Sustain.EnergyGridsNetw.2023,34,100996.
+[CrossRef]
+85. Yang, Y.; Guo, J.; Li, Y.; Zhou, J. Forecasting day-ahead electricity prices with spatial dependence. Int. J. Forecast. 2024,
+40,1255–1270.[CrossRef]
+86. O’Connor,C.;Bahloul,M.;Rossi,R.;Prestwich,S.;Visentin,A. ConformalPredictionforElectricityPriceForecastinginthe
+Day-AheadandReal-TimeBalancingMarket.arXiv2025,arXiv:cs.LG/2502.04935.
+87. Nogales,F.J.;Contreras,J.;Conejo,A.J.;Espínola,R. Forecastingnext-dayelectricitypricesbytimeseriesmodels. IEEETrans.
+PowerSyst.2002,17,342–348.[CrossRef]
+88. GarcíaGonzález,J.;BarquínGil,J.;DueñasMartínez,P. AHybridApproachforModelingElectricityPriceSeriesintheMedium
+Term. 2008. Available online: https://www.researchgate.net/publication/255586295_A_hybrid_approach_for_modeling_
+electricity_price_series_in_the_medium_term(accessedon9June2025).
+89. Durante,F.;Gianfreda,A.;Ravazzolo,F.;Rossini,L. Amultivariatedependenceanalysisforelectricityprices,demandand
+renewableenergysources. Inf.Sci.2022,590,74–89.[CrossRef]
+90. Arrieta-Prieto,M.;Schell,K.R. Spatio-temporalprobabilisticforecastingofwindpowerformultiplefarms: Acopula-based
+hybridmodel. Int.J.Forecast.2022,38,300–320.[CrossRef]
+91. Feijoo,F.;Silva,W.;Das,T.K. Acomputationallyefficientelectricitypriceforecastingmodelforrealtimeenergymarkets. Energy
+Convers.Manag.2016,113,27–35.[CrossRef]
+92. Ali,M.;Khan,Z.A.;Mujeeb,S.;Abbas,S.;Javaid,N. Short-termelectricitypriceandloadforecastingusingenhancedsupport
+vectormachineandK-nearestneighbor. InProceedingsofthe2019SixthHCTInformationTechnologyTrends(ITT),RasAl
+Khaimah,UnitedArabEmirates,20–21November2019;IEEE:Piscataway,NJ,USA,2019;pp.79–83.
+93. Ashfaq, T.; Javaid, N. Short-term electricity load and price forecasting using enhanced KNN. In Proceedings of the 2019
+International Conference on Frontiers of Information Technology (FIT), Islamabad, Pakistan, 16–18 December 2019; IEEE:
+Piscataway,NJ,USA,2019;pp.266–2665.
+94. Johannesen,N.J.;Kolhe,M.;Goodwin,M. Deregulatedelectricenergypriceforecastinginnordpoolmarketusingregression
+techniques. InProceedingsofthe2019IEEESustainablePowerandEnergyConference(iSPEC),Beijing,China,21–23November
+2019;IEEE:Piscataway,NJ,USA,2019;pp.1932–1938.
+95. Wang,P.;Xu,K.;Ding,Z.;Du,Y.;Liu,W.;Sun,B.;Zhu,Z.;Tang,H. Anonlineelectricitymarketpriceforecastingmethodvia
+randomforest. IEEETrans.Ind.Appl.2022,58,7013–7021.[CrossRef]
+96. Beltrán,S.; Castro,A.; Irizar,I.; Naveran,G.; Yeregui,I. Frameworkforcollaborativeintelligenceinforecastingday-ahead
+electricityprice. Appl.Energy2022,306,118049.[CrossRef]
+97. Peng,Y.;Wang,Z.;Castillo,I.;LaGrande,G.;Jiang,S. ANewModelingFrameworkforReal-TimeExtremeElectricityPrice
+Forecasting. IFAC-PapersOnLine2024,58,899–904.[CrossRef]
+98. Sansom,D.C.;Downs,T.;Saha,T.K. Evaluationofsupportvectormachinebasedforecastingtoolinelectricitypriceforecasting
+forAustraliannationalelectricitymarketparticipants. J.Electr.Electron.Eng.Aust.2003,22,227–233.
+99. Fan,S.; Mao,C.; Chen,L. Next-dayelectricity-priceforecastingusingahybridnetwork. IETGener. Transm. Distrib. 2007,
+1,176–182.[CrossRef]
+100. Che,J.;Wang,J. Short-termelectricitypricesforecastingbasedonsupportvectorregressionandauto-regressiveintegrated
+movingaveragemodeling. EnergyConvers.Manag.2010,51,1911–1917.[CrossRef]
+101. Zhang,F.;Fleyeh,H.;Bales,C. Ahybridmodelbasedonbidirectionallongshort-termmemoryneuralnetworkandCatboostfor
+short-termelectricityspotpriceforecasting. J.Oper.Res.Soc.2022,73,301–325.[CrossRef]
+102. Cantillo-Luna,S.;Moreno-Chuquen,R.;Chamorro,H.R.;Riquelme-Dominguez,J.M.;Gonzalez-Longatt,F. Locationalmarginal
+priceforecastingusingsvr-basedmulti-outputregressioninelectricitymarkets. Energies2022,15,293.[CrossRef]
+
+Energies2025,18,3097 37of40
+103. Deng,S.;Inekwe,J.;Smirnov,V.;Wait,A.;Wang,C. Seasonalityindeeplearningforecastsofelectricityimbalanceprices. Energy
+Econ.2024,137,107770.[CrossRef]
+104. González,C.;Mira,J.M.;Ojeda,J.A. ApplyingMulti-OutputRandomForestModelstoElectricityPriceForecast.2016.Available
+online:https://www.researchgate.net/publication/308384009_Applying_Multi-Output_Random_Forest_Models_to_Electricity_
+Price_Forecast(accessedon9June2025).
+105. Kara,M.;Atici,K.B.;Ulucan,A. Priceandvolatilityforecastinginelectricitywithsupportvectorregressionandrandomforest.
+InAppliedOperationsResearchandFinancialModellinginEnergy:PracticalApplicationsandImplications;Springer:Berlin/Heidelberg,
+Germany,2021;pp.101–124.
+106. Alkawaz,A.N.;Abdellatif,A.;Kanesan,J.;Khairuddin,A.S.M.;Gheni,H.M. Day-aheadelectricitypriceforecastingbasedon
+hybridregressionmodel. IEEEAccess2022,10,108021–108033.[CrossRef]
+107. Xie,H.;Chen,S.;Lai,C.;Ma,G.;Huang,W. Forecastingtheclearingpriceintheday-aheadspotmarketusingeXtremeGradient
+Boosting. Electr.Eng.2022,104,1607–1621.[CrossRef]
+108. Mei,J.;He,D.;Harley,R.;Habetler,T.;Qu,G. Arandomforestmethodforreal-timepriceforecastinginNewYorkelectricity
+market. InProceedingsofthe2014IEEEPESGeneralMeeting|Conference&Exposition,Chicago,IL,USA,14–17April2014;
+IEEE:Piscataway,NJ,USA,2014;pp.1–5.
+109. O’Connor,C.;Collins,J.;Prestwich,S.;Visentin,A. Optimisingquantile-basedtradingstrategiesinelectricityarbitrage. Energy
+AI2025,20,100476.[CrossRef]
+110. Huang,S.;Shi,J.;Wang,B.;An,N.;Li,L.;Hou,X.;Wang,C.;Zhang,X.;Wang,K.;Li,H.;etal. Ahybridframeworkforday-ahead
+electricityspot-priceforecasting:AcasestudyinChina. Appl.Energy2024,373,123863.[CrossRef]
+111. Cai,R.;Xie,S.;Wang,B.;Yang,R.;Xu,D.;He,Y. Windspeedforecastingbasedonextremegradientboosting. IEEEAccess2020,
+8,175063–175069.[CrossRef]
+112. Qinghe,Z.;Wen,X.;Boyan,H.;Jong,W.;Junlong,F. Optimisedextremegradientboostingmodelforshorttermelectricload
+demandforecastingofregionalgridsystem. Sci.Rep.2022,12,19282.[CrossRef]
+113. Rafi,S.H.;Mahdi,M.M. Ashort-termloadforecastingtechniqueusingextremegradientboostingalgorithm. InProceedings
+ofthe2021IEEEPESInnovativeSmartGridTechnologies-Asia(ISGTAsia),Brisbane,Australia,5–8December2021; IEEE:
+Piscataway,NJ,USA,2021;pp.1–5.
+114. Suvarna,M.;Pravin,P.;Yap,K.S.;Wang,X. Applicationofmachinelearningandbigdataforsmartenergymanagementin
+manufacturing.InComputerAidedChemicalEngineering;Elsevier:Amsterdam,TheNetherlands,2022;Volume49,pp.1699–1704.
+115. Malakouti,S.M. Usemachinelearningalgorithmstopredictturbinepowergenerationtoreplacerenewableenergywithfossil
+fuels. EnergyExplor.Exploit.2023,41,836–857.[CrossRef]
+116. Lucas,A.;Pegios,K.;Kotsakis,E.;Clarke,D. Priceforecastingforthebalancingenergymarketusingmachine-learningregression.
+Energies2020,13,5420.[CrossRef]
+117. O’Connor,C.;Prestwich,S.;Visentin,A. ConformalPredictionTechniquesforElectricityPriceForecasting. InProceedingsof
+theInternationalWorkshoponAdvancedAnalyticsandLearningonTemporalData,Vilnius,Lithuania,9–13September2024;
+Springer:Berlin/Heidelberg,Germany,2024;pp.1–17.
+118. Hinton,G.E.;Osindero,S.;Teh,Y.W. AFastLearningAlgorithmforDeepBeliefNets. NeuralComput. 2006,18,1527–1554.
+[CrossRef]
+119. Goodfellow,I.;Bengio,Y.;Courville,A. DeepLearning;MITPress:Cambridge,MA,USA,2016.
+120. Krizhevsky,A.;Sutskever,I.;Hinton,G.E. Imagenetclassificationwithdeepconvolutionalneuralnetworks. Adv. NeuralInf.
+Process.Syst.2012,25.[CrossRef]
+121. Hinton,G.;Deng,L.;Yu,D.;Dahl,G.E.;Mohamed,A.r.;Jaitly,N.;Senior,A.;Vanhoucke,V.;Nguyen,P.;Sainath,T.N.;etal. Deep
+neuralnetworksforacousticmodelinginspeechrecognition:Thesharedviewsoffourresearchgroups. IEEESignalProcess.Mag.
+2012,29,82–97.[CrossRef]
+122. Bahdanau,D.;Cho,K.;Bengio,Y.Neuralmachinetranslationbyjointlylearningtoalignandtranslate. arXiv2014,arXiv:1409.0473.
+123. Wang,H.;Wang,G.;Li,G.;Peng,J.;Liu,Y. Deepbeliefnetworkbaseddeterministicandprobabilisticwindspeedforecasting
+approach. Appl.Energy2016,182,80–93.[CrossRef]
+124. Coelho,I.M.;Coelho,V.N.;Luz,E.J.d.S.;Ochi,L.S.;Guimaraes,F.G.;Rios,E. AGPUdeeplearningmetaheuristicbasedmodelfor
+timeseriesforecasting. Appl.Energy2017,201,412–418.[CrossRef]
+125. Atef,S.;Eltawil,A.B. Acomparativestudyusingdeeplearningandsupportvectorregressionforelectricitypriceforecastingin
+smartgrids. InProceedingsofthe2019IEEE6thInternationalConferenceonIndustrialEngineeringandApplications(ICIEA),
+Tokyo,Japan,12–15April2019;IEEE:Piscataway,NJ,USA,2019;pp.603–607.
+126. Luo,S.;Weng,Y. Atwo-stagesupervisedlearningapproachforelectricitypriceforecastingbyleveragingdifferentdatasources.
+Appl.Energy2019,242,1497–1512.[CrossRef]
+
+Energies2025,18,3097 38of40
+127. Mujeeb,S.;Javaid,N. ESAENARXandDE-RELM:Novelschemesforbigdatapredictiveanalyticsofelectricityloadandprice.
+Sustain.CitiesSoc.2019,51,101642.[CrossRef]
+128. Schnürch,S.;Wagner,A. Machinelearningonepexorderbooks:Insightsandforecasts. arXiv2019,arXiv:1906.06248.
+129. Khan,Z.A.; Fareed,S.; Anwar,M.; Naeem,A.; Gul,H.; Arif,A.; Javaid,N. Shorttermelectricitypriceforecastingthrough
+convolutionalneuralnetwork. InWeb,ArtificialIntelligenceandNetworkApplications: ProceedingsoftheWorkshopsofthe34th
+InternationalConferenceonAdvancedInformationNetworkingandApplications(WAINA-2020);Springer:Berlin/Heidelberg,Germany,
+2020;pp.1181–1188.
+130. Yang,H.;Schell,K.R. QCAE:AquadruplebranchCNNautoencoderforreal-timeelectricitypriceforecasting. Int.J.Electr.Power
+EnergySyst.2022,141,108092.[CrossRef]
+131. Pourdaryaei,A.; Mohammadi,M.; Mubarak,H.; Abdellatif,A.; Karimi,M.; Gryazina,E.; Terzija,V. Anewframeworkfor
+electricitypriceforecastingviamulti-headself-attentionandCNN-basedtechniquesinthecompetitiveelectricitymarket. Expert
+Syst.Appl.2024,235,121207.[CrossRef]
+132. Hochreiter,S. LongShort-TermMemory; NeuralComputationMIT-Press:Cambridge,MA,USA,1997.
+133. Chinnathambi,R.A.;Plathottam,S.J.;Hossen,T.;Nair,A.S.;Ranganathan,P. Deepneuralnetworksforday-aheadelectricityprice
+markets. InProceedingsofthe2018IEEEElectricalPowerandEnergyConference(EPEC),Toronto,ON,Canada,10–11October
+2018;IEEE:Piscataway,NJ,USA,2018;pp.1–6.
+134. Memarzadeh,G.;Keynia,F. Short-termelectricityloadandpriceforecastingbyanewoptimalLSTM-NNbasedprediction
+algorithm. Electr.PowerSyst.Res.2021,192,106995.[CrossRef]
+135. Meng,A.;Wang,P.;Zhai,G.;Zeng,C.;Chen,S.;Yang,X.;Yin,H. Electricitypriceforecastingwithhighpenetrationofrenewable
+energyusingattention-basedLSTMnetworktrainedbycrisscrossoptimization. Energy2022,254,124212.[CrossRef]
+136. Zhu,Y.;Dai,R.;Liu,G.;Wang,Z.;Lu,S.Powermarketpriceforecastingviadeeplearning. InProceedingsoftheIECON2018-44th
+AnnualConferenceoftheIEEEIndustrialElectronicsSociety,Washington,DC,USA,21–23October2018;IEEE:Piscataway,NJ,
+USA,2018;pp.4935–4939.
+137. Zhou, S.; Zhou, L.; Mao, M.; Tai, H.M.; Wan, Y. AnoptimizedheterogeneousstructureLSTMnetworkforelectricityprice
+forecasting. IEEEAccess2019,7,108161–108173.[CrossRef]
+138. Kuo,P.H.;Huang,C.J. Anelectricitypriceforecastingmodelbyhybridstructureddeepneuralnetworks. Sustainability2018,
+10,1280.[CrossRef]
+139. Chang,Z.;Zhang,Y.;Chen,W. Effectiveadam-optimizedLSTMneuralnetworkforelectricitypriceforecasting. InProceedings
+ofthe2018IEEE9thInternationalConferenceonSoftwareEngineeringandServiceScience(ICSESS),Beijing,China,23–25
+November2018;IEEE:Piscataway,NJ,USA,2018;pp.245–248.
+140. Rezaei,N.;Rajabi,R.;Estebsari,A. Electricitypriceforecastingmodelbasedongatedrecurrentunits. InProceedingsofthe2022
+IEEEInternationalConferenceonEnvironmentandElectricalEngineeringand2022IEEEIndustrialandCommercialPower
+SystemsEurope(EEEIC/I&CPSEurope),Prague,CzechRepublic,28June–1July2022;IEEE:Piscataway,NJ,USA,2022;pp.1–5.
+141. Molin,L. PredictingElectricityImbalancePrices. Ph.D.Thesis,TilburgUniversity,Tilburg,TheNetherlands,2023.
+142. Gomez,W.;Wang,F.K.;Amogne,Z.E. ElectricityLoadandPriceForecastingUsingaHybridMethodBasedBidirectionalLong
+Short-TermMemorywithAttentionMechanismModel. Int.J.EnergyRes.2023,2023,3815063.[CrossRef]
+143. Zhang,S.;Robinson,E.;Basu,M. Windpowerforecastingbasedonanovelgatedrecurrentneuralnetworkmodel. Wind.Energy
+Eng.Res.2024,1,100004.[CrossRef]
+144. Xiong,X.;Qing,G. Ahybridday-aheadelectricitypriceforecastingframeworkbasedontimeseries. Energy2023,264,126099.
+[CrossRef]
+145. Shi,W.;Wang,Y.F. ArobustelectricitypriceforecastingframeworkbasedonheteroscedastictemporalConvolutionalNetwork.
+Int.J.Electr.PowerEnergySyst.2024,161,110177.[CrossRef]
+146. LópezSantos,M.;García-Santiago,X.;EchevarríaCamarero,F.;BlázquezGil,G.;CarrascoOrtega,P. Applicationoftemporal
+fusiontransformerforday-aheadPVpowerforecasting. Energies2022,15,5232.[CrossRef]
+147. Nazir,A.;Shaikh,A.K.;Shah,A.S.;Khalil,A. ForecastingEnergyConsumptionDemandofCustomersinSmartGridUsing
+TemporalFusionTransformer. ResultsEng.2023,17,100888.[CrossRef]
+148. Jiang,H.;Pan,S.;Dong,Y.;Wang,J. Probabilisticelectricitypriceforecastingbasedonpenalizedtemporalfusiontransformer.
+J.Forecast.2024,43,1465–1491.[CrossRef]
+149. Salinas,D.;Flunkert,V.;Gasthaus,J.;Januschowski,T. DeepAR:Probabilisticforecastingwithautoregressiverecurrentnetworks.
+Int.J.Forecast.2020,36,1181–1191.[CrossRef]
+150. Stefenon,S.F.;Seman,L.O.;Mariani,V.C.;Coelho,L.d.S. Aggregatingprophetandseasonaltrenddecompositionfortimeseries
+forecastingofItalianelectricityspotprices. Energies2023,16,1371.[CrossRef]
+
+Energies2025,18,3097 39of40
+151. Shohan,M.J.A.;Faruque,M.O.;Foo,S.Y. ForecastingofelectricloadusingahybridLSTM-neuralprophetmodel. Energies2022,
+15,2158.[CrossRef]
+152. Guo,Y.;Du,Y.;Wang,P.;Tian,X.;Xu,Z.;Yang,F.;Chen,L.;Wan,J. Ahybridforecastingmethodconsideringthelong-term
+dependenceofday-aheadelectricitypriceseries. Electr.PowerSyst.Res.2024,235,110841.[CrossRef]
+153. Nyangon,J.;Akintunde,R. Principalcomponentanalysisofday-aheadelectricitypriceforecastinginCAISOanditsimplications
+forhighlyintegratedrenewableenergymarkets. WileyInterdiscip.Rev.EnergyEnviron.2024,13,e504.[CrossRef]
+154. Sapnken,F.E.;Tazehkandgheshlagh,A.K.;Diboma,B.S.;Hamaidi,M.;Noumo,P.G.;Wang,Y.;Tamba,J.G. Awhaleoptimization
+algorithm-basedmultivariateexponentialsmoothinggrey-holtmodelforelectricitypriceforecasting. ExpertSyst.Appl.2024,
+255,124663.[CrossRef]
+155. Zhang,T.;Tang,Z.;Wu,J.;Du,X.;Chen,K. Shorttermelectricitypriceforecastingusinganewhybridmodelbasedontwo-layer
+decompositiontechniqueandensemblelearning. Electr.PowerSyst.Res.2022,205,107762.[CrossRef]
+156. Gabrielli,P.;Wüthrich,M.;Blume,S.;Sansavini,G. Data-drivenmodelingforlong-termelectricitypriceforecasting. Energy2022,
+244,123107.[CrossRef]
+157. Parizad,B.;Ranjbarzadeh,H.;Jamali,A.;Khayyam,H. Anintelligenthybridmachinelearningmodelforsustainableforecasting
+ofhomeenergydemandandelectricityprice. Sustainability2024,16,2328.[CrossRef]
+158. Chen,Z.;Zhang,B.;Du,C.;Yang,C.;Gui,W. Outlier-adaptive-basednon-crossingquantilesmethodforday-aheadelectricity
+priceforecasting. Appl.Energy2025,382,125328.[CrossRef]
+159. Williams,D.;Johnson,M.;Smith,J.;Rodriguez,S.;Deshmukh,A.;Brown,E. DevelopingaHybridPriceForecastingModelusing
+MachineLearningandTimeSeriesAnalysis.Availableonline:https://www.researchgate.net/publication/388960526(accessed
+on9June2025).
+160. Bashir, T.; Haoyong, C.; Tahir, M.F.; Liqiang, Z. Shorttermelectricityloadforecastingusinghybridprophet-LSTMmodel
+optimizedbyBPNN. EnergyRep.2022,8,1678–1686.[CrossRef]
+161. Chen,J.;Xiao,J.;Xu,W. Ahybridstackingmethodforshort-termpriceforecastinginelectricitytradingmarket. InProceedings
+ofthe20248thInternationalConferenceonInformationTechnology,InformationSystemsandElectricalEngineering(ICITISEE),
+Yogyakarta,Indonesia,29–30August2024;IEEE:Piscataway,NJ,USA,2024;pp.1–5.
+162. Laitsos,V.;Vontzos,G.;Bargiotas,D.;Daskalopulu,A.;Tsoukalas,L.H. Data-driventechniquesforshort-termelectricityprice
+forecastingthroughnoveldeeplearningapproacheswithattentionmechanisms. Energies2024,17,1625.[CrossRef]
+163. Ehsani,B.;Pineau,P.O.;Charlin,L. PriceforecastingintheOntarioelectricitymarketviaTriConvGRUhybridmodel:Univariate
+vs.multivariateframeworks. Appl.Energy2024,359,122649.[CrossRef]
+164. Belenguer,E.;Segarra-Tamarit,J.;Pérez,E.;Vidal-Albalate,R. Short-termelectricitypriceforecastingthroughdemandand
+renewablegenerationprediction. Math.Comput.Simul.2025,229,350–361.[CrossRef]
+165. Yan,W.;Wang,P.;Xu,R.;Han,R.;Chen,E.;Han,Y.;Zhang,X. Anovelmid-andlong-termtime-seriesforecastingframeworkfor
+electricitypricebasedonhierarchicalrecurrentneuralnetworks. J.Frankl.Inst.2025,362,107590.[CrossRef]
+166. Cu,Y.;Wang,K.;Zhang,L.;Liu,Z.;Liu,Y.;Mo,L. ATimeSeriesDecomposition-BasedInterpretableElectricityPriceForecasting
+Method. Energies2025,18,664.[CrossRef]
+167. Mubarak, H.; Abdellatif, A.; Ahmad, S.; Islam, M.Z.; Muyeen, S.; Mannan, M.A.; Kamwa, I. Day-Ahead electricity price
+forecastingusingaCNN-BiLSTMmodelinconjunctionwithautoregressivemodelingandhyperparameteroptimization. Int.J.
+Electr.PowerEnergySyst.2024,161,110206.[CrossRef]
+168. Khan,A.A.A.;Ullah,M.H.;Tabassum,R.;Kabir,M.F. Atransformer-BILSTMbasedhybriddeeplearningapproachforday-ahead
+electricitypriceforecasting. InProceedingsofthe2024IEEEKansasPowerandEnergyConference(KPEC),Manhattan,KS,USA,
+25–26April2024;IEEE:Piscataway,NJ,USA,2024;pp.1–6.
+169. Nie,Y.;Li,P.;Wang,J.;Zhang,L. Anovelmultivariateelectricalpricebi-forecastingsystembasedondeeplearning,amulti-input
+multi-outputstructureandanoperatorcombinationmechanism. Appl.Energy2024,366,123233.[CrossRef]
+170. Hajigholam Saryazdi, A. A Novel Hybrid Deep learning Model for Electricity Price Forecasting. 2024. Available online:
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5166713(accessedon9June2025).
+171. Zhou,M.;Yan,Z.;Ni,Y.;Li,G.;Nie,Y. Electricitypriceforecastingwithconfidence-intervalestimationthroughanextended
+ARIMAapproach. IEEProc.-Gener.Transm.Distrib.2006,153,187–195.[CrossRef]
+172. Lin,W.M.;Gow,H.J.;Tsai,M.T. Anenhancedradialbasisfunctionnetworkforshort-termelectricitypriceforecasting. Appl.
+Energy2010,87,3226–3234.[CrossRef]
+173. Jiang,L.;Hu,G. Day-aheadpriceforecastingforelectricitymarketusinglong-shorttermmemoryrecurrentneuralnetwork. In
+Proceedingsofthe201815thInternationalConferenceonControl,Automation,RoboticsandVision(ICARCV),Singapore,18–21
+November2018;IEEE:Piscataway,NJ,USA,2018;pp.949–954.
+174. Zhang,W.;Cheema,F.;Srinivasan,D. Forecastingofelectricitypricesusingdeeplearningnetworks. InProceedingsofthe2018
+IEEEPESAsia-PacificPowerandEnergyEngineeringConference(APPEEC),KotaKinabalu,Malaysia,7–10October2018;IEEE:
+Piscataway,NJ,USA,2018;pp.451–456.
+
+Energies2025,18,3097 40of40
+175. Chang,Z.;Zhang,Y.;Chen,W. ElectricitypricepredictionbasedonhybridmodelofadamoptimizedLSTMneuralnetworkand
+wavelettransform. Energy2019,187,115804.[CrossRef]
+176. Ghimire,S.;Deo,R.C.;Casillas-Pérez,D.;Salcedo-Sanz,S. Two-stepdeeplearningframeworkwitherrorcompensationtechnique
+forshort-term,half-hourlyelectricitypriceforecasting. Appl.Energy2024,353,122059.[CrossRef]
+Disclaimer/Publisher’sNote: Thestatements, opinionsanddatacontainedinallpublicationsaresolelythoseoftheindividual
+author(s)andcontributor(s)andnotofMDPIand/ortheeditor(s).MDPIand/ortheeditor(s)disclaimresponsibilityforanyinjuryto
+peopleorpropertyresultingfromanyideas,methods,instructionsorproductsreferredtointhecontent.
