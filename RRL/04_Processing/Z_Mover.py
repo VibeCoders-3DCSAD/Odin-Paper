@@ -11,7 +11,7 @@ Files in the current directory (04_Processing) matching the patterns are moved t
     ../02_Summaries/       for *_summarized.md
     ../03_Conversions/     for *_marked.md
 
-Everything else (subdirectories, other file types) is ignored.
+If a file already exists in the destination, it is skipped and the user is notified.
 """
 
 import shutil
@@ -31,8 +31,11 @@ def main():
     conversions_dir.mkdir(exist_ok=True)
 
     pdf_moved = 0
+    pdf_skipped = 0
     marked_moved = 0
+    marked_skipped = 0
     summarized_moved = 0
+    summarized_skipped = 0
 
     # Process files directly inside the current directory, not subdirectories
     for file_path in current_dir.glob("*"):
@@ -43,6 +46,10 @@ def main():
         # PDFs
         if file_path.suffix.lower() == ".pdf":
             dest = papers_dir / file_path.name
+            if dest.exists():
+                print(f"Skipping PDF: {file_path.name} already exists in ../01_Papers/")
+                pdf_skipped += 1
+                continue
             print(f"Moving PDF: {file_path.name} -> ../01_Papers/")
             shutil.move(str(file_path), str(dest))
             pdf_moved += 1
@@ -50,6 +57,10 @@ def main():
         # Marked conversions (strict suffix _marked.md)
         elif file_path.name.endswith("_marked.md"):
             dest = conversions_dir / file_path.name
+            if dest.exists():
+                print(f"Skipping Marked: {file_path.name} already exists in ../03_Conversions/")
+                marked_skipped += 1
+                continue
             print(f"Moving Marked: {file_path.name} -> ../03_Conversions/")
             shutil.move(str(file_path), str(dest))
             marked_moved += 1
@@ -57,6 +68,10 @@ def main():
         # Summaries (strict suffix _summarized.md)
         elif file_path.name.endswith("_summarized.md"):
             dest = summaries_dir / file_path.name
+            if dest.exists():
+                print(f"Skipping Summary: {file_path.name} already exists in ../02_Summaries/")
+                summarized_skipped += 1
+                continue
             print(f"Moving Summary: {file_path.name} -> ../02_Summaries/")
             shutil.move(str(file_path), str(dest))
             summarized_moved += 1
@@ -64,9 +79,9 @@ def main():
         # Anything else is silently ignored
 
     print("\n--- Summary ---")
-    print(f"PDFs moved to ../01_Papers: {pdf_moved}")
-    print(f"Marked conversions moved to ../03_Conversions: {marked_moved}")
-    print(f"Summaries moved to ../02_Summaries: {summarized_moved}")
+    print(f"PDFs moved to ../01_Papers: {pdf_moved} (skipped: {pdf_skipped})")
+    print(f"Marked conversions moved to ../03_Conversions: {marked_moved} (skipped: {marked_skipped})")
+    print(f"Summaries moved to ../02_Summaries: {summarized_moved} (skipped: {summarized_skipped})")
 
 
 if __name__ == "__main__":

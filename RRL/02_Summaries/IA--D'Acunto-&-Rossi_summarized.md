@@ -1,0 +1,90 @@
+```yaml
+paper_id: "10.1146/annurev-financial-110921-013217"
+designation: "international"
+title: "Robo-Advice: Transforming Households into Rational Economic Agents"
+authors: "D'Acunto, F.; Rossi, A.G."
+year: 2023
+venue: "Annual Review of Financial Economics"
+odin_topics:
+  - "5.A"
+  - "13.A"
+  - "13.B"
+  - "10.B"
+shorthand_tags:
+  - "/financial-behavioral-profiles"
+  - "/savings-goal-management"
+  - "/debt-management"
+  - "/user-trust"
+tldr: "Robo-advice reduces information frictions, corrects distorted beliefs, and lowers transaction costs to transform households into rational economic agents across consumption, saving, debt, and investment decisions."
+problem_and_motivation: "Households make suboptimal financial decisions due to limited information, systematic biases, and high transaction costs, leading to wealth inequalities and dampened policy effectiveness. Traditional human advice is expensive and not scalable, while nudges lack personalization. Robo-advice offers a third, scalable solution using big data and automation to align household choices with neoclassical benchmarks."
+approach:
+  - "Synthesizes research on household finance puzzles including suboptimal consumption, saving, investment, and debt choices."
+  - "Defines robo-advice's three unique features: using big open data to inform households, managing beliefs toward rational expectations, and reducing monetary, cognitive, and psychological transaction costs."
+  - "Reviews empirical studies on income aggregators (Olafsson & Pagel 2018), goal setting (Gargano & Rossi 2020), peer information (D'Acunto, Rossi & Weber 2019), and debt management (Chak et al. 2022)."
+  - "Discusses open questions including learning from robo-advice, algorithmic aversion versus appreciation, and supply-side incentives."
+findings:
+  - "num: 95% of users linked all checking accounts, over 93% linked savings, and 91% linked credit cards to an income aggregator."
+  - "num: Goal setting increased savings by €20 per month intention-to-treat and €60 per month local average treatment effect."
+  - "num: Overspending messages cut daily spending by approximately 5% more for recipients."
+  - "num: 41% of users with access to goal setting used it continuously."
+  - "Robo-advice eliminates biases such as trend chasing, disposition effect, and rank effect in trading."
+  - "Providing peer spending information causes overspenders to cut spending substantially more than underspenders increase."
+key_figures_tables:
+  - "None."
+key_equations:
+  - equation: "None."
+    explanation: ""
+definitions:
+  - term: "Robo-advice"
+    definition: "Automated financial advice that uses big data and algorithms to provide informed benchmarks and reduce decision costs."
+  - term: "WTP"
+    definition: "Willingness to pay for a service or tool."
+  - term: "Income aggregator"
+    definition: "Robo-advisor that collects and elaborates household transaction-level data to construct balance sheets."
+  - term: "Ostrich effect"
+    definition: "Selective attention to avoid negative information about one's finances."
+critical_citations:
+  - "[D'Acunto & Rossi, 2021] — Defines robo-advice as third solution to household puzzles."
+  - "[Philippon, 2019] — Argues FinTech cuts costs and reduces wealth inequalities."
+  - "[D'Acunto, Prabhala & Rossi, 2019] — Documents robo-advice improves diversification and performance."
+  - "[Olafsson & Pagel, 2018] — Shows income aggregation leads to rational financial choices."
+relevance:
+  topics:
+    - code: "5.A"
+      name: "Financial Behavioral Profiles in Personal Finance"
+      justification: "Reviews systematic biases in household beliefs and choices that robo-advice corrects."
+    - code: "13.A"
+      name: "Savings Goal Management in PFMS"
+      justification: "Discusses goal setting tools in robo-advice that increase savings rates."
+    - code: "13.B"
+      name: "Debt Management in PFMS"
+      justification: "Analyzes robo-advice for optimal debt repayment strategies and borrower default beliefs."
+    - code: "10.B"
+      name: "User Trust in Personal Finance Systems"
+      justification: "Examines algorithmic aversion and appreciation as drivers of robo-advice adoption."
+  contribution: "The paper directly justifies Odin's savings goal module by showing that goal setting through robo-advice increases monthly savings by €60 for low-income users. The debt management findings justify an automated debt repayment optimizer that reduces costly errors, with users willing to pay more than the monetary benefit. The analysis of income aggregators supports Odin's expense categorization and balance sheet visualization to reduce overdraft fees and frivolous spending. The discussion of algorithmic aversion informs Odin's trust-building design to encourage adoption among vulnerable young professionals."
+  directly_justifies:
+    - "Goal setting via robo-advice increases savings by €60 per month for users with €1,200 average income."
+    - "Providing aggregated balance sheet information reduces non-durable spending, especially on eating out and travel."
+    - "Overspending messages cut daily spending by approximately 5% for recipients."
+    - "Robo-advice for debt repayment has average WTP exceeding the monetary benefits gained."
+  limits:
+    - "Most empirical evidence comes from short time series; long-term learning effects are unknown."
+    - "Ostrich effect may cause vulnerable households to avoid robo-advisor information, potentially widening inequalities. [unacknowledged]"
+    - "Algorithmic aversion varies across demographics and may reduce adoption among those who need it most."
+    - "Supply-side incentives of financial institutions may conflict with user welfare, an issue third-party providers avoid."
+    - "The review does not address applicability to developing economies or culturally specific financial practices like the Philippines. [unacknowledged]"
+  mapping_rationale: "This paper was screened against Odin's functional domains. The strongest matches are Savings & Debt Management (13.A, 13.B) due to direct evidence on goal setting and debt repayment optimization. Behavioral Profiling (5.A) applies because the paper systematically catalogs household biases (present bias, extrapolation, ostrich effect) that robo-advice corrects. User Trust (10.B) is relevant given detailed discussion of algorithmic aversion and appreciation as adoption drivers. Rejected codes include Spending Forecasting (6) because the paper does not present predictive models; Anomaly Detection (8) for lack of fraud/outlier analysis; Budget Recommendation (7) as no budgeting algorithm is evaluated; Expense Categorization (3) as categorization is only ancillary. Mobile-first design (9) and retention (11) are not addressed. The paper is international and not Filipino-specific, but its generalizable mechanisms justify inclusion for Odin's algorithmic modules."
+limitations:
+  - "Lack of long-term data on robo-advice effects beyond short time horizons."
+  - "Potential for ostrich effect to reduce engagement over time, especially for vulnerable households."
+  - "Algorithmic aversion may limit adoption and exacerbate inequalities."
+  - "Supply-side incentives of financial institutions are not fully explored."
+  - "Does not address learning spillovers across different financial domains definitively."
+  - "No validation on Filipino young professionals or emerging market contexts. [unacknowledged]"
+remember_this:
+  - "Robo-advice increases savings by €60 per month for low-income users via goal setting."
+  - "Providing peer spending information reduces overspending by 5% more than control."
+  - "Algorithmic aversion is the main predictor of robo-adoption, varying by age and wealth."
+  - "Robo-advice eliminates trend chasing and disposition effect in trading."
+```

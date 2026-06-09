@@ -1,0 +1,1252 @@
+| Annual       | Review | of Financial |              | Economics |     |
+| ------------ | ------ | ------------ | ------------ | --------- | --- |
+| Robo-Advice: |        |              | Transforming |           |     |
+13:93:60 6202 yaM 40 ,noM :nO 05.91.94.72  :PI )tseug( tseuG  .gro.sweiverlaunna.www morf dedaolnwoD Households into Rational
+| Economic  |          | Agents |         |         |     |
+| --------- | -------- | ------ | ------- | ------- | --- |
+| Francesco | D’Acunto | and    | Alberto | G.Rossi |     |
+DepartmentofFinance,McDonoughSchoolofBusiness,GeorgetownUniversity,Washington,
+DC,USA;email:francesco.dacunto@georgetown.edu,agr60@georgetown.edu
+Annu.Rev.Financ.Econ.2023.15:543–63
+Keywords
+FirstpublishedasaReviewinAdvanceon
+FinTech,householdfinance,behavioralfinance,consumption,debt,
+August24,2023
+investments
+TheAnnualReviewofFinancialEconomicsisonlineat
+financial.annualreviews.org Abstract
+https://doi.org/10.1146/annurev-financial-110921-
+| Robo-advice | uses | big and open | data to | provide consumers | with fully in- |
+| ----------- | ---- | ------------ | ------- | ----------------- | -------------- |
+013217
+| formed | and rational-expectation |     | benchmarks | in all realms | of household |
+| ------ | ------------------------ | --- | ---------- | ------------- | ------------ |
+Copyright©2023bytheauthor(s). Thisworkis finance,includingconsumption,saving,investment,anddebtmanagement
+licensedunderaCreativeCommonsAttribution4.0
+InternationalLicense,whichpermitsunrestricted choices.Italsominimizesthemonetary,cognitive,andpsychologicalcosts
+use,distribution,andreproductioninanymedium, thathouseholdsfaceineconomictransactions.Wereviewrecentresearchon
+providedtheoriginalauthorandsourcearecredited. thefeaturesandeffectsofrobo-adviceonindividualandaggregateeconomic
+Seecreditlinesofimagesorotherthird-party
+outcomesthroughthelensofitsdifferencesfromtraditionalhumanadvice.
+materialinthisarticleforlicenseinformation.
+Wediscussthedistributionalimplicationsofrobo-advice,itspotentialrole
+JELcodes:D14,D91,G51,G53,O31
+| in increasing | the effectiveness |     | of economic | policies,the | role of providers’ |
+| ------------- | ----------------- | --- | ----------- | ------------ | ------------------ |
+incentives,andseveralquestionsthatarestillwideopenforresearchersin
+finance,economics,socialpsychology,andrelatedfields.
+543
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+1.HOUSEHOLDFINANCEPUZZLESANDISSUES
+WITHTRADITIONALSOLUTIONS
+Everyhouseholdaroundtheworld,irrespectiveofitslevelofincome,wealth,orsophistication,
+needstomakecomplexfinancialdecisionsonadailybasis.Firstandforemost,householdsneedto
+decidehowmuchtheywanttospendforconsumptionorsavetoincreasefutureconsumption—
+theyneedtosolveanintertemporalconsumptionproblem.Oncetheconsumption–savingchoice
+ismade,theyneedtoallocateresourcestodurableandnondurablegoodsandchoosehowtofi-
+nancetheirdurableconsumption(e.g.,incomeflows,creditcarddebt,mortgages,personalloans,
+studentloans).Financingoptionsdifferbasedonmultipledimensionsthatneedtobecompared—
+horizons,maturities,interestrates,andamortizationplans.Householdsalsoneedtomanagetheir
+assetsbydecidinghowtoinvestsavingstoaccumulatewealthandmaximizefutureconsumption
+and/orbequests.Ontopofallocatingresourcesacrossinvestmentassetsintheirfinancialport-
+folios,forinstance,theymustchoosewhetherandhowmuchtocontributetoretirementsaving
+plans—adecisionthathasbecomeprominentaroundtheworldgiventheglobalmoveawayfrom
+definedbenefitpensionsystemsandtowarddefinedcontributionindividualplans.And,oncethey
+reachretirementage,theyneedtomakedecisionsaboutthedecumulationphaseoftheiraccumu-
+latedretirementsavings,whichisacomplexproblemthatisstillbarelyunderstoodbyresearchers
+andpolicymakers.
+Ultimately,households,likecorporatemanagers,needtomakemultiplefinancialdecisionsat
+highfrequencyandcannotavoidchoosing,inthesensethatavoidingtodecideisachoiceinitself
+that has relevant financial implications for the household (Madrian & Shea 2001).Contrary to
+corporatemanagers,though,householdscannotspecializeinonlyonetypeofthemultitudeof
+financialchoicestheyneedtomake.Moreover,householdsneedtomakeallthesechoices,even
+thoughthevastmajorityhaveneverbeenexposedtothemostbasicprinciplesoffinance,suchas
+diversificationandcompoundingofinterestrates,orobtainedanyfinancialeducation(Lusardi&
+Mitchell2014),becausefinanceisabsentfromstandardprimaryandsecondaryschoolcurricula
+invirtuallyeverycountryaroundtheworld.
+Given these premises,the fact that most households make decisions that depart from those
+predicted by standard economic models should not be surprising. Standard models assume
+the existence of utility-maximizing agents who have access to all the information needed to
+makefinancialdecisions,useittoformrationalexpectations,andhavestandardeconomicpref-
+erences.Alargeandgrowingliteratureinfinanceandeconomicslabelsdeparturesfromstandard
+modelsinhouseholds’financialchoicesashouseholdfinancepuzzles(Zinman2015).
+Why do we care to understand and solve household finance puzzles? On top of negatively
+affectinghouseholds’utility,thesepuzzleshavefourimportantandundesirableaggregateeffects.
+First,theytendtoproduceandwidenwealthinequalitiesbecausethepoorerandmostvulnerable
+households tend to be less sophisticated in terms of economic and financial literacy and hence
+makechoicesthatdepartmostfromoptimality(Calvet,Campbell&Sodini2007,2009).Second,
+they dampen the effects of economic policies that central banks and governments implement,
+assumingthathouseholdsunderstandandreacttotheminlinewiththepredictionsofstandard
+economic models (D’Acunto et al.2021a).Third,household finance puzzles are likely to have
+becomeevenmoresevereovertimeduetotheswiftdiffusionofFinTechapplicationsthathave
+eased ordinary consumers’ access to high-risk financial choices,such as the trading of complex
+financial products like derivatives and cryptocurrencies using apps on their personal devices or
+the accumulation of high-interest debt through unsecured financing of consumption expenses
+andbuynow,paylaterspendingopportunities.Fourth,adetailedunderstandingofthenatureand
+consequences of the biases households face when making financial choices is crucial to inform
+544 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+regulators’attemptstodesigneffectivepoliciesthatcanprotecthouseholdsfrombeingexploited
+bybetter-informedfinancialinstitutionsandothercounterpartsinfinancialcontracts.
+Twotraditionalsolutionshavebeenproposedforhouseholdfinancepuzzles.Thefirstsolu-
+tionistheprovisionoffinancialadvice.Financialadvisorsareagentswhosuggesthowhouseholds
+shouldmaketheirmultiplefinancialchoicesbyinterpretingtheirpreferencesandbeliefsandeval-
+uatingoptions.Unfortunately,though,financialadvisorshavelimitations.Theirservicesaretoo
+expensiveformanyhouseholdsandcannotbescaledatalowcost,whichreducestheirviability,es-
+peciallyformiddle-andlow-incomehouseholds.Ifanything,theavailabilityoffinancialadvisors
+mightincreaseratherthanreducewealthinequalities,giventhatmoreaffluenthouseholdscanac-
+cessthembutpoorerhouseholdscannot.Moreover,financialadvisors,similartootherexpertssuch
+asCEOsandinstitutionalinvestors,oftenengageinthesamedeparturesfromrationaldecision-
+makingthathouseholdsdisplayandendupprovidingunsoundsuggestions(Mullainathan,Noeth
+&Schoar2012;Linnainmaa,Melzer&Previtero2021).Atthesametime,theliteraturehasdoc-
+umentedtheunintendedconsequencesoflimitingthepresenceoffinancialadvisorsonaccessto
+financialinvestmentsbyunsophisticatedhouseholds.Forinstance,Linnainmaaetal.(2022)find
+thatoncefinancialadvisors’regulatoryoversightwasintroducedinCanada,thenumberoffinan-
+cialadvisorsreduceddrasticallyandsodidhouseholds’stockmarketparticipation,especiallyby
+middle-classhouseholds.Thesecondsolutionisthedesignofnudges—defaultchoicesforpro-
+gram participation or design mechanisms that lure households into making choices consistent
+withthosethatarepresentativeeconomicagentwouldmakeunderthesameconditions(Thaler
+&Sunstein2009).Althoughhelpful,byconstruction,nudgescanbarelybetailoredtotheindivid-
+ualcharacteristicsofeachhousehold,andtheireffectivenessoftendependsonthedetailsoftheir
+design(Sunstein2017).
+Nexttohumanfinancialadviceandnudges,robo-advicerepresentsathirdandmorerecent
+solutiontohouseholdfinancepuzzles(D’Acunto&Rossi2021).Atfirst,robo-advicemightappear
+asnothingmorethantraditionalhumanfinancialadviceproducedanddeliveredautomaticallyto
+decision-makerswithFinTechapplicationsthroughpersonaldevices.Evenifthisweretheonly
+relevantfeatureofrobo-advice,itwouldmakeitmorescalablethanhumanadvicebyreducing
+itscostandallowingaccesstoadvicetoasubstantiallyhighershareofhouseholds.Thisproperty
+wouldthusimprovethedistributionalconsequencesofadvicebyaligningthechoicesofvulnerable
+householdswiththoseofsophisticatedhouseholds(Philippon2019).
+Robo-advice, though, is not just traditional advice produced and delivered automatically
+throughpersonal devices.Thecrucial featureof robo-adviceis thatitreduces households’dif-
+ferences from the characteristics of standard neoclassical rational decision-makers and hence
+allowshouseholds,includingtheleastsophisticated,tomakechoicesclosertothoseastandard
+utility-maximizingagentwouldmake.
+Robo-advisingtransformsbiaseddecision-makersintostandardneoclassicaldecision-makers
+throughthreeuniquefeaturesthatdifferentiateitfromtraditionalformsofadvice.First,robo-
+advisingusesbigandopendatatomakehouseholdsfullyinformedabouttheirowncharacteristics
+andpastbehavioraswellasthecharacteristicsandpastbehaviorofotheragents,towhichhouse-
+holds(andoftentheirhumanadvisors)wouldotherwisehavenoaccessduetotheirlimitedability
+torecallpastactionsandcollectandelaboratebigdatasets(D’Acunto&Rossi2022a).Thebig
+datathatrobo-advisorsaccessaretheuniverseoftransactionshouseholdsproducewhenmaking
+economicdecisions,suchaspurchasesofdurableandnondurablegoods,investmentchoices,and
+financingchoices.Robo-advisorscanaccessthiswealthofinformationbecause,sincetheDigital
+Revolution,electronictransactionscanbestored,andthesedataareopen;thatis,householdscan
+sharethembylinkingtransactionaccountstorobo-advisingapplications.
+www.annualreviews.org (cid:129) Robo-Advice 545
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+Second, robo-advising manages households’ beliefs and pushes them closer to the rational
+expectationsassumedinstandardmodels.Theeconomicliteraturehasdocumentedseveralsys-
+tematicdeparturesofhouseholds’beliefsfromthoseofastandardeconomicagent.Thesizeof
+thesedeparturesiscorrelatedwithdemographiccharacteristicsandvariesoverthebusinesscycle.
+AswediscussinSection3.1,robo-advisorsprovidehouseholdswithbeliefsaboutboththeirown
+futurefinancialconditionsandaggregatemacroeconomicconditionsthatareclosertothoseofa
+standardagent.
+Third,robo-advisingreducesthetransactioncostsofexecutingeconomicchoices,whichin-
+cludenotonlymonetarycostsbutalsothecognitiveandpsychologicalcoststhathouseholdsface
+whentryingtomakeeconomicdecisions.
+Intherestofthisreview,wedescribethefindingsofexistingacademicresearchonthesethree
+definingfeaturesofrobo-advice.Wealsoemphasizethelargesetofopenquestionsandareasof
+investigationforfutureresearch.
+2.REDUCINGINFORMATIONFRICTIONS
+Standardneoclassicaleconomicagents areassumedtobefullyinformedabouttheircharacter-
+istics, the characteristics of other agents, and macroeconomic conditions. This assumption of
+standard models of intertemporal consumption optimization is heavily violated in the data,ex-
+ceptforafewspecialcases,suchashighlysophisticatedinstitutionalinvestorsinfinancialmarkets
+whoactivelyengageincostlyinformationacquisition(Gargano,Rossi&Wermers2017).
+Mosthouseholdsarebarelyinformedaboutmacroeconomicconditionsandoftenevenignore
+thedefinitionofbasiceconomicaggregates,suchasinflationratesorinterestrates(Binder2017).
+Householdshavealsobeenshown,onaverage,tohaveawrongassessmentoftheeconomiccon-
+ditionsofothereconomicagents,whichisduemainlytoalackoffullinformationaboutother
+people’sincomeflows,spending,anddebtpositionsandtheobservationofconspicuousandsalient
+transactionsthathouseholdsinterpretasrepresentativeoftheaveragetransactionsothersexecute
+(Charles,Hurst&Roussanov2009).Ultimately,andperhapsmostsurprisingly,householdsoften
+cannotrecallorprocessinformationabouttheirownincomeflows,consumption,anddebttrans-
+actions,eventhoughallthisinformationisproducedbythemandhenceavailabletothemwithout
+theneedtocollectpublicorprivatesignalsfromothersources.Forexample,householdsdonot
+keepinformationaboutalltheirtransactionsbutoftenpayattentiontothemonlytemporarilyand
+forshortperiods(D’Acunto,Rossi&Weber2019).Householdsalsotendtohaveabiasedrecallof
+theirconsumptionovertime,whichisdrivenbytheirtendencytorecallhavingpaidlowerprices
+thantheactualpricestheyfaced(D’Acunto&Weber2022).
+Thefirstuniquefeatureofrobo-adviceispushinghouseholdsclosertobeingfullyinformed
+abouttheirown,others’,andaggregateeconomicoutcomes.Robo-advicecanachievethisgoal
+bycollectingandelaboratingbigandopentransaction-leveldataatvariouslevelsofobservation:
+households’ own characteristics and past choices, the characteristics and past choices of other
+decision-makers in the economy,and information about macroeconomic conditions and other
+aggregatevariablesthatmightberelevanttoeconomicdecision-making.Intherestofthissection,
+we discuss recent research that has studied the mechanics and effects of this function of robo-
+advising.
+2.1.InformationAboutOne’sOwnCharacteristics:IncomeAggregators
+Thefactthatprovidinginformationaboutone’sowncharacteristicsandpastchoicesinfluences
+decision-makingmightappearsurprisingatfirst.Afterall,thisinformationisproducedbyhouse-
+holds and should therefore be readily available to them at any time. And yet research finds
+546 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+thathouseholdslargelyneglectessentialinformationabouttheirownbehaviorduetocognitive
+constraintsintheabilitytocollectandprocessinformation(D’Acunto,Ghosh&Rossi2022).
+Robo-advice allows households to overcome these constraints and obtain full information
+abouttheirpasttransactionsandfinancesthroughincomeaggregators.Incomeaggregatorsare
+robo-advisorsthatcollectandelaboratehouseholds’transaction-leveldata.Thesedataareopen
+inthathouseholdscansharethembylinkingtheirspendingandotherfinancialaccountstothe
+aggregator(Gelmanetal.2014).
+Uponobtaininghousehold-leveltransactions,incomeaggregatorsconstructhousehold-level
+balancesheetssimilartothosethatcorporationsuseforfinancialreporting(D’Acunto&Rossi
+2022b).Aggregatorselaboratebothstaticbalancesheets,whichincludethecurrentoverallvalue
+of households’ assets and liabilities at each point in time,and dynamic assessments of the past
+evolution,liquidity,and horizons of households’ debts,spending,and investment decisions for
+eachentryofthebalancesheet(Baker2018).
+Becausenotlinkingallfinancialaccountswouldrendertheaggregator’sinformationelabora-
+tionincomplete,householdsthatwanttoaccessthisfeatureofrobo-advisinghaveanincentive
+tolinkalltheirfinancialaccountstotheaggregator.Consistently,Baker(2018)showsthat95%
+oftheusersofalargeUSincomeaggregatorlinkedalltheircheckingaccounts,over93%linked
+alltheirsavingsaccounts,and91%linkedalltheircreditcardaccounts.Atthesametime,house-
+holdsmightbewaryofprovidingsomuchdetailedinformationtoanincomeaggregator.Income
+aggregatorshaveashorthistoryofoperationsandhencelackreputationintermsofdataprotec-
+tionandmanagement,whichmightincreasehouseholds’expectedprobabilitythatthedatamight
+beappropriatedbythirdpartiesandbesubjecttocybersecurityconcerns.Consistentwiththese
+potentialconcerns,Rossi&Utkus(2020a)findthatarobo-advisor’sreputationisoneofthemain
+driversofrobo-adviceadoption,partlybecauseofusers’dataprivacyconcerns(Tang2019).
+Incomeaggregationcanbeaformofrobo-adviceifprovidinghouseholdswithinformation
+abouttheirowncharacteristicsandpastchoicesinfluencestheirdecision-making.Consistentwith
+thispossibility,Olafsson&Pagel(2018)showthatdisplayingaggregateinformationaboutone’s
+ownbalancesheetstoIcelandichouseholdsleadstofinancialchoicesthatareclosertothoseofa
+standardeconomicagent.Forinstance,householdsreducetheirdebtbalancestoavoidoverdraft
+fees,whichisdirectevidencethat,beforetheinformationwasprovidedtothem,householdswere
+unawareoftheexistenceorsizeofoverdraftfees.Informationfromincomeaggregatorsalsomakes
+householdsrealizethatthebenefitsofrunninghigher-than-limitdebtbalancesarelowerthanthe
+monetary costs of the overdraft fees they are charged.Carlin,Olafsson & Pagel (2023) further
+documentthat,afterobservingtheirownaggregatebalancesheets,householdsreducetheirnon-
+durablespending,especiallyinfrivolouscategoriessuchaseatingoutsidethehomeandtraveling.
+Thisreactionsuggeststhat,absenttheinformationincomeaggregatorsprovide,householdsmight
+underestimatetheshareoftotalspendingandincomeflowstheyallocateacrossconsumptioncat-
+egories.Furtherevidenceoftheeffectsofgivingconsumersaggregatedinformationabouttheir
+ownfinancesthroughincomeaggregatingrobo-advisorsisprovidedbyLevi&Benartzi(2020)
+and Olafsson & Pagel (2022).The latter paper also provides a direct empirical test of the os-
+tricheffect,wherebydecision-makersselecttheinformationtowhichtheywanttoattendintheir
+dailylivesbasedontheirbeliefsaboutthepositivityornegativityofsuchinformation(Karlsson,
+Loewenstein&Seppi2009).
+Inadditiontothemereinformationalvalueofincomeaggregation,robo-advisorsusetheelab-
+orated information to focus households’ attention on specific features of their balance sheets,
+especially when such features indicate red flags, such as significant increases in spending pat-
+terns over time despite constant or declining income flows. Lee (2019) studies a Canadian
+robo-advisorthat,ontopofincomeaggregationfeatures,sendsusersoverspendingmessageswhen
+www.annualreviews.org (cid:129) Robo-Advice 547
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+theirspendinginonecategoryissubstantiallyhigherthantheuser’srecentspendingwithinthe
+samecategory.Notethatincreasingspendingintimesofconstantordecliningincomeflowsisnot
+necessarilyinconsistentwithintertemporalconsumptionoptimizationif,forexample,households
+correctlyexpecthigherincomegrowth—afeaturethatexistingrobo-advisorscannotobserveor
+includeintheirassessmentofredflagsinhouseholds’balancesheets.Recentresearch,though,
+documentssubstantialextrapolationinhouseholds’expectationsoffutureincomeaftersmallin-
+come increases,which leads to a systematic overestimation of future income levels and growth
+relativetoexpostrealizedlevelsandgrowth(D’Acunto,Weber&Yin2022).
+Lee (2019) compares users who are just above the robo-advisor’s threshold to send over-
+spendingmessageswithuserswhoarejustbelowandhencespendsimilarlymorethanintheir
+recentpastbutreceivenomessages.Hefindsthatmessagereceiverscuttheirdailyspendingby
+approximately5%more,andthiseffect,despiterevertingintermsofspendingflows,ispermanent
+intermsofcumulativespendingovertime;thatis,thetemporaryshockdoesnotfullyrevertover
+time.Lee(2019)alsofindsthatolder,wealthier,andmorefinanciallysavvyhouseholdsreactmore
+toobtaininginformationabouttheirowntransactions.Althoughthisheterogeneitymightatleast
+in part capture higher income growth expected by younger households going forward, it also
+opensthepossibilitythatthisformofrobo-advisingmightincreasewealthinequalitiesovertime.
+Finally,Lee(2019)findsthat,despitereactingtooverspendingmessagesbyreducingspending,
+severalhouseholdsalsoreducethefrequencywithwhichtheyloginandcheckinformationabout
+theirfinancesontheincomeaggregator.Thisformoftheostricheffect,wherebyhouseholdstend
+toavoidfacingnegativenewsabouttheirfinances,isafeatureofrobo-advisingincomeaggregators
+documentedfirstbyOlafsson&Pagel(2022).
+Thedetectionofanostricheffectassociatedwithusinginformativerobo-advisorsopensaset
+ofresearchquestions.First,wedonotknowwhetherprovidinghouseholdswithcompleteandag-
+gregatedinformationabouttheirfinanceshaseffectsinthelongtermorwhethertheostricheffect
+(orfatiguefromusinganapplicationregularlyandforlongperiods)makestheeffectsonlytem-
+porary.Byconstruction,becauseincomeaggregatorshavebeenimplementedandcommercialized
+overonlythelastfewyears,researcherslackdataforrepeatedinterventionsoverprolongedpe-
+riods,which would be crucial to answering this question.We also need to understandwhether
+the emergence of an ostrich effect makes robo-advisors that provide information such as in-
+comeaggregatorsincreaseinequalities.Thisunintendedandundesirableconsequencecouldbe
+plausibleifdetachmentfromrobo-advisorsweremorecommonamongvulnerablehouseholds.
+Extensiveliteratureinbehavioraleconomicshasalsodocumentedtheprevalenceofpresentbias
+in choices and new toy effects, which are more substantial for demographic groups who tend
+tounderstandtheirownfinanceslessandmakesuboptimalconsumptionandsavingchoicesin-
+tertemporally(see,forexample,Gargano&Rossi2020).Understandingwhetherthesecommon
+behavioralfeaturesreducetherelianceonincomeaggregatorsovertimeforhouseholdsthatwould
+need them most and increase rather than reduce wealth inequalities is an open area for future
+research.
+2.2.InformationAboutOtherEconomicAgents
+Even if households were fully informed about their balance sheets,solving their intertemporal
+consumptionproblemandhencedeterminingtheiroptimalconsumptionandsavingrateswould
+beadauntingtaskformosthouseholdsanddependlargelyontheirpreferencesandsubjective
+beliefs,which can hardly even be expressed fully and entirely to a financial advisor by nonex-
+perteconomicagents(BruinedeBruinetal.2012).Tofacilitatethistask,astrandofresearchin
+economics,social psychology,and social finance shows that households make inferences about
+548 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+theirownoptimalconsumptionandsavingratesbasedontheconsumptionandsavingratesof
+theirpeers,thatis,individualswhohavesimilardemographiccharacteristicsandhencepresum-
+ably similar preferences,income flows,and expected income growth (for recent reviews of this
+areaofresearch,seeHirshleifer2020andKuchler&Stroebel2021).
+Intuitively, making inferences based on signals about the behavior of a large mass of peers
+couldbemeaningfulbasedonthewisdomofthecrowds,wherebyalargenumberofindependent
+forecastsmadebydifferentindividualscanprovideanaccurateconsensusforecast,withwhichthe
+householdcanaligntheirbehavior(Da&Huang2020).Atthesametime,householdscannotac-
+cessthefullsetoftransactionsandfullinformationaboutthechoicestheirpeersmakeintermsof
+consumption,saving,investment,andfinancing:Theycannotaccessorobservetransaction-level
+dataaboutpeersinthesamewaytheyaccesstheirowndata.Instead,householdsarelimitedto
+observingtheinformationtheirpeersdisclose,andthisinformationtendstonotberepresentative
+ofpeers’finances,especiallyintimesofpervasiveuseofsocialmedia(Han,Hirshleifer&Walden
+2019).Peerstendtodisclosetheirmostconspicuousconsumptioninstancesinwhichtheyengage
+(Charles,Hurst & Roussanov 2009) while not disclosing information about parsimonious con-
+sumptionchoices,theirincomeflows,oraccesstodebtfinancing.Inthisway,thesignalsabout
+peers’consumptionthathouseholdsobserveleadthemtooverestimatetheoverallconsumption
+ratesofpeersunlesshouseholdsaresophisticatedenoughtoaccountforpeers’partialdisclosure
+(Han,Hirshleifer&Walden2019).
+Contrarytohouseholdsorhumanadvisors,robo-advisorscanaccessandelaborateinformation
+aboutpeers’consumptionandsavingrates.Ifhouseholdsmisestimatethesevariablessystemati-
+cally,theyshouldchangetheirconsumptionchoiceswhenrobo-advisorsprovidethemwithfull
+information about peers’ finances. D’Acunto, Rossi & Weber (2019) study a US robo-advisor
+that,ontopofthestandardincomeaggregationfeaturesdiscussedinSection2.1,providesusers
+with elaborated information about peers’ consumption,saving,and investment transactions.In
+this context,peers are not users’ social acquaintances: The information is based on transaction
+accounts of households that have similar demographics as users, including income levels, age,
+residencetypes,andlocations.D’Acunto,Rossi&Weber(2019)findthatusers’spendinglevels
+convergewiththoseofpeersforbothuserswhospentmorethanandthosewhospentlessthan
+theirpeers.Theeffectsareasymmetric:Overspenderscuttheirspendingsubstantiallymorethan
+underspendersoverthefollowing12months.Thisobservationalevidenceraisestheconcernthat
+onlytheuserswhoareespeciallyinterestedininformationaboutpeersmightselectintoadopting
+robo-advice.Totacklethisconcern,D’Acunto,Rossi&Weber(2019)runarandomizedcontrol
+trialwitharepresentativeUSpopulationthatdidnotselectintoanyrobo-adviceapplicationsand
+findthesamereactionstotheprovisionofinformationaboutpeers.
+Understandingthechannelsthroughwhichprovidingdetailedinformationaboutotherswith
+robo-advisingchangeshouseholds’preferences,beliefs,andchoicesisanopenresearcharea.Re-
+searchhasshownthatinformationaboutdebtfinancingoptionsandinvestmentdecisionsdoes
+transmit across peers (Maturana & Nickerson 2019, Kalda 2020, Ouimet & Tate 2020), but
+whethersuchinformationaffectsbehaviorbecauseofitscontentorduetosocialpressureorsocial
+conditioning(Bursztyn,Ederer&Yuchtman2014;Baileyetal.2019)—andhencehasthesame
+effectswhendeliveredthroughrobo-advisingafterbeinggatheredfromthecrowdsratherthan
+one’spersonalacquaintances—isanopenquestion.
+Moreover,wehavenoconclusiveevidenceaboutwhetheradaptingone’sbehaviortotheav-
+eragebehaviorofthosewithsimilardemographiccharacteristicsisoptimal.Theprincipleofthe
+wisdomofthecrowdrequiresthattheassessmentsandhencechoicesofalargegroupofagents
+areindependentfromeachothertoprovideaccurateaverageassessments.Still,intimesofsocial
+mediawherehouseholdsobservethesamesignalsfromfocalnetworkmembersorinfluencersand
+www.annualreviews.org (cid:129) Robo-Advice 549
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+mightreadthesamecommentsandinterpretationsaboutbusinesscycleshockscirculatingintheir
+socialnetwork,averagesignalsmightnotbeunbiased.
+Totheextentthatasocialplannerwouldcaremoreaboutavoidingoverconsumptionbysome
+households(andthepotentialexcessiveuseofdebtfinancing)thanaboutunderconsumptionby
+otherhouseholds,theasymmetriceffectsdocumentedbyD’Acunto,Rossi&Weber(2021)sug-
+gest that robo-advising for spending using information about others could align with the aims
+ofpolicymakers.However,thedistributionalconsequencesofthisformofrobo-advisingarestill
+unknownandshouldbeinvestigatedfurther.
+2.3.InformationAboutMacroeconomicVariables
+Instandardintertemporalconsumptionoptimizationmodels,beliefsaboutfuturemacroeconomic
+conditions,especiallyinflation,driveperceptionsofrealinterestratesandhencethedecisionabout
+howmuchtoconsumeversussaveforthescopeoffutureconsumption(Bernanke2009).Research
+inmacroeconomics,appliedmicroeconomics,andsocialpsychologyhasshownthatmanyhouse-
+holdsareuninformedaboutthemostbasicmacroeconomicaggregates(Coibionetal.2020)and
+formbiasedbeliefsaboutthem(Armantieretal.2015;D’Acunto,Malmendier &Weber2021;
+Weber et al.2022).Furthermore,households’ beliefs are not based on representative informa-
+tionbutratheronthefewsignalsaboutpricesandwageshouseholdsobserveintheirdailylives
+(D’Acunto, Ghosh & Rossi 2022). Cognitive abilities also determine households’ understand-
+ingoftherelationshipsacrosseconomicvariablesandtheirabilitytoelaboratemacroeconomic
+information(D’Acuntoetal.2021a,Andreetal.2022).
+Robo-advice to provide households with unbiased processed information should thus natu-
+rallyextendtomacroeconomicvariables,especiallyinflationandunemployment,whoseexpected
+valuesdeterminehouseholds’perceivedrealratesandexpectedincomeflowsinstandardmod-
+els.Becausesystematicbiasesandmistakesineconomicexpectationsaremorefrequentamong
+themostvulnerablehouseholds,theycancontributetothewideningofinequalities(D’Acunto
+etal.2020).Andyetresearchontheprovisionandeffectsofmacroeconomicinformationthrough
+robo-advisorsisextremelyscarce(D’Acunto&Rossi2022b).
+Robo-advicethatprovidesunbiasedmacroeconomicinformationcouldalsohelpsolvethere-
+centdebateontheeffectivenessofpoliciesthataimtomanagehouseholds’expectationsthrough
+communication(Coibion,Gorodnichenko&Kamdar2018).Communicationasanexpectations-
+management tool is more effective when households trust the policymaking body (D’Acunto,
+Fuster&Weber2021)andpoliciesaresimpleandintuitive(D’Acuntoetal.2021b),butitisless
+effectivewhendeliveredthroughtraditionalmediasuchasnewspapers,whichhouseholdsbarely
+trust(Coibion,Gorodnichenko&Weber2022).Robo-advisingtodeliverunbiasedinformation
+aboutcurrentmacroeconomicvariablesandconsensusforecastsaboutfuturerealizationsofthe
+samevariablescouldbeaneffectivewaytoincreasepolicymakers’successinmanagingexpecta-
+tionsandchoices.Thisisnotonlyawidelyopenareaofinquirybutalsoonethatcoulddeliver
+importantpracticalsuggestionsthatcanbeimplementedforpolicydesign.
+3.REDUCINGDISTORTEDBELIEFS
+Standardneoclassicaldecision-makersarealsoassumedtoformexpectationsrationally;theirbe-
+liefsaboutfutureownandaggregateoutcomesare,onaverage,consistentwithexpostrealizations.
+Contrarytothisbenchmark,householdstendtodisplaymultiplebiasesregardingbeliefsabout
+theirown,others’,andmacroeconomicoutcomes.
+550 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+In terms of their own outcomes, for instance, households tend to misestimate their sur-
+vival probabilities,which leads them to make suboptimal choices about retirement savings and
+insurancepolicies(Heimer,Myrseth&Schoenle2019).Moreover,manyhouseholdshavesystem-
+atically distorted beliefs about their future income flows and income growth: They extrapolate
+from recent income increases but not decreases and overestimate future income systematically
+(see,e.g.,Cutler,Poterba&Summers1990;DeLongetal.1990;Greenwood&Shleifer2014;
+Barberis et al. 2015; Gennaioli, Ma & Shleifer 2016; Barberis et al. 2018; Carroll et al. 2020;
+D’Acunto,Weber&Yin2022).Atthesametime,morethanone-thirdofarepresentativepopu-
+lationoverestimatesthelikelihoodofnegativeshocksandtheneedforprecautionarysavingsand
+underspending relative to their capacity—a perceived precautionary savings motive that drops
+whenhouseholdsreceiveinsuranceintheformofacreditline(D’Acuntoetal.2020).
+Households display biased beliefs also when forming expectations about others—they tend
+to overestimate others’ consumption and underestimate their saving rates, as discussed above
+(D’Acunto,Rossi&Weber2019)—andfuturemacroeconomicvariables.Thesesystematicdistor-
+tionsarecorrelatedwithdemographiccharacteristicssuchassocioeconomicstatus(Das,Kuhnen
+&Nagel2020),cognitiveabilities(D’Acuntoetal.2019),age,andcohorts(Malmendier&Nagel
+2016).Stango&Zinman(2023)provideataxonomyofmultiplebiasesinhouseholds’expectations
+andbeliefsanddocumentcommonalitiesandcorrelationpatternsacrossthem,whichsuggeststhat
+manybiasesinbeliefsmighthavecommonsources.Ultimately,beliefsappeartobemorebiased
+forvulnerablehouseholds,whichmighthelpperpetuateeconomicinequalities.
+3.1.BeliefsAboutOne’sOwnCharacteristics
+Researchineconomicsandsocialpsychology,basedprimarilyonlaboratoryexperiments,hastack-
+ledtheissueofreducingdistortionsinhouseholds’beliefsabouttheirownfuturecharacteristics
+byusinggoalsetting—theprocessoflettinghouseholdsthinkaboutfuturepotentialstatesofthe
+world,thelikelihoodofsuchstatesabsentanyinterventions,andthecommitmenttoincreasethe
+likelihoodofthedesiredstateoftheworldbyestablishingitasagoal.Inthefield,Ashraf,Karlan
+&Yin(2006)showthatindividualswithpreferencesthatdisplayahigherdegreeofhyperbolic
+discountinghaveahigherprobabilityofopeningsavingsaccountsthatrestrictaccesstosaving
+goalsuntiltheamountsavedachievesacertainthreshold.Theauthorsshowthatadoptinghard
+goalsofthistypeincreasesthehouseholds’savingrate.
+Goal setting is a primary tool robo-advisors use to reduce the impact of households’ biased
+beliefsabouttheirfutureincomeflowsanddebtrepaymentability.Gargano&Rossi(2020)study
+anItalianrobo-advisorandfindthatthepracticeofgoalsettingtomanagespendingandsaving
+isadoptedwidelywhenoffered:Forty-onepercentoftheuserswhohaveaccesstogoalsetting
+useitonacontinuousbasis.Inadifference-in-differencesanalysisbasedonanaturalexperiment,
+Gargano & Rossi (2020) estimate an intention-to-treat effect of goal setting on savings of €20
+permonthandalocalaveragetreatmenteffectof€60permonth,foranaverageincomeofthe
+robo-advisor’susersof€1,200permonth.Theauthorsalsoshowthatgoalsettingisparticularly
+effective for individuals who the literature has identified to be at risk of not saving enough for
+retirement,whodisplayhighimpatience(Laibson1997),lowlevelsofeducation(Cole,Paulson
+&Shastry2014),lowincomeandsocioeconomicstatus(Banerjee&Duflo2011,Kuhnen&Miu
+2017),andinattention(Karlanetal.2016).
+Gargano & Rossi (2020) also show that goal setting through robo-advising tools motivates
+users to save more because once users set a certain state of the world as the one they want
+to reach (goal), they monitor the robo-advisor often to increase the probability that the state
+is reached.Goal setting thus increases the likelihood of reaching a valuable future state of the
+www.annualreviews.org (cid:129) Robo-Advice 551
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+worldbyremindingusersoftheirstatedbeliefsregularlywhiletheymakeconsumptionandsaving
+choices.
+Whether households are aware or naive about their biases is central to assessing the effec-
+tiveness of a solution like robo-advising, which requires active adoption by users, relative to
+a nudge or default option, which exploits households’ inattention and/or inertia in economic
+decision-making.Researchershaveusedrobo-advisingtoassessbiasawarenessand,consequently,
+households’assessmentofthevalueofrobo-advisors.Tothisaim,Chaketal.(2022)implement
+arandomizedcontroltrialintherealmofrobo-adviceforhouseholddebtmanagement.House-
+holdsarefirstlefttotheirownmeanstosolvethreedebtmanagementproblemscenarioswhereby
+theyallocateagivendisposableincometotherepaymentofseveraldebtaccountswhosefeatures
+(e.g.,interestrates,minimumfees,late-feepayments)vary.Someusersarethenrandomlyoffered
+thehelpofarobo-advisorforallocationsuggestions,and,withinthisgroup,someareprovided
+robo-adviceforfree,andothershavetoindicatetheirwillingnesstopay(WTP)forthetool.Note
+thatrobo-advicefordebtmanagementisaprimaryapplicationofautomatedadvicebecause,con-
+trarytochoicesunderriskanduncertaintysuchasinvestmentdecisions,debtrepaymentchoices
+haveauniqueoptimalsolutionthatdoesnotdependonhouseholds’preferences,beliefs,orother
+characteristics.
+Chaketal.(2022)findthattheaveragesubjectwhoisofferedtherobo-advisingtoolforacost
+expressesaWTPaboveandbeyondtheactualmonetarybenefitsthesubjectobtains:1Theaverage
+WTPishigherthantheaverageamountsubjectsleftonthetablewhenmakingchoicesunassisted
+relativetotheoptimalsolutions.Thisresultsuggeststhathouseholdsarelikelysophisticatedabout
+theirinabilitytoassessoptimaldebtrepaymentstrategies.
+3.2.BeliefsAboutOthersandtheMacroeconomy
+Asdiscussedintheprevioussection,providinghouseholdswithunbiasedandrepresentativein-
+formation about others’ spending affects choices. This effect acts through a beliefs channel:
+Households must have misestimated the spending of others if observing unbiased information
+changestheirbehaviorinthedirectionoftheirpeers’choices(D’Acunto,Rossi&Weber2019).
+Robo-advisors reduce biased beliefs about others’ outcomes not only in the realm of
+consumption–saving choices but also in investment. D’Acunto,Ghosh & Rossi (2022) study a
+robo-advisorfordebtinvestmentbyhouseholdsintheformofprovidingloanstoborrowersona
+peer-to-peerplatform.Thisformofinvestmentrequiresthatlendersformbeliefsaboutpotential
+borrowers’probabilityofdefaultandexpectedcashflowstoassesstheexpectedreturnsfromal-
+ternativeloanrequests.D’Acunto,Ghosh&Rossi(2022)firstdocumentthatinvestorsuserules
+ofthumbbasedonculturalnormswhenassessingtheviabilityofborrowersthatbelongtoalter-
+nativesocialgroupsbutareotherwiseobservationallysimilar.Theyfindevidenceforanin-group
+versusout-groupbias,wherebylenderswhobelongtoasocialgroupunderestimatetheprobabil-
+ityofdefaultbyborrowersfromthesamesocialgroup,andanimplicitbias,wherebyalllenders
+overestimatetheprobabilityofdefaultbyborrowersfromaheavilydiscriminatedsocialgroup,
+includingthemembersofsuchgroup.
+Ifthesedistortedbeliefsweredrivenbylenders’consciouswillingnesstodiscriminateagainst
+the social groups they disliked,even if at a cost,lenders would not choose the borrowers sug-
+gestedbyarobo-advisingtoolthatdidnotengageindiscrimination.Bycontrast,iflendersused
+stereotypical rules of thumb to form beliefs but were aware that their beliefs might be inac-
+curate (inaccurate statistical discrimination),they would follow the suggestions of an unbiased
+1TheauthorsimplementaBecker–DeGroot–MarschakmechanismtoelicittruthfulWTPbyagents.
+552 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+robo-advisor.D’Acunto,Ghosh&Rossi(2022)findthatthesameinvestors/lendersstartprovid-
+ingfundingtoborrowersfromgroupstheywerelesslikelytochoosebeforeadoptingrobo-advice
+andstopprovidinglendingtoborrowersbelongingtotheirownsocialgroup,whoseprobability
+ofdefaulttheyunderestimatedbeforeadoptingrobo-advice.
+Asfarasbeliefsaboutaggregateoutcomesareconcerned,Capponi,Olafsson&Zariphopoulou
+(2022)studytheeffectsofarobo-advisorthatprovidesunbiasedexpectationstouserswithrespect
+tostockmarketreturnandtherisk–returntrade-offofequityinvestments.Theauthorsfindthat
+robo-advisingimprovestheSharperatioandreturnofhouseholds’riskyportfolios,especiallyin
+timesofeconomicdownturns,whenhouseholdshaveexcessivelynegativeexpectationsaboutfu-
+turemarketreturnsandtendtoreducemarketexposure,whereasmaintainingmarketexposure
+wouldbeespeciallyprofitablegiventhemorefavorablerisk–returntrade-off.D’Acunto,Prabhala
+&Rossi(2019)furtherdocumentthatrobo-advicevirtuallyeliminatesasetofbiasesinindivid-
+ualinvestors’decision-makingthathavebeenattributedtononstandardbeliefsaboutaggregate
+andindividualstockreturns,suchastrendchasing,thedispositioneffect,andtherankeffectin
+trading.
+4.REDUCINGTRANSACTIONCOSTS
+Tooptimizefutureconsumptionthroughwealthaccumulation,standardportfoliooptimization
+modelspredictthatvirtuallyeveryhouseholdshouldparticipateinequitymarketsbyinvestinga
+fractionoftheirsavingsaslongasparticipationcostsareminimal.Conversely,anextensiveliter-
+atureineconomicsandfinancehasproposedparticipationcostsasapotentialexplanationforone
+ofthemostcommonfindingsinhouseholdfinancearoundtheworld—thestockmarketpartici-
+pationpuzzle,wherebyasignificantfractionofhouseholdsdonotparticipateinthestockmarket
+andmanyinvestsmallerfractionsoftheirwealththanpredictedbystandardmodels(Moskowitz&
+Vissing-Jørgensen2002).2 Costscanalsoberelevantforconsumption/savingtransactions(Abel,
+Eberly&Panageas2007)and,importantly,donotonlytaketheformofmonetarycosts.Indeed,
+thecognitiveandpsychologicalcostshouseholdsfacetoconceptualizethehouseholdfinancepuz-
+zlestheyface,todeterminethepotentialchoicestheycanmake,toassesstheirexpectedvalue,and
+totaketheresponsibilitytoactaresubstantialandcompletelydismissedinsettingsthatassume
+standardeconomicdecision-makers(Sweetetal.2013,Chaketal.2022).
+4.1.MonetaryCosts
+Monetarytransactioncosts,suchasthepriceofaspendingtransactionorstocktrade,havebeen
+decliningoverthelastfewdecadesbutmightstillrepresentabarriertoparticipation,especiallyfor
+themostvulnerablehouseholds(Reher&Sokolinski2021).Inlinewiththisargument,Philippon
+(2019)proposesamodelinwhichacrucialfeatureofrobo-advisingandotherFinTechplatformsis
+thattheycutmonetaryfinancialtransactioncosts.Philippon(2019)arguesthatFinTechplatforms,
+whichincluderobo-advisors,shouldincreaseparticipationinequitymarketsandreducewealth
+inequalitieswithinandacrosscountries.Reher&Sokolinski(2021)provideempiricalevidence
+supportingthisargument.TheystudyaUSrobo-advisorforfinancialinvestmentsthat,duringthe
+sampleperiodtheyobserve,cuttheminimumamountrequiredforaccess,whichistantamounttoa
+2Several other explanations not based on participation costs have also been studied in the literature.For
+instance,households’lackoffinancialliteracyandunderstandingoftheconceptofdiversification(Lusardi
+&Mitchell2014)andhouseholds’lackoftrustinthestockmarketanditsparticipants(Guiso,Sapienza&
+Zingales2009;Giannetti&Wang2016;Gurun,Stoffman&Yonkers2018;D’Acunto,Prokopczuk&Weber
+2019;D’Acunto2021).
+www.annualreviews.org (cid:129) Robo-Advice 553
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+dropinthecostsofparticipationbecausehouseholdsarerequiredtomaintaintheminimumvalue
+ontheiraccountratherthanusingsuchresourcesotherwise.Reher&Sokolinski(2021)showthat
+theshareofhouseholdsowningequitiesincreasesafterthisinterventionandthattheperformance
+oftheirportfolios,whicharerobo-advised,improves.Becausethistypeofinterventiondoesnot
+affectwealthierhouseholdsthatinvestedmorethantheminimumbeforethechange,thebenefits
+arefullyconcentratedamongmiddle-classandpoorerhouseholds.
+Researchshowsthatwhetherrobo-advisorsprovidebenefitsintermsofexecutioncostsde-
+pendsontheirdesign.US-basedrobo-advisorsforfinancialinvestments,whichshouldbemore
+appropriately labeled robo-managers,require an investor to commit cash to an account that is
+managedautomatically,includingdecisionstotradeandrebalancetheportfolio,whichtypically
+happensatprespecifiedtimes(Reher&Sun2019,Rossi&Utkus2020b).
+Otherformsofrobo-adviceprovidesuggestionsbutrequirehouseholdstomakeactivedeci-
+sions.Theserobo-advisorsareclosertotheroleofatraditionalfinancialadvisorthantothatof
+arobo-manager.D’Acunto,Prabhala&Rossi(2019)studysucharobo-advisorinIndia,which
+was introduced by a large brokerage house, alongside traditional human advisors. They show
+that robo-advice,on average,improves the performance of households’ portfolios,and the im-
+provementisdrivenalmostentirelybyinducinghigherportfoliodiversification,whichreduces
+portfoliovolatility.Forthisreason,theaverageperformanceimprovementisentirelycapturedby
+households whose portfolios were undiversified before adoption (even though human financial
+advisorsalreadyhelpedthesehouseholds).D’Acunto,Prabhala&Rossi(2019)findthatdiversi-
+fied households not only face no performance improvement but perform worse after adoption
+because they use the robo-advisor often, which increases their trading fees relative to before
+adoption.
+Eveninthecaseofrobo-managers,thebenefitsofaccessingrobo-advicevaryacrossdemo-
+graphics.Rossi&Utkus(2020b)usemachine-learningtechniquestounderstandwhichinvestors’
+demographicandportfoliocharacteristicspredicthigherperformanceimprovementunderrobo-
+advice.Thecashshareandtradingvolumeatadoptionarepositivelyrelatedtotheimprovement
+in performance after access to robo-advice, indicating that investors who traded often and/or
+heldalargeportionoftheirwealthincashbenefitedmostfromrobo-advice.Theauthorsalso
+findthattenure,thepercentageofwealthinvestedinmutualfunds,andthepercentageofmutual
+fundholdingsinindexedfundsarenegativelyrelatedtothebenefitsfromrobo-advice.Finally,
+they find a positive monotonic relation between the share of equities held and the benefits of
+robo-advice,becausetheportfoliooffundsinwhicharobo-managerinvestshashigherrisk–return
+trade-offsthandoestheportfoliomanagedbytheaverageinvestor.
+Reducing execution costs not only is a feature of robo-advisors for investment but also is
+commonamongrobo-advisorsforconsumption.Researchershavestudiedtheeffectsofmobile
+wallets—applications that provide households with the ability to engage in low-cost electronic
+spendingtransactions,andproviderobo-advisingfeatures.Agarwaletal.(2020)findthatadopt-
+inglow-costtransactionmobilewalletsincreasesthespendingcapacityofIndianhouseholdsby
+3%foreach10-percentage-pointdependenceoncashfortransactionsbeforeadoption.Agarwal
+etal.(2020)alsodetectapotentialundesirablefeatureofrobo-advisingforconsumption:House-
+holds’higherspendingcapacityafteradoptionisdueatleastinparttotheincreasedsalienceand
+lowersearchcostsforconspicuouspurchaseopportunities.
+Lower transaction costs when using robo-advisors for consumption not only aligns house-
+holds’ behavior with the predictions of standard economic models but also has business cycle
+effects.Agarwaletal.(2019)andAgarwaletal.(2022)showthatthediffusionofamobilewal-
+letinSingapore,whichreducedspendingtransactioncostssubstantially,increasedsalesgrowth
+disproportionately for new and small businesses, which are responsible for most employment
+554 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+growth in the United States and abroad (Haltiwanger,Jarmin & Miranda 2013).These aggre-
+gateeffectsofFinTechandrobo-advisingadoptionarelikelytobeespeciallyhighinemerging
+countries,asAgarwaletal.(2022)andCrouzet,Gupta&Mezzanotti(2022)document,exploiting
+thesudden2016Indiandemonetizationeventasashocktotechnologyadoption.
+4.2.CognitiveandPsychologicalCosts
+Thecostshouseholdsfacetoexecuteeconomictransactionscanalsobecognitiveandpsycholog-
+ical.Evenifhouseholdsfullyunderstoodtheeconomicproblemstheyfacedandwerecapableof
+obtainingclose-to-optimalsolutions,conceptualizingsuchproblemsanddeterminingtheirsolu-
+tionsrequiretheuseofcognitiveskillsandtime,bothofwhicharescarceresources(Abel,Eberly
+&Panageas2013).Householdsoftenlackthecognitiveskillsandeconomicornumericalliteracy
+neededtounderstandandsolveeconomicproblems,whichincreasesthecognitivecostsofmaking
+decisions(Lusardi&Mitchell2014).Cognitiveabilitiesalsopredictthewedgebetweenhouse-
+holds’choicesandstandardneoclassicaloptimalsolutionsforforecastingeconomicvariablesand
+makingeconomicdecisions(D’Acuntoetal.2022).Moreover,alargelineofworkinbehavioral
+economics has documented that the complexity of choices whose subtleties consumers cannot
+fullygraspcanleadtochoiceavoidance(Iyengar&Lepper2000)andinertiaindecision-making
+(O’Donoghue & Rabin 1999,Madrian & Shea 2001),hence suboptimal choices relative to the
+onesofastandardneoclassicalagent.
+Bysimplifyingthedecisionprocessandmakingthefuturepotentialbenefitsofactivechoices
+more clear and tangible,robo-advice can reduce cognitive costs,psychological costs,and iner-
+tia in decision-making.For instance,Bianchi & Brière (2021) study a French robo-advisor for
+employees’savingsaccountsthatprovidesasalienttargetforportfolioallocationsthatinvestors
+canobserveatanytime.Theyfindthatrobo-adviceincreasesattentiontoone’saccount.Inturn,
+higherattentionleadstohigherrisk-adjustedreturnsandlowervolatility(Gargano&Rossi2018).
+Moreover,thesalientgraphicaltargetdepiction,whichtherobo-advisorcomputesautomatically,
+reduces the cognitive costs of assessing whether and to what extent portfolio allocations devi-
+atefromanoptimalbenchmark.Thisdropinthecognitivecostsofelaboratingtheoptimization
+problemandmappingthesolutionintoaninvestmentactionreducesinvestors’inertiainfinancial
+decision-making and leads to more frequent portfolio rebalancing, which induces higher risk-
+adjustedreturnsrelativetounassistedportfolios.Bianchi&Brière(2021)findthatthebenefitsof
+robo-advicearehigherforinvestorsholdingsmallerportfoliosanddisplayinglowerstockmarket
+participation before adoption,which presumably represent less wealthy and lower-income em-
+ployees.Reducingcognitivecoststhroughrobo-advicethushasthesamepotentialdistributional
+consequences as reducing monetary transaction costs—it encourages participation and wealth
+accumulationbymorevulnerablehouseholds.
+Psychological costs for households facing financial and economic decisions,including anxi-
+ety and fear of disappointment in case of bad outcomes,are nonnegligible (Sweet et al.2013).
+Gennaioli,Shleifer&Vishny(2015)modelthemoneydoctorroleoffinancialadvisors,whore-
+duce psychological costs and lead investors to take on more risk,and Linnainmaa et al.(2022)
+provideempiricalevidenceinmicrodataconsistentwiththismodel.InSection4.1,weinterpreted
+thefactthathouseholdshaveahighWTPforrobo-advicefordebtmanagementrelativetothe
+monetarybenefitstheyobtainfromswitchingtorobo-adviceasevidenceofhouseholds’awareness
+oftheirownbiases(Chaketal.2022).Anonbeliefs-basedinterpretationisthathouseholdsmight
+correctlyassesstheirabilitytofindoptimaldebtrepaymentstrategies,butthecognitiveandpsy-
+chologicalcoststodosoleadthemtobewillingtooverpaytoobtainanautomatedrobo-advisor
+andavoidfacingtheproblemaltogether.
+www.annualreviews.org (cid:129) Robo-Advice 555
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+5.OPENQUESTIONS
+5.1.LearningFromRobo-Advice
+Whether households learn about their biases and how to correct them after being exposed to
+robo-adviceisawide-openquestionandonethathasimportantpolicyimplications.Withlearn-
+ing,access to robo-advice would not need to be repeated over time,and robo-advisors’ role of
+transforminghouseholdsintostandardeconomicdecision-makerswouldbequiteeffective.The
+effectivenessofrobo-advicewouldbeenhancedifitproducedspillovereffectsoflearningaboutbi-
+asesandhowtocorrectthemacrossareasofeconomicdecision-making.Inthissense,robo-advice
+could be interpreted as a means of delivery of financial literacy,which,contrary to traditional
+financialliteracyprograms,ischeap:Itdoesnotrequirerecruitingandpayinginstructors,invest-
+ingtimebyusers,orfacingcognitivecostswhentryingtoapplyabstractprinciplestoreal-world
+choices.Instead,users learn by imitation during a time they would have anyway spent making
+(oftenflawed)economicchoices.
+This question is still open because most empirical settings so far include short time series:
+Robo-advisors,especiallyinareasdifferentfromportfoliomanagement,haveonlyrecentlystarted
+to diffuse. Currently, the evidence for learning is mixed. For instance, Chak et al. (2022) and
+D’Acunto,Ghosh&Rossi(2022)donotdetectanylearningfromrobo-advicebyhouseholdsin
+eitherdebtmanagementorpeer-to-peerlendingchoices,butHaoetal.(2022)dofindevidenceof
+spillovereffectsofrobo-advice-basedcorrectionsininvestmentstrategiestononadvisedportfolios
+bythesamehouseholds.Bianchi&Brière(2021)findthatrobo-adviceforretirementinvestments
+increaseshouseholds’attentiontotheirownaccountsandtotradingstrategies,whichinprinciple
+couldalsoimproveperformanceinnonadvisedinvestmentaccounts,whichareunobservedtothe
+econometrician.
+Moreresearchiswarrantedtounderstandwhethertheconflictingresultsintheliteraturearise
+becauseofstudyingdifferenteconomicproblems,someofwhichmightbeeasiertosolvethan
+others in different institutional settings,or because of other reasons.Empirical research needs
+observationaldatainwhichmultiplefinancialaccountsofthesamehouseholdareobserved,of
+which only some are robo-advised,and ideally,the assignment to robo-advice is quasi-random
+acrossaccountsandwithinthehousehold.Alternatively,researchcouldusesettingsinwhichre-
+searchersobserverepeatedchoicesbythesameuserofthesameaccount,forwhichrobo-advice
+is intermittently available,so that one could assess whether exposure to robo-advice lets users
+learnaboutbiasesandcorrectthem.Moreexperimentalresearchwouldhelpisolatethepotential
+mechanismsthroughwhichhouseholdslearnfromthetransactionsfromonepartoftheirbalance
+sheettootherparts,ifatall.
+Economicpreferencesareanotherdimensionthatcouldbeaffectedbylearningfromtheinfor-
+mationgatheredthroughrobo-advicebutthathasbeenlargelyneglectedbytheexistingliterature.
+AswediscussedinSection3,mostexistingworkontheinformationprovidedtoconsumersvia
+robo-advicehasfocusedonagents’beliefs.Inprinciple,though,robo-advicecouldshapeusers’
+preferences, too. For instance, learning about the effects of diversification on a portfolio’s ex-
+pectedreturnsandvolatilitymightchangeusers’riskappetiteandhencetheirchoicesunderrisk.
+Researchthatcandisentangleeffectivelytherolesoflearningfromrobo-providedinformationin
+consumers’preferencesandbeliefswouldprovideasubstantialcontributiontoourunderstanding
+oftheconsequencesofthediffusionofrobo-advicearoundtheworld.
+5.2.AlgorithmicAversionVersusAppreciationandInequalities
+Thedriversofrobo-adviceadoptionarenotyetwellunderstood.Whereasresearchdesignson
+theeffectsofrobo-advisingonchoicesaimtoobtainquasi-exogenousvariationintheprovisionof
+556 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+robo-adviceacrossobservationallysimilarhouseholds,theextensivemarginofchoosingwhether
+toadoptisimportanttoassesstheaggregateeffectsofrobo-advice.Mostexistingresearchbasedon
+randomizedtreatmentwithrobo-advicefindsthatthelesssophisticatedhouseholdsbenefitmost
+becausetheirunassistedchoicestypicallydepartmorefromstandardneoclassicalpredictions.Less
+sophisticatedhouseholds,though,arelesslikelyandslowertoadoptnewtechnologiesduetoalack
+ofawareness,distrustinunknownapplications,andotherreasons(Foster&Rosenzweig2010).If
+truealsofortheadoptionofrobo-advice,theheterogeneouseffectsonperformanceconditional
+onadoptionwouldbecounteracted.
+Existingresearchprovidesmixedevidencefortheexistenceandheterogeneityofdistrustto-
+wardalgorithms(algorithmicaversion)(Dawes1979).Inprinciple,thisformofdistrustcouldhave
+severalsources,includingthelackofdirectaccessandcommunicationwithahumanand/orthe
+lackofskillsneededtounderstandrobo-advisingprocesses(Rossi&Utkus2020a).Rossi&Utkus
+(2020b)surveyalargerepresentativesampleoftraditionallyadvised,robo-advised,andunadvised
+householdsandfindthatalgorithmicaversionisthemainpredictorofrobo-adviceadoption.They
+alsoshowthataversionvariesdramaticallyacrossagegroupsandotherdemographiccharacteris-
+tics.Ramadoraietal.(2022)estimateastructuralmodelthatcapturesinteractionsbetweenhuman
+clientsandhybridrobo-advisorsthatofferdifferentformsofhumancounselingtocomplementa
+robo-manager.Themodelfeaturesthreedimensionsofalgorithmicaversion:aper-perioddisu-
+tilityofdealingwiththealgorithm,pessimismaboutthealgorithm’sabilitytomanageassets,and
+uncertaintyaboutthealgorithm’sperformance.Theauthorsfindevidencethatalgorithmaver-
+sionisdrivenmainlybyongoingdisutilityanduncertaintyandthathumanadviceisimportant
+especiallytoretainhouseholdsinvestedinequitiesduringmarketdownturns.
+At the same time,a strand of research in social psychology argues that some households in
+factdisplayformsofalgorithmicappreciation—theyprefertorelyonalgorithmsmorethanhu-
+manswhenmakingdecisions.Logg,Minson&Moore(2019)findthatdecision-makersaremore
+adherent to advice when they know it comes from an algorithm rather than a human,and this
+istruealsoforforecastsofchoicesbasedonhumantaste.Algorithmicappreciationishigherfor
+decision-makerswhoarenotusedtomakingforecastsintheirdailylivesandlowerforthosewhose
+occupationsinvolvemakingforecasts.
+Understandingtheconditionsunderwhichalgorithmicaversionorappreciationarisesallows
+forassessingwhetherrobo-advicecouldreduceratherthanincreasewealthinequalities.Algorith-
+micaversionreducestheadoptionofrobo-advice,whichcouldexacerbatedifferencesinoutcomes
+across the wealth and education distributions if more vulnerable households were more algo-
+rithmicaverse.Algorithmicaversioncouldproducenewtypesofinequalities,suchasacrossage
+groups.Understandingthedriversofalgorithmicaversionwouldalsohelpinformthedesignof
+next-generationrobo-advisors.
+5.3.Supply-SideIncentives:FinancialInstitutionsVersusThirdParties
+Thisarticlehasfocusedontheeffectsofrobo-adviceonhumandecision-makingfromtheusers’
+pointofview,buttheextenttowhichtheincentivesofthesuppliersofrobo-adviceservicesmight
+affectthecharacteristicsandconsequencesofrobo-adviceisalsoanimportantopenquestion.
+Applicationsstudiedintheliteratureaswellasexistingcommercialapplicationsinthefield
+areprovidedeitherbyfinancialinstitutions,suchasbanksandcreditcardcompanies,orbythird
+partieswhosemainbusinessaimistheprovisionofrobo-advice.Inseveralapplications,financial
+institutionsfaceatrade-offthatthird-partyprovidersdonotface:Ontheonehand,cateringto
+userswhodisplaybehavioralbiasesindecision-makingincreasestheirrevenuesandprofits.For
+instance,creditcardcompaniesbenefitfromthefactthatusersdonotfullyrepaytheirbalancesat
+www.annualreviews.org (cid:129) Robo-Advice 557
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+theendofeachcycleandenduppayinghighinterestandpotentiallatefees.Consistently,credit
+cardcompaniesscreenforclients’behavioralbiasestoexploitthem(Ru&Schoar2018)andmight
+designconsumercontractsinwaysthatattractbiasedclients(DellaVigna&Malmendier2004).
+Ontheotherhand,excessiveaccumulationofcreditcarddebt(andhenceofprospectiveinterest
+andfeepayments)coulddrivehouseholdstodefault,whichwouldbedetrimentaltoprovidersin
+termsofmissedrevenuesandregulatoryconcerns.Contrarytofinancialinstitutions,thirdparties
+donotfaceadirectbenefitfrommaintaininghouseholds’biasesindecision-making,becausethey
+donotearntheinterestandfeeshouseholdspayontheiraccounts.Ifanything,thebusinessmodel
+ofthirdpartiesoftenreliesonsharingthebenefitsfromrobo-advisedchoiceswithusersbasedon
+feesthataredirectlyproportionaltousers’outcomes,whichalignstheincentivesofthesupply
+anddemandsides.
+Todate,despitetheimportanceofthesedifferences,researchonwhetherandhowthenature
+andincentivesoftheprovidersofrobo-adviceshapeitsdesignandeffectivenessisscant.Moreover,
+the effects of the market for control of FinTech applications on the diffusion and effectiveness
+ofrobo-advice,wherebytheshareholdersofthird-partyprovidersmighthaveincentivestoexit
+theirequityinvestmentthroughsaletofinancialinstitutionsratherthanmarket-baseddiffused
+ownership(Wang2018),areaninterestingandopentopicforfutureresearch.
+5.4.BroaderImplicationsforEconomicsandSociety
+We conclude this article by discussing a set of broader implications of robo-advice that beget
+furtherresearchineconomics,finance,socialpsychology,sociology,law,andotherfields.
+Intermsofbroaderimplicationsforeconomics,thisarticlehasadvancedtheviewthatrobo-
+advicecanbeadisruptivefeaturefordecision-makinginthatitcantransformbiasedandinexpert
+householdsintoagentsthatformbeliefsandactinlinewithstandardneoclassicalmodels.This
+featurecouldhaveanimportantimpactonthedirectionoffutureresearchineconomics.After
+developing standard neoclassical models in microeconomics and macroeconomics, the field of
+behavioraleconomicshasdocumentedmanywaysinwhichdecision-makersinthefieldandthe
+laboratory depart from the assumptions of such models. These results have fed back into the
+originalstrandsofneoclassicaleconomicsandhavemotivatednewgenerationsofmicroeconomic
+and macroeconomic theories that incorporate features of decision-making documented in the
+field into representative- and heterogeneous-agent models in order to make the predictions of
+suchmodelsmorerealisticandtoproducefurthertestableimplicationsthatwouldnotarisein
+standard models. As robo-advice diffuses more and more widely, though, traditional standard
+neoclassicalmodels,basedonwhichrobo-advisorsaredesigned,couldincreasetheirexplanatory
+power for empirical patterns given that agents behave more in line with standard assumptions.
+Understanding whether and how endowing households with robo-advice could make standard
+modelsmorepredictiveofobservedoutcomesandhencerevivetheirrelevanceinanopenagenda.
+Moreover,robo-advicecouldbeusedasapotentialsolutiontothelackofeffectivenessofeco-
+nomicpoliciesthatrequireactivechoicesbyhouseholdstobefullytransmittedtotheeconomy.
+Households’ biases often reduce the aggregate effects of policies simply because many house-
+holdsthatcouldactinawaythatincreasestransmission(andwouldbenefitfromdoingso)are
+unawareofordonotunderstandpolicies—theyactashumanfrictionsinthetransmissionofpol-
+icy(D’Acunto,Hoang&Weber2022).Researchinmacroeconomicsandfinancehasstudiedaset
+ofpotentialsolutions,suchaspolicycommunication(D’Acuntoetal.2020),thedesignofsim-
+ple policies (D’Acunto et al.2022),and an increase in trust and attention to policy institutions
+(D’Acunto,Fuster&Weber2021),tolimittheeffectsofhumanfrictions.Robo-advicecouldbe
+acheapandeffectivemeansoftransmissionofpolicy:Mosthouseholdsaroundtheglobecanbe
+accesseddirectlyviapersonaldevices.
+558 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+Finally,animportanttrade-offthatcrossesseveralfieldsofresearchandbegetsfurtherinquiry
+isthetensionbetweenfreedominindividualdecision-makinganddesigninginstrumentsthatal-
+lowforsociallyoptimaleconomicchoices.Althoughexistingresearchisstilllimited,aswehave
+arguedinthisarticle,theevidencesofarseemstosuggestthatrobo-advicehasthepotentialto
+align households’ incentives with those of standard decision-makers,which might make policy
+designandaggregateoutcomesmoreefficient.Atthesametime,thenatureofalgorithmicad-
+vice,whichoftendoesnotincludeexplanationstohouseholdsorprovidesexplanationsthatmany
+householdscannotunderstand,requiresthathouseholdsfollowandacceptitssuggestionsoften
+without a full understanding of them.Over time,robo-advice could create conformity and de-
+pendence on algorithmic indications,which,when paired with a lack of understanding of such
+indications,mightreducecriticalthinking,inducesocialconformity,andreduceheterogeneities
+in preferences and beliefs across individuals,which could have far-reaching implications across
+manyaspectsofsociallife.Understandingthispotentialtrade-offandassessingitsprevalenceand
+potentialrelevancearetwoofthemostimportantopenquestionsinthisarea.
+6.CONCLUSIONS
+Robo-advicehasthepotentialtotransformhouseholdsthatdisplayasetofbiasesandsuboptimal
+decision-making processes across a wide range of economic problems into standard economic
+agentsbyprovidingthemwithafullyinformedandrational-expectationbenchmarkthatcanbe
+implementedcheaplyandthatcanbarelybeprovidedbyhumanadvisors.
+Inthisarticle,wehaveemphasizedthatresearchonrobo-adviceisstillinitsinfancyandwehave
+proposedopenquestionstodevelopthisagendainthedirectionofbetterunderstandingwhether,
+how,and why robo-advice might achieve the goals indicated above. We have also argued that
+robo-advicecoulddecreaseorwidenwealthinequalitiesacrossasetofdemographicdimensions.
+Understandingthistrade-offisanimportantareaforfutureinquiryandonethatspeakstothe
+policyimplicationsofalltheopenquestionswehaveindicatedinthisarticle.
+Makingresearchersrealizethatrobo-adviceisnotamereFinTechapplicationtotheallocation
+ofhouseholds’investmentportfolios,asthemediaandnormalparlancesuggest,butratherapo-
+tentiallytransformationalforceacrossmostdimensionsofindividualeconomicdecision-making
+thathasconsequencesforempiricalandtheoreticalresearchacrossseveralfieldsofeconomicsand
+financeisthemainmessagecomingfromthisnascentliterature.
+DISCLOSURESTATEMENT
+The authors are not aware of any affiliations,memberships,funding,or financial holdings that
+mightbeperceivedasaffectingtheobjectivityofthisreview.
+LITERATURECITED
+AbelAB,EberlyJC,PanageasS.2007.Optimalinattentiontothestockmarket.Am.Econ.Rev.97:244–49
+AbelAB,EberlyJC,PanageasS.2013.Optimalinattentiontothestockmarketwithinformationcostsand
+transactionscosts.Econometrica81:1455–81
+AgarwalS,BasuD,GhoshP,PareekB,ZhangJ.2022.Demonetizationanddigitization.SSRNWork.Pap.
+3197990
+AgarwalS,QianW,RenY,TsaiH-T,YeungBY.2020.Therealimpactoffintech:evidencefrommobilepayment
+technology.SSRNWork.Pap.3556340
+AgarwalS,QianW,YeungBY,ZouX.2019.Mobilewalletandentrepreneurialgrowth.AEAPap.Proc.109:48–
+53
+www.annualreviews.org (cid:129) Robo-Advice 559
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+AndreP,PizzinelliC,RothC,WohlfartJ.2022.Subjectivemodelsofthemacroeconomy:evidencefrom
+expertsandrepresentativesamples.Rev.Econ.Stud.89:2958–91
+ArmantierO,BruinedeBruinW,TopaG,VanDerKlaauwW,ZafarB.2015.Inflationexpectationsand
+behavior:Dosurveyrespondentsactontheirbeliefs?Int.Econ.Rev.56:505–36
+AshrafN,KarlanD,YinW.2006.TyingOdysseustothemast:evidencefromacommitmentsavingsproduct
+inthePhilippines.Q.J.Econ.121:635–72
+BaileyM,DávilaE,KuchlerT,StroebelJ.2019.Housepricebeliefsandmortgageleveragechoice.Rev.Econ.
+Stud.86:2403–52
+BakerSR.2018.Debtandtheresponsetohouseholdincomeshocks:validationandapplicationoflinked
+financialaccountdata.J.PoliticalEcon.126:1504–57
+BanerjeeAV,DufloE.2011.PoorEconomics:ARadicalRethinkingoftheWaytoFightGlobalPoverty.NewYork:
+PublicAffairs
+BarberisN,GreenwoodR,JinL,ShleiferA.2015.X-CAPM:anextrapolativecapitalassetpricingmodel.
+J.Financ.Econ.115:1–24
+BarberisN,GreenwoodR,JinL,ShleiferA.2018.Extrapolationandbubbles.J.Financ.Econ.129:203–27
+BernankeBS.2009.Reflectionsonayearofcrisis.SpeechpresentedattheFederalReserveBankofKansasCity’s
+AnnualEconomicSymposium,JacksonHole,Wyoming,Aug.21
+BianchiM,BrièreM.2021.Augmentinginvestmentdecisionswithrobo-advice.SSRNWork.Pap.3751620
+Binder CC. 2017. Measuring uncertainty based on rounding: new method and application to inflation
+expectations.J.Monet.Econ.90:1–12
+BruinedeBruinW,VanderKlaauwW,TopaG,DownsJS,FischhoffB,ArmantierO.2012.Theeffectof
+questionwordingonconsumers’reportedinflationexpectations.J.Econ.Psychol.33:749–57
+BursztynL,EdererF,FermanB,YuchtmanN.2014.Understandingmechanismsunderlyingpeereffects:
+evidencefromafieldexperimentonfinancialdecisions.Econometrica82:1273–301
+CalvetLE,CampbellJY,SodiniP.2007.Downorout:assessingthewelfarecostsofhouseholdinvestment
+mistakes.J.PoliticalEcon.115:707–47
+CalvetLE,CampbellJY,SodiniP.2009.Measuringthefinancialsophisticationofhouseholds.Am.Econ.Rev.
+99:393–98
+CapponiA,OlafssonS,ZariphopoulouT.2022.Personalizedrobo-advising:enhancinginvestmentthrough
+clientinteraction.Manag.Sci.68:2485–512
+CarlinB,OlafssonA,PagelM.2023.Mobileappsandfinancialdecisionmaking.Rev.Finance27(3):977–96
+Carroll CD, Crawley E, Slacalek J, Tokuoka K, White MN. 2020. Sticky expectations and consumption
+dynamics.Am.Econ.J.Macroecon.12(3):40–76
+Chak I,Croxson K,D’Acunto F,Reuter J,Rossi A,Shaw J.2022.Robo-advice for borrower repayment
+decisions.Occas.Pap.61
+CharlesKK,HurstE,RoussanovN.2009.Conspicuousconsumptionandrace.Q.J.Econ.124:425–67
+CoibionO,GorodnichenkoY,KamdarR.2018.Theformationofexpectations,inflation,andthePhillips
+curve.J.Econ.Lit.56:1447–91
+Coibion O, Gorodnichenko Y, Knotek ES II, Schoenle R. 2020. Average inflation targeting and household
+expectations.NBERWork.Pap.27836
+Coibion O, Gorodnichenko Y, Weber M. 2022. Monetary policy communications and their effects on
+householdinflationexpectations.J.PoliticalEcon.130:1537–84
+ColeS,PaulsonA,ShastryGK.2014.Smartmoney?Theeffectofeducationonfinancialoutcomes.Rev.
+Financ.Stud.27:2022–51
+CrouzetN,GuptaA,MezzanottiF.2022.Shocksandtechnologyadoption:Evidencefromelectronicpaymentsystems.
+Work.Pap.,NorthwesternUniv.,Evanston,IL
+CutlerDM,PoterbaJM,SummersLH.1990.Speculativedynamicsandtheroleoffeedbacktraders.NBERWork.
+Pap.3243
+DaZ,HuangX.2020.Harnessingthewisdomofcrowds.Manag.Sci.66:1847–67
+D’AcuntoF.2021.TeardownthisWallStreet:Anti-financerhetoricandinvestmentdecisions.SSRNWork.Pap.
+3213904
+D’AcuntoF,FusterA,WeberM.2021.Diversepolicycommitteescanreachunderrepresentedgroups.Work.Pap.
+2021-95,Univ.Chicago
+560 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+D’AcuntoF,GhoshP,RossiAG.2022.Howcostlyareculturalbiases?Evidencefromfintech.SSRNWork.Pap.
+3736117
+D’AcuntoF,HoangD,PaloviitaM,WeberM.2019.Cognitiveabilitiesandinflationexpectations.AEAPap.
+Proc.109:562–66
+D’AcuntoF,HoangD,PaloviitaM,WeberM.2020.Effectivepolicycommunication:targetsversusinstruments.
+Work.Pap.,Univ.Chicago
+D’AcuntoF,HoangD,PaloviitaM,WeberM.2021a.Humanfrictionsinthetransmissionofeconomicpolicies.
+NBERWork.Pap.29279
+D’Acunto F, Hoang D, Paloviita M, Weber M. 2022. IQ, expectations, and choice. Rev. Econ. Stud.
+https://doi.org/10.1093/restud/rdac075
+D’AcuntoF,HoangD,WeberM.2022.Managinghouseholds’expectationswithunconventionalpolicies.
+Rev.Financ.Stud.35:1597–642
+D’AcuntoF,MalmendierU,OspinaJ,WeberM.2021b.Exposuretogrocerypricesandinflationexpectations.
+J.PoliticalEcon.129:1615–39
+D’AcuntoF,MalmendierU,WeberM.2021.Genderrolesproducedivergenteconomicexpectations.PNAS
+118(21):e2008534118
+D’Acunto F, Prabhala N, Rossi AG. 2019. The promises and pitfalls of robo-advising. Rev. Financ. Stud.
+32:1983–2020
+D’Acunto F,Prokopczuk M,Weber M.2019.Historical antisemitism,ethnic specialization,and financial
+development.Rev.Econ.Stud.86(3):1170–206
+D’AcuntoF,RossiAG.2021.Robo-advising.InThePalgraveHandbookofTechnologicalFinance,ed.RRau,
+RWardrop,LZingales,pp.725–49.Cham,Switz.:PalgraveMacmillan
+D’AcuntoF,RossiAG.2022a.ITmeetsfinance:financialdecisionmakinginthedigitalera.SSRNWork.Pap.
+4100784
+D’AcuntoF,RossiAG.2022b.Newfrontiersofrobo-advising:consumption,saving,debtmanagement,and
+taxes.InMachineLearninginFinancialMarkets:AGuidetoContemporaryPractice,ed.ACapponi,C-A
+Lehalle,pp.9–28.Cambridge,UK:CambridgeUniv.Press
+D’AcuntoF,RossiAG,WeberM.2019.Crowdsourcingfinancialinformationtochangespendingbehavior.CESifo
+Work.Pap.7533
+D’AcuntoF,WeberM.2022.Memoryandbeliefs:evidencefromthefield.Work.Pap.,Univ.Chicago
+D’AcuntoF,WeberM,YinX.2022.Microfoundinghouseholddebtcycleswithextrapolativeexpectations.Work.
+Pap.,Univ.ChicagoBoothSch.Bus.
+DasS,KuhnenCM,NagelS.2020.Socioeconomicstatusandmacroeconomicexpectations.Rev.Financ.Stud.
+33:395–432
+DawesRM.1979.Therobustbeautyofimproperlinearmodelsindecisionmaking.Am.Psychol.34:571–82
+De Long JB,Shleifer A,Summers LH,Waldmann RJ.1990.Positive feedback investment strategies and
+destabilizingrationalspeculation.J.Finance45:379–95
+DellaVignaS,MalmendierU.2004.Contractdesignandself-control:theoryandevidence.Q.J.Econ.119:353–
+402
+FosterAD,RosenzweigMR.2010.Microeconomicsoftechnologyadoption.Annu.Rev.Econ.2:395–424
+GarganoA,RossiAG.2018.Doesitpaytopayattention?Rev.Financ.Stud.31:4595–649
+GarganoA,RossiAG.2020.Goalsettingandsavinginthefintechera.SSRNWork.Pap.3579275
+GarganoA,RossiAG,WermersR.2017.TheFreedomofInformationActandtheracetowardinformation
+acquisition.Rev.Financ.Stud.30:2179–228
+Gelman M,Kariv S,Shapiro MD,Silverman D,Tadelis S.2014.Harnessing naturally occurring data to
+measuretheresponseofspendingtoincome.Science345:212–15
+GennaioliN,MaY,ShleiferA.2016.Expectationsandinvestment.NBERMacroecon.Annu.30:379–431
+GennaioliN,ShleiferA,VishnyR.2015.Moneydoctors.J.Finance70:91–114
+Giannetti M, Wang TY. 2016. Corporate scandals and household stock market participation. J. Finance
+71:2591–636
+GreenwoodR,ShleiferA.2014.Expectationsofreturnsandexpectedreturns.Rev.Financ.Stud.27:714–46
+GuisoL,SapienzaP,ZingalesL.2009.Culturalbiasesineconomicexchange?Q.J.Econ.124:1095–131
+www.annualreviews.org (cid:129) Robo-Advice 561
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+GurunUG,StoffmanN,YonkerSE.2018.Trustbusting:theeffectoffraudoninvestorbehavior.Rev.Financ.
+Stud.31:1341–76
+HaltiwangerJ,JarminRS,MirandaJ.2013.Whocreatesjobs?Smallversuslargeversusyoung.Rev.Econ.Stat.
+95:347–61
+HanB,HirshleiferD,WaldenJ.2019.Visibilitybiasinthetransmissionofconsumptionbeliefsandundersaving.
+NBERWork.Pap.25566
+HaoR,HuC,XuX,ZhangY.2022.Beyondperformance:thefinancialeducationroleofrobo-advising.SSRNWork.
+Pap.4230191
+Heimer RZ, Myrseth KOR, Schoenle RS. 2019. Yolo: mortality beliefs and household finance puzzles.
+J.Finance74:2957–96
+HirshleiferD.2020.Presidentialaddress:socialtransmissionbiasineconomicsandfinance.J.Finance75:1779–
+831
+IyengarSS,LepperMR.2000.Whenchoiceisdemotivating:Canonedesiretoomuchofagoodthing?
+J.Personal.Soc.Psychol.79(6):995–1006
+KaldaA.2020.Peerfinancialdistressandindividualleverage.Rev.Financ.Stud.33:3348–90
+KarlanD,McConnellM,MullainathanS,ZinmanJ.2016.Gettingtothetopofmind:howremindersincrease
+saving.Manag.Sci.62:3393–411
+KarlssonN,LoewensteinG,SeppiD.2009.Theostricheffect:selectiveattentiontoinformation.J.Risk
+Uncertain.38(2):95–115
+KuchlerT,StroebelJ.2021.Socialfinance.Annu.Rev.Financ.Econ.13:37–55
+KuhnenCM,MiuAC.2017.Socioeconomicstatusandlearningfromfinancialinformation.J.Financ.Econ.
+124:349–72
+LaibsonD.1997.Goldeneggsandhyperbolicdiscounting.Q.J.Econ.112:443–78
+LeeSK.2019.Fintechnudges:overspendingmessagesandpersonalfinancemanagement.SSRNWork.Pap.3390777
+LeviY,BenartziS.2020.Mindtheapp:accesstofinancialinformationandconsumerbehavior.SSRNWork.Pap.
+3557689
+LinnainmaaJT,MelzerBT,PreviteroA.2021.Themisguidedbeliefsoffinancialadvisors.J.Finance76:587–
+621
+LinnainmaaJT,MelzerBT,PreviteroA,FoersterS.2022.Investorprotectionsandstockmarketparticipation:an
+evaluationoffinancialadvisoroversight.Work.Pap.,IndianaUniv.,Bloomington
+LoggJ,MinsonJ,MooreD.2019.Algorithmappreciation:Peoplepreferalgorithmictohumanjudgement.
+Organ.Behav.Hum.Decis.Proc.151:90–103
+LusardiA,MitchellOS.2014.Theeconomicimportanceoffinancialliteracy:theoryandevidence.J.Econ.
+Lit.52:5–44
+MadrianBC,SheaDF.2001.Thepowerofsuggestion:inertiain401(k)participationandsavingbehavior.
+Q.J.Econ.116(4):1149–87
+MalmendierU,NagelS.2016.Learningfrominflationexperiences.Q.J.Econ.131:53–87
+MaturanaG,NickersonJ.2019.Teachersteachingteachers:theroleofworkplacepeereffectsinfinancial
+decisions.Rev.Financ.Stud.32:3920–57
+Moskowitz TJ, Vissing-Jørgensen A. 2002. The returns to entrepreneurial investment: a private equity
+premiumpuzzle?Am.Econ.Rev.92:745–78
+MullainathanS,NoethM,SchoarA.2012.Themarketforfinancialadvice:anauditstudy.NBERWork.Pap.
+17929
+O’DonoghueT,RabinM.1999.Doingitnoworlater.Am.Econ.Rev.89(1):103–24
+OlafssonA,PagelM.2018.Theliquidhand-to-mouth:evidencefrompersonalfinancemanagementsoftware.
+Rev.Financ.Stud.31:4398–446
+OlafssonA,PagelM.2022.Theostrichinus:selectiveattentiontofinancialaccounts,income,spending,andliquidity.
+NBERWork.Pap.23945
+OuimetP,TateG.2020.Learningfromcoworkers:peereffectsonindividualinvestmentdecisions.J.Finance
+75:133–72
+PhilipponT.2019.Thefintechopportunity.NBERWork.Pap.22476
+RamadoraiT,RossiAG,UtkusS,WaltherA.2022.Algorithmaversion:theoryandevidencefromrobo-advice.
+SSRNWork.Pap.4301514
+562 D’Acunto (cid:129)Rossi
+
+13:93:60
+6202
+yaM
+40
+,noM
+:nO
+05.91.94.72
+:PI
+)tseug(
+tseuG
+.gro.sweiverlaunna.www
+morf
+dedaolnwoD
+Reher M, Sokolinski S. 2021. Automation and inequality in wealth management. Work. Pap., Univ. North
+Carolina,ChapelHill
+ReherM,SunC.2019.Automatedfinancialmanagement:diversificationandaccount-sizeflexibility.J.Invest.
+Manag.17(2):63–75
+RossiAG,UtkusSP.2020a.Theneedsandwantsinfinancialadvice:humanversusrobo-advising.SSRNWork.
+Pap.3759041
+RossiAG,UtkusSP.2020b.Whobenefitsfromrobo-advising?Evidencefrommachinelearning.SSRNWork.Pap.
+3552671
+RuH,SchoarA.2018.Docreditcardcompaniesscreenforbehavioralbiases?NBERWork.Pap.22360
+StangoV,ZinmanJ.2023.Weareallbehavioral,moreorless:ataxonomyofconsumerdecision-making.Rev.
+Econ.Studies90:1470–98
+SunsteinCR.2017.Nudgesthatfail.Behav.PublicPolicy1:4–25
+SweetE,NandiA,AdamEK,McDadeTW.2013.Thehighpriceofdebt:householdfinancialdebtandits
+impactonmentalandphysicalhealth.Soc.Sci.Med.91:94–100
+TangH.2019.Thevalueofprivacy:evidencefromonlineborrowers.Work.Pap.,HEC,Paris
+ThalerRH,SunsteinCR.2009.Nudge:ImprovingDecisionsAboutHealth,Wealth,andHappiness.NewYork:
+Penguin
+WangX.2018.Cateringinnovation:entrepreneurshipandtheacquisitionmarket.SSRNWork.Pap.3247274
+Weber M, D’Acunto F, Gorodnichenko Y, Coibion O. 2022. The subjective inflation expectations of
+householdsandfirms:measurement,determinants,andimplications.J.Econ.Perspect.36:157–84
+ZinmanJ.2015.Householddebt:facts,puzzles,theories,andpolicies.Annu.Rev.Econ.7:251–76
+www.annualreviews.org (cid:129) Robo-Advice 563

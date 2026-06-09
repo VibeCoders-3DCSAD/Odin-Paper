@@ -1,0 +1,92 @@
+```yaml
+paper_id: "5e8f3a2b-1c4d-4e5f-8a9b-0c1d2e3f4a5b"
+designation: "international"
+title: "A Predictive Framework for Annual Financial Planning using Deep Learning Models"
+authors: "Singh, U.; Anand, U.; Singh, V."
+year: 2025
+venue: "Journal of Scientific Innovation and Advanced Research (JSIAR)"
+odin_topics:
+  - "6.A"
+  - "6.B"
+  - "12.A"
+  - "12.B"
+shorthand_tags:
+  - "/spending-forecast"
+  - "/predictive-modeling"
+  - "/lstm"
+  - "/model-evaluation"
+tldr: "A deep learning framework using LSTM and GRU networks accurately forecasts annual expenses, outperforming traditional statistical methods like ARIMA and linear regression."
+problem_and_motivation: "Traditional forecasting methods (linear regression, ARIMA) fail to capture non-linear and dynamic patterns in financial data, limiting accuracy for long-term annual planning. Deep learning offers potential but lacks comprehensive evaluation for annual expense forecasting. This gap hinders proactive fiscal decision-making."
+approach:
+  - "Data from public government expenditure portals and synthetic augmentation using Gaussian/exponential distributions."
+  - "Preprocessing: forward-fill missing values, min-max normalization, sliding window of 12 months to create sequences."
+  - "Models: RNN baseline, LSTM, and GRU implemented in TensorFlow/Keras with grid search for hyperparameters."
+  - "Temporal split: 70% training, 15% validation, 15% testing to maintain chronological order."
+  - "Evaluation metrics: MAE, RMSE, and MAPE. Early stopping and dropout used to prevent overfitting."
+findings:
+  - "num: LSTM achieved MAE 1872.56, RMSE 2614.32, and MAPE 7.02%, the lowest among all models."
+  - "num: GRU performed slightly worse with MAE 1950.45 and MAPE 7.48%, still outperforming RNN."
+  - "num: RNN had MAE 2450.13 and MAPE 9.85%, showing gradient vanishing issues."
+  - "Deep learning models capture long-term dependencies and seasonal variations better than ARIMA and linear regression."
+  - "LSTM predictions closely followed actual annual expense trends in the test period."
+key_figures_tables:
+  - "Table II: Performance comparison of RNN, LSTM, GRU → LSTM best on all metrics."
+  - "Figure 4: LSTM predicted vs actual annual expenses → Predictions closely follow true trend."
+  - "Figure 5: Training and validation loss per epoch for LSTM → Smooth convergence without overfitting."
+key_equations:
+  - equation: "None."
+    explanation: ""
+definitions:
+  - term: "LSTM"
+    definition: "Long Short-Term Memory, a recurrent neural network variant that handles long-term dependencies."
+  - term: "GRU"
+    definition: "Gated Recurrent Unit, a simplified RNN variant with computational efficiency."
+  - term: "RNN"
+    definition: "Recurrent Neural Network, a baseline sequence model prone to vanishing gradients."
+  - term: "MAE"
+    definition: "Mean Absolute Error, average absolute difference between predicted and actual values."
+  - term: "RMSE"
+    definition: "Root Mean Squared Error, square root of average squared errors."
+  - term: "MAPE"
+    definition: "Mean Absolute Percentage Error, average percentage difference."
+critical_citations:
+  - "[Siami-Namini et al., 2019] — ARIMA vs LSTM comparison in time series forecasting."
+  - "[Fischer and Krauss, 2018] — Deep learning for financial market prediction."
+  - "[Hochreiter and Schmidhuber, 1997] — Original LSTM architecture."
+relevance:
+  topics:
+    - code: "6.A"
+      name: "Predictive Modeling in Personal Finance Systems"
+      justification: "Paper benchmarks LSTM and GRU for annual expense forecasting."
+    - code: "6.B"
+      name: "Spending Forecasting Algorithm"
+      justification: "Proposes a deep learning framework specifically for future expense prediction."
+    - code: "12.A"
+      name: "Evaluation Frameworks for Personal Finance Systems"
+      justification: "Uses MAE, RMSE, MAPE and temporal train/validation/test splits."
+    - code: "12.B"
+      name: "Evaluation of Algorithmic Modules"
+      justification: "Compares deep learning models against traditional statistical baselines."
+  contribution: "The paper provides a validated deep learning approach for annual spending forecasting, directly applicable to Odin's predictive module. Its comparative evaluation of LSTM vs GRU informs algorithm selection for Odin's spending forecast engine. The preprocessing pipeline (sliding windows, normalization) and temporal validation strategy offer a blueprint for Odin's data handling and system evaluation components. The results demonstrate that LSTM achieves 7.02% MAPE, establishing a benchmark for Odin's forecasting accuracy targets."
+  directly_justifies:
+    - "LSTM achieves 7.02% MAPE for annual expense forecasting, outperforming GRU and RNN."
+    - "Deep learning models capture long-term dependencies and seasonal patterns better than ARIMA."
+    - "Sliding window of 12 months is effective for annual expense prediction."
+    - "Temporal train/validation/test split preserves chronological order for realistic evaluation."
+  limits:
+    - "Paper uses synthetic data augmentation; real-world noisy data may degrade performance."
+    - "Only annual forecasting tested; monthly or quarterly performance not evaluated."
+    - "No analysis of data privacy or user trust aspects."
+  mapping_rationale: "The paper focuses exclusively on spending forecasting using deep learning, which directly maps to domains 'Spending forecasting' (codes 6.A, 6.B) and 'System evaluation' (12.A, 12.B). No content on behavioral profiling, budget recommendation, anomaly detection, mobile design, privacy, retention, or savings/debt management. Codes 1.A-1.C (Filipino demographic) are irrelevant as the study uses general financial data from India. Code 3.A-3.B (expense categorization) is not addressed. The paper is algorithm-specific due to LSTM/GRU implementation, but designation remains 'international' because authors are from India and no Philippine context."
+limitations:
+  - "Dependency on high-quality, complete datasets; incomplete or noisy data may hinder performance. [unacknowledged]"
+  - "Performance may vary with different time horizons (e.g., monthly or quarterly). [unacknowledged]"
+  - "Models could be sensitive to overfitting on smaller datasets if not carefully tuned."
+  - "No external economic factors (inflation, policy changes) incorporated into predictions."
+remember_this:
+  - "LSTM forecasts annual expenses with 7.02% MAPE, beating GRU and RNN."
+  - "Deep learning outperforms ARIMA and linear regression for non-linear financial patterns."
+  - "Sliding window of 12 months effectively captures seasonal spending cycles."
+  - "Temporal train-validation-test split is critical for realistic time series evaluation."
+  - "GRU offers nearly LSTM accuracy with lower computational cost."
+```
