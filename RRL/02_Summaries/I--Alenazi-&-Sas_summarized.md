@@ -1,0 +1,91 @@
+```yaml
+paper_id: "10.14236/ewic/BCSHCI2023.1"
+designation: "international"
+title: "Evaluating Budgeting Apps: Limited Support for Budgeting Compared to Tracking"
+authors: "Alenazi, M.; Sas, C."
+year: 2023
+venue: "BCS HCI 2023 Conference"
+odin_topics:
+  - "3.A"
+  - "3.B"
+  - "4.A"
+  - "4.B"
+  - "7.A"
+shorthand_tags:
+  - "expense-categorization"
+  - "category-design"
+  - "personal-finance-landscape"
+  - "system-limitations"
+  - "budgeting-strategies"
+tldr: "A functionality review of 45 top-rated budgeting apps finds that one third lack budgeting support and most fail to differentiate accounts and transactions as mental accounting theory suggests."
+problem_and_motivation: "Digital budgeting apps are popular but little research has evaluated their functionality. The gap is understanding whether apps support budgeting informed by mental accounting theory beyond simple expense tracking."
+approach:
+  - "Searched Google Play and Apple Store UK with keywords 'budget', 'budgeting', 'finance' yielding 1335 apps."
+  - "Applied inclusion criteria: free, top-rated (≥4 stars, ≥1000 reviews), no bank access required, resulting in 45 apps."
+  - "Analyzed app descriptions and performed expert evaluation of all 45 apps on Android and 5 on iOS."
+  - "Used mental accounting theory (Thaler, 1999) to identify functionalities for funds, expenditures, categories, and envelopes."
+  - "Iterative discussion between two authors to reconcile identified functionalities, especially around accounts and transactions."
+findings:
+  - "num: 33 out of 45 apps support budgeting, but only 26 use multiple budgets (money envelopes)."
+  - "num: 7 apps use a single budget for all expenses; 4 of the 26 apps offer multiple budgets only as a premium feature."
+  - "num: 44 apps support depositing funds, 45 support expenses, but only 11 support saving accounts."
+  - "num: 35 apps support transfer transactions between accounts."
+  - "Terminology for accounts is inconsistent, drawn from banking or everyday practices, with no clear distinction among income, expense, and saving accounts."
+  - "Only two apps explicitly mention money envelope systems; no app references mental accounting theory directly."
+  - "Most apps provide predefined income and expense categories, but 15 apps offer subcategories and few allow user-defined categories."
+key_figures_tables:
+  - "Figure 1: PRISMA diagram of app selection process → 1335 apps reduced to 45 for analysis."
+  - "Table 1: Functionalities for funds and expenses tracking → Most apps support income/expense categories but gaps in time/currency exist."
+  - "Table 2: Transaction accounts and budget types → Only 26 apps support multiple budgets (money envelopes)."
+key_equations:
+  - equation: "None."
+    explanation: ""
+definitions:
+  - term: "Mental accounting"
+    definition: "Behavioral economics theory describing how people partition money into separate mental accounts for specific purposes."
+  - term: "Money envelopes"
+    definition: "Physical or digital representation of a mental account for a specific expense category."
+  - term: "Transfer transaction"
+    definition: "Movement of money between accounts (e.g., from income to expense account)."
+critical_citations:
+  - "[Thaler, 1999] — Foundational mental accounting theory."
+  - "[Snow and Vyas, 2015] — Prior work on analogue budgeting tools and envelopes."
+relevance:
+  topics:
+    - code: "3.A"
+      name: "Expense Categorization Frameworks"
+      justification: "Paper evaluates how apps group income and expense transactions into categories and subcategories."
+    - code: "3.B"
+      name: "Expense Category Design Considerations"
+      justification: "Identifies limitations in predefined vs user-defined categories and subcategory support."
+    - code: "4.A"
+      name: "Landscape of Existing Personal Finance Systems"
+      justification: "Systematic functionality review of 45 top-rated budgeting apps."
+    - code: "4.B"
+      name: "Limitations and Gaps in Existing Systems"
+      justification: "Finds insufficient budgeting support, inconsistent terminology, and lack of mental accounting grounding."
+    - code: "7.A"
+      name: "Budgeting Strategies as Domain Knowledge"
+      justification: "Evaluates budgeting strategies (single budget vs money envelopes) against mental accounting theory."
+  contribution: "This paper's evaluation of budgeting app functionalities informs Odin's expense categorization module by highlighting the need for clear category hierarchies and subcategories. The finding that most apps lack mental accounting-based budgeting justifies Odin's budget recommendation module to implement money envelopes rather than single budgets. The identified terminology inconsistencies for accounts and transactions guide Odin's data model design to distinguish income, expense, and saving accounts. The paper's call for grounding budgeting in actual financial behaviour supports Odin's design for transaction import and bank statement comparison."
+  directly_justifies:
+    - "Budgeting apps often fail to differentiate between tracking expenses and monitoring against allocated budgets."
+    - "Only 58% of top-rated apps use multiple budgets (money envelopes) as mental accounting theory suggests."
+    - "Income and expense accounts are conflated in most budgeting apps, limiting accurate financial tracking."
+    - "Most apps do not support saving accounts, a gap for savings goal management."
+  limits:
+    - "Study limited to free, top-rated apps with ≥1000 reviews, excluding paid or less popular apps."
+    - "Expert evaluation may miss actual user experiences and usability issues."
+    - "Only UK app stores, not representative of global or Filipino market."
+  mapping_rationale: "The paper was screened against Odin's domains. Functional domain 'Expense categorization' (3.A,3.B) applies because the paper evaluates how apps categorize income/expense transactions and subcategories. 'Landscape of existing systems' (4.A,4.B) directly applies as a functionality review identifying gaps. 'Budgeting strategies' (7.A) applies via mental accounting theory and money envelopes. Domains like 'Behavioral profiling', 'Spending forecasting', 'Anomaly detection' were rejected as the paper does not address predictive or classification algorithms. 'Mobile-first design' was borderline but not a focus; the paper critiques functionality not UX principles. 'Data privacy' and 'User retention' are not discussed."
+limitations:
+  - "Expert evaluation may not reflect actual user behavior [unacknowledged]."
+  - "Only UK app stores, limiting cultural generalizability to Filipino users [unacknowledged]."
+  - "No evaluation of premium features or user engagement metrics [unacknowledged]."
+  - "Paper does not report inter-rater reliability for the expert evaluation [unacknowledged]."
+remember_this:
+  - "One third of top budgeting apps lack proper budgeting support."
+  - "Only 26 of 45 apps use multiple money envelopes for budgeting."
+  - "Most apps conflate income and expense accounts."
+  - "Mental accounting theory is underutilized in budgeting app design."
+```
