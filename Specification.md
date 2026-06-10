@@ -767,9 +767,11 @@
 
     1.1. Fifty‑Thirty‑Twenty strategy.
 
-        1.1.1. Allocates fifty percent of the total budget to Essentials, thirty percent to Discretionary, and twenty percent to Financial Allocation (savings and debt prepayment).
+        1.1.1. Allocates fifty percent of the total budget to Needs (Essentials + Obligatory combined), thirty percent to Discretionary, and twenty percent to Financial Allocation (savings and debt prepayment).
         
-        1.1.2. Recommended as a general starting point for users with stable income.
+        1.1.2. The Obligatory portion within the 50% allocation is first filled by the sum of all fixed obligations (rent, debt minimums, insurance premiums, government contributions, and documented family support). Any remaining amount within the 50% may be allocated to Essentials.
+        
+        1.1.3. Recommended as a general starting point for users with stable income.
 
     1.2. Zero‑Based strategy.
 
@@ -849,7 +851,7 @@
         
         4.1.2. This equation ensures that the total budget available for spending is income after setting aside savings.
 
-    4.2. Obligatory minimum constraint. The allocation to Obligatory categories must be at least the sum of all minimum debt payments and insurance premiums.
+    4.2. Obligatory minimum constraint. The allocation to Obligatory categories must be at least the sum of all rent payments, minimum debt payments, insurance premiums, government‑mandated contributions, documented family support, and essential commuting/communication expenses (as defined in Article IV, Section 2.2).
 
         4.2.1. This is a hard constraint that cannot be relaxed.
 
@@ -857,11 +859,11 @@
 
         4.3.1. This constraint may be relaxed in the infeasibility handling procedure (see subsection 5).
 
-    4.4. Essentials floor constraint. The allocation to the Essentials group must be at least fifty percent of the total budget (forecast income after savings).
+    4.4. Combined Needs floor constraint (replaces Essentials floor when using the 50‑30‑20 strategy). For the Fifty‑Thirty‑Twenty strategy only, the sum of allocations to Essentials and Obligatory groups must be at least fifty percent of the total budget (forecast income after savings). For other strategies, the individual Essentials floor below applies.
 
-        4.4.1. This is a spending floor designed to ensure basic needs are covered.
+        4.4.1. Essentials‑only floor (default for non‑50‑30‑20 strategies). The allocation to the Essentials group must be at least thirty percent of the total budget. (This lower value prevents over‑constraining when Obligatory already consumes a large share.)
         
-        4.4.2. This constraint may be relaxed (see subsection 5).
+        4.4.2. These floors may be relaxed during infeasibility handling (see subsection 5).
 
     4.5. Discretionary cap constraint. The allocation to the Discretionary group must not exceed thirty percent of the total budget.
 
@@ -884,12 +886,12 @@
 5. Infeasibility handling. When the Linear Programming problem is infeasible (no allocation satisfies all hard constraints simultaneously), the System shall apply sequential relaxation.
 
     5.1. Step 1. Reduce the savings constraint (Financial Allocation minimum) to zero.
-
-    5.2. Step 2. If still infeasible, reduce the Essentials floor from fifty percent to forty percent, then to thirty percent, then to twenty percent.
-
-    5.3. Step 3. If still infeasible after reducing the Essentials floor to twenty percent, remove the Essentials floor entirely.
-
-    5.4. Step 4. If the problem remains infeasible with only the debt minimum constraint and non‑negativity (which is always feasible), the System shall display a message: "Your minimum debt payments and essential expenses exceed your predicted income by [amount in pesos]. Odin cannot create a balanced budget. Please consider debt restructuring or income increase. Contact a financial counselor if needed."
+    
+    5.2. Step 2. If still infeasible, and the active strategy is Fifty‑Thirty‑Twenty, reduce the combined Needs floor (Essentials+Obligatory) from 50% to 40%, then to 30%, then to 20%. If another strategy is active, reduce the Essentials‑only floor from 30% to 20%, then to 10%, then to zero.
+    
+    5.3. Step 3. If still infeasible after reducing the floor to zero, remove all floor constraints entirely.
+    
+    5.4. Step 4. If the problem remains infeasible with only the Obligatory minimum sum constraint and non‑negativity (which is always feasible), the System shall display the message as originally specified.
 
 ### Section 5. Surplus Handling
 
@@ -952,6 +954,8 @@
     2.1. Once accepted, the budget becomes active, and actual spending is tracked against it.
 
 3. Overspending alerts (Article XI) compare actual spending to the accepted budget allocations.
+
+> NOTE: Clarification on Obligatory group usage. The budget recommendation module always enforces the Obligatory minimum sum constraint (Section 4.2). This ensures rent, debt payments, and other fixed obligations are funded before any discretionary or savings allocation. When the user selects the Fifty‑Thirty‑Twenty strategy, the combined floor (Essentials+Obligatory ≥ 50%) applies in addition to the minimum sum constraint.
 
 ---
 
