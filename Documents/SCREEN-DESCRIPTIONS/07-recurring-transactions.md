@@ -8,6 +8,7 @@ This screen manages scheduled income and expense templates so users do not need 
 
 - Recurring transaction list.
 - Create recurring income and recurring expense templates.
+- Support for predictable salary, rent, subscriptions, bills, family contributions, government contributions, paluwagan, and community obligations.
 - Frequency settings.
 - Next occurrence preview.
 - Pause, resume, edit, and stop actions.
@@ -20,6 +21,7 @@ This screen manages scheduled income and expense templates so users do not need 
 - Frequency selector.
 - Start date and optional end date.
 - Next posting date.
+- Category and broad group display.
 - Pause/resume toggle.
 - Reminder toggle.
 - Create template button.
@@ -32,6 +34,7 @@ This screen manages scheduled income and expense templates so users do not need 
 - Pause or resume a template.
 - Stop a recurring template.
 - Confirm or skip an upcoming occurrence.
+- Configure reminders before expected posting dates.
 
 ## States
 
@@ -39,6 +42,7 @@ This screen manages scheduled income and expense templates so users do not need 
 - Active templates.
 - Paused templates.
 - Upcoming due templates.
+- Skipped occurrence.
 - Template edit mode.
 - Confirmation required.
 
@@ -47,6 +51,7 @@ This screen manages scheduled income and expense templates so users do not need 
 - Transaction ledger.
 - Recurring transaction templates.
 - Category taxonomy.
+- Alerts and notifications module.
 - Notification preferences.
 
 ## Validation Rules
@@ -56,6 +61,7 @@ This screen manages scheduled income and expense templates so users do not need 
 - Start date is required.
 - End date cannot be before start date.
 - Expense templates require a valid category.
+- Generated transactions must preserve a link back to the source template.
 
 ## Acceptance Criteria
 
@@ -64,3 +70,4 @@ This screen manages scheduled income and expense templates so users do not need 
 - Paused templates do not generate new transactions.
 - Edited templates affect future occurrences without corrupting past transactions.
 - Recurring items can feed dashboard, budget, forecast, and alert logic.
+- Recurring items can suppress misleading anomaly alerts for predictable obligations.

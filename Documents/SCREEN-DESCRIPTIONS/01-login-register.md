@@ -9,7 +9,7 @@ This screen gives users secure access to Odin and separates personal financial r
 - A login form for existing users.
 - A registration form for new users.
 - A password recovery entry point.
-- A short privacy and data-use notice before account creation.
+- A short privacy and data-use notice before account creation and onboarding.
 - A visible link to proceed to onboarding after successful registration.
 - A secure logout destination for expired or ended sessions.
 
@@ -23,6 +23,7 @@ This screen gives users secure access to Odin and separates personal financial r
 - Forgot password link.
 - Privacy notice link.
 - Terms or consent checkbox for registration.
+- Data collection summary for account, onboarding, and manual financial records.
 - Error message area.
 - Loading state for authentication requests.
 
@@ -31,7 +32,7 @@ This screen gives users secure access to Odin and separates personal financial r
 - Create a new Odin account.
 - Log in to an existing account.
 - Request password recovery.
-- Accept required privacy and data-use terms.
+- Review and accept required privacy and data-use terms.
 - Switch between login and registration modes.
 
 ## States
@@ -50,6 +51,8 @@ This screen gives users secure access to Odin and separates personal financial r
 - User account identifier.
 - Authentication token or session state.
 - Consent timestamp.
+- Consent version.
+- Privacy notice version.
 - Account creation timestamp.
 
 ## Validation Rules
@@ -58,6 +61,7 @@ This screen gives users secure access to Odin and separates personal financial r
 - Password must meet the configured security rules.
 - Registration requires accepted consent.
 - Login errors must not reveal whether the email or password was the incorrect field.
+- Consent must be stored with timestamp and version for later privacy review.
 
 ## Acceptance Criteria
 
@@ -66,4 +70,5 @@ This screen gives users secure access to Odin and separates personal financial r
 - Returning users can log in and are routed to onboarding if onboarding is incomplete.
 - Invalid credentials show a clear, non-sensitive error.
 - Registration cannot complete without required consent.
+- New users understand that Odin stores manual financial records and onboarding answers before they proceed.
 - Session expiration returns the user to this screen with a clear message.

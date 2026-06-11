@@ -8,16 +8,18 @@ This screen lets users review, search, filter, edit, and delete their logged fin
 
 - Chronological transaction list.
 - Search by note, category, or amount.
-- Filters for type, category, date range, recurring status, and amount range.
+- Filters for type, category, broad category, date range, recurring status, and amount range.
 - Transaction detail view.
 - Edit and delete actions.
 - Summary totals for the selected range.
+- Review modes for weekly, semi-monthly, monthly, and custom date ranges.
 
 ## Primary UI Elements
 
 - Date range selector.
 - Search field.
 - Filter controls.
+- Broad category filter.
 - Transaction list grouped by date.
 - Income, expense, and transfer indicators.
 - Summary totals.
@@ -32,6 +34,7 @@ This screen lets users review, search, filter, edit, and delete their logged fin
 - Edit a transaction.
 - Delete a transaction.
 - Review date-range totals.
+- Review whether a transaction came from manual entry or a recurring template.
 
 ## States
 
@@ -41,12 +44,14 @@ This screen lets users review, search, filter, edit, and delete their logged fin
 - Loading.
 - Edit mode.
 - Delete confirmation.
+- Recurring-generated transaction.
 - Error state.
 
 ## Data Dependencies
 
 - Transaction ledger.
 - Category taxonomy.
+- Broad forecast category mapping.
 - Recurring template link, where applicable.
 - Budget period metadata.
 
@@ -55,6 +60,7 @@ This screen lets users review, search, filter, edit, and delete their logged fin
 - Date filters must use valid date ranges.
 - Deletes require confirmation.
 - Edited transactions must pass the same validation as add transaction.
+- Edited transfers must continue to be excluded from income and expense totals.
 
 ## Acceptance Criteria
 
@@ -63,3 +69,4 @@ This screen lets users review, search, filter, edit, and delete their logged fin
 - Users can delete accidental transactions after confirmation.
 - Filters and search update the visible list correctly.
 - Transaction history supports dashboard, reports, forecasts, and recommendations as the source ledger.
+- History remains the user-facing view of raw transactions before model-specific datasets are derived.

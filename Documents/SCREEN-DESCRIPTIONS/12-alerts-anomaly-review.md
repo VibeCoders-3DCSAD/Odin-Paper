@@ -10,9 +10,12 @@ This screen lets users review budget warnings, anomaly alerts, forecast-based ad
 - Alert severity and type labels.
 - Anomaly detail view.
 - Explanation for why an alert was generated.
+- Budget-risk and forecast-risk detail views.
 - Acknowledge, dismiss, and mark intentional actions.
 - Whitelist or suppress similar future alerts where appropriate.
 - Alert preference links.
+- Grouping and cooldown behavior to reduce alert fatigue.
+- Cultural exception handling for expected high-spending periods or obligations.
 
 ## Primary UI Elements
 
@@ -21,6 +24,8 @@ This screen lets users review budget warnings, anomaly alerts, forecast-based ad
 - Severity filter.
 - Alert detail panel.
 - Explanation text.
+- Trigger source summary.
+- Cooldown or suppression status.
 - Acknowledge button.
 - Mark intentional button.
 - Dismiss button.
@@ -35,6 +40,7 @@ This screen lets users review budget warnings, anomaly alerts, forecast-based ad
 - Mark anomaly as intentional.
 - Suppress repeated intentional alerts.
 - Navigate to related transaction, budget, or forecast.
+- Open alert frequency controls.
 
 ## States
 
@@ -44,6 +50,8 @@ This screen lets users review budget warnings, anomaly alerts, forecast-based ad
 - Dismissed alerts.
 - Anomaly pending review.
 - Suppressed future alert rule.
+- Grouped alerts.
+- Cooldown active.
 - Loading.
 
 ## Data Dependencies
@@ -55,6 +63,8 @@ This screen lets users review budget warnings, anomaly alerts, forecast-based ad
 - Forecast output.
 - Notification preferences.
 - User whitelist rules.
+- Recurring templates.
+- Cultural or calendar exception rules.
 
 ## Validation Rules
 
@@ -62,6 +72,7 @@ This screen lets users review budget warnings, anomaly alerts, forecast-based ad
 - User acknowledgements must be stored.
 - Intentional anomaly marking must not delete the original transaction.
 - Suppression rules must be reversible.
+- Alerts for culturally expected spending must explain the context instead of treating the spending as automatically wrong.
 
 ## Acceptance Criteria
 
@@ -70,3 +81,4 @@ This screen lets users review budget warnings, anomaly alerts, forecast-based ad
 - Users can mark planned outliers as intentional.
 - Alert explanations are specific enough to be actionable.
 - Alert behavior respects cooldowns and user preferences.
+- Alert frequency controls help prevent notification fatigue.

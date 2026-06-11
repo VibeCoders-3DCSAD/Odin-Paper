@@ -12,9 +12,11 @@ This screen shows expected future spending and related financial projections so 
 - Forecast horizon selector.
 - Cold-start indicator.
 - Personalized forecast indicator.
+- Forecast metadata showing whether the result is personalized or fallback-based.
 - Forecast explanation summary.
 - Forecast-to-budget comparison.
 - Forecast history or trend view when data exists.
+- Payday, calendar, and culturally cyclical spending context where available.
 
 ## Primary UI Elements
 
@@ -29,6 +31,7 @@ This screen shows expected future spending and related financial projections so 
 - Legend or direct labels for the four lines.
 - Forecast confidence or status label.
 - Cold-start notice.
+- Explanation of major forecast drivers.
 - Budget comparison section.
 - Data freshness timestamp.
 
@@ -38,6 +41,7 @@ This screen shows expected future spending and related financial projections so 
 - Switch between total and category views.
 - Toggle individual category lines on or off.
 - Review why the forecast looks high or low.
+- Review whether the forecast is based on personal history or profile/population baselines.
 - Compare forecast against budget.
 - Navigate to budget recommendation.
 
@@ -55,8 +59,9 @@ This screen shows expected future spending and related financial projections so 
 - Transaction history.
 - User profile.
 - Calendar and payday context.
-- Seasonal/cultural event context, where modeled.
+- Seasonal or cultural event context, including payday effects, holidays, enrollment periods, family support, paluwagan, and community contributions where modeled.
 - LSTM forecast output or fallback forecast output.
+- Forecast metadata and explanation fields.
 - Active budget.
 
 ## Validation Rules
@@ -64,6 +69,7 @@ This screen shows expected future spending and related financial projections so 
 - Cold-start forecasts must be clearly labeled.
 - Forecast periods must be valid and consistent.
 - Forecast outputs must identify whether they are fallback or personalized.
+- Forecast outputs must include enough explanation for user-facing display.
 - The graph must use the same broad category names and colors consistently across dashboard, forecast, reports, and budget recommendation screens.
 - The graph must remain readable on mobile; if labels crowd the chart, use a legend or selectable category chips instead of overlapping labels.
 
@@ -74,5 +80,6 @@ This screen shows expected future spending and related financial projections so 
 - Users can see a next-month trend graph for Essentials, Discretionary, Financial Allocation, and Obligatory spending.
 - Users can distinguish the four forecast lines through color and labels.
 - The screen explains when forecasts are population-based instead of personalized.
+- Forecasts account for paydays and calendar cycles where data is available.
 - Forecasts can be compared against the active budget.
 - Forecast output can feed budget recommendation and dashboard highlights.
