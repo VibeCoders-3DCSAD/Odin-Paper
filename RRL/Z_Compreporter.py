@@ -98,13 +98,13 @@ def format_markdown_entry(paper: Dict[str, Any], filename: str) -> str:
         md += "\n"
 
     if directly_justifies:
-        md += "**✅ Supports Odin (direct justifications):**\n"
+        md += "**Supports Odin (direct justifications):**\n"
         for claim in truncate_list(directly_justifies, 3):
             md += f"- {claim}\n"
         md += "\n"
 
     if limitations_list:
-        md += "**⚠️ Limitations / Contradictions for Odin:**\n"
+        md += "**Limitations / Contradictions for Odin:**\n"
         for lim in truncate_list(limitations_list, 3):
             md += f"- {lim}\n"
         md += "\n"
@@ -186,7 +186,7 @@ def main():
     report_lines.append("")
     report_lines.append("The summaries above contain **essential extracts** – enough to understand the paper's relevance to Odin, including supporting evidence and limitations.")
     report_lines.append("If you need additional details not shown here (e.g., **critical citations, definitions, equations, full methodology, or the complete mapping rationale**),")
-    report_lines.append("**ask the user to send the original summary file (`.md`)** for the specific paper(s) of interest.")
+    report_lines.append("**ask the user to send the original summary file (`<filename>_summarized.md`) or the converted MarkItDown file(`<filename>_marked.md`)** for the specific paper(s) of interest.")
     report_lines.append("Do not invent missing information. Acknowledge gaps when they exist.")
 
     output_path.write_text("\n".join(report_lines), encoding='utf-8')
