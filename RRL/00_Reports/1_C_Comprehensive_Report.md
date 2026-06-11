@@ -1,164 +1,109 @@
 # Comprehensive Report for Subtopic: `1.C`
 
-**Total relevant papers:** 59
+**Total files:** 57
 
 This report includes problem/motivation, approach, key findings, support for Odin, and limitations/contradictions.
 
 ---
 
 
-## Consumer Expectations Survey Report 1st Quarter 2026
-**Filename:** `L--Bangko_Sentral_ng_Pilipinas-2026_summarized.md`  
-**Authors:** Bangko Sentral ng Pilipinas (2026)  
-**ID:** `b3e5c6d7-8a9f-4b2c-9d1e-2f3a4b5c6d7e`  
-**Odin Topics:** 1.C, 2.B, 6.B, 13.A, 13.B  
+## Digital Finance Usage and Its Impact on Consumer Economic Behavior Based on National Data
+**Filename:** `I--Askhiyah_summarized.md`  
+**Authors:** Askhiyah, U. M. (2026)  
+**ID:** `10.59784/journaljoae.v1i1.37`  
+**Odin Topics:** 1.C, 5.A, 7.A, 13.A, 13.B  
 
-**TLDR:** Consumer sentiment improved in Q1 2026 with less pessimistic outlook, but year-ahead confidence decreased due to concerns over corruption, inflation, and government policies.
+**TLDR:** Digital finance adoption increases household consumption by 8.7% and financial literacy by 1.4 points but reduces savings balances by 5.8% and raises debt-to-income ratios, with heterogeneous effects by age and income.
 
-**Problem & Motivation:** Understanding consumer expectations is crucial for economic forecasting and policy formulation. The BSP conducts quarterly surveys to capture sentiment on income, spending, savings, and debt. Prior data showed pessimistic trends, requiring timely assessment of shifts in confidence.
+**Problem & Motivation:** The comprehensive impact of digital finance on consumer economic behavior remains inadequately understood despite widespread adoption. Existing research produces mixed findings on whether digital finance promotes prudent behavior or encourages overconsumption and overindebtedness. Robust causal evidence using nationally representative data is needed to inform policy and mitigate risks for vulnerable populations.
 
 **Approach (summary):**
-- Data from 5,358 Philippine households (NCR and AONCR) surveyed 22 January to 5 February 2026.
-- Sample drawn from PSA 2023 Geo-Enabled Master Sample using stratified multi-stage probability sampling.
-- Confidence index computed as percentage of optimistic minus pessimistic responses.
+- Data from 45,678 households in a national survey with stratified random sampling.
+- Propensity score matching with kernel and radius algorithms to control selection bias.
+- Instrumental variable estimation using regional digital infrastructure density as instrument.
 
 **Key Findings (selected):**
-- num: Overall confidence index improved from -22.2% to -15.8% in Q1 2026.
-- num: Year-ahead confidence index decreased from 11.8% to 9.6%.
-- num: Saving intention index increased from 4.6% to 12.4%.
-- num: Borrowing intention index for next quarter improved from -71.7% to -69.5%.
-
-**Supports Odin (direct justifications):**
-- Consumer confidence improved by 6.4 percentage points from Q4 2025 to Q1 2026.
-- Saving intention index rose from 4.6% to 12.4% in one quarter.
-- Only 26.1% of saving households set aside at least 10% of monthly income.
+- "num: Digital finance users show 8.7% higher consumption expenditure (ATT=742k Rupiah, p<0.001)."
+- "num: Savings balances are 5.8% lower for digital finance users despite higher formal savings account ownership."
+- "num: Financial literacy scores increase by 1.4 points (on 10-point scale) post-adoption."
+- "num: Debt-to-income ratio is 6.4 percentage points higher for digital finance users (34.7% vs 28.3%)."
 
 **Limitations / Contradictions for Odin:**
-- Survey conducted before the US-Israel-Iran conflict onset in February 2026 (acknowledged).
-- Sample excludes individuals without stable address [unacknowledged].
-- Only 5,358 households, may not fully represent young professionals [unacknowledged].
+- "Cross-sectional and short-term panel data (max 24 months) cannot assess long-term wealth effects. [unacknowledged]"
+- Self-reported survey data may introduce recall and social desirability bias.
+- No direct measurement of impulse spending or self-control mechanisms.
 
 **Key takeaways:**
-- Consumer sentiment less pessimistic in Q1 2026 but year-ahead outlook weakened.
-- Saving intention index jumped to 12.4%, highest since 2021.
-- Majority of households (58.6%) target housing under ₱450,000.
+- Digital finance increases consumption by 8.7% but reduces savings by 5.8%.
+- Financial literacy improves by 1.4 points after digital finance adoption.
+- Young lower-middle-income users face highest debt and late payment risks.
 
 ---
 
 
-## Determinants of Saving Behavior Among Filipino University Students: A Psychological and Social Perspective
-**Filename:** `L--Claros-et_al_summarized.md`  
-**Authors:** Claros, J. R.; Gaza, J. A.; Villaverde, Z. A.; Angeles, I. T. (2026)  
-**ID:** `10.5281/ZENODO.18884267`  
-**Odin Topics:** 1.C, 5.A, 13.A  
+## FINANCIAL HARDSHIPS OF TRICENARIANS EDUCATORS: PREPARING FOR THE FUTURE AMID DEBT CHALLENGES
+**Filename:** `L--Navarro-&-Bantulo_summarized.md`  
+**Authors:** Navarro, R.; Bantulo, J. (2026)  
+**ID:** `10.46827/ejes.v13i5.6659`  
+**Odin Topics:** 1.C, 2.A, 5.A, 7.A, 13.A, 13.B  
 
-**TLDR:** Financial literacy and parental influence positively predict saving behavior among Filipino university students, while peer influence is insignificant and self-control shows a negative effect.
+**TLDR:** Tricenarian Filipino educators face financial strain, mental burden, work disruption, and postponed aspirations, coping through budgeting, emotional outlets, and debt while developing financial discipline and career focus.
 
-**Problem & Motivation:** University students face increasing financial pressure and low savings rates despite formal financial education. Few studies examine psychological and social determinants of saving behavior in the Philippine university context. There is a gap in understanding how financial literacy, parental influence, peer influence, and self-control contribute to intentional saving among Filipino young adults.
+**Problem & Motivation:** No localized research exists on how tricenarian educators in Kiamba 1 District manage debt while preparing for future stability. Financial hardship affects teacher well-being, job performance, and retention. The study aims to document lived experiences to inform support mechanisms and policy.
 
 **Approach (summary):**
-- Quantitative explanatory design using Partial Least Squares Structural Equation Modeling (PLS-SEM) with 377 university students aged 18-25 from private and public universities across the Philippines.
-- Non-probability purposive sampling targeting enrolled students managing personal allowances or income sources.
-- Structured questionnaire with validated six-point Likert scales measuring financial literacy, parental influence, peer influence, self-control, and saving behavior.
+- Qualitative single case study at Platon Esperanza Taguding Elementary School in Philippines.
+- Five purposively selected educators aged 30-39 with 8-15 years teaching experience.
+- Semi-structured interviews audio-recorded and transcribed.
 
 **Key Findings (selected):**
-- Financial literacy has the strongest positive effect on saving behavior (β=0.684, p<.001).
-- Parental influence shows a significant positive effect on saving behavior (β=0.284, p<.001).
-- Peer influence does not significantly affect saving behavior (β=-0.041, p=0.423).
-- Self-control exhibits a significant negative effect on saving behavior (β=-0.201, p<.001), contradicting conventional assumptions.
-
-**Supports Odin (direct justifications):**
-- Financial literacy is the strongest predictor of saving behavior among university students (β=0.684).
-- Parental influence positively affects saving behavior (β=0.284), justifying family-centered financial features.
-- Peer influence does not significantly affect saving behavior among Filipino university students.
+- Major challenges: financial strain, mental burden, work distraction, missed career opportunities, emotional distress, postponed aspirations, persistent debt pressure.
+- Coping mechanisms include financial planning, controlled spending, emotional release, incurring debt, social support, personal outlets, saving extra income, self-care, budget monitoring.
+- Insights: empowered financial decisions, financial growth, aspiring for excellence, thinking before spending, career motivation, long-term planning, debt awareness.
 
 **Limitations / Contradictions for Odin:**
-- Lack of demographic data like age and gender in the survey instrument limits subgroup analysis.
-- Sample includes emerging adults who rely on parental allowance, but demographic controls needed for generalizability.
-- Self-control's negative effect may be suppressed by financial literacy, requiring further research. [unacknowledged]
+- Small sample size (n=5) limits generalizability.
+- Single school setting may not represent all tricenarian educators.
+- Self-reported data subject to recall and social desirability bias [unacknowledged].
 
 **Key takeaways:**
-- Financial literacy is the strongest predictor of student saving behavior.
-- Parental influence shapes saving habits more than peer influence.
-- Higher self-control unexpectedly reduces saving behavior in this sample.
+- Tricenarian educators use envelope budgeting and expense tracking to cope.
+- Debt is both a burden and a survival strategy for Filipino teachers.
+- Financial discipline and career focus emerge from hardship.
 
 ---
 
 
-## Ka-abag o Babag? Exploring the Lived Experiences in the Context of Financial Well-being of Microfinance Borrowers
-**Filename:** `L--Estorba-et_al_summarized.md`  
-**Authors:** Estorba, V. L.; Relativo, J. L. C.; Rellon, S. B. S.; Regis, K. J. M. (2026)  
-**ID:** `10.47772/IJRISS.2025.91200252`  
-**Odin Topics:** 1.C, 2.A, 2.B, 13.B  
+## Beyond Awareness: Examining Financial Behaviors Among Public School Teachers in the Philippines
+**Filename:** `L--Am-una_summarized.md`  
+**Authors:** Am-una, A. (2026)  
+**ID:** `10.69569/jip.2026.065`  
+**Odin Topics:** 1.C, 2.A, 5.A, 7.A, 13.A, 13.B  
 
-**TLDR:** Microfinance borrowers in rural Philippines experience debt as both a source of short-term relief and capability expansion, and as a persistent stressor that can trap them in cycles of over-indebtedness and emotional strain.
+**TLDR:** Public school teachers in Baguio exhibit moderately positive financial behaviors driven by conscious constraint under limited income and heavy debt, with budgeting most difficult despite frequent practice.
 
-**Problem & Motivation:** Existing literature on microfinance focuses on quantitative measures of financial well-being, failing to capture borrowers' subjective lived experiences. This gap is critical because understanding how borrowers interpret and cope with debt is essential for designing interventions that address both financial and psychological dimensions of poverty.
-
-**Approach (summary):**
-- Qualitative transcendental phenomenological design guided by Moustakas (1994) and Colaizzi's seven-step analysis method.
-- Fifteen female microfinance borrowers in Argao, Cebu, purposively selected based on three+ years borrowing and three+ active loan cycles.
-- Semi-structured interviews adapted from the CFPB Financial Well-Being Scale, conducted in Cebuano, lasting 30-45 minutes each.
-
-**Key Findings (selected):**
-- Nine major themes emerged, ranging from 'Living on the Edge of Survival' to 'Microfinance as a Source of Continuing Burden'.
-- num: All 15 participants reported both relief (ka-abag) and hindrance (babag) from microfinance; 7 described suicidal ideation linked to debt pressure.
-- num: Borrowing histories spanned 3 to 20 years, with most participants holding 3 to 7 simultaneous loan accounts.
-- Microfinance insurance (e.g., ₱25,000 death benefit) provided critical psychological security during crises.
-
-**Supports Odin (direct justifications):**
-- Microfinance provides short-term relief but can perpetuate debt cycles without financial literacy support.
-- Repayment pressures and aggressive collection practices erode borrowers' peace of mind and increase suicidal ideation.
-- Overlapping loans (3-7 accounts) are common and trap borrowers in circular debt.
-
-**Limitations / Contradictions for Odin:**
-- Sample limited to 15 women from Argao, Cebu; not generalizable to urban or male borrowers.
-- Cross-sectional design captures a single point in time; cannot observe long-term debt trajectories.
-- Relies on self-reported narratives, which may be affected by recall bias or social desirability.
-
-**Key takeaways:**
-- Debt caused suicidal ideation among 7 of 15 microfinance borrowers.
-- Microfinance acts as both support (ka-abag) and hindrance (babag) simultaneously.
-- Borrowers use prayer, positive thinking, and family support to cope with debt.
-
----
-
-
-## Profiling Platform Workers in the Philippines: Evidence from the Jobs and Skills Survey
-**Filename:** `L--Jandoc-et_al_summarized.md`  
-**Authors:** Jandoc, K. R. L.; Martinez, A.; Bulan, J. A. N.; Molato, R.; Guyos, A. (2026)  
-**ID:** `3b5d3c2a-1e4f-4d2e-9a8b-7c6d5e4f3a2b`  
-**Odin Topics:** 1.A, 1.B, 1.C, 5.A  
-
-**TLDR:** Platform workers in the Philippines are predominantly young, urban, highly educated, and concentrated in digital services, with flexibility as primary motivation but persistent social protection deficits.
-
-**Problem & Motivation:** The rapid growth of non-traditional platform work in the Philippines has outpaced empirical evidence, leaving gaps in understanding worker profiles, motivations, and job quality. Existing studies rely on small or non-representative samples. This study uses nationally representative data to provide systematic evidence on platform workers to inform policy under the Philippine Development Plan 2023–2028.
+**Problem & Motivation:** A knowledge-action gap persists in understanding how financial knowledge translates into everyday behavior, especially under economic constraint. Public school teachers have stable employment but face escalating financial pressures and debt, yet existing studies focus on knowledge rather than behavioral enactment and perceived difficulty. Understanding this gap is critical because teachers serve as financial role models for learners.
 
 **Approach (summary):**
-- Data from the 2025 Jobs and Skills Survey (JSS), a nationally representative rider to the Labor Force Survey (LFS), covering ~9,200 employed Filipinos.
-- Platform work defined as using online or app-based platforms for paid tasks, including home-based digital work, outside-home services, ride-hailing, and delivery.
-- Constructed Routine Task Intensity (RTI) index using task frequency items from JSS Section B.
+- Explanatory sequential mixed-methods design with quantitative survey (N=335) followed by semi-structured interviews (N=9).
+- Participants were regular public school teachers in Baguio City, Philippines, with at least one year of experience.
+- Survey measured frequency of financial behaviors (4-point Likert) and perceived difficulty across five domains: budgeting, saving, goals, making ends meet, and choosing products.
 
 **Key Findings (selected):**
-- num: 8.2% of workers use online platforms, representing approximately 4.1 million Filipinos, with 84.5% as sole job and 42.6 average weekly hours.
-- num: Platform workers are 74.0% urban (vs 57.7% national), 69.7% higher education (vs 31.5%), and 82.3% prime working age.
-- num: Flexibility is the top motivation (88.9%), but necessity-driven motives are higher for drivers/delivery (18.1% lack other income sources vs 9.3% for home-based).
-- num: Platform workers have lower Routine Task Intensity (RTI -0.19) than non-platform workers (RTI +0.56), with home-based workers lowest (-0.73).
-
-**Supports Odin (direct justifications):**
-- Platform workers are disproportionately young (mean age 35.9-38.0), urban (74%), and college-educated (69.7%), supporting targeted acquisition for PFMS.
-- Flexibility is the primary motivation for 88.9% of platform workers, emphasizing the need for adaptive budgeting and forecasting tools.
-- 22.5% of daily platform users report overskilling, indicating potential demand for upskilling financial planning features.
+- "num: General weighted mean for financial behaviors was 2.69 (moderately positive), with making ends meet highest (M=2.90) and active saving lowest (M=2.43)."
+- "num: No significant difference in financial behaviors between teachers who attended financial literacy seminars and those who did not (p=.991)."
+- "num: Married teachers had significantly lower financial behavior scores than single teachers (p=.034)."
+- "num: Master Teachers scored higher (M=3.00) than non-Master Teachers (M=2.65, p=.002)."
 
 **Limitations / Contradictions for Odin:**
-- Cross-sectional design cannot establish causality between platform work and benefit deficits. [unacknowledged]
-- Self-reported platform use may misclassify workers, and the survey excludes platform-level earnings or algorithm data. [unacknowledged]
-- Potential undercounting of informal platform work due to survey non-response or misclassification.
+- "Sample limited to one city (Baguio), not representative of all Philippine public school teachers. [unacknowledged]"
+- "Cross-sectional design prevents causal inference about seminar attendance or marital status effects. [unacknowledged]"
+- "Self-reported financial behavior data may overestimate positive practices due to social desirability. [unacknowledged]"
 
 **Key takeaways:**
-- 8.2% of Filipino workers engage in platform work, about 4.1 million people.
-- Flexibility is cited by 88.9% of platform workers as a motivation.
-- Platform workers have 69.7% higher education but 22.5% overskilling rate.
+- "num: Seminar attendance had zero effect on financial behavior scores (p=.991)."
+- "Conscious constraint explains moderate behaviors as endurance, not mastery."
+- "Budgeting is most difficult due to scarce resources, not skill deficit."
 
 ---
 
@@ -175,68 +120,58 @@ This report includes problem/motivation, approach, key findings, support for Odi
 
 **Approach (summary):**
 - Descriptive-correlational design with 150 teachers from three national high schools.
-- {'Researcher-made survey with two parts': 'demographic profile and financial literacy items (budgeting, savings, investing, spending, credit/debt).'}
+- Researcher-made survey with two parts: demographic profile and financial literacy items (budgeting, savings, investing, spending, credit/debt).
 - Cronbach's alpha of 0.885 confirmed reliability.
 
 **Key Findings (selected):**
-- num: 42% of respondents were aged 24-32 years (mean 36.11), 78.67% female, 68% married, 74% had no other income sources.
-- num: Budgeting aggregate mean 2.96 (moderate), savings 2.42 (low), investing 1.98 (low), spending 3.17 (moderate), credit/debt 3.05 (moderate).
-- num: Age significantly related to budgeting (p=0.004), savings (p=0.001), investing (p=0.0001), and credit/debt (p=0.001).
-- num: Educational attainment significantly related to savings (p=0.038) and credit/debt (p=0.001).
-
-**Supports Odin (direct justifications):**
-- Public school teachers allocate earnings primarily to essential household commodities (weighted mean 3.39).
-- Teachers save only 20% of earnings for emergencies (weighted mean 2.79) and show low savings account use (2.44).
-- Teachers lack correct investment knowledge (2.21) and avoid Bitcoin/online investments (1.70).
+- "num: 42% of respondents were aged 24-32 years (mean 36.11), 78.67% female, 68% married, 74% had no other income sources."
+- "num: Budgeting aggregate mean 2.96 (moderate), savings 2.42 (low), investing 1.98 (low), spending 3.17 (moderate), credit/debt 3.05 (moderate)."
+- "num: Age significantly related to budgeting (p=0.004), savings (p=0.001), investing (p=0.0001), and credit/debt (p=0.001)."
+- "num: Educational attainment significantly related to savings (p=0.038) and credit/debt (p=0.001)."
 
 **Limitations / Contradictions for Odin:**
-- Small sample from one rural district; may not represent urban teachers. [unacknowledged]
-- Cross-sectional design; causality cannot be inferred. [unacknowledged]
-- Self-reported survey data may overstate financial literacy due to social desirability bias. [unacknowledged]
+- "Small sample from one rural district; may not represent urban teachers. [unacknowledged]"
+- "Cross-sectional design; causality cannot be inferred. [unacknowledged]"
+- "Self-reported survey data may overstate financial literacy due to social desirability bias. [unacknowledged]"
 
 **Key takeaways:**
-- Teachers showed low financial literacy in savings (2.42) and investing (1.98).
-- Age significantly correlates with budgeting, savings, investing, and debt management.
-- Most teachers (74%) have no other income sources beyond salary.
+- "Teachers showed low financial literacy in savings (2.42) and investing (1.98)."
+- "Age significantly correlates with budgeting, savings, investing, and debt management."
+- "Most teachers (74%) have no other income sources beyond salary."
 
 ---
 
 
-## NURSING CAREER TOWARDS FINANCIAL INDEPENDENCE
-**Filename:** `L--Nduka-&-Benedicto_summarized.md`  
-**Authors:** Nduka, P.; Benedicto, E.G. (2026)  
-**ID:** `8c4a3b2d-1e5f-4a6b-9d7c-8e0f1a2b3c4d`  
-**Odin Topics:** 1.C, 13.A, 13.B  
+## Understanding Millennials' Financial Behavior: The Role of Fintech Adoption, Financial Literacy, and the Mediating Effect of Financial Attitudes in a Crisis-Affected Emerging Economy
+**Filename:** `I--Aoun-et_al_summarized.md`  
+**Authors:** Aoun, D.; Rahal, R.; Sfeir, L.; AlMaalouf, N. J. (2026)  
+**ID:** `10.3390/ijfs14020035`  
+**Odin Topics:** 1.C, 5.A, 7.A, 13.A, 13.B  
 
-**TLDR:** Nurses in the Philippines experience a mismatch between income and expenses, with most unable to save, perceiving financial independence as essential for personal security, job satisfaction, and family obligations.
+**TLDR:** Fintech adoption and financial literacy positively influence Lebanese millennials' financial behavior, with financial attitude mediating the literacy-behavior relationship.
 
-**Problem & Motivation:** Filipino nurses face financial insecurity due to low wages and rising living costs, yet limited research focuses specifically on their financial independence. This gap affects workforce retention and healthcare system stability.
+**Problem & Motivation:** In crisis-affected emerging economies like Lebanon, traditional financial guidance and institutional support are limited, yet no integrated model examines how FinTech adoption, financial literacy, and financial attitudes jointly shape millennial financial behavior. The persistence of low financial literacy and fragmented FinTech regulation creates an empirical gap in understanding behavioral finance under extreme economic instability.
 
 **Approach (summary):**
-- Qualitative phenomenological study conducted with 28 registered nurses from three government Level III specialty hospitals in Metro Manila.
-- Data collected via semi-structured interviews lasting 40-60 minutes, audio-recorded and transcribed verbatim.
-- Interview guide validated using Aiken’s V (0.8 to 1.0), ensuring content validity.
+- A quantitative survey collected data from 390 Lebanese millennials using a structured questionnaire with five-point Likert scales.
+- FinTech adoption (5 items), financial literacy (4 items), financial attitude (4 items), and financial behavior (5 items) were measured using adapted scales.
+- Structural equation modeling (SEM) was applied to test direct and mediating effects after confirming validity via KMO, AVE, HTMT, and reliability coefficients.
 
 **Key Findings (selected):**
-- num: 64.29% of nurse participants are female, 35.71% male.
-- num: 53.57% aged 33-39 years, 28.57% aged 26-32 years.
-- num: 50.0% hold government salary grades 2-6, only 17.85% reach grades 7-10.
-- num: 53.57% have master’s degrees, 10.71% doctorates, but financial returns remain limited.
-
-**Supports Odin (direct justifications):**
-- Single nurses living alone can cover basic needs but cannot accumulate savings for long-term security.
-- Financial independence reduces work-related stress and improves job satisfaction among professionals.
-- Nurses with four or more dependents experience monthly deficits and psychological strain.
+- "num: Financial literacy has a positive direct effect on financial behavior (β=0.337, p<0.001)."
+- "num: FinTech adoption has a positive direct effect on financial behavior (β=0.144, p<0.001)."
+- "num: Financial attitude is the strongest predictor of financial behavior (β=0.414, p<0.001)."
+- Financial attitude fully mediates the relationship between financial literacy and financial behavior.
 
 **Limitations / Contradictions for Odin:**
-- Small sample size (n=28) limits generalizability.
-- No longitudinal data; financial status reported cross-sectionally.
-- Potential social desirability bias in self-reported financial perceptions. [unacknowledged]
+- "Cross-sectional design prevents causal inference and temporal tracking of financial behavior change."
+- "Self-reported survey data may inflate associations due to common method bias and social desirability."
+- "Sample is limited to Lebanese millennials, restricting generalizability to other populations."
 
 **Key takeaways:**
-- 64.29% of nurse participants are female.
-- 53.57% support four or more dependents.
-- Most nurses cannot save due to monthly deficits.
+- "Financial attitude mediates the literacy-behavior link."
+- "Financial literacy's direct effect on behavior is β=0.337."
+- "FinTech adoption has a smaller but significant effect at β=0.144."
 
 ---
 
@@ -257,15 +192,10 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Pilot testing with 30 participants showed strong internal consistency (Cronbach's alpha .835 to .970) across all subscales.
 
 **Key Findings (selected):**
-- num: Overall frequency of online banking use was low (mean=2.04, 'Rarely'), while transaction diversity (mean=3.05) and trust/security (mean=3.02) were rated 'Agree'.
-- num: Frequency of use showed moderate negative correlations with budgeting (rs=-.276), saving (rs=-.274), and spending (rs=-.282), all p=.000.
-- num: Transaction diversity had strong positive correlations with budgeting (rs=.702), saving (rs=.677), and spending (rs=.657), p=.000.
-- num: Trust and security had very strong positive correlations with budgeting (rs=.753), saving (rs=.823), and spending (rs=.814), p=.000.
-
-**Supports Odin (direct justifications):**
-- Trust and security perceptions have very strong positive correlations (rs=.753 to .823) with budgeting, saving, and spending behaviors among rural students.
-- Using online banking for diverse transactions (e.g., transfers, bill pay, purchases) is strongly associated (rs=.657 to .702) with better financial decision-making.
-- Low frequency of online banking use is moderately associated (rs=-.276 to -.282) with weaker budgeting, saving, and spending practices.
+- "num: Overall frequency of online banking use was low (mean=2.04, 'Rarely'), while transaction diversity (mean=3.05) and trust/security (mean=3.02) were rated 'Agree'."
+- "num: Frequency of use showed moderate negative correlations with budgeting (rs=-.276), saving (rs=-.274), and spending (rs=-.282), all p=.000."
+- "num: Transaction diversity had strong positive correlations with budgeting (rs=.702), saving (rs=.677), and spending (rs=.657), p=.000."
+- "num: Trust and security had very strong positive correlations with budgeting (rs=.753), saving (rs=.823), and spending (rs=.814), p=.000."
 
 **Limitations / Contradictions for Odin:**
 - Descriptive-correlational design limits causal inference.
@@ -276,6 +206,74 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Trust and security perceptions show the strongest correlation (rs=.823) with saving behavior.
 - Low frequency of online banking use is linked to weaker financial practices.
 - Using diverse online banking transactions strongly predicts better budgeting and saving.
+
+---
+
+
+## The Role of Financial Literacy in Supporting Employee Work-Life Balance
+**Filename:** `L--Bancoro-et_al_summarized.md`  
+**Authors:** Bancoro, J. C. M.; Barillo, R. M. L.; Buhian, D. L. C. (2025)  
+**ID:** `10.69569/jip.2025.015`  
+**Odin Topics:** 1.C, 5.A, 13.A  
+
+**TLDR:** Financial literacy among Filipino state university employees is moderately high but does not significantly correlate with work-life balance, though qualitative data suggest it reduces financial stress and supports personal priorities.
+
+**Problem & Motivation:** Balancing work and family responsibilities is difficult due to workplace dynamics and economic factors. Financial stress exacerbates these challenges, but limited empirical research examines how financial literacy directly affects work-life balance. This gap motivates the study to explore the relationship.
+
+**Approach (summary):**
+- Descriptive correlational design with quantitative survey (n=140) and qualitative interviews (n=8) at a Philippine state university.
+- Survey measured financial knowledge (13 items), attitudes (10 items, 5-point Likert), and behaviors (23 items), plus work-life balance (11 items).
+- Cronbach's alpha for attitude (0.83), behavior (0.85), and work-life balance (0.84) indicated high internal consistency.
+
+**Key Findings (selected):**
+- num: Mean financial knowledge score 8.35/13 (SD=3.13), indicating moderate knowledge with high variability.
+- Employees have positive financial attitudes (M=3.99, SD=0.73) and positive financial behaviors (M=3.94, SD=0.58).
+- num: Correlation between financial literacy and work-life balance is weak and not significant (rho=0.11, p=0.191).
+- Qualitative findings indicate financial literacy reduces financial stress, improves focus, and enables better time management for personal priorities.
+
+**Limitations / Contradictions for Odin:**
+- Reliance on self-reported data may introduce bias [unacknowledged].
+- Small qualitative sample (n=8) limits depth of thematic saturation [unacknowledged].
+- Cross-sectional design prevents causal inference (acknowledged via correlational analysis).
+
+**Key takeaways:**
+- Financial literacy does not significantly predict work-life balance (rho=0.11).
+- Employees have positive financial behaviors but struggle with complex concepts.
+- Financial literacy reduces stress and supports personal priorities qualitatively.
+
+---
+
+
+## Personal Financial Management Practices of Average earning households within Indigenous Communities of Mountain Province: Exploring Their Strategies and Challenges
+**Filename:** `L--Rosario_summarized.md`  
+**Authors:** Rosario, E. P. (2025)  
+**ID:** `10.64753/jcasc.v10i3.2426`  
+**Odin Topics:** 1.C, 2.A, 2.B, 4.B, 5.A, 13.A, 13.B  
+
+**TLDR:** Indigenous households in Bontoc combine modern budgeting with cultural practices like og-ogfo and paluwagan, prioritizing communal obligations over individual financial goals.
+
+**Problem & Motivation:** Mainstream financial models overlook indigenous cultural practices that shape household financial decisions. There is a lack of frameworks recognizing indigenous communities as having structured financial systems rooted in tradition and reciprocity. This gap prevents culturally sensitive financial literacy programs and policy interventions.
+
+**Approach (summary):**
+- Qualitative phenomenological study with 12 average-earning Indigenous households in Bontoc, Mountain Province.
+- Semi-structured interviews and one focus group discussion conducted in Ilokano and Bontok languages.
+- Thematic analysis using Colaizzi’s method, guided by Social Capital Theory, Social Identity Theory, and Behavioral Economics.
+
+**Key Findings (selected):**
+- Households practice budgeting and expense tracking but prioritize cultural obligations like ritual contributions over personal savings.
+- Savings take indigenous forms including paluwagan, livestock, and stored rice rather than formal accounts.
+- Cultural systems such as og-ogfo (mutual aid) and bayanihan function as informal insurance during financial shocks.
+- Income insufficiency and rising costs are managed through kinship support, in-kind contributions, and selective borrowing.
+
+**Limitations / Contradictions for Odin:**
+- Small sample size (12 participants) from one municipality limits transferability to other indigenous groups.
+- Relies on self-reported financial behaviors, which may be subject to social desirability bias.
+- Does not quantify the relative frequency of cultural vs. modern financial practices [unacknowledged].
+
+**Key takeaways:**
+- Financial resilience in Bontoc is collective and relational, not individual.
+- Budgeting serves social preparation, not just personal wealth planning.
+- Savings take form of livestock, rice, and paluwagan cycles.
 
 ---
 
@@ -296,25 +294,20 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Financial literacy was measured across nine dimensions (knowledge, behavior, attitude, budgeting, liquidity, large purchases, insurance, investment, retirement).
 
 **Key Findings (selected):**
-- num: Overall financial literacy mean was 4.02 (High), with retirement planning scoring lowest (3.75) and financial knowledge highest (4.24).
-- num: Overall financial health mean was 61.2, categorizing respondents as 'Financially Coping' (spending 63.17, saving 51.87, borrowing 72.40, planning 60.22).
-- num: Only 39.00% of respondents had money remaining at month end (Financially Vulnerable), and emergency fund preparedness scored 3.72.
+- "num: Overall financial literacy mean was 4.02 (High), with retirement planning scoring lowest (3.75) and financial knowledge highest (4.24)."
+- "num: Overall financial health mean was 61.2, categorizing respondents as 'Financially Coping' (spending 63.17, saving 51.87, borrowing 72.40, planning 60.22)."
+- "num: Only 39.00% of respondents had money remaining at month end (Financially Vulnerable), and emergency fund preparedness scored 3.72."
 - Significant differences in financial literacy were found for sex, age, number of children, income, education, teaching position, years of experience, and specialization.
 
-**Supports Odin (direct justifications):**
-- Public junior high school teachers have a mean financial health score of 61.2, categorized as Financially Coping.
-- Female teachers exhibit significantly higher overall financial literacy than male teachers (p=0.017).
-- Teachers allocate 78.44% of monthly income to debt repayment, limiting surplus for savings.
-
 **Limitations / Contradictions for Odin:**
-- The study does not compare teachers to other professions, so findings may reflect public sector constraints rather than teacher‑specific traits.
-- Self‑reported data may overstate financial literacy due to social desirability bias. [unacknowledged]
-- The financial health scoring (0-100) lacks external validation against actual default or bankruptcy rates. [unacknowledged]
+- "The study does not compare teachers to other professions, so findings may reflect public sector constraints rather than teacher‑specific traits."
+- "Self‑reported data may overstate financial literacy due to social desirability bias. [unacknowledged]"
+- "The financial health scoring (0-100) lacks external validation against actual default or bankruptcy rates. [unacknowledged]"
 
 **Key takeaways:**
-- Teachers have high literacy but are financially coping, not thriving.
-- Only 39% have any money left at month end.
-- Retirement planning literacy is the lowest at 3.75.
+- "Teachers have high literacy but are financially coping, not thriving."
+- "Only 39% have any money left at month end."
+- "Retirement planning literacy is the lowest at 3.75."
 
 ---
 
@@ -335,25 +328,20 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Cognitive ability proxied by financial literacy using van Rooij et al. (2011) 16-item inventory.
 
 **Key Findings (selected):**
-- num: Life attitude profile has a positive direct effect on stock market participation intention (β=0.154, p=0.025).
-- num: Cognitive ability mediates the relationship between life attitude and participation intention (indirect β=0.051, p=0.032).
-- num: Death acceptance (β=0.312, p<0.001) and goal seeking (β=0.396, p=0.009) positively predict intention.
+- "num: Life attitude profile has a positive direct effect on stock market participation intention (β=0.154, p=0.025)."
+- "num: Cognitive ability mediates the relationship between life attitude and participation intention (indirect β=0.051, p=0.032)."
+- "num: Death acceptance (β=0.312, p<0.001) and goal seeking (β=0.396, p=0.009) positively predict intention."
 - Life purpose negatively predicts stock market intention (β=-0.243, p=0.036).
 
-**Supports Odin (direct justifications):**
-- Life attitude profile directly influences stock market participation intention among young professionals.
-- Cognitive ability mediates the effect of life attitude on investment intention.
-- Death acceptance and goal seeking are positively associated with intention to participate in stock markets.
-
 **Limitations / Contradictions for Odin:**
-- Self-reported data may introduce response and social desirability bias.
-- Cross-sectional design prevents causal conclusions. [unacknowledged]
-- Sample from Bulacan limits generalizability to other regions.
+- "Self-reported data may introduce response and social desirability bias."
+- "Cross-sectional design prevents causal conclusions. [unacknowledged]"
+- "Sample from Bulacan limits generalizability to other regions."
 
 **Key takeaways:**
-- Life attitude directly affects stock market intention (β=0.154).
-- Cognitive ability mediates 39% of life attitude's effect on investment.
-- Death acceptance and goal seeking are strong positive predictors of intention.
+- "Life attitude directly affects stock market intention (β=0.154)."
+- "Cognitive ability mediates 39% of life attitude's effect on investment."
+- "Death acceptance and goal seeking are strong positive predictors of intention."
 
 ---
 
@@ -371,145 +359,57 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Approach (summary):**
 - Systematic literature review following PRISMA 2020 guidelines across seven databases (JSTOR, ERIC, Scopus, Google Scholar, OECD iLibrary, World Bank, ProQuest).
 - Included 47 peer-reviewed empirical studies from 25 countries published 2015-2025, with participants aged 18-30 (total n>250,000).
-- {'Used thematic synthesis with three-stage approach': 'line-by-line coding, descriptive theme development, and analytical theme generation.'}
+- Used thematic synthesis with three-stage approach: line-by-line coding, descriptive theme development, and analytical theme generation.
 
 **Key Findings (selected):**
-- num: 78% of university students rated financial knowledge as good/excellent but only 34% could answer basic literacy questions (Germany).
-- num: Pandemic experiences increased financial literacy awareness scores by 28% (US longitudinal study).
-- num: Young women 40% more likely to respond 'don't know' to financial questions despite equal knowledge (15-country study).
+- "num: 78% of university students rated financial knowledge as good/excellent but only 34% could answer basic literacy questions (Germany)."
+- "num: Pandemic experiences increased financial literacy awareness scores by 28% (US longitudinal study)."
+- "num: Young women 40% more likely to respond 'don't know' to financial questions despite equal knowledge (15-country study)."
 - Family financial socialization dominates formal education, with open family discussions correlating with 45% higher financial confidence.
 
-**Supports Odin (direct justifications):**
-- Financial literacy perceptions among young adults are characterized by an awareness-confidence paradox where knowledge gaps coexist with overconfidence.
-- Family financial socialization has stronger influence on youth financial capability than formal education.
-- Gender stereotypes widen financial confidence gaps, with young women 40% more likely to respond 'don't know' despite equal knowledge.
-
 **Limitations / Contradictions for Odin:**
-- English-language publication bias may exclude relevant research from non-English speaking countries. [unacknowledged]
-- Heterogeneity in financial literacy measures across studies limits comparability. [acknowledged]
-- Rapid digital financial innovation may outdate some findings. [unacknowledged]
+- "English-language publication bias may exclude relevant research from non-English speaking countries. [unacknowledged]"
+- "Heterogeneity in financial literacy measures across studies limits comparability. [acknowledged]"
+- "Rapid digital financial innovation may outdate some findings. [unacknowledged]"
 
 **Key takeaways:**
-- Young adults show an awareness-confidence paradox: high self-rated but low actual financial literacy.
-- Family discussions about money increase financial confidence by 45% regardless of parents' knowledge.
-- Only 15-20% of youth who plan to learn about finances actually take action within a year.
+- "Young adults show an awareness-confidence paradox: high self-rated but low actual financial literacy."
+- "Family discussions about money increase financial confidence by 45% regardless of parents' knowledge."
+- "Only 15-20% of youth who plan to learn about finances actually take action within a year."
 
 ---
 
 
-## Teachers’ Financial Literacy Management and their Performance in the Workplace
-**Filename:** `L--Manatad-&-Labitad_summarized.md`  
-**Authors:** Manatad, W. C. V.; Labitad, G. F. (2025)  
-**ID:** `b3c4d5e6-f7a8-49b0-9c1d-2e3f4a5b6c7d`  
-**Odin Topics:** 1.C, 5.A, 7.A, 13.A, 13.B  
+## Gender Equality, Disability, and Social Inclusion in the Philippines: Progress, Challenges, and Opportunities in SDG 5 and SDG 10
+**Filename:** `L--Albert-et_al_summarized.md`  
+**Authors:** Albert, J. R. G.; Dacuycuy, C. B.; Quisumbing, A. R.; Basillote, L. B.; Cabalfin, D. L. D.; Vargas, A. R. P.; Luzon, P. E. D.; Mahmoud, M. A. (2025)  
+**ID:** `10.62986/dp2025.35`  
+**Odin Topics:** 1.A, 1.C  
 
-**TLDR:** Public school teachers in Cagayan de Oro demonstrate literate financial literacy, highest in debt management, and very satisfactory workplace performance, with significant positive relationships between financial literacy and instructional planning, classroom management, and task management.
+**TLDR:** Philippines has progressive GEDSI laws but implementation gaps persist; intersectional analysis reveals compound marginalization for women, persons with disabilities, and indigenous peoples across income, education, and employment.
 
-**Problem & Motivation:** Financial difficulties among public school teachers due to limited salaries and rising living costs may impair job focus and productivity. Prior studies show financial instability correlates with lower job satisfaction and increased stress. However, the direct link between teachers' financial literacy management and specific workplace performance dimensions remains underexplored.
-
-**Approach (summary):**
-- Data from 303 public elementary teachers in South District, Cagayan de Oro City using universal sampling.
-- Researcher-developed survey measured financial literacy (budgeting, savings, debt, investment) and workplace performance (student outcomes, instructional planning, classroom management, delivery, task management).
-- Descriptive statistics (mean, SD) and Pearson correlation analyzed relationships.
-
-**Key Findings (selected):**
-- num: Overall financial literacy mean 3.14 (SD 0.81) interpreted as Literate.
-- num: Debt management had highest mean 3.22, budgeting the lowest 3.05.
-- num: Workplace performance overall mean 3.33 (Very Satisfactory), with classroom management highest at 3.42.
-- Significant positive relationship between financial literacy and instructional planning (p=0.0442), classroom management (p=0.0442), and task management (p=0.0091).
-
-**Supports Odin (direct justifications):**
-- Teachers with higher debt management scores show significantly better classroom management and task organization.
-- Financially literate teachers exhibit very satisfactory workplace performance, especially in classroom management.
-- Budgeting and financial planning is the lowest literacy area among teachers, requiring intervention.
-
-**Limitations / Contradictions for Odin:**
-- Sample limited to one district in Cagayan de Oro City (N=303).
-- Self-reported survey data may have social desirability bias [unacknowledged].
-- Cross-sectional design cannot establish causality [unacknowledged].
-
-**Key takeaways:**
-- Debt management is the strongest financial literacy area among teachers.
-- Classroom management performance is rated very satisfactory.
-- Financial literacy significantly improves task management in the workplace.
-
----
-
-
-## Financial Literacy of Department of Education Teachers in the Philippines
-**Filename:** `L--Vidal-Sarahina_summarized.md`  
-**Authors:** Vidal-Sarahina, M. E. (2025)  
-**ID:** `10.69569/jip.2025.483`  
-**Odin Topics:** 1.C, 2.A, 5.A, 13.A, 13.B  
-
-**TLDR:** Examines financial knowledge, attitudes, and behaviors of 30 Filipino public school teachers, finding a significant gap between knowledge and practice due to economic pressures, cultural obligations, and behavioral biases.
-
-**Problem & Motivation:** Teachers face financial instability despite their critical role. Existing financial literacy programs focus on knowledge acquisition but fail to address socio-economic, cultural, and behavioral barriers. Limited research exists on the financial literacy of DepEd teachers in Guihulngan City.
+**Problem & Motivation:** Despite robust legal frameworks like the Magna Carta of Women and the Indigenous Peoples Rights Act, significant inequalities persist for marginalized groups. The COVID-19 pandemic exacerbated existing disparities, pushing millions into poverty. This study examines progress on SDG 5 and SDG 10 to identify intersectional barriers and inform inclusive policy reforms.
 
 **Approach (summary):**
-- Mixed-methods study with 30 quantitative survey respondents and 10 qualitative interview participants from DepEd teachers in Guihulngan City, Philippines.
-- Measured financial knowledge, attitude, and behavior using a Likert-scale questionnaire, analyzed with weighted means and Spearman correlation.
-- Qualitative data analyzed using reflexive thematic analysis to identify barriers such as cultural obligations, economic constraints, and behavioral biases.
+- Mixed-methods design combining quantitative analysis of national surveys (FIES, LFS, NDHS, NDPS) and qualitative stakeholder interviews (KIIs, FGDs).
+- Shapley decomposition of merged FIES-LFS data (2018, 2021, 2023) to quantify contributions of gender, education, location, and income to inequality.
+- Intersectional analysis examining how gender, disability, ethnicity, and geography interact to shape development outcomes.
 
 **Key Findings (selected):**
-- num: Mean financial knowledge score 2.15 (moderate), attitude 3.02 (positive), behavior 2.80 (moderately acceptable).
-- num: No significant correlation between knowledge and behavior (r=0.01, p=0.96).
-- num: Very weak correlation between knowledge and attitude (r=0.09, p=0.62).
-- Qualitative themes: Knowledge-Action Gap, Cultural and Familial Expectations, Economic Realities, Behavioral Biases.
-
-**Supports Odin (direct justifications):**
-- Financial knowledge does not significantly correlate with financial behavior among Filipino teachers (r=0.01, p=0.96).
-- Cultural obligation of utang na loob drives financial decisions that prioritize family over personal savings.
-- Behavioral biases such as impulsive spending and overconfidence lead to inconsistent financial actions.
+- num: Female disability prevalence 15% vs male 9% (2016 NDPS).
+- num: Child marriage before age 18 dropped from 16.5% (2017) to 9.4% (2022).
+- num: Gini coefficient decreased from 0.453 (2015) to 0.406 (2023).
+- Women with no formal education have 55% severe disability prevalence vs 6% for college graduates.
 
 **Limitations / Contradictions for Odin:**
-- Sample size of 30 is small for quantitative correlation analysis [unacknowledged].
-- Purposive sampling may introduce selection bias [unacknowledged].
-- Findings may not generalize beyond Guihulngan City [unacknowledged].
+- "Official statistics under-represent marginalized populations due to geographic isolation and mistrust of data collection. [unacknowledged]"
+- "Small sample sizes for intersectional categories (e.g., women with disabilities from IP communities) limit robust statistical analysis."
+- "No formal IRB approval obtained, though ethical principles were followed. [unacknowledged]"
 
 **Key takeaways:**
-- Financial knowledge does not predict financial behavior among Filipino teachers.
-- Cultural obligation utang na loob overrides personal savings goals.
-- Low salaries and loan dependence trap teachers in debt cycles.
-
----
-
-
-## Financial literacy among young college students: Advancements and future directions
-**Filename:** `L--Rodriguez-Correa-et_al_summarized.md`  
-**Authors:** Rodríguez-Correa, P. A.; Arias García, S.; Bermeo-Giraldo, M. C.; Valencia-Arias, A.; Martínez Rojas, E.; Aurora Vigo, E. F.; Gallegos, A. (2025)  
-**ID:** `10.12688/f1000research.159085.3`  
-**Odin Topics:** 1.C, 2.C, 5.A, 7.A, 13.A, 13.B  
-
-**TLDR:** A systematic review of 44 studies finds that financial literacy research on college students focuses on financial knowledge and behavior, while budgeting, credit, debt, and digital tools remain underexplored.
-
-**Problem & Motivation:** Young college students face increasing financial responsibilities but lack adequate financial education. Poor financial decision-making can lead to long-term negative outcomes. Existing literature on financial literacy among this population is fragmented and lacks structured guidance on underexplored subtopics.
-
-**Approach (summary):**
-- Searched Scopus and Web of Science using title terms 'Financ* literacy', 'Financ* education' with 'University student*' or 'College student*'.
-- Applied inclusion criteria: studies on higher education students with quantitative measures of financial literacy analyzed via statistical methods.
-- Used PRISMA 2020 methodology to screen 350 records down to 44 peer-reviewed studies from 2003-2023.
-
-**Key Findings (selected):**
-- num: 34% of studies use regression analysis, 20% factor analysis, and 18% structural equation modeling.
-- Financial literacy and financial knowledge are the most frequently assessed constructs, but the terms are often used interchangeably without clear definition.
-- Budgeting is considered a core skill, yet globally students show the least interest in budgeting processes.
-- Few studies analyze psychological and behavioral effects of credit card use and student loans on college students.
-
-**Supports Odin (direct justifications):**
-- College students lack adequate budgeting skills and show low interest in budgeting processes.
-- Financial knowledge alone is insufficient; financial attitude and self-efficacy moderate behavior.
-- Credit card use and student debt among young adults require psychological and behavioral analysis.
-
-**Limitations / Contradictions for Odin:**
-- Search restricted to title fields only, not abstracts, potentially missing relevant studies.
-- Only Scopus and Web of Science databases used; other databases may contain relevant research.
-- Non-English publications were excluded, potentially biasing geographic coverage.
-
-**Key takeaways:**
-- Financial literacy and knowledge are often used interchangeably in research.
-- Budgeting skills are critically low among college students globally.
-- num: 34% of studies use regression analysis as primary method.
+- "15% of women have disabilities versus 9% of men."
+- "Child marriage before 18 fell to 9.4% in 2022."
+- "Women spend 9-10 more hours weekly on unpaid care work."
 
 ---
 
@@ -526,19 +426,14 @@ This report includes problem/motivation, approach, key findings, support for Odi
 
 **Approach (summary):**
 - Quantitative survey of 100 sari-sari store owners in Manila.
-- {'Measured four myopia dimensions': 'competitive, cooperative, temporal, and learning.'}
+- Measured four myopia dimensions: competitive, cooperative, temporal, and learning.
 - Assessed access to finance via barriers, formal lending, and informal credit.
 
 **Key Findings (selected):**
-- num: Myopic decision-making has a significant effect on business performance (p < 0.001).
-- num: Access to finance has a significant positive effect on business performance (p < 0.001).
-- num: Access to finance moderates the myopia-performance relationship (p = 0.005).
+- "num: Myopic decision-making has a significant effect on business performance (p < 0.001)."
+- "num: Access to finance has a significant positive effect on business performance (p < 0.001)."
+- "num: Access to finance moderates the myopia-performance relationship (p = 0.005)."
 - Temporal myopia (mean 2.96) is the highest myopia dimension among micro-entrepreneurs.
-
-**Supports Odin (direct justifications):**
-- Myopic decision-making significantly reduces business performance among micro-enterprises (p < 0.001).
-- Access to finance has a significant positive effect on business performance (p < 0.001).
-- Access to finance moderates the relationship between myopic decision-making and business performance (p = 0.005).
 
 **Limitations / Contradictions for Odin:**
 - Sample limited to 100 sari-sari store owners in Manila.
@@ -549,6 +444,40 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Myopic decision-making harms business performance of low-income micro-enterprises.
 - Access to finance significantly improves business outcomes (p < 0.001).
 - Financial access moderates the negative effect of short-term thinking.
+
+---
+
+
+## Behavioral Shifts in Digital Finance: How E-Payment Influences Consumer Spending and Financial Literacy
+**Filename:** `I--Yuttama_summarized.md`  
+**Authors:** Yuttama, F. R. (2025)  
+**ID:** `10.34001/jmer.2025.12.06.4-80`  
+**Odin Topics:** 1.C, 7.A  
+
+**TLDR:** E-payment usage increases consumer spending but also improves cash management, with financial literacy moderating both effects: higher literacy reduces impulsive spending and enhances use of digital tracking tools.
+
+**Problem & Motivation:** Prior studies on e-payment's behavioral effects are inconclusive, with some finding increased impulsive spending and others improved financial tracking. The role of financial literacy as a boundary condition shaping these dual outcomes remains underexplored, particularly in emerging markets like Indonesia. This gap limits the ability to design effective digital finance policies and consumer education programs.
+
+**Approach (summary):**
+- Surveyed 400 active e-payment users in Central Java, Indonesia, using a structured Likert-scale questionnaire.
+- Measured e-payment usage, consumer spending behavior, cash management, and financial literacy with validated multi-item scales.
+- Analyzed relationships using PLS-SEM with bootstrapping (5,000 resamples) to test direct and moderation effects.
+
+**Key Findings (selected):**
+- "num: E-payment usage positively affects consumer spending (β=0.731, p<0.000)."
+- "num: E-payment usage positively affects cash management (β=0.493, p<0.000)."
+- "num: Financial literacy weakens the positive effect of e-payment on spending (β=-0.082, p<0.000)."
+- "num: Financial literacy strengthens the positive effect of e-payment on cash management (β=-0.065, p<0.005)."
+
+**Limitations / Contradictions for Odin:**
+- Geographical focus on Central Java, Indonesia, limiting generalizability.
+- Self-reported data may introduce social desirability bias.
+- Cross-sectional design cannot establish causality.
+
+**Key takeaways:**
+- E-payment increases spending (β=0.731) but also improves cash management (β=0.493).
+- Financial literacy weakens e-payment's spending effect (β=-0.082).
+- Financially literate users leverage digital tracking for better budgeting.
 
 ---
 
@@ -569,103 +498,54 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Thematic analysis using description-focused and interpretation-focused coding strategies, with within-case and cross-case analysis.
 
 **Key Findings (selected):**
-- num: Monthly household incomes ranged from $5,000 to $22,500, with all households having sufficient income to cover expenses and savings.
-- num: Monthly remittances sent to the Philippines ranged from $100 to $500, plus occasional emergency amounts.
-- {'All households practice financial management': 'clear goals, monthly budgets (mostly mental), proactive decision-making, and regular savings.'}
+- "num: Monthly household incomes ranged from $5,000 to $22,500, with all households having sufficient income to cover expenses and savings."
+- "num: Monthly remittances sent to the Philippines ranged from $100 to $500, plus occasional emergency amounts."
+- All households practice financial management: clear goals, monthly budgets (mostly mental), proactive decision-making, and regular savings.
 - Husbands are primary budget holders in American‑Filipina couple‑led households; Filipina wives hold the budget in Filipino couple‑led households.
 
-**Supports Odin (direct justifications):**
-- Filipina wives prioritize savings for children's education, emergencies, and retirement.
-- Emergency remittance requests create budget strain and risk savings depletion.
-- Husbands are primary budget holders in American‑Filipina households, while wives manage in Filipino couples.
-
 **Limitations / Contradictions for Odin:**
-- Small sample size (n=9) limits generalizability to all Filipina wives in the US.
-- Numerical data based on participant estimations, not actual financial records.
-- Did not include perspectives of husbands or remittance recipients.
+- "Small sample size (n=9) limits generalizability to all Filipina wives in the US."
+- "Numerical data based on participant estimations, not actual financial records."
+- "Did not include perspectives of husbands or remittance recipients."
 
 **Key takeaways:**
-- Monthly remittances range from $100 to $500.
-- Emergency requests disrupt budgets and savings.
-- Husbands control finances in American-Filipina couples.
+- "Monthly remittances range from $100 to $500."
+- "Emergency requests disrupt budgets and savings."
+- "Husbands control finances in American-Filipina couples."
 
 ---
 
 
-## Relationship between family resources, financial stress, with financial management among Filipino millennials
-**Filename:** `I--Lambert-et_al_summarized.md`  
-**Authors:** Lambert, M. J. C. M.; Jusoh, Z. M.; Zainudin, N. (2025)  
-**ID:** `f7c3e1a0-2b5d-4a8f-9c6e-1d2b3a4c5d6e`  
-**Odin Topics:** 1.A, 1.C, 5.A, 7.A, 13.A, 13.B  
+## Consumer's Financial Habits on Server-Based Electronic Money as It Affects Their Financial Behavior: Moderated By Monthly Transactions
+**Filename:** `L--Torres-et_al-2025a_summarized.md`  
+**Authors:** Torres, R. C.; Olaivar, G. M.; Britanico, S. I. (2025)  
+**ID:** `10.1145/3785171.3785192`  
+**Odin Topics:** 1.C, 5.A, 11.A  
 
-**TLDR:** Financial stress negatively affects financial management among Filipino millennials (β = -0.724), while millennial characteristics positively influence it (β = 0.480).
+**TLDR:** Saving, spending, donating, and investing habits significantly influence financial behavior among GCash users in the Philippines, with monthly transaction frequency moderating only the spending-behavior relationship.
 
-**Problem & Motivation:** Financial well-being among Filipinos is low despite economic growth, with high financial stress and limited literacy. Millennials face additional pressures from job instability, rising costs, and family obligations. Existing research lacks an integrated understanding of how family resources and financial stress jointly shape financial management in this population.
-
-**Approach (summary):**
-- Quantitative correlational design with cross-sectional survey of 400 Filipino millennials in Eastern Visayas, Philippines.
-- Multistage random sampling from three cities (Tacloban, Ormoc, Baybay) with Slovin's formula for sample size.
-- Online self-administered questionnaire adapted from Pew surveys, Frufonga’s financial stress scale, and Rajnah’s financial management instrument.
-
-**Key Findings (selected):**
-- num: Financial stress has a strong negative effect on financial management (β = -0.724, p < .001).
-- num: Millennial characteristics have a positive effect on financial management (β = 0.480, p < .001).
-- Higher millennial traits (adaptability, collaboration, tech-savviness) are associated with better budgeting, bill payment, and saving practices.
-- Financial stress leads to poorer cash management, credit management, retirement planning, and emergency fund behavior.
-
-**Supports Odin (direct justifications):**
-- Financial stress reduces financial management effectiveness by 0.724 standardized units per unit increase in stress.
-- Millennial characteristics such as digital literacy and adaptability improve financial management by 0.480 standardized units.
-- Debt and housing affordability are central stressors requiring policy and product interventions.
-
-**Limitations / Contradictions for Odin:**
-- Sample from only three cities in Eastern Visayas limits generalizability.
-- Cross-sectional design cannot establish causality between stress and financial management.
-- Potential common method bias from single-source self-report surveys.
-
-**Key takeaways:**
-- Financial stress reduces financial management by 0.724 standardized units.
-- Millennial traits improve financial management by 0.480 standardized units.
-- Debt and housing cost are primary stressors for Filipino millennials.
-
----
-
-
-## Knowledge, Attitudes, and Practices in Financial Literacy among Business Administration Students in Urban College in the Philippines
-**Filename:** `L--Espiritu-2025_summarized.md`  
-**Authors:** Espiritu, M. J. (2025)  
-**ID:** `10.69569/jip.2025.063a`  
-**Odin Topics:** 1.C  
-
-**TLDR:** Business administration students in a Philippine urban college show positive financial attitudes but knowledge varies by age, sex, and year level; financial knowledge, attitudes, and practices are strongly correlated.
-
-**Problem & Motivation:** Financial literacy among Filipinos is low, with only 25% of adults considered literate. Business administration students, as future business leaders, need strong financial skills but may face unique challenges. Prior research has not sufficiently examined the financial knowledge, attitudes, and practices of this demographic in the Philippine urban college context.
+**Problem & Motivation:** The rapid adoption of e-wallets like GCash in the Philippines has transformed consumer payment behavior, but the specific financial habits (saving, spending, donating, investing, credit) driving overall financial behavior on these platforms remain underexplored. Understanding how transaction frequency moderates these relationships is critical for designing effective financial management tools and promoting responsible digital finance.
 
 **Approach (summary):**
-- Quantitative correlational survey of 2,313 business administration students at a Philippine urban college.
-- Instrument measured financial knowledge, attitudes, and practices across income, expenses, debt, credit, and savings.
-- Reliability testing showed overall Cronbach's alpha of 0.916; subscales were lower (knowledge 0.459, attitudes 0.172, practices 0.158).
+- Quantitative survey of 300 purposively sampled Filipino GCash users aged 18-60.
+- Five financial habit predictors (saving, spending, donating, investing, credit/loan) measured via 5‑point Likert scales.
+- Multiple regression and moderation analysis using interaction term (spending × monthly transactions) grounded in Theory of Planned Behavior.
 
 **Key Findings (selected):**
-- num: 48.9% of respondents were aged 18-20, and 65.9% were male.
-- num: Financial knowledge significantly differs by age (p=0.013), sex (p=0.020), and year level (p=0.000).
-- num: Financial attitudes significantly differ by age (p=0.049), monthly family income (p=0.038), and year level (p=0.000).
-- num: Financial practices significantly differ by all demographic variables (p=0.000 each).
-
-**Supports Odin (direct justifications):**
-- Financial knowledge, attitudes, and practices are strongly correlated among Filipino business students.
-- Financial practices differ significantly by age, sex, monthly income, and year level.
-- Students generally agree they understand income, expenses, debt, credit, and savings.
+- num: Investment habit had the strongest positive effect on financial behavior (β=0.243, p<0.001).
+- num: Saving (β=0.178), spending (β=0.115), and donating (β=0.144) habits also significantly influenced financial behavior (p≤0.003).
+- Credit/loan habit showed no significant effect (β=-0.003, p=0.955).
+- num: Monthly transaction frequency significantly moderated only the spending‑behavior relationship (β=-0.163, p<0.001).
 
 **Limitations / Contradictions for Odin:**
-- Internal consistency of subscales for knowledge (0.459), attitudes (0.172), and practices (0.158) is poor, undermining construct validity. [unacknowledged]
-- Sample limited to business administration students at one urban college. [unacknowledged]
-- Self-reported data subject to social desirability bias. [unacknowledged]
+- "Cross‑sectional data; causal claims cannot be made. [unacknowledged]"
+- "Purposive sampling may introduce selection bias. [unacknowledged]"
+- "Self‑report measures subject to social desirability and recall bias. [unacknowledged]"
 
 **Key takeaways:**
-- Financial knowledge, attitudes, and practices are strongly correlated (R=0.697).
-- Demographic factors significantly affect financial practices across all measured variables.
-- Students report positive attitudes but knowledge varies by age, sex, and year level.
+- "Investment habits had the strongest impact on financial behavior (β=0.243)."
+- "Monthly transaction frequency intensifies the effect of spending habits on behavior."
+- "Credit and loan habits showed no significant influence among GCash users."
 
 ---
 
@@ -686,64 +566,20 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Analyzed data using SPSS with descriptive statistics (frequencies, means, standard deviations).
 
 **Key Findings (selected):**
-- num: Pearson r = 0.612 (p < 0.05) indicates a strong positive relationship between online buying decisions and poor budget management.
-- num: 83% of respondents were aged 18-24, and 62% were female, a group highly responsive to digital trends.
-- num: Mean score for online buying decisions was 3.02 (Agree/High), with social media influence highest at 3.05.
-- num: Mean personal budget score was 3.15 (Agree/High), but necessary expenses scored 3.32 (Very High).
-
-**Supports Odin (direct justifications):**
-- Online buying decisions driven by social media have a strong positive correlation (r=0.612) with poor budget management.
-- Age and civil status significantly affect students' allowance, spending, and savings behaviors.
-- Instant gratification motives (stress relief, mood improvement) lead to frequent impulsive unplanned purchases.
+- "num: Pearson r = 0.612 (p < 0.05) indicates a strong positive relationship between online buying decisions and poor budget management."
+- "num: 83% of respondents were aged 18-24, and 62% were female, a group highly responsive to digital trends."
+- "num: Mean score for online buying decisions was 3.02 (Agree/High), with social media influence highest at 3.05."
+- "num: Mean personal budget score was 3.15 (Agree/High), but necessary expenses scored 3.32 (Very High)."
 
 **Limitations / Contradictions for Odin:**
-- The study focused only on one degree program (Business Administration) at one campus. [unacknowledged]
-- Data collection was inside the university premises; results not applicable to non-students.
-- The outcome applies only to the 153 randomly selected respondents and cannot be generalized beyond this population.
+- "The study focused only on one degree program (Business Administration) at one campus. [unacknowledged]"
+- "Data collection was inside the university premises; results not applicable to non-students."
+- "The outcome applies only to the 153 randomly selected respondents and cannot be generalized beyond this population."
 
 **Key takeaways:**
-- r=0.612 strong correlation between online buying and poor budget management.
-- Social media likes and influencer ads most strongly drive impulsive spending.
-- Age and civil status affect savings; sex affects savings but not allowance.
-
----
-
-
-## The Gig Economy: Financial Challenges and Opportunities Faced by Freelancers
-**Filename:** `L--Casalhay-et_al_summarized.md`  
-**Authors:** Casalhay, S. F.; Guevarra, C. M.; Bragas, C. M. (2025)  
-**ID:** `10.55248/gengpi.6.0525.1716`  
-**Odin Topics:** 1.C, 4.B, 5.A, 7.A, 13.A  
-
-**TLDR:** Freelancers in the gig economy face income volatility, lack of benefits, and barriers to financial services, relying on budgeting and savings strategies that are often insufficient for long-term security.
-
-**Problem & Motivation:** Traditional employment models provide stability and benefits, but freelancers in the gig economy lack these protections, leading to financial insecurity. Existing research focuses on the growth of gig work rather than the specific financial behaviors and coping mechanisms of freelancers. This gap hinders the development of tailored financial products and policies to support gig workers.
-
-**Approach (summary):**
-- Qualitative study using semi-structured interviews with 50 freelancers in Metro Manila across writing, design, virtual assistance, and software development.
-- Participants had at least six months of gig experience; purposive and snowball sampling were used.
-- Data were transcribed and analyzed using thematic analysis with NVivo software.
-
-**Key Findings (selected):**
-- num: 50 freelancers reported income instability as a primary challenge due to seasonal fluctuations and irregular client payments.
-- num: Many freelancers allocate 30% to savings and 70% to expenses when possible, and save 10% of earnings into emergency funds.
-- Freelancers lack access to employer-sponsored health insurance, retirement plans, and paid leave, increasing financial burden.
-- Financial institutions view freelancers as high-risk borrowers, denying loans and credit due to irregular income.
-
-**Supports Odin (direct justifications):**
-- Freelancers experience income volatility due to seasonal fluctuations and irregular client payments.
-- Many freelancers lack access to traditional benefits like health insurance and retirement plans.
-- Budgeting apps and tracking tools are widely used but insufficient for long-term financial security.
-
-**Limitations / Contradictions for Odin:**
-- Small sample size (n=50) and geographic restriction to Metro Manila limit external validity [unacknowledged].
-- No comparison group of traditionally employed workers to benchmark financial outcomes.
-- The study does not test causal relationships between coping strategies and financial stability [unacknowledged].
-
-**Key takeaways:**
-- num: 50 freelancers report income volatility as a primary challenge.
-- Budgeting and emergency savings are common but insufficient for long-term security.
-- Freelancers lack access to loans, credit, and employer-sponsored benefits.
+- "r=0.612 strong correlation between online buying and poor budget management."
+- "Social media likes and influencer ads most strongly drive impulsive spending."
+- "Age and civil status affect savings; sex affects savings but not allowance."
 
 ---
 
@@ -765,14 +601,9 @@ This report includes problem/motivation, approach, key findings, support for Odi
 
 **Key Findings (selected):**
 - Overall mean financial literacy score was 2.99 (High) and economic condition mean was 3.02 (High).
-- {'num': 'Correlation coefficient of 0.50068 indicates a moderate relationship between financial literacy and economic condition.'}
-- {'num': 'p-value >0.05, therefore the relationship is not statistically significant.'}
-- {'num': '52% of respondents earn ₱10,000-₱15,000 monthly; 30% are aged 18-25 and 45-50 each.'}
-
-**Supports Odin (direct justifications):**
-- Households in Barangay Imbatug have high financial literacy (mean 2.99) but only moderate correlation with economic conditions.
-- Debt management literacy is very high (mean 3.33) among respondents.
-- No statistically significant relationship exists between financial literacy and economic condition (p>0.05).
+- num: Correlation coefficient of 0.50068 indicates a moderate relationship between financial literacy and economic condition.
+- num: p-value >0.05, therefore the relationship is not statistically significant.
+- num: 52% of respondents earn ₱10,000-₱15,000 monthly; 30% are aged 18-25 and 45-50 each.
 
 **Limitations / Contradictions for Odin:**
 - Study focused only on three puroks of Barangay Imbatug. [unacknowledged]
@@ -783,6 +614,40 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Financial literacy mean score was 2.99 (High) on a 4-point scale.
 - Correlation between literacy and economic condition is moderate (r=0.50) but not significant.
 - Debt management showed the highest literacy (mean 3.33).
+
+---
+
+
+## Caring for Indebted Migrant Workers: Financial Literacy Training, Debt, and Filipino Migrant Workers in Dubai
+**Filename:** `I--Banta_summarized.md`  
+**Authors:** Banta, Vanessa L. (2025)  
+**ID:** `10.1080/00330124.2024.2410764`  
+**Odin Topics:** 1.C, 2.A, 13.B  
+
+**TLDR:** Financial literacy training for Filipino migrant workers in Dubai frames debt as a personal failing, obscuring structural conditions that produce and sustain indebtedness.
+
+**Problem & Motivation:** Debt among Filipino migrant workers in Dubai is rising, yet state and private initiatives frame it as a lack of financial maturity. Critical scholarship has examined how debt shapes migration, but the politics of care underlying financial literacy training remain underexplored. Understanding how care practices can obscure structural drivers of debt is needed to inform more just migrant solidarities.
+
+**Approach (summary):**
+- Conducted interviews with 30 Filipino migrant workers in Dubai and Abu Dhabi in 2018.
+- Examined IGNITE, a civil society organization providing financial literacy and entrepreneurship training to OFWs.
+- Analyzed training materials, volunteer perspectives, and participant experiences.
+
+**Key Findings (selected):**
+- Financial literacy training individualizes debt as a problem of “conspicuous consumption” and excessive family care.
+- The training promotes sacrifice and delayed gratification, reinforcing the “export-quality martyr” narrative.
+- Structural issues such as the kafala system, lack of affordable housing, and debt-bonded labor are ignored.
+- Some participants valued goal-setting and saving for themselves, but overall training bypasses debt relief mechanisms.
+
+**Limitations / Contradictions for Odin:**
+- Qualitative sample of 30 workers may not be generalizable.
+- Focus on a single civil society organization limits breadth.
+- Does not evaluate long-term outcomes of financial literacy training [unacknowledged].
+
+**Key takeaways:**
+- Financial literacy training obscures structural drivers of migrant debt.
+- Promoting sacrifice and delayed gratification reinforces normative narratives.
+- Debt incurred for migration and family obligations traps workers in precarity.
 
 ---
 
@@ -803,15 +668,10 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Qualitative insights from interviews, focus groups, and case studies.
 
 **Key Findings (selected):**
-- num: 42% of officers are aged 31-40, the largest age group.
-- num: 60% of respondents are male, 40% female.
-- num: 92% are married, indicating shared financial responsibilities.
-- num: 42% of participants are Police Staff Sergeants (PSSG), the most engaged rank.
-
-**Supports Odin (direct justifications):**
-- Officers with extended financial responsibilities are more likely to seek financial education.
-- Most officers create a monthly budget to manage finances.
-- Salary loans are the most common form of debt among police officers.
+- "num: 42% of officers are aged 31-40, the largest age group."
+- "num: 60% of respondents are male, 40% female."
+- "num: 92% are married, indicating shared financial responsibilities."
+- "num: 42% of participants are Police Staff Sergeants (PSSG), the most engaged rank."
 
 **Limitations / Contradictions for Odin:**
 - Small sample size (n=50) limits generalizability to all PNP personnel.
@@ -826,41 +686,36 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## Buy-Now-Pay-Later Adoption, Debt Stress, and Repurchase Intention among Filipinos Gen Z Consumers: The Mediating Role of Budgeting Self-Efficacy
-**Filename:** `L--Romero_summarized.md`  
-**Authors:** Romero, M. A. (2025)  
-**ID:** `b3c5d7e9-f1a2-4b6c-8d0e-9f1a2b3c4d5e`  
-**Odin Topics:** 1.C, 5.A, 11.A, 11.B, 13.B  
+## Financial Literacy and Digital Savings Behavior of Gen Z in the Fintech Era: A Systematic Literature Review
+**Filename:** `I--Dewi_summarized.md`  
+**Authors:** Dewi, A. K. (2025)  
+**ID:** `10.70764/gdpu-jbfi.2025.1(2)-09`  
+**Odin Topics:** 1.C, 13.A, 13.B  
 
-**TLDR:** BNPL adoption among Filipino Gen Z consumers increases repurchase intention but also raises debt stress, while budgeting self-efficacy and transparency mitigate negative outcomes.
+**TLDR:** Financial literacy and fintech synergistically enhance Gen Z's saving discipline and reduce high-cost loan dependence.
 
-**Problem & Motivation:** BNPL services expand rapidly in Southeast Asia but create tension between purchase convenience and consumer welfare risks. Gen Z consumers face high digital shopping frequency and limited financial buffers, yet mechanisms linking BNPL adoption to stress and repurchase are unclear. This study identifies debt stress and budgeting self-efficacy as explanatory pathways for Filipino youth.
+**Problem & Motivation:** Gen Z possesses strong digital skills but low financial literacy, creating a gap that hinders effective saving. The interaction between fintech and financial literacy in shaping saving behavior is underexplored.
 
 **Approach (summary):**
-- Survey of 602 Filipino Gen Z BNPL users who had used the service at least twice in three months.
-- Constructs measured: perceived convenience, promotional attractiveness, transparency, adoption intensity, budgeting self-efficacy, debt stress, repurchase intention.
-- Partial Least Squares Structural Equation Modeling (PLS-SEM) with bootstrapping for mediation analysis.
+- Systematic Literature Review of articles published 2020–2025 from Scopus, Emerald, Elsevier, MDPI, ProQuest, and Taylor & Francis.
+- Initial search yielded 250 articles; title/abstract screening reduced to 180, full-text review to 120, eligibility analysis to 90, final 6 high-quality studies.
+- Keywords included “Financial Literacy,” “Digital Savings,” “Generation Z,” and “Fintech” with Boolean operators.
 
 **Key Findings (selected):**
-- Perceived convenience, promotional attractiveness, and transparency are positively associated with BNPL adoption intensity.
-- BNPL adoption intensity is positively associated with repurchase intention and also positively associated with debt stress.
-- Debt stress is negatively associated with repurchase intention.
-- Budgeting self-efficacy reduces debt stress and strengthens repurchase intention.
-
-**Supports Odin (direct justifications):**
-- BNPL adoption intensity increases repurchase intention directly but also increases debt stress.
-- Budgeting self-efficacy reduces debt stress and strengthens repurchase intention.
-- Perceived transparency strengthens budgeting self-efficacy and indirectly reduces debt stress.
+- Financial literacy is a cognitive and affective foundation for healthy financial decision-making among Gen Z.
+- Fintech features (auto-debit, reminders, transparency, gamification) facilitate saving discipline.
+- Synergy between financial literacy and fintech strengthens sustainable saving behavior and reduces dependence on high-cost loans.
+- num: 72% of variation in Gen Z’s financial literacy is explained by fintech use (Hastuty Hs et al., 2024).
 
 **Limitations / Contradictions for Odin:**
-- Cross-sectional design restricts temporal inference about how debt stress accumulates over repeated BNPL use. [acknowledged]
-- Reliance on self-reported measures may introduce common method bias. [acknowledged]
-- No objective transaction data to validate adoption intensity. [acknowledged]
+- "Literature review design cannot establish causality."
+- "Only six articles were finally analyzed, potentially missing relevant studies. [unacknowledged]"
+- "Focus on Gen Z may not generalize to other age groups in PFMS. [unacknowledged]"
 
 **Key takeaways:**
-- Survey of 602 Filipino Gen Z consumers shows BNPL adoption increases repurchase intention and debt stress.
-- Budgeting self-efficacy buffers debt stress and supports healthier repurchase behavior.
-- Transparency in fees and due dates strengthens self-efficacy and reduces harmful outcomes.
+- Financial literacy and fintech together boost Gen Z saving discipline.
+- 72% of Gen Z financial literacy variation is explained by fintech use.
+- Auto-debit and gamification features effectively encourage saving.
 
 ---
 
@@ -881,25 +736,20 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Analysis of means and frequencies across ten behavioral dimensions.
 
 **Key Findings (selected):**
-- num: 94% of respondents are aged 18-25, and 60% earn below PHP 5,000 monthly.
-- num: Impulse buying tendency mean of 2.71 (agree), with highest agreement on post-purchase regret (2.88).
-- num: Awareness of repayment obligations mean of 2.91, but unexpected fees reported at 2.60.
-- num: Debt accumulation mean of 2.55, with using one BNPL to pay another at 2.42 (lowest).
-
-**Supports Odin (direct justifications):**
-- BNPL users exhibit moderate impulse buying tendencies (mean 2.71).
-- Young Filipino BNPL users often rely on future income to meet payments (mean 2.84).
-- Awareness of repayment obligations is relatively high (mean 2.91) but budgeting strategies are inconsistent (mean 2.63).
+- "num: 94% of respondents are aged 18-25, and 60% earn below PHP 5,000 monthly."
+- "num: Impulse buying tendency mean of 2.71 (agree), with highest agreement on post-purchase regret (2.88)."
+- "num: Awareness of repayment obligations mean of 2.91, but unexpected fees reported at 2.60."
+- "num: Debt accumulation mean of 2.55, with using one BNPL to pay another at 2.42 (lowest)."
 
 **Limitations / Contradictions for Odin:**
-- Small sample size and geographic restriction to Gapan City. [unacknowledged]
-- Contradiction in ethical approval statement: claims no human subjects but conducted surveys. [unacknowledged]
-- Lack of longitudinal data to assess long-term debt outcomes.
+- "Small sample size and geographic restriction to Gapan City. [unacknowledged]"
+- "Contradiction in ethical approval statement: claims no human subjects but conducted surveys. [unacknowledged]"
+- "Lack of longitudinal data to assess long-term debt outcomes."
 
 **Key takeaways:**
-- 94% of BNPL users are aged 18-25, mostly students with low income.
-- Impulse buying tendency is moderate but post-purchase regret is higher.
-- Budget planning around BNPL is inconsistent despite awareness.
+- "94% of BNPL users are aged 18-25, mostly students with low income."
+- "Impulse buying tendency is moderate but post-purchase regret is higher."
+- "Budget planning around BNPL is inconsistent despite awareness."
 
 ---
 
@@ -917,223 +767,158 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Approach (summary):**
 - Data were collected from 400 Filipino millennials in Makati City via online and in-person surveys.
 - Financial literacy was measured using Lusardi and Mitchell's "Big Three" questions on interest compounding, inflation, and risk diversification.
-- {'Financial planning was operationalized through goal setting theory constructs': 'goal commitment, specificity, acceptance, and difficulty.'}
+- Financial planning was operationalized through goal setting theory constructs: goal commitment, specificity, acceptance, and difficulty.
 
 **Key Findings (selected):**
-- num: Mean correct scores were 0.545 for interest compounding, 0.388 for inflation, and 0.338 for risk diversification.
-- num: Financial literacy had no significant direct effect on financial planning (β=0.077, p=0.153).
-- num: Monthly expenses (β=0.205, p=0.001) and monthly income (β=0.180, p=0.003) showed significant effects on financial planning.
-- num: Goal acceptance (β=0.924) and goal commitment (β=0.809) were the strongest predictors of financial planning among goal setting constructs.
-
-**Supports Odin (direct justifications):**
-- Financial literacy does not directly affect financial planning among Filipino millennials.
-- Monthly income and expenses are significant determinants of financial planning behavior.
-- Goal acceptance and goal commitment are strong predictors of financial planning in this demographic.
+- "num: Mean correct scores were 0.545 for interest compounding, 0.388 for inflation, and 0.338 for risk diversification."
+- "num: Financial literacy had no significant direct effect on financial planning (β=0.077, p=0.153)."
+- "num: Monthly expenses (β=0.205, p=0.001) and monthly income (β=0.180, p=0.003) showed significant effects on financial planning."
+- "num: Goal acceptance (β=0.924) and goal commitment (β=0.809) were the strongest predictors of financial planning among goal setting constructs."
 
 **Limitations / Contradictions for Odin:**
-- Only Makati City residents were surveyed, limiting generalizability.
-- Only millennials were included; older generations may differ.
-- Only 'The Big Three' questions measured financial literacy; other dimensions omitted.
+- "Only Makati City residents were surveyed, limiting generalizability."
+- "Only millennials were included; older generations may differ."
+- "Only 'The Big Three' questions measured financial literacy; other dimensions omitted."
 
 **Key takeaways:**
-- Only 0.545 mean correct on interest compounding, 0.388 on inflation, 0.338 on risk diversification.
-- Financial literacy had no significant effect on financial planning (p=0.153).
-- Monthly expenses and income were stronger predictors than financial literacy.
+- "Only 0.545 mean correct on interest compounding, 0.388 on inflation, 0.338 on risk diversification."
+- "Financial literacy had no significant effect on financial planning (p=0.153)."
+- "Monthly expenses and income were stronger predictors than financial literacy."
 
 ---
 
 
-## The Influence of Financial Literacy on the Budgeting Practices among College Students in a Private Catholic School: Input for Student Literacy Program
-**Filename:** `L--Templa-et_al_summarized.md`  
-**Authors:** Templa, E. L.; Andea, R. J. B.; Bagahansol, J. D. M.; Carreon, R. B.; Comendador, L. G.; Labrador, J. G.; Miscreola, D. J. V.; Tapay, A. J. D.; Uson, P. G. R. A. (2025)  
-**ID:** `10.70838/pemj.380810`  
-**Odin Topics:** 1.C, 7.A, 13.A  
+## Martime Students’ Financial Knowledge, Attitude, and Behavior
+**Filename:** `L--Apao-et_al_summarized.md`  
+**Authors:** Apao, A. A.; Cayanpat, R. A. B.; Edullantes Jr., Y. P.; Cabañero, K. E. S.; Hechanova, J. M. T.; Candia, H. G. (2025)  
+**ID:** `10.35877/454RI.daengku4034`  
+**Odin Topics:** 1.C  
 
-**TLDR:** Higher financial literacy correlates strongly with better budgeting practices among Filipino college students, explaining 75% of variance in budgeting behavior.
+**TLDR:** Filipino maritime students exhibit very high financial knowledge, attitude, and behavior, but neither knowledge nor attitude significantly correlates with behavior.
 
-**Problem & Motivation:** College students face financial responsibilities affecting their studies and well-being, yet many lack effective budgeting skills. Prior research shows financial literacy gaps persist globally and in the Philippines. However, few studies examine this relationship in private Catholic schools with unique socioeconomic contexts.
+**Problem & Motivation:** Financial literacy research often overlooks the relationship between financial knowledge, attitude, and behavior among vocational students. Maritime students in the Philippines face unique financial challenges with irregular high incomes, yet limited studies examine their financial behavior. This gap hinders the development of effective financial education for future seafarers.
 
 **Approach (summary):**
-- Quantitative descriptive-correlational design with 225 randomly selected college students from a private Catholic school in Davao City.
-- Validated survey instrument measured five financial literacy dimensions (awareness, attitudes, risk management, culture, knowledge/skills) and four budgeting dimensions (goal setting, financial control, decision-making, financial behavior).
-- Pearson correlation and linear regression analysis used to assess relationship and influence between financial literacy and budgeting practices.
+- Surveyed 100 randomly selected maritime students from a private higher education institution in Ozamiz City.
+- Used adapted four-point Likert scales measuring financial knowledge (10 items), attitude (10 items), and behavior (7 items).
+- Analyzed data with mean, standard deviation, and Pearson correlation.
 
 **Key Findings (selected):**
-- num: Strong positive correlation (r = 0.85, p < 0.001) between financial literacy and budgeting practices.
-- num: Financial literacy accounts for approximately 75% of variance in budgeting behavior (R² = 0.723).
-- Students demonstrate high financial literacy (mean 3.95/5) with strongest dimension being attitudes towards finance (4.03).
-- Budgeting practices also high (mean 3.91/5) with decision-making strongest (4.03) and financial control lowest (3.77).
-
-**Supports Odin (direct justifications):**
-- Financial literacy accounts for 75% of variance in budgeting practices among Filipino college students.
-- Students with higher financial literacy demonstrate stronger goal setting, financial control, and decision-making in budgeting.
-- Managing financial risk is the lowest literacy dimension, indicating a gap for PFMS to address.
+- "num: Maritime students had very high financial knowledge (M=3.74), attitude (M=3.71), and behavior (M=3.85) on 4-point scales."
+- Financial knowledge showed no significant correlation with financial behavior (r=-0.46, p=0.652).
+- Financial attitude also showed no significant correlation with behavior (r=0.59, p=0.558).
 
 **Limitations / Contradictions for Odin:**
-- Self-reported data may introduce bias in respondents' assessments. [unacknowledged]
-- Study does not account for external factors like socioeconomic background or prior financial education.
-- Sample limited to one private Catholic school in Davao City, limiting generalizability. [unacknowledged]
+- Sample size of 100 may limit statistical power.
+- Use of Likert scales may introduce social desirability bias.
+- No qualitative follow-up to explain why knowledge does not translate to behavior. [unacknowledged]
 
 **Key takeaways:**
-- Financial literacy explains 75% of budgeting behavior variance.
-- Decision-making is the strongest budgeting skill among students.
-- Financial risk management is the weakest literacy area.
+- Maritime students report very high financial knowledge, attitude, and behavior.
+- Knowledge and attitude do not significantly correlate with actual financial behavior.
+- Financial education must bridge the knowing-doing gap for young professionals.
 
 ---
 
 
-## PERSONAL FINANCIAL MANAGEMENT BEHAVIOR AND FINANCIAL PLANNING AS KEY DRIVERS OF RETIREMENT PREPAREDNESS AMONG LGU's CONTRACTUAL PERSONNEL
-**Filename:** `L--Tambuli-&-Villarba_summarized.md`  
-**Authors:** Tambuli, A. P.; Villarba, L. O. (2025)  
-**ID:** `f47ac10b-58cc-5372-a567-0e02b2c3d479`  
-**Odin Topics:** 1.C, 5.A, 7.A, 13.A  
+## Simple Financial Management in Housewife Communities: A Qualitative Study on Daily Financial Management Patterns
+**Filename:** `I--Efendi-&-Widagdo_summarized.md`  
+**Authors:** Efendi, M. I.; Widagdo, C. S. (2025)  
+**ID:** `10.59890/ijaeam.v3i3.18`  
+**Odin Topics:** 1.C, 2.A, 2.B, 3.A, 5.A, 7.A, 13.A, 13.B  
 
-**TLDR:** Personal financial management behavior and financial planning significantly drive retirement preparedness among LGU contractual personnel in Nabunturan, Philippines.
+**TLDR:** Housewives in Salatiga develop adaptive financial strategies including informal recording, expenditure prioritization, community-based savings groups, and risk management despite limited formal literacy.
 
-**Problem & Motivation:** Contractual LGU employees face unstable income and limited savings opportunities, yet no prior study examines how their personal financial management behavior and financial planning drive retirement preparedness.
+**Problem & Motivation:** Housewives manage daily household finances but have lower formal financial literacy (36.1% vs 40.6% for men) and face structural disadvantages. Research overlooks their sophisticated adaptive strategies and community-based financial systems.
 
 **Approach (summary):**
-- Data from 200 LGU contractual employees in Nabunturan using a simple random sample and a validated survey questionnaire.
-- Descriptive-correlational design with mean, standard deviation, Pearson r, and multiple regression analysis.
-- Variables measured: retirement preparedness (asset acquisition, budgeting, decision making), personal financial management behavior (cash, credit, savings/investment), and financial planning (retirement savings, abilities).
+- Qualitative case study in Salatiga, Central Java, involving 25 housewives as primary financial managers.
+- Data collection through semi-structured interviews (60-90 minutes), non-participant observation of community activities, and document analysis.
+- Analysis using ATLAS.ti with open, axial, and selective coding, plus member checking for validation.
 
 **Key Findings (selected):**
-- num: Personal financial management behavior correlates with retirement preparedness at r = 0.701 (p < .001).
-- num: Financial planning correlates with retirement preparedness at r = 0.739 (p < .001).
-- num: Combined model explains 61.5% of variance in retirement preparedness (R² = 0.615).
-- Retirement savings indicator was only moderately evident (mean 3.37) among contractual employees.
-
-**Supports Odin (direct justifications):**
-- Personal financial management behavior has a strong positive correlation with retirement preparedness (r = 0.701).
-- Financial planning behavior has a strong positive correlation with retirement preparedness (r = 0.739).
-- Personal financial management behavior and financial planning together explain 61.5% of variance in retirement preparedness.
+- num: 5 of 8 informants perform routine manual expense recording; others use mental envelopes or digital apps inconsistently.
+- Housewives prioritize primary needs (food, school fees, bills) over secondary and tertiary needs using mental accounting.
+- Strategies include gradual purchasing, cash buffers (e.g., Rp50,000), and informal shop credit for liquidity gaps.
+- Income diversification through home-based activities yields Rp300,000–Rp500,000 monthly additional income.
 
 **Limitations / Contradictions for Odin:**
-- Cross-sectional design limits causal inference. [unacknowledged]
-- Sample restricted to one LGU in Nabunturan, Davao de Oro. [unacknowledged]
-- Retirement savings domain showed only moderate evidence (mean 3.37), indicating weak translation of planning to action.
+- "Small sample (25 housewives) from one city limits external validity."
+- "Self-reported financial practices may suffer from social desirability bias. [unacknowledged]"
+- "No longitudinal data to assess stability of adaptive strategies over time. [unacknowledged]"
 
 **Key takeaways:**
-- Personal financial management behavior correlates strongly with retirement preparedness (r=0.70).
-- Financial planning is an even stronger driver (r=0.74) of retirement preparedness.
-- Contractual employees have high financial planning abilities but only moderate actual retirement savings.
+- "num: 5 of 8 housewives manually record expenses; others use envelope systems."
+- "Community arisan groups act as forced savings with social discipline."
+- "Housewives create micro emergency funds of Rp50,000 to Rp200,000."
 
 ---
 
 
-## Understanding Monetary Policy: Student Awareness, Perceptions, and Financial Behaviors in the Philippine Context
-**Filename:** `L--Espelita-et-al_summarized.md`  
-**Authors:** Atento, R. G.; Espelita, C. A. M.; Rao, L.; Tian, Y. (2025)  
-**ID:** `3c6e0b8a-9c1d-5f2a-9e3b-4d7f8a9b0c1d`  
-**Odin Topics:** 1.C, 13.A  
-
-**TLDR:** Filipino students show moderate monetary policy awareness, with graduate and business students more knowledgeable; awareness correlates positively with saving and investment but not spending.
-
-**Problem & Motivation:** Limited research examines how young Filipinos understand monetary policy despite its critical role in economic stability and personal financial decisions. Students, as future economic stewards, need literacy to navigate policy impacts on saving, investing, and spending. Without this understanding, policy effectiveness may be undermined and financial behaviors misaligned.
-
-**Approach (summary):**
-- Descriptive-correlational survey of 200 Filipino senior high, undergraduate, and graduate students using stratified random sampling.
-- Instrument measured monetary policy awareness (10 items), perceptions (10 items), and financial behaviors (saving, investing, spending) on 5-point Likert scales.
-- Data analyzed with ANOVA, t-tests, Pearson correlations, and multiple regression using Jamovi and SPSS.
-
-**Key Findings (selected):**
-- num: Awareness correlates moderately with perception of policy effectiveness (r = 0.48, p < .001).
-- num: Awareness positively correlated with saving behavior (r = 0.31, p < .001) and investment behavior (r = 0.24, p = .001).
-- num: Awareness not significantly correlated with spending behavior (r = -0.07, p = .310).
-- num: Regression shows awareness and perceptions predict saving (R² = .22) and investment (R² = .15) but not spending (R² = .04).
-
-**Supports Odin (direct justifications):**
-- Monetary policy awareness positively correlates with saving behavior (r=0.31, p<.001).
-- Graduate students have higher awareness than senior high students (M=3.75 vs 2.80).
-- Business and economics students are more aware of monetary policy than non-business peers.
-
-**Limitations / Contradictions for Odin:**
-- Cross-sectional design prevents causal inference.
-- Self-reported data may introduce social desirability bias.
-- Sampling restricted to selected Philippine HEIs and senior high schools, limiting generalizability to all Filipino students.
-
-**Key takeaways:**
-- Awareness correlates with saving (r=0.31) but not spending.
-- Graduate students show highest monetary policy knowledge.
-- Business students more aware than non-business peers.
-
----
-
-
-## BUY NOW, PAY LATER: SHOPEE ONLINE STORE USERS EXPERIENCES ON SHOPEE PAY LATER FEATURE (SPAY LATER)
+## "BUY NOW, PAY LATER: SHOPEE ONLINE STORE USERS EXPERIENCES ON SHOPEE PAY LATER FEATURE (SPAY LATER)"
 **Filename:** `L--Canalog-et_al_summarized.md`  
-**Authors:** Calanog, V. C.; Paderan, M. J. D.; Adove, R. C. A.; Bathan, C. M. N.; Catibog, D. N.; Rivera, G. R.; Mangarin, J. A. (2025)  
+**Authors:** "Calanog, V. C.; Paderan, M. J. D.; Adove, R. C. A.; Bathan, C. M. N.; Catibog, D. N.; Rivera, G. R.; Mangarin, J. A." (2025)  
 **ID:** `10.5281/zenodo.15031111`  
 **Odin Topics:** 1.C, 5.A, 13.B  
 
-**TLDR:** Shopee Pay Later users employ the feature primarily for essential needs, valuing convenience and flexible repayment, while facing technical issues and requiring disciplined budgeting.
+**TLDR:** "Shopee Pay Later users employ the feature primarily for essential needs, valuing convenience and flexible repayment, while facing technical issues and requiring disciplined budgeting."
 
-**Problem & Motivation:** Prior studies on Buy Now, Pay Later focused on either positive or negative impacts but lacked a comprehensive understanding of user motivations and behaviors. This gap prevented a holistic view of how users experience features like Shopee Pay Later. The study addresses the overall experience of Spay Later users, including satisfaction, convenience, financial behavior, and challenges.
+**Problem & Motivation:** "Prior studies on Buy Now, Pay Later focused on either positive or negative impacts but lacked a comprehensive understanding of user motivations and behaviors. This gap prevented a holistic view of how users experience features like Shopee Pay Later. The study addresses the overall experience of Spay Later users, including satisfaction, convenience, financial behavior, and challenges."
 
 **Approach (summary):**
-- Qualitative phenomenological study using semi-structured interviews with 10 Shopee Spay Later users in Balayan, Batangas, Philippines.
-- Participants selected via judgmental sampling: gold or platinum loyalty tier, credit limit ≥5000 PHP, and at least one year of Spay Later use.
-- Thematic analysis applied to interview transcripts to identify patterns in user satisfaction, convenience, financial behavior, and challenges.
+- "Qualitative phenomenological study using semi-structured interviews with 10 Shopee Spay Later users in Balayan, Batangas, Philippines."
+- "Participants selected via judgmental sampling: gold or platinum loyalty tier, credit limit ≥5000 PHP, and at least one year of Spay Later use."
+- "Thematic analysis applied to interview transcripts to identify patterns in user satisfaction, convenience, financial behavior, and challenges."
 
 **Key Findings (selected):**
-- Three usage patterns emerged: occasional use for necessities, regular monthly use for essentials, and needs-based use during financial constraints.
-- Users primarily purchase everyday household necessities, high-cost essential items during financial constraints, and rarely non-essential items.
-- Motivations include limited budget and financial independence, ability to afford high-cost purchases over time, attractive incentives, and urgent needs.
-- Challenges include transaction errors, unexpected fees, insufficient credit balance, and seller accountability concerns.
-
-**Supports Odin (direct justifications):**
-- Spay Later users primarily make essential purchases rather than discretionary ones.
-- Flexible repayment options and low interest rates increase user satisfaction and perceived convenience.
-- Pre-payment planning and due date monitoring prevent late fees and promote financial discipline.
+- "Three usage patterns emerged: occasional use for necessities, regular monthly use for essentials, and needs-based use during financial constraints."
+- "Users primarily purchase everyday household necessities, high-cost essential items during financial constraints, and rarely non-essential items."
+- "Motivations include limited budget and financial independence, ability to afford high-cost purchases over time, attractive incentives, and urgent needs."
+- "Challenges include transaction errors, unexpected fees, insufficient credit balance, and seller accountability concerns."
 
 **Limitations / Contradictions for Odin:**
-- Small sample size (10 participants) limits generalizability. [unacknowledged]
-- Qualitative only; no quantitative validation of claimed effects. [unacknowledged]
-- Participants restricted to gold/platinum tier users with ≥5000 PHP credit limit, excluding lower-tier users. [unacknowledged]
+- "Small sample size (10 participants) limits generalizability. [unacknowledged]"
+- "Qualitative only; no quantitative validation of claimed effects. [unacknowledged]"
+- "Participants restricted to gold/platinum tier users with ≥5000 PHP credit limit, excluding lower-tier users. [unacknowledged]"
 
 **Key takeaways:**
-- 10 gold/platinum users with 5000 PHP credit limit were interviewed.
-- Three usage patterns: occasional, regular monthly, and needs-based.
-- Spay Later improved budgeting skills and financial flexibility.
+- "10 gold/platinum users with 5000 PHP credit limit were interviewed."
+- "Three usage patterns: occasional, regular monthly, and needs-based."
+- "Spay Later improved budgeting skills and financial flexibility."
 
 ---
 
 
-## Revisiting the Filipino Value Utang na Loob: Contextual Perceptions, Implications and Inputs to Sustaining the Filipino Psychology Discussions
-**Filename:** `L--Casino-et_al_summarized.md`  
-**Authors:** Casiño, R. M. Z.; Serrano, L. L.; Granada, M. I. D. (2025)  
-**ID:** `b3e7c1a8-5f4d-4b2e-9c6a-1d8f7e3a2b4c`  
-**Odin Topics:** 1.C, 2.A, 13.B  
+## The Influence of E-Wallets on The Consumptive Behavior Generation Z: Systematic Review
+**Filename:** `I--Kuswardhani-et_al_summarized.md`  
+**Authors:** Kuswardhani, E. L.; Sari, M. A. N. P.; Yuniawan, A.; Kusumawardhani, A. (2025)  
+**ID:** `3c7e3b2a-1f4d-5e6a-8b9c-0d1e2f3a4b5c`  
+**Odin Topics:** 1.C, 5.A, 9.B, 11.A  
 
-**TLDR:** Utang na loob is a Filipino value of debt of gratitude that goes beyond reciprocity, strengthening social ties but prone to misuse causing emotional pressure and obligation.
+**TLDR:** E-wallet usage positively correlates with increased consumptive behavior in Generation Z, driven by convenience, promotions, and reduced payment friction.
 
-**Problem & Motivation:** The Filipino value utang na loob is often misunderstood and misused, leading to toxic social pressures and perceptions of it as a burden. This study aims to understand how Filipinos perceive and apply utang na loob in daily life to sustain authentic Filipino psychology discussions.
+**Problem & Motivation:** E-wallets offer ease and speed but may foster impulsive spending among Generation Z, a demographic that is digitally native and financially formative. A systematic synthesis of empirical evidence on behavioral triggers and design features was missing. Understanding these effects is critical for balancing digital financial inclusion with long-term financial well-being.
 
 **Approach (summary):**
-- Conducted focus group discussions with 13 Filipino college students aged 18-21.
-- Applied In Vivo coding to participant statements to extract intrinsic cultural meanings.
-- Performed thematic analysis to derive categories of utang na loob definitions and contexts.
+- Systematic literature review following PRISMA framework, analyzing 28 empirical studies published from 2020 to 2025.
+- Search conducted across Scopus, Web of Science, ScienceDirect, ProQuest, and Google Scholar using keywords such as “e-wallet,” “Generation Z,” and “impulsive buying.”
+- Synthesis focused on e-wallet features (promotions, notifications, gamification, real‑time transactions) and their effect on spending frequency, impulse buying, and financial awareness.
 
 **Key Findings (selected):**
-- Participants define utang na loob as rooted in kindness, maintaining good ties, giving back, respect, obligation, or a negative trait.
-- Utang na loob is seen as a way to honor parental sacrifices but also as a tool for family disputes over inheritance.
-- In collegial relationships, utang na loob fosters mutual help but can create enduring indebtedness beyond monetary repayment.
-- In politics, utang na loob enables the Padrino system (cronyism), where help is given in exchange for votes or loyalty.
-
-**Supports Odin (direct justifications):**
-- Utang na loob can create enduring obligation even after financial repayment.
-- Filipino young professionals may perceive debt as a social bond, not just a financial liability.
-- Misuse of utang na loob can lead to emotional pressure and forced compliance in financial decisions.
+- "num: 28 studies showed a significant positive correlation between e-wallet usage frequency and increase in consumer spending."
+- "num: E-wallet promotions (cashback, discounts, loyalty points) had a significance value of 0.000 (p<0.005) in influencing consumer behavior (Lestari et al., 2021)."
+- E-wallets reduce the perceived “pain of paying” due to lack of cash tangibility, leading to unplanned and impulsive purchases.
+- Real‑time transactions, push notifications, and gamification elements (spending streaks, loyalty tiers) condition users toward automatic, less deliberate spending habits.
 
 **Limitations / Contradictions for Odin:**
-- Small sample size of 13 college students from one university [unacknowledged].
-- Qualitative findings not statistically generalizable [unacknowledged].
-- No exploration of utang na loob in purely financial transactions without social relationships [unacknowledged].
+- "Only publications from 2020–2025 were included, potentially missing earlier foundational work."
+- "Geographic focus not systematically controlled; results may vary between developed and developing economies [unacknowledged]."
+- "The review does not quantitatively meta‑analyze effect sizes across studies [unacknowledged]."
 
 **Key takeaways:**
-- Utang na loob is both a social glue and a source of emotional burden.
-- Younger Filipinos increasingly view utang na loob as a toxic trait.
-- Misuse of utang na loob enables cronyism and family disputes over inheritance.
+- "E-wallet usage frequency positively correlates with increased spending across 28 studies."
+- "Promotional features like cashback reduce the perceived pain of paying."
+- "Most e-wallets lack budgeting tools, leading to financial regret."
 
 ---
 
@@ -1154,15 +939,10 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Weighted means computed for each financial management dimension and overall financial freedom.
 
 **Key Findings (selected):**
-- {'num': '57% of respondents are male, 63% married, 43% aged 31-40, 57% have 1-2 children.'}
-- {'num': '40% hold rank-and-file positions, 50% have worked 11-18 years, 40% earn ₱30,000 or above monthly.'}
+- num: 57% of respondents are male, 63% married, 43% aged 31-40, 57% have 1-2 children.
+- num: 40% hold rank-and-file positions, 50% have worked 11-18 years, 40% earn ₱30,000 or above monthly.
 - Respondents agree that leaving cash at home risks theft or loss (weighted mean 3.73).
 - Paying off highest-interest debt first and exceeding minimum payments is the top debt management strategy (weighted mean 3.7).
-
-**Supports Odin (direct justifications):**
-- Filipinos exhibit a "come-what-may" attitude that hinders effective budgeting.
-- Traditional alkansya saving is preferred over bank accounts due to trust issues.
-- Paying highest-interest debt first is a recognized strategy among Filipino employees.
 
 **Limitations / Contradictions for Odin:**
 - Sample size small (n=150) and non-random; only Metro Manila corporations.
@@ -1173,6 +953,40 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Only 40% of respondents earn ₱30,000 or above monthly.
 - Paying highest-interest debt first is the top debt management strategy.
 - Filipinos prefer alkansya over bank savings due to bankruptcy and inflation fears.
+
+---
+
+
+## Ang tagapagtaguyod na anak for Filipino adults: an exploratory research
+**Filename:** `L--Quindoza-et_al_summarized.md`  
+**Authors:** Quindoza, T. L. V.; Malcampo, M. C.; Rungduin, T. (2025)  
+**ID:** `10.1108/SEAMJ-09-2024-0063`  
+**Odin Topics:** 1.A, 1.B, 1.C, 2.A, 5.A  
+
+**TLDR:** Filipino young adults and middle-aged parents perceive the tagapagtaguyod na anak as a family supporter providing financial, emotional, and social support, driven by poverty, parental expectations, and cultural values like utang na loob.
+
+**Problem & Motivation:** The breadwinner role is narrowly viewed as financial provider, lacking a nuanced understanding within Filipino culture. This study explores the broader responsibilities and dynamics of the "tagapagtaguyod na anak" role among Filipino adults.
+
+**Approach (summary):**
+- Data collected via semi-structured interviews with 16 Filipino adults from Metro Manila (8 single adults aged 18-29, 8 parents aged 40-60).
+- Thematic analysis following Braun and Clarke was used to identify patterns and themes in participants' definitions, characteristics, and factors of the tagapagtaguyod role.
+- Pilot testing of interview questions with added sub-questions ensured content validity.
+
+**Key Findings (selected):**
+- The tagapagtaguyod na anak provides financial, emotional, and social support, acting as provider, bearer, manager, and lifter of the family.
+- Eldest children typically fill the role, but middle children are also seen; any gender can assume it, though women are perceived as more likely.
+- Characteristics include being responsible, self-sacrificing, self-sufficient, and excellent.
+- Extrinsic factors (poverty, family structure change, parental incapacity, expectations) and intrinsic factors (volition, sense of responsibility, financial independence) drive role adoption.
+
+**Limitations / Contradictions for Odin:**
+- "Predominance of female participants may have influenced perceptions of gender."
+- "Sample limited to Metro Manila, not generalizable nationwide."
+- "Study explores perceptions rather than lived experiences of tagapagtaguyod."
+
+**Key takeaways:**
+- "Tagapagtaguyod na anak provides financial, emotional, and social support."
+- "Poverty and parental expectations drive this role in Filipino families."
+- "Utang na loob (gratitude) is a core cultural motivator."
 
 ---
 
@@ -1190,18 +1004,13 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Approach (summary):**
 - A descriptive pre-experimental design with pre-test and post-test surveys was used.
 - Participants were 36 millennial teachers from Senior High Schools in Digos City, selected via purposive sampling.
-- {'The financial literacy program covered ten areas': 'savings, budgeting, investing, debt management, emergency funds, insurance, loan management, expenditure management, tax planning, and retirement planning.'}
+- The financial literacy program covered ten areas: savings, budgeting, investing, debt management, emergency funds, insurance, loan management, expenditure management, tax planning, and retirement planning.
 
 **Key Findings (selected):**
 - Pre-test overall mean score was 32.22 (approaching proficient), with lowest in investing skill (3.14).
 - Post-test overall mean score increased to 43.19 (advanced), with all areas reaching advanced level.
-- {'num': 'Paired t-test showed a statistically significant improvement (p < .001).'}
+- num: Paired t-test showed a statistically significant improvement (p < .001).
 - Debt management had the highest post-test mean (4.00) and investing skill the lowest (4.28) among advanced scores.
-
-**Supports Odin (direct justifications):**
-- Financial literacy programs significantly improve budgeting skills among millennial teachers.
-- Debt management skills increase substantially after targeted financial education.
-- Investment knowledge remains the lowest area even after training, indicating need for focused content.
 
 **Limitations / Contradictions for Odin:**
 - No control group, so improvements could be due to maturation or testing effects.
@@ -1216,236 +1025,308 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## Financial Edutainment: The Effect of Social Media Usage on the Financial Literacy of Students in Bulacan
-**Filename:** `L--Sarmiento-et_al_summarized.md`  
-**Authors:** Sarmiento, A. G.; Rivera, L. M.; Cortez, W. (2025)  
-**ID:** `10.69569/jip.2025.630`  
-**Odin Topics:** 1.A, 1.C, 13.A, 13.B  
+## Financial literacy in research and policymaking: the concept at the core
+**Filename:** `I--Felbermayr-et_al_summarized.md`  
+**Authors:** Zieser, M.; Voith, V.; Lorenz, T.; Anyfantaki, S. (2024)  
+**ID:** `8e9f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b`  
+**Odin Topics:** 1.C, 5.A, 6.A, 7.A, 12.A  
 
-**TLDR:** Social media usage positively affects financial literacy of Bulacan students, explaining 68.9% of variance in literacy scores.
+**TLDR:** Financial literacy lacks consensus on definition, measurement, and empirical relevance; this paper reviews its origins, stakeholders, definitions, measurement approaches, determinants, and impacts, recommending coherent definitions and rigorous methods.
 
-**Problem & Motivation:** Filipino students increasingly rely on unverified social media financial content due to gaps in formal financial education. Only 25% of Filipino youth aged 15-24 demonstrate adequate financial literacy. It is unclear whether financial edutainment supplements learning or fosters confusion and poor financial decisions.
+**Problem & Motivation:** The field of financial literacy research and policy is characterized by considerable heterogeneity in definitions and measurement approaches, preventing direct comparison of empirical results and clear conclusions on the effectiveness of financial education. There is little consensus on what financial literacy is, how to measure it, or how empirically relevant it is. This paper aims to provide a structured overview and guide to the concept to enable targeted decisions in defining and quantifying it.
 
 **Approach (summary):**
-- Survey of 556 students in Bulacan using purposive sampling.
-- Instruments adapted from Cabral et al. (2024) for financial literacy and Cao et al. (2020) for social media usage.
-- 4-point Likert scale validated with Cronbach's alpha of 0.89 (literacy) and 0.82 (social media usage).
+- Explores six perspectives: historical origins, key stakeholders (OECD, World Bank, national strategies), definitions and theoretical assumptions, measurement approaches (Big Three, ISAFL, PISA, World Bank), determinants (sociodemographic, socioeconomic, macro-level), and effects (financial behavior, resilience, well-being).
+- Analyzes discrepancies in measurement by comparing results from the OECD/INFE ISAFL and S&P Global Financial Literacy Survey across 28 countries.
+- Reviews literature on determinants including age, gender, education, income, and welfare regime generosity.
 
 **Key Findings (selected):**
-- num: Social media usage explains 68.9% of variance in overall financial literacy (R²=0.689, p<0.001).
-- num: Budgeting shows the strongest relationship (β=0.751, R²=0.667), followed by debt management (β=0.719, R²=0.629).
-- num: TikTok is the most used platform for financial content (mean=3.748), then Facebook (mean=3.397).
-- Students passively view financial influencer content several times a month (27.7%) but rarely seek it actively (31.8% search once a month).
-
-**Supports Odin (direct justifications):**
-- Social media usage explains 68.9% of variance in financial literacy among students.
-- TikTok is the most used platform for financial content with mean score 3.748.
-- Students are more motivated to save by social media than to learn new saving techniques.
+- num: Definitions of financial literacy vary across five key aspects: goals, traits considered, inclusion of observable behaviors, thematic focus, and inclusion of environmental context factors.
+- num: Correlation between countries' S&P survey percentages and ISAFL knowledge scores is only r = .41, indicating substantial measurement discrepancies.
+- Financial knowledge correlates with positive financial behaviors such as saving, retirement planning, and reduced debt, but causal evidence from interventions is limited and mixed.
+- Gender, age, education, income, and the generosity of welfare regimes are significant determinants of financial literacy.
 
 **Limitations / Contradictions for Odin:**
-- Purposive sampling may introduce selection bias [unacknowledged].
-- Regression analysis does not prove causation despite causal design claim [unacknowledged].
-- No actual behavioral measures (e.g., savings history, app usage) were collected; only self-reports.
+- "Focuses primarily on quantitative evaluation methods and English-language literature, omitting qualitative and mixed-method approaches. [unacknowledged]"
+- "Does not provide conclusive causal evidence on the effectiveness of financial education for financial well-being. [acknowledged]"
+- "Sample of countries and studies reviewed may not fully represent non-OECD contexts, limiting generalizability to the Philippines. [unacknowledged]"
 
 **Key takeaways:**
-- Social media explains 68.9% of financial literacy variance.
-- TikTok is the top platform for financial content among students.
-- Students passively consume financial content several times monthly.
+- "Correlation between two major financial literacy surveys across 28 countries is only r=.41."
+- "Financial knowledge correlates with better saving and investment behavior but causal evidence is mixed."
+- "Gender gap in financial literacy appears already during adolescence, driven partly by confidence differences."
 
 ---
 
 
-## How does financial literacy affect financial behavior over the life cycle? Evidence from Filipino households
-**Filename:** `L--Cacnio-&-Romarate_summarized.md`  
-**Authors:** Cacnio, F. Q.; Romarate, M. E. G. (2024)  
-**ID:** `3f2a1b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c`  
-**Odin Topics:** 1.C, 5.A, 7.A, 13.A, 13.B  
+## From Surge to Stability: Digital Payments Driving a Steady Transition
+**Filename:** `L--Mesino-Romero-et_al_summarized.md`  
+**Authors:** Mesina-Romero, B. R.; Masangkay, M. C.; Franco, M.; Yambao, M. A. V.; Delgado, K.; Bueno, P. N.; Lingat, P. J.; Natividad, G. M.; Lapus, A. R.; Manuel, R. M.; Yñigo, K. T. (2024)  
+**ID:** `b7e4c5d8-9a2f-4e3c-8b1d-6f7a9c2e5d3b`  
+**Odin Topics:** 1.C, 4.B, 10.A, 11.A  
 
-**TLDR:** Financial literacy, particularly financial aptitude, positively correlates with having retirement plans and insurance, while higher financial attitude improves loan timeliness; young adults show higher literacy than older cohorts.
+**TLDR:** Digital payments accounted for 57.4% of monthly retail payment volume in the Philippines in 2024, up from 52.8% in 2023, driven by merchant, P2P, and B2B transactions.
 
-**Problem & Motivation:** Prior studies focus on developed countries, leaving a gap in developing country contexts. The Philippines has low financial literacy, yet no research examines age-dependent effects on short- and long-term behaviors. Understanding this link can inform targeted financial education programs.
+**Problem & Motivation:** Despite growth in digital payments, adoption barriers such as high fees and limited digitalization of government collections (only 24.6% for P2G) persist. Understanding use-case dynamics helps prioritize interventions to achieve financial inclusion. The report measures progress against the Philippine Development Plan target of 52-54% digital share.
 
 **Approach (summary):**
-- Data from 2018 BSP Consumer Finance Survey covers 7,084 Filipino households with annual income ≥₱10,000 and expenditure ≥₱1,000.
-- Financial literacy index combines financial attitude (spending attitude, risk attitude, time discounting) and financial aptitude (loan, deposit, surplus scores), each equally weighted.
-- OLS regression identifies determinants of financial literacy including age, gender, income, education, children, and remittances.
+- Identified 24 payment use-cases across government, business, and person categories using a 3x3 payment grid.
+- Estimated digital share using disaggregated quantitative data from sources like BIR, PSA, BSP, and stakeholder interviews.
+- Applied critical assumptions to fill data gaps where direct measurements were unavailable.
 
 **Key Findings (selected):**
-- num: Young adults have mean financial literacy index 0.392, higher than middle-aged (0.387) and seniors (0.370).
-- num: Higher financial attitude increases likelihood of paying loans on time (odds ratio 4.011, p<0.05).
-- num: Higher financial aptitude strongly predicts having pension/retirement plan (OR 85.478) and insurance (OR 46.808).
-- Higher financial literacy (both attitude and aptitude) is associated with lower likelihood of spending within income (OR 0.435 and 0.051 respectively).
-
-**Supports Odin (direct justifications):**
-- Young adults have higher financial literacy than middle-aged and senior Filipinos.
-- Higher financial attitude scores increase the probability of paying loans on time.
-- Financial aptitude is a strong predictor of having a retirement or pension plan.
+- "num: Digital payments reached 57.4% of total monthly retail payment volume in 2024, exceeding the PDP target of 52-54%."
+- "num: Merchant payments comprised 66.4% of digital transaction volume, growing 29.1% year-on-year."
+- "num: P2P transfers increased from 19.3% to 20.6% of digital volume, with InstaPay volume rising 67.8%."
+- "num: B2B supplier payments grew 28.1% to 205.0 million transactions but only 6.2% of digital volume."
 
 **Limitations / Contradictions for Odin:**
-- Financial literacy index excludes knowledge questions due to survey constraints. [unacknowledged]
-- Data from 2018 may not reflect post-pandemic financial behavior. [unacknowledged]
-- Small sample for loan payment regression (n=1,743) limits statistical power.
+- Estimates rely on critical assumptions for data gaps, which may introduce bias.
+- The measurement model does not capture informal economy payments.
+- No analysis of digital payment impact on household financial health. [unacknowledged]
 
 **Key takeaways:**
-- Young adults in the Philippines have higher financial literacy than older cohorts.
-- Financial aptitude is a far stronger predictor of retirement plans than financial attitude.
-- Higher financial literacy correlates with spending beyond income, possibly due to higher consumption.
+- 57.4% of retail payments are now digital.
+- Merchant payments drive 66.4% of digital volume.
+- High fees remain a key adoption barrier.
 
 ---
 
 
-## Harmonizing Work and Higher Education: Analysis of the Circular Flow of Income in the Philippine Setting
-**Filename:** `L--Easdown-et_al_summarized.md`  
-**Authors:** Easdown, D. M. P.; Manlongat, M. C.; Abante, M. V.; Caisip, A.; Vigonte, F. G. (2024)  
-**ID:** `c9a3b7d4-2f1e-5a6b-8c9d-0e1f2a3b4c5d`  
-**Odin Topics:** 1.A, 1.C, 2.A, 13.A  
+## Do Remittances Boost Household Spending: New Evidence from Migrants’ Household Survey
+**Filename:** `L--Bayangos-&-Lubangco_summarized.md`  
+**Authors:** Bayangos, V. B.; Lubangco, C. K. (2024)  
+**ID:** `d4f8c2a1-5e6b-4c7d-9a8b-1f2e3d4c5b6a`  
+**Odin Topics:** 1.C, 3.A, 5.A, 6.A, 13.A, 13.B  
 
-**TLDR:** Higher education investments by Filipino working professionals enhance individual financial stability and economic engagement, strengthening the circular flow of income and reducing inequality.
+**TLDR:** Remittances increase household spending in the Philippines, but financial constraints limit welfare gains for poorer households, while macroeconomic factors like exchange rates and transfer costs drive remittance flows.
 
-**Problem & Motivation:** Research on higher education's economic impact largely focuses on macro-level growth, neglecting how working professionals' educational investments affect personal financial behaviors and the circular flow of income in the Philippine setting. The gap is critical because understanding these microeconomic dynamics can inform policies that leverage education to reduce income inequality and boost national resilience.
+**Problem & Motivation:** Understanding how remittances affect household consumption and the factors driving remittance flows is critical for maximizing development impact in remittance-dependent economies like the Philippines. Prior research leaves gaps in the nuanced relationship between remittances, consumption patterns, and macroeconomic determinants. This study provides new evidence using household surveys and financial sector data.
 
 **Approach (summary):**
-- Systematic literature review following PRISMA methodology to ensure transparent and reproducible selection.
-- Searched Google Scholar and SSRN using keywords 'economic growth', 'income distribution', and 'professional development'.
-- Included studies from 2017 onward, prioritizing local Philippine publications and English-language articles.
+- Analyzed Survey on Overseas Filipinos (SOF) 2007-2022 (nationally representative, 1.96M OFWs in 2022) and Family Income and Expenditure Survey (FIES) 2018/2021.
+- Used logistic regressions (odds ratios) to assess determinants of saving vs investing behavior of migrant households.
+- Applied propensity score matching (PSM) to estimate average treatment effects of remittances on consumption shares for poor vs non-poor households.
 
 **Key Findings (selected):**
-- Higher education correlates with increased income, job security, and socio-economic mobility for Filipino professionals.
-- Educated professionals exhibit advanced financial literacy and engage in diversified economic activities, producing a multiplier effect.
-- Income inequality restricts household spending to basic necessities, reducing discretionary spending and economic dynamism.
-- Graduate degree programs, such as MBA, enhance job performance and promotion prospects, motivating educational investment.
-
-**Supports Odin (direct justifications):**
-- Higher educational attainment correlates with higher income and job security for Filipino professionals.
-- Educated professionals increase consumption, savings, and investments, enhancing the circular flow of income.
-- Outcomes-Based Education improves student skills for entrepreneurship and economic participation.
+- "num: OFW households allocated 9.9% of cash remittances to savings on average (2008-2022), while 75% allocated nothing to investments."
+- "num: 57.2% of cash remittances were sent through banks in 2022; telegraphic transfer fees average 6-7% of remittance value."
+- "num: A 1% increase in telegraphic transfer fees reduces cash remittances by approximately 12.5%."
+- Poor remittance-receiving households show smaller shifts in expenditure shares (e.g., food reduction -1.28% vs -1.48% for non-poor).
 
 **Limitations / Contradictions for Odin:**
-- Systematic review may miss recent unpublished studies or grey literature. [unacknowledged]
-- Exclusion of non-English and international studies limits generalizability of findings. [unacknowledged]
-- No empirical validation; relies on secondary sources that may have inherent biases. [unacknowledged]
+- "Endogeneity between remittances and consumption may bias OLS results, though PSM partially addresses this. [unacknowledged]"
+- "The SOF question on remittance allocation only started in 2008 and lacks itemized non-food categories."
+- "Small sample of immigrant households (n=522) limits generalizability of comparisons."
 
 **Key takeaways:**
-- Higher education boosts income and financial engagement for Filipinos.
-- Educated professionals drive economic growth through savings and investment.
-- OBTL curriculum prepares students for entrepreneurship and leadership.
+- "OFW households save 9.9% of cash remittances on average, but 50% save nothing."
+- "Transfer fees of 6-7% significantly reduce remittance flows."
+- "Remittances increase non-food spending only for non-poor households."
 
 ---
 
 
-## EMPOWERING YOUNG ADULTS THROUGH FINANCIAL MANAGEMENT: IMPLICATIONS FOR ACHIEVING THE SDGS AMONG INDONESIAN STUDENTS IN THE PHILIPPINES
-**Filename:** `I--Kusumaningsih-et_al_summarized.md`  
-**Authors:** Kusumaningsih, A.; Mariana; Handayani, S. (2024)  
-**ID:** `f47ac10b-58cc-4372-a567-0e02b2c3d479`  
-**Odin Topics:** 1.C, 3.A, 7.A, 13.A  
-
-**TLDR:** Indonesian students in the Philippines prioritize long-term savings and use digital tools for budgeting but face uncontrolled spending and peer pressure, revealing gaps between financial knowledge and practice.
-
-**Problem & Motivation:** International students encounter unique financial challenges such as currency fluctuations, unfamiliar banking systems, and social pressures that hinder effective money management. Poor financial handling can lead to stress and academic difficulties, yet tailored interventions for this demographic are lacking. Understanding these factors is essential to support financial well-being and contribute to poverty reduction and responsible consumption (SDGs).
-
-**Approach (summary):**
-- Qualitative descriptive design using online surveys and semi-structured interviews with Indonesian students enrolled in Philippine universities.
-- Purposive sampling captured diversity in age, gender, and academic background; 88% of respondents aged 18-24, 65% female.
-- Surveys included closed and open questions on budgeting, saving, investment, and technology use; interviews explored personal financial philosophies and challenges.
-
-**Key Findings (selected):**
-- num: 92% of students have long-term financial goals (savings 31.6%, investment 22.8%, further education 19.3%).
-- num: Only 26.9% stick to their budget despite 85% rating financial planning as very important.
-- num: 46.2% save 10% of monthly income, and 42.3% have tried investing, but 61.5% have not invested further.
-- num: 63.9% use digital tools for financial management, yet only 23.1% rate them as very effective.
-
-**Supports Odin (direct justifications):**
-- Only 26.9% of young adults stick to their budget despite 85% acknowledging its importance.
-- Peer influence affects 23.4% of students' spending decisions, often overriding financial plans.
-- 63.9% use digital tools but only 23.1% find them very effective, indicating a usability and literacy gap.
-
-**Limitations / Contradictions for Odin:**
-- Qualitative design with limited sample size; findings may not be statistically representative. [unacknowledged]
-- No longitudinal data to assess whether financial behaviors change over time. [unacknowledged]
-- Relies on self‑reported data, which may be subject to social desirability bias. [unacknowledged]
-
-**Key takeaways:**
-- Only 26.9% of young adults follow their budget.
-- Peer pressure is a top barrier for 23.4% of students.
-- Digital tool effectiveness is perceived as low at 23.1%.
-
----
-
-
-## The Traditional Way of Saving Money Versus the Modern Style of Investment: The Financial Management Styles of Sorsogon State University (Sorsu) Bulan Campus Faculty Members
+## "The Traditional Way of Saving Money Versus the Modern Style of Investment: The Financial Management Styles of Sorsogon State University (Sorsu) Bulan Campus Faculty Members"
 **Filename:** `L--Bongalonta-et_al_summarized.md`  
-**Authors:** Bongalonta, M. B.; Bongalonta, M. M.; Gigantoca, S. E. (2024)  
+**Authors:** "Bongalonta, M. B.; Bongalonta, M. M.; Gigantoca, S. E." (2024)  
 **ID:** `10.11594/ijmaber.05.08.32`  
 **Odin Topics:** 1.C, 2.A, 7.A, 13.A, 13.B  
 
-**TLDR:** Faculty members of Sorsogon State University Bulan Campus adopt both traditional saving methods and modern investments, but face challenges including rising costs, low financial literacy, poor debt management, and delayed salaries.
+**TLDR:** "Faculty members of Sorsogon State University Bulan Campus adopt both traditional saving methods and modern investments, but face challenges including rising costs, low financial literacy, poor debt management, and delayed salaries."
 
-**Problem & Motivation:** Faculty members experience financial difficulties despite government salaries, often resorting to borrowing and facing insolvency. There is a need to understand their financial management styles to enhance saving capacity. This study identifies practices, problems, and formulates a financial model.
+**Problem & Motivation:** "Faculty members experience financial difficulties despite government salaries, often resorting to borrowing and facing insolvency. There is a need to understand their financial management styles to enhance saving capacity. This study identifies practices, problems, and formulates a financial model."
 
 **Approach (summary):**
-- Mixed design using survey and focus group discussions with 40 faculty members from Sorsogon State University Bulan Campus.
-- Quantitative survey collected profile data on age, gender, salary, expenses, savings percentage, and saving modalities.
-- Qualitative FGDs were transcribed and coded using open coding to identify themes on saving practices and problems.
+- "Mixed design using survey and focus group discussions with 40 faculty members from Sorsogon State University Bulan Campus."
+- "Quantitative survey collected profile data on age, gender, salary, expenses, savings percentage, and saving modalities."
+- "Qualitative FGDs were transcribed and coded using open coding to identify themes on saving practices and problems."
 
 **Key Findings (selected):**
-- num: 60% of faculty respondents save 15% or less of their income.
-- num: 62.5% earn P40,001–P50,000 monthly, while 82.5% have monthly expenses above P12,000.
-- Budgeting, paluwagan, piggy banks, bank deposits, and stock investments are common saving practices.
-- Increasing utility costs, unexpected expenses, lack of financial literacy, poor debt management, and low/delayed salaries are key problems.
-
-**Supports Odin (direct justifications):**
-- Faculty members save only 0-15% of income, indicating low savings capacity.
-- Paluwagan participation often leads to debt instead of savings.
-- Low and delayed salaries are primary barriers to saving for non-permanent faculty.
+- "num: 60% of faculty respondents save 15% or less of their income."
+- "num: 62.5% earn P40,001–P50,000 monthly, while 82.5% have monthly expenses above P12,000."
+- "Budgeting, paluwagan, piggy banks, bank deposits, and stock investments are common saving practices."
+- "Increasing utility costs, unexpected expenses, lack of financial literacy, poor debt management, and low/delayed salaries are key problems."
 
 **Limitations / Contradictions for Odin:**
-- Small sample size (N=40) from a single campus. [unacknowledged]
-- Self-reported survey and FGD data may introduce social desirability bias. [unacknowledged]
-- No statistical inference or hypothesis testing performed. [acknowledged as descriptive]
+- "Small sample size (N=40) from a single campus. [unacknowledged]"
+- "Self-reported survey and FGD data may introduce social desirability bias. [unacknowledged]"
+- "No statistical inference or hypothesis testing performed. [acknowledged as descriptive]"
 
 **Key takeaways:**
-- 60% of faculty save 15% or less of their income.
-- Paluwagan often leads to debt rather than savings.
-- Budgeting is the most common saving practice.
+- "60% of faculty save 15% or less of their income."
+- "Paluwagan often leads to debt rather than savings."
+- "Budgeting is the most common saving practice."
 
 ---
 
 
-## Navigating Financial Struggle: The Ripple Effect of Inflation Rates on Working Students
-**Filename:** `L--D._et-al_summarized.md`  
-**Authors:** D, Althea Grace; R, Valerie Mae; G, Lazaro Bryan Louis (2024)  
-**ID:** `10.62225/2583049X.2024.4.3.2862`  
-**Odin Topics:** 1.C, 7.A, 13.A  
+## Financial Literacy Practices on the Investment Decisions of Accounting Professionals in Makati City
+**Filename:** `L--Pinca-et_al_summarized.md`  
+**Authors:** Pinca, J.M.; NG, J.G.; Lacerona, R.B.; Minorca, J.C.; Rodriguez, N.R.; Ramos, J.I. (2024)  
+**ID:** `10.34104/cjbis.024.0910105`  
+**Odin Topics:** 1.C, 7.A, 13.A, 13.B  
 
-**TLDR:** Inflation increases financial strain on working students, forcing budget adjustments, prioritizing necessities, and seeking government aid.
+**TLDR:** Financial literacy practices in budgeting, saving and investing, and debt management show very strong positive correlations with investment decisions among accounting professionals in Makati City.
 
-**Problem & Motivation:** Rising inflation rates disproportionately burden working students who balance academic and financial obligations. Limited research examines how this demographic navigates escalating costs and what coping strategies they employ. Understanding these dynamics is essential for designing targeted support systems.
+**Problem & Motivation:** Despite the recognized importance of financial literacy, limited research has examined how specific financial literacy practices influence investment decisions, particularly among accounting professionals in the Philippines. Understanding this relationship is crucial for improving financial decision-making and economic progress.
 
 **Approach (summary):**
-- Qualitative phenomenological study with 6 interviewees and 10 quantitative participants.
-- Convenience sampling of working students from Noveleta Senior High School, Philippines.
-- Data collected via open-ended questionnaires to explore financial struggles and coping mechanisms.
+- Surveyed 80 accounting professionals from selected firms in Makati City using a self-made questionnaire.
+- Measured financial literacy practices across budgeting, saving/investing, and debt management using a four-point Likert scale.
+- Assessed investment decisions across risk tolerance, investment goals, cost-effectiveness, and asset allocation.
 
 **Key Findings (selected):**
-- Working students experience disqualification or slot shortages when accessing government financial aid.
-- Budgeting and prioritizing necessities (food, bills, tuition) are primary coping strategies.
-- Students pack lunch or eat at carinderia to save money.
-- Inflation reduces purchasing power and increases stress, forcing students to work more hours.
-
-**Supports Odin (direct justifications):**
-- Inflation forces working students to reduce discretionary spending and prioritize essentials like food and tuition.
-- Accessing government financial aid is hindered by bureaucratic barriers and limited slots.
-- Balancing work and study during inflation reduces academic time and increases stress.
+- "num: Budgeting practices showed a very strong positive correlation with investment decisions (r=0.924, p=0.001)."
+- "num: Saving and investing practices showed a very strong positive correlation with investment decisions (r=0.970, p<0.001)."
+- "num: Debt management practices showed a very strong positive correlation with investment decisions (r=0.919, p=0.001)."
+- Respondents rated diversification as the most valued saving/investing practice (mean 3.90).
 
 **Limitations / Contradictions for Odin:**
-- Qualitative design with small sample size limits statistical generalizability. [unacknowledged]
-- No comparison group of non-working students to isolate inflation effects. [unacknowledged]
-- Convenience sampling may introduce selection bias. [unacknowledged]
+- Convenience sample of 80 accounting professionals from selected firms limits generalizability. [unacknowledged]
+- Focus on Makati City only; not representative of all Filipino young professionals. [unacknowledged]
+- Relies on self-reported Likert scale data, which may introduce social desirability bias. [unacknowledged]
 
 **Key takeaways:**
-- Inflation forces working students to prioritize essentials over wants.
-- Budgeting and packing lunch are common coping strategies.
-- Accessing government financial aid faces bureaucratic barriers.
+- Saving and investing practices show the strongest correlation with investment decisions (r=0.970).
+- Avoiding new debt is the most emphasized debt management practice (mean 3.95).
+- Diversification is highly valued for managing investment risk.
+
+---
+
+
+## Decoding the eco-financial mindset: financial literacy, attitudes, and efficacy measures and the spending behavior of Filipino millennials
+**Filename:** `L--Lim-&-Cordova_summarized.md`  
+**Authors:** Lim, C. T.; Cordova, W. (2024)  
+**ID:** `10.1051/bioconf/20249305010`  
+**Odin Topics:** 1.A, 1.C, 5.A  
+
+**TLDR:** Survey of 431 Filipino millennials finds strong positive correlations among financial literacy, attitude, and efficacy, and a negative correlation between spending behavior and financial attitude.
+
+**Problem & Motivation:** Existing literature often examines financial literacy, attitude, and efficacy in isolation or paired combinations, leaving a gap in comprehensive understanding. Filipino millennials face economic uncertainties and lack financial acumen, making them financially vulnerable. A holistic exploration of these variables together is needed to inform targeted interventions.
+
+**Approach (summary):**
+- Online survey of 431 millennials in Laguna, Philippines using Google Forms.
+- Measured financial literacy (7 items), attitude (8 items), efficacy (10 items), and spending behavior (9 categories) via Likert scales.
+- Used Structural Equation Modeling (SEM) and Confirmatory Factor Analysis (CFA) in Jamovi.
+
+**Key Findings (selected):**
+- "num: Strong positive correlations: financial efficacy ↔ literacy (β=0.614, p<.001), attitude ↔ literacy (β=0.578, p<.001), attitude ↔ efficacy (β=0.888, p<.001)."
+- "num: Negative relationship between spending behavior and financial attitude (β=-0.176, p=0.034)."
+- "num: 42% of respondents spend 41% or more of their income (S1)."
+- "num: 93.7% spend 10% or less of income on beer and wine (S9, SD=0.521)."
+
+**Limitations / Contradictions for Odin:**
+- "Reliance on self-reported Likert scales may introduce bias."
+- "Cross-sectional design prevents observation of behavioral changes over time."
+- "Sample predominantly from Laguna, limiting geographic generalizability [unacknowledged]."
+
+**Key takeaways:**
+- "Financial attitude negatively predicts spending behavior (β=-0.176)."
+- "42% of Filipino millennials spend over 41% of their income."
+- "Financial literacy and attitude are strongly correlated (β=0.578)."
+
+---
+
+
+## The Mediation of Financial Behavior to Financial Literacy and Spending Habits of Gen Z: An Exploratory Factor Analysis
+**Filename:** `L--Rodriguez_summarized.md`  
+**Authors:** Rodriguez, J. M. P.; Labong, M. D. C. G.; Palallos, L. Q. (2024)  
+**ID:** `10.20944/preprints202409.1696.v1`  
+**Odin Topics:** 1.A, 1.C, 5.A  
+
+**TLDR:** Financial literacy directly increases spending habits, and financial behavior partially mediates this relationship among Gen Z in the Philippines.
+
+**Problem & Motivation:** Understanding how financial literacy translates into actual spending is poorly understood for Gen Z. Prior research shows that financial knowledge alone does not guarantee responsible spending. The mediating role of financial behavior remains underexplored in this demographic.
+
+**Approach (summary):**
+- Data from 317 Gen Z respondents (aged 18-25) across four barangays in Quezon City, Philippines.
+- Structured questionnaire measured financial literacy, financial behavior, and spending habits using validated scales.
+- Applied Pearson correlation, regression, mediation analysis (bootstrapped CIs), and Structural Equation Modeling.
+
+**Key Findings (selected):**
+- "num: Pearson's r = 0.821 between financial literacy and spending habits (p < .001)."
+- "num: Direct effect of financial literacy on spending is 0.642 (p < .001)."
+- "num: Indirect mediation effect through financial behavior is 0.180 (p < .001, 95% CI 0.114 to 0.245)."
+- Financial literacy explains 51.9% of variance in financial behavior (R²=0.519).
+
+**Limitations / Contradictions for Odin:**
+- "Sample size of 317 from only 4 barangays limits generalizability."
+- "Cross-sectional design cannot confirm mediation temporally [unacknowledged]."
+- "AVE below 0.5 for spending and literacy indicates weak convergent validity [unacknowledged]."
+
+**Key takeaways:**
+- "Financial behavior mediates 22% of literacy's effect on spending."
+- "Literacy explains 52% of variance in financial behavior among Gen Z."
+- "SEM path from behavior to spending is 0.797, larger than direct literacy path 0.642."
+
+---
+
+
+## ASSESSING THE FINANCIAL LITERACY OF SENIOR HIGH SCHOOL AND COLLEGE STUDENTS: A COMPREHENSIVE ANALYSIS
+**Filename:** `L--Dela_Rama-et_al_summarized.md`  
+**Authors:** Dela Rama, K. A.; Baylon, F.; Balwet, L. F.; Pullos, K. E.; Durias, R. C.; Cabusca, J. F.; Eguia, A. L.; Cabilin, L. M.; Duran, R.; Mante, J.; Prepecio, D.; Gilongos, C. J.; Rosel, M. (2024)  
+**ID:** `f4e5d6c7-b8a9-4c2d-9e1f-3a4b5c6d7e8f`  
+**Odin Topics:** 1.A, 1.C, 5.A, 7.A, 13.A, 13.B  
+
+**TLDR:** Senior high school and college students at a Philippine institution show basic financial knowledge but gaps in compound interest and investment, with moderate savings behavior and inconsistent budgeting.
+
+**Problem & Motivation:** Financial literacy among young Filipino students is understudied, yet critical for economic stability. Existing research focuses on adults, leaving gaps in understanding formative financial development. Without targeted assessment, educational policies cannot address practical skill deficiencies.
+
+**Approach (summary):**
+- Quantitative survey of 345 randomly stratified students at Colegio de San Francisco Javier during 2023-2024.
+- Adapted OECD/INFE questionnaire with 4-point Likert scale measuring financial knowledge and behavior (savings, budgeting, borrowing).
+- Data collected online; pilot study yielded Cronbach's alpha of 0.85.
+
+**Key Findings (selected):**
+- "num: Total weighted mean financial knowledge score 2.10 for SHS and 2.11 for college on a 4-point scale."
+- Less than 30% of respondents could accurately explain compound interest.
+- Budgeting practices are less consistent than saving behaviors; few students consider inflation in long-term planning.
+- No significant gender differences in financial literacy were found across any dimension.
+
+**Limitations / Contradictions for Odin:**
+- "Sample limited to a single private institution in Mindanao; may not represent all Filipino students."
+- "Self-reported survey data subject to social desirability bias. [unacknowledged]"
+- "No validation of financial literacy measures against actual financial outcomes. [unacknowledged]"
+
+**Key takeaways:**
+- "Only 30% of students can explain compound interest."
+- "No gender gap in financial literacy among this sample."
+- "Budgeting practices are less consistent than saving behaviors."
+
+---
+
+
+## A Phenomenological Reflection on Ubos-Biyaya and Petsa de Peligro: Capitalism’s Impact on Filipino Attitude of Spending and Church’s Proposition for an Inclusive Economy
+**Filename:** `L--Canete-&-Liwanag_summarized.md`  
+**Authors:** Canete, J. J. O.; Liwanag, L. A. L. (2024)  
+**ID:** `f0e1d2c3-b4a5-6c7d-8e9f-0a1b2c3d4e5f`  
+**Odin Topics:** 1.C, 2.A, 2.B, 5.A  
+
+**TLDR:** Ubos-biyaya, the Filipino tendency to spend all resources impulsively, leads to petsa de peligro (pre-payday financial distress) as a consequence of capitalism's planned obsolescence and consumer culture.
+
+**Problem & Motivation:** The paper identifies a gap in understanding the root causes of Filipino spending behaviors ubos-biyaya (resource depletion) and petsa de peligro (pre-payday financial strain). It argues that these are not mere individual failings but preconditioned outcomes of capitalism’s planned obsolescence and consumer culture. The motivation is to advocate for an inclusive economy from a Catholic social teaching perspective.
+
+**Approach (summary):**
+- Phenomenological reflection on Filipino spending behaviors using literature review and personal interviews.
+- Connects ubos-biyaya to planned obsolescence and cathedrals of consumption via theoretical synthesis.
+- Examines Church teachings (Pope Francis, John Paul II) on capitalism and the economy of exclusion.
+
+**Key Findings (selected):**
+- "num: 87% of Filipinos buy more than planned compared to 75% of Americans."
+- Ubos-biyaya is a preconditioned outcome of planned obsolescence designed by capitalism.
+- Petsa de peligro emerges as an upshot of ubos-biyaya and impulsive buying behavior.
+- Capitalism creates an economy of exclusion that reduces persons to commodities.
+
+**Limitations / Contradictions for Odin:**
+- The paper's phenomenological method lacks generalizable empirical evidence. [unacknowledged]
+- It does not address potential individual differences in spending behavior. [unacknowledged]
+- The proposed economy of inclusion is not operationalized for practical implementation.
+
+**Key takeaways:**
+- 87% of Filipinos exhibit impulsive buying behavior.
+- Ubos-biyaya is preconditioned by planned obsolescence.
+- Petsa de peligro follows payday spending sprees.
 
 ---
 
@@ -1466,25 +1347,54 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Chapter 4 uses piecewise constant event history and cure fraction models on SOEP to assess social class and second birth rates.
 
 **Key Findings (selected):**
-- num: Extreme lockdowns increased informal employment probability by 1.7 percentage points for women but not for men.
-- num: Female fixed-term labor market entrants had a 19% lower first birth hazard within 10 years.
-- num: Male recession entrants had a 23% lower first birth hazard within 10 years.
-- Upper service class members have strongly elevated second birth rates compared to semi-/unskilled workers.
-
-**Supports Odin (direct justifications):**
-- Extreme lockdowns increase informal employment probability for women by 1.7 percentage points.
-- Female fixed-term labor market entrants have 19% lower first birth hazard within a decade.
-- Male recession entrants have 23% lower first birth hazard within a decade.
+- "num: Extreme lockdowns increased informal employment probability by 1.7 percentage points for women but not for men."
+- "num: Female fixed-term labor market entrants had a 19% lower first birth hazard within 10 years."
+- "num: Male recession entrants had a 23% lower first birth hazard within 10 years."
+- "Upper service class members have strongly elevated second birth rates compared to semi-/unskilled workers."
 
 **Limitations / Contradictions for Odin:**
-- LFS data undercounts informal employment, potentially underestimating lockdown effects.
-- Analysis in Chapter 3 limited to first 10 years post-entry due to sample attrition.
-- Vignette experiment measures ascribed intentions, not actual fertility behavior. [unacknowledged]
+- "LFS data undercounts informal employment, potentially underestimating lockdown effects."
+- "Analysis in Chapter 3 limited to first 10 years post-entry due to sample attrition."
+- "Vignette experiment measures ascribed intentions, not actual fertility behavior. [unacknowledged]"
 
 **Key takeaways:**
-- Extreme lockdowns increased women's informal employment by 1.7 percentage points.
-- Fixed-term entry reduces first birth hazard for women by 19% over 10 years.
-- Male recession entrants have 23% lower first birth hazard within a decade.
+- "Extreme lockdowns increased women's informal employment by 1.7 percentage points."
+- "Fixed-term entry reduces first birth hazard for women by 19% over 10 years."
+- "Male recession entrants have 23% lower first birth hazard within a decade."
+
+---
+
+
+## The Mediation of Financial Behavior to Financial Literacy and Spending Habits of Gen Z: An Exploratory Factor Analysis
+**Filename:** `L--Rodriguez-et_al_summarized.md`  
+**Authors:** Rodriguez, J. M. P.; Labong, M. D. C. G.; Palallos, L. Q. (2024)  
+**ID:** `10.20944/preprints202409.1696.v1`  
+**Odin Topics:** 1.C, 5.A, 7.A, 13.A  
+
+**TLDR:** Financial behavior mediates the relationship between financial literacy and spending habits among Gen Z, with significant direct and indirect effects.
+
+**Problem & Motivation:** Understanding how financial literacy translates into actual spending behavior remains poorly understood, especially for Gen Z. Existing research shows financial literacy is associated with spending, but the mediating role of financial behavior has been underexplored. This study addresses the gap by examining mediation effects.
+
+**Approach (summary):**
+- Data from 317 Gen Z respondents aged 18-25 in Quezon City using stratified random sampling.
+- Structured questionnaire measuring financial literacy, financial behavior, and spending habits based on validated scales.
+- Pearson correlation, regression analysis, mediation analysis, and Structural Equation Modeling (SEM).
+
+**Key Findings (selected):**
+- "num: Pearson correlation r=0.821 (p<0.001) between financial literacy and spending habits."
+- "num: Direct effect of financial literacy on spending is 0.642 (p<0.001)."
+- "num: Indirect mediation effect through financial behavior is 0.180 (p<0.001)."
+- "num: Total effect of financial literacy on spending is 0.821."
+
+**Limitations / Contradictions for Odin:**
+- "Sample restricted to Gen Z in Quezon City, limiting generalizability to other regions or age groups."
+- "Self-reported questionnaire data may introduce social desirability or recall bias."
+- "Reliability for financial literacy construct (Cronbach's α=0.6568) is below the commonly accepted 0.70 threshold. [unacknowledged]"
+
+**Key takeaways:**
+- "Financial behavior mediates 18% of literacy's effect on spending."
+- "Financial literacy explains 51.9% of variance in financial behavior."
+- "Higher financial literacy correlates with more spending (r=0.821)."
 
 ---
 
@@ -1510,11 +1420,6 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Lifestyle preferences for entertainment and discretionary spending correlate with conservative investment approaches.
 - Discrepancy exists between theoretical financial knowledge and practical application in daily decisions.
 
-**Supports Odin (direct justifications):**
-- Higher financial literacy positively correlates with consistent savings habits among young workers.
-- Urban lifestyle increases challenges in debt management for young professionals.
-- Peer influence significantly shapes spending patterns in urban social circles.
-
 **Limitations / Contradictions for Odin:**
 - Sample size constraints limit generalizability beyond Batam City.
 - Self-reporting biases in survey responses may affect validity.
@@ -1524,123 +1429,6 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Financial literacy alone does not guarantee prudent financial decisions due to lifestyle pressures.
 - Urban living and peer influence are key determinants of young workers' financial behaviors.
 - Tailored financial education should bridge theory and practical application.
-
----
-
-
-## Financial Practices among Foundation University Employees: Basis for Financial Plan
-**Filename:** `L--Paghasian_summarized.md`  
-**Authors:** Paghasian, M. F. (2024)  
-**ID:** `10.69569/jip.2024.0198`  
-**Odin Topics:** 1.C, 3.A, 5.A, 13.A, 13.B  
-
-**TLDR:** Foundation University employees demonstrate strong financial practices in income management, expenditure tracking, and saving, but lack emergency funds; positive practices correlate with higher investment levels.
-
-**Problem & Motivation:** Employees' financial practices impact well-being and job satisfaction, yet many lack adequate financial literacy and emergency funds. Understanding these practices is needed to design effective financial wellness programs.
-
-**Approach (summary):**
-- Survey of 191 regular and probationary employees at Foundation University using a validated questionnaire.
-- Measured financial practices across income, expenditure, saving, and investment domains using Likert scales.
-- Used weighted means, multiple linear regression, Kruskal-Wallis, and Mann-Whitney U tests for analysis.
-
-**Key Findings (selected):**
-- Employees agree on prudent income management (mean 3.81) including budgeting and avoiding debt.
-- Employees lack emergency funds (mean 3.40, only moderately agree).
-- Expenditure practices are strong (mean 3.83) with use of discounts and avoiding impulse buys.
-- Saving practices are sound (mean 3.84) prioritizing debt reduction before saving.
-
-**Supports Odin (direct justifications):**
-- Employees with strong saving patterns allocate more to monthly investments (coef 6594.35, p=0.040).
-- Only moderate agreement on seeking financial advisor advice (mean 3.17) indicates opportunity for automated guidance.
-- 61.26% of employees use regular savings accounts, suggesting preference for low-risk liquid investments.
-
-**Limitations / Contradictions for Odin:**
-- Only regular and probationary employees included, not all staff.
-- Confidentiality concerns led to some withheld income and investment data.
-- Busy schedules caused delays and missing responses.
-
-**Key takeaways:**
-- Employees lack emergency funds despite strong other practices.
-- Saving and investment practices positively predict monthly investment levels.
-- Expenditure discipline negatively correlates with investment amounts.
-
----
-
-
-## UNDERSTANDING FINANCIAL BEHAVIOR: AN ANALYSIS OF PERSONAL FINANCIAL MANAGEMENT AMONG WORKING PROFESSIONALS AMIDST THE GLOBAL INFLATION SURGE
-**Filename:** `L--Natal-et_al_summarized.md`  
-**Authors:** Natal, T. M.; Bentulan, K. K.; Del Rosario, R. J.; Olazo, C. B.; Mangarin, J. A. (2024)  
-**ID:** `10.5281/zenodo.10892981`  
-**Odin Topics:** 1.A, 1.C, 13.A  
-
-**TLDR:** Working professionals aged 24-35 in Balayan, Batangas prioritize saving and reduce spending during inflation, with no demographic differences in saving or buying behavior.
-
-**Problem & Motivation:** Personal financial management among single working professionals in Balayan, Batangas during the global inflation surge remains unexplored. Inflation erodes purchasing power and strains household budgets, yet no prior research examined how this demographic adjusts saving and spending. Understanding these behaviors is essential for designing targeted financial support.
-
-**Approach (summary):**
-- Mixed-methods design with quantitative survey (n=75) using a 4-point Likert scale and qualitative semi-structured interviews (n=25, five per industry).
-- Participants were single working professionals aged 24-35 from education, finance, government, healthcare, and retail industries in Balayan, Batangas.
-- Quantitative analysis used frequency distribution, mean scores, and Pearson Chi-square tests for demographic relationships.
-
-**Key Findings (selected):**
-- num: General weighted mean for saving habits was 3.56 (Strongly Agree), with highest item 'save for secure future' at 3.69.
-- num: General weighted mean for buying behavior was 3.35 (Strongly Agree), with 'assess practical value' highest at 3.59.
-- num: Chi-square tests showed no significant relationship between age (p=0.62), gender (p=0.224), industry (p=0.244), employment type (p=0.598), or income (p=0.241) and saving habits.
-- num: No significant relationship between any demographic variable and buying behavior (all p > 0.05).
-
-**Supports Odin (direct justifications):**
-- Demographic characteristics (age, gender, income, industry) do not predict saving habits during inflation.
-- Professionals consistently prioritize saving over non-essential purchases with mean 3.54 out of 4.
-- Tracking monthly expenditures is the lowest-ranked saving habit, suggesting need for automated tracking in PFMS.
-
-**Limitations / Contradictions for Odin:**
-- Single municipality and narrow age range limit external validity. [unacknowledged]
-- Self-reported Likert scale data subject to social desirability bias. [unacknowledged]
-- No control for prior financial literacy levels or debt status.
-
-**Key takeaways:**
-- Saving habits mean 3.56 out of 4 during inflation surge.
-- No demographic factor significantly predicts saving or buying behavior.
-- Professionals save for a secure financial future as top priority.
-
----
-
-
-## MOTIVATIONAL FACTORS AND BEHAVIORAL INTENTION TO INVEST IN PHILIPPINE STOCK MARKET AMONG MILLENNIAL AND GEN-Z INVESTORS IN CALAMBA CITY
-**Filename:** `L--Sanchez_summarized.md`  
-**Authors:** Sanchez, M. Q. C. (2024)  
-**ID:** `10.5281/zenodo.12730500`  
-**Odin Topics:** 1.C, 5.A  
-
-**TLDR:** Examines motivational factors (financial knowledge, well-being, overconfidence bias, investment risk) influencing behavioral intention to invest in Philippine stock market among Millennial and Gen-Z investors in Calamba City.
-
-**Problem & Motivation:** Only 1% of Filipino adults hold equity securities despite rising overall investment ownership. Young Filipinos face job insecurity, perceived high costs, and low trust in providers. Limited research exists on specific motivational factors driving Millennial and Gen-Z stock market participation in the Philippines.
-
-**Approach (summary):**
-- Descriptive-correlational survey of 265 Laguna College of Business and Arts graduates (130 Millennials, 130 Gen Z) from Calamba City.
-- Used Theory of Planned Behavior (TPB) as framework with four-point Likert scales for motivational factors (financial knowledge, well-being, overconfidence bias, investment risk) and behavioral intention (attitude, subjective norm, perceived behavioral control).
-- Adopted validated instruments from Yang et al. (2021) and Schmidt (2010) with Cronbach's alpha >0.86 for all constructs.
-
-**Key Findings (selected):**
-- num: Low positive correlation (r=.172 to .372) between motivational factors and behavioral intention across all sub-variables (p<.01).
-- num: Significant difference between Millennials and Gen Z in overconfidence bias (p=.048) and investment risk perception (p=.000), but no difference in financial knowledge (p=.195) or financial well-being (p=.075).
-- num: Financial well-being indicator 'securing my financial future' had highest mean (3.35), while 'I am behind with my finances' had lowest (2.58), indicating aspiration-reality gap.
-- num: Investment risk indicator 'prefer to invest in stocks rather than keep money in bank' scored 3.20 (highest), while 'consider myself a high-risk taker' scored 2.77 (lowest).
-
-**Supports Odin (direct justifications):**
-- Low positive correlation (r=.172-.372) exists between motivational factors and behavioral intention to invest.
-- Millennial and Gen-Z investors show a gap between financial aspirations and current financial status.
-- Overconfidence bias and investment risk perception differ significantly between Millennials and Gen Z.
-
-**Limitations / Contradictions for Odin:**
-- Sample restricted to LCBA graduates in Calamba City; findings may not generalize to other regions or educational backgrounds. [unacknowledged]
-- Cross-sectional design prevents causal inference between motivational factors and behavioral intention. [unacknowledged]
-- No response from original instrument authors for permission to adopt scales, though validity statistics are reported.
-
-**Key takeaways:**
-- Low positive correlation (r=.172-.372) links motivation to investment intention.
-- Millennials and Gen Z differ in overconfidence and risk perception.
-- Financial knowledge shows no generational difference among young Filipinos.
 
 ---
 
@@ -1661,259 +1449,122 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Interview questions covered personal budgeting, spending, financial planning, use of financial products, debt management, and fraud detection.
 
 **Key Findings (selected):**
-- {'num': 'Many participants saved at least 30% of their monthly salary or pocket money.'}
+- num: Many participants saved at least 30% of their monthly salary or pocket money.
 - Participants used saving-centric or spending-centric budgeting approaches, aided by digital apps, parental monitoring, and mental bucketing.
 - Spending was modest, with basic needs prioritized; strategies included deferred purchase, bargain shopping, and one-time lump-sum payments.
 - Spending philosophies included differentiating needs from wants, using spending as work incentive, and YOLO enjoyment.
 
-**Supports Odin (direct justifications):**
-- Many young adults save at least 30% of monthly income, a benchmark for savings recommendations.
-- Informal borrowing from family is common and often interest-free, reducing demand for formal credit products.
-- Credit card users sometimes pay only the minimum due due to ignorance of interest charges.
-
 **Limitations / Contradictions for Odin:**
-- Sample was generally well-educated (half had bachelor's degree) and English-proficient, limiting generalizability to less educated or non-English-speaking ethnic minorities. [unacknowledged]
-- Small qualitative sample size (n=53) does not allow broad generalization.
-- Ethnic Chinese young adults were not included, preventing comparison.
+- "Sample was generally well-educated (half had bachelor's degree) and English-proficient, limiting generalizability to less educated or non-English-speaking ethnic minorities. [unacknowledged]"
+- "Small qualitative sample size (n=53) does not allow broad generalization."
+- "Ethnic Chinese young adults were not included, preventing comparison."
 
 **Key takeaways:**
-- Many young adults saved at least 30% of monthly income.
-- Family social capital strongly influences financial habits through monitoring and role modeling.
-- Informal borrowing from family and friends is common and often interest-free.
+- "Many young adults saved at least 30% of monthly income."
+- "Family social capital strongly influences financial habits through monitoring and role modeling."
+- "Informal borrowing from family and friends is common and often interest-free."
 
 ---
 
 
-## Scaling the Frame of Mind: Money Attitude and Financial Well-Being of Generation Zoomers (Gen-Zs) in Rizal Province
-**Filename:** `L--Razalan_summarized.md`  
-**Authors:** Razalan, D. (2024)  
-**ID:** `f7c9e5d3-1a2b-4c3d-8e9f-0a1b2c3d4e5f`  
-**Odin Topics:** 1.C, 5.A, 13.A, 13.B  
+## Extreme Lockdowns and the Gendered Informalization of Employment: Evidence from the Philippines
+**Filename:** `I--Ramos-2024a_summarized.md`  
+**Authors:** Ramos, V. J. (2024)  
+**ID:** `10.1177/09500170241247121`  
+**Odin Topics:** 1.C, 2.A, 13.A  
 
-**TLDR:** Gen-Zs in Rizal Province show a great extent of positive money attitudes in power-prestige and retention-time dimensions, which significantly correlate with their financial well-being across autonomy, competence, and relatedness.
+**TLDR:** Extreme lockdowns in the Philippines increased informal employment probability for employed women by 2.2 percentage points, driven by survivalist motives and compositional changes, with strongest effects among mothers of minor children.
 
-**Problem & Motivation:** Gen-Zs face unique financial challenges and low financial literacy, yet limited research examines their money attitudes and financial well-being in the Philippine education sector. Understanding these attitudes is crucial for developing targeted financial education.
+**Problem & Motivation:** The distinct impact of extreme mobility restrictions on informal employment, separate from pandemic recessionary effects, is understudied. Understanding whether lockdowns cause informalization and whether this is gendered is critical for developing countries with large informal sectors and weak social safety nets. Prior work lacked a conceptual distinction between compositional and survivalist informalization.
 
 **Approach (summary):**
-- Mixed methods with quantitative survey of 364 Gen-Z teaching and non-teaching personnel from public and private schools in Rizal Province.
-- Used Money Attitude Scale (MAS) measuring power-prestige, retention-time, distrust, anxiety and financial well-being based on Self-Determination Theory (autonomy, competence, relatedness).
-- Qualitative interviews and focus group discussions to identify financial challenges and coping strategies.
+- Pooled 16 quarterly Labour Force Survey rounds from the Philippines (2016-2020), covering 525,488 employed individuals aged 15+.
+- Two-way fixed effects difference-in-differences comparing lockdown regions (NCR, Regions 3, 4B, 7, 8, 10, 11, BARMM) to non-lockdown regions.
+- Key design uses regional variation in lockdown imposition as a quasi-experiment, restricting to consistent classifications during April-May 2020.
 
 **Key Findings (selected):**
-- num: Significant positive correlation between overall money attitudes and overall financial well-being (r=0.679, p<0.05).
-- num: Highest correlation observed between controlling finances (anxiety dimension) and competence (r=0.631).
-- Gen-Zs exhibit great extent in power-prestige (spending and saving), retention-time (financial planning), and anxiety (financial protection and control).
-- Gen-Zs show moderate extent in financial education (mean 3.35/5) and distrust dimensions (borrowing mean 3.21/5, donations mean 3.30/5).
-
-**Supports Odin (direct justifications):**
-- Positive money attitudes significantly correlate with higher financial well-being among Gen-Zs (r=0.679).
-- Gen-Zs with strong financial planning attitudes exhibit greater financial competence and autonomy.
-- Anxiety about financial protection is mitigated by awareness of scams and cybersecurity measures.
+- "num: Extreme lockdowns increased the probability of informal employment by 1.7 percentage points overall (p<0.001)."
+- "num: For employed women, the lockdown effect was 2.2 percentage points; for men, no significant effect."
+- "num: Married women with minor children experienced an 8.0 percentage point increase in informal employment probability."
+- Lockdowns increased the likelihood of informal employment relative to unemployment for males, supporting the survivalist motive.
 
 **Limitations / Contradictions for Odin:**
-- Sample limited to education sector in one province, reducing generalizability [unacknowledged].
-- No causal inference due to cross-sectional design.
-- Potential self-report bias in financial attitude and well-being measures.
+- "LFS data undercounts informal employment, especially home-based work. [unacknowledged]"
+- "No panel data to track individual transitions; causal claims rely on repeated cross-sections."
+- "Few regions in treatment and control groups (3 lockdown, 5 non-lockdown) lead to small-sample bias in standard errors. [unacknowledged]"
 
 **Key takeaways:**
-- Money attitudes correlate strongly with financial well-being (r=0.679).
-- Gen-Zs prioritize paying bills on time and saving for specific goals.
-- Financial education among Gen-Zs is only moderate in extent.
+- "Extreme lockdowns increased women's informal employment probability by 2.2 percentage points."
+- "Mothers with minor children faced an 8.0 percentage point higher chance of informal work."
+- "Low household savings (5% of disposable income) force survivalist informal employment during crises."
 
 ---
 
 
-## Uncovering the Challenges and Opportunities of Gig Economy for Small Businesses
-**Filename:** `L--Palada-et_al_summarized.md`  
-**Authors:** Palada, M.; Pamor, P. C. B.; Sulit, J. R. B.; Villegas, R. L. C. (2024)  
-**ID:** `10.47772/IJRISS.2024.8080177`  
-**Odin Topics:** 1.C, 2.B, 4.B, 13.B  
-
-**TLDR:** The gig economy offers small businesses reduced costs and access to talent but introduces legal, financial, and quality control challenges requiring strategic management.
-
-**Problem & Motivation:** Small businesses struggle to navigate legal, financial, and quality issues when engaging gig workers. The rapid growth of the gig economy in the Philippines lacks adequate frameworks. This study identifies strategies to balance benefits and risks.
-
-**Approach (summary):**
-- Conducted thematic analysis following Braun and Clarke's method on literature from 2020-2024.
-- Selected sources from scholarly databases and online resources using keywords 'gig economy', 'business', 'freelance', and 'gig workers'.
-- Employed exploratory research design to investigate challenges and opportunities for small businesses.
-
-**Key Findings (selected):**
-- num: 35% higher freelancing earnings in the Philippines compared to previous levels.
-- num: 58% of independent contractors in Southeast Asia experience non-payment from clients.
-- num: 70% of gig workers express preference for gig work over traditional employment.
-- Gig economy provides cost savings by eliminating employee benefits, office space, and equipment expenses.
-
-**Supports Odin (direct justifications):**
-- Gig workers face unpredictable income that complicates personal budgeting.
-- Small businesses using gig workers must manage cash flow volatility.
-- Legal misclassification of gig workers creates financial risks for both parties.
-
-**Limitations / Contradictions for Odin:**
-- Literature review design lacks empirical validation of causal claims [unacknowledged].
-- Geographic focus on Philippines but many cited studies are from other countries [unacknowledged].
-- Does not evaluate the effectiveness of proposed policies or strategies [unacknowledged].
-
-**Key takeaways:**
-- Gig workers in the Philippines earn 35% more than before.
-- Income instability is a core challenge for gig economy participants.
-- Clear contracts and anti-discrimination policies protect freelancers.
-
----
-
-
-## "I deserve this": A phenomenological study toward online impulse buying behavior of service contractors
-**Filename:** `L--Somera_summarized.md`  
-**Authors:** Somera, K. (2024)  
-**ID:** `10.69569/jip.2024.0257`  
-**Odin Topics:** 1.A, 1.C, 5.A  
-
-**TLDR:** Online impulse buying among Filipino service contractors serves as a coping mechanism for stress and negative emotions, rewarding hard work, but leads to financial stress and guilt.
-
-**Problem & Motivation:** Research on online impulse buying has focused on other demographics, leaving service contractors' lived experiences unexplored. Understanding their behavior is crucial given the precarious nature of contract work and rising digital marketplace use. The study aims to reveal the meanings behind their 'I deserve this' justification.
-
-**Approach (summary):**
-- Qualitative phenomenological study using Interpretative Phenomenological Analysis (IPA) to explore lived experiences.
-- Ten Filipino service contractors aged 20-30 from Aurora province participated, selected via high scores (≥31) on the Impulse Buying Scale.
-- Semi-structured online interviews were conducted via Google Meet, with questions validated by psychologists and delivered in Filipino.
-
-**Key Findings (selected):**
-- Online impulse buying intensified during COVID-19 pandemic as a coping mechanism for loneliness and stress.
-- Service contractors use impulse buying to escape negative emotions, achieve immediate gratification, and regulate mood.
-- Positive impacts include sense of achievement, stress alleviation, and mood regulation, with participants describing it as therapeutic.
-- Negative impacts include financial stress and feelings of guilt and regret, especially when bills accumulate or savings are depleted.
-
-**Supports Odin (direct justifications):**
-- Online impulse buying serves as a coping mechanism for work-related stress among Filipino service contractors.
-- Impulse buying provides immediate gratification and mood regulation despite leading to financial stress.
-- The phrase 'I deserve this' reflects a self-reward justification for unplanned purchases.
-
-**Limitations / Contradictions for Odin:**
-- Small sample size (N=10) limits generalizability. [unacknowledged]
-- Qualitative design cannot establish causality. [unacknowledged]
-- No longitudinal data to assess long-term consequences of impulse buying. [unacknowledged]
-
-**Key takeaways:**
-- Impulse buying intensifies as a coping mechanism under stress.
-- The 'I deserve this' phrase justifies unplanned spending as self-reward.
-- Financial stress and guilt follow initial positive emotions from impulse buying.
-
----
-
-
-## THE IMPACT OF PSYCHOLOGICAL, ECONOMIC, SOCIAL ASPECTS, AND INTEREST RATE VARIATIONS ON WORKING MILLENNIALS' SAVING PATTERNS THROUGH DIGITAL BANKING
-**Filename:** `L--Ataza-et_al_summarized.md`  
-**Authors:** Ataza, C.; Porcel, M.; Resabal, L.; Sandoval, A.; Bragas, C. (2024)  
-**ID:** `d1c9f8e7-6a5b-4c3d-2e1f-0a9b8c7d6e5f`  
+## Effects of Filipino Consumers’ Financial Attitudes, Subjective Norms, and Perceived Behavioral Control on Intentions to Formal Banking: Towards Financial Inclusion
+**Filename:** `L--Co-&-Centeno_summarized.md`  
+**Authors:** Co, M.; Centeno, D.D.G. (2023)  
+**ID:** `c5a2e4b7-9d8f-4c3a-8e1b-6f4d2a9c7e3b`  
 **Odin Topics:** 1.C, 5.A, 13.A  
 
-**TLDR:** Psychological aspects and interest rate variations positively affect working millennials' saving patterns through digital banking, while social aspects have a negative effect.
+**TLDR:** Filipino consumers' intentions to save surplus money in formal banks are significantly predicted by subjective norms and perceived behavioral control, but not by attitudes.
 
-**Problem & Motivation:** Understanding the saving patterns of working millennials in the Philippines through digital banking is limited. Psychological, economic, social, and interest rate factors may interact in complex ways. This gap hinders banks from optimizing personalized offers and promoting financial literacy.
+**Problem & Motivation:** Financial exclusion in the Philippines is often attributed to cost and lack of funds, yet attitudinal and psychological factors remain underexplored. Understanding how attitudes, social influences, and perceived control affect banking intentions can improve financial inclusion strategies. This study addresses the gap by applying the Theory of Planned Behavior to a national consumer finance survey.
 
 **Approach (summary):**
-- Data collected from 51 working millennials aged 26-42 in Metro Manila with digital bank accounts.
-- Questionnaire measured psychological, economic, social aspects and interest rate variations using 5-point Likert scale.
-- Cronbach's alpha values ranged from 0.804 to 0.926 indicating good internal consistency.
+- Data from the Bangko Sentral ng Pilipinas Consumer Financial Survey 2014 with 15,503 randomly sampled households.
+- Dependent variable is intention to put surplus money in a bank deposit account (binary).
+- Independent variables include attitude toward banking, subjective norm (household member with bank account), and perceived behavioral control (two items on earning and saving enough).
 
 **Key Findings (selected):**
-- num: Psychological aspects had a positive effect on saving patterns (Beta=0.430, p<0.05).
-- num: Interest rate variations showed the strongest positive effect (Beta=0.878, p<0.05).
-- num: Social aspects had a negative effect (Beta=-0.182, p<0.05).
-- num: The full model explained 75.34% of variance in saving patterns (R²=0.7534).
-
-**Supports Odin (direct justifications):**
-- Psychological aspects positively affect saving patterns of working millennials through digital banking.
-- Interest rate variations are the strongest predictor of saving behavior in digital banking.
-- Social aspects have a negative effect on saving patterns via digital banking.
+- "num: Having a banked household member increases intention probability by 10.16% (p<0.001)."
+- "num: Perceived ability to earn enough to save regularly increases intention probability by 1.42% per unit (p=0.024)."
+- "num: College graduates have 7.95% higher probability of intention than non-college graduates (p<0.001)."
+- "num: Males have 2.02% higher probability of intention than females (p=0.030)."
 
 **Limitations / Contradictions for Odin:**
-- Potential sample bias due to purposive sampling.
-- Dynamic nature of digital banking may affect future applicability.
-- Sample size of 51 is relatively small [unacknowledged].
+- "Cross‑sectional design limits causal inference."
+- "Data from 2014 may be outdated for current financial behavior."
+- "Self‑reported intentions may not translate to actual behavior."
 
 **Key takeaways:**
-- Interest rate variations have the strongest positive effect on saving patterns (Beta=0.878).
-- Psychological aspects positively influence saving behavior through digital banking.
-- Social aspects negatively affect saving patterns, unlike psychological factors.
+- "Subjective norms from household members increase banking intention by 10.16%."
+- "Perceived ability to earn enough money predicts savings intention."
+- "Attitudes alone do not significantly predict banking intentions."
 
 ---
 
 
-## EXPLORING TWO DECADES OF PERSONAL FINANCIAL PLANNING: A SYSTEMATIC LITERATURE REVIEW
-**Filename:** `I--Pande-et_al_summarized.md`  
-**Authors:** Pande, S.; Mazhar, S. S.; Khan, F. S.; Khan, B. A.; Haque, E.; Mir, M. A. (2024)  
-**ID:** `10.55643/fcaptp.4.57.2024.4470`  
-**Odin Topics:** 1.C, 4.A, 4.B, 13.A, 13.B  
+## Rotating savings and credit associations: A scoping review
+**Filename:** `I--Zambrano-et_al_summarized.md`  
+**Authors:** Zambrano, A.F.; Giraldo, L.F.; Perdomo, M.T.; Hernández, I.D.; Godoy, J.M. (2023)  
+**ID:** `10.1016/j.wds.2023.100081`  
+**Odin Topics:** 1.C, 2.A, 5.A, 11.A, 13.A, 13.B  
 
-**TLDR:** A systematic literature review of personal financial planning research from 2004 to 2024 reveals growing scholarly interest, prominent journals, diverse institutional contributions, and global geographic representation, with key themes including behavioral finance, digital tools, and financial literacy.
+**TLDR:** A scoping review of 96 papers on Rotating Savings and Credit Associations finds financial and non‑financial benefits, risks like defection, and opportunities for technological support and formalization.
 
-**Problem & Motivation:** Despite increased attention to personal financial planning after the 2008 financial crisis, no comprehensive systematic review has mapped trends and gaps over two decades. Understanding these patterns is crucial for policymakers, practitioners, and researchers to address financial insecurity and improve financial well-being.
-
-**Approach (summary):**
-- Conducted a systematic literature review following the PRISMA framework.
-- Searched Scopus database using keywords 'Personal Financial Planning', 'Personal Wealth Management', 'Financial Wellness', or 'Personal Financial Management'.
-- Included 158 documents published between 2004 and 2024 in English, covering subjects like Economics, Finance, Business, and Social Sciences.
-
-**Key Findings (selected):**
-- num: Publication volume grew from under 5 per year (2004-2009) to peaks in 2017, 2019, 2020, and 2023.
-- The Journal of Financial Counselling and Planning contributed the most documents (17).
-- Kansas State University produced the most publications (9), followed by Ohio State University (8).
-- United States led with 62 publications, followed by India (19) and Malaysia (18).
-
-**Supports Odin (direct justifications):**
-- Increasing scholarly interest in personal financial planning since 2010 justifies Odin's market entry timing.
-- Journal of Financial Counselling and Planning is a key source for financial behavior research.
-- United States leads but India and Malaysia show growing output, suggesting Asian relevance.
-
-**Limitations / Contradictions for Odin:**
-- Search limited to Scopus database, may miss relevant publications. [unacknowledged]
-- Potential bias in paper selection and interpretation acknowledged by authors.
-- Findings may not generalize to all populations due to sample representation issues. [unacknowledged]
-
-**Key takeaways:**
-- Personal finance publications grew from under 5 to peaks after 2016.
-- US leads research output, but India and Malaysia show strong growth.
-- Behavioral finance and FinTech are dominant themes in recent literature.
-
----
-
-
-## Integrating Financial Management and Gamification: A Systematic Literature Review and Future Research Agenda
-**Filename:** `I--Prasetyo-et_al_summarized.md`  
-**Authors:** Prasetyo, A. P.; Santoso, H. B.; Putra, P. O. H. (2023)  
-**ID:** `d3c9a1e7-4b5f-4c2d-9e8a-6f7b1c3d5e9f`  
-**Odin Topics:** 1.C, 11.A, 11.B  
-
-**TLDR:** A systematic literature review of 53 articles synthesizes research on financial behavior and gamification-related behavioral intention, identifying theories, contexts, characteristics, and methodologies with future research directions.
-
-**Problem & Motivation:** Low levels of public financial behavior lead to poor long-term financial outcomes. Gamification can motivate positive financial actions, but research has focused mainly on education, not finance. A systematic review is needed to synthesize existing knowledge and identify gaps.
+**Problem & Motivation:** Despite decades of research on ROSCAs worldwide, no systematic scoping review has synthesized recent findings on their benefits, risks, and operational mechanisms. Understanding these informal financial arrangements is crucial for leveraging them in development and financial inclusion. The lack of a structured overview limits evidence‑based interventions.
 
 **Approach (summary):**
-- Conducted a systematic literature review following Kitchenham’s guidelines, using the TCCM framework for analysis.
-- Searched four databases (Emerald Insights, IEEE Xplore, Science Direct, Taylor & Francis) for articles published between 2018 and 2022.
-- Included English, empirical studies presenting research models or hypotheses, excluding literature reviews.
+- Used the PRISMA‑ScR protocol to systematically map ROSCA research from January 2000 to July 2022.
+- Searched Scopus and Web of Science, screening 227 publications to include 96 peer‑reviewed journal or conference papers in English.
+- Extracted data on continent/country of the studied ROSCA, methodological approaches, keywords, and key conclusions.
 
 **Key Findings (selected):**
-- num: Theory of Planned Behavior used in 50% of financial behavior studies.
-- num: 25 distinct theories identified in gamification research, with Self-Determination Theory most frequent (14.3%).
-- Financial behavior contexts include general behavior, literacy, satisfaction, well-being, saving, spending, and retirement.
-- Gamification contexts: education (20.7%), finance (17.2%), health/fitness (17.2%), and general games (17.2%).
-
-**Supports Odin (direct justifications):**
-- Gamification can increase behavioral intention toward positive financial actions.
-- Implementing gamification in PFM apps fosters continuance intention and reduces discontinuance.
-- Badges, points, and leaderboards are effective engagement elements in financial contexts.
+- num: 96 papers were included in the scoping review.
+- Asia and Africa are the most studied continents; South America and Oceania have no primary data studies since 2000.
+- ROSCAs provide non‑financial benefits including social capital, health improvements, and women’s empowerment beyond pure financial gains.
+- Defection risk is mitigated by social sanctions, reputation mechanisms, and heavy economic penalties; without sanctions, sustainability is theoretically impossible.
 
 **Limitations / Contradictions for Odin:**
-- Only articles from 2018-2022, potentially missing earlier foundational work.
-- Search limited to four databases and English-language articles only.
-- No meta-analysis or quantitative synthesis of effect sizes.
+- "Only peer‑reviewed articles in English from Scopus and Web of Science were included, potentially missing grey literature or non‑English studies. [unacknowledged]"
+- "No primary data from South America or Oceania, limiting generalizability to those regions (acknowledged by authors as a research gap)."
+- "Few intervention studies exist; most findings are observational or simulation‑based, reducing actionable causal claims (acknowledged in future directions)."
 
 **Key takeaways:**
-- 53 articles were reviewed on financial behavior and gamification.
-- Gamification in finance is under-researched compared to education.
-- Theory of Planned Behavior dominates financial behavior studies.
+- "96 papers on ROSCAs from 2000‑2022 show both financial and social benefits."
+- "Social pressure and embarrassment enforce saving discipline better than interest rates."
+- "Defection risk is minimized by reputation screening and mobile transparency tools."
 
 ---
 
@@ -1931,18 +1582,13 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Approach (summary):**
 - Qualitative basic design with 30 Filipino working millennials aged 26-41 from Tuguegarao City, Cagayan.
 - Purposive sampling recruited via Facebook and Messenger; one-on-one in-person or online semi-structured interviews.
-- {"Thematic analysis following Braun and Clarke's six steps": 'familiarization, coding, theme generation, review, definition, and writing.'}
+- Thematic analysis following Braun and Clarke's six steps: familiarization, coding, theme generation, review, definition, and writing.
 
 **Key Findings (selected):**
 - Utang na loob is perceived as an obligation, but also as kusang loob (free will) and pakikipagkapwa (shared identity).
 - Providing financial support to family is the primary manifestation, leading to increased work motivation and fulfillment.
 - Millennials experience burden and compromised well-being due to strong family obligations, sometimes unable to save for future.
 - Reciprocity extends to workplace colleagues and mentors through helping behaviors and loyalty.
-
-**Supports Odin (direct justifications):**
-- Filipino working millennials feel obligated to provide financial support to parents as repayment for upbringing.
-- Providing family support increases work motivation and sense of fulfillment.
-- Strong family obligations can compromise personal savings and well-being.
 
 **Limitations / Contradictions for Odin:**
 - Sample limited to one city in the Philippines, limiting generalizability to other regions.
@@ -1957,41 +1603,36 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## Impact of financial behaviour on financial well‑being: evidence among young adults in Malaysia
-**Filename:** `I--Sabri-et_al_summarized.md`  
-**Authors:** Sabri, M. F.; Anthony, M.; Law, S. H.; Rahim, H. A.; Burhan, N. A. S.; Ithnin, M. (2023)  
-**ID:** `10.1057/s41264-023-00234-8`  
-**Odin Topics:** 1.C, 5.A  
+## A machine learning ensemble approach to predicting factors affecting the intention and usage behavior towards online groceries applications in the Philippines
+**Filename:** `LA--Gumasing-et_al_summarized.md`  
+**Authors:** Gumasing, M.J.J.; Ong, A.K.S.; Sy, M.A.P.C.; Prasetyo, Y.T.; Persada, S.F. (2023)  
+**ID:** `10.1016/j.heliyon.2023.e20644`  
+**Odin Topics:** 1.C, 5.A, 6.A, 11.A, 12.B  
 
-**TLDR:** Financial behaviour fully mediates the relationship between financial literacy, financial socialisation, self-control, financial technology and financial well-being among young Malaysian adults during COVID-19.
+**TLDR:** A machine learning ensemble of random forest and artificial neural network predicts that perceived benefits, perceived vulnerability, behavioral intention, performance expectancy, and perceived severity strongly influence online grocery app usage among Filipino consumers during COVID-19.
 
-**Problem & Motivation:** Young adults in Malaysia faced income loss, debt, and housing issues during COVID-19, yet prior research on their financial well-being was mostly descriptive. The mediating role of financial behaviour between key determinants and well-being remained underexplored.
+**Problem & Motivation:** Despite the rise of online grocery shopping in the Philippines during COVID-19, factors driving consumer intention and usage behavior remain underexplored. Existing studies using traditional statistical methods have limitations in capturing complex, nonlinear relationships. A holistic measurement integrating health concerns and technology acceptance is needed.
 
 **Approach (summary):**
-- Survey of 360 young Malaysians aged 18-29 using multi-stage random sampling from five regions.
-- Structural equation modelling (SEM) with bootstrapping (1000 samples) to test mediation.
-- Measures: financial literacy, financial behaviour, financial socialisation, self-control, financial technology, and financial well-being (CFPB scale).
+- Data from 373 Filipino online grocery consumers collected via 5-point Likert survey.
+- Integrated Protection Motivation Theory (PMT) and Unified Theory of Acceptance and Use of Technology (UTAUT2) with 11 latent variables.
+- Used Random Forest Classifier (optimized over 6400 runs with depth 6, 90:10 train-test split, 96% accuracy).
 
 **Key Findings (selected):**
-- num: Financial behaviour fully mediates the effect of financial literacy on financial well-being (indirect β=0.071, p<0.05).
-- num: Financial behaviour mediates the effect of financial socialisation (indirect β=0.19, p<0.05), self-control (β=0.05), and financial technology (β=0.01).
-- num: Financial behaviour has a direct positive effect on financial well-being (β=0.48, p<0.05).
-- Financial literacy alone has no direct effect on financial well-being (β=0.09, p>0.05).
-
-**Supports Odin (direct justifications):**
-- Financial behaviour fully mediates the effect of financial literacy on financial well-being.
-- Financial technology alone does not improve financial well-being without positive financial behaviour.
-- Self-control alone is not sufficient; financial behaviour is the key pathway.
+- "num: Random Forest achieved 96% accuracy with 0.00 standard deviation at depth 6."
+- "num: Artificial Neural Network achieved 96.63% average testing accuracy."
+- Perceived benefit is the most significant factor (importance score 0.270), followed by perceived vulnerability (0.265) and behavioral intention (0.258).
+- All ten constructs (performance expectancy, effort expectancy, social influence, hedonic motivation, facilitating conditions, perceived benefit, perceived vulnerability, perceived severity, perceived susceptibility, response efficacy) significantly affect behavioral intention or usage behavior.
 
 **Limitations / Contradictions for Odin:**
-- Sample only from Malaysia, limiting generalizability to Filipinos [unacknowledged].
-- Cross-sectional design prevents causal inference; paper acknowledges this.
-- No objective financial data, only self-reports.
+- Respondents majorly reside in highly urbanized cities, affecting technological literacy representation.
+- Lack of consideration of socio-economic factors for customer segmentation.
+- No validation of model generalizability to other types of financial apps [unacknowledged].
 
 **Key takeaways:**
-- Financial behaviour fully mediates the link from literacy to well-being.
-- Fintech alone does not improve well-being without behaviour change.
-- Self-control matters only through actual financial actions.
+- Perceived benefit is the strongest predictor of app usage behavior at 100% importance.
+- Random Forest and ANN both achieved over 96% accuracy in predicting user behavior.
+- Integration of health belief model with technology acceptance improves prediction for pandemic contexts.
 
 ---
 
@@ -2009,106 +1650,91 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Approach (summary):**
 - Data from Bangko Sentral ng Pilipinas 2019 Financial Inclusion Survey (n=1,200).
 - Financial literacy measured with three-item quiz (inflation, simple interest, compound interest).
-- {'Dependent variables': 'ownership of formal accounts (bank, e-money, cooperative, microfinance) and use of financial services (credit, investment, insurance).'}
+- Dependent variables: ownership of formal accounts (bank, e-money, cooperative, microfinance) and use of financial services (credit, investment, insurance).
 
 **Key Findings (selected):**
-- num: A one-standard-deviation increase in financial literacy raises likelihood of account ownership by 3.7-4.2 percentage points.
-- num: A one-point increase in financial literacy score increases likelihood of availing a financial service by 4.9-6.0 percentage points.
-- num: Financial literacy increases bank account ownership by 2.1 percentage points and investment ownership by 3.7-4.2 percentage points.
+- "num: A one-standard-deviation increase in financial literacy raises likelihood of account ownership by 3.7-4.2 percentage points."
+- "num: A one-point increase in financial literacy score increases likelihood of availing a financial service by 4.9-6.0 percentage points."
+- "num: Financial literacy increases bank account ownership by 2.1 percentage points and investment ownership by 3.7-4.2 percentage points."
 - Awareness of BSP financial education programs and being the main household financial decision-maker are strong positive drivers of inclusion.
 
-**Supports Odin (direct justifications):**
-- Financial literacy increases the probability of owning a bank account by 2.1 percentage points per standard deviation.
-- Being the main household financial decision-maker raises likelihood of using financial services by 24-34 percentage points.
-- Awareness of financial education programs positively correlates with account ownership and investment uptake.
-
 **Limitations / Contradictions for Odin:**
-- Uses only three financial literacy questions, which may not capture full construct (acknowledged).
-- Cross-sectional design prevents causal inference [unacknowledged].
-- Sample of 1,200 may not fully represent all Filipino subgroups [unacknowledged].
+- "Uses only three financial literacy questions, which may not capture full construct (acknowledged)."
+- "Cross-sectional design prevents causal inference [unacknowledged]."
+- "Sample of 1,200 may not fully represent all Filipino subgroups [unacknowledged]."
 
 **Key takeaways:**
-- Financial literacy raises account ownership by 3.7-4.2 percentage points.
-- Being main financial decision-maker increases service use by 24-34 percentage points.
-- Awareness of BSP programs strongly predicts bank account ownership.
+- "Financial literacy raises account ownership by 3.7-4.2 percentage points."
+- "Being main financial decision-maker increases service use by 24-34 percentage points."
+- "Awareness of BSP programs strongly predicts bank account ownership."
 
 ---
 
 
-## Passionate Online Shoppers
-**Filename:** `L--Pagobo-et_al_summarized.md`  
-**Authors:** Pagobo, M. C. P.; Sumicad, R. P.; Arciete, D. C.; Salve, J. D.; Marabiles, K.; Rivera, C. (2023)  
-**ID:** `10.32996/ijaas.2023.2.2.1`  
-**Odin Topics:** 1.C, 13.A, 13.B  
+## Healthy financial habits in young adults: An exploratory study of the relationship between subjective financial literacy, engagement with finances, and financial decision-making
+**Filename:** `I--Sinnewe-&-Nicholson_summarized.md`  
+**Authors:** Sinnewe, E.; Nicholson, G. (2023)  
+**ID:** `10.1111/joca.12512`  
+**Odin Topics:** 1.C, 5.A, 5.B, 13.A, 13.B  
 
-**TLDR:** Online shopping addiction among Filipino college students is driven by psychological, marketing, social, and convenience factors, leading to overspending, financial problems, and distraction, with self-assessment, budgeting, and app uninstallation as coping mechanisms.
+**TLDR:** Social context and financial hardship drive young adults' financial habits more than subjective financial literacy, with romantic partnerships shifting focus to long-term goals.
 
-**Problem & Motivation:** The rapid growth of e-commerce and promotional offers have increased online shopping addiction, yet research on passionate online shoppers' experiences, challenges, and coping strategies among Filipino college students remains limited. Understanding these factors is important for addressing financial and psychological consequences.
+**Problem & Motivation:** Young adults face rising non-discretionary costs and housing unaffordability, yet evidence that financial education improves behavior is mixed. Understanding how financial habits form during the transition to full-time work is critical for designing effective interventions. Prior work overlooks the role of social context and motivation relative to literacy.
 
 **Approach (summary):**
-- Qualitative phenomenological study with 16 Filipino college students from University of Cebu Main Campus.
-- Participants screened using Bergen Shopping Addiction Scale (BSAS) to identify passionate online shoppers.
-- Semi-structured open-ended interviews conducted face-to-face after obtaining informed consent.
+- Conducted 28 semi-structured interviews with Australian university graduates aged 21-31 who entered full-time work within the last 5 years.
+- Used grounded theory with iterative open, axial, and selective coding guided by Theory of Planned Behavior and Family Financial Socialization.
+- Interviews lasted 16.1 hours total, transcribed and coded by multiple researchers with debriefing sessions.
 
 **Key Findings (selected):**
-- Four influencing factor themes: psychological (motivation, attitude, positive emotions, perception, escape), marketing (appearance, promotional offers), social (family, friends), and convenience.
-- Three challenge themes: overspending, financial problems (including debt and borrowing), and distraction from duties.
-- Three coping mechanism themes: self-assessment (checking emotions and deservingness), budgeting (separating money for shopping vs savings), and temporarily uninstalling shopping apps.
-- Participants experienced regret, worry, and stress after online purchases, consistent with prior research.
-
-**Supports Odin (direct justifications):**
-- Psychological factors like positive emotions and escape from stress drive online spending among Filipino young adults.
-- Promotional offers (discounts, free shipping) trigger impulse purchases and overspending.
-- Passionate online shoppers experience financial problems including borrowing money to pay for orders.
+- "num: Participants in committed romantic relationships reported future-focused financial goals and formal budgeting, while singles focused on short-term wants."
+- "num: Average subjective financial literacy self-rating was 6.4/10, yet literacy had minimal association with daily spending habits; motivation was the primary driver of engagement."
+- "num: 21 of 28 participants saved money, 10 used a formal budget, and 21 had investments in shares or property."
+- "num: Average financial satisfaction rating was 7.3/10, with satisfaction linked to having a budgeting system."
 
 **Limitations / Contradictions for Odin:**
-- Small sample size (16 participants) from one university limits generalizability. [unacknowledged]
-- Qualitative design without quantitative validation of coping effectiveness. [unacknowledged]
-- Contradictory statement about gender focus: claims both genders but conclusion says exclusively female. [acknowledged in paper as limitation]
+- "Small sample size (n=28) and homogeneous (university graduates) limit generalizability."
+- "Self-selection bias: individuals with poor financial habits or high debt may have declined participation. [unacknowledged]"
+- "Subjective financial literacy measure may not correlate strongly with objective literacy. [acknowledged in endnote 1]"
 
 **Key takeaways:**
-- Promotional offers triple daily shopping frequency among passionate online shoppers.
-- Sixteen Filipino college students reported overspending and debt from online shopping addiction.
-- Self-assessment before purchasing reduces impulsive online spending.
+- "Romantic partnerships shift financial time horizon from present to future."
+- "Subjective financial literacy has minimal effect on daily spending habits."
+- "Only 10 of 28 young adults use a formal budget."
 
 ---
 
 
-## Influences of mental accounting on consumption decisions: asymmetric effect of a scarcity mindset
-**Filename:** `I--Cheng-et_al_summarized.md`  
-**Authors:** Cheng, L.; Yu, Y.; Wang, Y.; Zheng, L. (2023)  
-**ID:** `10.3389/fpsyg.2023.1162916`  
-**Odin Topics:** 1.C, 2.C, 5.A, 7.A  
+## Knowledge and Practice of Personal Finance of Non-Teaching Staff in a Private University in Cebu City
+**Filename:** `L--Polinar-et_al_summarized.md`  
+**Authors:** Rico, M. E.; Polinar, M. A. N.; Celada, J. A. (2023)  
+**ID:** `10.11594/ijmaber.04.04.16`  
+**Odin Topics:** 1.C, 5.A, 7.A, 13.A, 13.B  
 
-**TLDR:** Mental accounting influences hedonic vs utilitarian consumption; scarcity mindset asymmetrically reduces hedonic spending from windfall gains but does not affect hard-earning money.
+**TLDR:** Non-teaching staff at a Philippine private university show moderate knowledge and practice of personal finance, with significant correlations for budgeting, saving, spending, insurance, and investment but not for emergency funds or debt management.
 
-**Problem & Motivation:** Previous research established that mental accounting affects consumption, but the role of a scarcity mindset as a boundary condition remained unclear. Understanding this interaction is important because scarcity mindset alters how consumers process financial resources. The gap is that prior work did not examine asymmetric effects across windfall versus hard-earning gains.
+**Problem & Motivation:** The COVID-19 pandemic exposed weak financial resilience in the Philippines, where only 25% of adults understand basic financial concepts. Little research focuses on non-teaching staff’s personal finance knowledge and practice. This study examines their financial behavior to identify gaps and recommend improvements.
 
 **Approach (summary):**
-- Conducted online experiments with two samples: 319 Chinese college students and 294 Chinese adults.
-- Used a 2 (mental account: windfall vs hard-earning) × 2 (consumption: hedonic vs utilitarian) between-subjects design.
-- Measured scarcity mindset using a three-item self-report scale (Pitesa and Thau, 2018) on a 5-point Likert scale.
+- Survey of 50 non-teaching staff using simple random sampling at a private university in Cebu City.
+- Adopted questionnaire from Polinar (2022) measuring knowledge and practice of six indicators on a 4-point Likert scale.
+- Indicators: budgeting, saving and spending, emergency fund, debt management, insurance, investment.
 
 **Key Findings (selected):**
-- num: Consumers with windfall gains were more likely to choose hedonic consumption (student sample: Cohen's d=0.68, p<0.001; adult sample: d=0.38, p=0.001).
-- Scarcity mindset moderated the windfall-to-hedonic effect for students (B=−0.66, p=0.026) and adults (B=−1.28, p<0.001).
-- Under high scarcity mindset, windfall gains did not increase hedonic preference; effect was significant only under low scarcity.
-- For hard-earning gains, scarcity mindset did not significantly affect utilitarian vs hedonic choices (adult sample p=0.212).
-
-**Supports Odin (direct justifications):**
-- Consumers with high scarcity mindset reduce hedonic spending from windfall gains (Cheng et al., 2023).
-- Mental accounting leads to non-fungible treatment of money, affecting category-specific budgets.
-- Scarcity mindset does not alter utilitarian spending from hard-earning money.
+- num: Grand mean knowledge 3.10 (moderately knowledgeable) and grand mean practice 2.71 (moderately practiced).
+- num: Budgeting knowledge-practice correlation r=0.939, p=0.002 (significant).
+- num: Saving and spending correlation r=0.839, p=0.001 (significant).
+- num: Insurance correlation r=0.969, p=0.001 (significant).
 
 **Limitations / Contradictions for Odin:**
-- Self-reported scarcity mindset scale may not capture actual resource constraints. [unacknowledged]
-- Only two product types per condition; lacks generalizability to real-world choices. [unacknowledged]
-- No manipulation check for mental accounting condition. [unacknowledged]
+- "Small sample size (n=50) from a single private university in Cebu City limits generalizability."
+- "Self-reported Likert scale data may overstate knowledge and practice due to social desirability bias."
+- "Cross-sectional design cannot establish causality between knowledge and practice."
 
 **Key takeaways:**
-- Windfall gains increase hedonic spending; scarcity mindset blocks this effect.
-- Hard-earning money consistently drives utilitarian consumption regardless of scarcity.
-- num: Scarcity mindset reduced hedonic preference with B=−0.66 (students) and B=−1.28 (adults).
+- "Knowledge-practice correlation is strong for budgeting (r=0.939) but absent for debt."
+- "Emergency fund practice is less practiced (mean 2.42 out of 4)."
+- "Investment has lowest practice (2.20) and knowledge (2.56)."
 
 ---
 
@@ -2129,25 +1755,20 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Financial literacy measured via financial knowledge and behavior; financial well-being via discipline, security, and resiliency.
 
 **Key Findings (selected):**
-- num: Overall financial literacy was high (M=3.22, SD=0.39) and financial well-being great (M=3.03, SD=0.46).
-- num: Monthly income significantly correlated with financial literacy (r=0.223, p=0.003).
-- num: Strong positive correlation between financial literacy and financial well-being (rs=0.660, p=0.000).
+- "num: Overall financial literacy was high (M=3.22, SD=0.39) and financial well-being great (M=3.03, SD=0.46)."
+- "num: Monthly income significantly correlated with financial literacy (r=0.223, p=0.003)."
+- "num: Strong positive correlation between financial literacy and financial well-being (rs=0.660, p=0.000)."
 - Age, sex, civil status, and number of dependents showed no significant relationship with financial literacy or well-being.
 
-**Supports Odin (direct justifications):**
-- Financial literacy and financial well-being are strongly correlated among Filipino public health nurses (rs=0.660).
-- Monthly income is a significant predictor of financial literacy in this population (r=0.223).
-- Demographic factors like age, sex, and marital status do not significantly affect financial literacy among Filipino nurses.
-
 **Limitations / Contradictions for Odin:**
-- Sample size is limited (n=178) and restricted to one province.
-- Only nurses were surveyed; results may not generalize to other Filipino young professionals.
-- Quantitative design limits depth of insight into financial behaviors.
+- "Sample size is limited (n=178) and restricted to one province."
+- "Only nurses were surveyed; results may not generalize to other Filipino young professionals."
+- "Quantitative design limits depth of insight into financial behaviors."
 
 **Key takeaways:**
-- Higher monthly income is linked to better financial literacy among nurses.
-- Financial literacy strongly predicts financial well-being (rs=0.66).
-- Nurses show great financial discipline but lower financial resilience (M=2.88).
+- "Higher monthly income is linked to better financial literacy among nurses."
+- "Financial literacy strongly predicts financial well-being (rs=0.66)."
+- "Nurses show great financial discipline but lower financial resilience (M=2.88)."
 
 ---
 
@@ -2165,35 +1786,30 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Approach (summary):**
 - Online survey collected 10,580 responses from users of P2P lending, BNPL, invoice trading, and equity crowdfunding platforms in Indonesia, Malaysia, Philippines, Singapore, Thailand from Feb-Apr 2022.
 - Data sanitization removed 16% of entries, resulting in 8,886 cleaned responses; stratified random sampling selected 600 responses (200 from Philippines, 400 from others) for balanced analysis.
-- {'Descriptive and content analysis applied to four research themes': 'user profile, relationship with traditional finance, financing experience, and post-financing outcomes including COVID-19 impact.'}
+- Descriptive and content analysis applied to four research themes: user profile, relationship with traditional finance, financing experience, and post-financing outcomes including COVID-19 impact.
 
 **Key Findings (selected):**
-- num: 44% of P2P consumer lending users aged 25-34; 54% of BNPL users aged 25-34.
-- num: 49% of P2P consumer borrowers used funds for day-to-day expenses; 39% of BNPL for fashion and apparel.
-- num: 1% of P2P consumer borrowers defaulted, compared to >3% average bank NPL in ASEAN (World Bank).
-- num: 65% of MSMEs reported increased productivity after receiving fintech financing; 59% increased profit.
-
-**Supports Odin (direct justifications):**
-- Fintech platforms serve underbanked populations, with 41% of P2P consumer lending borrowers being female.
-- Most MSMEs (65%) report increased productivity after receiving fintech financing.
-- Fintech complements traditional banking: over half of borrowers increased use of savings accounts after borrowing.
+- "num: 44% of P2P consumer lending users aged 25-34; 54% of BNPL users aged 25-34."
+- "num: 49% of P2P consumer borrowers used funds for day-to-day expenses; 39% of BNPL for fashion and apparel."
+- "num: 1% of P2P consumer borrowers defaulted, compared to >3% average bank NPL in ASEAN (World Bank)."
+- "num: 65% of MSMEs reported increased productivity after receiving fintech financing; 59% increased profit."
 
 **Limitations / Contradictions for Odin:**
-- The study does not measure loan quality, price, or diversity of offers. [unacknowledged]
-- Sample size limitations prevent cross-country comparative analysis.
-- No analysis of herd behavior or anchoring in platform choice. [unacknowledged]
+- "The study does not measure loan quality, price, or diversity of offers. [unacknowledged]"
+- "Sample size limitations prevent cross-country comparative analysis."
+- "No analysis of herd behavior or anchoring in platform choice. [unacknowledged]"
 
 **Key takeaways:**
-- 1% of P2P consumer borrowers default, below regional bank NPL averages.
-- Millennials make up 44% of P2P consumer lending users in ASEAN.
-- Fintech complements banking: 52% of users increased savings account use.
+- "1% of P2P consumer borrowers default, below regional bank NPL averages."
+- "Millennials make up 44% of P2P consumer lending users in ASEAN."
+- "Fintech complements banking: 52% of users increased savings account use."
 
 ---
 
 
-## Consumer Finance Survey 2021
+## "Consumer Finance Survey 2021"
 **Filename:** `L--Bangko_Sentral_ng_Pilipinas-2021_summarized.md`  
-**Authors:** Bangko Sentral ng Pilipinas (2021)  
+**Authors:** "Bangko Sentral ng Pilipinas" (2021)  
 **ID:** `f47ac10b-58cc-4372-a567-0e02b2c3d479`  
 **Odin Topics:** 1.A, 1.B, 1.C, 2.A, 2.C, 3.A, 4.A, 4.B, 5.A, 10.B, 13.A, 13.B  
 
@@ -2202,30 +1818,59 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Problem & Motivation:** There were significant data gaps on household wealth and indebtedness in the Philippines, as existing surveys like FIES and APIS had limited coverage of assets and liabilities. Collecting detailed financial condition data was necessary to inform evidence-based socio-economic policies and monetary decisions. The survey aimed to provide a comprehensive picture of household balance sheets, income sources, spending patterns, and demographic characteristics.
 
 **Approach (summary):**
-- Sample of 18,000 households drawn from PSA's 2013 Master Sample (two-stage cluster sampling) covering all regions including BARMM.
-- Face-to-face interviews using structured CAPI questionnaire, translated into six major languages, conducted from March to December 2022.
-- Reference period for income and expenditure was calendar year 2021; assets and liabilities as of interview date.
+- "Sample of 18,000 households drawn from PSA's 2013 Master Sample (two-stage cluster sampling) covering all regions including BARMM."
+- "Face-to-face interviews using structured CAPI questionnaire, translated into six major languages, conducted from March to December 2022."
+- "Reference period for income and expenditure was calendar year 2021; assets and liabilities as of interview date."
 
 **Key Findings (selected):**
-- num: 91.5% of households had wage income in 2021, up from 73.7% in 2018.
-- num: Only 29.3% of households carried any debt, down from 40.4% in 2018.
-- num: 35.3% owned deposit accounts, significantly up from 9.7% in 2018.
-- num: 24.3% owned electronic money accounts, up from 0.3% in 2018.
-
-**Supports Odin (direct justifications):**
-- Filipino households spend 55.4% of their budget on food at home.
-- Only 35.3% of households have a formal deposit account.
-- E-money account ownership reached 24.3% during the pandemic.
+- "num: 91.5% of households had wage income in 2021, up from 73.7% in 2018."
+- "num: Only 29.3% of households carried any debt, down from 40.4% in 2018."
+- "num: 35.3% owned deposit accounts, significantly up from 9.7% in 2018."
+- "num: 24.3% owned electronic money accounts, up from 0.3% in 2018."
 
 **Limitations / Contradictions for Odin:**
-- Estimates with coefficients of variation above 20 percent should be interpreted with caution.
-- Recall bias may affect income and expenditure values reported for the previous year.
-- Non-sampling errors from intentional under-reporting of assets and liabilities. [unacknowledged]
+- "Estimates with coefficients of variation above 20 percent should be interpreted with caution."
+- "Recall bias may affect income and expenditure values reported for the previous year."
+- "Non-sampling errors from intentional under-reporting of assets and liabilities. [unacknowledged]"
 
 **Key takeaways:**
-- Wage income source increased to 91.5% of households during the pandemic.
-- Debt prevalence dropped to 29.3% as households reduced borrowing.
-- Digital financial assets grew rapidly: e-money accounts up to 24.3%.
+- "Wage income source increased to 91.5% of households during the pandemic."
+- "Debt prevalence dropped to 29.3% as households reduced borrowing."
+- "Digital financial assets grew rapidly: e-money accounts up to 24.3%."
+
+---
+
+
+## Consumers semi-intertemporally make intertemporal decisions: insights from the payday effects
+**Filename:** `I--Ma-et_al_summarized.md`  
+**Authors:** Ma, C.; Gu, Y.; Chong, J. K. (0)  
+**ID:** `d9b7a8c6-5f4e-3d2c-1b0a-9e8f7d6c5b4a`  
+**Odin Topics:** 1.C, 2.B, 5.A, 7.A, 13.A  
+
+**TLDR:** Analysis of storable product purchase data reveals that consumers self-impose monthly mental budgets, renewing them on paydays, leading to larger expenditures on first post-payday trips and decreasing expenditures over subsequent trips.
+
+**Problem & Motivation:** Consumers are neither fully rational nor completely myopic, yet existing models do not explain how they make intertemporal purchase decisions for storable products without liquidity constraints. The gap is understanding the intrinsic commitment devices like mental budgeting that consumers use to manage spending across pay cycles. This paper provides empirical evidence for monthly mental budgets and the role of payday salience.
+
+**Approach (summary):**
+- Analyzed individual-level transaction data from a retail chain selling storable products (cosmetics, personal care) from 2011-2015 in a Southeast Asian country.
+- Used regression discontinuity design around paydays (26th of each month) with customer-day and customer-trip level regressions.
+- Compared cash users vs credit card users to isolate liquidity constraints vs behavioral effects.
+
+**Key Findings (selected):**
+- "num: Expenditures on paydays are 3.3% higher conditional on store visit."
+- "num: For credit card users, first trip after payday (non-payday) has 0.726 higher expenditure than later trips."
+- "num: Payday effect increases variety seeking by 0.1 varieties for credit card users."
+- "num: Probability of purchasing a new variety increases by 0.63% on paydays."
+
+**Limitations / Contradictions for Odin:**
+- "Data only covers one retail chain in one country; external validity limited."
+- "RD design assumes no other events coinciding with paydays; may be confounded by end-of-month effects."
+- "Cannot fully rule out stockpiling as alternative explanation for some findings [unacknowledged]."
+
+**Key takeaways:**
+- "Monthly mental budgets renew on paydays, not just on payday itself."
+- "Expenditures decrease over trips within a paycheck cycle."
+- "Payday salience causes overspending beyond mental budget renewal."
 
 ---
 
@@ -2246,25 +1891,20 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Independent variables were seven TAM-based determinants (e.g., perceived ease of use, trust); dependent variables were cash management and financial planning/budgeting.
 
 **Key Findings (selected):**
-- {'num': 'Digital wallet usage explains 45.4% of the variance in financial behavior (R²=0.454, F=180.136, p<.001).'}
+- num: Digital wallet usage explains 45.4% of the variance in financial behavior (R²=0.454, F=180.136, p<.001).
 - Students agree on all adoption determinants (means 2.91–2.99), with perceived trust showing the highest variability (SD=1.24).
 - Financial behavior is generally responsible (overall M=2.99, SD=0.68), with financial planning and budgeting scoring highest (M=3.00).
 - Regression beta coefficient (β=0.673, p<.001) indicates a significant positive effect of digital wallet usage on financial behavior.
 
-**Supports Odin (direct justifications):**
-- Digital wallet usage significantly predicts financial behavior among students (β=0.673, p<.001).
-- Students generally exhibit responsible financial behavior in cash management (M=2.97) and budgeting (M=3.00).
-- Perceived trust shows the highest variability (SD=1.24), indicating divided opinions on platform reliability.
-
 **Limitations / Contradictions for Odin:**
-- Cross-sectional design cannot infer causation; only association is shown. [unacknowledged]
-- Reliance on self-reported Likert scales may introduce response bias. [unacknowledged]
-- The study does not control for income level, digital literacy, or parental influence. [unacknowledged]
+- "Cross-sectional design cannot infer causation; only association is shown. [unacknowledged]"
+- "Reliance on self-reported Likert scales may introduce response bias. [unacknowledged]"
+- "The study does not control for income level, digital literacy, or parental influence. [unacknowledged]"
 
 **Key takeaways:**
-- Digital wallet usage explains 45.4% of financial behavior variance.
-- Students agree on all adoption determinants with means from 2.91 to 2.99.
-- Perceived trust shows the widest disagreement (SD=1.24).
+- "Digital wallet usage explains 45.4% of financial behavior variance."
+- "Students agree on all adoption determinants with means from 2.91 to 2.99."
+- "Perceived trust shows the widest disagreement (SD=1.24)."
 
 ---
 
@@ -2288,12 +1928,7 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Social media usage is high, with Facebook and TikTok as most preferred platforms.
 - Financial literacy reported as high, but practical application (budget adherence, regular saving) is lower.
 - Decision-making abilities rated as moderate, with difficulty resisting impulse purchases.
-- {'num': 'Moderate positive correlation between social media frequency and financial literacy (r=0.359, p<0.001).'}
-
-**Supports Odin (direct justifications):**
-- Social media frequency is positively associated with self-reported financial literacy (r=0.359).
-- Students with high financial literacy still struggle with budget adherence and regular saving.
-- Difficulty resisting impulse purchases is a significant barrier to sound financial decision-making.
+- num: Moderate positive correlation between social media frequency and financial literacy (r=0.359, p<0.001).
 
 **Limitations / Contradictions for Odin:**
 - Correlational design prevents causal inference.
@@ -2308,9 +1943,9 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## 📌 Note for the Agent
+## Note for the Agent
 
-The summaries above contain **essential extracts** – enough to understand the paper's relevance to Odin, including supporting evidence and limitations.
+The summaries above contain **essential extracts** – enough to understand each paper's relevance to Odin, including supporting evidence and limitations.
 If you need additional details not shown here (e.g., **critical citations, definitions, equations, full methodology, or the complete mapping rationale**),
 **ask the user to send the original summary file (`<filename>_summarized.md`) or the converted MarkItDown file(`<filename>_marked.md`)** for the specific paper(s) of interest.
 Do not invent missing information. Acknowledge gaps when they exist.

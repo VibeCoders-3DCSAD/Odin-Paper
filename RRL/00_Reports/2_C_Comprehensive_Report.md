@@ -1,47 +1,8 @@
 # Comprehensive Report for Subtopic: `2.C`
 
-**Total relevant papers:** 6
+**Total files:** 5
 
 This report includes problem/motivation, approach, key findings, support for Odin, and limitations/contradictions.
-
----
-
-
-## Financial literacy among young college students: Advancements and future directions
-**Filename:** `L--Rodriguez-Correa-et_al_summarized.md`  
-**Authors:** Rodríguez-Correa, P. A.; Arias García, S.; Bermeo-Giraldo, M. C.; Valencia-Arias, A.; Martínez Rojas, E.; Aurora Vigo, E. F.; Gallegos, A. (2025)  
-**ID:** `10.12688/f1000research.159085.3`  
-**Odin Topics:** 1.C, 2.C, 5.A, 7.A, 13.A, 13.B  
-
-**TLDR:** A systematic review of 44 studies finds that financial literacy research on college students focuses on financial knowledge and behavior, while budgeting, credit, debt, and digital tools remain underexplored.
-
-**Problem & Motivation:** Young college students face increasing financial responsibilities but lack adequate financial education. Poor financial decision-making can lead to long-term negative outcomes. Existing literature on financial literacy among this population is fragmented and lacks structured guidance on underexplored subtopics.
-
-**Approach (summary):**
-- Searched Scopus and Web of Science using title terms 'Financ* literacy', 'Financ* education' with 'University student*' or 'College student*'.
-- Applied inclusion criteria: studies on higher education students with quantitative measures of financial literacy analyzed via statistical methods.
-- Used PRISMA 2020 methodology to screen 350 records down to 44 peer-reviewed studies from 2003-2023.
-
-**Key Findings (selected):**
-- num: 34% of studies use regression analysis, 20% factor analysis, and 18% structural equation modeling.
-- Financial literacy and financial knowledge are the most frequently assessed constructs, but the terms are often used interchangeably without clear definition.
-- Budgeting is considered a core skill, yet globally students show the least interest in budgeting processes.
-- Few studies analyze psychological and behavioral effects of credit card use and student loans on college students.
-
-**Supports Odin (direct justifications):**
-- College students lack adequate budgeting skills and show low interest in budgeting processes.
-- Financial knowledge alone is insufficient; financial attitude and self-efficacy moderate behavior.
-- Credit card use and student debt among young adults require psychological and behavioral analysis.
-
-**Limitations / Contradictions for Odin:**
-- Search restricted to title fields only, not abstracts, potentially missing relevant studies.
-- Only Scopus and Web of Science databases used; other databases may contain relevant research.
-- Non-English publications were excluded, potentially biasing geographic coverage.
-
-**Key takeaways:**
-- Financial literacy and knowledge are often used interchangeably in research.
-- Budgeting skills are critically low among college students globally.
-- num: 34% of studies use regression analysis as primary method.
 
 ---
 
@@ -67,11 +28,6 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Lifestyle preferences for entertainment and discretionary spending correlate with conservative investment approaches.
 - Discrepancy exists between theoretical financial knowledge and practical application in daily decisions.
 
-**Supports Odin (direct justifications):**
-- Higher financial literacy positively correlates with consistent savings habits among young workers.
-- Urban lifestyle increases challenges in debt management for young professionals.
-- Peer influence significantly shapes spending patterns in urban social circles.
-
 **Limitations / Contradictions for Odin:**
 - Sample size constraints limit generalizability beyond Batam City.
 - Self-reporting biases in survey responses may affect validity.
@@ -81,6 +37,40 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Financial literacy alone does not guarantee prudent financial decisions due to lifestyle pressures.
 - Urban living and peer influence are key determinants of young workers' financial behaviors.
 - Tailored financial education should bridge theory and practical application.
+
+---
+
+
+## Optimized Financial Planning: Integrating Individual and Cooperative Budgeting Models with LLM Recommendations
+**Filename:** `IA--de_Zarza-et_al_summarized.md`  
+**Authors:** de Zarzà, I.; de Curtò, J.; Roig, G.; Calafate, C.T. (2024)  
+**ID:** `10.3390/ai5010006`  
+**Odin Topics:** 7.A, 7.B, 7.C, 13.A, 2.C  
+
+**TLDR:** Integrates LLM recommendations into individual and cooperative budgeting optimization models to maximize savings while respecting user preferences and constraints.
+
+**Problem & Motivation:** Financial planning is complex and overwhelming for non-experts. Traditional methods lack personalization and adaptability to dynamic needs. There is a need for accessible, AI-driven budgeting tools that combine mathematical optimization with practical recommendations.
+
+**Approach (summary):**
+- Synthetic financial data for ten households with normally distributed income and expenses across rent, groceries, utilities, and entertainment.
+- Optimization models for individual and cooperative budgeting maximizing savings subject to non‑negativity and income constraints.
+- Uses GPT‑4 to generate percentage‑based allocation recommendations for expense categories, savings, debt, and investments.
+
+**Key Findings (selected):**
+- LLM‑generated recommendations align with established financial planning principles such as emergency funds, retirement savings, and consumption smoothing.
+- num: The LLM‑recommended savings allocation included 20% for emergency funds, 15% for retirement, and 10% for non‑retirement savings.
+- Cooperative budgeting with LLM advice leads to more balanced allocations across household members.
+- Long‑term LLM recommendations incorporate life‑cycle model principles, including consumption smoothing and future event planning.
+
+**Limitations / Contradictions for Odin:**
+- "LLM recommendations may contain hallucinations or errors [unacknowledged] (paper proposes mitigations but does not test them empirically)."
+- "The simulation uses synthetic data; real‑world validation is missing [unacknowledged]."
+- "Long‑term dependencies are acknowledged but not modeled in the optimization equations [acknowledged] (paper discusses future work)."
+
+**Key takeaways:**
+- "LLM recommendations can allocate 20% of income to emergency funds."
+- "Cooperative budgeting with LLM increases household savings potential."
+- "Optimization with LLM bounds outperforms LLM‑only advice in simulations."
 
 ---
 
@@ -106,11 +96,6 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - LLM-generated recommendations adapt to different income levels and user-specific risk levels, goals, and preferences.
 - The system promotes responsible financial behavior without imposing decisions, enhancing user awareness and autonomy.
 
-**Supports Odin (direct justifications):**
-- Isolation Forest can identify atypical financial transactions by isolating deviations from normal behavior.
-- Weighted combination of ARIMA and LSTM improves budget forecast accuracy over either model alone.
-- LLMs can generate personalized financial recommendations that adapt to user income level and risk tolerance.
-
 **Limitations / Contradictions for Odin:**
 - No quantitative validation of forecasting or anomaly detection accuracy. [unacknowledged]
 - The system's LLM component is described only conceptually; no ablation study or comparison with rule-based baselines. [unacknowledged]
@@ -124,48 +109,9 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## Influences of mental accounting on consumption decisions: asymmetric effect of a scarcity mindset
-**Filename:** `I--Cheng-et_al_summarized.md`  
-**Authors:** Cheng, L.; Yu, Y.; Wang, Y.; Zheng, L. (2023)  
-**ID:** `10.3389/fpsyg.2023.1162916`  
-**Odin Topics:** 1.C, 2.C, 5.A, 7.A  
-
-**TLDR:** Mental accounting influences hedonic vs utilitarian consumption; scarcity mindset asymmetrically reduces hedonic spending from windfall gains but does not affect hard-earning money.
-
-**Problem & Motivation:** Previous research established that mental accounting affects consumption, but the role of a scarcity mindset as a boundary condition remained unclear. Understanding this interaction is important because scarcity mindset alters how consumers process financial resources. The gap is that prior work did not examine asymmetric effects across windfall versus hard-earning gains.
-
-**Approach (summary):**
-- Conducted online experiments with two samples: 319 Chinese college students and 294 Chinese adults.
-- Used a 2 (mental account: windfall vs hard-earning) × 2 (consumption: hedonic vs utilitarian) between-subjects design.
-- Measured scarcity mindset using a three-item self-report scale (Pitesa and Thau, 2018) on a 5-point Likert scale.
-
-**Key Findings (selected):**
-- num: Consumers with windfall gains were more likely to choose hedonic consumption (student sample: Cohen's d=0.68, p<0.001; adult sample: d=0.38, p=0.001).
-- Scarcity mindset moderated the windfall-to-hedonic effect for students (B=−0.66, p=0.026) and adults (B=−1.28, p<0.001).
-- Under high scarcity mindset, windfall gains did not increase hedonic preference; effect was significant only under low scarcity.
-- For hard-earning gains, scarcity mindset did not significantly affect utilitarian vs hedonic choices (adult sample p=0.212).
-
-**Supports Odin (direct justifications):**
-- Consumers with high scarcity mindset reduce hedonic spending from windfall gains (Cheng et al., 2023).
-- Mental accounting leads to non-fungible treatment of money, affecting category-specific budgets.
-- Scarcity mindset does not alter utilitarian spending from hard-earning money.
-
-**Limitations / Contradictions for Odin:**
-- Self-reported scarcity mindset scale may not capture actual resource constraints. [unacknowledged]
-- Only two product types per condition; lacks generalizability to real-world choices. [unacknowledged]
-- No manipulation check for mental accounting condition. [unacknowledged]
-
-**Key takeaways:**
-- Windfall gains increase hedonic spending; scarcity mindset blocks this effect.
-- Hard-earning money consistently drives utilitarian consumption regardless of scarcity.
-- num: Scarcity mindset reduced hedonic preference with B=−0.66 (students) and B=−1.28 (adults).
-
----
-
-
-## Consumer Finance Survey 2021
+## "Consumer Finance Survey 2021"
 **Filename:** `L--Bangko_Sentral_ng_Pilipinas-2021_summarized.md`  
-**Authors:** Bangko Sentral ng Pilipinas (2021)  
+**Authors:** "Bangko Sentral ng Pilipinas" (2021)  
 **ID:** `f47ac10b-58cc-4372-a567-0e02b2c3d479`  
 **Odin Topics:** 1.A, 1.B, 1.C, 2.A, 2.C, 3.A, 4.A, 4.B, 5.A, 10.B, 13.A, 13.B  
 
@@ -174,30 +120,25 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Problem & Motivation:** There were significant data gaps on household wealth and indebtedness in the Philippines, as existing surveys like FIES and APIS had limited coverage of assets and liabilities. Collecting detailed financial condition data was necessary to inform evidence-based socio-economic policies and monetary decisions. The survey aimed to provide a comprehensive picture of household balance sheets, income sources, spending patterns, and demographic characteristics.
 
 **Approach (summary):**
-- Sample of 18,000 households drawn from PSA's 2013 Master Sample (two-stage cluster sampling) covering all regions including BARMM.
-- Face-to-face interviews using structured CAPI questionnaire, translated into six major languages, conducted from March to December 2022.
-- Reference period for income and expenditure was calendar year 2021; assets and liabilities as of interview date.
+- "Sample of 18,000 households drawn from PSA's 2013 Master Sample (two-stage cluster sampling) covering all regions including BARMM."
+- "Face-to-face interviews using structured CAPI questionnaire, translated into six major languages, conducted from March to December 2022."
+- "Reference period for income and expenditure was calendar year 2021; assets and liabilities as of interview date."
 
 **Key Findings (selected):**
-- num: 91.5% of households had wage income in 2021, up from 73.7% in 2018.
-- num: Only 29.3% of households carried any debt, down from 40.4% in 2018.
-- num: 35.3% owned deposit accounts, significantly up from 9.7% in 2018.
-- num: 24.3% owned electronic money accounts, up from 0.3% in 2018.
-
-**Supports Odin (direct justifications):**
-- Filipino households spend 55.4% of their budget on food at home.
-- Only 35.3% of households have a formal deposit account.
-- E-money account ownership reached 24.3% during the pandemic.
+- "num: 91.5% of households had wage income in 2021, up from 73.7% in 2018."
+- "num: Only 29.3% of households carried any debt, down from 40.4% in 2018."
+- "num: 35.3% owned deposit accounts, significantly up from 9.7% in 2018."
+- "num: 24.3% owned electronic money accounts, up from 0.3% in 2018."
 
 **Limitations / Contradictions for Odin:**
-- Estimates with coefficients of variation above 20 percent should be interpreted with caution.
-- Recall bias may affect income and expenditure values reported for the previous year.
-- Non-sampling errors from intentional under-reporting of assets and liabilities. [unacknowledged]
+- "Estimates with coefficients of variation above 20 percent should be interpreted with caution."
+- "Recall bias may affect income and expenditure values reported for the previous year."
+- "Non-sampling errors from intentional under-reporting of assets and liabilities. [unacknowledged]"
 
 **Key takeaways:**
-- Wage income source increased to 91.5% of households during the pandemic.
-- Debt prevalence dropped to 29.3% as households reduced borrowing.
-- Digital financial assets grew rapidly: e-money accounts up to 24.3%.
+- "Wage income source increased to 91.5% of households during the pandemic."
+- "Debt prevalence dropped to 29.3% as households reduced borrowing."
+- "Digital financial assets grew rapidly: e-money accounts up to 24.3%."
 
 ---
 
@@ -221,12 +162,7 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Social media usage is high, with Facebook and TikTok as most preferred platforms.
 - Financial literacy reported as high, but practical application (budget adherence, regular saving) is lower.
 - Decision-making abilities rated as moderate, with difficulty resisting impulse purchases.
-- {'num': 'Moderate positive correlation between social media frequency and financial literacy (r=0.359, p<0.001).'}
-
-**Supports Odin (direct justifications):**
-- Social media frequency is positively associated with self-reported financial literacy (r=0.359).
-- Students with high financial literacy still struggle with budget adherence and regular saving.
-- Difficulty resisting impulse purchases is a significant barrier to sound financial decision-making.
+- num: Moderate positive correlation between social media frequency and financial literacy (r=0.359, p<0.001).
 
 **Limitations / Contradictions for Odin:**
 - Correlational design prevents causal inference.
@@ -241,9 +177,9 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## 📌 Note for the Agent
+## Note for the Agent
 
-The summaries above contain **essential extracts** – enough to understand the paper's relevance to Odin, including supporting evidence and limitations.
+The summaries above contain **essential extracts** – enough to understand each paper's relevance to Odin, including supporting evidence and limitations.
 If you need additional details not shown here (e.g., **critical citations, definitions, equations, full methodology, or the complete mapping rationale**),
 **ask the user to send the original summary file (`<filename>_summarized.md`) or the converted MarkItDown file(`<filename>_marked.md`)** for the specific paper(s) of interest.
 Do not invent missing information. Acknowledge gaps when they exist.

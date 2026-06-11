@@ -1,47 +1,42 @@
 # Comprehensive Report for Subtopic: `8.B`
 
-**Total relevant papers:** 35
+**Total files:** 38
 
 This report includes problem/motivation, approach, key findings, support for Odin, and limitations/contradictions.
 
 ---
 
 
-## AI-Enabled NLP Framework for Automated Expense Management and Financial Analysis
-**Filename:** `IA--Jayaprakashnarayan-et_al_summarized.md`  
-**Authors:** Jayaprakashnarayan, N.; Sakthivel, M.; Sachidhanandam, P.; Kanjana Devi, N.; Manivel Mughilan, T.S. (2026)  
-**ID:** `10.15662/IJEETR.2026.0802073`  
-**Odin Topics:** 3.A, 3.B, 8.A, 8.B, 10.A, 10.B, 12.A, 12.B  
+## Deep Learning for Credit Risk Prediction: A Survey of Methods, Applications, and Challenges
+**Filename:** `IA--Mienye-et_al-2026_summarized.md`  
+**Authors:** Mienye, I. D.; Esenogho, E.; Modisane, C. (2026)  
+**ID:** `10.3390/info17040395`  
+**Odin Topics:** 3.A, 5.C, 6.B, 8.B, 10.A, 12.B  
 
-**TLDR:** An AI-enabled NLP framework using transformer-based models and multi-task learning automates transaction extraction (96.8% accuracy) and categorization (94.3% merchant precision) from financial SMS messages with on-device privacy.
+**TLDR:** Deep learning architectures including MLPs, RNNs, transformers, and GNNs improve credit risk prediction over traditional models when large, rich datasets are available, but face challenges in interpretability, fairness, and operational deployment.
 
-**Problem & Motivation:** Digital payments generate overwhelming transaction data, making personal finance management complex and error-prone. Existing rule-based or supervised systems are brittle, unable to adapt to changing message formats or evolving fraud patterns. There is a need for a self-adaptive, privacy-preserving NLP framework that operates on mobile devices.
+**Problem & Motivation:** Traditional credit risk models like logistic regression fail to capture nonlinear interactions and temporal dynamics in borrower data. Deep learning offers architectures that can model complex patterns, but a systematic review focusing on borrower-level prediction across model families was missing.
 
 **Approach (summary):**
-- Curated dataset of 124,583 financial SMS messages from 250 Indian participants across 42 banks and 18 UPI apps, annotated with transaction entities and 14 expense categories.
-- Hybrid architecture combining MuRIL transformer encoder (12 layers, 768 hidden) with rule-based verification for entity extraction and multi-task learning for classification.
-- Multi-task objective jointly optimizes token-level CRF for entities and sequence-level softmax for expense categories, with dynamic loss weights (0.7/0.3).
+- Searched IEEE Xplore, Scopus, ACM, ScienceDirect, SpringerLink, Web of Science, and Google Scholar using credit-risk and deep learning terms.
+- Screened 380 records via PRISMA flow, retaining 140 deep learning application studies and 18 surveys.
+- Extracted data on data modality (tabular, sequential, textual, relational), model architecture (MLP, CNN, RNN/LSTM/GRU, Transformer, GNN, hybrid), credit product segment, and evaluation metrics.
 
 **Key Findings (selected):**
-- num: 96.8% overall F1-score for transaction entity extraction (proposed MuRIL multi-task vs 94.0% for FinBERT).
-- num: 94.3% precision in merchant identification across code-mixed and varied formats.
-- num: 91.7% sensitivity and 3.8% false positive rate for ensemble fraud detection (AUC-ROC 0.956).
-- num: 85.6% reduction in manual expense tracking effort based on user-reported time savings.
-
-**Supports Odin (direct justifications):**
-- The proposed NLP framework achieves 96.8% accuracy in extracting transaction entities from financial SMS messages.
-- Multi-task learning improves transaction classification F1 by 1.2% over single-task fine-tuning.
-- Ensemble fraud detection achieves 91.7% sensitivity with only 3.8% false positives, suitable for user-facing alerts.
+- "num: LSTM reduced MAE from 0.095 to 0.072 and RMSE from 0.119 to 0.093 for peer-to-peer default rate forecasting."
+- "num: TabNet-Stacking ensemble achieved accuracy 0.979 and AUC 0.941 on the Tianchi credit dataset."
+- "num: Residual-enhanced BiLSTM with multi-head attention achieved AUC 0.982 and F1 0.958 on Freddie Mac data."
+- Deep models outperform traditional scorecards and ensembles only when trained on sufficiently large, temporally representative datasets.
 
 **Limitations / Contradictions for Odin:**
-- Geographic generalizability not evaluated; results may not transfer to non-Indian payment ecosystems. [unacknowledged]
-- On-device model quantization causes 1.3% accuracy loss compared to full-precision model, affecting millions of transactions.
-- Battery impact of 2% per hour on low-end devices may reduce user adoption for high-volume users (300+ daily transactions).
+- "Survey limited to peer-reviewed English-language studies indexed in major databases; does not cover proprietary implementations or regulatory grey literature."
+- "Non-trivial portion of deep credit risk studies relies on random splits instead of time-ordered validation, weakening external validity. [unacknowledged]"
+- "Interpretability and fairness are often treated as add-ons rather than integrated into training objectives. [unacknowledged]"
 
 **Key takeaways:**
-- Transaction extraction achieves 96.8% F1 using transformer multi-task learning on Indian financial SMS.
-- Ensemble fraud detection yields 91.7% sensitivity with only 3.8% false positives.
-- On-device processing reduces manual expense tracking effort by 85.6% while preserving privacy.
+- "Deep learning improves credit risk prediction on large, rich datasets."
+- "Time-ordered validation is essential to avoid over-optimistic performance estimates."
+- "Calibration metrics like Brier score matter more than AUC alone."
 
 ---
 
@@ -62,15 +57,10 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - An LSTM model forecasts monthly expenditures and revenue streams, achieving a Mean Absolute Error of 4.7%.
 
 **Key Findings (selected):**
-- {'num': 'Random Forest expense classifier achieved 93-96% accuracy, outperforming rule-based systems (75-80%).'}
-- {'num': 'LSTM forecasting produced a Mean Absolute Error of 4.7% for monthly expenditure prediction.'}
-- {'num': 'Isolation Forest anomaly detection achieved 92% precision.'}
-- {'num': '84% of users reported better spending awareness and 78% claimed increased savings control after one month.'}
-
-**Supports Odin (direct justifications):**
-- Random Forest achieves 93-96% accuracy for expense categorization, outperforming rule-based systems.
-- LSTM forecasting reduces mean absolute error to 4.7% for monthly spending prediction.
-- Isolation Forest detects anomalous transactions with 92% precision.
+- num: Random Forest expense classifier achieved 93-96% accuracy, outperforming rule-based systems (75-80%).
+- num: LSTM forecasting produced a Mean Absolute Error of 4.7% for monthly expenditure prediction.
+- num: Isolation Forest anomaly detection achieved 92% precision.
+- num: 84% of users reported better spending awareness and 78% claimed increased savings control after one month.
 
 **Limitations / Contradictions for Odin:**
 - Usability study limited to 50 participants, may not generalize. [unacknowledged]
@@ -81,6 +71,73 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Random Forest categorizes expenses with 93-96% accuracy.
 - LSTM forecasts monthly spending with 4.7% MAE.
 - 84% of users report better spending awareness after using the system.
+
+---
+
+
+## A Decade of Applied Quantitative Analytics for Philippine Policy: Forecasting, Statistical Forensics, and Predictive Modeling Across Education, Energy, Agriculture, Health, and Finance
+**Filename:** `LA--Velasco_summarized.md`  
+**Authors:** Velasco, A. (2026)  
+**ID:** `10.20944/preprints202603.1811.v1`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 12.A, 12.B  
+
+**TLDR:** Reviews 17 Philippine policy analytics studies (2019-2025), showing progression from descriptive statistics and classical forecasting toward machine learning, deep learning, Benford-based anomaly detection, and explainable AI.
+
+**Problem & Motivation:** Government resource allocation under uncertainty requires quantitative analytics, but no systematic review of applied methods in Philippine policy existed. Understanding methodological progress and gaps across education, energy, agriculture, health, and finance is necessary to guide future analytics infrastructure.
+
+**Approach (summary):**
+- Structured narrative review of 17 studies from 2019-2025, coded by domain, dataset, modeling approach, validation strategy, and policy contribution.
+- Comparison with international literature on dropout research, electricity forecasting, crop-yield analytics, epidemiological surveillance, Benford auditing, and explainable ML.
+
+**Key Findings (selected):**
+- Early studies use descriptive statistics and univariate ARIMA/SARIMA/Holt-Winters; later studies adopt comparative machine learning, neural networks, and LSTM.
+- Benford-based anomaly detection screens public health and agricultural data quality as a policy tool.
+- Validation rigor is uneven: some studies use holdout splits and error metrics, others rely on residual diagnostics due to short samples.
+- Interpretability appears via SHAP in diabetes prediction and theory-guided embedding in stock-index forecasting.
+
+**Limitations / Contradictions for Odin:**
+- "Corpus is heterogeneous (journal articles, preprints, SSRN papers) with differing data frequencies, sample sizes, and validation maturity."
+- "Some study characteristics had to be reconstructed from metadata when full texts were not equally accessible. [unacknowledged]"
+- "Direct numerical comparison across sectors is neither appropriate nor intended by the author."
+
+**Key takeaways:**
+- "Reviewed 17 Philippine policy analytics studies from 2019 to 2025."
+- "Forecasting evolved from ARIMA to machine learning and LSTM."
+- "Benford's law detects anomalies in health and agricultural data."
+
+---
+
+
+## Research Progress and Trends of Deep Learning in Stock Price Prediction: A Systematic Review from LSTM to Transformer
+**Filename:** `IA--Gong_summarized.md`  
+**Authors:** Gong, H. (2026)  
+**ID:** `d3b5c6e7-f8a9-4b0c-91d2-e3f4a5b6c7d8`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 12.A  
+
+**TLDR:** Systematically reviews deep learning models for stock price prediction from LSTM to Transformer, comparing architectures, datasets, and evaluation metrics.
+
+**Problem & Motivation:** Traditional statistical and machine learning methods fail to capture the non-linear, non-stationary dynamics of stock markets. Deep learning models like LSTM and Transformer have shown superior performance, but a systematic review tracing their evolution from LSTM to hybrid architectures is missing. This gap makes it difficult for researchers to select appropriate models for financial time series forecasting.
+
+**Approach (summary):**
+- Conducts a systematic literature review of deep learning models for stock price prediction.
+- Analyzes recurrent models (RNN, LSTM, GRU), convolutional models (CNN), Transformer variants, and hybrid models.
+- Compares datasets including S&P 500, NIFTY 50, Moroccan market, and limit order book data.
+
+**Key Findings (selected):**
+- "num: LSTM achieved 0.46% daily return on S&P 500 constituents (1992-2015) with Sharpe ratio up to 2.34."
+- "num: Transformer reduced MAE by 20.73%, MSE by 34.84%, and MAPE by 25.63% compared to LSTM in new energy vehicle stock prediction."
+- "num: LSTM-Transformer hybrid reduced MAE and RMSE by over 50% relative to parent models and attained R² of 0.9618 (LSTM: 0.8430, Transformer: 0.7763)."
+- Deep learning models consistently outperform traditional statistical methods and shallow machine learning.
+
+**Limitations / Contradictions for Odin:**
+- "Systematic review without original empirical validation; relies on cited studies. [unacknowledged]"
+- "Focus on stock markets limits direct applicability to personal spending data. [unacknowledged]"
+- "Does not address real-time deployment constraints or latency requirements for mobile apps."
+
+**Key takeaways:**
+- "LSTM achieves 0.46% daily return with Sharpe ratio 2.34 on S&P 500."
+- "Transformer reduces MAE by 20.73% compared to LSTM in stock prediction."
+- "LSTM-Transformer hybrid reduces error by over 50% and achieves R² 0.96."
 
 ---
 
@@ -101,220 +158,189 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Comparative analysis of model performance using metrics such as AUC, RMSE, accuracy, precision, recall, and F1-score.
 
 **Key Findings (selected):**
-- num: Random forest with ensemble feature selection achieved 99.6% accuracy and 100% precision in credit card fraud detection.
-- num: XGBoost consistently outperformed deep neural networks across 10 credit scoring datasets, achieving highest AUC and efficiency.
-- num: CNN reduced fraud detection cost of failure by 30% and achieved 87.64% AUC on European dataset.
-- num: GCN achieved 94.5% fraud detection accuracy, outperforming CNN (93%) by improving recall by 10% via graph-based user relationship analysis.
-
-**Supports Odin (direct justifications):**
-- Random forest with ensemble feature selection achieves 99.6% accuracy for fraud detection, suitable for Odin anomaly detection.
-- LSTM improves expense forecasting accuracy by 30% over traditional regression models.
-- AI personalization increases user engagement by 27% and retention by 15% in personal finance apps.
+- "num: Random forest with ensemble feature selection achieved 99.6% accuracy and 100% precision in credit card fraud detection."
+- "num: XGBoost consistently outperformed deep neural networks across 10 credit scoring datasets, achieving highest AUC and efficiency."
+- "num: CNN reduced fraud detection cost of failure by 30% and achieved 87.64% AUC on European dataset."
+- "num: GCN achieved 94.5% fraud detection accuracy, outperforming CNN (93%) by improving recall by 10% via graph-based user relationship analysis."
 
 **Limitations / Contradictions for Odin:**
-- Review primarily cites papers up to 2024; rapid ML/DL advances may render some comparisons outdated. [unacknowledged]
-- Performance metrics are aggregated across heterogeneous datasets, making direct apples-to-apples comparisons difficult. [unacknowledged]
-- The review does not address computational resource constraints of mobile-first deployment, which is critical for Odin. [unacknowledged]
+- "Review primarily cites papers up to 2024; rapid ML/DL advances may render some comparisons outdated. [unacknowledged]"
+- "Performance metrics are aggregated across heterogeneous datasets, making direct apples-to-apples comparisons difficult. [unacknowledged]"
+- "The review does not address computational resource constraints of mobile-first deployment, which is critical for Odin. [unacknowledged]"
 
 **Key takeaways:**
-- XGBoost outperforms deep learning for credit scoring across 10 datasets.
-- Random forest achieves 99.6% fraud detection accuracy with feature selection.
-- AI personalization lifts user engagement by 27% and retention by 15%.
+- "XGBoost outperforms deep learning for credit scoring across 10 datasets."
+- "Random forest achieves 99.6% fraud detection accuracy with feature selection."
+- "AI personalization lifts user engagement by 27% and retention by 15%."
 
 ---
 
 
-## Foundations and Innovations in Data Fusion and Ensemble Learning for Effective Consensus
-**Filename:** `IA--Du-et_al_summarized.md`  
-**Authors:** Du, K.-L.; Zhang, R.; Jiang, B.; Zeng, J.; Lu, J. (2025)  
-**ID:** `10.3390/math13040587`  
-**Odin Topics:** 3.A, 5.C, 6.A, 6.B, 8.A, 8.B, 12.B  
+## Selected Topics in Time Series Forecasting: Statistical Models vs. Machine Learning
+**Filename:** `IA--Tjostheim_summarized.md`  
+**Authors:** Tjøstheim, D. (2025)  
+**ID:** `10.3390/e27030279`  
+**Odin Topics:** 6.A, 6.B, 7.A, 7.B, 7.C, 8.A, 8.B, 12.A, 12.B  
 
-**TLDR:** Surveys ensemble learning methods including bagging, boosting, random forests, and data fusion, analyzing bias‑variance trade‑offs, margin theory, and computational complexities.
+**TLDR:** A survey comparing statistical models and machine learning methods for time series forecasting, analyzing results from M1-M6 forecasting competitions and weather forecasting.
 
-**Problem & Motivation:** No single machine learning method universally outperforms others across all problem domains. Ensemble learning combines multiple models to improve predictive accuracy, robustness, and generalization. This survey addresses the need for a structured understanding of ensemble techniques and their theoretical foundations.
+**Problem & Motivation:** The forecasting community lacks a systematic comparison between traditional parametric statistical models and modern machine learning methods across different data regimes and application domains. Understanding when each approach excels is critical for practitioners, yet black-box nature and lack of theoretical results for ML methods raise concerns. This review synthesizes evidence from forecasting competitions and specialized applications to guide method selection.
 
 **Approach (summary):**
-- Comprehensive literature review of ensemble learning and data fusion techniques.
-- Covers bagging, boosting, random forests, stacking, and cascading methods.
-- Includes advanced topics: multiclass classification, error‑correcting output codes, Dempster‑Shafer theory, multiple kernel learning, and multiview learning.
+- Surveys classical parametric models: exponential smoothing, ARIMA, theta method, and state space models.
+- Reviews nonlinear parametric models: threshold autoregression, STAR, and hidden Markov chain models.
+- Presents ML methods: CNNs/TCNs, RNNs, LSTM, transformers, random forest, and gradient boosting.
 
 **Key Findings (selected):**
-- Bagging reduces variance and improves stability, especially for high‑variance models like decision trees.
-- Boosting reduces bias by sequentially focusing on misclassified instances but can overfit noisy data.
-- Random forests consistently outperform most methods in predictive accuracy and handle missing data effectively.
-- The C‑bound provides a more accurate risk indicator for majority voting than the Gibbs classifier's risk.
-
-**Supports Odin (direct justifications):**
-- Bagging reduces variance and improves stability for high‑variance models like decision trees.
-- Boosting can convert weak learners into strong ones by focusing on misclassified instances.
-- Random forests consistently outperform most methods in predictive accuracy and handle missing data effectively.
+- "num: In M4 competition (100,000 series), only 1 pure statistical method ranked among top 10 most accurate methods."
+- "num: Light-GBM gradient boosting outperformed all alternatives in M5 retail sales competition."
+- "ML methods excel for high spectral entropy data (noisy, short-interval, irregular time series)."
+- "num: GraphCast beats HRES (industry gold standard) in medium-range weather forecasts up to 10 days."
 
 **Limitations / Contradictions for Odin:**
-- Ensemble methods increase computational complexity and storage requirements [acknowledged].
-- Dempster’s rule can produce counterintuitive results under high evidence conflict [acknowledged].
-- Boosting tends to overfit noisy datasets [acknowledged].
+- "Survey is not systematic; author acknowledges personal research background bias."
+- "Limited evaluation of multivariate forecasts and exogenous variable influence. [unacknowledged]"
+- "No theoretical convergence results for ML methods in forecasting contexts. [unacknowledged]"
 
 **Key takeaways:**
-- Bagging reduces variance by averaging models trained on bootstrap samples.
-- Boosting sequentially focuses on misclassified instances to reduce bias.
-- Random forests achieve high accuracy and handle missing data effectively.
+- "Hybrid statistical-ML methods outperform pure approaches."
+- "Light-GBM gradient boosting excelled in M5 with 42,480 retail series."
+- "ML methods beat statistical models for noisy, high-frequency data."
 
 ---
 
 
-## Bridging AI and Emotion: Enhanced Models for Personal Finance Manager Applications
-**Filename:** `IA--Bader-&-Haraty_summarized.md`  
-**Authors:** Bader, S.; Haraty, R. A. (2025)  
-**ID:** `10.12785/ijcds/1571107231`  
-**Odin Topics:** 3.A, 5.A, 6.A, 6.B, 7.A, 7.B, 8.A, 8.B, 12.B, 13.A  
+## Online Payment Fraud Detection Using Decission Tree and LSTM Neural Network
+**Filename:** `IA--Ranjan-et_al_summarized.md`  
+**Authors:** Ranjan, A.; Jangir, A. K.; Abrol, K.; Saurav, S. (2025)  
+**ID:** `10.59256/ijsreat.20250505011`  
+**Odin Topics:** 8.A, 8.B, 12.B  
 
-**TLDR:** An AI-driven financial advisor application integrates anomaly detection, sentiment analysis, and deep learning forecasting (Transformer, TCN, N-BEATS) to provide personalized budgeting, fraud detection, and merchant recommendations.
+**TLDR:** Online payment fraud detection using a hybrid of Decision Tree for interpretable rule-based screening and LSTM for temporal sequence analysis, evaluated on imbalanced transaction datasets.
 
-**Problem & Motivation:** Traditional financial apps rely on static rules and ignore user emotions and unstructured data, leading to poor recommendations and low engagement. There is a gap in leveraging AI to analyze both quantitative transactions and qualitative sentiment for adaptive financial advice.
+**Problem & Motivation:** Traditional rule-based fraud detection systems cannot adapt to evolving fraud patterns. The surge in online payment fraud demands real-time, adaptive solutions. A hybrid approach combining interpretable models and temporal deep learning is needed.
 
 **Approach (summary):**
-- System architecture uses .NET Core 6 backend with Python TensorFlow/Keras for AI modules.
-- Data sources: bank transaction logs, MCC merchant codes, account balances, and user profiles.
-- Anomaly detection implements Isolation Forest, Local Outlier Factor (LOF), and One-Class SVM models.
+- Data from IEEE-CIS and Kaggle credit card datasets with extreme class imbalance.
+- Preprocessing uses SMOTE for oversampling, time-window aggregates, and sequential encoding for LSTM inputs.
+- Two-stage hybrid: Decision Trees for rapid rule-based screening, then LSTM with attention for temporal analysis.
 
 **Key Findings (selected):**
-- num: Mean Absolute Percentage Error (MAPE) improved from 10.5% to 7.8% when sentiment analysis was incorporated.
-- num: Anomaly detection achieved 90% precision, 85% recall, and 0.93 ROC-AUC.
-- num: Predictive accuracy within a 90% confidence interval reached 88% alignment with actual user behavior.
-- num: Sentiment analysis reduced prediction error by 25% compared to rule-based budgeting systems.
-
-**Supports Odin (direct justifications):**
-- Anomaly detection using Isolation Forest and One-Class SVM achieves 90% precision and 85% recall on financial transactions.
-- Incorporating sentiment analysis reduces MAPE from 10.5% to 7.8% in spending forecasting.
-- Transformer, TCN, and N-BEATS models forecast spending patterns with 88% accuracy within a 90% confidence interval.
+- Hybrid Decision Tree-LSTM models outperform standalone classifiers in fraud detection.
+- LSTM networks capture long-term behavioral changes missed by static classifiers.
+- Decision Trees provide interpretable rules and sub-millisecond latency per transaction.
+- SMOTE and class weighting significantly improve sensitivity to fraudulent transactions.
 
 **Limitations / Contradictions for Odin:**
-- Generalization across diverse financial behaviors and demographics not validated.
-- Computational resources required for deep learning models may limit real-time deployment [unacknowledged].
-- User trust and human-AI interaction in financial decision-making not studied [unacknowledged].
+- No empirical results from the authors' own implementation are reported; the paper is primarily a literature review and conceptual architecture. [unacknowledged]
+- The proposed hybrid model's real-time performance on production-scale data is not validated. [unacknowledged]
 
 **Key takeaways:**
-- Sentiment analysis improved MAPE from 10.5% to 7.8%.
-- Anomaly detection achieved 90% precision and 85% recall.
-- Transformer, TCN, and N-BEATS enable personalized spending forecasts.
+- Decision Trees execute in less than one millisecond per transaction.
+- LSTM networks capture evolving fraud patterns across transaction sequences.
+- Hybrid models balance interpretability and temporal intelligence.
 
 ---
 
 
-## Deep learning-based time series forecasting
-**Filename:** `IA--Song-et_al_summarized.md`  
-**Authors:** Song, X.; Deng, L.; Wang, H.; Zhang, Y.; He, Y.; Cao, W. (2025)  
-**ID:** `10.1007/s10462-024-10989-8`  
-**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 12.A, 12.B  
+## Harnessing artificial intelligence and machine learning for fraud detection and prevention in Nigeria
+**Filename:** `IA--Montagna_summarized.md`  
+**Authors:** Odufisan, O.I.; Abhulimen, O.V.; Ogunti, E.O. (2025)  
+**ID:** `10.1016/j.jeconc.2025.100127`  
+**Odin Topics:** 8.A, 8.B, 10.A, 10.B  
 
-**TLDR:** A comprehensive review of deep learning-based time series forecasting models from 2014 to 2024, examining their ability to capture temporal dependencies and variable correlations, long-term forecasting optimizations, and loss functions.
+**TLDR:** AI and ML methods improve fraud detection in Nigeria by analyzing large datasets for anomalies, enabling real-time prevention across banking, e-commerce, healthcare, and education.
 
-**Problem & Motivation:** Traditional time series models like ARIMA fail to capture complex nonlinear correlations and long-term dependencies in real-world data. Deep learning offers potential but the field has rapidly expanded with many architectures. This survey systematically organizes the progress to guide researchers and practitioners.
+**Problem & Motivation:** Traditional rule-based fraud detection fails to adapt to evolving schemes and cannot handle large data volumes. Fraud costs Nigeria billions and erodes trust in digital services. A more adaptive, intelligent solution is needed.
 
 **Approach (summary):**
-- Reviews models from 2014-2024 including RNNs, LSTMs, GRUs, CNNs, TCNs, Transformers, and decomposition-based methods.
-- Evaluates models on ETT, Electricity, Exchange, Traffic, and ILI datasets with input lengths 36-192 and output horizons 12-336.
-- Uses MAE, MSE, MAPE, and R2 metrics with simple time split and sliding window validation.
+- This is a literature review synthesizing secondary data from academic publications, industry reports, and global fraud studies.
+- It categorizes AI/ML methods into supervised learning (labeled data), unsupervised learning (anomaly detection), and deep learning (CNNs, RNNs).
+- Applications are examined across banking, e-commerce, healthcare, and education sectors in Nigeria.
 
 **Key Findings (selected):**
-- num: DLinear, a simple linear model, often outperforms complex Transformers, reducing MSE by up to 27.30% on ILI dataset compared to NS-Transformer.
-- num: PatchTST’s patch attention improves MSE by 85.27% on Exchange dataset over vanilla attention.
-- num: Shuffling input sequence degrades DLinear and PatchTST by 93-1092% in MSE, while complex models like TDformer improve, indicating poor use of sequential order.
-- num: Fedformer achieves best trend and season prediction on artificial data, with MAE improvements of 26.65% (season) and 3.14% (trend) over second-best.
-
-**Supports Odin (direct justifications):**
-- DLinear, a simple linear model, often outperforms complex Transformers on time series forecasting tasks.
-- Patch-based attention (PatchTST) significantly reduces memory usage while improving accuracy.
-- Frequency-domain seasonal extraction outperforms time-domain methods for periodic spending patterns.
+- "num: Online payment fraud is projected to cost firms globally over $343 billion between 2023 and 2027."
+- "num: 24 Nigerian commercial banks lost N5.79 billion to fraud in Q2 2023, a 1125% increase from Q1."
+- "num: Support Vector Machines achieved over 98% accuracy for phishing email detection."
+- "num: A feed-forward neural network achieved a 97% detection rate for fraudulent credit card transactions and phishing websites."
 
 **Limitations / Contradictions for Odin:**
-- Survey does not propose a novel algorithm; it synthesizes existing work. [unacknowledged]
-- All experiments use public datasets (energy, traffic, exchange rates), not personal finance data. [unacknowledged]
-- Does not consider real-time or streaming forecasting scenarios common in PFMS. [unacknowledged]
+- Data quality and availability remain significant barriers in developing economies.
+- Integrating AI with legacy banking systems requires major investment and planning. [unacknowledged]
+- Fraudsters continuously evolve tactics, requiring constant retraining of models.
 
 **Key takeaways:**
-- Simple linear models (DLinear) often beat complex Transformers on forecasting accuracy.
-- Patch-based attention reduces memory by 10.93% while improving MSE by 85.27% on exchange data.
-- Frequency-domain methods extract seasonal spending patterns more accurately than time-domain.
+- Fraud cost Nigerian banks N5.79 billion in Q2 2023 alone.
+- Unsupervised learning detects fraud patterns never seen before.
+- AI reduces false positives compared to rigid rule-based systems.
 
 ---
 
 
-## Detection of Fraudulent Transaction Issues in the Payment Card Industry using Machine Learning: A Comprehensive Survey
-**Filename:** `IA--Kalideen_summarized.md`  
-**Authors:** Kalideen, M. R. (2025)  
-**ID:** `d8f3a2c1-6b7a-4e9d-8f2c-1a2b3c4d5e6f`  
-**Odin Topics:** 8.A, 8.B, 10.A, 10.B, 12.A, 12.B  
+## Performance analysis of neural network architectures for time series forecasting: A comparative study of RNN, LSTM, GRU, and hybrid models
+**Filename:** `IA--Yunita-et_al_summarized.md`  
+**Authors:** Yunita, A.; Pratama, M. I.; Almuzakki, M. Z.; Ramadhan, H.; Akhir, E. A. P.; Mansur, A. B. F.; Basori, A. H. (2025)  
+**ID:** `10.1016/j.mex.2025.103462`  
+**Odin Topics:** 6.A, 6.B, 8.B, 12.B  
 
-**TLDR:** A comprehensive survey of machine learning techniques for payment card fraud detection, covering supervised, unsupervised, deep learning, and ensemble methods, along with challenges like imbalanced data and emerging trends such as explainable AI and privacy-preserving machine learning.
+**TLDR:** A benchmark of nine RNN architectures across three time series datasets using Monte Carlo simulation shows no statistically significant differences, but LSTM-based hybrids offer practical advantages in consistency and robustness.
 
-**Problem & Motivation:** Traditional rule-based fraud detection systems are static, inflexible, and prone to high false positives, struggling to keep pace with evolving fraud tactics. The exponential growth of digital payments has increased fraud, causing financial losses and eroding trust. A systematic review of ML-based solutions is needed to identify effective, adaptable, and scalable approaches.
+**Problem & Motivation:** Time series forecasting using neural networks suffers from performance variability due to random weight initialization. The reliability and consistency of RNN, LSTM, GRU, and hybrid architectures for time series analysis remain unclear. A systematic benchmark across diverse datasets is needed to guide architecture selection.
 
 **Approach (summary):**
-- Conducted a systematic literature search in IEEE Xplore, Scopus, and PubMed using keywords related to credit card fraud detection and machine learning.
-- Included English studies published between 2010 and 2024; initial 500 studies reduced to 49 after duplicate removal, abstract screening, and full-text assessment.
-- Classified ML techniques into supervised learning (logistic regression, SVM, decision trees, random forests, neural networks), unsupervised learning (clustering, anomaly detection, PCA), and semi-supervised/hybrid methods.
+- Three datasets: sunspot activity (monthly, 3625 records), Indonesian COVID-19 daily cases (634 records), and dissolved oxygen concentration (daily, 1033 records).
+- Nine architectures: RNN, LSTM, GRU, RNN-LSTM, RNN-GRU, LSTM-RNN, GRU-RNN, LSTM-GRU, and GRU-LSTM, each with two hidden layers.
+- Monte Carlo simulation with 100 independent runs, each with 100 training epochs, using 95% confidence interval trimming.
 
 **Key Findings (selected):**
-- num: Less than 1% of all transactions are fraudulent, creating extreme class imbalance that biases models toward the majority class.
-- num: Of 500 initial studies, 49 met inclusion criteria, most published within the last five years.
-- Supervised learning achieves high accuracy when trained on sufficient labeled data but requires costly labeling and may not generalize to new fraud patterns.
-- Unsupervised learning can uncover unknown fraud patterns without labels but results can be difficult to interpret and evaluate.
-
-**Supports Odin (direct justifications):**
-- Imbalanced datasets cause models to bias toward legitimate transactions, requiring sampling or cost-sensitive learning.
-- Explainable AI is necessary for regulatory compliance and user trust in automated fraud detection.
-- Federated learning enables training on distributed data without sharing sensitive financial information.
+- "num: Friedman test showed no statistically significant differences among nine architectures (χ2=12.593, df=8, p=.127)."
+- "num: LSTM-GRU hybrid achieved the lowest mean rank (2.23) while vanilla RNN had the highest (8.57)."
+- "num: For sunspot forecasting, LSTM-GRU achieved MAE 16.913 ± 0.629 and RMSE 23.205 ± 0.827."
+- "num: For COVID-19 case prediction, standalone LSTM performed best with MAE 0.903 ± 0.091 and MAPE 9.036% ± 0.778%."
 
 **Limitations / Contradictions for Odin:**
-- Imbalanced datasets remain a fundamental challenge; oversampling can cause overfitting, undersampling can lose information.
-- Model interpretability is limited for deep learning 'black boxes', hindering trust and regulatory acceptance.
-- Scalability and real-time detection require distributed computing and model optimization not yet fully solved.
+- "Only three datasets were used, which may limit generalizability to other time series domains."
+- "The Friedman test lacked statistical power due to small sample size; non-significant result may mask real differences."
+- "Only two hidden layers were tested; performance rankings could change with deeper or shallower architectures."
 
 **Key takeaways:**
-- Less than 1% of transactions are fraudulent, causing extreme class imbalance.
-- Ensemble methods like random forests handle imbalanced data better than single classifiers.
-- Explainable AI is essential for trust and compliance in financial fraud detection.
+- "No significant difference among nine RNN architectures (p=0.127)."
+- "LSTM-GRU hybrid achieved lowest mean rank of 2.23 across datasets."
+- "Vanilla RNN consistently underperformed with highest error rates."
 
 ---
 
 
-## Toward Transparent Optimization: A Systematic Review of Explainable AI in Decision-Making Systems
+## "Toward Transparent Optimization: A Systematic Review of Explainable AI in Decision-Making Systems"
 **Filename:** `IA--Danach-et_al_summarized.md`  
-**Authors:** Danach, K.; Aly, W. H. F.; Tarhini, A.; Laouadi, S. (2025)  
+**Authors:** "Danach, K.; Aly, W. H. F.; Tarhini, A.; Laouadi, S." (2025)  
 **ID:** `10.29020/nybg.ejpam.v18i4.6707`  
 **Odin Topics:** 6.A, 6.B, 7.B, 7.C, 8.A, 8.B, 10.A, 10.B, 12.A, 12.B  
 
-**TLDR:** A systematic review synthesizes the integration of explainable AI (XAI) with optimization methods across healthcare, finance, logistics, and energy, proposing a taxonomy and highlighting trade-offs between performance and interpretability.
+**TLDR:** "A systematic review synthesizes the integration of explainable AI (XAI) with optimization methods across healthcare, finance, logistics, and energy, proposing a taxonomy and highlighting trade-offs between performance and interpretability."
 
-**Problem & Motivation:** Optimization-driven AI systems often operate as black boxes, undermining trust, regulatory compliance, and human-AI collaboration in high-stakes decisions. Despite advances in XAI, systematic integration with optimization frameworks remains fragmented and lacks unified taxonomies. This gap hinders the development of transparent, accountable intelligent systems.
+**Problem & Motivation:** "Optimization-driven AI systems often operate as black boxes, undermining trust, regulatory compliance, and human-AI collaboration in high-stakes decisions. Despite advances in XAI, systematic integration with optimization frameworks remains fragmented and lacks unified taxonomies. This gap hinders the development of transparent, accountable intelligent systems."
 
 **Approach (summary):**
-- Conducted a systematic literature search across Scopus, Web of Science, IEEE Xplore, and ACM Digital Library for 2010-2024, retrieving 642 records and including 112 peer-reviewed studies after screening.
-- Proposed a structured taxonomy categorizing XAI-optimization integration by explainability level, optimization complexity, and domain specificity.
-- Analyzed integration strategies including post-hoc explanations (SHAP, LIME), interpretable models (decision trees, MILP), certificate-based verification, and data-driven frameworks like EXALT.
+- "Conducted a systematic literature search across Scopus, Web of Science, IEEE Xplore, and ACM Digital Library for 2010-2024, retrieving 642 records and including 112 peer-reviewed studies after screening."
+- "Proposed a structured taxonomy categorizing XAI-optimization integration by explainability level, optimization complexity, and domain specificity."
+- "Analyzed integration strategies including post-hoc explanations (SHAP, LIME), interpretable models (decision trees, MILP), certificate-based verification, and data-driven frameworks like EXALT."
 
 **Key Findings (selected):**
-- num: EXALT framework reduces explanation generation time by 72% compared to post-hoc methods while maintaining 98% solution optimality.
-- num: Explainable optimization approaches achieve error reduction rates of 41-68% compared to black-box optimization in healthcare logistics and derivatives pricing.
-- Explainability constraints can enhance solution quality by acting as regularizers that embed domain knowledge.
-- The trade-off between optimality and interpretability can be favorable, with explainable path constraints increasing solution cost by only a small margin.
-
-**Supports Odin (direct justifications):**
-- XAI methods can explain optimization-driven decisions without sacrificing near-optimal performance.
-- Explainability constraints can be embedded as multi-objective optimization objectives.
-- Certificate-based verification provides formal guarantees for solution properties like feasibility and stability.
+- "num: EXALT framework reduces explanation generation time by 72% compared to post-hoc methods while maintaining 98% solution optimality."
+- "num: Explainable optimization approaches achieve error reduction rates of 41-68% compared to black-box optimization in healthcare logistics and derivatives pricing."
+- "Explainability constraints can enhance solution quality by acting as regularizers that embed domain knowledge."
+- "The trade-off between optimality and interpretability can be favorable, with explainable path constraints increasing solution cost by only a small margin."
 
 **Limitations / Contradictions for Odin:**
-- Scalability to large-scale industrial problems remains a significant challenge [unacknowledged].
-- Standardization of explainability metrics and evaluation frameworks is lacking [acknowledged].
-- Integration with existing enterprise systems and workflows has received limited research attention [unacknowledged].
+- "Scalability to large-scale industrial problems remains a significant challenge [unacknowledged]."
+- "Standardization of explainability metrics and evaluation frameworks is lacking [acknowledged]."
+- "Integration with existing enterprise systems and workflows has received limited research attention [unacknowledged]."
 
 **Key takeaways:**
-- Explainable optimization reduces explanation time by 72% while preserving 98% optimality.
-- XAI methods can turn black-box optimizers into transparent, auditable systems.
-- The performance-interpretability trade-off is often favorable in practice.
+- "Explainable optimization reduces explanation time by 72% while preserving 98% optimality."
+- "XAI methods can turn black-box optimizers into transparent, auditable systems."
+- "The performance-interpretability trade-off is often favorable in practice."
 
 ---
 
@@ -335,30 +361,25 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Primary data from unstructured interviews with stakeholders in Nigerian banking, e-commerce, healthcare, and educational sectors.
 
 **Key Findings (selected):**
-- num: 24 commercial banks lost N5.79 billion to fraud in Q2 2023, a 1125% increase from Q1.
-- num: 94.35% of bank fraud losses came from fraudulent loans.
-- num: SVM achieved over 98% accuracy for phishing email detection.
-- num: Feed-forward neural network achieved 97% detection rate for credit card fraud and phishing websites.
-
-**Supports Odin (direct justifications):**
-- AI systems reduce false positives by continuously learning from transaction data.
-- Anomaly detection algorithms can identify unusual spending in real-time.
-- Behavioral profiling with ML establishes user baselines to detect deviations.
+- "num: 24 commercial banks lost N5.79 billion to fraud in Q2 2023, a 1125% increase from Q1."
+- "num: 94.35% of bank fraud losses came from fraudulent loans."
+- "num: SVM achieved over 98% accuracy for phishing email detection."
+- "num: Feed-forward neural network achieved 97% detection rate for credit card fraud and phishing websites."
 
 **Limitations / Contradictions for Odin:**
-- Primary data limited to unstructured interviews and anecdotal evidence; no large-scale quantitative study. [unacknowledged]
-- Does not provide a specific, reproducible algorithm for anomaly detection; remains a high-level review. [unacknowledged]
-- Ethical concerns like algorithmic bias are mentioned but not explored in depth. [unacknowledged]
+- "Primary data limited to unstructured interviews and anecdotal evidence; no large-scale quantitative study. [unacknowledged]"
+- "Does not provide a specific, reproducible algorithm for anomaly detection; remains a high-level review. [unacknowledged]"
+- "Ethical concerns like algorithmic bias are mentioned but not explored in depth. [unacknowledged]"
 
 **Key takeaways:**
-- Anomaly detection with ML achieved 97% accuracy for credit card fraud.
-- Real-time analysis enables proactive fraud prevention before losses occur.
-- Behavioral profiling reduces false positives by learning user baselines.
+- "Anomaly detection with ML achieved 97% accuracy for credit card fraud."
+- "Real-time analysis enables proactive fraud prevention before losses occur."
+- "Behavioral profiling reduces false positives by learning user baselines."
 
 ---
 
 
-## Credit Card Fraud Detection Through Deep Learning and Real-Time Data Streams: A Comparison and New Directions
+## "Credit Card Fraud Detection Through Deep Learning and Real-Time Data Streams: A Comparison and New Directions"
 **Filename:** `IA--Polytarchos_summarized.md`  
 **Authors:** Polytarchos, E. (2025)  
 **ID:** `10.47852/bonviewFSI52026108`  
@@ -369,30 +390,127 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Problem & Motivation:** Existing fraud detection methods either rely on batch-trained deep learning requiring extensive preprocessing and retraining, or real-time systems with lower initial accuracy. There is a lack of comprehensive empirical comparison between these paradigms on high-volume financial data. This gap prevents system designers from making informed deployment decisions.
 
 **Approach (summary):**
-- {'Used two proprietary datasets': 'IND (17.5M individual transactions) and SUM (1.2M purchase summaries) with customer demographic and behavioral labels.'}
+- Used two proprietary datasets: IND (17.5M individual transactions) and SUM (1.2M purchase summaries) with customer demographic and behavioral labels.
 - Injected 1000 synthetic fraudulent transactions by assigning average behavioral profiles of one customer to another customer's transactions.
 - Deep learning pipeline trained LSTM and MLP models to predict customer labels (e.g., total funds range) and computed Scale of Suspicious Transaction (SST) from ensemble misclassification consensus.
 
 **Key Findings (selected):**
-- num: Deep learning LSTM achieved 92% accuracy predicting total funds range and 86% for age range.
-- num: Deep learning detected 788 of 1000 injected fraudulent transactions with 1340 false positives (0.007% misclassification rate).
-- num: Real-time clustering detected 619 of 1000 injected frauds with 574 false positives (0.003% misclassification rate).
+- "num: Deep learning LSTM achieved 92% accuracy predicting total funds range and 86% for age range."
+- "num: Deep learning detected 788 of 1000 injected fraudulent transactions with 1340 false positives (0.007% misclassification rate)."
+- "num: Real-time clustering detected 619 of 1000 injected frauds with 574 false positives (0.003% misclassification rate)."
 - Real-time clustering had lower classification accuracy (e.g., 66% for total funds range) due to cold-start before building customer fingerprints.
 
-**Supports Odin (direct justifications):**
-- Deep learning models can achieve 92% accuracy in classifying customer financial behavior patterns from transaction history.
-- Real-time clustering on raw data streams achieves lower false positive rate (0.003%) than batch deep learning (0.007%) for fraud detection.
-- A hybrid model combining offline deep learning with online clustering is proposed for optimal fraud detection performance.
-
 **Limitations / Contradictions for Odin:**
-- Real-time clustering suffers from cold-start: initial customer fingerprints are incomplete, lowering early accuracy. [acknowledged]
-- Dataset is proprietary and not publicly available. [unacknowledged]
-- No comparison to existing production fraud detection systems or industry benchmarks. [unacknowledged]
+- "Real-time clustering suffers from cold-start: initial customer fingerprints are incomplete, lowering early accuracy. [acknowledged]"
+- "Dataset is proprietary and not publicly available. [unacknowledged]"
+- "No comparison to existing production fraud detection systems or industry benchmarks. [unacknowledged]"
 
 **Key takeaways:**
-- Deep learning LSTM achieved 92% accuracy predicting customer total funds range.
-- Real-time clustering detected 619 of 1000 frauds with only 574 false alarms.
-- Hybrid integration of batch and streaming methods is proposed as future direction.
+- "Deep learning LSTM achieved 92% accuracy predicting customer total funds range."
+- "Real-time clustering detected 619 of 1000 frauds with only 574 false alarms."
+- "Hybrid integration of batch and streaming methods is proposed as future direction."
+
+---
+
+
+## A Survey of Deep Anomaly Detection in Multivariate Time Series: Taxonomy, Applications, and Directions
+**Filename:** `IA--Wang-et_al_summarized.md`  
+**Authors:** Wang, F.; Jiang, Y.; Zhang, R.; Wei, A.; Xie, J.; Pang, X. (2025)  
+**ID:** `10.3390/s25010190`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 12.A  
+
+**TLDR:** A comprehensive survey categorizing deep learning methods for multivariate time series anomaly detection into forecasting, reconstruction, and contrastive approaches, with analysis of datasets and future directions.
+
+**Problem & Motivation:** Traditional anomaly detection methods face limitations in handling high-dimensional multivariate time series with complex temporal and inter-variable dependencies. Deep learning offers powerful representation learning but lacks a structured taxonomy for multivariate time series anomaly detection. This survey addresses the gap by organizing recent deep learning methods and identifying open challenges.
+
+**Approach (summary):**
+- Conducted a structured review of deep learning for multivariate time series anomaly detection.
+- Proposed a taxonomy based on learning paradigms (unsupervised, semi-supervised, self-supervised) and model architectures (CNN, RNN, GNN, Transformer, etc.).
+- Organized methods into three strategies: forecasting-based, reconstruction-based, and contrastive-based.
+
+**Key Findings (selected):**
+- "num: 46 deep learning models are reviewed and categorized."
+- Forecasting methods using Transformers outperform others in handling long-range dependencies.
+- Reconstruction methods using VAEs and GANs struggle with subtle anomalies and mode collapse.
+- Contrastive learning, especially with LLMs, shows promise for few-shot anomaly detection.
+
+**Limitations / Contradictions for Odin:**
+- "Focuses on general MTSAD without personal finance-specific validation [unacknowledged]."
+- "Deep learning models require large training datasets, limiting applicability to users with sparse transaction history [unacknowledged]."
+- "Evaluation metrics are not standardized across studies, making comparisons difficult (acknowledged as future direction)."
+
+**Key takeaways:**
+- "Survey reviews 46 deep learning models for multivariate time series anomaly detection."
+- "Transformer-based methods outperform RNNs in capturing long-range temporal dependencies."
+- "Contrastive learning and LLMs offer promising few-shot anomaly detection capabilities."
+
+---
+
+
+## Optimizing Business Decision-Making Through AI-Enhanced Business Intelligence Systems: A Systematic Review of Data-Driven Insights in Financial and Strategic Planning
+**Filename:** `IA--Siddiqui_summarized.md`  
+**Authors:** Siddiqui, N. A. (2025)  
+**ID:** `10.71292/sdmi.v2i01.21`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 10.A, 10.B, 11.A, 11.B, 12.A, 12.B  
+
+**TLDR:** AI-enhanced Business Intelligence systems improve financial forecasting accuracy by 32-45%, reduce fraudulent transactions by 47%, increase customer engagement by 38%, and optimize supply chain efficiency by 23%.
+
+**Problem & Motivation:** Traditional BI systems struggle with real-time processing and unstructured data, limiting predictive capabilities. AI integration offers potential for improved decision-making but lacks systematic synthesis of its impact on financial and strategic planning.
+
+**Approach (summary):**
+- This systematic review follows PRISMA guidelines for transparent and rigorous literature analysis.
+- Searched Scopus, Web of Science, IEEE Xplore, ScienceDirect, and Google Scholar for 2012-2024.
+- Initial pool of 2,450 articles reduced to 98 high-quality peer-reviewed studies after screening.
+
+**Key Findings (selected):**
+- "num: 32-45% improvement in financial forecasting accuracy with AI-powered BI"
+- "num: 47% decrease in fraudulent transactions and 60% reduction in false positives"
+- "num: 38% increase in customer engagement and 22% improvement in conversion rates"
+- "num: 23% increase in supply chain operational efficiency and 17% reduction in logistics costs"
+
+**Limitations / Contradictions for Odin:**
+- "Data governance complexities and integration issues hinder widespread AI-BI adoption."
+- "Algorithmic transparency remains a challenge; many AI models operate as black boxes."
+- "Bias in AI models due to skewed training data can reinforce discriminatory outcomes."
+
+**Key takeaways:**
+- "AI-enhanced BI improves forecasting accuracy by 32-45%."
+- "Fraud detection reduces transactions by 47% with 60% fewer false positives."
+- "Customer engagement increases by 38% using AI-driven segmentation."
+
+---
+
+
+## A comprehensive survey of deep learning for time series forecasting: architectural diversity and open challenges
+**Filename:** `IA--Kim-et_al_summarized.md`  
+**Authors:** Kim, J.; Kim, H.; Kim, H.; Lee, D.; Yoon, S. (2025)  
+**ID:** `10.1007/s10462-025-11223-9`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 12.A, 12.B  
+
+**TLDR:** A comprehensive survey of deep learning for time series forecasting covering MLPs, CNNs, RNNs, GNNs, Transformers, diffusion models, foundation models, and Mamba, with analysis of open challenges.
+
+**Problem & Motivation:** Time series forecasting is critical for decision-making but faces challenges from data diversity and complexity. Existing surveys lack comprehensive coverage of recent architectural diversification and open challenges. This survey provides a timely synthesis of model evolution and persistent problems.
+
+**Approach (summary):**
+- Reviewed over 200 papers from top AI conferences and arXiv preprints.
+- Categorized models by architecture: statistical, ML, fundamental DL, Transformer, non-Transformer, diffusion, foundation, Mamba.
+- Analyzed open challenges: channel dependency, distribution shift, causality, feature extraction, interpretability, and spatio-temporal forecasting.
+
+**Key Findings (selected):**
+- The number of top-tier AI conference papers on time series forecasting has exploded in recent years.
+- num: Simple linear models (LTSF-Linear) can outperform Transformers on long-term forecasting.
+- Patching technique (PatchTST) enables Transformers to achieve state-of-the-art by preserving locality.
+- Channel independence (CI) strategy shows greater robustness to distribution shift than channel dependence (CD).
+
+**Limitations / Contradictions for Odin:**
+- "Skipped detailed theoretical backgrounds of models. [unacknowledged]"
+- "Left specific differences in characteristics across time series datasets for future work."
+- "AGI and adaptive modeling (meta-learning, reinforcement learning) could be further explored."
+
+**Key takeaways:**
+- "Simple linear models can outperform complex Transformers for time series forecasting."
+- "Patching time series into 64-length patches improves Transformer performance."
+- "Channel independence is more robust to distribution shifts than channel dependence."
 
 ---
 
@@ -410,28 +528,23 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Approach (summary):**
 - Data collected from stock exchanges, meteorological records, smart grids, and retail transactions.
 - Preprocessing included differencing, smoothing, log transforms, feature extraction (lagged variables, moving averages), and normalization.
-- {'Model selection based on task': 'RNN/LSTM for temporal dependencies, CNN/TCN for spatial hierarchies, Transformers for attention-based long-range dependencies.'}
+- Model selection based on task: RNN/LSTM for temporal dependencies, CNN/TCN for spatial hierarchies, Transformers for attention-based long-range dependencies.
 
 **Key Findings (selected):**
-- num: LSTM achieved 15% reduction in MAE over conventional methods in web traffic prediction.
-- num: TCN attained 20% higher accuracy in early-stage anomaly detection compared to traditional methods.
-- num: Transformer reduced MSE by 12% and MAE by 17% over recurrent and convolutional models in retail.
-- num: Gradient Boosting Machine outperformed Random Forest with MAE of 170 vs 185 in energy dataset.
-
-**Supports Odin (direct justifications):**
-- Transformers reduce forecast error by 12-17% compared to recurrent models in retail data.
-- Gradient Boosting Machines achieve MAE of 170 on energy data, outperforming Random Forest.
-- TCNs provide 20% higher early-stage anomaly detection accuracy than traditional methods.
+- "num: LSTM achieved 15% reduction in MAE over conventional methods in web traffic prediction."
+- "num: TCN attained 20% higher accuracy in early-stage anomaly detection compared to traditional methods."
+- "num: Transformer reduced MSE by 12% and MAE by 17% over recurrent and convolutional models in retail."
+- "num: Gradient Boosting Machine outperformed Random Forest with MAE of 170 vs 185 in energy dataset."
 
 **Limitations / Contradictions for Odin:**
-- The review lacks specific guidance for personal finance domains; results are from aggregate datasets not individual-level transactions.
-- Computational constraints of Transformers may limit deployment on mobile devices [unacknowledged].
-- Generalizability to Filipino financial behaviors and spending patterns is untested [unacknowledged].
+- "The review lacks specific guidance for personal finance domains; results are from aggregate datasets not individual-level transactions."
+- "Computational constraints of Transformers may limit deployment on mobile devices [unacknowledged]."
+- "Generalizability to Filipino financial behaviors and spending patterns is untested [unacknowledged]."
 
 **Key takeaways:**
-- Transformers achieve 12-17% lower forecast errors than recurrent models.
-- Gradient Boosting Machines offer strong accuracy with lower computational cost.
-- Probabilistic forecasting quantifies uncertainty essential for risk-aware decisions.
+- "Transformers achieve 12-17% lower forecast errors than recurrent models."
+- "Gradient Boosting Machines offer strong accuracy with lower computational cost."
+- "Probabilistic forecasting quantifies uncertainty essential for risk-aware decisions."
 
 ---
 
@@ -452,15 +565,10 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Examines Transformer variants (Informer, Autoformer, iTransformer, Conformer, Scaleformer, CrossFormer) with emphasis on self-attention complexity and efficiency innovations.
 
 **Key Findings (selected):**
-- {'num': 'ARIMA-RNN hybrid achieved 15% MAE reduction on electricity load dataset compared to standalone models.'}
-- {'num': 'ETSformer reduced inference latency by 37% versus Autoformer on ETT data while maintaining accuracy.'}
-- {'num': 'PatchTST achieved 23% lower MSE than Informer with 60% less GPU memory consumption.'}
+- num: ARIMA-RNN hybrid achieved 15% MAE reduction on electricity load dataset compared to standalone models.
+- num: ETSformer reduced inference latency by 37% versus Autoformer on ETT data while maintaining accuracy.
+- num: PatchTST achieved 23% lower MSE than Informer with 60% less GPU memory consumption.
 - Transformer variants with ProbSparse attention (Informer) reduce time complexity from O(L^2) to O(L log L).
-
-**Supports Odin (direct justifications):**
-- LSTM and GRU are suitable for long-sequence prediction tasks such as power load forecasting.
-- Gated Recurrent Units offer lower computational cost than LSTM with comparable performance.
-- Transformer variants like Informer achieve O(L log L) complexity for efficient long-sequence processing.
 
 **Limitations / Contradictions for Odin:**
 - The paper is a survey, not an empirical study; claims about model performance are aggregated from cited primary research.
@@ -471,45 +579,6 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - LSTM and GRU solve vanishing gradients for medium-length sequence forecasting.
 - Transformer variants achieve O(L log L) complexity for sequences over 1000 steps.
 - PatchTST reduces GPU memory by 60% via sub-series tokenization.
-
----
-
-
-## A Review of Machine Learning and Deep Learning Approaches for Fraud Detection Across Financial and Supply Chain Domains
-**Filename:** `IA--Martinez_summarized.md`  
-**Authors:** Martínez, Ó.; Sánchez, P.; Alcaraz, E. (2025)  
-**ID:** `10.21203/rs.3.rs-7893661/v1`  
-**Odin Topics:** 8.A, 8.B, 12.A, 12.B, 10.A, 10.B  
-
-**TLDR:** A systematic review of machine learning and deep learning approaches for fraud detection across financial and supply chain domains, evaluating ensemble, deep, and semi-supervised methods on benchmark datasets.
-
-**Problem & Motivation:** Digital fraud schemes are increasingly sophisticated, and traditional rule-based systems are inadequate. While machine learning offers promise, fragmented research across financial and supply chain domains lacks comprehensive comparison. This review synthesizes methodologies to guide algorithm selection and address challenges like class imbalance and concept drift.
-
-**Approach (summary):**
-- Systematic literature review following PRISMA guidelines with searches across IEEE Xplore, ACM, ScienceDirect, Springer, arXiv, and Google Scholar covering 2015-2025.
-- Initial search yielded 1,847 publications; after deduplication and screening, 97 high-quality studies were selected for analysis.
-- Methodologies categorized into traditional ML (logistic regression, random forest, SVM), deep learning (CNN, LSTM, autoencoders), ensemble (XGBoost, LightGBM, stacking), semi-supervised, and emerging technologies.
-
-**Key Findings (selected):**
-- num: Ensemble methods achieve AUC-ROC 0.90-0.93 on IEEE-CIS dataset, with stacking improving over single models by 2-5%.
-- num: Random forest achieves 99.95% accuracy on European credit card dataset, and XGBoost/LightGBM show comparable top-tier performance.
-- num: Autoencoders trained only on legitimate transactions achieve 94.2% accuracy for unsupervised fraud detection.
-- num: A two-phase semi-supervised framework (Isolation Forest + self-training SVM) achieves F1-score 0.817 with false positive rate below 3.0% using only 1.2% labeled data.
-
-**Supports Odin (direct justifications):**
-- Ensemble methods, particularly XGBoost and LightGBM, achieve state-of-the-art performance on imbalanced fraud data.
-- Two-phase semi-supervised learning (Isolation Forest pre-filtering plus self-training SVM) achieves high recall with limited labeled data.
-- Autoencoders trained on legitimate transactions only can detect fraud without labeled examples.
-
-**Limitations / Contradictions for Odin:**
-- Extreme class imbalance remains a fundamental challenge despite sampling and cost-sensitive techniques.
-- Concept drift detection and adaptation are incomplete, with label delay causing lag in response.
-- Interpretability-accuracy trade-off forces compromise between regulatory compliance and performance.
-
-**Key takeaways:**
-- Ensemble methods like XGBoost and LightGBM consistently outperform other approaches for fraud detection.
-- Borderline-SMOTE improves fraud recall by 10-15% compared to standard oversampling.
-- Two-phase semi-supervised learning achieves 94% fraud capture with only 1.2% labeled data.
 
 ---
 
@@ -530,20 +599,15 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Evaluates collaborative filtering (user-based and item-based) and its cold start and scalability issues.
 
 **Key Findings (selected):**
-- num: DBSCAN improves recommendation accuracy by 12% compared to K-means in handling noisy data.
-- num: PCA reduces noise and improves anomaly detection accuracy by 15% in banking fraud detection.
-- num: Patient classification accuracy improved by 18% using DBSCAN in noisy healthcare datasets.
+- "num: DBSCAN improves recommendation accuracy by 12% compared to K-means in handling noisy data."
+- "num: PCA reduces noise and improves anomaly detection accuracy by 15% in banking fraud detection."
+- "num: Patient classification accuracy improved by 18% using DBSCAN in noisy healthcare datasets."
 - Collaborative filtering suffers from cold start and scalability issues with large user-item matrices.
 
-**Supports Odin (direct justifications):**
-- Collaborative filtering suffers from cold start when new users have no interaction history.
-- DBSCAN improves recommendation accuracy by 12% compared to K-means in noisy data.
-- PCA reduces noise and improves anomaly detection accuracy by 15% in banking fraud detection.
-
 **Limitations / Contradictions for Odin:**
-- Data quality issues (incomplete, noisy, biased data) can lead to poor model performance. [acknowledged]
-- Privacy risks, exemplified by the 2017 Equifax breach, require stronger encryption and protection. [acknowledged]
-- Bias in training datasets can produce unfair recommendations; paper calls for bias-detection algorithms. [acknowledged]
+- "Data quality issues (incomplete, noisy, biased data) can lead to poor model performance. [acknowledged]"
+- "Privacy risks, exemplified by the 2017 Equifax breach, require stronger encryption and protection. [acknowledged]"
+- "Bias in training datasets can produce unfair recommendations; paper calls for bias-detection algorithms. [acknowledged]"
 
 **Key takeaways:**
 - Collaborative filtering requires interaction history, causing cold start problems.
@@ -569,220 +633,54 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Review of supervised methods (Random Forest, XGBoost, SVM, etc.), unsupervised methods (Isolation Forest, Autoencoders, K-Means), and deep learning (LSTM, CNN, RNN, GAN).
 
 **Key Findings (selected):**
-- num: Random Forest achieved AUPRC of 0.619 on banking test set (prevalence 2.37%) but fraud recall was only 0.34.
-- num: XGBoost on ULB2013 dataset achieved AUPRC of 0.867, outperforming Logistic Regression (0.724) and KNN (0.585).
-- num: Class_weight='balanced' and 'balanced_subsample' did not improve recall (stuck at 0.36) compared to default on bank transfer dataset.
-- num: Recall@0.5% for Random Forest was 0.202, capturing about 24 of 119 frauds when screening top 0.5% of transactions.
-
-**Supports Odin (direct justifications):**
-- Fraudulent transactions typically constitute less than 1% of all transactions, making class imbalance a fundamental challenge.
-- Accuracy is misleading for imbalanced data; AUPRC is the preferred metric for comparing anomaly detectors.
-- Even with class_weight adjustments, Random Forest recall on fraud class was only 0.34 in a real banking dataset.
+- "num: Random Forest achieved AUPRC of 0.619 on banking test set (prevalence 2.37%) but fraud recall was only 0.34."
+- "num: XGBoost on ULB2013 dataset achieved AUPRC of 0.867, outperforming Logistic Regression (0.724) and KNN (0.585)."
+- "num: Class_weight='balanced' and 'balanced_subsample' did not improve recall (stuck at 0.36) compared to default on bank transfer dataset."
+- "num: Recall@0.5% for Random Forest was 0.202, capturing about 24 of 119 frauds when screening top 0.5% of transactions."
 
 **Limitations / Contradictions for Odin:**
-- The review does not propose a novel algorithm or system, only synthesizes existing literature.
-- Case studies use tree-based ensembles only; deep learning and hybrid methods were not empirically tested. [unacknowledged]
-- The low recall achieved (0.34-0.36) suggests standard supervised models are insufficient, but the paper does not implement or evaluate the recommended hybrid solutions.
+- "The review does not propose a novel algorithm or system, only synthesizes existing literature."
+- "Case studies use tree-based ensembles only; deep learning and hybrid methods were not empirically tested. [unacknowledged]"
+- "The low recall achieved (0.34-0.36) suggests standard supervised models are insufficient, but the paper does not implement or evaluate the recommended hybrid solutions."
 
 **Key takeaways:**
-- Random Forest achieved AUPRC 0.619 but fraud recall only 0.34 on real banking data.
-- Class_weight adjustments did not improve recall beyond 0.36 in imbalanced fraud detection.
-- AUPRC is preferred over ROC for evaluating models on imbalanced datasets.
+- "Random Forest achieved AUPRC 0.619 but fraud recall only 0.34 on real banking data."
+- "Class_weight adjustments did not improve recall beyond 0.36 in imbalanced fraud detection."
+- "AUPRC is preferred over ROC for evaluating models on imbalanced datasets."
 
 ---
 
 
-## Evolution of Machine Learning: A Foundation for Intelligent Systems
-**Filename:** `IA--Gouni_summarized.md`  
-**Authors:** Gouni, M. (2025)  
-**ID:** `10.32996/jcsts.2025.7.5.74`  
-**Odin Topics:** 8.A, 8.B, 12.A, 12.B, 10.A  
+## Long Short-Term Memory Networks: A Comprehensive Survey
+**Filename:** `IA--Krichen-&-Mihoub_summarized.md`  
+**Authors:** Krichen, M.; Mihoub, A. (2025)  
+**ID:** `10.3390/ai6090215`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 12.B  
 
-**TLDR:** Machine learning techniques from supervised to deep learning enable adaptive credit card fraud detection by identifying patterns and anomalies, reducing false positives compared to rule-based systems.
+**TLDR:** LSTM networks capture long-range dependencies in sequential data via memory cells and gating mechanisms, overcoming RNN vanishing gradient limitations.
 
-**Problem & Motivation:** Traditional rule-based fraud detection systems are static, require constant manual updates, and fail against evolving fraud tactics, leading to high false positives and financial losses. Machine learning offers adaptive, proactive detection capabilities that learn from transaction data without explicit reprogramming.
-
-**Approach (summary):**
-- Reviews supervised learning models including logistic regression, decision trees, random forests, gradient boosting, and deep neural networks for fraud classification.
-- Examines unsupervised techniques such as k-means clustering, DBSCAN, spectral clustering, and autoencoders for detecting novel fraud patterns without labeled data.
-- Analyzes deep learning architectures including RNNs, LSTMs, GRUs, and CNNs for sequential and spatial pattern recognition in transaction monitoring.
-
-**Key Findings (selected):**
-- num: Deep learning models significantly outperform traditional methods in detecting sophisticated fraud patterns across multiple studies.
-- num: Ensemble methods and advanced neural approaches consistently outperform single-classifier methods on imbalanced fraud datasets.
-- Unsupervised autoencoders capture complex non-linear relationships to identify anomalies that distance-based clustering methods miss.
-- Sequential models (RNN/LSTM) excel at detecting card-not-present fraud by analyzing transaction sequences rather than isolated events.
-
-**Supports Odin (direct justifications):**
-- Machine learning models dynamically learn from transaction data, adapting to new fraud patterns without manual rule updates.
-- Unsupervised autoencoders detect anomalies based on reconstruction error, useful for unknown pattern detection in spending behavior.
-- Ensemble methods like random forests reduce false positives compared to single classifiers in imbalanced datasets.
-
-**Limitations / Contradictions for Odin:**
-- Survey lacks empirical comparison of specific algorithms on a common benchmark dataset.
-- Does not address computational cost of deep learning in real-time mobile environments [unacknowledged].
-- Focus on credit card fraud rather than general expense anomaly detection for personal finance management.
-
-**Key takeaways:**
-- Ensemble models outperform single classifiers in imbalanced fraud data.
-- Autoencoders detect non-linear anomalies missed by clustering methods.
-- Federated learning enables privacy-preserving collaborative model training.
-
----
-
-
-## Clustering and Similarity Learning in Financial Markets: A Tutorial for the Practitioners
-**Filename:** `IA--Mehta-et_al_summarized.md`  
-**Authors:** Mehta, D.; Thompson, J. R. J.; Lee, H.; Lee, Y. (2025)  
-**ID:** `b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e`  
-**Odin Topics:** 5.A, 8.A, 8.B, 12.A, 12.B  
-
-**TLDR:** Reviews clustering and similarity learning methods for financial markets, covering metric learning, graph methods, and LLMs to build adaptive peer groups for bonds, funds, companies, and investors, with emphasis on operational evaluation and multimodal data fusion.
-
-**Problem & Motivation:** Traditional peer-grouping methods such as industry codes or style boxes provide only coarse and rigid notions of similarity, failing to capture actual risk and thematic exposures. Financial applications require adaptive, data-driven similarity systems that quantify closeness based on real economic attributes. However, similarity has no universal ground truth, making evaluation and governance challenging under regulatory scrutiny.
+**Problem & Motivation:** Traditional RNNs suffer from vanishing gradients, making long-range dependency learning difficult. LSTM was designed to retain information over extended sequences. This gap limits performance in tasks like language modeling, time series forecasting, and speech recognition.
 
 **Approach (summary):**
-- Surveys clustering methods (partitioning, hierarchical, density-based, model-based) and distance metrics for tabular, time-series, text, graph, and image data.
-- Reviews similarity learning techniques including metric learning, random forest proximities, Siamese networks, contrastive learning, graph neural networks, and multimodal fusion.
-- Presents case studies on corporate bonds (random forest proximities for substitution), municipal bonds (CatBoost), MBS/ABS (hazard models), funds (category reproducibility, open-set recognition), companies (multimodal pipelines), and investors (behavioral clustering).
+- The survey uses a narrative review approach synthesizing LSTM literature across NLP, time series, and speech domains.
+- Core LSTM components: cell state, hidden state, and input/forget/output gates with sigmoid and tanh activations.
+- Variants covered: Bidirectional LSTM (forward+backward context), Stacked LSTM (multiple layers), and Attention Mechanisms.
 
 **Key Findings (selected):**
-- Traditional peer-grouping methods (industry codes, style boxes) are coarse and rigid; modern similarity learning enables adaptive, data-driven neighborhoods.
-- num: Nearly 20% of U.S. investment-grade bond volume trades in baskets, requiring portfolio similarity metrics like STRAPSim for ETF alignment.
-- num: Analysis of 5.5 million households using K-Modes clustering identified five distinct ESG investor types.
-- Supervised similarity via random forest proximities improves bond substitution fidelity and fund category reproducibility.
-
-**Supports Odin (direct justifications):**
-- Clustering investors by transaction behavior reveals misalignments between self-assessed risk and actual decisions.
-- Random forest proximities improve substitution fidelity in bond selection, applicable to expense substitution in PFMS.
-- Open-set recognition can detect outlier transactions or categories without retraining.
+- LSTM mitigates vanishing gradient, enabling long-term memory retention vs. standard RNN.
+- num: Bidirectional LSTM achieves over 90% accuracy in 60-minute traffic speed prediction.
+- num: Stacked LSTM for bearing fault diagnosis achieves over 99% accuracy from raw signals.
+- Attention-augmented LSTM improves stock price prediction and load forecasting over plain LSTM.
 
 **Limitations / Contradictions for Odin:**
-- Similarity definitions are inherently subjective and depend on task, data modality, and market regime. [unacknowledged]
-- Many advanced methods (deep learning) operate as black boxes, complicating accountability and compliance.
-- Outputs can shift with parameter choices; stability across time requires careful rolling-window validation.
+- "High computational complexity requires significant GPU/TPU resources [unacknowledged for small-scale PFMS]."
+- "LSTMs need large labeled datasets; overfits when data is scarce. [acknowledged]"
+- "Long training times and sensitive hyperparameters hinder rapid prototyping. [acknowledged]"
 
 **Key takeaways:**
-- Similarity learning enables adaptive peer groups based on actual risk, not static labels.
-- num: Nearly 20% of bond trading volume is in baskets, requiring portfolio similarity metrics.
-- Evaluation must prioritize operational validity over academic indices.
-
----
-
-
-## AI-Based Wealth Advisory System using Machine Learning and Predictive Analytics for Personalized Budget Planning
-**Filename:** `IA--Bhavana-et_al_summarized.md`  
-**Authors:** Bhavana, B. R.; Pavan, D.; Darshan, T. H. Guru (2025)  
-**ID:** `10.15662/IJARCST.2025.0805004`  
-**Odin Topics:** 3.A, 3.B, 6.A, 6.B, 7.A, 7.B, 7.C, 8.A, 8.B, 10.A, 10.B, 12.A, 12.B, 13.A  
-
-**TLDR:** An AI wealth advisory system integrates classification, forecasting, anomaly detection, and explainable AI to deliver personalized budget planning, achieving 95% anomaly detection accuracy and a 22% improvement in savings.
-
-**Problem & Motivation:** Most personal finance applications are reactive, limited to expense tracking without proactive wealth management or personalized AI-driven advice. A gap exists in consumer-centric financial advisory systems that are both predictive and interpretable, particularly for users with low financial literacy. This paper addresses the need for an intelligent system that combines forecasting, anomaly detection, and explainable recommendations to improve financial outcomes.
-
-**Approach (summary):**
-- Data sources include transaction logs, household expenditure surveys, and macroeconomic indicators from World Bank/IMF.
-- Preprocessing involves cleaning, normalization, NLP-based categorization (BERT), anonymization, and KNN imputation.
-- Classification uses XGBoost, Random Forest, and BERT; forecasting uses ARIMA, Prophet, LSTM, and Transformers in an ensemble.
-
-**Key Findings (selected):**
-- num: 95% anomaly detection accuracy achieved in pilot testing.
-- num: 22% improvement in savings among participants.
-- num: 78% of participants reported enhanced financial literacy.
-- num: Expense classification achieved 91% F1-score.
-
-**Supports Odin (direct justifications):**
-- AI-based wealth advisory systems can achieve 95% anomaly detection accuracy on personal transaction data.
-- Explainable AI methods like SHAP and LIME enhance user trust in personal finance systems.
-- Personalized budget recommendations using contextual bandits achieve 41% user adoption rate.
-
-**Limitations / Contradictions for Odin:**
-- Small pilot sample (100 users) limits statistical power and generalizability. [unacknowledged]
-- Paper does not specify the exact composition of transaction datasets, raising reproducibility concerns. [unacknowledged]
-- Potential bias in recommendation algorithms mentioned but not empirically mitigated. [acknowledged]
-
-**Key takeaways:**
-- Anomaly detection accuracy reached 95% in pilot testing.
-- Savings improved by 22% among system users.
-- Expense classification achieved 91% F1-score.
-
----
-
-
-## Machine Learning in Financial Risk and Behavior Analysis: Predictive Insights on Bankruptcy, Fraud, and Consumer Trends in the USA
-**Filename:** `IA--Begum_summarized.md`  
-**Authors:** Begum, M. (2025)  
-**ID:** `f47ac10b-58cc-4372-a567-0e02b2c3d479`  
-**Odin Topics:** 5.A, 5.C, 6.A, 6.B, 8.A, 8.B  
-
-**TLDR:** Evaluates machine learning models for bankruptcy prediction, fraud detection, and consumer spending forecasting, finding gradient boosting and LSTM outperform traditional methods.
-
-**Problem & Motivation:** Traditional financial risk assessment methods struggle to capture nonlinear patterns, behavioral dynamics, and real-time anomalies. Machine learning offers improvements but faces challenges in generalizability, interpretability, and real-time adaptability. This paper proposes a unified ML framework to address these gaps across bankruptcy, fraud, and consumer behavior domains.
-
-**Approach (summary):**
-- For bankruptcy prediction, six models are trained: Logistic Regression, Random Forest, Gradient Boosting (XGBoost, LightGBM), SVM, ANN, and LSTM on financial ratios from SEC EDGAR and Moody's data.
-- Fraud detection uses unsupervised Isolation Forest plus supervised classifiers (Logistic Regression, Random Forest, XGBoost) with SMOTE, a stacking ensemble, and a GRU-based RNN for sequential patterns.
-- Consumer behavior analysis applies K-Means and DBSCAN clustering for customer segmentation, and ARIMA with LSTM for time-series forecasting of spending.
-
-**Key Findings (selected):**
-- num: XGBoost achieves the highest AUC (0.93) for bankruptcy prediction, followed by LSTM (0.92) and LightGBM (0.91).
-- num: Stacking ensemble for fraud detection yields F1 of 0.89 and precision of 0.91, outperforming individual classifiers.
-- num: LSTM reduces MAE to 2.8 and RMSE to 3.3 for consumer spending forecasting, compared to ARIMA's MAE of 4.2 and RMSE of 5.1.
-- num: K-Means clustering produces a silhouette score of 0.68, indicating well-separated customer segments.
-
-**Supports Odin (direct justifications):**
-- LSTM achieves lower MAE (2.8) than ARIMA (4.2) for spending forecasting in consumer behavior.
-- Stacking ensemble for fraud detection yields F1 of 0.89 and precision of 0.91.
-- XGBoost reaches 0.93 AUC for bankruptcy prediction, demonstrating gradient boosting's strength on financial ratios.
-
-**Limitations / Contradictions for Odin:**
-- Models were trained on static historical datasets, not on live data streams.
-- Real-world deployment would require continuous retraining and monitoring for evolving financial conditions.
-- The study does not incorporate macroeconomic indicators or unstructured data (e.g., news, social media).
-
-**Key takeaways:**
-- XGBoost achieves 0.93 AUC for bankruptcy prediction.
-- Stacking ensemble reaches 0.89 F1 in fraud detection.
-- LSTM reduces MAE from 4.2 to 2.8 compared to ARIMA.
-
----
-
-
-## A Survey of Machine Learning Methods for Time Series Prediction
-**Filename:** `IA--Hall-&-Rasheed_summarized.md`  
-**Authors:** Hall, T.; Rasheed, K. (2025)  
-**ID:** `10.3390/app15115957`  
-**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 12.A, 12.B  
-
-**TLDR:** A survey of 79 papers comparing tree-based and deep learning methods for time series prediction finds that LightGBM, LSTM, and CatBoost perform best, with tree-based methods offering greater computational efficiency.
-
-**Problem & Motivation:** Existing surveys cannot draw meaningful comparisons between forecasting models due to heterogeneous experimental setups across independent studies. This gap prevents robust conclusions about relative strengths and weaknesses of tree-based versus deep learning approaches. This survey addresses the gap by exclusively reviewing studies that compare both methodologies using identical datasets.
-
-**Approach (summary):**
-- Searched Web of Science with query combining TBML and DL terms, yielding 589 papers from 2017-2024.
-- Selected top 100 most-cited papers, then applied inclusion criteria requiring direct comparison of TBML and DL on identical datasets.
-- Included 79 papers with balanced yearly representation from 2020 to 2024.
-
-**Key Findings (selected):**
-- num: TBML models achieve best performance in 54.55% of tasks (FPA) with WRA 0.6910, while DL models achieve 52.70% FPA with WRA 0.6486.
-- num: RNN models (LSTM, GRU) are best in 61.36% of studies with WRA 0.7330, followed by SPTB models (XGBoost, LightGBM, CatBoost) at 50% FPA and 0.6328 WRA.
-- num: CatBoost achieves highest individual FPA and WRA, but LSTM shows more robust performance (58.97% FPA, 0.7222 WRA over 39 evaluations).
-- num: TBML models are on average 126,935% faster to train than DL models, with median advantage of 5,603%.
-
-**Supports Odin (direct justifications):**
-- LightGBM and LSTM are among the best-performing algorithms for time series forecasting tasks.
-- Tree-based methods are significantly more computationally efficient than deep learning methods (median 5603% faster training).
-- On large datasets (>200k samples), tree-based models outperform deep learning models.
-
-**Limitations / Contradictions for Odin:**
-- The analysis of task categories has relatively small sample sizes (3.85% to 21.8% of papers), limiting statistical certainty.
-- Transformer-based architectures are underrepresented with only five papers, limiting generalizability.
-- The paper does not address real-time or streaming time series prediction scenarios. [unacknowledged]
-
-**Key takeaways:**
-- LightGBM and LSTM are top performers for time series forecasting.
-- Tree-based methods train 5603% faster on average than deep learning.
-- Dataset size determines best model: small data favors RNNs, large data favors TBML.
+- "LSTM uses forget, input, and output gates to control information flow over time."
+- "Bidirectional LSTM achieves over 90% accuracy for 60-minute traffic prediction."
+- "Stacked LSTM reaches 99% fault diagnosis accuracy from raw sensor signals."
 
 ---
 
@@ -803,103 +701,54 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Examines algorithms including logistic regression, SVM, decision trees, random forest, KNN, and autoencoders.
 
 **Key Findings (selected):**
-- num: Fraud detection models using deep learning and GNNs outperform traditional ML on complex fraud patterns.
-- num: Autoencoder-based anomaly detection with XGBoost achieves effective fraud classification.
-- num: Training on over 12 million records with IF, LOF, and AE enables anomaly alerts before transaction confirmation.
+- "num: Fraud detection models using deep learning and GNNs outperform traditional ML on complex fraud patterns."
+- "num: Autoencoder-based anomaly detection with XGBoost achieves effective fraud classification."
+- "num: Training on over 12 million records with IF, LOF, and AE enables anomaly alerts before transaction confirmation."
 - Unsupervised methods like Isolation Forest and autoencoders can detect new fraud patterns without labeled data.
 
-**Supports Odin (direct justifications):**
-- Anomaly detection in financial transactions requires handling imbalanced data distributions.
-- Graph neural networks can capture complex relationships between transactions for fraud detection.
-- Unsupervised methods like autoencoders are effective when labeled fraud data is scarce.
-
 **Limitations / Contradictions for Odin:**
-- Review does not include empirical benchmarks comparing algorithm performance. [unacknowledged]
-- Lacks discussion of computational cost for real-time deployment on mobile devices. [unacknowledged]
-- Privacy-preserving techniques like federated learning are mentioned as future work but not evaluated. [unacknowledged]
+- "Review does not include empirical benchmarks comparing algorithm performance. [unacknowledged]"
+- "Lacks discussion of computational cost for real-time deployment on mobile devices. [unacknowledged]"
+- "Privacy-preserving techniques like federated learning are mentioned as future work but not evaluated. [unacknowledged]"
 
 **Key takeaways:**
-- Deep learning and GNNs outperform traditional ML on complex fraud patterns.
-- Imbalanced data and adversarial attacks are major challenges for detection systems.
-- Unsupervised methods like autoencoders work without labeled fraud data.
+- "Deep learning and GNNs outperform traditional ML on complex fraud patterns."
+- "Imbalanced data and adversarial attacks are major challenges for detection systems."
+- "Unsupervised methods like autoencoders work without labeled fraud data."
 
 ---
 
 
-## Intelligent UI’s: Revolutionizing Financial Transaction Systems Through AI and Event-Driven Architecture
-**Filename:** `I--Musunuri_summarized.md`  
-**Authors:** Musunuri, H. (2025)  
-**ID:** `3a0b1c2d-4e5f-6a7b-8c9d-0e1f2a3b4c5d`  
-**Odin Topics:** 4.A, 4.B, 6.A, 8.A, 8.B, 10.A, 10.B, 11.A, 11.B, 12.A  
-
-**TLDR:** Intelligent UI architectures using AI and event-driven patterns improve financial transaction systems by enhancing fraud detection, reducing processing times, and personalizing user experiences without compromising security.
-
-**Problem & Motivation:** Traditional financial interfaces struggle with linear processing workflows, reactive security measures, and one-size-fits-all designs. These limitations create trade-offs between security and usability, leading to transaction abandonment and fraud vulnerabilities. Modern intelligent UIs aim to transcend these trade-offs through adaptive and event-driven approaches.
-
-**Approach (summary):**
-- Paper reviews existing literature and industry implementations of AI-driven and event-driven financial interfaces.
-- Analyzes case studies of financial institutions implementing behavioral biometrics, predictive adaptation, and zero-trust models.
-- Evaluates performance metrics including fraud detection accuracy, transaction processing times, and completion rates from 127 institutions.
-
-**Key Findings (selected):**
-- num: Institutions implementing behavioral biometric monitoring achieved 43.2% improvement in fraud detection accuracy and 37.8% reduction in false positives.
-- num: Event-driven architectures reduced transaction processing times by 53.7% for standard transactions and 61.2% for complex transactions.
-- num: Context-aware component selection improved task completion rates by 41.6% and reduced time-on-task by 36.2%.
-- num: Phased implementation approaches showed 3.7 times higher success rates and 42% lower budget overruns than big-bang replacements.
-
-**Supports Odin (direct justifications):**
-- Event-driven architectures reduce transaction processing latency by 53-61% compared to request-response models.
-- Behavioral biometrics achieve 97.6% user identification accuracy after 14 seconds of interaction.
-- Context-aware component selection improves task completion rates by 41.6%.
-
-**Limitations / Contradictions for Odin:**
-- Primarily synthesizes existing literature rather than presenting novel empirical data [unacknowledged].
-- Does not address implementation challenges of AI bias in financial interfaces [unacknowledged].
-- Lacks specific guidance for small financial institutions with limited resources [unacknowledged].
-
-**Key takeaways:**
-- Intelligent UIs improve fraud detection by 43.2% while reducing false positives by 37.8%.
-- Event-driven architectures cut transaction processing time by over 50%.
-- Phased migrations are 3.7 times more successful than big-bang replacements.
-
----
-
-
-## Recurrent Neural Networks: A Comprehensive Review of Architectures, Variants, and Applications
+## "Recurrent Neural Networks: A Comprehensive Review of Architectures, Variants, and Applications"
 **Filename:** `IA--Mienye-et_al-2024_summarized.md`  
-**Authors:** Mienye, I. D.; Swart, T. G.; Obaido, G. (2024)  
+**Authors:** "Mienye, I. D.; Swart, T. G.; Obaido, G." (2024)  
 **ID:** `10.3390/info15090517`  
 **Odin Topics:** 3.A, 6.A, 6.B, 8.A, 8.B, 12.B  
 
-**TLDR:** Recurrent neural networks and their variants enable effective processing of sequential data for applications including time series forecasting, anomaly detection, and natural language processing.
+**TLDR:** "Recurrent neural networks and their variants enable effective processing of sequential data for applications including time series forecasting, anomaly detection, and natural language processing."
 
-**Problem & Motivation:** Previous reviews of RNNs do not fully capture the latest advancements in architectures and applications across a broad range of fields. A comprehensive review is needed to assess theoretical advancements and practical implementations to help shape future research.
+**Problem & Motivation:** "Previous reviews of RNNs do not fully capture the latest advancements in architectures and applications across a broad range of fields. A comprehensive review is needed to assess theoretical advancements and practical implementations to help shape future research."
 
 **Approach (summary):**
-- Surveys foundational RNN architectures including basic RNN, LSTM, and GRU.
-- Reviews advanced variants such as bidirectional LSTM, peephole LSTM, echo state networks, and independently recurrent neural networks.
-- Examines hybrid models combining RNNs with CNNs, attention mechanisms, and transformers.
+- "Surveys foundational RNN architectures including basic RNN, LSTM, and GRU."
+- "Reviews advanced variants such as bidirectional LSTM, peephole LSTM, echo state networks, and independently recurrent neural networks."
+- "Examines hybrid models combining RNNs with CNNs, attention mechanisms, and transformers."
 
 **Key Findings (selected):**
-- num: LSTM and GRU effectively mitigate vanishing gradient problems in sequential modeling.
-- num: Bidirectional RNNs improve context understanding by processing sequences in both directions.
-- Hybrid CNN-RNN models outperform standalone RNNs in video analysis and time series forecasting.
-- Attention mechanisms integrated with RNNs enhance long-range dependency modeling.
-
-**Supports Odin (direct justifications):**
-- Bidirectional RNNs improve context understanding in sequential classification tasks.
-- LSTM networks effectively capture long-term dependencies in time series data.
-- Attention-enhanced RNNs outperform standard RNNs in anomaly detection.
+- "num: LSTM and GRU effectively mitigate vanishing gradient problems in sequential modeling."
+- "num: Bidirectional RNNs improve context understanding by processing sequences in both directions."
+- "Hybrid CNN-RNN models outperform standalone RNNs in video analysis and time series forecasting."
+- "Attention mechanisms integrated with RNNs enhance long-range dependency modeling."
 
 **Limitations / Contradictions for Odin:**
-- Training RNNs on long sequences remains computationally intensive compared to transformer architectures.
-- RNNs are often perceived as black-box models with limited interpretability, a challenge acknowledged but not solved.
-- Bias in training data can lead to unfair predictions; the review notes this but offers no mitigation for financial applications.
+- "Training RNNs on long sequences remains computationally intensive compared to transformer architectures."
+- "RNNs are often perceived as black-box models with limited interpretability, a challenge acknowledged but not solved."
+- "Bias in training data can lead to unfair predictions; the review notes this but offers no mitigation for financial applications."
 
 **Key takeaways:**
-- LSTM and GRU solve vanishing gradient problems in sequential data.
-- Bidirectional processing captures both past and future context.
-- Hybrid CNN-RNN models excel at spatiotemporal forecasting.
+- "LSTM and GRU solve vanishing gradient problems in sequential data."
+- "Bidirectional processing captures both past and future context."
+- "Hybrid CNN-RNN models excel at spatiotemporal forecasting."
 
 ---
 
@@ -920,20 +769,15 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Applied XGBoost for profit modeling at account level, modeling revenue, default probabilities, and loss rates.
 
 **Key Findings (selected):**
-- num: Profit quartile spread across risk ranges increases with risk level, indicating challenge in high-risk areas.
-- num: Learning rate limited to 0.001-0.01 with thousands of trees to prevent overfitting.
+- "num: Profit quartile spread across risk ranges increases with risk level, indicating challenge in high-risk areas."
+- "num: Learning rate limited to 0.001-0.01 with thousands of trees to prevent overfitting."
 - Revenue model and total profit model show poor forecasting performance but better ranking performance.
 - Hump-shaped relationship between profit component and risk is retained between predicted and actual curves.
 
-**Supports Odin (direct justifications):**
-- Supervised learning on debit/credit transactions and loan applications enables accurate customer profiling.
-- Profit-based modeling yields higher average profitability than risk-only scoring.
-- Community discovery algorithms effectively detect gang fraud in credit applications.
-
 **Limitations / Contradictions for Odin:**
-- Model performance is poor for revenue and total profit forecasting at high risk levels.
-- No discussion of data privacy implications for customer profiling. [unacknowledged]
-- Lacks validation on non-US or Filipino demographic data. [unacknowledged]
+- "Model performance is poor for revenue and total profit forecasting at high risk levels."
+- "No discussion of data privacy implications for customer profiling. [unacknowledged]"
+- "Lacks validation on non-US or Filipino demographic data. [unacknowledged]"
 
 **Key takeaways:**
 - XGBoost profit models outperform risk-only models in ranking profitability.
@@ -943,80 +787,36 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## Dive into Time-Series Anomaly Detection: A Decade Review
-**Filename:** `IA--Boniol-et_al_summarized.md`  
-**Authors:** Boniol, P.; Liu, Q.; Huang, M.; Palpanas, T.; Paparrizos, J. (2024)  
-**ID:** `d3b4c5a6-7e8f-4a9b-8c0d-1e2f3a4b5c6d`  
-**Odin Topics:** 8.A, 8.B, 12.A, 12.B  
+## Evolving Strategies in Machine Learning: A Systematic Review of Concept Drift Detection
+**Filename:** `IA--Hovakimyan-&-Bravo_summarized.md`  
+**Authors:** Hovakimyan, G.; Bravo, J.M. (2024)  
+**ID:** `10.3390/info15120786`  
+**Odin Topics:** 5.B, 5.C, 6.A, 6.B, 8.A, 8.B, 12.A, 12.B  
 
-**TLDR:** A comprehensive survey categorizing time-series anomaly detection methods into distance-based, density-based, and prediction-based approaches, with a process-centric taxonomy and meta-analysis of trends.
+**TLDR:** A systematic review of concept drift detection methods categorizes them into DDMs, WBMs, USSMs, ensembles, and neural networks, highlighting trade-offs between accuracy and computational cost.
 
-**Problem & Motivation:** Despite decades of research, time-series anomaly detection methods are scattered across disconnected communities using different datasets and evaluation measures, making it impossible to identify best practices. A structured, unified taxonomy is missing to organize existing solutions and guide future research.
-
-**Approach (summary):**
-- The survey reviews over 200 papers on time-series anomaly detection published between 1980 and 2023.
-- A process-centric taxonomy groups methods into distance-based, density-based, and prediction-based categories, further divided into nine subcategories.
-- A meta-analysis examines the evolution of method types, supervision levels, and univariate vs. multivariate capabilities over time.
-
-**Key Findings (selected):**
-- num: After 2016, prediction-based methods, especially LSTM and autoencoder, represent nearly 50% of new anomaly detection methods.
-- num: 65% of anomaly detection methods proposed between 1980 and 2000 were unsupervised, dropping to 50% between 2012 and 2018.
-- Simple time-series classification baselines can improve model selection accuracy by a factor of 2 compared to the best individual anomaly detector.
-- Point-adjusted evaluation metrics overestimate performance and even random anomaly scores can yield seemingly good results.
-
-**Supports Odin (direct justifications):**
-- No single anomaly detection method performs best on all datasets, requiring model selection or ensembling.
-- Prediction-based methods (LSTM, autoencoder) are most effective for semi-supervised settings with anomaly-free training data.
-- Point-adjusted evaluation metrics overestimate detection performance and should be avoided for time-series anomalies.
-
-**Limitations / Contradictions for Odin:**
-- Benchmark datasets often have trivial anomalies, unrealistic anomaly density, or mislabeled ground truth [unacknowledged].
-- Many semi-supervised methods assume anomaly-free training data, which is rarely available in practice [acknowledged].
-- The survey does not provide a systematic empirical comparison, making it hard to rank methods [acknowledged].
-
-**Key takeaways:**
-- After 2016, deep learning methods represent half of new anomaly detection research.
-- Volume Under the Surface (VUS) is the most robust evaluation metric for time-series anomalies.
-- Point-adjusted metrics overestimate performance and should not be used.
-
----
-
-
-## A Survey of Large Language Models for Financial Applications: Progress, Prospects and Challenges
-**Filename:** `IA--Nie-et_al_summarized.md`  
-**Authors:** Nie, Y.; Kong, Y.; Dong, X.; Mulvey, J. M.; Poor, H. V.; Wen, Q.; Zohren, S. (2024)  
-**ID:** `arxiv:2406.11093`  
-**Odin Topics:** 5.A, 6.A, 6.B, 7.A, 7.B, 8.A, 8.B, 10.A, 10.B, 12.A, 12.B  
-
-**TLDR:** A survey of large language models applied to finance, covering linguistic tasks, sentiment analysis, time series forecasting, financial reasoning, and agent-based modeling, along with challenges and benchmarks.
-
-**Problem & Motivation:** Financial applications require processing vast unstructured data and complex reasoning. Traditional deep learning methods struggle with long-term dependencies and context understanding. LLMs offer advanced contextual understanding and transfer learning, but a comprehensive overview of their financial applications and challenges is lacking.
+**Problem & Motivation:** Machine learning models typically assume static data distributions, but real-world streams undergo concept drift, causing performance degradation. This affects domains like fraud detection, finance, healthcare, and recommendation systems. A comprehensive, up-to-date synthesis of drift detection methodologies was missing to guide researchers and practitioners.
 
 **Approach (summary):**
-- The survey categorizes existing literature into key application areas: linguistic tasks, sentiment analysis, financial time series analysis, financial reasoning, and agent-based modeling.
-- It analyzes domain-specific LLMs (FinBERT, BloombergGPT, etc.) and compares zero-shot vs fine-tuning approaches.
-- The paper compiles datasets, benchmarks, and code resources for financial LLM research.
+- PRISMA guidelines used to screen 490 studies from IEEE and ScienceDirect APIs, narrowing to 65 high-impact papers.
+- T5 NLP model applied to summarize abstracts for efficient screening and data extraction.
+- Quality assessment using adapted Newcastle-Ottawa Scale and CASP checklists, rating studies on methodology, validation, and reproducibility.
 
 **Key Findings (selected):**
-- num: ChatGPT can achieve a monthly three-factor alpha of up to 3% when generating portfolios from policy news.
-- FinBERT shows enhanced resilience against adversarial attacks compared to keyword-based sentiment methods.
-- LLM-based agents with layered memory (FINMEM) improve trading decisions in volatile financial environments.
-- Zero-shot LLMs can forecast time series without explicit training by tokenizing numerical data appropriately.
-
-**Supports Odin (direct justifications):**
-- LLMs can forecast stock returns from news headlines with higher Sharpe ratios than traditional models (Lopez-Lira & Tang, 2023).
-- Instruction-tuned LLMs enhance financial sentiment analysis numerical sensitivity (Zhang et al., 2023).
-- Multi-agent LLM frameworks improve anomaly detection efficiency in financial markets (Park, 2024).
+- "num: 45% of studies were high quality (score 4-5), 41% moderate, 14% low."
+- "DDMs offer high accuracy with low computational cost, suitable for real-time applications."
+- "Ensemble methods and neural networks provide very high accuracy but at high computational cost."
+- "Window-based methods balance accuracy and efficiency, effective for streaming environments."
 
 **Limitations / Contradictions for Odin:**
-- Lookahead bias in backtesting financial LLMs requires careful data anonymization.
-- High computational cost and inference speed limit real-time deployment.
-- Lack of standardized evaluation benchmarks for LLM-based trading strategies.
+- "Handling imbalanced data in streaming environments remains a significant challenge."
+- "Computational efficiency of ensembles and neural networks limits real-time deployment."
+- "Application of drift detection to non-tabular data (images, complex time-series) is underexplored."
 
 **Key takeaways:**
-- LLMs can achieve 3% monthly alpha in portfolio generation from policy news.
-- Zero-shot LLMs forecast time series without task-specific training.
-- Multi-agent LLM systems enhance anomaly detection and sentiment analysis.
+- "45% of reviewed drift detection studies were high quality."
+- "Ensembles and neural networks offer highest accuracy but high cost."
+- "Window-based methods balance accuracy and efficiency for streams."
 
 ---
 
@@ -1032,30 +832,59 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Problem & Motivation:** Credit card fraud in the Philippines increased 21% since COVID-19, with traditional fraud prevention systems inadequate due to large data volumes, imbalanced distributions, concept drift, and real-time detection needs. There is a need to customize machine learning algorithms to the Philippine economic, technological, and social context to improve fraud detection effectiveness.
 
 **Approach (summary):**
-- {'Data source': 'credit card transaction data from the Philippines (dataset size not specified).'}
-- {'Methods evaluated': 'logistic regression, k-Nearest Neighbors, Naive Bayes, Support Vector Machines, and Artificial Neural Networks with GA and SMOTE enhancements.'}
-- {'Evaluation metrics': 'accuracy, sensitivity, specificity, precision, Matthews Correlation Coefficient, and balanced classification rate.'}
+- Data source: credit card transaction data from the Philippines (dataset size not specified).
+- Methods evaluated: logistic regression, k-Nearest Neighbors, Naive Bayes, Support Vector Machines, and Artificial Neural Networks with GA and SMOTE enhancements.
+- Evaluation metrics: accuracy, sensitivity, specificity, precision, Matthews Correlation Coefficient, and balanced classification rate.
 
 **Key Findings (selected):**
-- num: ANN-SMOTE achieved the best performance with up to 98.44% accuracy.
-- num: k-NN achieved 97.69% accuracy and Naive Bayes 97.92% accuracy.
-- num: Logistic regression had the lowest accuracy at 54.86%.
+- "num: ANN-SMOTE achieved the best performance with up to 98.44% accuracy."
+- "num: k-NN achieved 97.69% accuracy and Naive Bayes 97.92% accuracy."
+- "num: Logistic regression had the lowest accuracy at 54.86%."
 - A trade-off exists between model accuracy and explainability; logistic regression is better for regulatory compliance.
 
-**Supports Odin (direct justifications):**
-- ANN-SMOTE achieves 98.44% accuracy for fraud detection in the Philippine context.
-- Logistic regression offers interpretability at the cost of lower accuracy (54.86%).
-- Imbalanced data handling via SMOTE improves detection performance.
-
 **Limitations / Contradictions for Odin:**
-- No explicit dataset size or transaction volume provided. [unacknowledged]
-- All reported accuracies are from cited secondary sources, not original experiments. [unacknowledged]
-- Real-time detection challenges mentioned but no latency or throughput benchmarks given.
+- "No explicit dataset size or transaction volume provided. [unacknowledged]"
+- "All reported accuracies are from cited secondary sources, not original experiments. [unacknowledged]"
+- "Real-time detection challenges mentioned but no latency or throughput benchmarks given."
 
 **Key takeaways:**
-- ANN-SMOTE achieves 98.44% accuracy for fraud detection.
-- Imbalanced data handling is critical for anomaly detection.
-- Explainability trade-off matters for regulatory compliance.
+- "ANN-SMOTE achieves 98.44% accuracy for fraud detection."
+- "Imbalanced data handling is critical for anomaly detection."
+- "Explainability trade-off matters for regulatory compliance."
+
+---
+
+
+## Optimizing Recurrent Neural Networks: A Study on Gradient Normalization of Weights for Enhanced Training Efficiency
+**Filename:** `IA--Wu_X.-et_al_summarized.md`  
+**Authors:** Wu, X.; Xiang, B.; Lu, H.; Li, C.; Huang, X.; Huang, W. (2024)  
+**ID:** `10.3390/app14156578`  
+**Odin Topics:** 6.A, 6.B, 8.B, 12.B  
+
+**TLDR:** Weight gradient normalization (WGN) stabilizes RNN training by normalizing gradient mean and variance, reducing vanishing/exploding gradients and improving convergence.
+
+**Problem & Motivation:** RNNs suffer from vanishing and exploding gradients due to recurrent weight reuse and activation saturation. Existing solutions like gradient clipping or batch normalization have limitations such as slow convergence or complex tuning. A statistically principled method that normalizes weight gradients is missing.
+
+**Approach (summary):**
+- Uses Simple-RNN and LSTM models with tanh or ReLU activation on MNIST, PTB, ETTm1, and UCR datasets.
+- Normalizes gradients per iteration: (grad - mean) / (std + δ) before weight update.
+- Compares against standard SGD with fixed learning rates, also gradient clipping and GRU in appendix.
+
+**Key Findings (selected):**
+- "num: WGN reduces perplexity on PTB from 125.27 to 110.89 (11.48% improvement) for 2-layer LSTM."
+- "num: On ETTm1, MAE at 24-step prediction improves from 0.802 to 0.778 (3.00%) for 1-layer LSTM."
+- "num: MAE at 96-step prediction improves from 0.635 to 0.592 (6.77%) for 1-layer RNN."
+- "num: On MNIST, 2-layer LSTM with WGN achieves 99.11% accuracy vs 98.42% without."
+
+**Limitations / Contradictions for Odin:**
+- "WGN may not improve accuracy for shallow RNN architectures."
+- "Small dataset performance can degrade due to incomplete batch sampling."
+- "Computational overhead (7-8x SGD) limits real-time deployment."
+
+**Key takeaways:**
+- "Weight gradient normalization reduces gradient problems and accelerates convergence."
+- "WGN improves perplexity by 11.48% on language modeling tasks."
+- "The method is sensitive to learning rate; optimal η between 0.0001 and 0.005."
 
 ---
 
@@ -1081,11 +910,6 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - LLM-generated recommendations adapt to different income levels and user-specific risk levels, goals, and preferences.
 - The system promotes responsible financial behavior without imposing decisions, enhancing user awareness and autonomy.
 
-**Supports Odin (direct justifications):**
-- Isolation Forest can identify atypical financial transactions by isolating deviations from normal behavior.
-- Weighted combination of ARIMA and LSTM improves budget forecast accuracy over either model alone.
-- LLMs can generate personalized financial recommendations that adapt to user income level and risk tolerance.
-
 **Limitations / Contradictions for Odin:**
 - No quantitative validation of forecasting or anomaly detection accuracy. [unacknowledged]
 - The system's LLM component is described only conceptually; no ablation study or comparison with rule-based baselines. [unacknowledged]
@@ -1095,6 +919,108 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Anomaly detection uses Isolation Forest with path length scoring.
 - Forecasts combine ARIMA for short-term and LSTM for long-term trends.
 - Large language model generates personalized financial advice from transaction and forecast data.
+
+---
+
+
+## Recurrent Neural Networks (RNNs): Architectures, Training Tricks, and Introduction to Influential Research
+**Filename:** `IA--Das-et_al_summarized.md`  
+**Authors:** Das, S.; Tariq, A.; Santos, T.; Kantareddy, S. S.; Banerjee, I. (2023)  
+**ID:** `10.1007/978-1-0716-3195-9_4`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B  
+
+**TLDR:** Recurrent neural networks including LSTM, GRU, bidirectional, deep RNNs, and attention mechanisms process sequential data for tasks like language modeling and time-series analysis.
+
+**Problem & Motivation:** Standard feedforward networks cannot handle sequential dependencies because they treat each input independently. RNNs address this with recurrent connections but suffer from vanishing or exploding gradients, limiting their ability to capture long-term dependencies. Gated architectures like LSTM and GRU were introduced to mitigate these issues.
+
+**Approach (summary):**
+- Introduces six RNN architectures: SimpleRNN, LSTM, GRU, bidirectional RNN, deep RNN, and attention-based Transformers.
+- Describes training challenges including vanishing and exploding gradients, then presents skip connections, leaky units, and gradient clipping as solutions.
+- Surveys applications in language modeling: text classification with many-to-one RNNs, extractive and abstractive summarization, neural machine translation with encoder-decoder, and image-to-text translation with attention.
+
+**Key Findings (selected):**
+- LSTM uses three gates (input, forget, output) to control information flow through a cell state.
+- GRU uses two gates (reset and update), reducing computational cost compared to LSTM while handling long-term dependencies.
+- Attention mechanisms allow models to focus on relevant parts of the input sequence, improving translation and captioning performance.
+- Skip connections preserve gradients via additive or concatenative paths, helping deeper RNN training.
+
+**Limitations / Contradictions for Odin:**
+- "Paper is a survey; no empirical validation on financial data [unacknowledged]."
+- "Does not compare RNN performance on spending datasets [unacknowledged]."
+- "Training tricks are discussed generically without personal finance context [unacknowledged]."
+
+**Key takeaways:**
+- LSTM uses three gates to control long-term memory flow.
+- GRU has two gates, making it computationally lighter than LSTM.
+- Attention mechanisms enable sequence models to focus on relevant input parts.
+
+---
+
+
+## MACHINE LEARNING FOR FRAUD DETECTION IN DIGITAL BANKING: A SYSTEMATIC LITERATURE REVIEW
+**Filename:** `IA--George-et_al_summarized.md`  
+**Authors:** George, M. Z. H.; Alam, M. K.; Hasan, M. T. (2023)  
+**ID:** `10.63125/913ksy63`  
+**Odin Topics:** 8.A, 8.B, 12.A, 12.B  
+
+**TLDR:** Supervised learning dominates digital banking fraud detection, but deep learning, anomaly detection, and hybrid models show superior adaptability for imbalanced transaction data.
+
+**Problem & Motivation:** Rule-based fraud detection systems are rigid and unable to adapt to evolving fraud tactics in digital banking. Machine learning offers scalability and predictive accuracy, yet prior reviews lack integration of deep learning, hybrid models, and cross-regional comparisons. A systematic synthesis is needed to consolidate fragmented evidence across methodological and regulatory contexts.
+
+**Approach (summary):**
+- The study followed PRISMA guidelines for systematic literature review, covering Scopus, Web of Science, IEEE Xplore, ACM Digital Library, and SSRN.
+- Search terms combined machine learning, fraud detection, digital banking, anomaly detection, and deep learning with Boolean operators.
+- Initial identification yielded 2,346 records; after deduplication, screening, and eligibility review, 118 studies were included.
+
+**Key Findings (selected):**
+- num: 36 supervised learning studies accumulated over 9,200 citations, confirming dominance of decision trees, logistic regression, and SVMs.
+- num: 27 unsupervised learning studies received over 6,800 citations, essential for detecting novel fraud patterns without labels.
+- num: 21 deep learning studies (RNNs, CNNs, autoencoders) garnered over 7,300 citations, enabling sequential transaction modeling.
+- num: 19 hybrid model studies exceeded 5,600 citations, demonstrating superior precision‑recall balance and adaptability.
+
+**Limitations / Contradictions for Odin:**
+- Extreme class imbalance handling remains uneven; many studies report results without calibrated costs.
+- ROC‑AUC persists as a headline metric even when PR‑AUC is more decision‑relevant for skewed data.
+- Reproducibility constrained by private datasets; few studies release code or standardized benchmarks. [unacknowledged]
+
+**Key takeaways:**
+- Supervised learning accounts for 36 of 118 reviewed studies.
+- Deep learning models exceed 7,300 citations despite recent publication.
+- Hybrid models outperform single‑paradigm detectors in precision‑recall balance.
+
+---
+
+
+## Transformer Architectures in Time Series Analysis: A Review
+**Filename:** `IA--Thundiyil_summarized.md`  
+**Authors:** Thundiyil, S.; Picone, J.; McKenzie, S. (2023)  
+**ID:** `d8c5e6f1-3a2b-4c7d-9e0f-1a2b3c4d5e6f`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 12.A, 12.B  
+
+**TLDR:** Reviews transformer architectures for time series forecasting, classification, and anomaly detection, comparing traditional and modern methods with emphasis on long-term dependencies.
+
+**Problem & Motivation:** Traditional time series methods like ARIMA and RNNs struggle with long-term dependencies. Transformers offer self-attention to capture extended context, but require adaptation for time series data. This review synthesizes advances in transformer variants for forecasting and anomaly detection.
+
+**Approach (summary):**
+- Reviews 11 transformer-based architectures including LogTrans, Informer, Autoformer, and FEDformer.
+- Compares traditional methods (AR, MA, ARIMA, spectral analysis) with modern deep learning approaches.
+- Describes key innovations: ProbSparse attention, autocorrelation mechanism, pyramidal attention, and frequency decomposition.
+
+**Key Findings (selected):**
+- "num: Autoformer achieved a 38% average MSE reduction over existing methods on six benchmarks."
+- "num: FEDformer yielded a 14.8% relative MSE reduction compared to Autoformer, and over 20% on Exchange and ILI."
+- "num: InParformer achieved MSE 0.260 and MAE 0.323 on ETTm2 for prediction length 192."
+- "num: Pyraformer reduced MSE by 24.8%, 28.9%, 26.2% on ETTh1 for prediction lengths 168, 336, 720 respectively."
+
+**Limitations / Contradictions for Odin:**
+- "No empirical validation on personal finance datasets. [unacknowledged]"
+- "Does not address real-time inference constraints for mobile deployment. [unacknowledged]"
+- "Review lacks discussion of privacy-preserving forecasting techniques. [unacknowledged]"
+
+**Key takeaways:**
+- "Transformers outperform RNNs for long-term forecasting tasks."
+- "Autoformer yields 38% average MSE reduction across six benchmarks."
+- "Self-attention enables modeling of extended temporal dependencies without recurrence."
 
 ---
 
@@ -1111,19 +1037,14 @@ This report includes problem/motivation, approach, key findings, support for Odi
 
 **Approach (summary):**
 - Reviewed published literature comparing ARIMA with SVM, decision tree, deep learning (LSTM, GRU, CNN), and hybrid models.
-- {'Organized findings by application domain': 'finance (bitcoin, stocks), healthcare (COVID-19 cases), weather (wind, drought), utilities (energy, water), and network traffic.'}
+- Organized findings by application domain: finance (bitcoin, stocks), healthcare (COVID-19 cases), weather (wind, drought), utilities (energy, water), and network traffic.
 - Extracted performance metrics including RMSE, MAPE, MAE, MSE, R2, NSE from each comparative study.
 
 **Key Findings (selected):**
 - Machine learning and deep learning models generally outperform ARIMA in time series forecasting across most applications reviewed.
-- {'num': 'Deep learning models (LSTM, GRU) achieved RMSE values up to 40 times smaller than ARIMA for COVID-19 case forecasting in several countries (Arun Kumar et al., 2022).'}
-- {'num': "ARIMA outperforms machine learning models for small datasets, limited value ranges, or strongly linear and seasonal univariate series (e.g., drought forecasting with R2 >0.9 vs. SVM's 0.83)."}
+- num: Deep learning models (LSTM, GRU) achieved RMSE values up to 40 times smaller than ARIMA for COVID-19 case forecasting in several countries (Arun Kumar et al., 2022).
+- num: ARIMA outperforms machine learning models for small datasets, limited value ranges, or strongly linear and seasonal univariate series (e.g., drought forecasting with R2 >0.9 vs. SVM's 0.83).
 - Hybrid models combining ARIMA with machine learning (e.g., ARIMA-SVM, ARIMA-NARNN, ARIMA-CNN) consistently outperform both individual approaches.
-
-**Supports Odin (direct justifications):**
-- Machine learning models generally provide more accurate time series forecasts than ARIMA for non-linear spending data.
-- Hybrid ARIMA-ML models consistently outperform pure ARIMA or pure ML models in forecasting tasks.
-- ARIMA is preferable for small datasets or when spending patterns are linear and seasonal.
 
 **Limitations / Contradictions for Odin:**
 - ARIMA parameter selection depends on forecaster skill and experience.
@@ -1154,103 +1075,122 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Evaluates continual learning approaches (regularization, replay, parameter isolation) for time series tasks.
 
 **Key Findings (selected):**
-- num: CNN with direct multi-step procedure improved prediction accuracy by 22.6% over seasonal ARIMAX for building load forecasting.
-- num: Graph Deviation Network achieved 54% better F-measure than the next best baseline for anomaly detection in water treatment systems.
-- num: LSTM achieved mean absolute percentage error of 4.82% for traffic flow forecasting versus 20.97% for ARIMA and 9.06% for BPNN.
-- num: Empirical mode decomposition preprocessing improved gesture classification accuracy from 94.22% to 99.73% using CNN.
-
-**Supports Odin (direct justifications):**
-- CNN with direct multi-step procedure can improve forecasting accuracy by 22.6% over ARIMAX.
-- No single deep learning method fits all time series anomaly detection tasks.
-- Simple models with feature engineering can outperform deep learning without preprocessing.
+- "num: CNN with direct multi-step procedure improved prediction accuracy by 22.6% over seasonal ARIMAX for building load forecasting."
+- "num: Graph Deviation Network achieved 54% better F-measure than the next best baseline for anomaly detection in water treatment systems."
+- "num: LSTM achieved mean absolute percentage error of 4.82% for traffic flow forecasting versus 20.97% for ARIMA and 9.06% for BPNN."
+- "num: Empirical mode decomposition preprocessing improved gesture classification accuracy from 94.22% to 99.73% using CNN."
 
 **Limitations / Contradictions for Odin:**
-- Survey primarily synthesizes existing literature without new empirical experiments. [unacknowledged]
-- Focus on sensor time series limits generalizability to financial transaction sequences. [unacknowledged]
-- Computational cost of continual learning on mobile devices is not quantitatively assessed. [unacknowledged]
+- "Survey primarily synthesizes existing literature without new empirical experiments. [unacknowledged]"
+- "Focus on sensor time series limits generalizability to financial transaction sequences. [unacknowledged]"
+- "Computational cost of continual learning on mobile devices is not quantitatively assessed. [unacknowledged]"
 
 **Key takeaways:**
-- LSTM achieved 4.82% MAPE for traffic forecasting versus 20.97% for ARIMA.
-- Empirical mode decomposition preprocessing raised accuracy from 94.22% to 99.73%.
-- No single deep learning method works for all anomaly detection tasks.
+- "LSTM achieved 4.82% MAPE for traffic forecasting versus 20.97% for ARIMA."
+- "Empirical mode decomposition preprocessing raised accuracy from 94.22% to 99.73%."
+- "No single deep learning method works for all anomaly detection tasks."
 
 ---
 
 
-## Data Science and Business Analytics Approaches to Financial Wellbeing: Modeling Consumer Habits and Identifying At-Risk Individuals in Financial Services
+## Rare Category Analysis for Complex Data: A Review
+**Filename:** `IA--Zhou-&-He_summarized.md`  
+**Authors:** Zhou, D.; He, J. (2023)  
+**ID:** `10.1145/3626520`  
+**Odin Topics:** 8.A, 8.B, 12.A, 12.B  
+
+**TLDR:** Reviews state-of-the-art techniques for rare category analysis in complex data, covering exploration, exploitation, representation, and interpretation under challenges of rarity, label scarcity, non-separability, heterogeneity, and dynamics.
+
+**Problem & Motivation:** Rare categories are often most important in high-impact domains like fraud detection and disease diagnosis, but traditional anomaly detection yields many uninteresting anomalies. Existing methods fail to identify rare categories that are compact and statistically significant. A systematic review of techniques addressing rarity, non-separability, heterogeneity, and dynamics is missing.
+
+**Approach (summary):**
+- Surveys over 100 papers on rare category analysis from data mining and machine learning.
+- Organizes techniques into four tasks: exploration (unsupervised), exploitation (semi-supervised), representation learning, and interpretation.
+- Covers static and dynamic data, including tabular, time-series, and graph-structured data.
+
+**Key Findings (selected):**
+- "num: Only 0.1% of Sloan sky survey images are anomalies; 99% of those anomalies are uninteresting, leaving 0.001% as useful rare categories."
+- "num: To detect a rare category with proportion 0.01%, random sampling requires approximately 10,000 labeling requests."
+- "num: NNDM algorithm guarantees identification of at least one example from each minority class with probability 1-δ after O(2α/r^2) iterations."
+- Rare categories are compact in feature space and non-separable from majority classes, requiring specialized detection algorithms.
+
+**Limitations / Contradictions for Odin:**
+- "The survey does not address computational efficiency constraints of mobile PFMS. [unacknowledged]"
+- "User privacy and data security concerns in rare category detection are not discussed. [unacknowledged]"
+- "Real-time detection requirements for streaming financial transactions are not explicitly evaluated. [unacknowledged]"
+
+**Key takeaways:**
+- "Rare categories are a subset of anomalies that are both statistically significant and compact."
+- "num: 99% of anomalies are uninteresting noise; only 1% are useful rare categories."
+- "Labeling rare categories is expensive due to extreme class imbalance as low as 0.01%."
+
+---
+
+
+## "Data Science and Business Analytics Approaches to Financial Wellbeing: Modeling Consumer Habits and Identifying At-Risk Individuals in Financial Services"
 **Filename:** `IA--Machireddy_summarized.md`  
-**Authors:** Machireddy, J. (2023)  
+**Authors:** "Machireddy, J." (2023)  
 **ID:** `a1b2c3d4-e5f6-7890-1234-567890abcdef`  
 **Odin Topics:** 5.A, 5.B, 5.C, 6.A, 8.A, 8.B, 10.A, 10.B, 13.B  
 
-**TLDR:** Data science models using transaction data and digital footprints can profile consumer financial behavior, identify at-risk individuals, and support ethical risk management through explainable AI.
+**TLDR:** "Data science models using transaction data and digital footprints can profile consumer financial behavior, identify at-risk individuals, and support ethical risk management through explainable AI."
 
-**Problem & Motivation:** Financial hardship from over-indebtedness and income volatility affects many consumers, leading to defaults and economic instability. Traditional credit scoring uses limited variables and static updates, failing to capture real-time behavioral signals. There is a need for data-driven approaches to model financial habits and detect early warning signs.
+**Problem & Motivation:** "Financial hardship from over-indebtedness and income volatility affects many consumers, leading to defaults and economic instability. Traditional credit scoring uses limited variables and static updates, failing to capture real-time behavioral signals. There is a need for data-driven approaches to model financial habits and detect early warning signs."
 
 **Approach (summary):**
-- Extract behavioral features from transactional data including income volatility, discretionary spending percentage, and liquidity trends.
-- Apply machine learning models such as gradient boosting, hidden Markov models, and autoencoders for risk prediction and anomaly detection.
-- Incorporate psychological traits and contextual factors like life events and economic conditions to enrich consumer profiles.
+- "Extract behavioral features from transactional data including income volatility, discretionary spending percentage, and liquidity trends."
+- "Apply machine learning models such as gradient boosting, hidden Markov models, and autoencoders for risk prediction and anomaly detection."
+- "Incorporate psychological traits and contextual factors like life events and economic conditions to enrich consumer profiles."
 
 **Key Findings (selected):**
-- Transactional and digital footprint data enable dynamic financial health portraits that shift in real time.
-- Machine learning models can detect early warning signs of financial distress such as income drops or rising credit reliance before default occurs.
-- Explainable AI techniques improve consumer trust and allow regulators to verify fair decision-making.
-- Consumer segmentation by financial vulnerability allows targeted interventions like debt relief or budgeting tools.
-
-**Supports Odin (direct justifications):**
-- Transaction history features like income volatility and liquidity trends predict financial distress.
-- Unsupervised anomaly detection can identify sudden behavioral changes without labeled data.
-- Explainable AI techniques must accompany risk models to maintain consumer trust.
+- "Transactional and digital footprint data enable dynamic financial health portraits that shift in real time."
+- "Machine learning models can detect early warning signs of financial distress such as income drops or rising credit reliance before default occurs."
+- "Explainable AI techniques improve consumer trust and allow regulators to verify fair decision-making."
+- "Consumer segmentation by financial vulnerability allows targeted interventions like debt relief or budgeting tools."
 
 **Limitations / Contradictions for Odin:**
-- No empirical results or quantitative evaluation of proposed models.
-- Does not address the cold-start problem for new users with no transaction history.
-- Real-time streaming infrastructure requirements are assumed but not detailed.
+- "No empirical results or quantitative evaluation of proposed models."
+- "Does not address the cold-start problem for new users with no transaction history."
+- "Real-time streaming infrastructure requirements are assumed but not detailed."
 
 **Key takeaways:**
-- Transaction data alone is insufficient; psychological and contextual factors improve risk models.
-- Explainable AI like SHAP is necessary for regulatory compliance and consumer trust.
-- Consumer segmentation enables targeted interventions such as debt restructuring or coaching.
+- "Transaction data alone is insufficient; psychological and contextual factors improve risk models."
+- "Explainable AI like SHAP is necessary for regulatory compliance and consumer trust."
+- "Consumer segmentation enables targeted interventions such as debt restructuring or coaching."
 
 ---
 
 
-## Recurrent Neural Networks and Long Short-Term Memory Networks: Tutorial and Survey
-**Filename:** `IA--Ghojogh-&-Ghodsi_summarized.md`  
-**Authors:** Ghojogh, B.; Ghodsi, A. (2022)  
-**ID:** `5e1f5b6d-4b3a-4c2e-8f7a-1d2c3b4a5e6f`  
-**Odin Topics:** 5.C, 6.A, 6.B, 8.A, 8.B  
+## Concept Drift Adaptation Methods under the Deep Learning Framework: A Literature Review
+**Filename:** `IA--Xiang-et_al_summarized.md`  
+**Authors:** Xiang, Q.; Zi, L.; Cong, X.; Wang, Y. (2023)  
+**ID:** `10.3390/app13116515`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 12.B  
 
-**TLDR:** A tutorial and survey of recurrent neural networks, long short-term memory networks, and their variants including GRU, bidirectional processing, and ELMo.
+**TLDR:** A literature review of concept drift adaptation methods under deep learning, covering discriminative, generative, hybrid, and other learning approaches for handling non-stationary data streams.
 
-**Problem & Motivation:** Standard RNNs suffer from gradient vanishing or explosion when learning long-term dependencies in sequences. This makes it difficult for the network to remember information from distant past time steps. LSTM and its variants address this by introducing gating mechanisms that learn when to retain or forget information.
+**Problem & Motivation:** Data distribution changes cause concept drift, degrading deep learning model performance in dynamic environments like epidemics and big data. Existing reviews lack focus on deep learning frameworks for concept drift adaptation. This gap motivated the paper.
 
 **Approach (summary):**
-- Introduces RNN as a dynamical system with parameter sharing and backpropagation through time (BPTT) for training.
-- Analyzes gradient vanishing and explosion in long-term dependencies, linking to eigenvalues of the weight matrix.
-- Presents solutions: close-to-identity weight matrix, long delays, leaky units, and echo state networks.
+- Review of concept drift definition, causes, and types (abrupt, incremental, gradual, recurring).
+- Classification of methods into discriminative learning (MLP, RNN, LSTM, CNN), generative learning (AE, GAN, RBM, SOM), hybrid learning, and others (deep transfer, deep reinforcement learning).
+- Summary of update modes (parameter vs structure) and detection modes (active vs passive).
 
 **Key Findings (selected):**
-- Gradient vanishing occurs when the largest eigenvalue of the weight matrix is less than one; gradient explosion when greater than one.
-- LSTM gates allow the network to learn when to clear the state, enabling both short-term and long-term dependency handling.
-- Bidirectional LSTM outperforms unidirectional LSTM for offline tasks where future context is available.
-- GRU simplifies LSTM by merging gates while achieving comparable performance on many sequence tasks.
-
-**Supports Odin (direct justifications):**
-- Recurrent neural networks are effective for sequence prediction tasks such as spending forecasting.
-- LSTM networks mitigate gradient vanishing, enabling learning of long-term dependencies in financial time series.
-- Bidirectional processing improves accuracy when future transaction data is available for offline analysis.
+- "num: Most concept drift adaptation methods focus on abrupt, incremental, and gradual drift, with recurring drift least addressed."
+- "Parameter updates are more common than structural updates due to faster convergence."
+- "Active detection modes help explain drift occurrence but require additional memory and CPU."
+- "Hybrid learning and discriminative learning methods dominate the literature."
 
 **Limitations / Contradictions for Odin:**
-- The paper is a tutorial and survey, not original research; no new empirical results are presented. [unacknowledged]
-- It does not compare LSTM variants on financial datasets, limiting direct applicability to PFMS. [unacknowledged]
-- Discussion of computational complexity and mobile feasibility is absent. [unacknowledged]
+- "The paper does not provide empirical comparisons of the reviewed methods."
+- "It focuses on deep learning and excludes shallow learning concept drift methods. [unacknowledged]"
+- "Most discussed methods assume labeled data, limiting applicability to unsupervised scenarios. [unacknowledged]"
 
 **Key takeaways:**
-- LSTM gates learn when to remember or forget information over long sequences.
-- Gradient vanishing is controlled by keeping weight matrix eigenvalues near one.
-- Bidirectional processing uses future context for better offline sequence understanding.
+- "Concept drift causes deep learning models to fail in dynamic data streams."
+- "num: Most methods adapt to abrupt drift, but recurring drift remains challenging."
+- "Parameter updates are preferred for faster convergence than structural updates."
 
 ---
 
@@ -1267,19 +1207,14 @@ This report includes problem/motivation, approach, key findings, support for Odi
 
 **Approach (summary):**
 - Conducts a literature-based comparative analysis of supervised and unsupervised machine learning in banking.
-- {'Examines supervised algorithms': 'regression, decision trees, SVMs, and neural networks for labeled data tasks.'}
-- {'Examines unsupervised algorithms': 'clustering (k-means, hierarchical) and dimensionality reduction (PCA) for unlabeled data.'}
+- Examines supervised algorithms: regression, decision trees, SVMs, and neural networks for labeled data tasks.
+- Examines unsupervised algorithms: clustering (k-means, hierarchical) and dimensionality reduction (PCA) for unlabeled data.
 
 **Key Findings (selected):**
 - Supervised learning provides higher predictive accuracy when labeled data is sufficient.
 - Unsupervised learning enables discovery of hidden patterns without labeling costs.
 - Hybrid models that use unsupervised for feature extraction then supervised for prediction improve overall performance.
 - Credit scoring and fraud detection are best served by supervised learning.
-
-**Supports Odin (direct justifications):**
-- Unsupervised learning effectively detects anomalies in transaction data without requiring labeled examples.
-- Supervised learning achieves high accuracy for fraud detection when labeled historical data is available.
-- Hybrid models that combine unsupervised feature extraction with supervised classification improve detection performance.
 
 **Limitations / Contradictions for Odin:**
 - The paper is a conceptual comparison without empirical validation on real banking datasets. [unacknowledged]
@@ -1294,41 +1229,36 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## Machine Learning Techniques for Optimizing Recurring Billing and Revenue Collection in SaaS Payment Platforms
-**Filename:** `IA--Dlamini_summarized.md`  
-**Authors:** Dlamini, A. (0)  
-**ID:** `8a7b6c5d-4e3f-2a1b-9c8d-7e6f5a4b3c2d`  
-**Odin Topics:** 5.A, 6.A, 6.B, 8.A, 8.B, 11.A, 11.B  
+## A Comprehensive Review of Machine Learning Techniques for Intelligent Personal Finance Management Systems
+**Filename:** `IA--D'Souza-et_al_summarized.md`  
+**Authors:** D'Souza, M.; Bhegade, P.; Bhalekar, P.; Bhavsar, Y. (0)  
+**ID:** `b9c5f2d1-3a4e-4b5c-8d6e-7f8a9b0c1d2e`  
+**Odin Topics:** 5.A, 6.A, 6.B, 7.A, 7.B, 7.C, 8.A, 8.B, 12.A, 12.B  
 
-**TLDR:** Machine learning techniques optimize recurring billing, detect anomalies, forecast churn and revenue, and adapt pricing in SaaS payment platforms.
+**TLDR:** Reviews machine learning techniques for intelligent personal finance management across budgeting, forecasting, anomaly detection, and group expense management, highlighting a shift from rule-based to adaptive, data-driven systems.
 
-**Problem & Motivation:** Recurring billing in SaaS platforms suffers from payment failures, fraud, and churn due to dynamic user behavior and rigid rule-based systems. Traditional methods lack adaptability to evolving patterns and high-volume transactional data. Machine learning offers scalable solutions for proactive revenue management.
+**Problem & Motivation:** Current research on PFMS is fragmented across budgeting, forecasting, anomaly detection, and group expense management, limiting cohesive intelligent solutions. Most traditional systems lack adaptability and personalization, relying on rigid rules. A systematic review comparing machine learning models across these components is missing.
 
 **Approach (summary):**
-- Data preprocessing includes cleansing, normalization, missing value imputation, and feature engineering from payment logs and usage metrics.
-- Linear and logistic regression with regularization provide interpretable baselines for fraud and churn prediction.
-- Ensemble methods like random forests and gradient boosting machines achieve high accuracy by combining multiple weak learners.
+- Conducts a qualitative literature survey of personal finance management systems from 1997 to 2021.
+- Compares statistical methods (ARIMA, EWMA), machine learning (Isolation Forest, clustering), and deep learning (LSTM, GRU).
+- Evaluates techniques across four dimensions: budgeting, forecasting, anomaly detection, and group expense management.
 
 **Key Findings (selected):**
-- Ensemble methods like gradient boosting achieve high accuracy in fraud detection and churn forecasting.
-- Autoencoders effectively detect anomalous transactions by measuring reconstruction error without labeled fraud data.
-- Reinforcement learning optimizes dunning schedules and pricing strategies, maximizing revenue while minimizing churn.
-- Linear algebra techniques (PCA, SVD) reduce dimensionality, improving computational efficiency and interpretability.
-
-**Supports Odin (direct justifications):**
-- Machine learning models can forecast the probability of successful recurring payments.
-- Ensemble methods like random forests enhance fraud detection accuracy in payment systems.
-- Autoencoders identify anomalous transactions by measuring reconstruction error.
+- Rule-based budgeting is transparent but cannot adapt to non-linear spending changes.
+- LSTM captures long-term dependencies but requires large historical data and lacks interpretability.
+- Isolation Forest efficiently detects anomalies in unlabeled data and scales well.
+- Hybrid ARIMA-LSTM models combine linear trend modeling with non-linear residual learning.
 
 **Limitations / Contradictions for Odin:**
-- Lacks quantitative empirical results or benchmark comparisons. [unacknowledged]
-- Does not address real-time inference latency constraints for mobile PFMS. [unacknowledged]
-- Privacy-preserving methods (federated learning) are mentioned but not evaluated. [unacknowledged]
+- "Qualitative survey without quantitative meta-analysis or statistical significance testing."
+- "Lacks systematic search protocol and inclusion/exclusion criteria [unacknowledged]."
+- "Does not address data privacy, security, or regulatory compliance in depth [unacknowledged]."
 
 **Key takeaways:**
-- Ensemble tree models often outperform linear baselines for churn and fraud prediction.
-- Autoencoders provide unsupervised anomaly detection without labeled fraud data.
-- Reinforcement learning dynamically optimizes pricing and dunning strategies.
+- "LSTM captures long-term spending patterns but is opaque and data-hungry."
+- "Isolation Forest is efficient for unsupervised anomaly detection without labels."
+- "Hybrid ARIMA-LSTM models balance linear and non-linear forecasting strengths."
 
 ---
 
@@ -1349,20 +1279,15 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Gemini LLM generates insights via RAG prompting with user spending summaries and anomaly scores.
 
 **Key Findings (selected):**
-- num: Weighted F1-score of 0.913 across 18 spending categories.
-- num: Manual expense-logging effort reduced by approximately 78% compared to conventional approaches.
+- "num: Weighted F1-score of 0.913 across 18 spending categories."
+- "num: Manual expense-logging effort reduced by approximately 78% compared to conventional approaches."
 - High-frequency categories (Food & Dining, Transport, Utilities) achieve F1 above 0.95.
 - 84% of pilot users found AI-generated insights useful or very useful.
 
-**Supports Odin (direct justifications):**
-- XGBoost with temporal features achieves 91.3% weighted F1-score for transaction categorization.
-- LLM-generated insights using RAG are rated useful by 84% of users.
-- Prophet forecasting requires at least 3 months of historical data for reliable predictions.
-
 **Limitations / Contradictions for Odin:**
-- {'Cold-start problem': 'categorization accuracy lower for new users with fewer than 50 transactions.'}
-- {'LLM hallucination risk': 'Gemini may generate imprecise guidance despite RAG.'}
-- {'Manual data entry dependency': 'users may not maintain complete records without banking API.'}
+- Cold-start problem: categorization accuracy lower for new users with fewer than 50 transactions.
+- LLM hallucination risk: Gemini may generate imprecise guidance despite RAG.
+- Manual data entry dependency: users may not maintain complete records without banking API.
 
 **Key takeaways:**
 - XGBoost achieves 91.3% F1-score for transaction categorization.
@@ -1372,9 +1297,9 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## 📌 Note for the Agent
+## Note for the Agent
 
-The summaries above contain **essential extracts** – enough to understand the paper's relevance to Odin, including supporting evidence and limitations.
+The summaries above contain **essential extracts** – enough to understand each paper's relevance to Odin, including supporting evidence and limitations.
 If you need additional details not shown here (e.g., **critical citations, definitions, equations, full methodology, or the complete mapping rationale**),
 **ask the user to send the original summary file (`<filename>_summarized.md`) or the converted MarkItDown file(`<filename>_marked.md`)** for the specific paper(s) of interest.
 Do not invent missing information. Acknowledge gaps when they exist.

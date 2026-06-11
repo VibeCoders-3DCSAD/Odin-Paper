@@ -1,47 +1,8 @@
 # Comprehensive Report for Subtopic: `3.B`
 
-**Total relevant papers:** 14
+**Total files:** 9
 
 This report includes problem/motivation, approach, key findings, support for Odin, and limitations/contradictions.
-
----
-
-
-## AI-Enabled NLP Framework for Automated Expense Management and Financial Analysis
-**Filename:** `IA--Jayaprakashnarayan-et_al_summarized.md`  
-**Authors:** Jayaprakashnarayan, N.; Sakthivel, M.; Sachidhanandam, P.; Kanjana Devi, N.; Manivel Mughilan, T.S. (2026)  
-**ID:** `10.15662/IJEETR.2026.0802073`  
-**Odin Topics:** 3.A, 3.B, 8.A, 8.B, 10.A, 10.B, 12.A, 12.B  
-
-**TLDR:** An AI-enabled NLP framework using transformer-based models and multi-task learning automates transaction extraction (96.8% accuracy) and categorization (94.3% merchant precision) from financial SMS messages with on-device privacy.
-
-**Problem & Motivation:** Digital payments generate overwhelming transaction data, making personal finance management complex and error-prone. Existing rule-based or supervised systems are brittle, unable to adapt to changing message formats or evolving fraud patterns. There is a need for a self-adaptive, privacy-preserving NLP framework that operates on mobile devices.
-
-**Approach (summary):**
-- Curated dataset of 124,583 financial SMS messages from 250 Indian participants across 42 banks and 18 UPI apps, annotated with transaction entities and 14 expense categories.
-- Hybrid architecture combining MuRIL transformer encoder (12 layers, 768 hidden) with rule-based verification for entity extraction and multi-task learning for classification.
-- Multi-task objective jointly optimizes token-level CRF for entities and sequence-level softmax for expense categories, with dynamic loss weights (0.7/0.3).
-
-**Key Findings (selected):**
-- num: 96.8% overall F1-score for transaction entity extraction (proposed MuRIL multi-task vs 94.0% for FinBERT).
-- num: 94.3% precision in merchant identification across code-mixed and varied formats.
-- num: 91.7% sensitivity and 3.8% false positive rate for ensemble fraud detection (AUC-ROC 0.956).
-- num: 85.6% reduction in manual expense tracking effort based on user-reported time savings.
-
-**Supports Odin (direct justifications):**
-- The proposed NLP framework achieves 96.8% accuracy in extracting transaction entities from financial SMS messages.
-- Multi-task learning improves transaction classification F1 by 1.2% over single-task fine-tuning.
-- Ensemble fraud detection achieves 91.7% sensitivity with only 3.8% false positives, suitable for user-facing alerts.
-
-**Limitations / Contradictions for Odin:**
-- Geographic generalizability not evaluated; results may not transfer to non-Indian payment ecosystems. [unacknowledged]
-- On-device model quantization causes 1.3% accuracy loss compared to full-precision model, affecting millions of transactions.
-- Battery impact of 2% per hour on low-end devices may reduce user adoption for high-volume users (300+ daily transactions).
-
-**Key takeaways:**
-- Transaction extraction achieves 96.8% F1 using transformer multi-task learning on Indian financial SMS.
-- Ensemble fraud detection yields 91.7% sensitivity with only 3.8% false positives.
-- On-device processing reduces manual expense tracking effort by 85.6% while preserving privacy.
 
 ---
 
@@ -62,15 +23,10 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - An LSTM model forecasts monthly expenditures and revenue streams, achieving a Mean Absolute Error of 4.7%.
 
 **Key Findings (selected):**
-- {'num': 'Random Forest expense classifier achieved 93-96% accuracy, outperforming rule-based systems (75-80%).'}
-- {'num': 'LSTM forecasting produced a Mean Absolute Error of 4.7% for monthly expenditure prediction.'}
-- {'num': 'Isolation Forest anomaly detection achieved 92% precision.'}
-- {'num': '84% of users reported better spending awareness and 78% claimed increased savings control after one month.'}
-
-**Supports Odin (direct justifications):**
-- Random Forest achieves 93-96% accuracy for expense categorization, outperforming rule-based systems.
-- LSTM forecasting reduces mean absolute error to 4.7% for monthly spending prediction.
-- Isolation Forest detects anomalous transactions with 92% precision.
+- num: Random Forest expense classifier achieved 93-96% accuracy, outperforming rule-based systems (75-80%).
+- num: LSTM forecasting produced a Mean Absolute Error of 4.7% for monthly expenditure prediction.
+- num: Isolation Forest anomaly detection achieved 92% precision.
+- num: 84% of users reported better spending awareness and 78% claimed increased savings control after one month.
 
 **Limitations / Contradictions for Odin:**
 - Usability study limited to 50 participants, may not generalize. [unacknowledged]
@@ -106,11 +62,6 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Personalized budget limits and real-time alerts improve spending control and reduce overspending.
 - Predictive insights based on historical data enable users to forecast future expenditures and plan better.
 
-**Supports Odin (direct justifications):**
-- Automated transaction categorization reduces manual effort and improves accuracy.
-- Aggregating data from multiple payment sources creates a unified financial view.
-- Personalized budget limits based on historical spending improve budget control.
-
 **Limitations / Contradictions for Odin:**
 - Relies on quality of input data and third-party AI services. [acknowledged]
 - No direct bank API integration for real-time sync; requires manual uploads. [acknowledged]
@@ -124,41 +75,36 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## Budgeting Practices and Challenges of Micro-Entrepreneurs in Maria Aurora Public Market: Toward a Strategic Management Plan
+## "Budgeting Practices and Challenges of Micro-Entrepreneurs in Maria Aurora Public Market: Toward a Strategic Management Plan"
 **Filename:** `L--Delos_Santos-et_al_summarized.md`  
-**Authors:** Delos Santos, D.T.; Austria, M.G.P.; Candelario, C.C.; Garcia, L.E.B.; Gonaranao, B.S. (2026)  
+**Authors:** "Delos Santos, D.T.; Austria, M.G.P.; Candelario, C.C.; Garcia, L.E.B.; Gonaranao, B.S." (2026)  
 **ID:** `10.4898/jener.v2i3.a32`  
 **Odin Topics:** 3.A, 3.B, 7.A, 13.A, 13.B  
 
-**TLDR:** Micro-entrepreneurs in Maria Aurora Public Market exhibit high financial discipline in income utilization, expense tracking, savings, and financial planning but face major challenges from debt burdens, inflation, and irregular income.
+**TLDR:** "Micro-entrepreneurs in Maria Aurora Public Market exhibit high financial discipline in income utilization, expense tracking, savings, and financial planning but face major challenges from debt burdens, inflation, and irregular income."
 
-**Problem & Motivation:** Micro-entrepreneurs in rural Philippine public markets often lack structured budgeting systems, hindering their sustainability and growth despite being economic backbones. Existing research does not focus specifically on Maria Aurora's vendors, leaving a gap in localized understanding of their financial practices and barriers.
+**Problem & Motivation:** "Micro-entrepreneurs in rural Philippine public markets often lack structured budgeting systems, hindering their sustainability and growth despite being economic backbones. Existing research does not focus specifically on Maria Aurora's vendors, leaving a gap in localized understanding of their financial practices and barriers."
 
 **Approach (summary):**
-- Descriptive quantitative design with 68 micro-entrepreneurs sampled via simple random lottery from a population of 82 stall owners, food vendors, and retailers.
-- Self-constructed Likert-scale survey covering four budgeting dimensions (income utilization, expense tracking, savings, financial planning) and two challenge dimensions (financial liability, income generation).
-- Data analyzed using frequency counts, average weighted means (AWM), and verbal interpretation scales (Never to Always for practices; Not a Challenge to Major Challenge for obstacles).
+- "Descriptive quantitative design with 68 micro-entrepreneurs sampled via simple random lottery from a population of 82 stall owners, food vendors, and retailers."
+- "Self-constructed Likert-scale survey covering four budgeting dimensions (income utilization, expense tracking, savings, financial planning) and two challenge dimensions (financial liability, income generation)."
+- "Data analyzed using frequency counts, average weighted means (AWM), and verbal interpretation scales (Never to Always for practices; Not a Challenge to Major Challenge for obstacles)."
 
 **Key Findings (selected):**
-- num: Overall income utilization AWM=3.63 (Always), expense tracking AWM=3.48 (Always), savings AWM=3.49 (Always), financial planning AWM=3.57 (Always).
-- num: Financial liability AWM=3.27 (Major Challenge), income generation AWM=3.40 (Major Challenge).
-- num: Highest-ranked practice: setting financial goals (AWM=3.77).
-- num: Lowest-ranked practice: categorizing expenses into fixed vs variable costs (AWM=3.20).
-
-**Supports Odin (direct justifications):**
-- Micro-entrepreneurs struggle to categorize expenses into fixed and variable costs, justifying automated expense categorization in Odin.
-- High debt repayment pressure reduces capital for business needs, supporting a debt management module with repayment planning.
-- Low tendency to deposit savings in banks (AWM=3.22) indicates Odin should facilitate micro-savings accounts with low barriers.
+- "num: Overall income utilization AWM=3.63 (Always), expense tracking AWM=3.48 (Always), savings AWM=3.49 (Always), financial planning AWM=3.57 (Always)."
+- "num: Financial liability AWM=3.27 (Major Challenge), income generation AWM=3.40 (Major Challenge)."
+- "num: Highest-ranked practice: setting financial goals (AWM=3.77)."
+- "num: Lowest-ranked practice: categorizing expenses into fixed vs variable costs (AWM=3.20)."
 
 **Limitations / Contradictions for Odin:**
-- Single-site study (Maria Aurora Public Market) limits external validity.
-- Reliance on self-reported Likert scales may introduce social desirability and recall bias. [unacknowledged]
-- Mixed methods promised in introduction but only quantitative data collected; no qualitative triangulation. [unacknowledged]
+- "Single-site study (Maria Aurora Public Market) limits external validity."
+- "Reliance on self-reported Likert scales may introduce social desirability and recall bias. [unacknowledged]"
+- "Mixed methods promised in introduction but only quantitative data collected; no qualitative triangulation. [unacknowledged]"
 
 **Key takeaways:**
-- Income utilization discipline is high with AWM=3.63 (Always).
-- Managing multiple debts is the top financial liability challenge (AWM=3.42).
-- Only 3.22 AWM for depositing savings in banks shows low formal integration.
+- "Income utilization discipline is high with AWM=3.63 (Always)."
+- "Managing multiple debts is the top financial liability challenge (AWM=3.42)."
+- "Only 3.22 AWM for depositing savings in banks shows low formal integration."
 
 ---
 
@@ -179,181 +125,88 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Transaction categorization uses keyword matching against domain-specific dictionaries without manual labeling.
 
 **Key Findings (selected):**
-- num: Categorization accuracy of 86.2% with precision 0.88, recall 0.85, F1-score 0.86.
-- num: Forecasting MAE of 253.47 and RMSE of 318.91 over 30-day horizon.
+- "num: Categorization accuracy of 86.2% with precision 0.88, recall 0.85, F1-score 0.86."
+- "num: Forecasting MAE of 253.47 and RMSE of 318.91 over 30-day horizon."
 - System captures seasonal spending patterns and main spending variations.
 - User feedback from ten participants was mostly positive on interface intuitiveness and clarity.
 
-**Supports Odin (direct justifications):**
-- NLP with keyword matching achieves 86.2% accuracy for transaction categorization.
-- ARIMA model can forecast 30-day expenses with MAE 253.47.
-- Automated categorization reduces manual effort and improves financial awareness.
-
 **Limitations / Contradictions for Odin:**
-- Small sample size for user feedback (n=10) [unacknowledged]
-- Categorization depends on static keyword dictionaries, may not generalize to new transaction types.
-- No comparison with deep learning baselines for forecasting [unacknowledged]
+- "Small sample size for user feedback (n=10) [unacknowledged]"
+- "Categorization depends on static keyword dictionaries, may not generalize to new transaction types."
+- "No comparison with deep learning baselines for forecasting [unacknowledged]"
 
 **Key takeaways:**
-- NLP categorization achieved 86.2% accuracy on real transaction data.
-- ARIMA forecasting produced MAE of 253.47 for 30-day expenses.
-- Automated expense tracking reduces manual errors and improves awareness.
+- "NLP categorization achieved 86.2% accuracy on real transaction data."
+- "ARIMA forecasting produced MAE of 253.47 for 30-day expenses."
+- "Automated expense tracking reduces manual errors and improves awareness."
 
 ---
 
 
-## Proof of concept of centralized personal finance application
-**Filename:** `I--Sipila_summarized.md`  
-**Authors:** Sipilä, M. (2025)  
-**ID:** `5c3a2f1e-4b6d-4c8e-9a7b-2d1f3e4a5b6c`  
-**Odin Topics:** 3.A, 3.B, 4.A, 4.B, 12.A  
+## Development and Evaluation of My Money Manager: An Intelligent Mobile App for Personalized Financial Insight
+**Filename:** `I--Parameswaran-&-Saad_summarized.md`  
+**Authors:** Parameswaran, S.; Saad, S. Z. (2025)  
+**ID:** `10.32890/jdsd2025.3.2.9`  
+**Odin Topics:** 3.A, 3.B, 8.A, 9.A, 9.B, 12.A, 13.A  
 
-**TLDR:** Design and development of a centralized personal finance proof-of-concept application using DSRM, consolidating asset tracking, cash flow visualization, and automated reporting to reduce manual effort and errors for a stakeholder.
+**TLDR:** My Money Manager mobile app uses algorithmic expense categorization and 90-day spending analysis to provide personalized savings recommendations and anomaly detection, with a usability study showing high effectiveness in tracking and habit improvement.
 
-**Problem & Motivation:** Personal finance management is hindered by fragmented tools and manual processes that cause errors and scalability issues. Existing applications focus on narrow functions and lack centralized data integration. A proof-of-concept is needed to automate updates and provide unified financial oversight.
+**Problem & Motivation:** Existing personal finance apps lack intelligent analysis and personalized guidance, often offering generic one-size-fits-all advice that fails to account for individual spending patterns. Most apps do not differentiate fixed versus variable expenses or detect abnormal spending behaviors, leading to irrelevant recommendations.
 
 **Approach (summary):**
-- Followed Design Science Research Methodology (DSRM) with stakeholder questionnaire and iterative feedback.
-- Developed a Flutter frontend, .NET backend, and MongoDB database for asset tracking, cash flow, and PDF reports.
-- Integrated Google Sheets API for stock prices and HexaRate API for daily exchange rates.
+- Iterative and incremental development methodology with agile principles and user-centered design.
+- Android app following Model-View-Controller pattern and Material Design guidelines.
+- Key calculations: monthly income, expenses, savings, income/expense ratio, budget status, category expense, and category percentage.
 
 **Key Findings (selected):**
-- The proof-of-concept eliminated manual spreadsheet formula errors and reduced repetitive data entry.
-- Stakeholder reported high satisfaction with automated visualizations and PDF report generation.
-- All 'must have' functional requirements were met except authentication, which was deferred.
-- System improved data reliability and user confidence compared to fragmented baseline tools.
-
-**Supports Odin (direct justifications):**
-- Manual financial tracking systems are prone to errors and do not scale.
-- Automated data retrieval reduces user workload and improves data reliability.
-- Task-based testing is an effective evaluation method for PFM prototypes.
+- "num: 82.8% of users confirmed income and expense tracking was efficient and reliable."
+- "num: 74.3% reported the app encouraged them to manage finances more effectively."
+- "num: 71.4% agreed that financial insights helped guide their financial decision-making."
+- "num: 77.1% rated navigation, adding entries, and setting budgets as very easy (strongly agree)."
 
 **Limitations / Contradictions for Odin:**
-- No user authentication or authorization implemented, a critical security gap for financial data.
-- Full automation of bank/broker data fetching not achieved; still requires manual CSV or form input for transactions.
-- Evaluated with only one stakeholder, limiting external validity.
+- "Small sample size (n=35) limits statistical power and generalizability."
+- "No longitudinal follow-up to assess sustained behavior change or retention."
+- "Financial insights comprehension was problematic for 14.3% of users, but no redesign was tested. [unacknowledged]"
 
 **Key takeaways:**
-- Centralized PFM reduces error-prone manual consolidation across tools.
-- Automated stock price and exchange rate fetching saves significant time.
-- DSRM provides an effective structured process for prototype development.
+- "82.8% of users found income and expense tracking reliable."
+- "74.3% reported improved financial management habits."
+- "Only 37.1% strongly agreed financial insights were easy to understand."
 
 ---
 
 
-## Enhancing Financial Literacy in Young Adults: An Android-Based Personal Finance Management Tool
-**Filename:** `I--Imawan-et_al_summarized.md`  
-**Authors:** Imawan, R.; Putra, W. P.; Alqahtani, R.; Milakis, E. D.; Dumchykov, M. (2025)  
-**ID:** `10.58536/j-hytel.166`  
-**Odin Topics:** 3.A, 3.B, 9.A, 9.B, 11.A, 11.B, 12.A, 13.A  
+## Unraveling the Retirement Spending Habits in Siquijor, Philippines: Promoting Support Policies for Retirees
+**Filename:** `L--Mansueto-et_al_summarized.md`  
+**Authors:** Mansueto, R. R.; Juguilon, J. L. A.; Jumawan, R. C.; Pelegrin, M. A. L. (2025)  
+**ID:** `10.32996/jbms.2025.7.2.6`  
+**Odin Topics:** 2.A, 3.A, 3.B, 13.A, 13.B  
 
-**TLDR:** An Android-based personal finance management app for young adults features income/expense tracking, budgeting, goal setting, and notifications, achieving a 4.6/5 usability score.
+**TLDR:** Retirees in Siquijor prioritize utilities and groceries over housing, spend moderately on medications, and allocate little to emergency savings or insurance.
 
-**Problem & Motivation:** Young adults face unique financial challenges including limited experience and high online loan usage. Existing financial tools overlook the interactive, mobile-first needs of this demographic. Without targeted intervention, financial illiteracy may perpetuate debt and instability.
-
-**Approach (summary):**
-- Waterfall model used for systematic development with phases: requirements analysis, design, implementation, testing, deployment.
-- Requirements gathered via interviews and surveys with Indonesian higher education students to identify key processes like income/expense tracking and budget projection.
-- Application built with Laravel backend, Flutter frontend, and local SQLite database for offline functionality.
-
-**Key Findings (selected):**
-- num: Overall application satisfaction score of 4.6/5, rated 'Excellent'.
-- num: 78% of users rated likelihood of continued use at 4 or 5 on Likert scale.
-- num: Usability aspect scored 4.72, engagement 4.74, and functionality 4.70.
-- Users praised intuitive design, accurate tracking, and motivational reminders for consistent engagement.
-
-**Supports Odin (direct justifications):**
-- Mobile-first design with intuitive navigation achieves excellent usability scores (4.6/5).
-- Automated notifications encourage consistent financial tracking and habit formation.
-- Progress bars on financial goals motivate users to set and achieve savings targets.
-
-**Limitations / Contradictions for Odin:**
-- Short two-week evaluation period limits assessment of long-term habit formation.
-- Sample of 50 Indonesian university students may not represent all young adult populations.
-- No control group to isolate app effects from other factors [unacknowledged].
-
-**Key takeaways:**
-- Overall user satisfaction score of 4.6 out of 5.
-- Automated notifications reinforce consistent financial tracking habits.
-- Progress bars on financial goals increase user motivation.
-
----
-
-
-## Development of Budget Management System Using Visual Basic .NET and MySQL Database: A Desktop Application for Personal Financial Tracking
-**Filename:** `I--Janobe_summarized.md`  
-**Authors:** Janobe, J. (2025)  
-**ID:** `10.59431/jda.v4i1.660`  
-**Odin Topics:** 3.A, 3.B, 4.A, 4.B, 10.A, 10.B  
-
-**TLDR:** A desktop budget management system using Visual Basic .NET and MySQL enables offline income/expense tracking, automatic balance calculation, and local data storage for privacy.
-
-**Problem & Motivation:** Many individuals struggle with financial discipline due to limited access to reliable, private, and offline tools. Existing cloud-based solutions raise privacy concerns and require internet connectivity, while manual methods are error-prone. There is a need for a simple, secure, desktop-based budget management system that operates offline and respects user autonomy.
+**Problem & Motivation:** Financial literacy gaps leave many retirees unprepared for post-employment life. Understanding how retirees in Siquijor allocate financial resources is needed to inform policy interventions. This study addresses the lack of detailed spending pattern data for this population.
 
 **Approach (summary):**
-- The system was developed following the Software Development Life Cycle (SDLC) with Visual Basic .NET 2015 and MySQL 5.7.
-- It uses a two-tier client-server architecture with ADO.NET for database connectivity and the MySQL Connector/NET driver.
-- The database schema (db_budget) includes a transactions table with amount, transaction_type (Received/Expense), remarks, and transaction_date fields.
+- Purposive sample of 179 retirees permanently out of the workforce in Siquijor, Philippines.
+- Structured survey using Likert scale (1-5) to rate spending frequency across 14 expense categories.
+- Weighted mean and composite mean analysis to summarize spending frequency trends.
 
 **Key Findings (selected):**
-- num: Performance tests showed transaction operations under 0.5 seconds and data retrieval under 1 second for up to 5,000 entries.
-- The system accurately distinguishes income from expenses and calculates current balance with color-coded feedback (green for surplus, red for deficit).
-- Usability testing confirmed users of varying technical backgrounds completed all tasks successfully with minimal guidance.
-- The system operates fully offline, storing all data locally without internet dependency or subscription costs.
-
-**Supports Odin (direct justifications):**
-- Offline financial tracking systems can operate reliably without internet connectivity (Janobe, 2025).
-- Local data storage eliminates risks of cloud-based data breaches (Janobe, 2025).
-- Simple income/expense categorization with remarks suffices for basic personal finance tracking (Janobe, 2025).
+- "num: Utilities spending frequency weighted mean = 3.94 (Often), groceries = 3.80 (Often), housing = 3.02 (Seldom)."
+- "num: Prescription medications spending = 3.60 (Often), preventive care = 3.36 (Seldom)."
+- "num: Financial support to adult children/grandchildren = 3.46 (Often), gifting for occasions = 3.11 (Seldom)."
+- "num: Emergency funds allocation = 3.25 (Seldom), life insurance premiums = 2.92 (Seldom)."
 
 **Limitations / Contradictions for Odin:**
-- Manual installation process requires technical knowledge to configure MySQL via XAMPP [unacknowledged].
-- Single-user design prevents collaborative household budgeting (acknowledged).
-- No automated backup or export features (acknowledged).
+- "Sample size of 179 is moderate and purposive, not random."
+- "Self-reported data may introduce recall or social desirability bias."
+- "No longitudinal tracking; only cross-sectional snapshot."
 
 **Key takeaways:**
-- Offline operation with local storage preserves financial data privacy.
-- System processes 5,000 transactions with under 1 second retrieval time.
-- Simple income/expense tracking suffices for many users seeking control.
-
----
-
-
-## AI-Based Wealth Advisory System using Machine Learning and Predictive Analytics for Personalized Budget Planning
-**Filename:** `IA--Bhavana-et_al_summarized.md`  
-**Authors:** Bhavana, B. R.; Pavan, D.; Darshan, T. H. Guru (2025)  
-**ID:** `10.15662/IJARCST.2025.0805004`  
-**Odin Topics:** 3.A, 3.B, 6.A, 6.B, 7.A, 7.B, 7.C, 8.A, 8.B, 10.A, 10.B, 12.A, 12.B, 13.A  
-
-**TLDR:** An AI wealth advisory system integrates classification, forecasting, anomaly detection, and explainable AI to deliver personalized budget planning, achieving 95% anomaly detection accuracy and a 22% improvement in savings.
-
-**Problem & Motivation:** Most personal finance applications are reactive, limited to expense tracking without proactive wealth management or personalized AI-driven advice. A gap exists in consumer-centric financial advisory systems that are both predictive and interpretable, particularly for users with low financial literacy. This paper addresses the need for an intelligent system that combines forecasting, anomaly detection, and explainable recommendations to improve financial outcomes.
-
-**Approach (summary):**
-- Data sources include transaction logs, household expenditure surveys, and macroeconomic indicators from World Bank/IMF.
-- Preprocessing involves cleaning, normalization, NLP-based categorization (BERT), anonymization, and KNN imputation.
-- Classification uses XGBoost, Random Forest, and BERT; forecasting uses ARIMA, Prophet, LSTM, and Transformers in an ensemble.
-
-**Key Findings (selected):**
-- num: 95% anomaly detection accuracy achieved in pilot testing.
-- num: 22% improvement in savings among participants.
-- num: 78% of participants reported enhanced financial literacy.
-- num: Expense classification achieved 91% F1-score.
-
-**Supports Odin (direct justifications):**
-- AI-based wealth advisory systems can achieve 95% anomaly detection accuracy on personal transaction data.
-- Explainable AI methods like SHAP and LIME enhance user trust in personal finance systems.
-- Personalized budget recommendations using contextual bandits achieve 41% user adoption rate.
-
-**Limitations / Contradictions for Odin:**
-- Small pilot sample (100 users) limits statistical power and generalizability. [unacknowledged]
-- Paper does not specify the exact composition of transaction datasets, raising reproducibility concerns. [unacknowledged]
-- Potential bias in recommendation algorithms mentioned but not empirically mitigated. [acknowledged]
-
-**Key takeaways:**
-- Anomaly detection accuracy reached 95% in pilot testing.
-- Savings improved by 22% among system users.
-- Expense classification achieved 91% F1-score.
+- "Utilities (3.94) and groceries (3.80) are the top essential expenses for retirees."
+- "Emergency savings allocation is low at 3.25, indicating financial vulnerability."
+- "Financial support to grandchildren (3.46) is a key cultural spending category."
 
 ---
 
@@ -374,103 +227,20 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Receipt scanner uses Google Gemini 1.5 Flash with multimodal prompt extracting amount, merchant, category.
 
 **Key Findings (selected):**
-- num: Dashboard initial load 420ms to first meaningful content.
-- num: Receipt scan average 2.1 seconds with >92% accuracy (citing prior research).
-- num: Live portfolio fetch for 10 holdings in 1.4 seconds.
-- num: EMI schedule creation for 60 months takes 180ms DB round-trip.
-
-**Supports Odin (direct justifications):**
-- Multi-modal transformer models like Gemini achieve >92% OCR accuracy for receipts.
-- LSTM networks can forecast cash flow trajectories in personal finance apps.
-- LLAMA 3.1 70B with structured JSON prompts reduces hallucination for investment recommendations.
+- "num: Dashboard initial load 420ms to first meaningful content."
+- "num: Receipt scan average 2.1 seconds with >92% accuracy (citing prior research)."
+- "num: Live portfolio fetch for 10 holdings in 1.4 seconds."
+- "num: EMI schedule creation for 60 months takes 180ms DB round-trip."
 
 **Limitations / Contradictions for Odin:**
-- Geographical and regulatory focus on India limits external validity. [unacknowledged]
-- Dependency on third-party APIs (Yahoo Finance, MFAPI.in) introduces failure risk. [acknowledged]
-- Requires 3 months of user financial context for AI to provide accurate advice (cold-start). [acknowledged]
+- "Geographical and regulatory focus on India limits external validity. [unacknowledged]"
+- "Dependency on third-party APIs (Yahoo Finance, MFAPI.in) introduces failure risk. [acknowledged]"
+- "Requires 3 months of user financial context for AI to provide accurate advice (cold-start). [acknowledged]"
 
 **Key takeaways:**
-- Receipt scanner achieves sub-2.1s processing with >92% accuracy.
-- LLAMA 3.1 8B delivers sub-200ms intent classification.
-- Dashboard initial load at 420ms using SSR and Suspense.
-
----
-
-
-## Evaluating Budgeting Apps: Limited Support for Budgeting Compared to Tracking
-**Filename:** `I--Alenazi-&-Sas_summarized.md`  
-**Authors:** Alenazi, M.; Sas, C. (2023)  
-**ID:** `10.14236/ewic/BCSHCI2023.1`  
-**Odin Topics:** 3.A, 3.B, 4.A, 4.B, 7.A  
-
-**TLDR:** A functionality review of 45 top-rated budgeting apps finds that one third lack budgeting support and most fail to differentiate accounts and transactions as mental accounting theory suggests.
-
-**Problem & Motivation:** Digital budgeting apps are popular but little research has evaluated their functionality. The gap is understanding whether apps support budgeting informed by mental accounting theory beyond simple expense tracking.
-
-**Approach (summary):**
-- Searched Google Play and Apple Store UK with keywords 'budget', 'budgeting', 'finance' yielding 1335 apps.
-- Applied inclusion criteria: free, top-rated (≥4 stars, ≥1000 reviews), no bank access required, resulting in 45 apps.
-- Analyzed app descriptions and performed expert evaluation of all 45 apps on Android and 5 on iOS.
-
-**Key Findings (selected):**
-- num: 33 out of 45 apps support budgeting, but only 26 use multiple budgets (money envelopes).
-- num: 7 apps use a single budget for all expenses; 4 of the 26 apps offer multiple budgets only as a premium feature.
-- num: 44 apps support depositing funds, 45 support expenses, but only 11 support saving accounts.
-- num: 35 apps support transfer transactions between accounts.
-
-**Supports Odin (direct justifications):**
-- Budgeting apps often fail to differentiate between tracking expenses and monitoring against allocated budgets.
-- Only 58% of top-rated apps use multiple budgets (money envelopes) as mental accounting theory suggests.
-- Income and expense accounts are conflated in most budgeting apps, limiting accurate financial tracking.
-
-**Limitations / Contradictions for Odin:**
-- Expert evaluation may not reflect actual user behavior [unacknowledged].
-- Only UK app stores, limiting cultural generalizability to Filipino users [unacknowledged].
-- No evaluation of premium features or user engagement metrics [unacknowledged].
-
-**Key takeaways:**
-- One third of top budgeting apps lack proper budgeting support.
-- Only 26 of 45 apps use multiple money envelopes for budgeting.
-- Most apps conflate income and expense accounts.
-
----
-
-
-## AI Wealth Navigator: An Integrated Platform for Smart Budgeting, Financial Learning, and Personalized Policy Guidance
-**Filename:** `IA--Yadav-et_al_summarized.md`  
-**Authors:** Yadav, A.; Prakash, R. S.; Iqubal, S. M.; Gebremicahea, M. G. (0)  
-**ID:** `f5c8d3e6-9a4b-4c7d-8e2f-1a3b5c7d9e0f`  
-**Odin Topics:** 3.A, 3.B, 7.B, 7.C, 9.A, 9.B, 10.A, 10.B, 11.A, 11.B, 13.A  
-
-**TLDR:** AI Wealth Navigator integrates adaptive financial learning, AI-driven budget tracking with receipt scanning, and personalized government policy recommendations using LLMs into a single platform.
-
-**Problem & Motivation:** Personal finance apps remain fragmented, separating budgeting, education, and policy navigation. Users lack cohesive tools to maximize financial well-being, especially in regions with low financial literacy like India. Existing solutions fail to provide personalized, integrated guidance across all three domains.
-
-**Approach (summary):**
-- Built a web platform using Next.js, Supabase, Prisma, Inngest, and Arcjet for secure, scalable performance.
-- Integrated Gemini LLM for personalized financial recommendations and adaptive learning roadmaps based on user literacy and progress.
-- Developed an AI-powered budget tracker with receipt OCR (94% accuracy) and real-time visual insights.
-
-**Key Findings (selected):**
-- num: Receipt scanner achieved 94% accuracy on digital and physical receipts.
-- num: Over 70% of users discovered previously unknown government programs tailored to their profiles.
-- User ratings: budgeting insights 4.8/5, policy recommendations 4.7/5, learning roadmap 4.6/5.
-- Arcjet blocked all simulated security threats, ensuring data protection.
-
-**Supports Odin (direct justifications):**
-- Receipt scanning with AI achieves 94% accuracy, reducing manual entry errors.
-- Personalized policy recommendations increase user discovery of relevant government schemes by over 70%.
-- Integrating financial learning, budgeting, and policy guidance into one platform reduces fragmentation.
-
-**Limitations / Contradictions for Odin:**
-- Small sample size (50 users) for human evaluation, limiting generalizability.
-- No longitudinal study to measure retention or sustained behavior change.
-- Reliance on full user profiles for policy matching may raise privacy concerns (acknowledged as minor drawback by authors).
-
-**Key takeaways:**
-- Receipt OCR achieved 94% accuracy on digital and physical receipts.
-- Over 70% of users found new government schemes via policy engine.
-- Unified platform integrates budgeting, learning, and policy recommendations.
+- "Receipt scanner achieves sub-2.1s processing with >92% accuracy."
+- "LLAMA 3.1 8B delivers sub-200ms intent classification."
+- "Dashboard initial load at 420ms using SSR and Suspense."
 
 ---
 
@@ -491,15 +261,10 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Time series forecasting (ARIMA, LSTM) predicts future expenses and income for proactive planning.
 
 **Key Findings (selected):**
-- {'num': 'Expense classification accuracy rated 4.2/5 by users.'}
-- {'num': 'Overall user satisfaction score 4.4/5.'}
-- {'num': 'Ease of use rated 4.5/5.'}
+- num: Expense classification accuracy rated 4.2/5 by users.
+- num: Overall user satisfaction score 4.4/5.
+- num: Ease of use rated 4.5/5.
 - Predictive models struggle with irregular income and fluctuating spending patterns.
-
-**Supports Odin (direct justifications):**
-- Expense classification can be automated using Random Forest and SVM with text vectorization.
-- LSTM models predict future spending with lower MAE than ARIMA for irregular patterns.
-- Personalized budget recommendations improve user goal achievement by 4.3/5 rating.
 
 **Limitations / Contradictions for Odin:**
 - Models struggle with irregular income streams and fluctuating expenses.
@@ -530,20 +295,15 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Gemini LLM generates insights via RAG prompting with user spending summaries and anomaly scores.
 
 **Key Findings (selected):**
-- num: Weighted F1-score of 0.913 across 18 spending categories.
-- num: Manual expense-logging effort reduced by approximately 78% compared to conventional approaches.
+- "num: Weighted F1-score of 0.913 across 18 spending categories."
+- "num: Manual expense-logging effort reduced by approximately 78% compared to conventional approaches."
 - High-frequency categories (Food & Dining, Transport, Utilities) achieve F1 above 0.95.
 - 84% of pilot users found AI-generated insights useful or very useful.
 
-**Supports Odin (direct justifications):**
-- XGBoost with temporal features achieves 91.3% weighted F1-score for transaction categorization.
-- LLM-generated insights using RAG are rated useful by 84% of users.
-- Prophet forecasting requires at least 3 months of historical data for reliable predictions.
-
 **Limitations / Contradictions for Odin:**
-- {'Cold-start problem': 'categorization accuracy lower for new users with fewer than 50 transactions.'}
-- {'LLM hallucination risk': 'Gemini may generate imprecise guidance despite RAG.'}
-- {'Manual data entry dependency': 'users may not maintain complete records without banking API.'}
+- Cold-start problem: categorization accuracy lower for new users with fewer than 50 transactions.
+- LLM hallucination risk: Gemini may generate imprecise guidance despite RAG.
+- Manual data entry dependency: users may not maintain complete records without banking API.
 
 **Key takeaways:**
 - XGBoost achieves 91.3% F1-score for transaction categorization.
@@ -553,9 +313,9 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## 📌 Note for the Agent
+## Note for the Agent
 
-The summaries above contain **essential extracts** – enough to understand the paper's relevance to Odin, including supporting evidence and limitations.
+The summaries above contain **essential extracts** – enough to understand each paper's relevance to Odin, including supporting evidence and limitations.
 If you need additional details not shown here (e.g., **critical citations, definitions, equations, full methodology, or the complete mapping rationale**),
 **ask the user to send the original summary file (`<filename>_summarized.md`) or the converted MarkItDown file(`<filename>_marked.md`)** for the specific paper(s) of interest.
 Do not invent missing information. Acknowledge gaps when they exist.

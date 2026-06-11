@@ -1,86 +1,42 @@
 # Comprehensive Report for Subtopic: `11.A`
 
-**Total relevant papers:** 26
+**Total files:** 23
 
 This report includes problem/motivation, approach, key findings, support for Odin, and limitations/contradictions.
 
 ---
 
 
-## Psychology and Development: Applications from Cognitive and Social Psychology
-**Filename:** `I--Breza-&-Kaur_summarized.md`  
-**Authors:** Breza, E.; Kaur, S. (2026)  
-**ID:** `a1b2c3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d`  
-**Odin Topics:** 5.A, 5.C, 6.A, 6.B, 7.A, 7.B, 8.A, 11.A, 13.A, 13.B  
+## Financial Education in the Age of Artificial Intelligence: A Systematic Review with Text Mining and Natural Language Processing
+**Filename:** `IA--Balcazar-Paiva-et_al_summarized.md`  
+**Authors:** Balcazar-Paiva, E. S.; Haro-Sarango, A. F.; Villanueva-Calderón, J. A. (2026)  
+**ID:** `10.3390/ijfs14030076`  
+**Odin Topics:** 4.A, 4.B, 5.A, 10.A, 10.B, 11.A, 12.A  
 
-**TLDR:** Reviews how psychological constraints like self-control and limited cognition affect financial behaviors, and argues that missing markets for behavioral aids amplify poverty, informing personal finance system design.
+**TLDR:** AI integration in financial education enables personalization and virtual tutoring but lacks longitudinal evidence and standardized metrics, with ethical concerns over privacy and bias.
 
-**Problem & Motivation:** Development economics has focused on external constraints like missing markets, but internal psychological constraints also impede escaping poverty. These biases are amplified in developing countries due to proximity to subsistence, high volatility, weak institutions, and reliance on social ties. The paper reviews evidence across self-control, cognition, mental health, self-beliefs, and social norms to outline a research agenda for behavioral development economics.
-
-**Approach (summary):**
-- Provides a conceptual framework using missing markets to explain why behavioral aids are undersupplied.
-- Identifies five key features of poverty that amplify psychological constraints: subsistence proximity, volatility, market failures, weak institutions, social ties.
-- Reviews field experiments on self-control, including hard commitment (e.g., savings accounts) and soft commitment (e.g., lockboxes, reminders).
-
-**Key Findings (selected):**
-- num: 81% increase in total savings from a commitment savings account in the Philippines (Ashraf et al., 2006).
-- num: Adding a social monitor increased savings by 36% in rural India (Breza and Chandrasekhar, 2019).
-- num: 97.7% of farmers intend to use fertilizer but only 36.4% actually do (Duflo et al., 2011).
-- num: 86% of individuals overpredict their savings, with average forecast error of 80% (Augenblick et al., 2023).
-
-**Supports Odin (direct justifications):**
-- People systematically underestimate irregular future expenses, leading to overconsumption and savings failures.
-- Small transaction costs or physical actions (e.g., unlocking a lockbox) can effectively reduce temptation spending.
-- Social observability of savings goals increases actual savings by 36% via reputation concerns.
-
-**Limitations / Contradictions for Odin:**
-- The literature on psychology of poverty has mixed replication, especially for priming manipulations.
-- Most studies are short-term; long-run welfare effects of commitment devices remain unclear. [unacknowledged]
-- The review does not provide precise meta-analytic estimates, limiting quantification of effect sizes.
-
-**Key takeaways:**
-- Commitment savings accounts increased savings by 81% in a Philippine field experiment.
-- Soft commitment like lockboxes can be as effective as hard financial penalties.
-- Financial concerns reduce cognitive performance and worker productivity by 7%.
-
----
-
-
-## RFM-Net: A Convolutional Neural Network for Customer Segment Classification
-**Filename:** `IA--Balbal-&-Birant_summarized.md`  
-**Authors:** Balbal, K. F.; Birant, D. (2026)  
-**ID:** `10.3390/app16052223`  
-**Odin Topics:** 5.A, 5.C, 11.A  
-
-**TLDR:** RFM-Net integrates Recency, Frequency, Monetary analysis with a lightweight CNN to classify customers into seven strategic segments, achieving 94.33% accuracy on an online retail dataset.
-
-**Problem & Motivation:** Traditional RFM-based segmentation relies on rule-based logic that may miss nonlinear patterns in customer behavior. Clustering and statistical methods often provide static groupings lacking adaptability. A deep learning approach that preserves interpretability while capturing complex relationships is needed.
+**Problem & Motivation:** The convergence of AI and financial education lacks integrative synthesis despite rapid growth. Existing literature is fragmented without unifying frameworks articulating pedagogical principles with technical capabilities. Ethical and social implications remain underexplored, especially in vulnerable settings.
 
 **Approach (summary):**
-- Used the Online Retail dataset (541,909 records) from a UK-based company.
-- Computed RFM features (Recency, Frequency, Monetary) per customer and discretized into 1–5 scores using domain thresholds.
-- Generated segment labels (Champions, Loyal, etc.) via rule-based logic from RFM scores.
+- Systematic review following PRISMA 2020 guidelines.
+- Searched Scopus, ScienceDirect, and Taylor & Francis (388 initial records, 50 included).
+- Combined bibliometric mapping (VOSviewer) with NLP sentiment analysis.
 
 **Key Findings (selected):**
-- RFM-Net achieved 94.33% weighted accuracy across 10 folds.
-- num: 13.17% relative average increase in accuracy over previously reported methods on the same dataset.
-- Recency was the most important feature (importance 0.5358), followed by Frequency (0.4217) and Monetary (0.2642).
-- The model performed best on Potential Loyalists (96.9% correct) and Champions (94.3%).
-
-**Supports Odin (direct justifications):**
-- A shallow CNN with 6,823 parameters achieves high accuracy on RFM data with minimal overfitting.
-- Recency is the strongest predictor of customer engagement, more than frequency or monetary value.
-- Seven distinct behavioral segments (Champions to Hibernating) can be derived from RFM scores.
+- "num: 388 initial records reduced to 50 included studies."
+- AI acts as central organizing axis connecting education, finance, and health.
+- "num: Sentiment analysis shows predominantly neutral technical tone with slight positive tilt (sentiment_index mean 0.049)."
+- Longer abstracts correlate with more methodological caution and negativity.
 
 **Limitations / Contradictions for Odin:**
-- Dataset consists of UK retail transactions only; may not reflect financial behaviors of Filipino young professionals. [unacknowledged]
-- Segment labels are derived from the same RFM scores used as features, creating circular dependency.
-- The model only uses three features (R,F,M); additional demographic or cultural factors could improve accuracy.
+- "Search restricted to three databases, missing gray literature and manual reference searching [acknowledged]."
+- "Sentiment analysis tools (VADER, TextBlob) less reliable in Spanish [acknowledged]."
+- "Lack of standardized metrics across studies prevents meta-analysis [acknowledged]."
 
 **Key takeaways:**
-- RFM-Net classifies customers with 94.33% accuracy using only three features.
-- Recency is the most important predictor of customer engagement.
-- A shallow CNN with 6,823 parameters avoids overfitting on tabular data.
+- "AI in financial education shows neutral technical tone with slight optimism."
+- "Longer abstracts include more caution about ethics and risks."
+- "Sentiment_index mean 0.049 indicates mild positive framing."
 
 ---
 
@@ -96,20 +52,15 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Problem & Motivation:** A substantial portion of the global population lacks basic financial literacy, making them vulnerable to poor investment choices. Traditional financial education methods fail to produce lasting behavioral change. AI and ML offer personalized, adaptive solutions, but their integration into personal finance faces gaps in explainability, trust, and ethical design.
 
 **Approach (summary):**
-- {'Mixed-methods design with three phases': 'tool analysis of 20 AI-driven financial platforms, survey of 524 users (aged 18-50, minimum 3 months usage), and semi-structured interviews with 33 participants.'}
+- Mixed-methods design with three phases: tool analysis of 20 AI-driven financial platforms, survey of 524 users (aged 18-50, minimum 3 months usage), and semi-structured interviews with 33 participants.
 - Quantitative measures included pre/post financial literacy scores (OECD/INFE framework), investment confidence (5-point Likert), and AI engagement scores.
-- {'Analytical techniques': 'paired t-tests, Pearson correlation, regression, and cluster analysis using SPSS and Python.'}
+- Analytical techniques: paired t-tests, Pearson correlation, regression, and cluster analysis using SPSS and Python.
 
 **Key Findings (selected):**
-- {'num': 'Mean financial literacy score increased 1.1 points (from 5.5 to 6.6, p < 0.01) after AI tool use.'}
-- {'num': 'Over 65% of users reported high investment confidence (levels 4 or 5) post-intervention.'}
-- {'num': 'Correlation between AI engagement and literacy gain was r = 0.31 (moderate positive).'}
-- {'num': 'Users with >5 weekly sessions achieved the highest literacy gain of 1.46 points.'}
-
-**Supports Odin (direct justifications):**
-- Higher AI engagement leads to greater financial literacy improvement (r = 0.31).
-- Users who interact with AI tools more than five times per week show the highest knowledge gains (1.46 points).
-- Over 65% of users report high investment confidence after using AI-driven financial tools.
+- num: Mean financial literacy score increased 1.1 points (from 5.5 to 6.6, p < 0.01) after AI tool use.
+- num: Over 65% of users reported high investment confidence (levels 4 or 5) post-intervention.
+- num: Correlation between AI engagement and literacy gain was r = 0.31 (moderate positive).
+- num: Users with >5 weekly sessions achieved the highest literacy gain of 1.46 points.
 
 **Limitations / Contradictions for Odin:**
 - Sample bias toward digitally literate users, limiting generalizability to older or tech-averse populations. [unacknowledged]
@@ -120,84 +71,6 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - AI tools improved financial literacy scores by 1.1 points on average.
 - Higher usage frequency (5+ sessions/week) yields 1.46 point literacy gain.
 - Over 65% of users reported high investment confidence post-intervention.
-
----
-
-
-## Human-AI Collaboration in Customer Behavior Research: Personalizing Financial Services
-**Filename:** `I--Duvalla_summarized.md`  
-**Authors:** Duvalla, V. R. (2025)  
-**ID:** `10.32996/jcsts.2025.7.4.12`  
-**Odin Topics:** 5.A, 5.C, 6.A, 10.A, 10.B, 11.A, 11.B  
-
-**TLDR:** Human-AI collaboration in financial services uses machine learning to process transaction data while human experts interpret cultural and socioeconomic factors, enabling personalized segmentation, recommendations, and retention.
-
-**Problem & Motivation:** Financial institutions face data fragmentation, organizational readiness gaps, and regulatory compliance hurdles that impede effective personalization. The disparity between strategic intention and operational execution remains a critical gap. Human-AI collaborative frameworks address these challenges by combining computational pattern recognition with human contextual intelligence.
-
-**Approach (summary):**
-- The paper proposes a framework where AI models (clustering, neural networks, temporal pattern mining) process large transactional datasets from millions of accounts.
-- Human experts provide interpretive insights on socioeconomic and cultural nuances through human-in-the-loop refinement processes with bidirectional knowledge flows.
-- A case study of JP Morgan Chase uses API-based integration, confidence-based escalation, and omnichannel orchestration across mobile, web, ATM, and branches.
-
-**Key Findings (selected):**
-- num: Advanced clustering algorithms identify up to 15 distinct behavioral segments versus 4-5 segments with conventional methods.
-- num: Omnichannel orchestration yields 59% higher customer satisfaction scores compared to siloed channel-specific approaches.
-- num: JP Morgan Chase's human-AI platform achieved 94% higher engagement with financial wellness recommendations than previous approaches.
-- Human-in-the-loop refinement improves model prediction accuracy beyond fully automated or purely human-driven systems.
-
-**Supports Odin (direct justifications):**
-- Human-guided AI models achieve higher accuracy in predicting customer financial needs than fully automated systems.
-- Financial customers express significant concerns about opacity of AI-driven decisions, requiring explainable AI like SHAP and LIME.
-- Federated learning achieves predictive accuracy of centralized models while keeping sensitive financial data in local secure environments.
-
-**Limitations / Contradictions for Odin:**
-- The paper is a conceptual review without primary empirical validation of its proposed framework. [unacknowledged]
-- All quantitative findings are cited from secondary sources, not original experiments. [unacknowledged]
-- Implementation costs, latency, and scalability constraints of federated learning in real-time banking are not discussed. [unacknowledged]
-
-**Key takeaways:**
-- Human-AI collaboration improves personalization accuracy over pure automation or human-only approaches.
-- Advanced clustering identifies up to 15 behavioral segments versus 4-5 conventional methods.
-- Federated learning enables privacy-preserving personalization without data centralization.
-
----
-
-
-## How reinforcement learning can drive personalized financial wellness
-**Filename:** `IA--Pandey-&-Awasthi_summarized.md`  
-**Authors:** Pandey, V.; Awasthi, V. (2025)  
-**ID:** `10.30574/ijsra.2025.15.1.1244`  
-**Odin Topics:** 4.B, 5.A, 5.B, 5.C, 7.A, 7.B, 7.C, 11.A, 12.A, 12.B, 13.A  
-
-**TLDR:** Reinforcement learning with DQN, user persona clustering, and GPT-based conversation produces personalized financial recommendations that improve savings outcomes in a simulated environment.
-
-**Problem & Motivation:** Financial wellness is a pervasive challenge; many individuals struggle with saving, investing, and budgeting effectively. Traditional budgeting tools and robo-advisors provide generic advice that fails to account for individual behavior and needs. This gap motivates an integrated framework combining RL, behavioral analytics, and NLP to deliver real-time personalized guidance.
-
-**Approach (summary):**
-- Synthetic dataset of 300 users with income and saving rate generated to simulate diverse financial behaviors.
-- K-means clustering (k=3) creates interpretable personas: low-income low-saver, mid-income moderate-saver, high-income high-saver.
-- Personal finance management formulated as Markov Decision Process with state (month, savings) and 6 discrete saving actions ($0 to $50).
-
-**Key Findings (selected):**
-- num: Learned policy achieved average final savings of $450 across simulations, compared to baseline 2 (always save $50) at $564 and baseline 1 negative.
-- RL agent learns to save aggressively near year-end and after shocks to recover from debt.
-- K-means clustering produces well-separated personas that can inform policy specialization.
-- GPT-4 generates empathetic, personalized responses that incorporate persona context and RL recommendations.
-
-**Supports Odin (direct justifications):**
-- Reinforcement learning can learn personalized saving policies that outperform static baselines.
-- User persona clustering via K-means enables initial policy customization for different financial behaviors.
-- Conversational AI can translate quantitative RL recommendations into empathetic, context-aware advice.
-
-**Limitations / Contradictions for Odin:**
-- Synthetic data limits external validity.
-- Action space limited to saving amounts, excluding debt and investment choices.
-- No real-world deployment or user study. [unacknowledged]
-
-**Key takeaways:**
-- DQN agent achieved $450 average savings in simulation.
-- K-means clusters users by income and saving rate into three personas.
-- Conversational GPT explains RL recommendations naturally.
 
 ---
 
@@ -223,20 +96,15 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - SHAP provides local interpretability for individual nudge decisions with formal fairness guarantees.
 - Modular event-driven architecture enables scalability, fault isolation, and auditability for financial applications.
 
-**Supports Odin (direct justifications):**
-- Explainable AI increases user trust and behavioral compliance in financial nudging systems.
-- Contextual triggers such as time, location, and prior habits increase user engagement.
-- SHAP provides local interpretability for individual nudge decisions with formal guarantees.
-
 **Limitations / Contradictions for Odin:**
-- Synthetic dataset may not generalize to real-world user behavior. [unacknowledged]
-- No user study or empirical validation of trust or engagement metrics. [unacknowledged]
-- SHAP computational cost and caching overhead acknowledged but not fully solved.
+- "Synthetic dataset may not generalize to real-world user behavior. [unacknowledged]"
+- "No user study or empirical validation of trust or engagement metrics. [unacknowledged]"
+- "SHAP computational cost and caching overhead acknowledged but not fully solved."
 
 **Key takeaways:**
-- Explainability is critical for user trust in automated finance.
-- Context-aware triggers (time, location, habits) increase engagement.
-- SHAP provides fair, locally interpretable explanations for nudges.
+- "Explainability is critical for user trust in automated finance."
+- "Context-aware triggers (time, location, habits) increase engagement."
+- "SHAP provides fair, locally interpretable explanations for nudges."
 
 ---
 
@@ -257,25 +125,20 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Comparative analysis of model performance using metrics such as AUC, RMSE, accuracy, precision, recall, and F1-score.
 
 **Key Findings (selected):**
-- num: Random forest with ensemble feature selection achieved 99.6% accuracy and 100% precision in credit card fraud detection.
-- num: XGBoost consistently outperformed deep neural networks across 10 credit scoring datasets, achieving highest AUC and efficiency.
-- num: CNN reduced fraud detection cost of failure by 30% and achieved 87.64% AUC on European dataset.
-- num: GCN achieved 94.5% fraud detection accuracy, outperforming CNN (93%) by improving recall by 10% via graph-based user relationship analysis.
-
-**Supports Odin (direct justifications):**
-- Random forest with ensemble feature selection achieves 99.6% accuracy for fraud detection, suitable for Odin anomaly detection.
-- LSTM improves expense forecasting accuracy by 30% over traditional regression models.
-- AI personalization increases user engagement by 27% and retention by 15% in personal finance apps.
+- "num: Random forest with ensemble feature selection achieved 99.6% accuracy and 100% precision in credit card fraud detection."
+- "num: XGBoost consistently outperformed deep neural networks across 10 credit scoring datasets, achieving highest AUC and efficiency."
+- "num: CNN reduced fraud detection cost of failure by 30% and achieved 87.64% AUC on European dataset."
+- "num: GCN achieved 94.5% fraud detection accuracy, outperforming CNN (93%) by improving recall by 10% via graph-based user relationship analysis."
 
 **Limitations / Contradictions for Odin:**
-- Review primarily cites papers up to 2024; rapid ML/DL advances may render some comparisons outdated. [unacknowledged]
-- Performance metrics are aggregated across heterogeneous datasets, making direct apples-to-apples comparisons difficult. [unacknowledged]
-- The review does not address computational resource constraints of mobile-first deployment, which is critical for Odin. [unacknowledged]
+- "Review primarily cites papers up to 2024; rapid ML/DL advances may render some comparisons outdated. [unacknowledged]"
+- "Performance metrics are aggregated across heterogeneous datasets, making direct apples-to-apples comparisons difficult. [unacknowledged]"
+- "The review does not address computational resource constraints of mobile-first deployment, which is critical for Odin. [unacknowledged]"
 
 **Key takeaways:**
-- XGBoost outperforms deep learning for credit scoring across 10 datasets.
-- Random forest achieves 99.6% fraud detection accuracy with feature selection.
-- AI personalization lifts user engagement by 27% and retention by 15%.
+- "XGBoost outperforms deep learning for credit scoring across 10 datasets."
+- "Random forest achieves 99.6% fraud detection accuracy with feature selection."
+- "AI personalization lifts user engagement by 27% and retention by 15%."
 
 ---
 
@@ -293,340 +156,193 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Approach (summary):**
 - Systematic literature review following PRISMA 2020 guidelines across seven databases (JSTOR, ERIC, Scopus, Google Scholar, OECD iLibrary, World Bank, ProQuest).
 - Included 47 peer-reviewed empirical studies from 25 countries published 2015-2025, with participants aged 18-30 (total n>250,000).
-- {'Used thematic synthesis with three-stage approach': 'line-by-line coding, descriptive theme development, and analytical theme generation.'}
+- Used thematic synthesis with three-stage approach: line-by-line coding, descriptive theme development, and analytical theme generation.
 
 **Key Findings (selected):**
-- num: 78% of university students rated financial knowledge as good/excellent but only 34% could answer basic literacy questions (Germany).
-- num: Pandemic experiences increased financial literacy awareness scores by 28% (US longitudinal study).
-- num: Young women 40% more likely to respond 'don't know' to financial questions despite equal knowledge (15-country study).
+- "num: 78% of university students rated financial knowledge as good/excellent but only 34% could answer basic literacy questions (Germany)."
+- "num: Pandemic experiences increased financial literacy awareness scores by 28% (US longitudinal study)."
+- "num: Young women 40% more likely to respond 'don't know' to financial questions despite equal knowledge (15-country study)."
 - Family financial socialization dominates formal education, with open family discussions correlating with 45% higher financial confidence.
 
-**Supports Odin (direct justifications):**
-- Financial literacy perceptions among young adults are characterized by an awareness-confidence paradox where knowledge gaps coexist with overconfidence.
-- Family financial socialization has stronger influence on youth financial capability than formal education.
-- Gender stereotypes widen financial confidence gaps, with young women 40% more likely to respond 'don't know' despite equal knowledge.
-
 **Limitations / Contradictions for Odin:**
-- English-language publication bias may exclude relevant research from non-English speaking countries. [unacknowledged]
-- Heterogeneity in financial literacy measures across studies limits comparability. [acknowledged]
-- Rapid digital financial innovation may outdate some findings. [unacknowledged]
+- "English-language publication bias may exclude relevant research from non-English speaking countries. [unacknowledged]"
+- "Heterogeneity in financial literacy measures across studies limits comparability. [acknowledged]"
+- "Rapid digital financial innovation may outdate some findings. [unacknowledged]"
 
 **Key takeaways:**
-- Young adults show an awareness-confidence paradox: high self-rated but low actual financial literacy.
-- Family discussions about money increase financial confidence by 45% regardless of parents' knowledge.
-- Only 15-20% of youth who plan to learn about finances actually take action within a year.
+- "Young adults show an awareness-confidence paradox: high self-rated but low actual financial literacy."
+- "Family discussions about money increase financial confidence by 45% regardless of parents' knowledge."
+- "Only 15-20% of youth who plan to learn about finances actually take action within a year."
 
 ---
 
 
-## Personal Financial Information Presentation and Consumer Spending
-**Filename:** `I--Levi_summarized.md`  
-**Authors:** Levi, Y. (2025)  
-**ID:** `9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d`  
-**Odin Topics:** 5.A, 7.A, 7.B, 11.A, 13.A  
+## Consumer's Financial Habits on Server-Based Electronic Money as It Affects Their Financial Behavior: Moderated By Monthly Transactions
+**Filename:** `L--Torres-et_al-2025a_summarized.md`  
+**Authors:** Torres, R. C.; Olaivar, G. M.; Britanico, S. I. (2025)  
+**ID:** `10.1145/3785171.3785192`  
+**Odin Topics:** 1.C, 5.A, 11.A  
 
-**TLDR:** Presenting net worth as a monthly cash flow under a consumption frame with a salient spending comparison reduces discretionary spending by 15% in a field experiment.
+**TLDR:** Saving, spending, donating, and investing habits significantly influence financial behavior among GCash users in the Philippines, with monthly transaction frequency moderating only the spending-behavior relationship.
 
-**Problem & Motivation:** Consumers exhibit strong spending habits and inertia, yet existing savings tools like financial education and tax subsidies are costly or benefit only the wealthy. It is unclear whether simple changes in information presentation within online financial apps can influence spending without altering economic variables.
+**Problem & Motivation:** The rapid adoption of e-wallets like GCash in the Philippines has transformed consumer payment behavior, but the specific financial habits (saving, spending, donating, investing, credit) driving overall financial behavior on these platforms remain underexplored. Understanding how transaction frequency moderates these relationships is critical for designing effective financial management tools and promoting responsible digital finance.
 
 **Approach (summary):**
-- Randomized field experiment with 3,138 users of an online account aggregation app over 25 months.
-- Users received a personalized index converting net worth to inflation-protected lifetime monthly cash flow.
-- Treatments varied index framing (Financial Sustainability Index with fear appeal vs. neutral Life Annuity Index) and salience (context plot comparing index to historical spending vs. no plot).
+- Quantitative survey of 300 purposively sampled Filipino GCash users aged 18-60.
+- Five financial habit predictors (saving, spending, donating, investing, credit/loan) measured via 5‑point Likert scales.
+- Multiple regression and moderation analysis using interaction term (spending × monthly transactions) grounded in Theory of Planned Behavior.
 
 **Key Findings (selected):**
-- num: Users exposed to consumption frame (FSI) and context plot reduced discretionary spending by 15% relative to control.
-- num: Effect persisted for 8 months after experiment removal, with gradual convergence after 9 months.
-- num: Restaurant spending fell 14%, clothing 20%, entertainment 14%, travel 24%, and cash withdrawals 25%.
-- No significant change in non-discretionary categories (gas, groceries, utilities).
-
-**Supports Odin (direct justifications):**
-- Presenting net worth as monthly cash flow under a consumption frame reduces discretionary spending by 15%.
-- A salient comparison between the index and past spending is necessary for the framing effect to work.
-- The spending reduction persists for months after the treatment is removed.
+- num: Investment habit had the strongest positive effect on financial behavior (β=0.243, p<0.001).
+- num: Saving (β=0.178), spending (β=0.115), and donating (β=0.144) habits also significantly influenced financial behavior (p≤0.003).
+- Credit/loan habit showed no significant effect (β=-0.003, p=0.955).
+- num: Monthly transaction frequency significantly moderated only the spending‑behavior relationship (β=-0.163, p<0.001).
 
 **Limitations / Contradictions for Odin:**
-- Data may not include all consumer accounts, potentially offsetting spending changes in unobserved accounts.
-- Net worth estimation omits real estate and some retirement or debt accounts, biasing the personalized index.
-- Sample is wealthier than average U.S. population, limiting generalizability to lower-income users.
+- "Cross‑sectional data; causal claims cannot be made. [unacknowledged]"
+- "Purposive sampling may introduce selection bias. [unacknowledged]"
+- "Self‑report measures subject to social desirability and recall bias. [unacknowledged]"
 
 **Key takeaways:**
-- A 15% reduction in discretionary spending lasted 8 months after treatment removal.
-- Consumption frame and salient context together drive behavior change.
-- Effect strongest on tempting categories like restaurants and clothing.
+- "Investment habits had the strongest impact on financial behavior (β=0.243)."
+- "Monthly transaction frequency intensifies the effect of spending habits on behavior."
+- "Credit and loan habits showed no significant influence among GCash users."
 
 ---
 
 
-## Buy-Now-Pay-Later Adoption, Debt Stress, and Repurchase Intention among Filipinos Gen Z Consumers: The Mediating Role of Budgeting Self-Efficacy
-**Filename:** `L--Romero_summarized.md`  
-**Authors:** Romero, M. A. (2025)  
-**ID:** `b3c5d7e9-f1a2-4b6c-8d0e-9f1a2b3c4d5e`  
-**Odin Topics:** 1.C, 5.A, 11.A, 11.B, 13.B  
-
-**TLDR:** BNPL adoption among Filipino Gen Z consumers increases repurchase intention but also raises debt stress, while budgeting self-efficacy and transparency mitigate negative outcomes.
-
-**Problem & Motivation:** BNPL services expand rapidly in Southeast Asia but create tension between purchase convenience and consumer welfare risks. Gen Z consumers face high digital shopping frequency and limited financial buffers, yet mechanisms linking BNPL adoption to stress and repurchase are unclear. This study identifies debt stress and budgeting self-efficacy as explanatory pathways for Filipino youth.
-
-**Approach (summary):**
-- Survey of 602 Filipino Gen Z BNPL users who had used the service at least twice in three months.
-- Constructs measured: perceived convenience, promotional attractiveness, transparency, adoption intensity, budgeting self-efficacy, debt stress, repurchase intention.
-- Partial Least Squares Structural Equation Modeling (PLS-SEM) with bootstrapping for mediation analysis.
-
-**Key Findings (selected):**
-- Perceived convenience, promotional attractiveness, and transparency are positively associated with BNPL adoption intensity.
-- BNPL adoption intensity is positively associated with repurchase intention and also positively associated with debt stress.
-- Debt stress is negatively associated with repurchase intention.
-- Budgeting self-efficacy reduces debt stress and strengthens repurchase intention.
-
-**Supports Odin (direct justifications):**
-- BNPL adoption intensity increases repurchase intention directly but also increases debt stress.
-- Budgeting self-efficacy reduces debt stress and strengthens repurchase intention.
-- Perceived transparency strengthens budgeting self-efficacy and indirectly reduces debt stress.
-
-**Limitations / Contradictions for Odin:**
-- Cross-sectional design restricts temporal inference about how debt stress accumulates over repeated BNPL use. [acknowledged]
-- Reliance on self-reported measures may introduce common method bias. [acknowledged]
-- No objective transaction data to validate adoption intensity. [acknowledged]
-
-**Key takeaways:**
-- Survey of 602 Filipino Gen Z consumers shows BNPL adoption increases repurchase intention and debt stress.
-- Budgeting self-efficacy buffers debt stress and supports healthier repurchase behavior.
-- Transparency in fees and due dates strengthens self-efficacy and reduces harmful outcomes.
-
----
-
-
-## DIGITIZATION IN RETAIL BANKING: A REVIEW OF CUSTOMER ENGAGEMENT AND FINANCIAL PRODUCT ADOPTION IN SOUTH ASIA
+## "DIGITIZATION IN RETAIL BANKING: A REVIEW OF CUSTOMER ENGAGEMENT AND FINANCIAL PRODUCT ADOPTION IN SOUTH ASIA"
 **Filename:** `I--Koswar-et_al_summarized.md`  
-**Authors:** Kowsar, M. M.; Islam, S.; Mohiuddin, M.; Siddiqui, N. A. (2025)  
+**Authors:** "Kowsar, M. M.; Islam, S.; Mohiuddin, M.; Siddiqui, N. A." (2025)  
 **ID:** `10.63125/cv50rf30`  
 **Odin Topics:** 4.A, 4.B, 8.A, 9.A, 9.B, 10.A, 10.B, 11.A, 11.B, 13.A, 13.B  
 
-**TLDR:** A systematic review of 84 studies finds that mobile infrastructure, AI-driven personalization, and behavioral nudges enhance customer engagement and financial product adoption in South Asian retail banking, though digital divides persist.
+**TLDR:** "A systematic review of 84 studies finds that mobile infrastructure, AI-driven personalization, and behavioral nudges enhance customer engagement and financial product adoption in South Asian retail banking, though digital divides persist."
 
-**Problem & Motivation:** Digitization transforms retail banking but region-specific evidence for South Asia is scarce. Understanding how mobile banking and fintech affect customer engagement and product adoption is critical for inclusive financial growth. This review synthesizes fragmented literature to identify drivers and barriers.
+**Problem & Motivation:** "Digitization transforms retail banking but region-specific evidence for South Asia is scarce. Understanding how mobile banking and fintech affect customer engagement and product adoption is critical for inclusive financial growth. This review synthesizes fragmented literature to identify drivers and barriers."
 
 **Approach (summary):**
-- Followed PRISMA 2020 systematic review methodology.
-- Searched Scopus, Web of Science, JSTOR, EBSCOhost, ProQuest, Google Scholar, and institutional repositories.
-- Used Boolean keyword combinations on digital banking, engagement, product adoption, and South Asia.
+- "Followed PRISMA 2020 systematic review methodology."
+- "Searched Scopus, Web of Science, JSTOR, EBSCOhost, ProQuest, Google Scholar, and institutional repositories."
+- "Used Boolean keyword combinations on digital banking, engagement, product adoption, and South Asia."
 
 **Key Findings (selected):**
-- num: Mobile phone penetration exceeds 85% and mobile broadband covers over 95% of the population in India and Sri Lanka.
-- num: Digitally engaged customers in India were 2.3 times more likely to open secondary financial products like insurance or investment accounts.
-- num: 34 of 84 reviewed studies directly examined product adoption, collectively cited over 4,200 times.
-- num: 29 articles on infrastructure expansion were cited over 3,400 times, underscoring their foundational impact.
-
-**Supports Odin (direct justifications):**
-- Digitally engaged customers are 2.3 times more likely to adopt secondary financial products.
-- Mobile-first interfaces with personalized prompts and goal-setting increase user retention.
-- AI-based fraud detection enhances user trust in digital banking environments.
+- "num: Mobile phone penetration exceeds 85% and mobile broadband covers over 95% of the population in India and Sri Lanka."
+- "num: Digitally engaged customers in India were 2.3 times more likely to open secondary financial products like insurance or investment accounts."
+- "num: 34 of 84 reviewed studies directly examined product adoption, collectively cited over 4,200 times."
+- "num: 29 articles on infrastructure expansion were cited over 3,400 times, underscoring their foundational impact."
 
 **Limitations / Contradictions for Odin:**
-- Relies on secondary data from published studies; no primary data collection. [unacknowledged]
-- Geographic scope limited to South Asia; findings may not generalize to Philippines. [unacknowledged]
-- Does not address algorithmic cold-start or profile dynamics for new users.
+- "Relies on secondary data from published studies; no primary data collection. [unacknowledged]"
+- "Geographic scope limited to South Asia; findings may not generalize to Philippines. [unacknowledged]"
+- "Does not address algorithmic cold-start or profile dynamics for new users."
 
 **Key takeaways:**
-- 85% mobile phone penetration enables digital banking at scale.
-- 2.3x higher product adoption for digitally engaged customers.
-- AI nudges and personalization drive user retention and loyalty.
+- "85% mobile phone penetration enables digital banking at scale."
+- "2.3x higher product adoption for digitally engaged customers."
+- "AI nudges and personalization drive user retention and loyalty."
 
 ---
 
 
-## Enhancing Financial Literacy in Young Adults: An Android-Based Personal Finance Management Tool
-**Filename:** `I--Imawan-et_al_summarized.md`  
-**Authors:** Imawan, R.; Putra, W. P.; Alqahtani, R.; Milakis, E. D.; Dumchykov, M. (2025)  
-**ID:** `10.58536/j-hytel.166`  
-**Odin Topics:** 3.A, 3.B, 9.A, 9.B, 11.A, 11.B, 12.A, 13.A  
+## Optimizing Business Decision-Making Through AI-Enhanced Business Intelligence Systems: A Systematic Review of Data-Driven Insights in Financial and Strategic Planning
+**Filename:** `IA--Siddiqui_summarized.md`  
+**Authors:** Siddiqui, N. A. (2025)  
+**ID:** `10.71292/sdmi.v2i01.21`  
+**Odin Topics:** 6.A, 6.B, 8.A, 8.B, 10.A, 10.B, 11.A, 11.B, 12.A, 12.B  
 
-**TLDR:** An Android-based personal finance management app for young adults features income/expense tracking, budgeting, goal setting, and notifications, achieving a 4.6/5 usability score.
+**TLDR:** AI-enhanced Business Intelligence systems improve financial forecasting accuracy by 32-45%, reduce fraudulent transactions by 47%, increase customer engagement by 38%, and optimize supply chain efficiency by 23%.
 
-**Problem & Motivation:** Young adults face unique financial challenges including limited experience and high online loan usage. Existing financial tools overlook the interactive, mobile-first needs of this demographic. Without targeted intervention, financial illiteracy may perpetuate debt and instability.
+**Problem & Motivation:** Traditional BI systems struggle with real-time processing and unstructured data, limiting predictive capabilities. AI integration offers potential for improved decision-making but lacks systematic synthesis of its impact on financial and strategic planning.
 
 **Approach (summary):**
-- Waterfall model used for systematic development with phases: requirements analysis, design, implementation, testing, deployment.
-- Requirements gathered via interviews and surveys with Indonesian higher education students to identify key processes like income/expense tracking and budget projection.
-- Application built with Laravel backend, Flutter frontend, and local SQLite database for offline functionality.
+- This systematic review follows PRISMA guidelines for transparent and rigorous literature analysis.
+- Searched Scopus, Web of Science, IEEE Xplore, ScienceDirect, and Google Scholar for 2012-2024.
+- Initial pool of 2,450 articles reduced to 98 high-quality peer-reviewed studies after screening.
 
 **Key Findings (selected):**
-- num: Overall application satisfaction score of 4.6/5, rated 'Excellent'.
-- num: 78% of users rated likelihood of continued use at 4 or 5 on Likert scale.
-- num: Usability aspect scored 4.72, engagement 4.74, and functionality 4.70.
-- Users praised intuitive design, accurate tracking, and motivational reminders for consistent engagement.
-
-**Supports Odin (direct justifications):**
-- Mobile-first design with intuitive navigation achieves excellent usability scores (4.6/5).
-- Automated notifications encourage consistent financial tracking and habit formation.
-- Progress bars on financial goals motivate users to set and achieve savings targets.
+- "num: 32-45% improvement in financial forecasting accuracy with AI-powered BI"
+- "num: 47% decrease in fraudulent transactions and 60% reduction in false positives"
+- "num: 38% increase in customer engagement and 22% improvement in conversion rates"
+- "num: 23% increase in supply chain operational efficiency and 17% reduction in logistics costs"
 
 **Limitations / Contradictions for Odin:**
-- Short two-week evaluation period limits assessment of long-term habit formation.
-- Sample of 50 Indonesian university students may not represent all young adult populations.
-- No control group to isolate app effects from other factors [unacknowledged].
+- "Data governance complexities and integration issues hinder widespread AI-BI adoption."
+- "Algorithmic transparency remains a challenge; many AI models operate as black boxes."
+- "Bias in AI models due to skewed training data can reinforce discriminatory outcomes."
 
 **Key takeaways:**
-- Overall user satisfaction score of 4.6 out of 5.
-- Automated notifications reinforce consistent financial tracking habits.
-- Progress bars on financial goals increase user motivation.
+- "AI-enhanced BI improves forecasting accuracy by 32-45%."
+- "Fraud detection reduces transactions by 47% with 60% fewer false positives."
+- "Customer engagement increases by 38% using AI-driven segmentation."
 
 ---
 
 
-## From Borrowing to Building: A Systematic Literature Review of Data-Driven Strategies for Cultivating Better Money Habits through Consumer Credit
-**Filename:** `IA--Oyeyemi-et_al_summarized.md`  
-**Authors:** Oyeyemi, D. O.; Moussa, A. H.; Abioye, V. O. (2025)  
-**ID:** `10.37502/IJSMR.2025.81004`  
-**Odin Topics:** 2.B, 4.A, 4.B, 5.A, 6.A, 10.A, 10.B, 11.A, 13.B  
+## AI-POWERED PERSONALIZATION IN DIGITAL BANKING: A REVIEW OF CUSTOMER BEHAVIOR ANALYTICS AND ENGAGEMENT
+**Filename:** `I--Ashrafuzzaman-et_al_summarized.md`  
+**Authors:** Ashrafuzzaman, M.; Parveen, R.; Sumiya, M. A.; Rahman, A. (2025)  
+**ID:** `10.63125/z9s39s47`  
+**Odin Topics:** 5.A, 6.A, 10.A, 11.A  
 
-**TLDR:** A systematic review finds that alternative data and machine learning expand credit access, while behavioral economics and feedback mechanisms improve financial habits, despite privacy and bias concerns.
+**TLDR:** A systematic review of 111 articles finds that AI-powered personalization in digital banking enhances customer engagement through behavior analytics, predictive modeling, and real-time personalization, while facing challenges in measurement, ethics, and cross-cultural adaptation.
 
-**Problem & Motivation:** Consumer credit systems have evolved into data-driven platforms, but their potential to cultivate better money habits remains underexplored. The gap involves understanding how alternative data, machine learning, and behavioral insights can be integrated to foster responsible credit use rather than merely expanding access.
+**Problem & Motivation:** Digital banking lacks systematic synthesis of how AI personalization, customer behavior analytics, and engagement interact. Financial institutions need coherent frameworks to implement personalized services that build trust and loyalty. Existing literature is fragmented across techniques, outcomes, and governance.
 
 **Approach (summary):**
-- Systematic literature review across Scopus, Web of Science, IEEE Xplore, and Google Scholar using keywords related to data-driven credit, financial habits, and machine learning.
-- Inclusion criteria: peer-reviewed articles, conference papers, book chapters in English addressing data analytics or ML in consumer credit and impact on financial behavior.
-- Data extraction using standardized protocol, followed by thematic synthesis of findings across alternative data, behavioral drivers, technological innovations, and information design.
+- Conducted systematic literature review following PRISMA 2020 guidelines.
+- Searched Scopus, Web of Science, IEEE Xplore, ScienceDirect, and Google Scholar for articles from 2014-2024.
+- Initial pool of 1,248 records reduced to 111 peer-reviewed articles after duplication removal and screening.
 
 **Key Findings (selected):**
-- num: Ensemble machine learning models like XGBoost outperform logistic regression in credit classification tasks, improving predictive accuracy and reducing default rates.
-- Alternative data from mobile phone usage, transactional records, and behavioral patterns enables credit scoring for individuals without traditional credit histories.
-- Personality traits (conscientiousness, impulsivity), self-control, and financial literacy significantly influence borrowing, repayment, and saving behaviors.
-- The 'statement effect' shows that credit card statement receipt temporarily reduces spending, indicating timing-based intervention opportunities.
-
-**Supports Odin (direct justifications):**
-- Machine learning models using alternative data predict credit default more accurately than traditional logistic regression.
-- Personalized feedback loops and behavioral nudges improve short-term financial behaviors in credit contexts.
-- Personality traits like conscientiousness and self-control correlate with responsible credit management.
+- "num: 92 of 111 reviewed articles emphasize AI personalization as integral to digital banking transformation."
+- "num: 81 studies identify customer behavior analytics as primary driver of AI personalization."
+- "num: 74 articles report positive impact of personalization on customer satisfaction, retention, and lifetime value."
+- "num: 63 studies highlight ethical, legal, and governance challenges constraining personalization effectiveness."
 
 **Limitations / Contradictions for Odin:**
-- The review does not include longitudinal studies tracking long-term habit formation from data-driven interventions.
-- Ethical frameworks for mitigating algorithmic bias and ensuring fairness are underdeveloped in the synthesized literature.
-- Comparative analysis of different intervention types (financial incentives vs. behavioral nudges) is limited.
+- "Most studies use inconsistent definitions and metrics for personalization and engagement, limiting comparability [unacknowledged]."
+- "Longitudinal research on AI personalization effectiveness across customer lifecycles is scarce [unacknowledged]."
+- "Cross-cultural differences in customer behavior and personalization perception are underexplored, with most studies from Western contexts [unacknowledged]."
 
 **Key takeaways:**
-- Ensemble machine learning models outperform logistic regression for credit scoring.
-- Behavioral nudges and feedback loops enhance short-term financial habits.
-- Alternative data expands credit access but raises privacy and bias concerns.
+- "AI personalization increases customer retention and lifetime value in digital banking."
+- "Behavior analytics drives 81 of 111 studies' personalization strategies."
+- "Transparency and consent are critical for user trust in AI banking systems."
 
 ---
 
 
-## Analyzing and Rewarding Credit Card Spending Habits in India: a Machine Learning Approach
-**Filename:** `IA--Agrawal-et_al_summarized.md`  
-**Authors:** Agrawal, R.; Khanna, A.; Hamdare, S. (2025)  
-**ID:** `10.1007/s44196-025-00899-0`  
-**Odin Topics:** 3.A, 5.A, 5.C, 11.A, 11.B, 12.B  
+## The Influence of E-Wallets on The Consumptive Behavior Generation Z: Systematic Review
+**Filename:** `I--Kuswardhani-et_al_summarized.md`  
+**Authors:** Kuswardhani, E. L.; Sari, M. A. N. P.; Yuniawan, A.; Kusumawardhani, A. (2025)  
+**ID:** `3c7e3b2a-1f4d-5e6a-8b9c-0d1e2f3a4b5c`  
+**Odin Topics:** 1.C, 5.A, 9.B, 11.A  
 
-**TLDR:** K-Means clustering segments credit card users by spending habits, and a multi-factor reward points formula optimized with Random Forest achieves R2=0.99.
+**TLDR:** E-wallet usage positively correlates with increased consumptive behavior in Generation Z, driven by convenience, promotions, and reduced payment friction.
 
-**Problem & Motivation:** Credit card reward programs in India use static, one-size-fits-all structures that fail to incentivize high-value discretionary spending or retain affluent customers. Existing methods lack real-time adaptability and personalization, especially during peak seasons like festivals. A data-driven framework is needed to align rewards with individual spending behaviors.
-
-**Approach (summary):**
-- Used original Kaggle dataset and generated synthetic dataset with Faker library to add features like income category, attrition risk, and expense type.
-- Applied K-Means clustering to segment users into four clusters (Platinum, Gold, Silver, Signature) based on monthly spend, transaction frequency, and credit utilization.
-- Engineered features including card promotion bonus, expense type bonus, income category bonus, and penalties for multiple cards to calculate reward points.
-
-**Key Findings (selected):**
-- num: Random Forest achieved R2=0.99, lowest RMSE and MAE among models.
-- num: Mean reward points increased to approximately 1000 using synthetic dataset with additional features versus 400 in original.
-- K-Means clustering achieved silhouette score 0.42, outperforming DBSCAN, Hierarchical, and GMM.
-- Clusters clearly separated Platinum (high spending/luxury/travel) from Silver (low spending/essentials).
-
-**Supports Odin (direct justifications):**
-- K-Means clustering effectively segments users by spending behavior with silhouette score 0.42.
-- Including expense type bonuses (e.g., +3 for travel) increases reward point distribution range.
-- Random Forest achieves R2=0.99 for predicting reward points, minimizing prediction errors.
-
-**Limitations / Contradictions for Odin:**
-- Uses synthetic dataset instead of real credit card transaction data. [unacknowledged]
-- Reward point multipliers are arbitrary and not calibrated with actual bank policies.
-- Temporal analysis limited to 15 months of synthetic data, lacking long-term validation. [unacknowledged]
-
-**Key takeaways:**
-- K-Means silhouette score 0.42 outperforms DBSCAN and GMM for spending segmentation.
-- Random Forest achieves R2=0.99, nearly perfect reward point prediction accuracy.
-- Adding six behavioral factors expands reward range from 0-1000 to 0-3500.
-
----
-
-
-## Wealth-Voyager: Navigating Intelligent Wealth Management with a Multi-Agent Framework
-**Filename:** `IA--Huang-et_al_summarized.md`  
-**Authors:** Huang, R.; Zhao, Z.; Chen, S.; Wu, X.; Zhao, J. L. (2025)  
-**ID:** `10.1145/3766918.3766944`  
-**Odin Topics:** 5.A, 5.C, 10.B, 11.A, 12.A, 12.B  
-
-**TLDR:** A multi-agent framework with behavioral profiling and real-time tactical adjustments outperforms a passive baseline, improving returns and reducing volatility.
-
-**Problem & Motivation:** Traditional wealth advisory models lack scalability, cost-efficiency, and objectivity. Recent AI solutions remain fragmented, focusing on isolated tasks without integrating long-term strategy with behavioral adaptation. A unified framework is missing that combines quantitative rigor with interactive, cognitively-aware guidance.
+**Problem & Motivation:** E-wallets offer ease and speed but may foster impulsive spending among Generation Z, a demographic that is digitally native and financially formative. A systematic synthesis of empirical evidence on behavioral triggers and design features was missing. Understanding these effects is critical for balancing digital financial inclusion with long-term financial well-being.
 
 **Approach (summary):**
-- The system coordinates four specialized agents: AssistHub (behavioral profiling via dialogue), NewsCrawler (real-time market data), AlphaForge (constrained mean-variance optimization), and DualAdvisor (BDI-based role-playing simulation).
-- A one-month user study with one mid-career participant (retirement goal, RMB 3M capital) was conducted under live market conditions from April 2 to May 2, 2025, including a tariff shock event.
-- Strategic Asset Allocation (SAA) sets long-term weights; Tactical Asset Allocation (TAA) dynamically adjusts positions in response to real-time signals. Performance is benchmarked against a passive baseline and an anchored portfolio.
+- Systematic literature review following PRISMA framework, analyzing 28 empirical studies published from 2020 to 2025.
+- Search conducted across Scopus, Web of Science, ScienceDirect, ProQuest, and Google Scholar using keywords such as “e-wallet,” “Generation Z,” and “impulsive buying.”
+- Synthesis focused on e-wallet features (promotions, notifications, gamification, real‑time transactions) and their effect on spending frequency, impulse buying, and financial awareness.
 
 **Key Findings (selected):**
-- num: The tactical strategy achieved a cumulative return of 1.86% vs 0.24% for the anchored portfolio over the evaluation period.
-- num: Annualized volatility was reduced to 12.10% for tactical vs 13.70% for anchored, and annualized return improved by 2.81 percentage points vs original baseline.
-- num: The anchored allocation improved annual return from 3.72% to 6.53% while cutting volatility from 18.08% to 9.42%.
-- Qualitative user feedback indicated improved engagement, trust, and understanding due to explainable dialogue and bias exposure.
-
-**Supports Odin (direct justifications):**
-- Integrating behavioral bias vectors into user profiles improves risk-adjusted portfolio outcomes.
-- Real-time tactical rebalancing triggered by news events outperforms static strategic allocation during market shocks.
-- LLM-based role-playing between advisor and user agents surfaces cognitive biases and increases financial self-awareness.
+- "num: 28 studies showed a significant positive correlation between e-wallet usage frequency and increase in consumer spending."
+- "num: E-wallet promotions (cashback, discounts, loyalty points) had a significance value of 0.000 (p<0.005) in influencing consumer behavior (Lestari et al., 2021)."
+- E-wallets reduce the perceived “pain of paying” due to lack of cash tangibility, leading to unplanned and impulsive purchases.
+- Real‑time transactions, push notifications, and gamification elements (spending streaks, loyalty tiers) condition users toward automatic, less deliberate spending habits.
 
 **Limitations / Contradictions for Odin:**
-- Evaluation was conducted on a single user with a specific retirement goal, limiting external validity. [unacknowledged]
-- The asset universe was restricted to four classes (A-shares, bonds, gold, REITs); performance may differ with broader or different assets.
-- System performance depends on the underlying LLM (GPT-4); cost and latency of LLM calls were not analyzed. [unacknowledged]
+- "Only publications from 2020–2025 were included, potentially missing earlier foundational work."
+- "Geographic focus not systematically controlled; results may vary between developed and developing economies [unacknowledged]."
+- "The review does not quantitatively meta‑analyze effect sizes across studies [unacknowledged]."
 
 **Key takeaways:**
-- Tactical adjustments added 1.62 percentage points over a passive baseline during a tariff shock.
-- Behavioral anchoring alone nearly halved volatility from 18.08% to 9.42%.
-- Dual-agent role-playing exposes cognitive biases through explainable dialogue.
-
----
-
-
-## Intelligent UI’s: Revolutionizing Financial Transaction Systems Through AI and Event-Driven Architecture
-**Filename:** `I--Musunuri_summarized.md`  
-**Authors:** Musunuri, H. (2025)  
-**ID:** `3a0b1c2d-4e5f-6a7b-8c9d-0e1f2a3b4c5d`  
-**Odin Topics:** 4.A, 4.B, 6.A, 8.A, 8.B, 10.A, 10.B, 11.A, 11.B, 12.A  
-
-**TLDR:** Intelligent UI architectures using AI and event-driven patterns improve financial transaction systems by enhancing fraud detection, reducing processing times, and personalizing user experiences without compromising security.
-
-**Problem & Motivation:** Traditional financial interfaces struggle with linear processing workflows, reactive security measures, and one-size-fits-all designs. These limitations create trade-offs between security and usability, leading to transaction abandonment and fraud vulnerabilities. Modern intelligent UIs aim to transcend these trade-offs through adaptive and event-driven approaches.
-
-**Approach (summary):**
-- Paper reviews existing literature and industry implementations of AI-driven and event-driven financial interfaces.
-- Analyzes case studies of financial institutions implementing behavioral biometrics, predictive adaptation, and zero-trust models.
-- Evaluates performance metrics including fraud detection accuracy, transaction processing times, and completion rates from 127 institutions.
-
-**Key Findings (selected):**
-- num: Institutions implementing behavioral biometric monitoring achieved 43.2% improvement in fraud detection accuracy and 37.8% reduction in false positives.
-- num: Event-driven architectures reduced transaction processing times by 53.7% for standard transactions and 61.2% for complex transactions.
-- num: Context-aware component selection improved task completion rates by 41.6% and reduced time-on-task by 36.2%.
-- num: Phased implementation approaches showed 3.7 times higher success rates and 42% lower budget overruns than big-bang replacements.
-
-**Supports Odin (direct justifications):**
-- Event-driven architectures reduce transaction processing latency by 53-61% compared to request-response models.
-- Behavioral biometrics achieve 97.6% user identification accuracy after 14 seconds of interaction.
-- Context-aware component selection improves task completion rates by 41.6%.
-
-**Limitations / Contradictions for Odin:**
-- Primarily synthesizes existing literature rather than presenting novel empirical data [unacknowledged].
-- Does not address implementation challenges of AI bias in financial interfaces [unacknowledged].
-- Lacks specific guidance for small financial institutions with limited resources [unacknowledged].
-
-**Key takeaways:**
-- Intelligent UIs improve fraud detection by 43.2% while reducing false positives by 37.8%.
-- Event-driven architectures cut transaction processing time by over 50%.
-- Phased migrations are 3.7 times more successful than big-bang replacements.
+- "E-wallet usage frequency positively correlates with increased spending across 28 studies."
+- "Promotional features like cashback reduce the perceived pain of paying."
+- "Most e-wallets lack budgeting tools, leading to financial regret."
 
 ---
 
@@ -647,20 +363,15 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Applied XGBoost for profit modeling at account level, modeling revenue, default probabilities, and loss rates.
 
 **Key Findings (selected):**
-- num: Profit quartile spread across risk ranges increases with risk level, indicating challenge in high-risk areas.
-- num: Learning rate limited to 0.001-0.01 with thousands of trees to prevent overfitting.
+- "num: Profit quartile spread across risk ranges increases with risk level, indicating challenge in high-risk areas."
+- "num: Learning rate limited to 0.001-0.01 with thousands of trees to prevent overfitting."
 - Revenue model and total profit model show poor forecasting performance but better ranking performance.
 - Hump-shaped relationship between profit component and risk is retained between predicted and actual curves.
 
-**Supports Odin (direct justifications):**
-- Supervised learning on debit/credit transactions and loan applications enables accurate customer profiling.
-- Profit-based modeling yields higher average profitability than risk-only scoring.
-- Community discovery algorithms effectively detect gang fraud in credit applications.
-
 **Limitations / Contradictions for Odin:**
-- Model performance is poor for revenue and total profit forecasting at high risk levels.
-- No discussion of data privacy implications for customer profiling. [unacknowledged]
-- Lacks validation on non-US or Filipino demographic data. [unacknowledged]
+- "Model performance is poor for revenue and total profit forecasting at high risk levels."
+- "No discussion of data privacy implications for customer profiling. [unacknowledged]"
+- "Lacks validation on non-US or Filipino demographic data. [unacknowledged]"
 
 **Key takeaways:**
 - XGBoost profit models outperform risk-only models in ranking profitability.
@@ -670,158 +381,206 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## Examining Mobile-First Database Solutions for East African Markets in Detail
-**Filename:** `I--Arinze_summarized.md`  
-**Authors:** Arinze, E. D. (2024)  
-**ID:** `5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d`  
+## From Surge to Stability: Digital Payments Driving a Steady Transition
+**Filename:** `L--Mesino-Romero-et_al_summarized.md`  
+**Authors:** Mesina-Romero, B. R.; Masangkay, M. C.; Franco, M.; Yambao, M. A. V.; Delgado, K.; Bueno, P. N.; Lingat, P. J.; Natividad, G. M.; Lapus, A. R.; Manuel, R. M.; Yñigo, K. T. (2024)  
+**ID:** `b7e4c5d8-9a2f-4e3c-8b1d-6f7a9c2e5d3b`  
+**Odin Topics:** 1.C, 4.B, 10.A, 11.A  
+
+**TLDR:** Digital payments accounted for 57.4% of monthly retail payment volume in the Philippines in 2024, up from 52.8% in 2023, driven by merchant, P2P, and B2B transactions.
+
+**Problem & Motivation:** Despite growth in digital payments, adoption barriers such as high fees and limited digitalization of government collections (only 24.6% for P2G) persist. Understanding use-case dynamics helps prioritize interventions to achieve financial inclusion. The report measures progress against the Philippine Development Plan target of 52-54% digital share.
+
+**Approach (summary):**
+- Identified 24 payment use-cases across government, business, and person categories using a 3x3 payment grid.
+- Estimated digital share using disaggregated quantitative data from sources like BIR, PSA, BSP, and stakeholder interviews.
+- Applied critical assumptions to fill data gaps where direct measurements were unavailable.
+
+**Key Findings (selected):**
+- "num: Digital payments reached 57.4% of total monthly retail payment volume in 2024, exceeding the PDP target of 52-54%."
+- "num: Merchant payments comprised 66.4% of digital transaction volume, growing 29.1% year-on-year."
+- "num: P2P transfers increased from 19.3% to 20.6% of digital volume, with InstaPay volume rising 67.8%."
+- "num: B2B supplier payments grew 28.1% to 205.0 million transactions but only 6.2% of digital volume."
+
+**Limitations / Contradictions for Odin:**
+- Estimates rely on critical assumptions for data gaps, which may introduce bias.
+- The measurement model does not capture informal economy payments.
+- No analysis of digital payment impact on household financial health. [unacknowledged]
+
+**Key takeaways:**
+- 57.4% of retail payments are now digital.
+- Merchant payments drive 66.4% of digital volume.
+- High fees remain a key adoption barrier.
+
+---
+
+
+## The Role of Digital Banking Features in Bank Selection: An Analysis of Customer Preferences for Online and Mobile Banking
+**Filename:** `I--Faisal-et_al_summarized.md`  
+**Authors:** Faisal, N.; Nahar, J.; Waliullah, M.; Borna, R. S. (2024)  
+**ID:** `c3e5d6f7-8a9b-4c2d-9e1f-0a1b2c3d4e5f`  
 **Odin Topics:** 9.A, 9.B, 10.A, 10.B, 11.A, 11.B  
 
-**TLDR:** Mobile-first database solutions enhance accessibility and scalability in East African markets but face challenges in connectivity, data privacy, and regulatory compliance.
+**TLDR:** A systematic review of 112 articles identifies convenience, security, personalization, competitive innovation, and pandemic resilience as key drivers of digital banking adoption and customer satisfaction.
 
-**Problem & Motivation:** Traditional database systems are not optimized for mobile-centric environments like East Africa, where high mobile penetration and limited desktop infrastructure create a need for accessible, scalable solutions. Existing approaches often fail to address bandwidth constraints, offline usage, and local data protection regulations. Without mobile-first design, organizations risk low user adoption and poor service delivery in remote or underserved areas.
+**Problem & Motivation:** Prior research on digital banking focuses on general adoption drivers but lacks deeper insights into evolving customer expectations across demographics and cultures. Understanding how specific features like usability, security, and personalization influence bank selection is critical for financial institutions to remain competitive. This gap is addressed by synthesizing existing literature to provide actionable guidance for digital banking design.
 
 **Approach (summary):**
-- Literature review of published statistics (2004–2014) from multiple reliable databases on mobile technology adoption in Kenya, Tanzania, Uganda, Rwanda, and Ethiopia.
-- Analysis of technical foundations including cloud computing, offline storage with caching and conflict resolution, and real-time synchronization using WebSocket, MQTT, or HTTP long polling.
-- Examination of data security measures: TLS encryption, end-to-end encryption (E2EE), at-rest encryption, and authentication (biometric, MFA, OAuth) with RBAC.
+- Systematic literature review following PRISMA guidelines.
+- Searched Scopus, Web of Science, ProQuest, and Google Scholar using keyword combinations like "digital banking" AND "customer preferences".
+- Initial identification of 3,284 articles, screened to 112 peer-reviewed studies published between 2012 and 2023.
 
 **Key Findings (selected):**
-- Mobile-first database solutions increase user engagement, adoption, and retention by providing seamless offline and real-time synchronization capabilities.
-- Data security requires transport encryption, at-rest encryption, strong authentication, and role-based access control to build user trust.
-- Bandwidth limitations and intermittent connectivity remain major barriers, mitigated by compression, CDNs, and local caching.
-- Regulatory compliance (e.g., GDPR, Data Protection Act) and legal ambiguity pose challenges that demand privacy-by-design and cross-border cooperation.
-
-**Supports Odin (direct justifications):**
-- Mobile-first database solutions increase user acceptance and retention by providing a seamless and intuitive mobile experience.
-- Offline capabilities with local storage and conflict resolution ensure data consistency and availability in low-connectivity environments.
-- Encryption (TLS, E2EE) and role-based access control are necessary to prevent unauthorized access and build user trust.
+- "num: 47 out of 112 articles emphasize convenience (ease of use, 24/7 availability, fast transactions) as primary adoption driver."
+- "num: 42 articles highlight security and privacy (encryption, MFA, fraud detection) as critical for customer trust."
+- "num: 36 articles identify personalization (AI-driven recommendations, tailored interfaces) as transformative for satisfaction and loyalty."
+- "num: 29 articles show competitive pressure drives adoption of blockchain, AI, and biometrics to differentiate offerings."
 
 **Limitations / Contradictions for Odin:**
-- Relies on secondary data from 2004–2014, potentially outdated for current mobile technology trends. [unacknowledged]
-- Does not provide quantitative metrics for engagement or retention improvements, making it difficult to benchmark against other designs. [unacknowledged]
-- Connectivity and bandwidth challenges are identified, but no specific solution for very low-bandwidth (2G) environments is tested.
+- "Limited focus on elderly users and rural populations with low digital literacy [acknowledged]."
+- "Lack of empirical evidence linking emerging technologies (AI, blockchain) to long-term customer loyalty and profitability [acknowledged]."
+- "Underexplored ethical implications of data-driven personalization and privacy trade-offs [acknowledged]."
 
 **Key takeaways:**
-- Mobile-first design with offline sync boosts user engagement in low-connectivity settings.
-- End-to-end encryption and role-based access control are essential for user trust.
-- Bandwidth constraints demand compression, caching, and CDNs for acceptable performance.
+- "47 studies confirm convenience as the top driver of digital banking adoption."
+- "Security features like MFA and encryption are essential for customer trust."
+- "Personalization via AI increases satisfaction but raises privacy concerns."
 
 ---
 
 
-## Integrating Financial Management and Gamification: A Systematic Literature Review and Future Research Agenda
-**Filename:** `I--Prasetyo-et_al_summarized.md`  
-**Authors:** Prasetyo, A. P.; Santoso, H. B.; Putra, P. O. H. (2023)  
-**ID:** `d3c9a1e7-4b5f-4c2d-9e8a-6f7b1c3d5e9f`  
-**Odin Topics:** 1.C, 11.A, 11.B  
+## Adaptive Financial Literacy Enhancement through Cloud-Based AI Content Delivery: Effectiveness and Engagement Metrics
+**Filename:** `IA--Li-et_al_summarized.md`  
+**Authors:** Li, M.; Liu, W.; Chen, C. (2024)  
+**ID:** `f47ac10b-58cc-4372-a567-0e02b2c3d479`  
+**Odin Topics:** 5.A, 10.A, 10.B, 11.A, 11.B, 12.A, 12.B, 13.A, 13.B  
 
-**TLDR:** A systematic literature review of 53 articles synthesizes research on financial behavior and gamification-related behavioral intention, identifying theories, contexts, characteristics, and methodologies with future research directions.
+**TLDR:** Cloud-based AI adaptive learning for financial literacy improves knowledge acquisition (+37.8% vs +19.2%) and financial behaviors like savings (+24.3%) and debt reduction (-18.6%) over 12 months.
 
-**Problem & Motivation:** Low levels of public financial behavior lead to poor long-term financial outcomes. Gamification can motivate positive financial actions, but research has focused mainly on education, not finance. A systematic review is needed to synthesize existing knowledge and identify gaps.
+**Problem & Motivation:** Financial literacy rates remain persistently low globally, with only 33% of adults classified as financially literate. Traditional content delivery fails to account for individual learning preferences, resulting in suboptimal knowledge transfer and engagement. Limited personalization and rapid knowledge decay necessitate adaptive approaches.
 
 **Approach (summary):**
-- Conducted a systematic literature review following Kitchenham’s guidelines, using the TCCM framework for analysis.
-- Searched four databases (Emerald Insights, IEEE Xplore, Science Direct, Taylor & Francis) for articles published between 2018 and 2022.
-- Included English, empirical studies presenting research models or hypotheses, excluding literature reviews.
+- Data from 15,000 users across three Southeast Asian countries.
+- Recurrent neural networks process temporal user interaction sequences for personalized content delivery.
+- Bayesian knowledge tracing and reinforcement learning optimize content sequencing and adaptation.
 
 **Key Findings (selected):**
-- num: Theory of Planned Behavior used in 50% of financial behavior studies.
-- num: 25 distinct theories identified in gamification research, with Self-Determination Theory most frequent (14.3%).
-- Financial behavior contexts include general behavior, literacy, satisfaction, well-being, saving, spending, and retirement.
-- Gamification contexts: education (20.7%), finance (17.2%), health/fitness (17.2%), and general games (17.2%).
-
-**Supports Odin (direct justifications):**
-- Gamification can increase behavioral intention toward positive financial actions.
-- Implementing gamification in PFM apps fosters continuance intention and reduces discontinuance.
-- Badges, points, and leaderboards are effective engagement elements in financial contexts.
+- "num: Adaptive platform achieved 37.8% knowledge gain vs 19.2% for traditional methods."
+- "num: Savings rates increased by 24.3% at 12-month follow-up."
+- "num: Investment diversification improved by 31.7% and debt reduced by 18.6%."
+- Sequential pattern analysis predicts knowledge acquisition success with 78.3% accuracy.
 
 **Limitations / Contradictions for Odin:**
-- Only articles from 2018-2022, potentially missing earlier foundational work.
-- Search limited to four databases and English-language articles only.
-- No meta-analysis or quantitative synthesis of effect sizes.
+- No discussion of demographic representativeness. [unacknowledged]
+- Potential self-selection bias in user sample. [unacknowledged]
+- Absence of cost-benefit analysis for implementation. [unacknowledged]
 
 **Key takeaways:**
-- 53 articles were reviewed on financial behavior and gamification.
-- Gamification in finance is under-researched compared to education.
-- Theory of Planned Behavior dominates financial behavior studies.
+- Adaptive AI increased financial knowledge by 37.8% over traditional methods.
+- Savings rates rose 24.3% and debt fell 18.6% at 12-month follow-up.
+- Engagement profiles predict learning success with 78.3% accuracy.
 
 ---
 
 
-## A Recommendation System for Participatory Budgeting
-**Filename:** `IA--Leibiker-&-Talmon_summarized.md`  
-**Authors:** Leibiker, G.; Talmon, N. (2023)  
-**ID:** `f5a3b2c1-4d5e-6f7a-8b9c-0d1e2f3a4b5c`  
-**Odin Topics:** 5.B, 6.A, 7.B, 7.C, 11.A, 12.B  
+## User Cold Start Problem in Recommendation Systems: A Systematic Review
+**Filename:** `LA--Yuan-et_al_summarized.md`  
+**Authors:** Yuan, H.; Hernandez, A.A. (2023)  
+**ID:** `10.1109/ACCESS.2023.3338705`  
+**Odin Topics:** 4.B, 5.A, 5.B, 5.C, 6.A, 10.A, 10.B, 11.A, 12.A, 12.B  
 
-**TLDR:** Machine learning recommendation systems estimate voter preferences from partial ballots in participatory budgeting, improving prediction accuracy and budget allocation.
+**TLDR:** A systematic review of 45 papers (2016-2023) categorizes user cold start solutions into data-driven and method-driven approaches, analyzing evaluation metrics and future directions.
 
-**Problem & Motivation:** Voters in participatory budgeting face information overload when many projects are considered, leading to low participation and poor decisions. Existing methods require complete ballots, which is cognitively burdensome. A solution using recommendation systems can reduce this burden while maintaining allocation quality.
+**Problem & Motivation:** Existing systematic reviews on user cold start are scarce, outdated, or fail to distinguish between user and item cold start problems. Solutions for these two problems differ, yet prior work often conflates them. A focused, up-to-date review is needed to guide researchers.
 
 **Approach (summary):**
-- Used ten real-world participatory budgeting datasets from Warsaw, Poland (2020-2023), with 2,614 to 10,424 voters and 67 to 111 projects per instance.
-- Defined three sampling settings: random (k projects chosen uniformly), offline (choose k projects by popularity, consensus, or controversy), and online adaptive (iteratively choose most controversial projects).
-- Applied prediction modules: Matrix Factorization, Factorization Machines, and binary classification using XGBoost with class weighting for imbalance.
+- Followed systematic literature review guidelines (Kitchenham 2007) with seven steps: research questions, search strings, database selection (IEEE, ACM, Web of Science), inclusion/exclusion criteria, paper search, pre-selection, full reading, and classification.
+- Search strings combined terms like "recommendation system", "user cold start", and "cold start".
+- 1480 papers initially retrieved; after title/abstract screening and inclusion/exclusion criteria, 45 papers from 2016-2023 were selected for deep analysis.
 
 **Key Findings (selected):**
-- num: At 10% sample degree, classification-online and offline-popularity setups produced higher FA scores than the sampling method.
-- num: Classification-offline-popularity achieved the maximal FA score when collecting half of the votes (sample degree 0.5).
-- num: As sample degree increased, FA score increased and Symmetric Distance decreased across most LV degree levels.
-- Classification techniques consistently outperformed Matrix Factorization and Factorization Machines in prediction accuracy.
-
-**Supports Odin (direct justifications):**
-- Machine learning classification on partial user ballots improves budget allocation accuracy compared to naive sampling.
-- Adaptive online preference elicitation reduces information overload without sacrificing prediction quality.
-- Fractional Allocation score is an effective metric for evaluating budget recommendation systems with incomplete inputs.
+- num: 45 papers were selected from 1480 initial search results, with the highest number (11) published in 2020.
+- Data-driven strategies commonly use cross-domain and social network data to provide additional user information for cold-start users.
+- Method-driven strategies increasingly apply meta-learning, deep learning (DNN, GNN, GAN), and attention mechanisms to learn from limited user interactions.
+- num: Most literature (over 70% of analyzed papers) uses ranking metrics such as NDCG@K and Hit@K for evaluation, rather than rating prediction metrics.
 
 **Limitations / Contradictions for Odin:**
-- Experiments conducted only on Warsaw PB datasets; results may not generalize to other cultural or demographic contexts. [unacknowledged]
-- Assumes existence of a training set of voters with full ballots (LV group), which may be unavailable in pure cold-start scenarios. [unacknowledged]
-- Does not address privacy concerns of collecting partial preferences from all voters. [unacknowledged]
+- "No experimental validation of the surveyed methods. [unacknowledged]"
+- "Only 45 papers analyzed; may not capture all recent advances."
+- "Does not address domain-specific challenges of personal finance systems. [unacknowledged]"
 
 **Key takeaways:**
-- Classification online achieves higher FA scores than sampling at 10% data collection.
-- Fractional Allocation score increases with more exposed preferences.
-- Adaptive controversial selection improves prediction over random sampling.
+- "45 papers from 2016-2023 were analyzed for user cold start."
+- "Data-driven and method-driven are the two main solution categories."
+- "Meta-learning and deep learning are increasingly applied to cold start."
 
 ---
 
 
-## Behavior-Driven Personalization Framework to Improve Repeat Usage in Mobile-Enabled Financial Ecosystems
-**Filename:** `I--Omotayo-et_al_summarized.md`  
-**Authors:** Omotayo, K. V.; Uzoka, A. C.; Okolo, C. H.; Olinmah, F. I.; Adanigbo, O. S. (2023)  
-**ID:** `10.62225/2583049X.2023.3.6.4736`  
-**Odin Topics:** 5.A, 9.A, 10.A, 10.B, 11.A, 11.B, 12.A  
+## Rotating savings and credit associations: A scoping review
+**Filename:** `I--Zambrano-et_al_summarized.md`  
+**Authors:** Zambrano, A.F.; Giraldo, L.F.; Perdomo, M.T.; Hernández, I.D.; Godoy, J.M. (2023)  
+**ID:** `10.1016/j.wds.2023.100081`  
+**Odin Topics:** 1.C, 2.A, 5.A, 11.A, 13.A, 13.B  
 
-**TLDR:** A behavior-driven personalization framework using real-time user data, segmentation, and adaptive triggers improves repeat usage in mobile financial apps via continuous learning and ethical nudges.
+**TLDR:** A scoping review of 96 papers on Rotating Savings and Credit Associations finds financial and non‑financial benefits, risks like defection, and opportunities for technological support and formalization.
 
-**Problem & Motivation:** Mobile financial platforms face low repeat usage due to generic, non-responsive experiences. Static personalization fails to capture evolving user behavior. A behaviorally intelligent framework is needed to sustain engagement and support financial goals.
+**Problem & Motivation:** Despite decades of research on ROSCAs worldwide, no systematic scoping review has synthesized recent findings on their benefits, risks, and operational mechanisms. Understanding these informal financial arrangements is crucial for leveraging them in development and financial inclusion. The lack of a structured overview limits evidence‑based interventions.
 
 **Approach (summary):**
-- The framework comprises three layers: behavioral data capture, dynamic segmentation engine, and personalized trigger system.
-- It integrates behavioral science principles like nudges, loss aversion, and choice architecture.
-- A continuous feedback loop refines personalization based on user responses.
+- Used the PRISMA‑ScR protocol to systematically map ROSCA research from January 2000 to July 2022.
+- Searched Scopus and Web of Science, screening 227 publications to include 96 peer‑reviewed journal or conference papers in English.
+- Extracted data on continent/country of the studied ROSCA, methodological approaches, keywords, and key conclusions.
 
 **Key Findings (selected):**
-- Behavior-driven personalization enhances relevance and habit formation compared to static methods.
-- Real-time segmentation enables adaptive interventions that align with user intent.
-- Continuous learning reduces notification fatigue and cognitive overload.
-- Ethical personalization promotes positive financial behaviors and user trust.
-
-**Supports Odin (direct justifications):**
-- Behavior-driven personalization increases repeat usage by aligning interventions with real-time user behavior.
-- Dynamic segmentation improves the relevance of financial nudges and feature recommendations.
-- Continuous learning from user responses reduces notification fatigue and cognitive overload.
+- num: 96 papers were included in the scoping review.
+- Asia and Africa are the most studied continents; South America and Oceania have no primary data studies since 2000.
+- ROSCAs provide non‑financial benefits including social capital, health improvements, and women’s empowerment beyond pure financial gains.
+- Defection risk is mitigated by social sanctions, reputation mechanisms, and heavy economic penalties; without sanctions, sustainability is theoretically impossible.
 
 **Limitations / Contradictions for Odin:**
-- No empirical validation or real-world implementation results. [unacknowledged]
-- The framework lacks concrete algorithmic details for segmentation and trigger optimization.
-- Ethical safeguards are described at a high level without operational guidelines.
+- "Only peer‑reviewed articles in English from Scopus and Web of Science were included, potentially missing grey literature or non‑English studies. [unacknowledged]"
+- "No primary data from South America or Oceania, limiting generalizability to those regions (acknowledged by authors as a research gap)."
+- "Few intervention studies exist; most findings are observational or simulation‑based, reducing actionable causal claims (acknowledged in future directions)."
 
 **Key takeaways:**
-- Personalization must adapt to evolving user behavior in real time.
-- Ethical nudges preserve user autonomy while promoting financial health.
-- Continuous feedback loops are essential for reducing notification fatigue.
+- "96 papers on ROSCAs from 2000‑2022 show both financial and social benefits."
+- "Social pressure and embarrassment enforce saving discipline better than interest rates."
+- "Defection risk is minimized by reputation screening and mobile transparency tools."
+
+---
+
+
+## A machine learning ensemble approach to predicting factors affecting the intention and usage behavior towards online groceries applications in the Philippines
+**Filename:** `LA--Gumasing-et_al_summarized.md`  
+**Authors:** Gumasing, M.J.J.; Ong, A.K.S.; Sy, M.A.P.C.; Prasetyo, Y.T.; Persada, S.F. (2023)  
+**ID:** `10.1016/j.heliyon.2023.e20644`  
+**Odin Topics:** 1.C, 5.A, 6.A, 11.A, 12.B  
+
+**TLDR:** A machine learning ensemble of random forest and artificial neural network predicts that perceived benefits, perceived vulnerability, behavioral intention, performance expectancy, and perceived severity strongly influence online grocery app usage among Filipino consumers during COVID-19.
+
+**Problem & Motivation:** Despite the rise of online grocery shopping in the Philippines during COVID-19, factors driving consumer intention and usage behavior remain underexplored. Existing studies using traditional statistical methods have limitations in capturing complex, nonlinear relationships. A holistic measurement integrating health concerns and technology acceptance is needed.
+
+**Approach (summary):**
+- Data from 373 Filipino online grocery consumers collected via 5-point Likert survey.
+- Integrated Protection Motivation Theory (PMT) and Unified Theory of Acceptance and Use of Technology (UTAUT2) with 11 latent variables.
+- Used Random Forest Classifier (optimized over 6400 runs with depth 6, 90:10 train-test split, 96% accuracy).
+
+**Key Findings (selected):**
+- "num: Random Forest achieved 96% accuracy with 0.00 standard deviation at depth 6."
+- "num: Artificial Neural Network achieved 96.63% average testing accuracy."
+- Perceived benefit is the most significant factor (importance score 0.270), followed by perceived vulnerability (0.265) and behavioral intention (0.258).
+- All ten constructs (performance expectancy, effort expectancy, social influence, hedonic motivation, facilitating conditions, perceived benefit, perceived vulnerability, perceived severity, perceived susceptibility, response efficacy) significantly affect behavioral intention or usage behavior.
+
+**Limitations / Contradictions for Odin:**
+- Respondents majorly reside in highly urbanized cities, affecting technological literacy representation.
+- Lack of consideration of socio-economic factors for customer segmentation.
+- No validation of model generalizability to other types of financial apps [unacknowledged].
+
+**Key takeaways:**
+- Perceived benefit is the strongest predictor of app usage behavior at 100% importance.
+- Random Forest and ANN both achieved over 96% accuracy in predicting user behavior.
+- Integration of health belief model with technology acceptance improves prediction for pandemic contexts.
 
 ---
 
@@ -847,20 +606,15 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Context, culture, and individual differences moderate how colors are perceived and effective.
 - Common challenges include difficulty measuring color effects, lack of universal standards, and ethical concerns.
 
-**Supports Odin (direct justifications):**
-- Color choices influence user satisfaction and engagement in digital interfaces.
-- Warm colors like red evoke urgency, suitable for call-to-action buttons in PFMS.
-- Blue evokes trust, making it appropriate for financial applications like Odin.
-
 **Limitations / Contradictions for Odin:**
-- Difficulty measuring and quantifying color psychology effects.
-- Lack of universal color standards and guidelines for UI/UX design.
-- Ethical and social implications of color manipulation and persuasion are noted but not explored in depth.
+- "Difficulty measuring and quantifying color psychology effects."
+- "Lack of universal color standards and guidelines for UI/UX design."
+- "Ethical and social implications of color manipulation and persuasion are noted but not explored in depth."
 
 **Key takeaways:**
-- Color psychology significantly affects user satisfaction and behavior.
-- Red evokes urgency, blue evokes trust, green evokes growth.
-- Context and culture moderate color meaning and impact.
+- "Color psychology significantly affects user satisfaction and behavior."
+- "Red evokes urgency, blue evokes trust, green evokes growth."
+- "Context and culture moderate color meaning and impact."
 
 ---
 
@@ -878,106 +632,57 @@ This report includes problem/motivation, approach, key findings, support for Odi
 **Approach (summary):**
 - Online survey collected 10,580 responses from users of P2P lending, BNPL, invoice trading, and equity crowdfunding platforms in Indonesia, Malaysia, Philippines, Singapore, Thailand from Feb-Apr 2022.
 - Data sanitization removed 16% of entries, resulting in 8,886 cleaned responses; stratified random sampling selected 600 responses (200 from Philippines, 400 from others) for balanced analysis.
-- {'Descriptive and content analysis applied to four research themes': 'user profile, relationship with traditional finance, financing experience, and post-financing outcomes including COVID-19 impact.'}
+- Descriptive and content analysis applied to four research themes: user profile, relationship with traditional finance, financing experience, and post-financing outcomes including COVID-19 impact.
 
 **Key Findings (selected):**
-- num: 44% of P2P consumer lending users aged 25-34; 54% of BNPL users aged 25-34.
-- num: 49% of P2P consumer borrowers used funds for day-to-day expenses; 39% of BNPL for fashion and apparel.
-- num: 1% of P2P consumer borrowers defaulted, compared to >3% average bank NPL in ASEAN (World Bank).
-- num: 65% of MSMEs reported increased productivity after receiving fintech financing; 59% increased profit.
-
-**Supports Odin (direct justifications):**
-- Fintech platforms serve underbanked populations, with 41% of P2P consumer lending borrowers being female.
-- Most MSMEs (65%) report increased productivity after receiving fintech financing.
-- Fintech complements traditional banking: over half of borrowers increased use of savings accounts after borrowing.
+- "num: 44% of P2P consumer lending users aged 25-34; 54% of BNPL users aged 25-34."
+- "num: 49% of P2P consumer borrowers used funds for day-to-day expenses; 39% of BNPL for fashion and apparel."
+- "num: 1% of P2P consumer borrowers defaulted, compared to >3% average bank NPL in ASEAN (World Bank)."
+- "num: 65% of MSMEs reported increased productivity after receiving fintech financing; 59% increased profit."
 
 **Limitations / Contradictions for Odin:**
-- The study does not measure loan quality, price, or diversity of offers. [unacknowledged]
-- Sample size limitations prevent cross-country comparative analysis.
-- No analysis of herd behavior or anchoring in platform choice. [unacknowledged]
+- "The study does not measure loan quality, price, or diversity of offers. [unacknowledged]"
+- "Sample size limitations prevent cross-country comparative analysis."
+- "No analysis of herd behavior or anchoring in platform choice. [unacknowledged]"
 
 **Key takeaways:**
-- 1% of P2P consumer borrowers default, below regional bank NPL averages.
-- Millennials make up 44% of P2P consumer lending users in ASEAN.
-- Fintech complements banking: 52% of users increased savings account use.
+- "1% of P2P consumer borrowers default, below regional bank NPL averages."
+- "Millennials make up 44% of P2P consumer lending users in ASEAN."
+- "Fintech complements banking: 52% of users increased savings account use."
 
 ---
 
 
-## AI Wealth Navigator: An Integrated Platform for Smart Budgeting, Financial Learning, and Personalized Policy Guidance
-**Filename:** `IA--Yadav-et_al_summarized.md`  
-**Authors:** Yadav, A.; Prakash, R. S.; Iqubal, S. M.; Gebremicahea, M. G. (0)  
-**ID:** `f5c8d3e6-9a4b-4c7d-8e2f-1a3b5c7d9e0f`  
-**Odin Topics:** 3.A, 3.B, 7.B, 7.C, 9.A, 9.B, 10.A, 10.B, 11.A, 11.B, 13.A  
+## The Role of Big Data Analytics in Behavioral Finance: Understanding Dynamics of Consumer Spending and Saving
+**Filename:** `I--Whitaker_summarized.md`  
+**Authors:** Whitaker, Kyle (0)  
+**ID:** `d0f5e2b6-4c3a-4b8e-9d1f-2a3b4c5d6e7f`  
+**Odin Topics:** 2.B, 5.A, 6.A, 6.B, 10.A, 10.B, 11.A, 13.A  
 
-**TLDR:** AI Wealth Navigator integrates adaptive financial learning, AI-driven budget tracking with receipt scanning, and personalized government policy recommendations using LLMs into a single platform.
+**TLDR:** Big data analytics combined with behavioral finance reveals psychological and social drivers of consumer spending and saving, enabling personalized financial strategies.
 
-**Problem & Motivation:** Personal finance apps remain fragmented, separating budgeting, education, and policy navigation. Users lack cohesive tools to maximize financial well-being, especially in regions with low financial literacy like India. Existing solutions fail to provide personalized, integrated guidance across all three domains.
-
-**Approach (summary):**
-- Built a web platform using Next.js, Supabase, Prisma, Inngest, and Arcjet for secure, scalable performance.
-- Integrated Gemini LLM for personalized financial recommendations and adaptive learning roadmaps based on user literacy and progress.
-- Developed an AI-powered budget tracker with receipt OCR (94% accuracy) and real-time visual insights.
-
-**Key Findings (selected):**
-- num: Receipt scanner achieved 94% accuracy on digital and physical receipts.
-- num: Over 70% of users discovered previously unknown government programs tailored to their profiles.
-- User ratings: budgeting insights 4.8/5, policy recommendations 4.7/5, learning roadmap 4.6/5.
-- Arcjet blocked all simulated security threats, ensuring data protection.
-
-**Supports Odin (direct justifications):**
-- Receipt scanning with AI achieves 94% accuracy, reducing manual entry errors.
-- Personalized policy recommendations increase user discovery of relevant government schemes by over 70%.
-- Integrating financial learning, budgeting, and policy guidance into one platform reduces fragmentation.
-
-**Limitations / Contradictions for Odin:**
-- Small sample size (50 users) for human evaluation, limiting generalizability.
-- No longitudinal study to measure retention or sustained behavior change.
-- Reliance on full user profiles for policy matching may raise privacy concerns (acknowledged as minor drawback by authors).
-
-**Key takeaways:**
-- Receipt OCR achieved 94% accuracy on digital and physical receipts.
-- Over 70% of users found new government schemes via policy engine.
-- Unified platform integrates budgeting, learning, and policy recommendations.
-
----
-
-
-## Machine Learning Techniques for Optimizing Recurring Billing and Revenue Collection in SaaS Payment Platforms
-**Filename:** `IA--Dlamini_summarized.md`  
-**Authors:** Dlamini, A. (0)  
-**ID:** `8a7b6c5d-4e3f-2a1b-9c8d-7e6f5a4b3c2d`  
-**Odin Topics:** 5.A, 6.A, 6.B, 8.A, 8.B, 11.A, 11.B  
-
-**TLDR:** Machine learning techniques optimize recurring billing, detect anomalies, forecast churn and revenue, and adapt pricing in SaaS payment platforms.
-
-**Problem & Motivation:** Recurring billing in SaaS platforms suffers from payment failures, fraud, and churn due to dynamic user behavior and rigid rule-based systems. Traditional methods lack adaptability to evolving patterns and high-volume transactional data. Machine learning offers scalable solutions for proactive revenue management.
+**Problem & Motivation:** Traditional financial models overlook psychological biases and contextual influences, limiting personalized financial advice and financial inclusion. Big data offers the scale needed to analyze multidimensional drivers of spending and saving.
 
 **Approach (summary):**
-- Data preprocessing includes cleansing, normalization, missing value imputation, and feature engineering from payment logs and usage metrics.
-- Linear and logistic regression with regularization provide interpretable baselines for fraud and churn prediction.
-- Ensemble methods like random forests and gradient boosting machines achieve high accuracy by combining multiple weak learners.
+- Reviews existing literature on big data characteristics (volume, velocity, variety) and behavioral finance concepts (cognitive biases, emotional influences).
+- Proposes integration of structured transaction data with unstructured digital footprints such as social media and mobile app usage.
+- Discusses descriptive, predictive, and prescriptive analytics methods including clustering, regression, and natural language processing.
 
 **Key Findings (selected):**
-- Ensemble methods like gradient boosting achieve high accuracy in fraud detection and churn forecasting.
-- Autoencoders effectively detect anomalous transactions by measuring reconstruction error without labeled fraud data.
-- Reinforcement learning optimizes dunning schedules and pricing strategies, maximizing revenue while minimizing churn.
-- Linear algebra techniques (PCA, SVD) reduce dimensionality, improving computational efficiency and interpretability.
-
-**Supports Odin (direct justifications):**
-- Machine learning models can forecast the probability of successful recurring payments.
-- Ensemble methods like random forests enhance fraud detection accuracy in payment systems.
-- Autoencoders identify anomalous transactions by measuring reconstruction error.
+- Consumer spending is influenced by cognitive biases like loss aversion, overconfidence, and anchoring.
+- Predictive analytics using historical transaction data and sentiment analysis can forecast future spending patterns.
+- Automated savings programs that analyze spending habits and round up purchases increase customer saving rates.
+- Social media sentiment analysis provides context for consumer spending trends and saving motivations.
 
 **Limitations / Contradictions for Odin:**
-- Lacks quantitative empirical results or benchmark comparisons. [unacknowledged]
-- Does not address real-time inference latency constraints for mobile PFMS. [unacknowledged]
-- Privacy-preserving methods (federated learning) are mentioned but not evaluated. [unacknowledged]
+- Paper lacks empirical data or experimental results. [unacknowledged]
+- No discussion of model interpretability or explainability for end users. [unacknowledged]
+- Data privacy solutions are mentioned at a high level without technical detail. [acknowledged]
 
 **Key takeaways:**
-- Ensemble tree models often outperform linear baselines for churn and fraud prediction.
-- Autoencoders provide unsupervised anomaly detection without labeled fraud data.
-- Reinforcement learning dynamically optimizes pricing and dunning strategies.
+- Big data reveals psychological drivers beyond rational economic factors.
+- Predictive analytics enables personalized financial interventions.
+- Ethical safeguards for data privacy are essential for user trust.
 
 ---
 
@@ -998,15 +703,10 @@ This report includes problem/motivation, approach, key findings, support for Odi
 - Time series forecasting (ARIMA, LSTM) predicts future expenses and income for proactive planning.
 
 **Key Findings (selected):**
-- {'num': 'Expense classification accuracy rated 4.2/5 by users.'}
-- {'num': 'Overall user satisfaction score 4.4/5.'}
-- {'num': 'Ease of use rated 4.5/5.'}
+- num: Expense classification accuracy rated 4.2/5 by users.
+- num: Overall user satisfaction score 4.4/5.
+- num: Ease of use rated 4.5/5.
 - Predictive models struggle with irregular income and fluctuating spending patterns.
-
-**Supports Odin (direct justifications):**
-- Expense classification can be automated using Random Forest and SVM with text vectorization.
-- LSTM models predict future spending with lower MAE than ARIMA for irregular patterns.
-- Personalized budget recommendations improve user goal achievement by 4.3/5 rating.
 
 **Limitations / Contradictions for Odin:**
 - Models struggle with irregular income streams and fluctuating expenses.
@@ -1021,9 +721,77 @@ This report includes problem/motivation, approach, key findings, support for Odi
 ---
 
 
-## 📌 Note for the Agent
+## What UK Fintechs Can Learn From African Mobile Money Models
+**Filename:** `I--Chepkutwo_summarized.md`  
+**Authors:** Chepkutwo, D. (0)  
+**ID:** `f7d3c2b1-5a4e-4d3c-8b2a-1c0d9e8f7a6b`  
+**Odin Topics:** 4.B, 9.A, 9.B, 10.B, 11.A, 13.A  
 
-The summaries above contain **essential extracts** – enough to understand the paper's relevance to Odin, including supporting evidence and limitations.
+**TLDR:** African mobile money models offer UK fintechs lessons in community-centered design, agent networks, frugal innovation, and trust-building to improve financial inclusion.
+
+**Problem & Motivation:** UK fintechs struggle with digital exclusion and low trust among vulnerable populations. African mobile money systems have successfully addressed similar constraints through community-led design and frugal approaches. This paper argues that the innovation flow should reverse, with developed markets learning from Africa.
+
+**Approach (summary):**
+- Draws on case studies of M-Pesa in Kenya, MTN MoMo, and Airtel Money across Africa.
+- Compares African mobile money design principles with UK fintech approaches to identify transferable lessons.
+- Analyzes agent network models, USSD technology, and community-based saving mechanisms.
+
+**Key Findings (selected):**
+- "num: More than 80% of adults in Kenya have access to mobile money services as of 2024."
+- "num: Approximately 7 million adults in the UK are digitally excluded or under-connected."
+- "num: M-Pesa operates over 180,000 agent networks across Kenya."
+- African mobile money succeeded by designing for communal needs like sending money to family and paying school fees.
+
+**Limitations / Contradictions for Odin:**
+- Lacks quantitative evaluation of proposed UK adaptations. [unacknowledged]
+- Does not consider Philippine-specific financial behaviors or cultural context. [unacknowledged]
+- Overgeneralizes African mobile money as a homogeneous model. [unacknowledged]
+
+**Key takeaways:**
+- More than 80% of Kenyan adults use mobile money, showing scalability of constraint-driven design.
+- Agent networks of over 180,000 agents in Kenya act as human trust anchors.
+- Building for the margins first leads to inclusive and resilient fintech products.
+
+---
+
+
+## Leveraging Big Data Analytics in Behavioral Finance: Insights into Consumer Spending and Saving Dynamics
+**Filename:** `I--Ying-&-Blaise_summarized.md`  
+**Authors:** Ying, H.; Blaise, M. (0)  
+**ID:** `5c9a5e3a-8b4a-5c1e-9f2d-4a7b8c9d0e1f`  
+**Odin Topics:** 2.B, 3.A, 5.A, 6.A, 10.A, 10.B, 11.A, 13.A  
+
+**TLDR:** Big data analytics combined with behavioral finance reveals how psychological biases and digital footprints influence consumer spending and saving patterns, enabling personalized financial strategies.
+
+**Problem & Motivation:** Traditional financial models assume rational decision-making and overlook psychological, social, and contextual drivers of consumer behavior. This gap limits the ability to design effective personalized financial products and interventions. The paper argues that big data techniques can capture these multidimensional factors at scale to improve financial inclusion and resilience.
+
+**Approach (summary):**
+- Reviews the characteristics of big data (volume, velocity, variety, veracity) in financial contexts.
+- Identifies data sources: transaction histories, social media, mobile apps, surveys, and web analytics.
+- Proposes descriptive, predictive, and prescriptive analytics to uncover spending and saving patterns.
+
+**Key Findings (selected):**
+- Big data enables segmentation of consumers based on spending habits and cognitive biases.
+- Predictive analytics can forecast future spending behaviors from historical transaction data.
+- Social media sentiment analysis provides contextual insights that influence spending decisions.
+- Automated savings programs that analyze spending patterns can increase saving rates.
+
+**Limitations / Contradictions for Odin:**
+- The paper is a non‑empirical review without original experiments or data.
+- No specific machine learning model or evaluation metrics are provided.
+- Ethical concerns like algorithmic bias are raised but no mitigation strategies are proposed [unacknowledged].
+
+**Key takeaways:**
+- Big data reveals hidden psychological drivers of consumer spending.
+- Behavioral segmentation enables personalized financial products and alerts.
+- Predictive analytics forecasts spending patterns from transaction history.
+
+---
+
+
+## Note for the Agent
+
+The summaries above contain **essential extracts** – enough to understand each paper's relevance to Odin, including supporting evidence and limitations.
 If you need additional details not shown here (e.g., **critical citations, definitions, equations, full methodology, or the complete mapping rationale**),
 **ask the user to send the original summary file (`<filename>_summarized.md`) or the converted MarkItDown file(`<filename>_marked.md`)** for the specific paper(s) of interest.
 Do not invent missing information. Acknowledge gaps when they exist.
