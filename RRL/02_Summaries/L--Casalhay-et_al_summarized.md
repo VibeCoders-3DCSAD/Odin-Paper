@@ -1,0 +1,92 @@
+```yaml
+paper_id: "10.55248/gengpi.6.0525.1716"
+designation: "local"
+title: "The Gig Economy: Financial Challenges and Opportunities Faced by Freelancers"
+authors: "Casalhay, S. F.; Guevarra, C. M.; Bragas, C. M."
+year: 2025
+venue: "International Journal of Research Publication and Reviews"
+odin_topics:
+  - "1.C"
+  - "4.B"
+  - "5.A"
+  - "7.A"
+  - "13.A"
+shorthand_tags:
+  - "/fin-behavior"
+  - "/fin-exclusion"
+  - "/coping-strategies"
+  - "/budgeting"
+  - "/emergency-funds"
+tldr: "Freelancers in the gig economy face income volatility, lack of benefits, and barriers to financial services, relying on budgeting and savings strategies that are often insufficient for long-term security."
+problem_and_motivation: "Traditional employment models provide stability and benefits, but freelancers in the gig economy lack these protections, leading to financial insecurity. Existing research focuses on the growth of gig work rather than the specific financial behaviors and coping mechanisms of freelancers. This gap hinders the development of tailored financial products and policies to support gig workers."
+approach:
+  - "Qualitative study using semi-structured interviews with 50 freelancers in Metro Manila across writing, design, virtual assistance, and software development."
+  - "Participants had at least six months of gig experience; purposive and snowball sampling were used."
+  - "Data were transcribed and analyzed using thematic analysis with NVivo software."
+  - "The study identified themes such as income volatility, lack of benefits, barriers to financial services, and coping strategies."
+  - "Interviews covered income volatility, access to financial services, budgeting, saving, and coping mechanisms."
+findings:
+  - "num: 50 freelancers reported income instability as a primary challenge due to seasonal fluctuations and irregular client payments."
+  - "num: Many freelancers allocate 30% to savings and 70% to expenses when possible, and save 10% of earnings into emergency funds."
+  - "Freelancers lack access to employer-sponsored health insurance, retirement plans, and paid leave, increasing financial burden."
+  - "Financial institutions view freelancers as high-risk borrowers, denying loans and credit due to irregular income."
+  - "Budgeting apps, spreadsheets, and digital wallets are widely used but cannot solve irregular income or delayed payments."
+  - "Income volatility causes significant stress, anxiety, and lifestyle restrictions among freelancers."
+  - "Freelancers desire income-smoothing tools, micro-savings platforms, affordable health insurance, and government safety nets."
+key_figures_tables:
+  - "Table 1: Financial challenges including income instability, lack of benefits, and barriers to financial services → Income volatility is the dominant challenge."
+  - "Table 2: Financial management practices including budgeting and saving strategies → Freelancers use structured allocation and emergency funds."
+  - "Table 3: Means of income stability including healthcare and policy support → Affordable health insurance and fair payment regulations are needed."
+  - "Table 4: Financial opportunities including micro-savings and freelancer loans → Awareness is low, but perceived benefits include financial stability."
+key_equations:
+  - equation: "None."
+    explanation: ""
+definitions:
+  - term: "None."
+    definition: ""
+critical_citations:
+  - "[De Stefano, 2016] — defines precarious employment in gig economy."
+  - "[Peetz et al., 2021] — income volatility affects financial planning."
+  - "[McNeal, 2024] — absence of employer-sponsored benefits."
+  - "[Hwang, 2024] — gig economy income instability."
+relevance:
+  topics:
+    - code: "1.C"
+      name: "Financial Behavior of Filipino Young Professionals"
+      justification: "Study examines financial challenges and coping strategies of freelancers in Metro Manila."
+    - code: "4.B"
+      name: "Limitations and Gaps in Existing Systems"
+      justification: "Highlights lack of tailored financial products and barriers to loans/credit for gig workers."
+    - code: "5.A"
+      name: "Financial Behavioral Profiles in Personal Finance"
+      justification: "Identifies budgeting, saving, and reactive coping behaviors under income volatility."
+    - code: "7.A"
+      name: "Budgeting Strategies as Domain Knowledge"
+      justification: "Documents specific budgeting techniques like percentage-based allocation and weekly budgeting."
+    - code: "13.A"
+      name: "Savings Goal Management in PFMS"
+      justification: "Describes emergency fund practices and micro-savings tools used by freelancers."
+  contribution: "This paper's findings on freelancer income volatility justify Odin's spending forecasting module to help users anticipate lean periods. The identification of budgeting strategies such as percentage-based allocation and weekly budgeting informs Odin's budget recommendation engine. The need for emergency savings and micro-savings tools supports Odin's savings goal management features. The paper's emphasis on financial exclusion highlights the importance of Odin's accessible mobile-first design for freelancers. Additionally, the documented stress from income uncertainty underscores the value of anomaly detection for irregular cash flows."
+  directly_justifies:
+    - "Freelancers experience income volatility due to seasonal fluctuations and irregular client payments."
+    - "Many freelancers lack access to traditional benefits like health insurance and retirement plans."
+    - "Budgeting apps and tracking tools are widely used but insufficient for long-term financial security."
+    - "Freelancers desire income-smoothing tools and emergency funds to manage cash flow."
+    - "Financial institutions deny loans to freelancers because irregular income signals high risk."
+  limits:
+    - "Qualitative study with 50 participants from Metro Manila only, limiting generalizability to other regions or countries."
+    - "Self-reported data may suffer from recall bias and social desirability bias [unacknowledged]."
+    - "No longitudinal analysis of financial behaviors over time or causal testing of coping strategies."
+    - "The study does not compare freelancers to traditionally employed workers on financial outcomes."
+  mapping_rationale: "The paper was screened against Odin's functional domains. Behavioral profiling (5.A) applies because the study identifies coping strategies and financial behaviors of freelancers. Spending forecasting (6.A) was rejected as the paper does not model future spending. Budget recommendation (7.A) applies due to detailed budgeting strategies (e.g., 30-70 allocation). Anomaly detection (8.A) was rejected. Expense categorization (3.A) was rejected as no categorization framework is proposed. Mobile-first design (9.A) was rejected. Data privacy (10.A) was rejected. Retention (11.A) rejected. Evaluation (12.A) rejected. Savings management (13.A) applies due to emergency fund practices and micro-savings tools. Additionally, 1.C (Financial Behavior of Filipino Young Professionals) applies as the sample is from Metro Manila. 4.B (Limitations and Gaps in Existing Systems) applies because the paper highlights financial exclusion and lack of tailored products. 2.B (Seasonal and Cyclical Spending Patterns) was considered but rejected because the focus is on income volatility, not spending patterns. Borderline case 5.A was accepted as the paper describes behavioral profiles (budgeting, saving, anxiety)."
+limitations:
+  - "Small sample size (n=50) and geographic restriction to Metro Manila limit external validity [unacknowledged]."
+  - "No comparison group of traditionally employed workers to benchmark financial outcomes."
+  - "The study does not test causal relationships between coping strategies and financial stability [unacknowledged]."
+  - "Qualitative design cannot quantify the effectiveness of specific financial tools or strategies."
+remember_this:
+  - "num: 50 freelancers report income volatility as a primary challenge."
+  - "Budgeting and emergency savings are common but insufficient for long-term security."
+  - "Freelancers lack access to loans, credit, and employer-sponsored benefits."
+  - "Affordable health insurance and portable benefits are top requested solutions."
+```
