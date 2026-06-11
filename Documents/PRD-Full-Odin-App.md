@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-Filipino young professionals in Metro Manila need a budgeting system that reflects how they actually receive, spend, and allocate money. Existing tools are often generic expense trackers: they help record past spending, but they do not adequately support variable income, fixed obligations, family and community contributions, protected expense categories, culturally cyclical spending, savings goals, debt pressure, or forward-looking budget guidance.
+Filipino working young adults aged 20 to 40 in Metro Manila need a budgeting system that reflects how they actually receive, spend, and allocate money. Existing tools are often generic expense trackers: they help record past spending, but they do not adequately support variable income, fixed obligations, family and community contributions, protected expense categories, culturally cyclical spending, savings goals, debt pressure, or forward-looking budget guidance.
 
 The target user needs a mobile-first and web-accessible personal budget management system that turns manual transaction logging into useful guidance. The system must help users understand their cash position, classify their financial behavior, forecast likely spending, detect unusual or risky transactions, recommend budget allocations, track savings goals, and manage debt repayment strategies.
 
@@ -10,7 +10,7 @@ The research team also needs the app to support thesis evaluation. Odin must be 
 
 ## Solution
 
-Build Odin as a mobile-first personal budget management application with web access. The app will provide a guided onboarding flow, classify users into one of four financial behavioral profiles, let users manually record income, expenses, transfers, and recurring transactions, organize spending through a Filipino-context category taxonomy, generate profile-aware budget recommendations, show spending forecasts, detect anomalous or risky spending behavior, track savings goals, and guide debt repayment using Avalanche and Snowball strategies.
+Build Odin as a mobile-first personal budget management application with web access. The app will provide a guided onboarding flow for Filipino working young adults aged 20 to 40, classify users into one of four financial behavioral profiles, let users manually record income, expenses, transfers, and recurring transactions, organize spending through a Filipino-context category taxonomy, generate profile-aware budget recommendations, show spending forecasts, detect anomalous or risky spending behavior, track savings goals, and guide debt repayment using Avalanche and Snowball strategies.
 
 Odin should behave as a decision-support tool, not a licensed financial adviser. The app should explain recommendations and alerts in plain user-facing language, preserve user control over final decisions, and avoid shaming users for culturally or personally necessary expenses.
 
@@ -39,7 +39,7 @@ Confirmed primary screens:
 2. As a returning user, I want to log in securely, so that other people cannot access my financial data.
 3. As a privacy-conscious user, I want to understand what data Odin collects before onboarding, so that I can decide whether to proceed.
 4. As a first-time user, I want a guided onboarding walkthrough, so that I understand the main features without reading a manual.
-5. As a first-time user, I want to enter my income type, so that Odin can understand whether my income is stable, variable, or mixed.
+5. As a first-time user, I want to enter my employment status and income stability, so that Odin can understand my work context and whether my income is stable or variable.
 6. As a first-time user, I want to enter my income frequency, so that Odin can align budgets and forecasts to my real pay cycle.
 7. As a first-time user, I want to declare fixed obligations, so that Odin can distinguish unavoidable payments from flexible spending.
 8. As a first-time user, I want to declare financial dependents or family support obligations, so that Odin can account for Filipino household responsibilities.
@@ -98,7 +98,7 @@ Confirmed primary screens:
 61. As a user, I want to link contributions to savings goals, so that progress updates automatically.
 62. As a user, I want to see whether a savings goal is on track, behind, or achieved, so that I know whether to adjust.
 63. As a user, I want projected goal completion dates, so that I understand how current saving behavior affects my timeline.
-64. As a user with multiple goals, I want to prioritize goals, so that Odin can recommend allocations in the right order.
+64. As a user with multiple goals, I want to view my savings goals in a priority table and apply Snowball or Avalanche allocation strategies, so that Odin can recommend contributions in the right order.
 65. As a user, I want to create debt accounts, so that I can track repayment obligations separately from ordinary expenses.
 66. As a user, I want to enter debt interest rates and minimum payments, so that repayment projections are realistic.
 67. As a user, I want to compare Avalanche and Snowball repayment strategies, so that I can choose the strategy that fits my needs.
@@ -124,6 +124,9 @@ Confirmed primary screens:
 ## Implementation Decisions
 
 - Build Odin as a mobile-first application with web access. Mobile is the primary UX target; web should support the same core workflows with more room for analysis and reporting.
+- Treat Filipino working young adults aged 20 to 40 in Metro Manila as the canonical target demographic.
+- Onboarding employment status options should be Regular / Permanent employee, Contractual / Project-based employee, Freelancer / Self-employed, Part-time employee, Business owner / Entrepreneur, and Other.
+- Income stability should use only two options for profile classification: Stable and Variable. Mixed income should not be treated as a separate classification value.
 - Treat the confirmed screens as the first route map for the full app.
 - Use a shared domain model across mobile and web so transaction, budget, forecast, profile, alert, savings, and debt concepts do not diverge between platforms.
 - Create a transaction ledger module as a deep module. It should expose a simple interface for income, expense, transfer, recurring transactions, edits, deletes, category assignment, and date-range queries while hiding ledger invariants.
@@ -133,7 +136,11 @@ Confirmed primary screens:
 - Create a forecasting module as a deep module. It should support cold-start forecasts, personalized forecasts, total forecasts, per-category forecasts, and metadata explaining whether the result is personalized or fallback-based.
 - The primary forecast visualization should include a next-month multi-line graph for Essentials, Discretionary, Financial Allocation, and Obligatory spending.
 - Create an anomaly and overspending detection module as a deep module. It should detect unusual transaction behavior, budget-risk conditions, culturally expected exceptions, and user-whitelisted intentional outliers.
-- Create a savings goal module as a deep module. It should manage goals, contributions, progress states, prioritization, and projected achievement dates.
+- Create a savings goal module as a deep module. It should manage goals, contributions, progress states, prioritization, Snowball and Avalanche allocation strategies, and projected achievement dates.
+- The savings goal module should provide a priority setting table that lists all active savings goals with their priority rank, target amount, saved amount, remaining amount, target date, progress state, and selected allocation strategy inputs.
+- Each savings goal should be linked to a Financial Allocation subcategory used for contribution transactions, budget allocation, reporting, and forecast aggregation. The savings goal record remains the source of truth for target amount, saved amount, progress state, priority, and strategy logic.
+- Savings goal Snowball and Avalanche should follow the same allocation principles as the debt module. Snowball prioritizes the savings goal with the smallest remaining amount first. Avalanche prioritizes the highest-ranked or highest-impact savings goal first according to the goal ranking field defined in the system specification.
+- When a budget strategy includes a Financial Allocation portion, such as the 20 percent in a 50/30/20 budget, Odin should distribute that portion across active savings goals according to the selected savings goal allocation strategy.
 - Create a debt management module as a deep module. It should manage debt accounts and compute Avalanche and Snowball repayment projections.
 - Create an alerts and notifications module as a deep module. It should centralize alert generation, acknowledgement, notification preferences, cooldown behavior, and alert fatigue controls.
 - Create a reporting module as a deep module. It should produce date-range summaries, category breakdowns, budget-vs-actual reports, forecast-vs-actual comparisons, savings progress, debt progress, and obligation/protected-category summaries.
@@ -163,7 +170,7 @@ Confirmed primary screens:
 - Forecasting tests should cover cold-start fallback, personalized-forecast availability, forecast metadata, per-category outputs, total outputs, and forecast consumption by dashboard and budget modules.
 - Forecasting UI tests should verify that the next-month graph renders all four broad-category lines and remains readable on mobile.
 - Anomaly detection tests should cover high category deviation, high income-ratio spending, recurring-payment suppression, user whitelisting, culturally expected exception behavior, and alert explanation output.
-- Savings goal tests should cover goal creation, contributions, progress states, target-date projections, prioritization, and completion behavior.
+- Savings goal tests should cover goal creation, linked Financial Allocation subcategories, contribution recording, priority table behavior, progress states, target-date projections, Snowball allocation order, Avalanche allocation order, prioritization, and completion behavior.
 - Debt management tests should cover debt account creation, minimum payments, Avalanche order, Snowball order, projected payoff dates, and strategy switching.
 - Alerts tests should cover alert creation, acknowledgement, cooldowns, notification preferences, grouped alerts, and suppression rules.
 - Reporting tests should cover budget-vs-actual, forecast-vs-actual, category summaries, date filters, savings progress, and debt progress.
@@ -181,10 +188,17 @@ Confirmed primary screens:
 - E-wallet API integration.
 - OCR or receipt scanning.
 - Automatic transaction import.
+- External CSV or spreadsheet transaction import.
 - Investment portfolio management.
 - Multi-currency support.
 - Licensed financial advice, investment advice, retirement planning, or legal/tax advice.
-- Users outside the Filipino young professional target demographic.
+- Automated bill payment.
+- Credit score monitoring.
+- Tax computation or tax preparation.
+- Dedicated paluwagan module.
+- Credit card account management.
+- Compound interest modeling for revolving debt.
+- Users outside the Filipino working young adult target demographic aged 20 to 40.
 - Geographic generalization beyond Metro Manila for the thesis scope.
 - Full production-grade fraud detection.
 - Merchant-level enrichment from third-party providers.
