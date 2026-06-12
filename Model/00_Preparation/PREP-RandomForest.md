@@ -88,9 +88,15 @@ The BSP CFS allows you to calculate powerful composite features that are more pr
 ### How to Use These Features for Random Forest Classification (Suggestion Only)
 
 - **Target Variable (The 4 Profiles):** While the CFS does not have a "financial behavioral profile" label, you can create a ground truth for training by clustering households based on a combination of the key features above. For example:
+
     - **Profile 1 (Stable/Saver):** Regular employment, high education, owns deposit account & insurance, low dependency ratio, high financial cushion.
+
     - **Profile 2 (Variable/Obligated):** Self-employed/contractual, high dependency ratio, has outstanding loans (e.g., motorcycle, salary), medium financial cushion.
+
     - **Profile 3 (Variable/Necessity Entrepreneur):** No formal contract, engaged in agriculture/retail, has microfinance loan, low education, low financial cushion.
+
     - **Profile 4 (Variable/Recipient):** Primary income from "Other Sources" (ayuda, remittances), possibly unemployed or elderly EDM, no formal account, low savings.
+
 - **Training the Model:** Use the CFS dataset to train the Random Forest classifier to predict this engineered 4-profile target variable using the features extracted above.
+
 - **Deployment (Odin App):** Once trained, the model's logic can be simplified into a rule-based system or a lightweight inference engine for the app. A new user's onboarding answers (e.g., "I am a freelance delivery rider", "I support my parents and siblings", "I have a motorcycle loan") will map to these same feature categories, allowing the app to instantly classify them and provide personalized guidance.
