@@ -14,6 +14,7 @@ This screen is the primary daily overview. It gives users a quick view of financ
 - Active alerts.
 - Savings goal progress preview.
 - Debt repayment preview.
+- Stale debt projection refresh for debt payoff preview when needed.
 - Forecast highlight.
 - Compact next-month forecast preview using the same four broad forecast groups as the Forecast Dashboard.
 - Urgent action cards for budget risk, unusual spending, upcoming recurring obligations, savings status, and debt due dates.
@@ -31,6 +32,7 @@ This screen is the primary daily overview. It gives users a quick view of financ
 - Recent transaction list.
 - Savings goal preview.
 - Debt payoff preview.
+- Debt projection freshness indicator when projection data is missing or stale.
 - Quick action buttons.
 
 ## Main User Actions
@@ -67,10 +69,12 @@ This screen is the primary daily overview. It gives users a quick view of financ
 - Recurring transaction templates.
 - Savings goals.
 - Debt accounts.
+- Debt repayment projection runs for payoff preview.
 
 ## Validation Rules
 
 - Dashboard totals must be derived from stored transactions and budget records.
+- Debt payoff previews should use the latest valid projection or request a refreshed projection when the existing projection is stale.
 - Cold-start data must be labeled clearly.
 - No card should show misleading zero values when data is unavailable.
 - Forecast preview colors and labels must match the full Forecast Dashboard.
@@ -79,6 +83,7 @@ This screen is the primary daily overview. It gives users a quick view of financ
 
 - Users can understand current financial status within one screen.
 - Dashboard links to the main task screens.
+- Debt payoff preview reflects current projection data or clearly indicates when it needs refresh.
 - New users see useful setup prompts instead of broken charts.
 - Cold-start estimates are visibly labeled.
 - Forecast preview gives users a quick next-month signal without replacing the full Forecast Dashboard.
