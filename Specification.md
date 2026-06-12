@@ -4,7 +4,7 @@
 
 **Document Type:** Technical Specification
 
-**Version:** 3.1
+**Version:** 4.0
 
 **Date:** 2026-06-07
 
@@ -47,6 +47,8 @@
 
     2.2. The desktop version may use multi‑column layouts where appropriate.
 
+    2.3. Web screens shall support the same core workflows as mobile, with more room for analysis and reporting.
+
 ### Section 2. Target Users
 
 1. The System is designed exclusively for the following user population.
@@ -69,7 +71,41 @@
 
         vi. Gig economy worker
 
-        > NOTE: Define each of the abovementioned capacities. 
+# Section 3: Screens
+
+1. The System shall implement the following primary screens:
+
+    1.1. Login / Register
+    
+    1.2. Onboarding questionnaire
+
+    1.3. Profile result / financial behavioral profile
+
+    1.4. Dashboard / overview
+
+    1.5. Add transaction
+
+    1.6. Transactions list / history
+
+    1.7. Recurring transactions
+
+    1.8. Categories / category settings
+
+    1.9. Budget setup
+
+    1.10. Budget recommendation
+
+    1.11. Forecast dashboard
+
+    1.12. Alerts / anomaly review
+
+    1.13. Savings goals
+
+    1.14. Debt accounts
+
+    1.15. Reports / analytics
+
+    1.16. Settings / privacy / account
 
 ---
 
@@ -160,7 +196,7 @@
         1.4.1. For an income transaction, add the amount to the available balance of the selected account.
 
         1.4.2. For an expense transaction, subtract the amount from the available balance.
-        
+
         1.4.3. For a transfer, subtract the amount from the source account and add it to the destination account.
 
     1.5. Store transaction. After the transaction is saved, the System shall store it with a timestamp in ISO 8601 format.
@@ -206,6 +242,16 @@
     2.3. Fallback recommendation. If no authoritative source supports thirteen months, the team shall adopt a more standard period such as twenty‑four months or align with tax record‑keeping recommendations (typically three years in the Philippines).
 
 > [RRL NEEDED: Retention limit] Users may not edit or delete transactions older than thirteen months from the transaction date. The choice of thirteen months is provisional and requires validation from either Bangko Sentral ng Pilipinas data retention guidelines, the Data Privacy Act's legitimate purpose principle, or a relevant study on financial data retention periods. If no authoritative source supports thirteen months, the team should adopt a more standard period such as twenty‑four months or align with tax record‑keeping recommendations (typically three years in the Philippines).
+
+### Section 6. Category Suggestions and Smart Defaults
+
+1. To reduce transaction entry effort, the System shall provide category suggestions or smart defaults.
+
+    1.1. When adding a transaction, the System shall suggest the most recently used category for the same merchant (if merchant name is provided).
+
+    1.2. If no merchant history exists, the System shall suggest the most frequently used category across all transactions in the last thirty days.
+
+    1.3. The user may override any suggestion.
 
 ---
 
@@ -311,7 +357,9 @@
 
     1.4. Periodic refresh. Ninety days have elapsed since the last classification.
 
-    1.5. Provisional thresholds. The values of 0.10 for CV change, 0.15 for obligation ratio change, and the sixty‑day sustained period are provisional. These should be validated against literature on how long financial behavioral profiles typically take to shift.
+    1.5. The System shall also detect sustained behavior changes as part of normal operation, allowing the profile to adapt over time.
+
+    1.6. Provisional thresholds. The values of 0.10 for CV change, 0.15 for obligation ratio change, and the sixty‑day sustained period are provisional. These should be validated against literature on how long financial behavioral profiles typically take to shift.
 
 2. Upon detection of any trigger, the System shall generate a reclassification recommendation and present it to the user with an explanation using SHAP values (see Section 5).
 
@@ -319,11 +367,11 @@
 
     2.2. The user may accept or decline the recommended change.
 
-    2.3. If the user does not respond to the recommendation within thirty days, the System shall display a persistent, non-dismissible notification on the dashboard stating: "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?"
+    2.3. The user may also override or request a reassessment of their profile at any time, ensuring the system does not trap the user in an inaccurate classification.
 
-    2.4. The user must either accept or decline. There is no automatic application. This design ensures that the user retains full control over their profile classification at all times.
+    2.4. If the user does not respond to the recommendation within thirty days, the System shall display a persistent, non-dismissible notification on the dashboard stating: "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?"
 
-> [RRL NEEDED: Reclassification thresholds and sustained periods] The values of 0.10 for CV change, 0.15 for obligation ratio change, and the sixty‑day sustained period are provisional. These should be validated against literature on how long financial behavioral profiles typically take to shift.
+    2.5. The user must either accept or decline. There is no automatic application. This design ensures that the user retains full control over their profile classification at all times.
 
 ### Section 5. Random Forest Algorithm
 
@@ -335,33 +383,81 @@
 
     1.3. Split criterion. The split criterion shall be Gini impurity.
 
-    1.4. Class weights. Class weights shall be balanced to address potential imbalance in the training data. The synthetic training dataset shall be generated with equal representation of all four profiles (twenty‑five percent each).
+    1.4. Class weights. Class weights shall be set to balanced as a robustness measure against class imbalance. The synthetic training dataset shall be generated with equal representation of all four profiles at twenty-five percent each; class balancing is retained as a safeguard in the event that the generated dataset deviates from perfect balance.
 
-    1.5. Reproducibility. The random state shall be fixed at forty‑two for reproducibility, primarily for testing and development purposes.
+    1.5. Reproducibility. The random state shall be fixed at forty-two for reproducibility during testing and development.
 
-2. The features used for classification shall include at minimum the following.
+2. Feature set. The Random Forest classifier shall use exactly five behavioral features, all derived from the user's transaction history. The income coefficient of variation and the obligation ratio are explicitly excluded from this feature set. Their roles elsewhere in the System are defined in subsection 3 of this Section.
 
-    2.1. Income coefficient of variation computed over thirty‑day, sixty‑day, and ninety‑day windows.
+    2.1. Income frequency. The number of income transactions recorded within the preceding thirty-day window.
 
-    2.2. Obligation ratio computed over the same three windows.
+    2.2. Income amount variance. The mean absolute deviation of income transaction amounts over the preceding ninety days.
 
-    2.3. Income frequency measured as the number of income payments per thirty days.
+    2.3. Fixed expense count. The number of distinct payees associated with at least one active recurring transaction template.
 
-    2.4. Income amount variance using mean absolute deviation.
+    2.4. Savings rate. The sum of all Financial Allocation expense transactions divided by the sum of all income transactions over the preceding thirty-day window.
 
-    2.5. Fixed expense count, defined as the number of distinct payees with the recurring flag enabled.
+        2.4.1. If no Financial Allocation transactions exist within the window, the savings rate shall default to zero.
 
-    2.6. Savings rate computed as savings divided by income over a thirty‑day window.
+        2.4.2. If no income transactions exist within the window, the savings rate shall default to zero and a data-sufficiency flag shall be raised.
 
-    2.7. Transaction regularity score calculated as the entropy of inter‑transaction intervals.
+    2.5. Transaction regularity score. The Shannon entropy of inter-transaction intervals computed across all expense transactions over the preceding sixty days.
 
-3. Feature types. All features are continuous except income frequency and fixed expense count, which are integers.
+        2.5.1. Higher entropy values indicate more erratic spending timing. Lower entropy values indicate more regular, predictable patterns.
 
-    3.1. Data source. The data source for all features is the user's transaction history.
+        2.5.2. The inter-transaction interval for each pair of consecutive expense transactions is the elapsed time in hours between their recorded timestamps.
 
-4. Explainability with SHAP. For each classification prediction, the System shall provide SHAP (SHapley Additive exPlanations) values.
+3. Role of income coefficient of variation and obligation ratio. These two metrics are computed by the System and play defined roles, but they are not inputs to the Random Forest classifier.
 
-    4.1. Output format. The explanation shall be presented to the user in a sentence such as: "Your profile is Stable‑Obligated mainly because your obligation ratio of 0.55 is higher than typical Flexible users, and your monthly spending coefficient of variation of 0.12 indicates stable income."
+    3.1. Synthetic data label generation. During the construction of the synthetic training dataset, the income CV threshold defined in Section 2 of this Article and the obligation ratio threshold defined in Section 3 of this Article are applied to each synthetic user's generated financial profile to assign a ground-truth profile label. This is their sole function during model development. They do not appear in any feature vector passed to the classifier.
+
+    3.2. Reclassification triggers. At runtime, changes in a user's computed CV or obligation ratio serve as conditions that initiate re-evaluation of the user's profile, as specified in Section 4 of this Article. Upon trigger, the System initiates a new Random Forest inference pass using the user's current five-feature behavioral vector. CV and obligation ratio do not re-enter the classifier as features; they only initiate the inference pass.
+
+    3.3. Design rationale. Excluding the income CV and obligation ratio from the RF feature set ensures that the classifier learns from observable behavioral transaction patterns — income regularity, spending commitment structure, and savings behavior — rather than replicating the threshold rules used to generate its training labels. This separation produces a genuine and independently verifiable machine learning contribution: the classifier demonstrates that behavioral signals are predictive of financial behavioral profiles without relying on the explicit threshold metrics that define those profiles. This design is consistent with studies in the literature that classify behavioral profiles from transactional or behavioral proxies rather than from the definitional metrics of the profile taxonomy itself.
+
+4. Feature types and data source.
+
+    4.1. Income frequency and fixed expense count are non-negative integer features. Income amount variance, savings rate, and transaction regularity score are continuous real-valued features.
+
+    4.2. The data source for all five features is the user's transaction history as stored in the System database.
+
+    4.3. All five features are computed fresh at each classification event using the time windows specified in subsection 2.
+
+    4.4. Feature computation shall use Philippine Standard Time (UTC+8) for all daily boundary determinations.
+
+5. Explainability with SHAP. For each classification prediction, the System shall compute SHAP (SHapley Additive exPlanations) values across the five behavioral features.
+
+    5.1. The System shall identify the two features with the largest absolute SHAP values for the predicted class and present them to the user as a plain-language explanation.
+
+    5.2. Explanation format. The explanation shall be constructed from a template of the following form: "Your profile is [Profile Name] mainly because [Feature A description], and [Feature B description]."
+
+        5.2.1. Example — Variable-Obligated: "Your profile is Variable-Obligated mainly because your income amount varies significantly from month to month, and you have a high number of recurring fixed obligations compared to users in other profiles."
+
+        5.2.2. Example — Stable-Flexible: "Your profile is Stable-Flexible mainly because your income arrives at a consistent and regular interval, and your spending pattern shows high regularity with few fixed recurring commitments."
+
+        5.2.3. Example — Variable-Flexible: "Your profile is Variable-Flexible mainly because your income frequency is low and irregular, though your recurring fixed obligations are relatively few."
+
+    5.3. SHAP values shall be computed at inference time from the trained Random Forest model. They shall be stored in the application log for audit purposes and retained for thirty days, after which they shall be anonymised by removing user identifiers.
+
+    5.4. The explanation shall be accessible to the user via the "Why?" button on the financial behavioral profile screen.
+
+6. Accuracy target and prototyping validation.
+
+    6.1. The target classification accuracy is 0.85 or higher on the synthetic holdout test set, as specified in Article XIII Section 3.2.
+
+    6.2. This target is contingent on validation during the algorithm prototyping phase. The predictive power of the five behavioral features depends on the degree to which they correlate with the CV- and obligation-ratio-based profile labels in the synthetic training data. This correlation structure must be explicitly designed into the synthetic data generation procedure, as documented in the companion file synthetic-data-design.md.
+
+    6.3. If classification accuracy falls below 0.85 following initial prototyping, the researchers shall apply the following remediation sequence before any other intervention.
+
+        6.3.1. Step 1. Review and revise the synthetic data generation parameters — specifically, the feature distributions per profile — to ensure that behavioral features correlate sufficiently with the profile labels.
+
+        6.3.2. Step 2. If accuracy remains below 0.85 after synthetic data revision, conduct a hyperparameter search over n_estimators, max_depth, and min_samples_split as documented in Appendix E.
+
+        6.3.3. Step 3. If accuracy remains below 0.85 after both steps, the researchers shall document the achieved accuracy, report it as the thesis result, and analyse which feature or profile pair is responsible for the shortfall.
+
+    6.4. The researchers shall not reintroduce income CV or obligation ratio into the RF feature set as a remediation measure, as doing so would reintroduce the circularity that this design explicitly avoids.
+
+> [RRL NEEDED: Behavioral feature predictiveness for profile classification] The design rationale in subsection 3.3 claims that observable behavioral transaction signals are predictive of financial behavioral profiles independently of explicit definitional metrics. This claim must be supported by at least two studies from Topic 5.C (Random Forest Classification Algorithm for Behavioral Profiles) that demonstrate RF classifying behavioral or financial profiles from transactional or behavioral proxy features rather than from the profile's own definitional criteria. The researchers shall identify and cite these studies in the methodology chapter when justifying the feature set design.
 
 ### Section 6. Cold-Start Classification
 
@@ -417,13 +513,9 @@
 
         2.6.2. This also provides contextual information and is already captured in the obligation ratio question. It is retained to help users understand what counts as an unavoidable expense.
 
-> Note — RRL Validation Required: The exact algorithm for converting questionnaire responses into an initial profile classification must be validated through research. The provisional approach is to treat a "No" answer to income stability as Variable, and a "Yes" answer to the obligation percentage question at or above 50% as Obligated, with the remaining combinations producing the corresponding profiles.
+    2.7. The onboarding walkthrough shall also allow the user to declare fixed obligations, financial dependents or family support obligations, and mark important expense categories as protected.
 
 3. After the user completes the questionnaire, the System shall compute an initial profile and present it to the user for confirmation before proceeding to the main application.
-
-> [RRL NEEDED: Questionnaire response mapping to profiles] The exact algorithm for converting questionnaire responses into an initial profile classification must be validated through research. The provisional approach is to treat a "No" answer to income stability as Variable, and a "Yes" answer to the obligation percentage question at or above 50% as Obligated, with the remaining combinations producing the corresponding profiles.
-
-> NOTE: May need sections for explainability and evaluation metrics just like the forecasting module.
 
 ### Section 7. Module Relationships
 
@@ -560,6 +652,40 @@
             a. Discretionary for personal care and miscellaneous.
             
             b. Obligatory for documented social protection contributions.
+
+5. Filipino‑specific obligations. The category taxonomy shall explicitly include the following Filipino-context categories:
+
+    5.1. Family support and remittances
+
+    5.2. Paluwagan (informal rotating savings and credit association)
+
+    5.3. Church or religious donations
+
+    5.4. Barangay or community collections
+
+    5.5. Government contributions (SSS, PhilHealth, Pag-IBIG)
+
+    5.6. Debt payments
+
+    5.7. Insurance
+
+    5.8. Emergency fund
+
+    5.9. Savings and investments
+
+6. Protected categories. The System shall support marking categories as protected.
+
+    6.1. Default protected categories shall include essentials, debt and loan repayments, insurance, and emergency fund contributions.
+
+    6.2. The user may declare additional protected categories during onboarding or via settings.
+
+    6.3. Budget recommendations must not suggest reducing protected categories unless the user explicitly changes protection settings.
+
+7. Category groups. Categories shall be grouped into broad financial buckets to help users understand essentials, obligatory spending, discretionary spending, and financial allocation at a glance.
+
+8. Category customization. The user may customize category labels where appropriate to match their lived financial language.
+
+9. Category ambiguity prevention. The System shall prevent category ambiguity where possible through clear category descriptions and examples, so that users do not abandon logging because categories are confusing.
 
 ### Section 2. Expense Groups
 
@@ -745,6 +871,10 @@
 
     2.1. A budget that violates any hard constraint is considered infeasible and triggers the infeasibility handling procedure defined in Section 4.
 
+3. The user may set total budget size and per-category allocations.
+
+4. The user may mark budget categories as protected, ensuring Odin respects essential or culturally required expenses.
+
 ### Section 2. Budget Period
 
 1. The System shall recommend a budget period based on the user's financial behavioral profile.
@@ -903,6 +1033,8 @@
 
     1.3. Reset strategy. The surplus is returned to the available balance, and the next period's budget is recomputed from zero as if no prior surplus existed.
 
+    1.4. The System shall also provide deficit warnings so the user can respond before overspending gets worse.
+
 2. The default strategy per profile is as follows.
 
     2.1. Rollover for stable profiles (Stable‑Flexible and Stable‑Obligated).
@@ -982,6 +1114,10 @@
     1.4. Target 4: Debt remaining balance. Forecast at daily granularity until the projected payoff date, assuming the user follows the selected debt payoff strategy (avalanche or snowball) with minimum payments and any surplus allocated according to that strategy.
 
 2. All forecasts shall include a disclaimer displayed prominently in the forecasting interface: "Forecasts are inferential and informational only, based on your past spending and current budget. Actual future spending may differ."
+
+3. The forecast dashboard shall show spending by category and spending by budget period, allowing comparison of actual spending against the plan.
+
+4. The primary forecast visualization shall include a next-month multi-line graph for Essentials, Discretionary, Financial Allocation, and Obligatory spending, allowing users to compare upcoming spending pressure across the main budget groups.
 
 ### Section 2. Long Short-Term Memory Algorithm
 
@@ -1084,6 +1220,10 @@
 6. Transition to LSTM. When the user accumulates thirty days of transaction history, the System shall automatically switch from fallback forecasts to LSTM forecasts.
 
     6.1. Upon switching, the System shall display a notification: "Odin now has enough data to create personalised forecasts for you."
+
+7. Forecasts shall account for paydays and calendar cycles so that normal payday or holiday effects are not treated as surprises.
+
+8. Forecasts shall improve as the user logs more transactions, becoming more personalized over time.
 
 ### Section 4. Explainability
 
@@ -1269,6 +1409,8 @@
 
     3.1. The user may configure whether informational alerts are shown.
 
+4. Culturally expected spending events such as Christmas, enrollment, family support, paluwagan, or community contributions shall be handled carefully to avoid creating misleading alerts.
+
 ### Section 4. Whitelist
 
 1. When a transaction is flagged as anomalous, the System shall present the user with a notification stating: "[Amount in pesos] at [merchant name] appears unusual for your [category] spending. Was this expected?"
@@ -1315,6 +1457,8 @@
 
     4.1. The alerts are displayed regardless of whether the transactions would otherwise be considered anomalous or culturally expected.
 
+5. The System shall generate alerts when spending is unusually high for a category, when the user is likely to exceed a budget, and when a deficit warning is appropriate so the user can respond before overspending gets worse.
+
 ### Section 6. Alert Fatigue Prevention.
 
 1. The System shall implement three mechanisms to prevent alert fatigue.
@@ -1326,6 +1470,8 @@
     1.2. Bundling. Multiple anomalies detected within two hours are bundled into a single notification that lists all affected transactions.
 
     1.3. Snooze. The user may snooze all anomaly alerts for seven days via Settings → Notifications.
+
+    1.4. The user shall have alert frequency controls so that they do not ignore Odin because it notifies them too often.
 
 ### Section 7. Explainability
 
@@ -1511,6 +1657,8 @@
 
     4.4. Hovering or tapping the indicator shows the numeric percentage and the state description.
 
+5. The System shall show projected goal completion dates so the user understands how current saving behavior affects their timeline.
+
 ### Section 4. Savings Goal Strategies
 
 1. The System shall offer three contribution allocation strategies that determine how surplus funds (beyond the scheduled contributions) are distributed across multiple goals.
@@ -1550,6 +1698,8 @@
     3.1. When switching, the System shall recalculate projected completion dates for all goals under the new strategy.
 
     3.2. The System shall display a comparison message: "If you switch to Snowball, Goal A would be completed 3 months earlier, but Goal B would be completed 2 months later."
+
+4. The user may prioritize goals so Odin can recommend allocations in the right order.
 
 > Note — RRL Validation Required: The assignment of default strategies to profiles (Goal‑based for all profiles, with Snowball and Avalanche as alternatives) requires validation from literature on savings motivation and goal prioritisation. The researchers should survey target users or cite existing studies on what drives savings behaviour among Filipino young adults.
 
@@ -1637,6 +1787,8 @@
         
         1.2.2. This strategy minimises the time to the first debt payoff, providing psychological motivation.
 
+    1.3. The user may compare Avalanche and Snowball repayment strategies and switch between them at any time.
+
 2. When the user switches from one strategy to another, the System shall recalculate the projected payoff dates and total interest for all debts under the new strategy.
 
     2.1. Retained payments already made are not changed retroactively.
@@ -1662,6 +1814,8 @@
     1.3. Total interest projected under current strategy. The sum of all future interest payments until payoff, assuming no changes to the payment schedule.
 
     1.4. Total interest projected under alternative strategy. Also shown for comparison, with an explanation of the difference.
+
+    1.5. The System shall show projected payoff dates so the user knows when they may become debt-free.
 
 2. The projection calculations assume that the user continues to follow the selected strategy and that no additional debt is incurred.
 
@@ -1746,6 +1900,10 @@
     2.3. If both conditions are true, the System shall generate an advisory alert: "Your current spending suggests you may exceed your budget by [amount in pesos] by the end of the period. Consider reducing discretionary spending."
 
     2.4. The thresholds of ten percent and fifty percent remaining are configurable via system parameters but shall not be user‑adjustable in the thesis version.
+
+3. Anomaly alerts shall explain the reason so the user knows whether the alert is useful.
+
+4. The user may mark an unusual transaction as intentional, and the same kind of planned spending will not be repeatedly flagged (via whitelist, see Article VIII Section 4).
 
 ### Section 2. Alert Delivery
 
@@ -2624,6 +2782,71 @@
         1.24.1. A user‑maintained list of merchant‑category pairs that are exempt from anomaly detection alerts.
 
         1.24.2. Whitelist entries may include an amount tolerance of plus or minus twenty‑five percent, or may be set to always allow regardless of amount.
+
+---
+
+Article XVI (NEW) – Testing Decisions
+Section 1. Testing Philosophy
+Tests shall verify external behavior and user-visible outcomes, not internal implementation details.
+
+Section 2. Transaction Ledger Tests
+Transaction ledger tests shall cover creating, editing, deleting, filtering, recurring generation, transfer handling, and balance effects.
+
+Section 3. Category Taxonomy Tests
+Category taxonomy tests shall cover detailed-to-broad mappings, protected-category defaults, Filipino-context categories, and category validation.
+
+Section 4. Profile Module Tests
+Profile module tests shall cover initial classification, explanation generation, reclassification triggers, and user confirmation behavior.
+
+Section 5. Budget Recommendation Tests
+Budget recommendation tests shall cover protected categories, profile-specific allocations, surplus behavior, deficit behavior, recommendation explanations, and user overrides.
+
+Section 6. Forecasting Tests
+Forecasting tests shall cover cold-start fallback, personalized-forecast availability, forecast metadata, per-category outputs, total outputs, and forecast consumption by dashboard and budget modules.
+
+Forecasting UI tests shall verify that the next-month graph renders all four broad-category lines and remains readable on mobile.
+
+Section 7. Anomaly Detection Tests
+Anomaly detection tests shall cover high category deviation, high income-ratio spending, recurring-payment suppression, user whitelisting, culturally expected exception behavior, and alert explanation output.
+
+Section 8. Savings Goal Tests
+Savings goal tests shall cover goal creation, contributions, progress states, target-date projections, prioritization, and completion behavior.
+
+Section 9. Debt Management Tests
+Debt management tests shall cover debt account creation, minimum payments, Avalanche order, Snowball order, projected payoff dates, and strategy switching.
+
+Section 10. Alerts Tests
+Alerts tests shall cover alert creation, acknowledgement, cooldowns, notification preferences, grouped alerts, and suppression rules.
+
+Section 11. Reporting Tests
+Reporting tests shall cover budget-vs-actual, forecast-vs-actual, category summaries, date filters, savings progress, and debt progress.
+
+Section 12. Authentication and Privacy Tests
+Authentication and privacy tests shall cover login, logout, protected routes, consent state, account deletion flow, and sensitive-data access rules.
+
+Section 13. Mobile-First UI Tests
+Mobile-first UI tests shall cover core workflows on narrow viewports: onboarding, add transaction, dashboard, budget recommendation, forecast, alerts, savings, debt, and settings.
+
+Section 14. Web UI Tests
+Web UI tests shall cover dashboard, reports, transactions, budget, forecast, savings, debt, and settings on larger viewports.
+
+Section 15. Integration Tests
+Integration tests shall cover the main data flow: onboarding to profile, profile to transaction logging, transactions to forecasts, forecasts to budget recommendation, transactions to anomaly alerts, and alerts to user feedback.
+
+Section 16. Model Evaluation
+Model evaluation shall be separate from UI tests.
+
+Forecasting shall be evaluated using time-series-appropriate metrics such as MAE, RMSE, and related forecast-error measures.
+
+Anomaly detection shall be evaluated using precision, recall, and F1-score.
+
+Profile classification shall be evaluated using classification metrics if the classifier remains in scope.
+
+Section 17. Usability Evaluation
+Usability evaluation shall use SUS for the complete user-facing app.
+
+Section 18. Software Quality Evaluation
+Software quality evaluation shall map ISO 25010 characteristics to concrete testable criteria.
 
 ---
 
