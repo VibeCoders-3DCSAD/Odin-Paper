@@ -37,7 +37,7 @@
 
 ---
 
-## Article I. System Interface
+## Article I. Interface
 
 ### Section 1. Platform
 
@@ -63,57 +63,69 @@
 
 1. The System shall implement the following primary screens:
 
-    1.1. Login and Registration
+    1.1. Registration
 
         1.1.1. Onboarding Questionnaire
 
         1.1.2. Onboarding Result and Financial Behavioral Profile Assignment
 
-    1.2. Dashboard
+    1.2. Login
 
-    1.3. Transaction Entry
+    1.3. User Profile
 
-        1.3.1. Manual Transaction Entry
+    1.4. Financial Behavioral Profile Overview
 
-        1.3.2. Recurring Transaction Entry
+        1.4.1. Financial Behavioral Profile
 
-    1.4. Transactions History
+        1.4.1. Profile Reassignment
 
-    1.5. Budget Overview
+    1.5. Dashboard
 
-        1.5.1. Budget Recommendation
+    1.6. Transaction Entry
 
-        1.5.2. Budget Categories
+        1.6.1. Manual Transaction Entry
 
-        1.5.3. Budget Setup
+        1.6.2. Recurring Transaction Entry
 
-    1.6. Forecast Overview
+    1.7. Transactions History
 
-    1.7. Anomaly Overview
+    1.8. Budget Overview
 
-    1.8. Savings Goals
+        1.8.1. Budget Recommendation
 
-    1.9. Debt
+        1.8.2. Budget Categories
 
-    1.10. Reports & Analytics
+    1.9. Forecasting Overview
 
-    1.11. Settings
+    1.10. Anomaly Detection Overview
 
-        1.11.1. User Settings
+        1.10.1. Overspending Detection
 
-        1.11.2. System Settings
+        1.10.2. Anomaly Detection 
 
-        1.11.3. Help & Problem Reporting
+    1.11. Savings Goals Overview
 
-    1.12. Profile
+        1.11.1. Savings Goal Hierarchy
 
-        1.12.1. Financial Behavioral Profile
+    1.12. Debt Overview
+
+        1.12.1. Debt Hierarchy
+
+    1.13. Reports & Analytics
+
+    1.14. Settings
+
+        1.14.1. User Settings
+
+        1.14.2. System Settings
+
+        1.14.3. Help & Problem Reporting
 
 ---
 
-## Article II: System Users
+## Article II. Users
 
-### Section 2. Target Users
+### Section 1. Target Users
 
 1. The System is designed exclusively for the following users.
 
@@ -155,7 +167,91 @@
 
 ---
 
-## Article II: Input and Transaction
+## Article III. App Installation
+
+### Section 1. App Installation Site
+
+### Section 2. App Installation Guide
+
+---
+
+## Article IV. Financial Behavioral Profile Structure
+
+### Section 1. Financial Behavioral Profile
+
+### Section 2. Random Forest Classification
+
+---
+
+## Article V. Onboarding Module
+
+### Section 1. Onboarding Questionnaire
+
+### Section 2. Onboarding Results
+
+### Section 3. Profile Assignment & Selection
+
+---
+
+## Article VI. User Profile Module
+
+### Section 1. User Profile
+
+---
+
+## Article VII. Financial Account Structure
+
+### Section 1. Financial Account
+
+### Section 2. Financial Account Balance
+
+### Section 3. Financial Account Flow
+
+---
+
+## Article VIII. Expense Structure
+
+---
+
+## Article IX. Transaction Structure
+
+---
+
+## Article X. Transaction Entry Module
+
+---
+
+## Article XI. Transaction History Module
+
+---
+
+## Article XII. Budgeting Module
+
+---
+
+## Article XIII. Financial Forecast Module
+
+---
+
+## Article XIV. Anomaly Detection Module
+
+---
+
+## Article XV. Savings Goal Module
+
+---
+
+## Article XVI. Debt Module
+
+---
+
+## Article XVII. Notifications and Alerts
+
+---
+
+> VVV --- Construction Zone Ahead --- VVV
+
+## Article VIII. Transaction
 
 ### Section 1. Input Types
 
@@ -165,7 +261,9 @@
 
     1.2. Recurring transaction. The user specifies a repeating transaction pattern. The System then generates the transaction automatically on scheduled dates.
 
-2. Manual transactions shall require the following fields.
+### Section 2. Manual Transaction
+
+1. Manual transactions shall require the following fields.
 
     2.1. Required fields are amount, category, date, and account.
 
@@ -1428,6 +1526,24 @@
 2. The module stores alert history locally on the device and, if the user is logged in, synchronises to the server for multi‑device consistency.
 
 3. The module does not directly interact with the Random Forest or LSTM models except to receive alert triggers.
+
+---
+
+> ^^^ --- Construction Zone End --- ^^^
+
+## Article ?. Transaction History
+
+---
+
+## Article ?. Dashboard
+
+---
+
+## Article ?. Offboarding
+
+---
+
+## Article ?. Uninstallation
 
 ---
 
