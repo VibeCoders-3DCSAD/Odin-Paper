@@ -37,7 +37,7 @@
 
 ---
 
-## Article I. Interface
+## ===== Article I. Interface =====
 
 ### Section 1. Platform
 
@@ -121,9 +121,11 @@
 
         1.14.3. Help & Problem Reporting
 
+    1.15. Notifications & Alerts
+
 ---
 
-## Article II. Users
+## ===== Article II. Users =====
 
 ### Section 1. Target Users
 
@@ -167,23 +169,119 @@
 
 ---
 
-## Article III. App Installation
+## ===== Article III. App Installation =====
 
-### Section 1. App Installation Site
+### Section 1. Installation Site
 
-### Section 2. App Installation Guide
+1. *The System shall be distributed as a mobile‑first application for Android devices via an Android Package Kit.*
 
----
+2. *The desktop web version shall be accessible via a standard web browser at a domain designated accordingly.*
 
-## Article IV. Financial Behavioral Profile Structure
+### Section 2. Installation Guide
 
-### Section 1. Financial Behavioral Profile
-
-### Section 2. Random Forest Classification
+> NOTE: Add installation guide for the user starting from installation site all the way to working mobile app.
 
 ---
 
-## Article V. Onboarding Module
+## ===== Article IV. Financial Behavioral Profile Structure =====
+
+### Section 1. Financial Behavioral Dimensions
+
+1. There are two binary dimensions that define the four financial behavioral profiles: **Income Stability** and **Obligation Level**.
+
+2. Income stability is the capacity of the user's inflow to maintain a stable amount and frequency in regular intervals.
+
+3. Depending on the user's income stability, they can be classified as either **Stable** or **Variable**.
+    
+4. Income stability shall be derived initially from the user’s *employment status and income variability as declared during onboarding*.
+
+    4.1. Afterwards, income stability shall be derived from the user's actual transaction history.
+
+5. Obligation level is the proportion of the user's necessary expenses (sum of Essential and Obligatory expenses; see Article X) and their total expenses.
+
+6. Depending on the user's obligation level, they can be classified as either **Flexible** or **Obligated**.
+
+7. Obligation level shall be derived from *declared fixed obligations, dependents, debt payments, and protected expenses as declared during onboarding*.
+
+    7.1. Afterwards, obligation level shall be derived from the user's actual transaction history.
+
+### Section 2. Financial Behavioral Profile
+
+1. The financial behavioral profiles are derived from a combination of the user's income stability and obligation ratio.
+
+2. The four financial behavioral profiles are:
+
+    2.1. **Stable‑Flexible**
+
+    2.2. **Stable‑Obligated**
+
+    2.3. **Variable‑Flexible**
+
+    2.4. **Variable‑Obligated**
+
+---
+
+## ===== Article V. Random Forest Algorithm Structure [DRAFT] =====
+
+### Section 1. Input [DRAFT]
+
+1. *The Random Forest algorithm shall receive the following inputs derived from a user’s transaction history:*
+
+    1.1. Income frequency (number of income transactions in the last 30 days)
+
+    1.2. Income amount variance (mean absolute deviation over 90 days)
+
+    1.3. Fixed expense count (number of distinct payees with recurring transactions)
+
+    1.4. Savings rate (Financial Allocation expenses divided by total income over 30 days)
+
+    1.5. Transaction regularity score (Shannon entropy of inter‑transaction intervals over 60 days)
+
+2. *If the user has insufficient transactions, the algorithm shall use the onboarding questionnaire instead.*
+
+> NOTE: Need to define at what level or amount is transaction sufficient.
+
+### Section 2. Process [DRAFT]
+
+1. *The algorithm shall construct an ensemble of decision trees.*
+
+    1.1. Minimum 100 trees
+
+    1.2. Maximum depth 10
+
+    1.3. Gini impurity as the split criterion.
+
+2. *Class weights shall be balanced to handle potential class imbalance.*
+
+3. *The algorithm shall output a predicted financial behavioral profile.*
+
+    3.1. SHAP values and descriptions will also be added for explainability.
+
+4. *The system shall retrain the Random Forest model monthly on each user’s accumulated transaction history only after obtaining explicit user consent.*
+
+    4.1. Sliding window of 365 days
+
+### Section 3. Output [DRAFT]
+
+1. *The output shall be:*
+
+    1.1. A financial behavioral profile (e.g., “Stable‑Flexible”) as a label
+
+    1.2. A plain‑language explanation stating the two most influential features and their values
+    
+    1.3. A confidence score (derived from the proportion of trees voting for the predicted class)
+
+2. *The output shall be stored in the user’s profile.*
+
+---
+
+## ===== Article VI. Financial Behavioral Profile Classification Process =====
+
+### Section 1. Financial Behavioral Profile Classification
+
+---
+
+## ===== Article VII. Financial Behavioral Profile Module =====
 
 ### Section 1. Onboarding Questionnaire
 
@@ -191,15 +289,17 @@
 
 ### Section 3. Profile Assignment & Selection
 
+### Section 4. User Profile Creation
+
 ---
 
-## Article VI. User Profile Module
+## ===== Article VIII. User Profile Module =====
 
 ### Section 1. User Profile
 
 ---
 
-## Article VII. Financial Account Structure
+## ===== Article IX. Financial Account Structure =====
 
 ### Section 1. Financial Account
 
@@ -209,43 +309,103 @@
 
 ---
 
-## Article VIII. Expense Structure
+## ===== Article X. Expense Structure =====
 
 ---
 
-## Article IX. Transaction Structure
+## ===== Article XI. Transaction Structure =====
 
 ---
 
-## Article X. Transaction Entry Module
+## ===== Article XII. Transaction Entry Module =====
 
 ---
 
-## Article XI. Transaction History Module
+## ===== Article XIII. Transaction History Module =====
 
 ---
 
-## Article XII. Budgeting Module
+## ===== Article XIV. Budget Structure =====
+
+### Section 1. Budget
 
 ---
 
-## Article XIII. Financial Forecast Module
+## ===== Article XV. Linear Programming Algorithm Structure =====
+
+> NOTE: Insert three or more sections that cover input, process, and output.
+
+## ===== Article XVI. Budget Recommendation Process =====
 
 ---
 
-## Article XIV. Anomaly Detection Module
+## ===== Article XVII. Budgeting Module =====
 
 ---
 
-## Article XV. Savings Goal Module
+## ===== Article XVIII. Forecast Structure =====
+
+### Section 1. Forecast
 
 ---
 
-## Article XVI. Debt Module
+## ===== Article XIX. Long Short-Term Memory Algorithm Structure =====
+
+> NOTE: Insert three or more sections that cover input, process, and output.
 
 ---
 
-## Article XVII. Notifications and Alerts
+## ===== Article XX. Financial Forecast Process =====
+
+---
+
+## ===== Article XXI. Anomalous Transaction Structure =====
+
+### Section 1. Overspending Transactions
+
+### Section 2. Anomalies
+
+---
+
+## ===== Article XXII. Exclusions =====
+
+### Section 1. Occasions
+
+### Section 2. Whitelist
+
+---
+
+## ===== Article XXIII. Isolation Forest Algorithm Structure =====
+
+> NOTE: Insert three or more sections that cover input, process, and output.
+
+## ===== Article XXIV. Anomaly Detection Module =====
+
+---
+
+## ===== Article XXV. Savings Goal Structure =====
+
+---
+
+## ===== Article XXVI. Savings Goal Module =====
+
+---
+
+## ===== Article XXVII. Debt Structure =====
+
+---
+
+## ===== Article XXVIII. Debt Module =====
+
+---
+
+## ===== Article XXIX. Notifications =====
+
+### Section 1. Informational Notifications
+
+### Section 2. Warning Notifications
+
+### Section 3. Alert Notifications
 
 ---
 
@@ -1531,21 +1691,25 @@
 
 > ^^^ --- Construction Zone End --- ^^^
 
-## Article ?. Transaction History
+## ===== Article XXX. Transaction History =====
 
 ---
 
-## Article ?. Dashboard
+## ===== Article XXXI. Dashboard =====
 
 ---
 
-## Article ?. Offboarding
+## ===== Article XXXII. Offboarding =====
 
 ---
 
-## Article ?. Uninstallation
+## ===== Article XXXIII. Uninstallation =====
 
 ---
+
+> VVV --- Construction Zone Ahead --- VVV
+
+> NOTE: Explainability of each model should be tackled in its own corresponding Article.
 
 ## Article XII: Explainability
 
@@ -1590,6 +1754,8 @@
 2. The SHAP values for classification and the perturbation results for forecasting are computed at prediction time and stored alongside the prediction results.
 
 ---
+
+> NOTE: Evaluations of each model and algorithm should be tackled in its own corresponding Article.
 
 ## Article XIII: System and Algorithm Evaluation
 
