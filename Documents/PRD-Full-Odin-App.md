@@ -2,15 +2,15 @@
 
 ## Problem Statement
 
-Filipino working young adults aged 20 to 40 in Metro Manila need a budgeting system that reflects how they actually receive, spend, and allocate money. Existing tools are often generic expense trackers: they help record past spending, but they do not adequately support variable income, fixed obligations, family and community contributions, protected expense categories, culturally cyclical spending, savings goals, debt pressure, or forward-looking budget guidance.
+Filipino working young adults aged 20 to 40 in Metro Manila need a *personal finance management* system that reflects how they actually receive, spend, and allocate money, *learns how their latent behavior affects those processes, and makes informed suggestions based on what was observed*. Existing tools are often generic expense trackers: they help record past spending, but they do not adequately support variable income, fixed obligations, family and community contributions, protected expense categories, culturally cyclical spending, savings goals, debt pressure, or forward-looking budget guidance.
 
-The target user needs a mobile-first and web-accessible personal budget management system that turns manual transaction logging into useful guidance. The system must help users understand their cash position, classify their financial behavior, forecast likely spending, detect unusual or risky transactions, recommend budget allocations, track savings goals, and manage debt repayment strategies.
+The target user needs a mobile-first and web-accessible personal *finance* management system that turns manual transaction logging into useful guidance. The system must help users understand their cash position, classify their financial behavior, forecast likely spending, detect unusual or risky transactions, recommend budget allocations, track savings goals, and manage debt repayment strategies.
 
 The research team also needs the app to support thesis evaluation. Odin must be structured so its user-facing modules, data flows, model outputs, and quality attributes can be tested through functional test cases, model evaluation metrics, ISO 25010 quality characteristics, and SUS-based usability evaluation.
 
 ## Solution
 
-Build Odin as a mobile-first personal budget management application with web access. The app will provide a guided onboarding flow for Filipino working young adults aged 20 to 40, classify users into one of four financial behavioral profiles, let users manually record income, expenses, transfers, and recurring transactions, organize spending through a Filipino-context category taxonomy, generate profile-aware budget recommendations, show spending forecasts, detect anomalous or risky spending behavior, track savings goals, and guide debt repayment using Avalanche and Snowball strategies.
+Build Odin as a mobile-first personal *finance* management application with web access. The app will provide a guided onboarding flow for Filipino working young adults aged 20 to 40, classify users into one of four financial behavioral profiles, let users manually record income, expenses, transfers, and recurring transactions, organize spending through a Filipino-context category taxonomy, generate profile-aware budget recommendations, show spending forecasts, detect anomalous or risky spending behavior, track savings goals, and guide debt repayment using Avalanche and Snowball strategies.
 
 Odin should behave as a decision-support tool, not a licensed financial adviser. The app should explain recommendations and alerts in plain user-facing language, preserve user control over final decisions, and avoid shaming users for culturally or personally necessary expenses.
 

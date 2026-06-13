@@ -6,7 +6,7 @@
 
 **Version:** 4.0
 
-**Date:** 2026-06-07
+**Date:** 2026-06-13
 
 **Authors:**
 - Gabion, Stefanie S.
@@ -27,19 +27,27 @@
 
 ---
 
+# Notes
+
+1. All *italicized statements* (including their subsections, whether italicized as well or not) hereforth are merely suggestions that may be modified, given that justification is provided. 
+
+---
+
 # SYSTEM SPECIFICATION
 
 ---
 
-## Article I: Platform and Target Users
+## Article I. System Interface
 
 ### Section 1. Platform
 
 1. The System shall be implemented as a mobile‑first application.
 
-    1.1. All core user flows must be fully operable on a mobile screen width of 375 density‑independent pixels or less.
+    1.1. *All core user flows must be fully operable on a mobile screen width of 375 density‑independent pixels or less.*
 
-    1.2. The layout shall adapt to any width between 320 and 450 dp without requiring horizontal scrolling.
+    1.2. *The layout shall adapt to any width between 320 and 450 dp without requiring horizontal scrolling.*
+
+    > NOTE: The LSTM model is hosted on the server. Therefore, all processes except for the forecasting module shall be available offline.
 
 2. A desktop web version shall also be provided.
 
@@ -49,63 +57,101 @@
 
     2.3. Web screens shall support the same core workflows as mobile, with more room for analysis and reporting.
 
+3. *The mobile web version should lead to the Google Play link or installation link of the mobile application.*
+
+### Section 2. Screens
+
+1. The System shall implement the following primary screens:
+
+    1.1. Login and Registration
+
+        1.1.1. Onboarding Questionnaire
+
+        1.1.2. Onboarding Result and Financial Behavioral Profile Assignment
+
+    1.2. Dashboard
+
+    1.3. Transaction Entry
+
+        1.3.1. Manual Transaction Entry
+
+        1.3.2. Recurring Transaction Entry
+
+    1.4. Transactions History
+
+    1.5. Budget Overview
+
+        1.5.1. Budget Recommendation
+
+        1.5.2. Budget Categories
+
+        1.5.3. Budget Setup
+
+    1.6. Forecast Overview
+
+    1.7. Anomaly Overview
+
+    1.8. Savings Goals
+
+    1.9. Debt
+
+    1.10. Reports & Analytics
+
+    1.11. Settings
+
+        1.11.1. User Settings
+
+        1.11.2. System Settings
+
+        1.11.3. Help & Problem Reporting
+
+    1.12. Profile
+
+        1.12.1. Financial Behavioral Profile
+
+---
+
+## Article II: System Users
+
 ### Section 2. Target Users
 
-1. The System is designed exclusively for the following user population.
+1. The System is designed exclusively for the following users.
 
     1.1. Demographic requirement. The user shall be a Filipino working young adult aged twenty to forty years inclusive.
 
     1.2. Geographic requirement. The user shall live or work in Metro Manila, covering any of its sixteen cities and one municipality.
 
-    1.3. Employment requirement. The user shall be currently employed in any of the following capacities:
+    1.3. Employment requirement. The user shall *classify their primary employment in* any of the following capacities:
 
-        i. Full‑time
+        1.3.1 Regular Employees. This employment type is entitled to security of tenure, and usually entitled to statutory benefits (SSS, PhilHealth, Pag-IBIG, 13th month pay) on a pro-rata basis. This employment type supports the Stable income dimension.
 
-        ii. Part‑time
+            1.3.1.1. Full‑time Employee
 
-        iii. Self‑employed
+            1.3.1.2. Part‑time Employee
 
-        iv. Freelancer
+        1.3.2. Independent Contractors. This employment type has variable security of tenure, and usually no employer-employee relationship. The individuals are responsible for their own taxes and governmental contributions as voluntary members. This employment type supports the Variable income dimension.
 
-        v. Contractual
+            1.3.2.1. Self‑employed Individual
+            
+            1.3.2.2. Freelancer
+            
+            1.3.2.3. Business Owner
 
-        vi. Gig economy worker
+            1.3.2.4. Entrepreneur
 
-# Section 3: Screens
+        1.3.3. Fixed-Term and Project Employees. This employment type has variable or low security of tenure. The individuals are employed only for the length of their contractual obligations (project completion dates, termination dates). This employment type supports the Variable income dimension.
 
-1. The System shall implement the following primary screens:
+            1.3.4. Contractual/project‑based employee or similar
 
-    1.1. Login / Register
-    
-    1.2. Onboarding questionnaire
+            1.3.5. Business owner/entrepreneur
 
-    1.3. Profile result / financial behavioral profile
+            1.3.6. Gig economy worker
 
-    1.4. Dashboard / overview
+    > NOTE: Primary employment is emphasized since the user can have more than one job (side hustles, freelancing). In the financial behavioral profile classification module, employment shall not bear more influence than other more appropriate features like income sources, income amount, income frequency, etc., which better defines the user's income stability.
 
-    1.5. Add transaction
+    > NOTE: The "This employment type supports..." parts could probably be moved to the Financial Behavioral Profile Article/Section.
 
-    1.6. Transactions list / history
-
-    1.7. Recurring transactions
-
-    1.8. Categories / category settings
-
-    1.9. Budget setup
-
-    1.10. Budget recommendation
-
-    1.11. Forecast dashboard
-
-    1.12. Alerts / anomaly review
-
-    1.13. Savings goals
-
-    1.14. Debt accounts
-
-    1.15. Reports / analytics
-
-    1.16. Settings / privacy / account
+    > Employment classifications are based on the Department of Labor and Employment's own standards (Labor Code of the Philippines).
 
 ---
 
@@ -147,21 +193,15 @@
 
         1.1.1. Income may be recurring with frequencies of daily, weekly, monthly, yearly, or a custom interval.
 
-        1.1.2. Examples include salary, freelance payment, and remittance.
-
     1.2. Expense transaction. This represents a cash outflow from an account, moving from available balance to an expense category.
 
         1.2.1. Expense may be recurring with the same frequency options as income.
-
-        1.2.2. Examples include groceries, rent, electricity bills, debt repayment, and savings deposits.
-
+        
     1.3. Transfer transaction. This moves cash from one account to another without changing net worth.
 
         1.3.1. Transfer may be recurring with daily, weekly, or monthly frequencies.
 
-        1.3.2. Examples include moving money from a cash account to an e‑wallet account.
-
-        1.3.3. When a transfer is recorded, the System shall subtract the amount from the source account's balance and add the same amount to the destination account's balance.
+        1.3.2. When a transfer is recorded, the System shall subtract the amount from the source account's balance and add the same amount to the destination account's balance.
 
 ### Section 3. Manual Transaction
 
@@ -203,21 +243,21 @@
 
         1.5.1. The transaction shall then be used to update downstream models, including profile classification, spending forecasts, and anomaly detection baselines.
 
-        1.5.2. These updates may occur asynchronously but shall complete within twenty‑four hours.
+        1.5.2. These updates shall occur asynchronously for model retraining but shall complete within twenty‑four hours. Budget actuals shall be updated immediately.
 
 ### Section 4. Recurring Transaction
 
-1. The System shall generate recurring transactions automatically at their scheduled frequencies. 
+1. The System shall generate recurring transactions automatically at their scheduled frequencies.
 
-    1.1. If a generated expense or transfer transaction would cause the available balance to become negative, the System shall not create the transaction. 
+    1.1. If a generated expense or transfer transaction would cause the available balance to become negative, the System shall not create the transaction.
 
-        1.1.1. Instead, it shall postpone the transaction, notify the user of the postponement, and re‑attempt generation on the next scheduled date and time. 
-        
+        1.1.1. Instead, it shall postpone the transaction, notify the user of the postponement, and re‑attempt generation on the next scheduled date and time.
+
     1.2. The user may pause, edit, or delete any recurring template at any time.
 
 ### Section 5. Transaction Editing and Deletion.
 
-1. Users may edit or delete any transaction, whether manual or recurring, at any time, subject to the retention limit described in subsection 2.
+1. Users may edit or delete any transaction, whether manual or recurring, subject to the retention limit described in subsection 2.
 
     1.1. Immediate balance update. When a transaction is edited or deleted, the System shall immediately recompute the available balance for the affected account.
 
@@ -227,21 +267,11 @@
 
     1.4. User notification. The user shall receive a notification stating: "Transaction changed. Odin will update your forecasts within 24 hours."
 
-2. Retention limit. Users may not edit or delete transactions older than thirteen months from the transaction date.
+2. Retention limit. Users may not edit or delete transactions older than twenty‑four months from the transaction date.
 
-    2.1. Provisional status. The choice of thirteen months is provisional.
+    2.1. The choice of twenty‑four months replaces the provisional thirteen‑month limit from the original specification. This aligns with standard financial record‑keeping practices.
 
-    2.2. Validation required. The researchers must validate this period against either:
-
-        2.2.1. Bangko Sentral ng Pilipinas data retention guidelines, or
-
-        2.2.2. The Data Privacy Act's legitimate purpose principle, or
-
-        2.2.3. A relevant study on financial data retention periods.
-
-    2.3. Fallback recommendation. If no authoritative source supports thirteen months, the team shall adopt a more standard period such as twenty‑four months or align with tax record‑keeping recommendations (typically three years in the Philippines).
-
-> [RRL NEEDED: Retention limit] Users may not edit or delete transactions older than thirteen months from the transaction date. The choice of thirteen months is provisional and requires validation from either Bangko Sentral ng Pilipinas data retention guidelines, the Data Privacy Act's legitimate purpose principle, or a relevant study on financial data retention periods. If no authoritative source supports thirteen months, the team should adopt a more standard period such as twenty‑four months or align with tax record‑keeping recommendations (typically three years in the Philippines).
+> Validation required. The researchers must validate this period against either Bangko Sentral ng Pilipinas data retention guidelines or the Data Privacy Act's legitimate purpose principle before final submission. If no authoritative source supports twenty‑four months, the team shall adopt three years to align with Philippine tax record‑keeping recommendations.
 
 ### Section 6. Category Suggestions and Smart Defaults
 
@@ -281,7 +311,7 @@
 
 1. Income stability shall be determined by the coefficient of variation (CV) of monthly net income over the preceding ninety days.
 
-    1.1. Definition of CV. The coefficient of variation is the standard deviation of monthly net income divided by the mean monthly net income.
+        1.1. Definition of CV. The coefficient of variation is the standard deviation of monthly net income divided by the mean monthly net income.
 
     1.2. Classification rule.
 
@@ -357,21 +387,17 @@
 
     1.4. Periodic refresh. Ninety days have elapsed since the last classification.
 
-    1.5. The System shall also detect sustained behavior changes as part of normal operation, allowing the profile to adapt over time.
-
-    1.6. Provisional thresholds. The values of 0.10 for CV change, 0.15 for obligation ratio change, and the sixty‑day sustained period are provisional. These should be validated against literature on how long financial behavioral profiles typically take to shift.
-
-2. Upon detection of any trigger, the System shall generate a reclassification recommendation and present it to the user with an explanation using SHAP values (see Section 5).
+2. Upon detection of any trigger, the System shall generate a reclassification recommendation and present it to the user with an explanation using SHAP values.
 
     2.1. No automatic reclassification shall occur without explicit user confirmation.
 
     2.2. The user may accept or decline the recommended change.
 
-    2.3. The user may also override or request a reassessment of their profile at any time, ensuring the system does not trap the user in an inaccurate classification.
+    2.3. The user may also override or request a reassessment of their profile at any time.
 
-    2.4. If the user does not respond to the recommendation within thirty days, the System shall display a persistent, non-dismissible notification on the dashboard stating: "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?"
+    2.4. If the user does not respond to the recommendation within thirty days, the System shall display a persistent, non‑dismissible notification on the dashboard stating: "Your financial behavior appears to have changed. Odin recommends updating your profile. Apply now?"
 
-    2.5. The user must either accept or decline. There is no automatic application. This design ensures that the user retains full control over their profile classification at all times.
+    2.5. The user must either accept or decline. There is no automatic application.
 
 ### Section 5. Random Forest Algorithm
 
@@ -383,79 +409,69 @@
 
     1.3. Split criterion. The split criterion shall be Gini impurity.
 
-    1.4. Class weights. Class weights shall be set to balanced as a robustness measure against class imbalance. The synthetic training dataset shall be generated with equal representation of all four profiles at twenty-five percent each; class balancing is retained as a safeguard in the event that the generated dataset deviates from perfect balance.
+    1.4. Class weights. Class weights shall be set to balanced as a robustness measure against class imbalance.
 
-    1.5. Reproducibility. The random state shall be fixed at forty-two for reproducibility during testing and development.
+    1.5. Reproducibility. The random state shall be fixed at forty‑two for reproducibility during testing and development.
 
-2. Feature set. The Random Forest classifier shall use exactly five behavioral features, all derived from the user's transaction history. The income coefficient of variation and the obligation ratio are explicitly excluded from this feature set. Their roles elsewhere in the System are defined in subsection 3 of this Section.
+2. Feature set. The Random Forest classifier shall use exactly five behavioral features, all derived from the user's transaction history. The income coefficient of variation and the obligation ratio are explicitly excluded from this feature set.
 
-    2.1. Income frequency. The number of income transactions recorded within the preceding thirty-day window.
+    2.1. Income frequency. The number of income transactions recorded within the preceding thirty‑day window.
 
     2.2. Income amount variance. The mean absolute deviation of income transaction amounts over the preceding ninety days.
 
     2.3. Fixed expense count. The number of distinct payees associated with at least one active recurring transaction template.
 
-    2.4. Savings rate. The sum of all Financial Allocation expense transactions divided by the sum of all income transactions over the preceding thirty-day window.
+    2.4. Savings rate. The sum of all Financial Allocation expense transactions divided by the sum of all income transactions over the preceding thirty‑day window.
 
         2.4.1. If no Financial Allocation transactions exist within the window, the savings rate shall default to zero.
 
-        2.4.2. If no income transactions exist within the window, the savings rate shall default to zero and a data-sufficiency flag shall be raised.
+        2.4.2. If no income transactions exist within the window, the savings rate shall default to zero and a data‑sufficiency flag shall be raised.
 
-    2.5. Transaction regularity score. The Shannon entropy of inter-transaction intervals computed across all expense transactions over the preceding sixty days.
+    2.5. Transaction regularity score. The Shannon entropy of inter‑transaction intervals computed across all expense transactions over the preceding sixty days.
 
         2.5.1. Higher entropy values indicate more erratic spending timing. Lower entropy values indicate more regular, predictable patterns.
 
-        2.5.2. The inter-transaction interval for each pair of consecutive expense transactions is the elapsed time in hours between their recorded timestamps.
-
 3. Role of income coefficient of variation and obligation ratio. These two metrics are computed by the System and play defined roles, but they are not inputs to the Random Forest classifier.
 
-    3.1. Synthetic data label generation. During the construction of the synthetic training dataset, the income CV threshold defined in Section 2 of this Article and the obligation ratio threshold defined in Section 3 of this Article are applied to each synthetic user's generated financial profile to assign a ground-truth profile label. This is their sole function during model development. They do not appear in any feature vector passed to the classifier.
+    3.1. Synthetic data label generation. During construction of the synthetic training dataset, the income CV threshold and obligation ratio threshold are applied to each synthetic user's generated financial profile to assign a ground‑truth profile label. This is their sole function during model development.
 
-    3.2. Reclassification triggers. At runtime, changes in a user's computed CV or obligation ratio serve as conditions that initiate re-evaluation of the user's profile, as specified in Section 4 of this Article. Upon trigger, the System initiates a new Random Forest inference pass using the user's current five-feature behavioral vector. CV and obligation ratio do not re-enter the classifier as features; they only initiate the inference pass.
+    3.2. Reclassification triggers. At runtime, changes in a user's computed CV or obligation ratio serve as conditions that initiate re‑evaluation of the user's profile. Upon trigger, the System initiates a new Random Forest inference pass using the user's current five‑feature behavioral vector. CV and obligation ratio do not re‑enter the classifier as features.
 
-    3.3. Design rationale. Excluding the income CV and obligation ratio from the RF feature set ensures that the classifier learns from observable behavioral transaction patterns — income regularity, spending commitment structure, and savings behavior — rather than replicating the threshold rules used to generate its training labels. This separation produces a genuine and independently verifiable machine learning contribution: the classifier demonstrates that behavioral signals are predictive of financial behavioral profiles without relying on the explicit threshold metrics that define those profiles. This design is consistent with studies in the literature that classify behavioral profiles from transactional or behavioral proxies rather than from the definitional metrics of the profile taxonomy itself.
+4. Explainability with SHAP. For each classification prediction, the System shall compute SHAP (SHapley Additive exPlanations) values across the five behavioral features.
 
-4. Feature types and data source.
+    4.1. The System shall identify the two features with the largest absolute SHAP values for the predicted class and present them to the user as a plain‑language explanation.
 
-    4.1. Income frequency and fixed expense count are non-negative integer features. Income amount variance, savings rate, and transaction regularity score are continuous real-valued features.
+    4.2. Explanation format. The explanation shall be constructed from a template of the following form: "Your profile is [Profile Name] mainly because [Feature A description], and [Feature B description]."
 
-    4.2. The data source for all five features is the user's transaction history as stored in the System database.
+        4.2.1. Example — Variable‑Obligated: "Your profile is Variable‑Obligated mainly because your income amount varies significantly from month to month, and you have a high number of recurring fixed obligations compared to users in other profiles."
 
-    4.3. All five features are computed fresh at each classification event using the time windows specified in subsection 2.
+        4.2.2. Example — Stable‑Flexible: "Your profile is Stable‑Flexible mainly because your income arrives at a consistent and regular interval, and your spending pattern shows high regularity with few fixed recurring commitments."
 
-    4.4. Feature computation shall use Philippine Standard Time (UTC+8) for all daily boundary determinations.
+    4.3. SHAP values shall be computed at inference time from the trained Random Forest model. They shall be stored in the application log for audit purposes and retained for thirty days, after which they shall be anonymised by removing user identifiers.
 
-5. Explainability with SHAP. For each classification prediction, the System shall compute SHAP (SHapley Additive exPlanations) values across the five behavioral features.
+    4.4. The explanation shall be accessible to the user via the "Why?" button on the financial behavioral profile screen.
 
-    5.1. The System shall identify the two features with the largest absolute SHAP values for the predicted class and present them to the user as a plain-language explanation.
+5. Continuous learning. The Random Forest classifier shall be periodically retrained on the user's accumulated transaction history with explicit user consent.
 
-    5.2. Explanation format. The explanation shall be constructed from a template of the following form: "Your profile is [Profile Name] mainly because [Feature A description], and [Feature B description]."
+    5.1. Retraining shall occur monthly, using a sliding window of the most recent 365 days of data.
 
-        5.2.1. Example — Variable-Obligated: "Your profile is Variable-Obligated mainly because your income amount varies significantly from month to month, and you have a high number of recurring fixed obligations compared to users in other profiles."
+    5.2. The user may opt out of personalised retraining and continue using the pre‑trained synthetic model.
 
-        5.2.2. Example — Stable-Flexible: "Your profile is Stable-Flexible mainly because your income arrives at a consistent and regular interval, and your spending pattern shows high regularity with few fixed recurring commitments."
-
-        5.2.3. Example — Variable-Flexible: "Your profile is Variable-Flexible mainly because your income frequency is low and irregular, though your recurring fixed obligations are relatively few."
-
-    5.3. SHAP values shall be computed at inference time from the trained Random Forest model. They shall be stored in the application log for audit purposes and retained for thirty days, after which they shall be anonymised by removing user identifiers.
-
-    5.4. The explanation shall be accessible to the user via the "Why?" button on the financial behavioral profile screen.
+    5.3. This decision replaces the original freeze‑all‑models approach. The PRD requires that forecasts and profiles improve as the user logs more transactions. Continuous learning with explicit consent preserves privacy while enabling personalisation.
 
 6. Accuracy target and prototyping validation.
 
-    6.1. The target classification accuracy is 0.85 or higher on the synthetic holdout test set, as specified in Article XIII Section 3.2.
+    6.1. The target classification accuracy is 0.85 or higher on the synthetic holdout test set.
 
-    6.2. This target is contingent on validation during the algorithm prototyping phase. The predictive power of the five behavioral features depends on the degree to which they correlate with the CV- and obligation-ratio-based profile labels in the synthetic training data. This correlation structure must be explicitly designed into the synthetic data generation procedure, as documented in the companion file synthetic-data-design.md.
+    6.2. If classification accuracy falls below 0.85 following initial prototyping, the researchers shall apply the following remediation sequence before any other intervention.
 
-    6.3. If classification accuracy falls below 0.85 following initial prototyping, the researchers shall apply the following remediation sequence before any other intervention.
+        6.2.1. Step 1. Review and revise the synthetic data generation parameters to ensure that behavioral features correlate sufficiently with the profile labels.
 
-        6.3.1. Step 1. Review and revise the synthetic data generation parameters — specifically, the feature distributions per profile — to ensure that behavioral features correlate sufficiently with the profile labels.
+        6.2.2. Step 2. If accuracy remains below 0.85 after synthetic data revision, conduct a hyperparameter search over n_estimators, max_depth, and min_samples_split.
 
-        6.3.2. Step 2. If accuracy remains below 0.85 after synthetic data revision, conduct a hyperparameter search over n_estimators, max_depth, and min_samples_split as documented in Appendix E.
+        6.2.3. Step 3. If accuracy remains below 0.85 after both steps, the researchers shall document the achieved accuracy, report it as the thesis result, and analyse which feature or profile pair is responsible for the shortfall.
 
-        6.3.3. Step 3. If accuracy remains below 0.85 after both steps, the researchers shall document the achieved accuracy, report it as the thesis result, and analyse which feature or profile pair is responsible for the shortfall.
-
-    6.4. The researchers shall not reintroduce income CV or obligation ratio into the RF feature set as a remediation measure, as doing so would reintroduce the circularity that this design explicitly avoids.
+    6.3. The researchers shall not reintroduce income CV or obligation ratio into the RF feature set as a remediation measure.
 
 > [RRL NEEDED: Behavioral feature predictiveness for profile classification] The design rationale in subsection 3.3 claims that observable behavioral transaction signals are predictive of financial behavioral profiles independently of explicit definitional metrics. This claim must be supported by at least two studies from Topic 5.C (Random Forest Classification Algorithm for Behavioral Profiles) that demonstrate RF classifying behavioral or financial profiles from transactional or behavioral proxy features rather than from the profile's own definitional criteria. The researchers shall identify and cite these studies in the methodology chapter when justifying the feature set design.
 
@@ -463,57 +479,23 @@
 
 1. During the initial seven‑day period before sufficient transaction data is available, the System shall classify the user using a questionnaire.
 
-2. The questionnaire shall contain at least the following items, presented in order.
+2. The questionnaire shall contain at least the following items:
 
-    2.1. Monthly income. The System shall ask the user for their typical monthly income amount in Philippine pesos.
+    2.1. Employment status
 
-        2.1.1. This amount is then used to contextualise subsequent questions.
+    2.2. Monthly income amount
 
-    2.2. Income stability (binary). The System shall ask: "Is your monthly income roughly the same each month?"
+    2.3. Income stability (binary)
 
-        2.2.1. Response options: Yes or No.
+    2.4. Income variability (percentage/range)
 
-        2.2.2. This maps to the income stability dimension.
+    2.5. Obligation ratio (percentage)
 
-    2.3. Income variability (percentage/range). The System shall ask: "By how much does your monthly income typically vary?"
+    2.6. Dependents (Yes/No, with count)
 
-        2.3.1. Response options shall be presented both as percentages and as actual peso ranges based on the user's stated income.
+    2.7. Loans or debts (Yes/No)
 
-        2.3.2. Example for a user with monthly income of 25,000 pesos:
-
-            2.3.2.1. Less than 10% (less than 2,500 pesos)
-
-            2.3.2.2. 10–25% (2,500 to 6,250 pesos)
-
-            2.3.2.3. 25–50% (6,250 to 12,500 pesos)
-
-            2.3.2.4. Greater than 50% (more than 12,500 pesos)
-
-        2.3.3. This maps to an estimate of the coefficient of variation.
-
-    2.4. Obligation ratio (percentage). The System shall ask: "What percentage of your monthly income goes to bills and expenses that you cannot skip?"
-
-        2.4.1. Response options: less than 30%, 30–50%, 50–70%, greater than 70%.
-
-        2.4.2. To aid understanding, the System shall display the corresponding peso amounts based on the user's stated income.
-
-        2.4.3. This maps to the obligation ratio.
-
-    2.5. Dependents (contextual). The System shall ask: "Do you have dependents such as children, parents, or siblings whom you support financially?"
-
-        2.5.1. Response options: Yes or No.
-
-        2.5.2. If Yes, the System shall ask for the number of dependents.
-
-        2.5.3. This provides context for explainability but does not directly adjust the obligation ratio calculation.
-
-    2.6. Loans or debts (contextual). The System shall ask: "Do you have any loans or debts with required minimum monthly payments?"
-
-        2.6.1. Response options: Yes or No.
-
-        2.6.2. This also provides contextual information and is already captured in the obligation ratio question. It is retained to help users understand what counts as an unavoidable expense.
-
-    2.7. The onboarding walkthrough shall also allow the user to declare fixed obligations, financial dependents or family support obligations, and mark important expense categories as protected.
+    2.8. Declaration of fixed obligations, dependents, and protected categories
 
 3. After the user completes the questionnaire, the System shall compute an initial profile and present it to the user for confirmation before proceeding to the main application.
 
@@ -537,189 +519,105 @@
 
 1. The System shall implement expense categories grounded in the 2020 Philippine Classification of Individual Consumption According to Purpose (PCOICOP), cross‑validated against the BSP Consumer Finance Survey 2021.
 
-    A. Exclusion of non‑cash-flow categories. Categories that represent purely economic concepts with no corresponding cash flow shall be excluded.
+2. The following base categories shall be implemented, each with its associated mapping to broad groups as defined in Section 2 of this Article.
 
-        i. Specifically, imputed rentals for housing (the economic value of owner‑occupied housing) shall not appear as a user‑selectable category because no actual expense transaction occurs.
+    2.1. Food and Non‑Alcoholic Beverages – mapped to Essentials.
 
-2. The following base categories shall be implemented, each with its associated subcategories as listed.
+    2.2. Alcoholic Beverages, Tobacco and Narcotics – mapped to Discretionary.
 
-    A. Each base category shall be mapped to one of four broad groups: Essentials, Obligatory, Discretionary, or Financial Allocation. The mapping is defined in Section 2 of this Article.
+    2.3. Clothing and Footwear – mapped to Discretionary.
 
-    B. The System shall store transactions at the most granular subcategory level.
+    2.4. Housing, Water, Electricity, Gas and Other Fuels – with mappings:
 
-3. The base categories and their subcategories are as follows.
+        2.4.1. Actual rent payments → Obligatory.
 
-    A. Food and Non‑Alcoholic Beverages
+        2.4.2. Utilities (water, electricity, gas) → Essentials.
 
-        i. Includes: Food, Non‑Alcoholic Beverages, and Services for Processing Primary Goods for Food and Non‑Alcoholic Beverages.
+        2.4.3. Maintenance and repair services → Discretionary.
 
-        ii. Mapped to Essentials.
+    2.5. Furnishings, Household Equipment and Routine Household Maintenance – mapped to Discretionary.
 
-    B. Alcoholic Beverages, Tobacco and Narcotics
+    2.6. Health – mapped to Essentials.
 
-        i. Includes: Alcoholic Beverages, Alcohol Production Services, Tobacco, and Narcotics.
+    2.7. Transport – with mappings:
 
-        ii. Mapped to Discretionary.
+        2.7.1. Obligatory for essential commuting (public transport, fuel for work travel).
 
-    C. Clothing and Footwear
+        2.7.2. Discretionary for vehicle purchases and non‑essential travel.
 
-        i. Includes: Clothing and Footwear.
-        
-        ii. Mapped to Discretionary.
+        2.7.3. The System shall not auto‑classify; the user selects the subcategory at transaction entry.
 
-    D. Housing, Water, Electricity, Gas and Other Fuels
+    2.8. Information and Communication – with mappings:
 
-        i. Includes: Actual Rentals for Housing, Maintenance Repair and Security of the Dwelling, Water Supply and Miscellaneous Services Relating to the Dwelling, and Electricity Gas and Other Fuels.
-        
-        ii. Excluded: Imputed rentals.
-        
-        iii. Mapping:
+        2.8.1. Obligatory for basic communication services (mobile plan, home internet).
 
-            a. Actual rent payments → Obligatory.
-            
-            b. Utilities (water, electricity, gas) → Essentials.
-            
-            c. Maintenance and repair services → Discretionary.
+        2.8.2. Discretionary for device purchases.
 
-    E. Furnishings, Household Equipment and Routine Household Maintenance
+    2.9. Recreation, Sport and Culture – mapped to Discretionary.
 
-        i. Includes: Furniture Furnishings and Loose Carpets, Household Textiles, Household Appliances, Glassware Tableware and Household Utensils, Tools and Equipment for House and Garden, and Goods and Services for Routine Household Maintenance.
-        
-        ii. Mapped to Discretionary.
+    2.10. Education Services – mapped to Obligatory.
 
-    F. Health
+    2.11. Restaurants and Accommodation Services – mapped to Discretionary.
 
-        i. Includes: Medicines and Health Products, Outpatient Care Services, Inpatient Care Services, and Other Health Services.
-    
-        ii. Mapped to Essentials.
+    2.12. Insurance and Financial Services – with mappings:
 
-    G. Transport
+        2.12.1. Insurance premiums → Obligatory.
 
-        i. Includes: Purchase of Vehicles, Operation of Personal Transport Equipment, Passenger Transport Services, and Transport Services of Goods.
-        
-        ii. Mapping:
+        2.12.2. Financial services fees → Discretionary unless the user designates them as essential.
 
-            a. Obligatory for essential commuting (public transport, fuel for work travel).
-            
-            b. Discretionary for vehicle purchases and non‑essential travel.
-    
-        iii. The System shall not auto‑classify; the user selects the category at transaction entry, and the mapping follows the selected subcategory.
+    2.13. Personal Care, Social Protection and Miscellaneous Goods and Services – with mappings:
 
-    H. Information and Communication
+        2.13.1. Discretionary for personal care and miscellaneous.
 
-        i. Includes: Information and Communication Equipment, Software Excluding Games, and Information and Communication Services (such as mobile data, internet, and postpaid plans).
-        
-        ii. Mapping:
+        2.13.2. Obligatory for documented social protection contributions.
 
-            a. Obligatory for basic communication services (mobile plan, home internet).
-            
-            b. Discretionary for device purchases.
+3. Filipino‑specific obligations. The category taxonomy shall explicitly include the following Filipino‑context categories:
 
-    I. Recreation, Sport and Culture
+    3.1. Family support and remittances
 
-        i. Includes: Recreational Durables, Other Recreational Goods, Garden Products and Pets, Recreational Services, Cultural Goods, Cultural Services, Newspapers Books and Stationery, and Package Holidays.
-        
-        ii. Mapped to Discretionary.
+    3.2. Paluwagan (informal rotating savings and credit association)
 
-    J. Education Services
+    3.3. Church or religious donations
 
-        i. Includes: Early Childhood and Primary Education, Secondary Education, Post‑Secondary Non‑Tertiary Education, Tertiary Education, and Education Not Defined by Level.
-        
-        ii. Mapped to Obligatory.
+    3.4. Barangay or community collections
 
-    K. Restaurants and Accommodation Services
+    3.5. Government contributions (SSS, PhilHealth, Pag‑IBIG)
 
-        i. Includes: Food and Beverage Serving Services (dining out) and Accommodation Services (hotels, resorts).
-        
-        ii. Mapped to Discretionary.
+    3.6. Debt payments
 
-    L. Insurance and Financial Services
+    3.7. Insurance
 
-        i. Includes: Insurance premiums (health, life, vehicle) and Financial Services (bank fees, remittance fees).
-        
-        ii. Mapping:
+    3.8. Emergency fund
 
-            a. Insurance premiums → Obligatory.
-            
-            b. Financial services fees → Discretionary unless the user designates them as essential.
+    3.9. Savings and investments
 
-    M. Personal Care, Social Protection and Miscellaneous Goods and Services
+4. Protected categories. The System shall support marking categories as protected.
 
-        i. Includes: Personal Care (haircuts, cosmetics, toiletries), Other Personal Effects, Social Protection (voluntary contributions beyond mandatory), and Other Services.
-        
-        ii. Mapping:
+    4.1. Default protected categories shall include essentials, debt and loan repayments, insurance, and emergency fund contributions.
 
-            a. Discretionary for personal care and miscellaneous.
-            
-            b. Obligatory for documented social protection contributions.
+    4.2. The user may declare additional protected categories during onboarding or via settings.
 
-5. Filipino‑specific obligations. The category taxonomy shall explicitly include the following Filipino-context categories:
+    4.3. Budget recommendations must not suggest reducing protected categories unless the user explicitly changes protection settings.
 
-    5.1. Family support and remittances
+5. Category customization. The user may create up to five custom subcategories under any base category.
 
-    5.2. Paluwagan (informal rotating savings and credit association)
+    5.1. Each custom subcategory must be mapped to exactly one base category and one broad group (Essentials, Obligatory, Discretionary, or Financial Allocation).
 
-    5.3. Church or religious donations
+    5.2. The user may delete custom subcategories but may not delete or rename base categories.
 
-    5.4. Barangay or community collections
-
-    5.5. Government contributions (SSS, PhilHealth, Pag-IBIG)
-
-    5.6. Debt payments
-
-    5.7. Insurance
-
-    5.8. Emergency fund
-
-    5.9. Savings and investments
-
-6. Protected categories. The System shall support marking categories as protected.
-
-    6.1. Default protected categories shall include essentials, debt and loan repayments, insurance, and emergency fund contributions.
-
-    6.2. The user may declare additional protected categories during onboarding or via settings.
-
-    6.3. Budget recommendations must not suggest reducing protected categories unless the user explicitly changes protection settings.
-
-7. Category groups. Categories shall be grouped into broad financial buckets to help users understand essentials, obligatory spending, discretionary spending, and financial allocation at a glance.
-
-8. Category customization. The user may customize category labels where appropriate to match their lived financial language.
-
-9. Category ambiguity prevention. The System shall prevent category ambiguity where possible through clear category descriptions and examples, so that users do not abandon logging because categories are confusing.
+6. The System shall not perform automatic categorisation of transactions. All category assignments must be made by the user at transaction entry time.
 
 ### Section 2. Expense Groups
 
-1. For forecasting (LSTM) and budget recommendation, the thirteen base categories shall be aggregated into four broad groups. These groups serve as the forecast targets and the primary budget allocation units.
+1. For forecasting (LSTM) and budget recommendation, the thirteen base categories shall be aggregated into four broad groups.
 
-    1.1. The mapping from each base category to a broad group is defined in this section.
+    1.1. Essentials group. Includes Food and Non‑Alcoholic Beverages, the utilities portion of Housing (electricity, water, gas), and Health. These are expenses necessary for basic survival and well‑being.
 
-2. The four broad groups are the following.
+    1.2. Obligatory group. Includes contractual and unavoidable payments: rent (actual rentals), debt minimum payments, insurance premiums, government contributions, basic transport for commuting, basic communication services, education expenses, and documented family support. These expenses are fixed in amount or timing and cannot be easily reduced in the short term.
 
-    2.1. Essentials group
+    1.3. Discretionary group. Includes all remaining categories: alcoholic beverages and tobacco, clothing and footwear, non‑essential housing maintenance, furnishings and appliances, non‑essential transport, recreational equipment and services, dining out, accommodation, personal care, and miscellaneous goods. These expenses are optional and can be adjusted based on available surplus.
 
-        2.1.1. Includes: Food and Non‑Alcoholic Beverages, the utilities portion of Housing (electricity, water, gas), and Health.
-        
-        2.1.2. These are expenses necessary for basic survival and well‑being.
-
-    2.2. Obligatory group
-
-        2.2.1. Includes: Contractual and unavoidable payments: rent (actual rentals), debt minimum payments (tracked via a separate debt management module but recorded as expenses under an Obligatory subcategory), insurance premiums, government contributions, basic transport for commuting, basic communication services (mobile and internet), education expenses, and documented family support.
-        
-        2.2.2. These expenses are fixed in amount or timing and cannot be easily reduced in the short term.
-
-    2.3. Discretionary group
-
-        2.3.1. Includes: All remaining categories: alcoholic beverages and tobacco, clothing and footwear, non‑essential housing maintenance, furnishings and appliances, non‑essential transport, recreational equipment and services, dining out, accommodation, personal care, and miscellaneous goods.
-        
-        2.3.2. These expenses are optional and can be adjusted based on available surplus.
-
-    2.4. Financial Allocation group
-
-        2.4.1. Includes: Savings deposits, investment contributions, and debt principal prepayments (beyond minimum payments).
-        
-        2.4.2. These are treated as allocations rather than expenses, though they appear as outflows from available balance.
-        
-        2.4.3. The distinction is important for the budget LP: financial allocations are not counted as "spending" in the same sense as Essentials, Obligatory, or Discretionary expenses.
+    1.4. Financial Allocation group. Includes savings deposits, investment contributions, and debt principal prepayments (beyond minimum payments). These are treated as allocations rather than expenses, though they appear as outflows from available balance. The distinction is important for the budget LP: financial allocations are not counted as "spending" in the same sense as the other three groups.
 
 ### Section 3. Custom Subcategories
 
@@ -739,8 +637,6 @@
 
     3.2. This design choice prioritises user awareness and control over automation, and is supported by literature suggesting that manual logging improves financial mindfulness.
 
-> Note — Future Work: Optional auto‑categorisation based on merchant name or transaction description is recommended as a future enhancement. The current version excludes this feature to maintain scope focus.
-
 ---
 
 ## Article V: Financial Flows
@@ -757,43 +653,17 @@
 
     1.4. Debt payment. Debt payments subtract funds from the available balance and reduce the outstanding balance of the specified debt account.
 
-2. No other flows are implemented.
-
-    2.1. Expenses cannot be paid directly from a savings goal.
-
-    2.2. Debt payments cannot be made directly from a savings goal.
-
-    2.3. All outflows must pass through the available balance of a cash or bank account.
+2. No other flows are implemented. All outflows must pass through the available balance of a cash or bank account.
 
 ### Section 2. Available Balance
 
-1. Available balance for a given account is defined as:
+1. Available balance for a given account is defined as the starting balance, plus the sum of all income transactions into that account, minus the sum of all expense transactions from that account, minus the sum of all savings contributions drawn from that account, minus the sum of all debt payments drawn from that account.
 
-    ```text
-    Starting balance
-    + Sum of all income transactions into that account
-    - Sum of all expense transactions from that account
-    - Sum of all savings contributions drawn from that account
-    - Sum of all debt payments drawn from that account
-    ```
+    1.1. This calculation may result in a negative value.
 
-    A. This calculation may result in a negative value.
+2. The System shall permit negative available balances, with the warning and persistent badge mechanisms described in Article II Section 3.
 
-2. The System shall permit negative available balances.
-
-    A. Warning before negative. When a transaction would cause a balance to become negative, the System shall first display a warning message explaining that the transaction will result in a negative balance, and prompt the user to confirm whether they wish to proceed.
-
-        i. If the user confirms, the transaction is recorded and the balance becomes negative.
-
-        ii. If the user cancels, the transaction is not recorded.
-
-3. Persistent warning for negative balances. Whenever any account has a negative available balance, the System shall display a persistent warning badge on the dashboard, visible in all main views.
-
-    A. The warning shall state that one or more accounts are overdrawn and that the user should review recent transactions or add missing income.
-
-    B. The badge shall disappear only when all account balances return to zero or positive.
-
-4. Currency and precision. All amounts shall be stored in Philippine pesos as integer centavos (e.g., 100.00 pesos stored as 10000 centavos) to avoid floating‑point rounding errors.
+3. Currency and precision. All amounts shall be stored in Philippine pesos as integer centavos (e.g., 100.00 pesos stored as 10000 centavos) to avoid floating‑point rounding errors.
 
 ### Section 3. Account
 
@@ -801,11 +671,9 @@
 
     1.1. Default account. The default first account is named "Cash".
 
-    1.2. Account management. The user may add, rename, or delete accounts at any time, subject to the limit of ten active accounts.
+    1.2. Account management. The user may add, rename, or delete accounts at any time, subject to the limit of ten active accounts and the requirement that at least one account remains.
 
     1.3. Deleting an account. When an account is deleted, all transactions associated with that account must be reassigned to another account before deletion is permitted, or the user may choose to delete the account and all its transactions permanently.
-
-    > NOTE: Should add a clause that at least one Account must be held.
 
 2. Each transaction must be associated with exactly one account.
 
@@ -849,7 +717,7 @@
 
 ### Section 1. Budget Structure
 
-1. Every budget in the System shall consist of the following components.
+1. 1. Every budget in the System shall consist of the following components.
 
     1.1. Total budget size. The sum of allocated amounts across all categories for a given budget period.
 
@@ -859,73 +727,39 @@
 
     1.4. Per‑category actual spending. Tracked from expense transactions recorded during the period.
 
-    1.5. Surplus or deficit. Defined as the allocated amount minus the actual spending.
-
-        1.5.1. A positive value indicates underspending.
-        
-        1.5.2. A negative value indicates overspending.
-        
-        1.5.3. The same calculation applies to the total budget.
+    1.5. Surplus or deficit. Defined as the allocated amount minus the actual spending. A positive value indicates underspending. A negative value indicates overspending.
 
 2. The System shall only create budgets that are feasible, meaning that there exists an allocation satisfying all hard constraints defined in Section 4 of this Article.
 
-    2.1. A budget that violates any hard constraint is considered infeasible and triggers the infeasibility handling procedure defined in Section 4.
-
-3. The user may set total budget size and per-category allocations.
-
-4. The user may mark budget categories as protected, ensuring Odin respects essential or culturally required expenses.
+3. The user may set total budget size and per‑category allocations and may mark budget categories as protected.
 
 ### Section 2. Budget Period
 
 1. The System shall recommend a budget period based on the user's financial behavioral profile.
 
-    1.1. Stable‑Flexible users. Recommended period: thirty days, justified by the typical monthly salary cycle.
+    1.1. Stable‑Flexible users. Recommended period: thirty days.
 
-    1.2. Stable‑Obligated users. Recommended period: thirty days, as monthly obligations align with this horizon.
+    1.2. Stable‑Obligated users. Recommended period: thirty days.
 
-    1.3. Variable‑Flexible users. Recommended period: fourteen days, as a shorter horizon reduces forecast error for variable income.
+    1.3. Variable‑Flexible users. Recommended period: fourteen days.
 
-    1.4. Variable‑Obligated users. Recommended period: fourteen days, also to reduce forecast error.
-
-> Note — RRL Validation Required: These period recommendations require validation from literature on budget horizon effectiveness for different income stability profiles.
+    1.4. Variable‑Obligated users. Recommended period: fourteen days.
 
 2. The user may override the recommended period at any time, and the System shall honour the user's selection.
 
+> Note — RRL Validation Required: These period recommendations require validation from literature on budget horizon effectiveness for different income stability profiles.
+
 ### Section 3. Budgeting Strategies
 
-1. The System shall offer four budgeting strategy templates that the user may select at budget creation.
+1. 1. The System shall offer four budgeting strategy templates that the user may select at budget creation.
 
-    1.1. Fifty‑Thirty‑Twenty strategy.
+    1.1. Fifty‑Thirty‑Twenty strategy. Allocates fifty percent of the total budget to Needs (Essentials + Obligatory combined), thirty percent to Discretionary, and twenty percent to Financial Allocation. Recommended as a general starting point for users with stable income.
 
-        1.1.1. Allocates fifty percent of the total budget to Needs (Essentials + Obligatory combined), thirty percent to Discretionary, and twenty percent to Financial Allocation (savings and debt prepayment).
-        
-        1.1.2. The Obligatory portion within the 50% allocation is first filled by the sum of all fixed obligations (rent, debt minimums, insurance premiums, government contributions, and documented family support). Any remaining amount within the 50% may be allocated to Essentials.
-        
-        1.1.3. Recommended as a general starting point for users with stable income.
+    1.2. Zero‑Based strategy. Every peso of income is assigned to a specific category, including savings and debt payments, leaving no unallocated buffer. Recommended for detailed trackers and users with variable income.
 
-    1.2. Zero‑Based strategy.
+    1.3. Savings‑First strategy. The target savings contribution amount is deducted from forecast income first as a hard constraint. The remaining amount is allocated across all expense categories. Recommended for users prioritising savings goals.
 
-        1.2.1. Every peso of income is assigned to a specific category, including savings and debt payments, leaving no unallocated buffer.
-        
-        1.2.2. The sum of all category allocations equals the forecast income minus the target savings rate.
-        
-        1.2.3. Every category has a non‑zero allocation.
-        
-        1.2.4. Recommended for detailed trackers and users with variable income who need to account for every peso.
-
-    1.3. Savings‑First strategy (reverse budgeting / pay‑yourself‑first).
-
-        1.3.1. The target savings contribution amount is deducted from forecast income first as a hard constraint.
-        
-        1.3.2. The remaining amount is allocated across all expense categories.
-        
-        1.3.3. Recommended for users prioritising savings goals.
-
-    1.4. Custom strategy.
-
-        1.4.1. The user manually defines percentage allocations per broad group or per category.
-        
-        1.4.2. Recommended for advanced users who already know their preferred spending distribution.
+    1.4. Custom strategy. The user manually defines percentage allocations per broad group or per category. Recommended for advanced users.
 
 ### Section 4. Linear Programming
 
@@ -937,103 +771,55 @@
 
 2. The default priorities per profile are defined as follows.
 
-    2.1. Stable‑Flexible users.
+    2.1. Stable‑Flexible users: highest priority (five) to Financial Allocation; medium priority (four) to Essentials (specifically Food) and Discretionary (specifically Recreation); low priority (three) to all remaining categories.
 
-        2.1.1. Highest priority (five): Financial Allocation.
+    2.2. Stable‑Obligated users: highest priority (five) to Obligatory (specifically Housing and Financial Obligations such as debt minimum payments); medium priority (four) to Essentials (specifically Health) and Financial Allocation; low priority (three) to all remaining categories.
 
-        2.1.2. Medium priority (four): Essentials (specifically Food) and Discretionary (specifically Recreation).
+    2.3. Variable‑Flexible users: highest priority (five) to Financial Allocation; medium priority (four) to the entire Essentials group; low priority (three) to all remaining categories.
 
-        2.1.3. Low priority (three): All remaining categories.
+    2.4. Variable‑Obligated users: highest priority (five) to Obligatory (specifically Housing and Financial Obligations); medium priority (four) to Essentials (specifically Health); low priority (three) to all remaining categories.
 
-    2.2. Stable‑Obligated users.
-
-        2.2.1. Highest priority (five): Obligatory (specifically Housing and Financial Obligations such as debt minimum payments).
-        
-        2.2.2. Medium priority (four): Essentials (specifically Health) and Financial Allocation.
-        
-        2.2.3. Low priority (three): All remaining categories.
-
-    2.3. Variable‑Flexible users.
-
-        2.3.1. Highest priority (five): Financial Allocation.
-        
-        2.3.2. Medium priority (four): The entire Essentials group.
-        
-        2.3.3. Low priority (three): All remaining categories.
-
-    2.4. Variable‑Obligated users.
-
-        2.4.1. Highest priority (five): Obligatory (specifically Housing and Financial Obligations).
-        
-        2.4.2. Medium priority (four): Essentials (specifically Health).
-        
-        2.4.3. Low priority (three): All remaining categories.
-
-> Note — RRL Validation Required: Default priorities per profile require validation from literature on financial goal prioritisation among different user segments.
-
-3. The user may adjust priorities at any time in the Settings screen, with an explanation: "Higher priority categories get more budget, subject to spending caps."
+3. The user may adjust priorities at any time in the Settings screen.
 
 4. The Linear Programming constraints are as follows.
 
-    4.1. Total budget constraint. The sum of allocations across all categories must equal the forecast income multiplied by (one minus the target savings rate).
+    4.1. Total budget constraint. The sum of allocations across all categories must equal the forecast income multiplied by (one minus the target savings rate). The target savings rate is a percentage defined by the user, defaulting to ten percent.
 
-        4.1.1. The target savings rate is a percentage defined by the user, defaulting to ten percent.
-        
-        4.1.2. This equation ensures that the total budget available for spending is income after setting aside savings.
+    4.2. Obligatory minimum constraint. The allocation to Obligatory categories must be at least the sum of all rent payments, minimum debt payments, insurance premiums, government‑mandated contributions, documented family support, and essential commuting/communication expenses. This is a hard constraint that cannot be relaxed.
 
-    4.2. Obligatory minimum constraint. The allocation to Obligatory categories must be at least the sum of all rent payments, minimum debt payments, insurance premiums, government‑mandated contributions, documented family support, and essential commuting/communication expenses (as defined in Article IV, Section 2.2).
+    4.3. Financial Allocation minimum constraint. The allocation to Financial Allocation must be at least forecast income multiplied by the target savings rate. This constraint may be relaxed in the infeasibility handling procedure.
 
-        4.2.1. This is a hard constraint that cannot be relaxed.
+    4.4. Combined Needs floor constraint (for the Fifty‑Thirty‑Twenty strategy only). The sum of allocations to Essentials and Obligatory groups must be at least fifty percent of the total budget. For other strategies, the Essentials‑only floor below applies.
 
-    4.3. Financial Allocation minimum constraint. The allocation to Financial Allocation must be at least forecast income multiplied by the target savings rate.
+    4.4.1. Essentials‑only floor (default for non‑50‑30‑20 strategies). The allocation to the Essentials group must be at least thirty percent of the total budget.
 
-        4.3.1. This constraint may be relaxed in the infeasibility handling procedure (see subsection 5).
-
-    4.4. Combined Needs floor constraint (replaces Essentials floor when using the 50‑30‑20 strategy). For the Fifty‑Thirty‑Twenty strategy only, the sum of allocations to Essentials and Obligatory groups must be at least fifty percent of the total budget (forecast income after savings). For other strategies, the individual Essentials floor below applies.
-
-        4.4.1. Essentials‑only floor (default for non‑50‑30‑20 strategies). The allocation to the Essentials group must be at least thirty percent of the total budget. (This lower value prevents over‑constraining when Obligatory already consumes a large share.)
-        
-        4.4.2. These floors may be relaxed during infeasibility handling (see subsection 5).
+    4.4.2. These floors may be relaxed during infeasibility handling.
 
     4.5. Discretionary cap constraint. The allocation to the Discretionary group must not exceed thirty percent of the total budget.
 
-        4.5.1. This is a spending cap designed to limit non‑essential spending.
+    4.6. Per‑category maximum constraint. The allocation to any single detailed category must not exceed a category‑specific maximum derived from the ninetieth percentile of the user's historical spending for that category, based on at least thirty days of data. If insufficient history exists, the maximum defaults to thirty percent of the total budget for Essentials categories and twenty percent for Discretionary categories.
 
-    4.6. Per‑category maximum constraint. The allocation to any single detailed category must not exceed a category‑specific maximum.
+    4.7. Non‑negativity constraint. All category allocations must be greater than or equal to zero.
 
-        4.6.1. This maximum is derived from the ninetieth percentile of the user's historical spending for that category, based on at least thirty days of data.
-        
-        4.6.2. If insufficient history exists, the maximum defaults to thirty percent of the total budget for Essentials categories and twenty percent for Discretionary categories.
-        
-        4.6.3. For Obligatory categories, the maximum is the sum of all known fixed obligations plus twenty percent as a buffer.
-
-    4.7. Savings‑First additional constraint. If the user has selected the Savings‑First strategy, the allocation to Financial Allocation must be at least the user's target contribution amount, specified when creating the strategy.
-
-        4.7.1. This replaces the percentage‑based savings constraint (subsection 4.C).
-
-    4.8. Non‑negativity constraint. All category allocations must be greater than or equal to zero.
-
-5. Infeasibility handling. When the Linear Programming problem is infeasible (no allocation satisfies all hard constraints simultaneously), the System shall apply sequential relaxation.
+5. Infeasibility handling. When the Linear Programming problem is infeasible, the System shall apply sequential relaxation.
 
     5.1. Step 1. Reduce the savings constraint (Financial Allocation minimum) to zero.
-    
-    5.2. Step 2. If still infeasible, and the active strategy is Fifty‑Thirty‑Twenty, reduce the combined Needs floor (Essentials+Obligatory) from 50% to 40%, then to 30%, then to 20%. If another strategy is active, reduce the Essentials‑only floor from 30% to 20%, then to 10%, then to zero.
-    
+
+    5.2. Step 2. If still infeasible, and the active strategy is Fifty‑Thirty‑Twenty, reduce the combined Needs floor from 50% to 40%, then to 30%, then to 20%, then to 0. If another strategy is active, reduce the Essentials‑only floor from 30% to 20%, then to 10%, then to 0.
+
     5.3. Step 3. If still infeasible after reducing the floor to zero, remove all floor constraints entirely.
-    
-    5.4. Step 4. If the problem remains infeasible with only the Obligatory minimum sum constraint and non‑negativity (which is always feasible), the System shall display the message as originally specified.
+
+    5.4. Step 4. If the problem remains infeasible with only the Obligatory minimum sum constraint and non‑negativity (which is always feasible), the System shall display the message: "Your fixed obligations exceed your income. Odin recommends debt restructuring or increasing income before a feasible budget can be created."
 
 ### Section 5. Surplus Handling
 
 1. At the end of a budget period, any surplus (allocated but unspent amount) shall be handled according to one of three user‑selectable strategies.
 
-    1.1. Rollover strategy. The surplus amount is added to the next period's total budget. Category allocations for the next period are recomputed using the Linear Programming solver with the increased total budget while preserving the same allocation ratios relative to the total.
+    1.1. Rollover strategy. The surplus amount is added to the next period's total budget.
 
     1.2. Save strategy. The surplus is automatically transferred to the user's primary savings goal as an additional contribution.
 
-    1.3. Reset strategy. The surplus is returned to the available balance, and the next period's budget is recomputed from zero as if no prior surplus existed.
-
-    1.4. The System shall also provide deficit warnings so the user can respond before overspending gets worse.
+    1.3. Reset strategy. The surplus is returned to the available balance, and the next period's budget is recomputed from zero.
 
 2. The default strategy per profile is as follows.
 
@@ -1043,9 +829,7 @@
 
     2.3. The Reset strategy has no default; the user must select it explicitly.
 
-3. At the end of each budget period, the System shall display a prompt: "You underspent by [amount in pesos]. What would you like to do with the leftover amount?" with the three options presented.
-
-    3.1. If the user does not respond within seven days, the System shall apply the default strategy for that user's profile.
+3. At the end of each budget period, the System shall display a prompt: "You underspent by [amount in pesos]. What would you like to do with the leftover amount?" with the three options presented. If the user does not respond within seven days, the System shall apply the default strategy for that user's profile.
 
 > Note — RRL Validation Required: The surplus handling strategies (Rollover, Save, Reset) and their default assignments require validation from literature on user preferences for windfall or surplus allocation.
 
@@ -1053,25 +837,13 @@
 
 1. Every budget recommendation shall be accompanied by an explanation in plain language.
 
-    1.1. The explanation shall state:
-
-        1.1.1. The budget period.
-
-        1.1.2. The total budget amount.
-
-        1.1.3. The forecast income used.
-
-        1.1.4. The target savings amount.
+    1.1. The explanation shall state the budget period, the total budget amount, the forecast income used, and the target savings amount.
 
     1.2. The explanation shall then describe the major constraints that shaped the allocation.
 
         1.2.1. Example: "Your 30‑day budget is 22,500 pesos. This is based on your predicted income of 30,000 pesos and a minimum savings target of 3,000 pesos (10 percent of your income). 11,250 pesos is allocated to Essentials because this category is required to be at least 50 percent of your budget. To change any allocation, adjust your category priorities in Settings."
 
-2. Additional explanation shall be provided for users who wish to understand the optimisation.
-
-    2.1. Example: "The budget recommendation maximises your stated priorities. If you set Food priority to 5, the system will allocate as much as possible to Food without exceeding your Discretionary group cap (30 percent of total) or your historical maximum for Food. To balance spending, adjust category priorities or set manual caps."
-
-    2.2. The explanation shall be accessible via a "Why?" button next to the recommended budget.
+2. The explanation shall be accessible via a "Why?" button next to the recommended budget.
 
 ### Section 7. Module Relationships
 
@@ -1097,27 +869,17 @@
 
 1. The System shall generate forecasts for four targets, each at configurable granularities and horizons.
 
-    1.1. Target 1: Per‑category expense. Forecast at the level of the four broad groups: Essentials, Obligatory, Discretionary, and Financial Allocation.
-
-        1.1.1. Forecast granularities: daily, weekly, and monthly aggregates.
-    
-        1.1.2. Horizons: seven, fourteen, thirty, and ninety days.
-    
-        1.1.3. The user may select the horizon per view, either for total spending or per category.
+    1.1. Target 1: Per‑category expense. Forecast at the level of the four broad groups: Essentials, Obligatory, Discretionary, and Financial Allocation. Forecast granularities: daily, weekly, and monthly aggregates. Horizons: seven, fourteen, thirty, and ninety days.
 
     1.2. Target 2: Total income. Forecast at daily, weekly, or monthly granularity over horizons of seven, fourteen, thirty, and ninety days.
 
-    1.3. Target 3: Savings balance trajectory. Forecast at daily granularity over a horizon of one hundred eighty days.
+    1.3. Target 3: Savings balance trajectory. Forecast at daily granularity over a horizon of one hundred eighty days, assuming that the user follows the current budget recommendation.
 
-        1.3.1. This forecast assumes that the user follows the current budget recommendation, including planned savings contributions, and does not make unplanned withdrawals.
-
-    1.4. Target 4: Debt remaining balance. Forecast at daily granularity until the projected payoff date, assuming the user follows the selected debt payoff strategy (avalanche or snowball) with minimum payments and any surplus allocated according to that strategy.
+    1.4. Target 4: Debt remaining balance. Forecast at daily granularity until the projected payoff date, assuming the user follows the selected debt payoff strategy.
 
 2. All forecasts shall include a disclaimer displayed prominently in the forecasting interface: "Forecasts are inferential and informational only, based on your past spending and current budget. Actual future spending may differ."
 
-3. The forecast dashboard shall show spending by category and spending by budget period, allowing comparison of actual spending against the plan.
-
-4. The primary forecast visualization shall include a next-month multi-line graph for Essentials, Discretionary, Financial Allocation, and Obligatory spending, allowing users to compare upcoming spending pressure across the main budget groups.
+3. The primary forecast visualization shall include a next‑month multi‑line graph for Essentials, Discretionary, Financial Allocation, and Obligatory spending.
 
 ### Section 2. Long Short-Term Memory Algorithm
 
@@ -1147,49 +909,27 @@
 
     2.4. The user's financial behavioral profile label from the Random Forest classifier.
 
-    2.5. Calendar features:
+    2.5. Calendar features: day of week (zero to six), day of month (one to thirty‑one).
 
-        2.5.1. Day of week (zero to six).
-
-        2.5.2. Day of month (one to thirty‑one).
-
-    2.6. Event flags indicating whether the day is:
-
-        2.6.1. A payday.
-
-        2.6.2. A declared holiday.
-
-        2.6.3. Within the thirteenth‑month pay period (typically December).
-
-        2.6.4. Within the Christmas period (December fifteen to January five).
+    2.6. Event flags indicating whether the day is a payday, a declared holiday, within the thirteenth‑month pay period (typically December), or within the Christmas period (December fifteen to January five).
 
 3. Handling insufficient history. For users with fewer than sixty days of history, the LSTM shall use the available data as the input sequence.
 
     3.1. Missing days before the user's first transaction are set to zero.
 
-    3.2. For users with between thirty and fifty‑nine days of history, the model accepts the variable‑length sequence.
+    3.2. For users with between thirty and fifty‑nine days of history, the model accepts the variable‑length sequence by masking or by repeating the earliest available values.
 
-        3.2.1. The architecture is designed to handle sequences shorter than the maximum length by masking or by repeating the earliest available values.
-
-    3.3. For users with fewer than thirty days of history, the LSTM is not used.
-
-        3.3.1. The System falls back to population‑based forecasts as described in Section 3 of this Article.
+    3.3. For users with fewer than thirty days of history, the LSTM is not used. The System falls back to population‑based forecasts as described in Section 3 of this Article.
 
 4. Pre‑training. The LSTM model shall be pre‑trained on synthetic transaction data generated from the BSP Consumer Finance Survey 2021 and the PSA Family Income and Expenditure Survey.
 
-    4.1. The synthetic data generation procedure is documented in the companion file model-training-data-design.md, which the researchers shall reference for reproducibility.
+5. Continuous learning. After deployment, the LSTM model shall be retrained weekly on each user's accumulated transaction history, with explicit user consent.
 
-> Note — Decision [D6]: The detailed synthetic data generation procedure (distributions, correlation matrices, validation methods) is documented in a separate file synthetic-data-design.md. This specification references that file rather than reproducing its contents.
+    5.1. Retraining uses a sliding window of the most recent ninety days.
 
-5. Deployment mode (thesis version). In the thesis version, the LSTM model shall be deployed as a frozen pre‑trained model.
+    5.2. The user may opt out of personalisation and continue using the pre‑trained model.
 
-    5.1. No fine‑tuning on individual user data shall occur, because the thesis ethical protocol prohibits using real user data for training or updating models.
-
-    5.2. This is a deliberate scope limitation; the model uses only the global pre‑trained weights and the user's own transaction history as input features at inference time.
-
-    5.3. The System shall not perform weekly fine‑tuning as previously contemplated.
-
-        5.3.1. Deleted statement: ~~"The System shall retrain the LSTM weekly on each user's accumulated transaction history."~~
+    5.3. This decision replaces the original freeze‑all‑models approach. The PRD requires that forecasts improve as the user logs more transactions. Continuous learning with explicit consent preserves privacy while enabling personalisation.
 
 6. Hosting and inference.
 
@@ -1199,89 +939,49 @@
 
     6.3. When offline, the application shall display cached forecasts with a note stating: "Offline mode — forecasts from [date]."
 
-    6.4. No forecast inference shall be attempted directly from the mobile device.
-
 ### Section 3. Cold-Start Fallback
 
 1. For users with fewer than thirty days of transaction history, the System shall use population‑level fallbacks instead of LSTM forecasts.
 
-2. Expense forecasts fallback. Source: Family Income and Expenditure Survey (FIES) category means, stratified by the user's income quintile as reported during onboarding.
+    1.1. Expense forecasts fallback. Source: Family Income and Expenditure Survey (FIES) category means, stratified by the user's income quintile as reported during onboarding.
 
-    2.1. The researchers shall use the most recent available FIES data at the time of development.
+    1.2. Income forecasts fallback. Source: BSP Consumer Finance Survey median income by occupation category, stratified by the user's occupation as reported during onboarding.
 
-> Note — RRL Validation Required: If the most recent FIES is older than three years, the researchers should adjust historical means by cumulative inflation using PSA inflation data as a temporary measure. The specific adjustment method requires validation.
+    1.3. Savings trajectory fallback. Assumes a linear contribution of five percent of monthly income to savings, with no withdrawals.
 
-3. Income forecasts fallback. Source: BSP Consumer Finance Survey median income by occupation category, stratified by the user's occupation as reported during onboarding.
+    1.4. Debt payoff fallback. Uses the user‑entered debt terms (principal, interest rate, minimum payment, due date).
 
-4. Savings trajectory fallback. Assumes a linear contribution of five percent of monthly income to savings, with no withdrawals.
-
-5. Debt payoff fallback. Uses the user‑entered debt terms (principal, interest rate, minimum payment, due date). No population data is required.
-
-6. Transition to LSTM. When the user accumulates thirty days of transaction history, the System shall automatically switch from fallback forecasts to LSTM forecasts.
-
-    6.1. Upon switching, the System shall display a notification: "Odin now has enough data to create personalised forecasts for you."
-
-7. Forecasts shall account for paydays and calendar cycles so that normal payday or holiday effects are not treated as surprises.
-
-8. Forecasts shall improve as the user logs more transactions, becoming more personalized over time.
+2. Transition to LSTM. When the user accumulates thirty days of transaction history, the System shall automatically switch from fallback forecasts to LSTM forecasts and display a notification: "Odin now has enough data to create personalised forecasts for you."
 
 ### Section 4. Explainability
 
-1. Explainability for LSTM forecasts shall use a feature perturbation method rather than SHAP, which is computationally expensive for sequential models.
+1. Explainability for LSTM forecasts shall use a feature perturbation method rather than SHAP.
 
-    1.1. For each forecast, the System shall measure how the prediction changes when each input feature is shuffled or set to a baseline value.
+    1.1. For each forecast, the System shall measure how the prediction changes when each input feature is shuffled or set to a baseline value. The feature that causes the largest change in prediction is identified as the most influential.
 
-    1.2. The feature that causes the largest change in prediction is identified as the most influential.
+    1.2. For user‑facing explanations, the System shall generate a simple template sentence based on observable patterns.
 
-2. For user‑facing explanations, the System shall not present raw perturbation values.
+        1.2.1. Example: "Your Discretionary spending is predicted to increase because your spending in the last seven days is 850 pesos higher than your thirty‑day average."
 
-    2.1. Instead, it shall generate a simple template sentence based on observable patterns.
+    1.3. The System shall also state confidence indirectly by comparing the forecast to the user's historical range.
 
-        2.1.1. Example: "Your Discretionary spending is predicted to increase because your spending in the last seven days is 850 pesos higher than your thirty‑day average."
-
-    2.2. The System shall also state confidence indirectly by comparing the forecast to the user's historical range.
-
-        2.2.1. Example: "Forecast for tomorrow is 1,200 pesos, which is within your typical daily range of 500 to 2,000 pesos."
+        1.3.1. Example: "Forecast for tomorrow is 1,200 pesos, which is within your typical daily range of 500 to 2,000 pesos."
 
 ### Section 5. Evaluation Metrics
 
 1. The forecasting module shall be evaluated weekly using walk‑forward validation on synthetic data.
 
-    1.1. The synthetic test set is distinct from the training set and represents six months of simulated user activity.
+    1.1. Primary metric: Mean Absolute Error (MAE). Acceptable threshold: less than fifteen percent of the category mean for high‑volume categories (Essentials and Discretionary).
 
-    1.2. The evaluation uses a rolling window: train on the first sixty days, test on the next seven days, then roll forward by seven days, repeating for a total of twenty‑six iterations.
+    1.2. Secondary metric: Root Mean Square Error (RMSE). Acceptable threshold: less than twenty percent of the category mean for high‑volume categories.
 
-2. Primary metric: Mean Absolute Error (MAE). Calculated as the average absolute difference between forecast and actual spending.
+    1.3. Tertiary metric: Symmetric Mean Absolute Percentage Error (sMAPE). Acceptable threshold for Essentials and Discretionary: less than twenty‑five percent. Acceptable threshold for Obligatory and Financial Allocation: less than thirty percent.
 
-    2.1. Acceptable threshold: Less than fifteen percent of the category mean for high‑volume categories (Essentials and Discretionary).
+    1.4. Fourth metric: Improvement over Fallback (IoF). Calculated as (MAE of fallback model minus MAE of LSTM model) divided by MAE of fallback model. Acceptable threshold: twenty percent or higher.
 
-    2.2. For low‑volume categories (Obligatory and Financial Allocation, where many users have zero spending on many days), MAE is less informative. The System shall instead rely on sMAPE as defined in subsection 4.
+    1.5. Fifth metric: Forecast bias. Calculated as the mean of (forecast minus actual) divided by the mean of actual. Acceptable range: between negative 0.10 and positive 0.10.
 
-3. Secondary metric: Root Mean Square Error (RMSE). Calculated as the square root of the average squared difference.
-
-    3.1. Acceptable threshold: Less than twenty percent of the category mean for high‑volume categories.
-
-4. Tertiary metric: Symmetric Mean Absolute Percentage Error (sMAPE). Calculated as the average of the absolute difference divided by the average of the forecast and actual values, expressed as a percentage.
-
-    4.1. Acceptable threshold for Essentials and Discretionary: less than twenty‑five percent.
-
-    4.2. Acceptable threshold for Obligatory and Financial Allocation: less than thirty percent.
-
-5. Fourth metric: Improvement over Fallback (IoF). Calculated as (MAE of fallback model minus MAE of LSTM model) divided by MAE of fallback model, expressed as a percentage.
-
-    5.1. Acceptable threshold: twenty percent or higher.
-
-    5.2. If IoF remains below twenty percent after thirty days of user data collection, the System shall log a warning, but no automatic retraining occurs because the model is frozen for the thesis.
-
-6. Fifth metric: Forecast bias. Calculated as the mean of (forecast minus actual) divided by the mean of actual.
-
-    6.1. Acceptable range: between negative 0.10 and positive 0.10, indicating that the model does not systematically over‑forecast or under‑forecast.
-
-> Note — RRL Validation Required: The three‑week persistence threshold for action (exceeding acceptable metrics for three consecutive weeks) is provisional. The researchers should justify this based on concept drift literature or adjust the threshold after pilot testing.
-
-7. Remedial action. If any metric exceeds its acceptable threshold for three consecutive weeks on the synthetic evaluation, the researchers shall log the issue and consider retraining the model from scratch using a different hyperparameter configuration.
-
-    7.1. In the thesis context, this retraining would occur offline, not automatically.
+2. Remedial action. If any metric exceeds its acceptable threshold for three consecutive weeks on the synthetic evaluation, the researchers shall log the issue and consider retraining the model from scratch using a different hyperparameter configuration.
 
 ### Section 6. Module Relationships
 
@@ -1317,99 +1017,47 @@
 
     5.3. Random state. Fixed at forty‑two for reproducibility.
 
-    5.4. Contamination rate. The System shall not fix a constant contamination rate.
+    5.4. Contamination rate. The System shall not fix a constant contamination rate. Instead, the System shall use the raw anomaly scores produced by Isolation Forest and apply a dynamic threshold: the top five percent of scores by transaction volume shall be flagged as anomalies.
 
-        5.4.1. Instead, the System shall use the raw anomaly scores produced by Isolation Forest and apply a dynamic threshold: the top five percent of scores by transaction volume shall be flagged as anomalies.
-        
-        5.4.2. This approach adapts to each user's actual spending variability rather than forcing exactly five percent of transactions to be flagged regardless of behaviour.
-
-6. The feature vector for each expense transaction shall consist of eight dimensions, derived from the transaction and the user's historical data.
-
-    6.1. All features shall be normalised or standardised before being passed to the Isolation Forest.
+6. The feature vector for each expense transaction shall consist of eight dimensions, derived from the transaction and the user's historical data. All features shall be normalised or standardised before being passed to the Isolation Forest.
 
 ### Section 2. Anomaly Features
 
 1. Each expense transaction shall be evaluated on the following feature vector (8 dimensions).
 
-    1.1. Amount deviation.
+    1.1. Amount deviation. Calculation: (amount − category_30d_median) / category_30d_IQR, capped at ±5. Interpretation: How unusual the amount is for this category.
 
-        1.1.1. Calculation: (amount − category_30d_median) / category_30d_IQR, capped at ±5.
-        
-        1.1.2. Interpretation: How unusual the amount is for this category.
+    1.2. Day‑of‑period proportion. Calculation: transaction_date_days_into_period / period_total_days. Interpretation: Where the transaction falls within the current budget period.
 
-    1.2. Day‑of‑period proportion.
+    1.3. Category velocity. Calculation: number of transactions in this category in the last seven days. Interpretation: Whether the user is spending more frequently than usual.
 
-        1.2.1. Calculation: transaction_date_days_into_period / period_total_days.
-        
-        1.2.2. Interpretation: Where the transaction falls within the current budget period.
-        
-        1.2.3. Note — Period definition: This is calculated based on the user's currently active budget period. If the user has no active budget, the System defaults to a 30‑day rolling period starting from the first day of the current month. The period resets when the user creates a new budget or at the end of the default rolling period.
+    1.4. Time since last transaction (same category). Calculation: hours, capped at 168. Interpretation: Unusually long or short gaps between transactions.
 
-    1.3. Category velocity.
+    1.5. Day of week. Calculation: 0–6 (Monday to Sunday). Interpretation: Captures weekend vs. weekday spending patterns.
 
-        1.3.1. Calculation: number of transactions in this category in the last seven days.
-        
-        1.3.2. Interpretation: Whether the user is spending more frequently than usual in this category.
+    1.6. Week of month. Calculation: 1–5. Interpretation: Captures monthly bill cycles.
 
-    1.4. Time since last transaction (same category).
+    1.7. Holiday proximity. Calculation: 1 if within ±3 days of a known holiday, else 0. Interpretation: Accounts for expected spending spikes around holidays.
 
-        1.4.1. Calculation: hours, capped at 168.
-        
-        1.4.2. Interpretation: Unusually long or short gaps between transactions.
-
-    1.5. Day of week.
-
-        1.5.1. Calculation: 0–6 (Monday to Sunday).
-        
-        1.5.2. Interpretation: Captures weekend vs. weekday spending patterns.
-
-    1.6. Week of month.
-
-        1.6.1. Calculation: 1–5.
-        
-        1.6.2. Interpretation: Captures monthly bill cycles.
-
-    1.7. Holiday proximity.
-
-        1.7.1. Calculation: 1 if within ±3 days of a known holiday, else 0.
-        
-        1.7.2. Interpretation: Accounts for expected spending spikes around holidays.
-
-    1.8. Merchant novelty.
-
-        1.8.1. Calculation: 1 if merchant name not seen in last 60 days, else 0.
-        
-        1.8.2. Interpretation: New merchants are more likely to be anomalous.
+    1.8. Merchant novelty. Calculation: 1 if merchant name not seen in last 60 days, else 0. Interpretation: New merchants are more likely to be anomalous.
 
 ### Section 3. Exclusions
 
 1. Certain transactions that would otherwise be flagged as anomalies shall be excluded from alert generation because they represent culturally expected spending spikes.
 
-    1.1. The System shall still compute anomaly scores for these transactions for internal logging and model evaluation, but shall not generate user notifications unless the user has enabled informational alerts.
+    1.1. The System shall still compute anomaly scores for these transactions for internal logging, but shall not generate user notifications unless the user has enabled informational alerts.
 
 2. The following periods are excluded from anomaly alerting.
 
     2.1. Christmas and New Year period. Transactions between December fifteen and January five shall not trigger anomaly alerts.
 
-    2.2. Holy Week. Transactions from Palm Sunday to Easter Sunday shall not trigger alerts.
+    2.2. Holy Week. Transactions from Palm Sunday to Easter Sunday shall not trigger alerts. The System shall use an annually updated holiday calendar stored as a JSON configuration file. If the current year's Holy Week dates are not yet loaded, the System shall compute Easter using an algorithmic method (such as the Anonymous Gregorian algorithm) as a fallback.
 
-        2.2.1. The System shall use an annually updated holiday calendar stored as a JSON configuration file.
+    2.3. Barangay fiesta. Transactions during the user's declared home barangay fiesta dates, plus or minus three days, shall not trigger alerts. The user may configure their home barangay and fiesta dates in the profile settings.
 
-        2.2.2. If the current year's Holy Week dates are not yet loaded, the System shall compute Easter using an algorithmic method (such as the Anonymous Gregorian algorithm) as a fallback, rather than using an overly broad date range.
+    2.4. Whitelisted transactions. Transactions manually whitelisted by the user are permanently excluded from anomaly alerts regardless of amount or timing.
 
-    2.3. Barangay fiesta. Transactions during the user's declared home barangay fiesta dates, plus or minus three days, shall not trigger alerts.
-
-        2.3.1. The user may configure their home barangay and fiesta dates in the profile settings.
-
-    > NOTE: These holidays, celebrations, and special dates should be classified into a term called "Occasions".
-
-    2.4. Whitelisted transactions. Transactions manually whitelisted by the user (see Section 4) are permanently excluded from anomaly alerts regardless of amount or timing.
-
-3. For excluded transactions, the System may still provide an informational notification if the anomaly score exceeds the threshold, but the notification shall be labelled as informational rather than a warning.
-
-    3.1. The user may configure whether informational alerts are shown.
-
-4. Culturally expected spending events such as Christmas, enrollment, family support, paluwagan, or community contributions shall be handled carefully to avoid creating misleading alerts.
+3. For excluded transactions, the System may still provide an informational notification if the anomaly score exceeds the threshold, but the notification shall be labelled as informational rather than a warning. The user may configure whether informational alerts are shown.
 
 ### Section 4. Whitelist
 
@@ -1417,29 +1065,11 @@
 
 2. The user may select from three responses.
 
-    2.1. "Yes, expected."
+    2.1. "Yes, expected." The System shall add an entry to the whitelist. Each whitelist entry contains the merchant name, the detailed category of the transaction, and an amount tolerance of plus or minus twenty‑five percent. Future transactions with the same merchant name and same detailed category, and with an amount within the tolerance range, shall be suppressed from anomaly alerts. If the user selects "Always allow this merchant regardless of amount," the whitelist entry stores no amount tolerance, and all future transactions with that merchant name and category are suppressed.
 
-        2.1.1. The System shall add an entry to the whitelist.
-        
-        2.1.2. Each whitelist entry contains the merchant name, the detailed category of the transaction, and an amount tolerance of plus or minus twenty‑five percent.
-        
-        2.1.3. Future transactions with the same merchant name and same detailed category, and with an amount within the tolerance range, shall be suppressed from anomaly alerts.
-        
-        2.1.4. If the user selects "Always allow this merchant regardless of amount," the whitelist entry stores no amount tolerance, and all future transactions with that merchant name and category are suppressed.
+    2.2. "No, unexpected." The transaction remains flagged as an anomaly. No whitelist entry is created.
 
-    2.2. "No, unexpected."
-
-        2.2.1. The transaction remains flagged as an anomaly.
-        
-        2.2.2. No whitelist entry is created.
-
-    2.3. "Remind me later."
-
-        2.3.1. The notification is dismissed for this transaction.
-        
-        2.3.2. No whitelist entry is created.
-        
-        2.3.3. Future similar transactions may still trigger alerts.
+    2.3. "Remind me later." The notification is dismissed for this transaction. No whitelist entry is created. Future similar transactions may still trigger alerts.
 
 3. The user may view, edit, or delete whitelist entries in Settings under Anomaly Detection → Whitelist.
 
@@ -1455,23 +1085,15 @@
 
 4. These overspending alerts are mandatory and cannot be disabled by the user, though the user may configure notification delivery method (in‑app only or push).
 
-    4.1. The alerts are displayed regardless of whether the transactions would otherwise be considered anomalous or culturally expected.
-
-5. The System shall generate alerts when spending is unusually high for a category, when the user is likely to exceed a budget, and when a deficit warning is appropriate so the user can respond before overspending gets worse.
-
 ### Section 6. Alert Fatigue Prevention.
 
 1. The System shall implement three mechanisms to prevent alert fatigue.
 
-    1.1. Cooldown period. Limit anomaly alerts to no more than three per user per twenty‑four hour period.
-
-        1.1.1. Rule‑based overspending alerts are excluded from this cooldown.
+    1.1. Cooldown period. Limit anomaly alerts to no more than three per user per twenty‑four hour period. Rule‑based overspending alerts are excluded from this cooldown.
 
     1.2. Bundling. Multiple anomalies detected within two hours are bundled into a single notification that lists all affected transactions.
 
     1.3. Snooze. The user may snooze all anomaly alerts for seven days via Settings → Notifications.
-
-    1.4. The user shall have alert frequency controls so that they do not ignore Odin because it notifies them too often.
 
 ### Section 7. Explainability
 
@@ -1479,11 +1101,7 @@
 
     1.1. Baseline for amount deviation. The category median over the preceding thirty days.
 
-    1.2. Baseline for amount‑to‑income ratio. The user's typical ratio for that category.
-
-    1.3. Baseline for days since payday. The user's typical distribution of transaction timing.
-
-    1.4. Explanation selection. The explanation shall present the feature with the largest standardised deviation.
+    1.2. Explanation selection. The explanation shall present the feature with the largest standardised deviation.
 
 2. Example explanations.
 
@@ -1491,33 +1109,17 @@
 
     2.2. Merchant novelty example. "This transaction was flagged because you have never spent at this merchant before in the last 60 days."
 
-3. This explanation method requires no per‑transaction model fitting and is instantaneous, as it uses pre‑computed summary statistics.
-
 ### Section 8. Evaluation
 
-1. The anomaly detection module shall be evaluated on synthetic data using walk‑forward validation.
+1. The anomaly detection module shall be evaluated on synthetic data using walk‑forward validation with anomalies injected at approximately five percent of transactions.
 
-    1.1. The synthetic dataset shall include injected anomalies at a rate of approximately five percent, distributed across categories and amount deviations.
+    1.1. Precision target: at least 0.70.
 
-    1.2. The validation window uses thirty days of training data, tests on the next seven days, and rolls forward for thirteen iterations.
+    1.2. Recall target: at least 0.65.
 
-2. Precision. True positives divided by (true positives + false positives). Target: at least 0.70.
+    1.3. F1 score target: at least 0.675.
 
-3. Recall. True positives divided by (true positives + false negatives). Target: at least 0.65.
-
-4. F1 score. Harmonic mean of precision and recall. Target: at least 0.675.
-
-5. False positive rate per user per week. Number of false positives divided by active days, multiplied by seven. Target: no more than 1.5 false positives per week.
-
-    5.1. This target is mathematically consistent with the precision and recall targets given a typical transaction volume.
-
-6. Real‑user proxies (where true labels are unavailable). The System shall report:
-
-    6.1. User dismissal rate: percentage of alerts that the user marks as "Yes, expected."
-
-    6.2. Alert acknowledgement rate.
-
-    6.3. A low dismissal rate (many users marking alerts as expected) indicates excessive false positives.
+    1.4. False positive rate per user per week target: no more than 1.5 false positives per week.
 
 ### Section 9. Module Relationships
 
@@ -1545,45 +1147,21 @@
 
     2.1. Goal name. A string of up to fifty characters, unique per user.
 
-    2.2. Target amount. Desired total accumulation in Philippine pesos.
+    2.2. Target amount. Desired total accumulation in Philippine pesos, minimum one hundred pesos, maximum ten million pesos.
 
-        2.2.1. Minimum: one hundred pesos.
-        
-        2.2.2. Maximum: ten million pesos.
+    2.3. Target date. The date by which the user wishes to achieve the goal, at least seven days from goal creation date and no more than ten years into the future.
 
-    2.3. Target date. The date by which the user wishes to achieve the goal.
-
-        2.3.1. Must be at least seven days from goal creation date.
-        
-        2.3.2. Must be no more than ten years into the future.
-
-    2.4. Contribution amount. The amount the user commits to contribute per contribution frequency.
-
-        2.4.1. Minimum: ten pesos per contribution.
+    2.4. Contribution amount. The amount the user commits to contribute per contribution frequency, minimum ten pesos per contribution.
 
     2.5. Contribution frequency. Selectable from daily, weekly, bi‑weekly, or monthly.
 
-    2.6. Linked source account. The account from which contributions are deducted.
-
-        2.6.1. Default: available balance of the user's primary cash account.
-        
-        2.6.2. The user may select any specific account.
+    2.6. Linked source account. The account from which contributions are deducted, defaulting to the user's primary cash account.
 
 3. The System shall treat savings goals as financial allocation targets.
 
     3.1. Contributions to a savings goal are recorded as expense transactions under the Financial Allocation broad group, with a detailed category named after the goal.
 
     3.2. When a contribution is made, the System shall subtract the amount from the linked source account's available balance and add it to the goal's current accumulated amount.
-
-4. Excluded goal types. The System does not support the following:
-
-    4.1. Investment goals with variable returns.
-
-    4.2. Insurance premium tracking.
-
-    4.3. Any goal type where the accumulation amount is not deterministic.
-
-> Note — Future Work: Separate modules for investment tracking and insurance management are recommended for future versions.
 
 ### Section 2. Multiple Concurrent Savings Goals
 
@@ -1593,37 +1171,17 @@
 
 3. The System shall apply contributions in priority order during each contribution cycle.
 
-    3.1. Contribution cycle definition. The contribution cycle runs daily.
+3.1. Contribution cycle definition. The contribution cycle runs daily.
 
-    3.2. For each goal, the System checks whether the current date matches the goal's contribution schedule based on its frequency.
-
-        3.2.1. Daily goals. Every day is a contribution date.
-        
-        3.2.2. Weekly goals. Contributions occur on the same day of the week as the creation date.
-        
-        3.2.3. Bi‑weekly goals. Contributions occur every fourteen days.
-        
-        3.2.4. Monthly goals. Contributions occur on the same day of the month as the creation date, or on the last day of the month if that day does not exist in a given month.
+3.2. For each goal, the System checks whether the current date matches the goal's contribution schedule based on its frequency.
 
 4. When a contribution date arrives for a goal, the System shall attempt to deduct the contribution amount from the linked source account.
 
-    4.1. If the available balance is sufficient, the deduction occurs and the goal's accumulated amount increases.
+4.1. If the available balance is sufficient, the deduction occurs and the goal's accumulated amount increases.
 
-    4.2. If the available balance is insufficient:
-
-        4.2.1. The System shall skip the contribution for that goal.
-        
-        4.2.2. The System shall proceed to the next lower‑priority goal.
-        
-        4.2.3. The skipped contribution is not queued or retried later.
-        
-        4.2.4. The user is notified of the skipped contribution and may manually contribute later or adjust the goal's parameters.
+4.2. If the available balance is insufficient, the System shall skip the contribution for that goal, proceed to the next lower‑priority goal, and notify the user. The skipped contribution is not queued or retried later.
 
 5. After processing all goals that have a contribution on the current date, any remaining available balance is left untouched for discretionary spending or future contributions.
-
-    5.1. The System does not automatically redistribute unused contribution capacity.
-
-> NOTE: What if the user had small but numerous savings goals? Propose to use sum of savings goal amount instead of number of goals for limit (can be argued and disagreed with).
 
 ### Section 3. Progress State
 
@@ -1631,99 +1189,47 @@
 
     1.1. Remaining amount. Target amount minus current accumulated amount.
 
-    1.2. Number of remaining contributions. Calculated as the number of contribution dates between the current date and the target date, based on the goal's contribution frequency.
+    1.2. Number of remaining contributions. Calculated as the number of contribution dates between the current date and the target date.
 
-    1.3. Goal state after target date. If the number of remaining contributions is zero (the target date has passed), the goal state is evaluated as achieved or failed based on whether the accumulated amount meets or exceeds the target.
+    1.3. Required contribution per period. Remaining amount divided by the number of remaining contributions.
 
-2. Required contribution per period. Remaining amount divided by the number of remaining contributions.
+2. State classification based on actual contribution amount (the amount the user has committed to contribute each period, not necessarily the amount actually contributed after skipped contributions).
 
-3. State classification based on actual contribution amount. Compare the user's actual contribution amount (the amount the user has committed to contribute each period, not necessarily the amount actually contributed after skipped contributions) to the required contribution.
+    2.1. Ahead. Actual contribution amount ≥ 1.10 × required contribution.
 
-    3.1. Ahead. Actual contribution amount ≥ 1.10 × required contribution.
+    2.2. On track. Actual contribution amount between 0.90 and 1.10 × required contribution.
 
-    3.2. On track. Actual contribution amount between 0.90 and 1.10 × required contribution.
+    2.3. Behind. Actual contribution amount between 0.50 and 0.90 × required contribution.
 
-    3.3. Behind. Actual contribution amount between 0.50 and 0.90 × required contribution.
+    2.4. Critical. Actual contribution amount < 0.50 × required contribution.
 
-    3.4. Critical. Actual contribution amount < 0.50 × required contribution.
-
-4. The System shall display a circular progress indicator for each goal, using colour coding.
-
-    4.1. Green: ahead or on track.
-
-    4.2. Yellow: behind.
-
-    4.3. Red: critical.
-
-    4.4. Hovering or tapping the indicator shows the numeric percentage and the state description.
-
-5. The System shall show projected goal completion dates so the user understands how current saving behavior affects their timeline.
+3. The System shall display a circular progress indicator for each goal, using colour coding: green for ahead or on track, yellow for behind, red for critical.
 
 ### Section 4. Savings Goal Strategies
 
 1. The System shall offer three contribution allocation strategies that determine how surplus funds (beyond the scheduled contributions) are distributed across multiple goals.
 
-    1.1. These strategies apply only when:
+    1.1. Goal‑based strategy (default for all profiles). Any surplus is allocated to the highest‑priority goal first. After that goal's target is reached, surplus flows to the next‑highest priority goal.
 
-        1.1.1. The user has more than one goal.
+    1.2. Snowball strategy (offered as an alternative for Variable‑Flexible users). The System allocates surplus to the goal with the smallest remaining amount.
 
-        1.1.2. The available balance after all scheduled contributions is positive.
+    1.3. Avalanche strategy (offered as an alternative for Stable‑Obligated users). The System allocates surplus to the goal with the highest user‑ranked priority.
 
-2. The three contribution allocation strategies are the following.
+2. The user may switch strategies at any time via Savings → Strategy.
 
-    2.1. Goal‑based strategy (default for all profiles).
+    2.1. When switching, the System shall recalculate projected completion dates for all goals under the new strategy and display a comparison message.
 
-        2.1.1. Any surplus is allocated to the highest‑priority goal first.
-
-        2.1.2. After that goal's target is reached, surplus flows to the next‑highest priority goal, and so on.
-
-        2.1.3. This strategy aligns with the user's explicit ranking of goals.
-
-    2.2. Snowball strategy (offered as an alternative for Variable‑Flexible users).
-
-        2.2.1. The System allocates surplus to the goal with the smallest remaining amount (target minus current accumulated).
-
-        2.2.2. Rationale: Provides psychological motivation by paying off smaller goals quickly, analogous to the debt snowball method.
-
-    2.3. Avalanche strategy (offered as an alternative for Stable‑Obligated users).
-
-        2.3.1. The System allocates surplus to the goal with the highest user‑ranked priority.
-        
-        2.3.2. This is identical to the Goal‑based strategy in outcome but emphasises the interest analogy.
-        
-        2.3.3. The name is retained for consistency with debt management terminology.
-
-3. The user may switch strategies at any time via Savings → Strategy.
-
-    3.1. When switching, the System shall recalculate projected completion dates for all goals under the new strategy.
-
-    3.2. The System shall display a comparison message: "If you switch to Snowball, Goal A would be completed 3 months earlier, but Goal B would be completed 2 months later."
-
-4. The user may prioritize goals so Odin can recommend allocations in the right order.
-
-> Note — RRL Validation Required: The assignment of default strategies to profiles (Goal‑based for all profiles, with Snowball and Avalanche as alternatives) requires validation from literature on savings motivation and goal prioritisation. The researchers should survey target users or cite existing studies on what drives savings behaviour among Filipino young adults.
+3. When a budget strategy includes a Financial Allocation portion (e.g., the twenty percent in the Fifty‑Thirty‑Twenty strategy), the System shall distribute that portion across active savings goals according to the selected savings goal allocation strategy.
 
 ### Section 5. Notifications
 
 1. The System shall send the following savings‑related notifications.
 
-    1.1. Milestone notifications.
+    1.1. Milestone notifications. When a goal reaches twenty‑five percent, fifty percent, or seventy‑five percent of its target amount.
 
-        1.1.1. When a goal reaches twenty‑five percent, fifty percent, or seventy‑five percent of its target amount, the System shall send: "You're 50% of the way to your [goal name] goal!"
+    1.2. Behind‑schedule advisory. When a goal has been in the "behind" state for seven consecutive days. The notification reappears every seven days until the goal returns to on track or ahead, or until the user updates the goal's parameters.
 
-    1.2. Behind‑schedule advisory.
-
-        1.2.1. When a goal has been in the "behind" state for seven consecutive days, the System shall send: "Your [goal name] goal is behind schedule. Consider increasing your contribution amount or adjusting the target date."
-
-        1.2.2. The user may dismiss this notification, but it will reappear every seven days until the goal returns to on track or ahead, or until the user updates the goal's parameters.
-
-    1.3. Goal achievement notification.
-
-        1.3.1. When a goal's accumulated amount reaches or exceeds the target amount, the System shall send: "Congratulations! You achieved your [goal name] goal."
-
-        1.3.2. The goal is then marked as completed and is removed from the active goals list.
-        
-        1.3.3. The user may archive completed goals for historical reference.
+    1.3. Goal achievement notification. When a goal's accumulated amount reaches or exceeds the target amount.
 
 ### Section 6. Module Relationships
 
@@ -1747,61 +1253,27 @@
 
     2.1. Debt name. A string of up to fifty characters, unique per user.
 
-    2.2. Total principal amount. The original amount borrowed, measured in Philippine pesos.
+    2.2. Total principal amount. The original amount borrowed, measured in Philippine pesos, minimum one hundred pesos, maximum ten million pesos.
 
-        2.2.1. Minimum: one hundred pesos.
-        
-        2.2.2. Maximum: ten million pesos.
+    2.3. Annual interest rate. Stored as a decimal (e.g., 0.05 for five percent). Range: zero to one hundred percent inclusive. The System assumes simple interest for all debt accounts.
 
-    2.3. Annual interest rate. Stored as a decimal (e.g., 0.05 for five percent).
+    2.4. Minimum monthly payment. The smallest amount the user must pay each month, measured in pesos. May be zero.
 
-        2.3.1. Range: zero to one hundred percent inclusive.
-        
-        2.3.2. The System assumes simple interest for all debt accounts.
+    2.5. Payment due day of month. An integer from one to thirty‑one. If the due day is greater than the number of days in a given month, the System shall treat the due date as the last day of that month.
 
-    2.4. Minimum monthly payment. The smallest amount the user must pay each month to keep the account in good standing, measured in pesos. May be zero.
-
-    2.5. Payment due day of month. An integer from one to thirty‑one.
-
-        2.5.1. If the due day is greater than the number of days in a given month, the System shall treat the due date as the last day of that month.
-
-    2.6. Remaining balance. Computed as the principal amount minus the sum of all payments recorded against this debt account.
-
-        2.6.1. Automatically updated whenever a debt payment transaction is recorded.
-
-3. The System shall also store, optionally, the creditor name and contact information, which may be displayed to the user during hardship scenarios as described in Section 4 of this Article.
+    2.6. Remaining balance. Computed as the principal amount minus the sum of all payments recorded against this debt account, automatically updated whenever a debt payment transaction is recorded.
 
 ### Section 2. Debt Payoff Strategies
 
 1. The System shall implement two debt payoff strategies, and the user may switch between them at any time.
 
-    1.1. Avalanche strategy.
+    1.1. Avalanche strategy. The System allocates any surplus payment amount (beyond the sum of all minimum monthly payments) to the debt with the highest annual interest rate. This strategy minimises the total interest paid.
 
-        1.1.1. The System allocates any surplus payment amount (beyond the sum of all minimum monthly payments) to the debt with the highest annual interest rate.
-        
-        1.1.2. This strategy minimises the total interest paid over the life of all debts.
+    1.2. Snowball strategy. The System allocates surplus payment amount to the debt with the smallest remaining balance, regardless of interest rate. This strategy minimises the time to the first debt payoff.
 
-    1.2. Snowball strategy.
+2. When the user switches from one strategy to another, the System shall recalculate the projected payoff dates and total interest for all debts under the new strategy and display a comparison message. The user must confirm the switch before it takes effect.
 
-        1.2.1. The System allocates surplus payment amount to the debt with the smallest remaining balance, regardless of interest rate.
-        
-        1.2.2. This strategy minimises the time to the first debt payoff, providing psychological motivation.
-
-    1.3. The user may compare Avalanche and Snowball repayment strategies and switch between them at any time.
-
-2. When the user switches from one strategy to another, the System shall recalculate the projected payoff dates and total interest for all debts under the new strategy.
-
-    2.1. Retained payments already made are not changed retroactively.
-
-    2.2. The System shall display a comparison message: "If you switch from Avalanche to Snowball, you would pay an additional 1,200 pesos in total interest, but you would pay off your smallest debt three months earlier. Continue?"
-
-    2.3. The user must confirm the switch before it takes effect.
-
-3. Definition of surplus payment amount. The user's total available funds allocated to debt repayment in a given month, minus the sum of all minimum monthly payments.
-
-    3.1. The total available funds allocated to debt repayment is determined by the budget recommendation module (Article VI) as part of the Obligatory category allocation.
-
-    3.2. The user may also manually specify a higher debt repayment amount.
+3. Definition of surplus payment amount. The user's total available funds allocated to debt repayment in a given month, minus the sum of all minimum monthly payments. The total available funds allocated to debt repayment is determined by the budget recommendation module as part of the Obligatory category allocation. The user may also manually specify a higher debt repayment amount.
 
 ### Section 3. Debt Account Projection
 
@@ -1811,15 +1283,11 @@
 
     1.2. Projected payoff date. The date when the remaining balance is expected to reach zero or less, assuming the user makes the minimum monthly payment each month plus any surplus allocated according to the selected payoff strategy.
 
-    1.3. Total interest projected under current strategy. The sum of all future interest payments until payoff, assuming no changes to the payment schedule.
+    1.3. Total interest projected under current strategy. The sum of all future interest payments until payoff.
 
-    1.4. Total interest projected under alternative strategy. Also shown for comparison, with an explanation of the difference.
+    1.4. Total interest projected under alternative strategy. Also shown for comparison.
 
-    1.5. The System shall show projected payoff dates so the user knows when they may become debt-free.
-
-2. The projection calculations assume that the user continues to follow the selected strategy and that no additional debt is incurred.
-
-    2.1. The System shall display a disclaimer: "Projections assume you make all minimum payments on time and do not take on new debt."
+2. The projection calculations assume that the user continues to follow the selected strategy and that no additional debt is incurred. The System shall display a disclaimer: "Projections assume you make all minimum payments on time and do not take on new debt."
 
 ### Section 4. Debt Account Minimum Payoff
 
@@ -1829,7 +1297,7 @@
 
     1.2. Hardship mode. The user's available balance across all accounts is less than the sum of all minimum payments for the month. The System shall automatically enter hardship mode.
 
-2. When hardship mode is detected, the System shall display a debt hardship screen that includes three elements.
+2. When hardship mode is detected, the System shall display a debt hardship screen that includes:
 
     2.1. A warning that the user's total minimum payments exceed their available balance.
 
@@ -1837,25 +1305,21 @@
 
     2.3. A link to the National Credit Council's debt counselling page if available.
 
-3. The System shall also display an option for the user to proceed with reduced payments by acknowledging: "I understand that paying below the minimum may incur fees and affect my credit score."
-
-    3.1. No automated contact with creditors is made.
+3. The System shall also display an option for the user to proceed with reduced payments by acknowledging: "I understand that paying below the minimum may incur fees and affect my credit score." No automated contact with creditors is made.
 
 ### Section 5. Debt Alerts
 
 1. The System shall send the following debt‑related notifications.
 
-    1.1. Upcoming due date reminder. Three days before a debt account's payment due date, the System shall send: "Your [debt name] payment of [minimum amount] pesos is due on [date]."
+    1.1. Upcoming due date reminder. Three days before a debt account's payment due date.
 
-    1.2. Missed payment alert. If the due date passes and no payment has been recorded for that month by the following day, the System shall send: "Your [debt name] payment was due yesterday. Please record your payment to avoid late fees."
+    1.2. Missed payment alert. If the due date passes and no payment has been recorded for that month by the following day.
 
-    1.3. Milestone notification. When a debt account reaches fifty percent paid (remaining balance ≤ half of original principal), the System shall send: "You have paid off 50% of your [debt name]!"
+    1.3. Milestone notification. When a debt account reaches fifty percent paid (remaining balance ≤ half of original principal).
 
-    1.4. Payoff notification. When the remaining balance reaches zero, the System shall send: "Congratulations! You have fully paid off your [debt name]."
+    1.4. Payoff notification. When the remaining balance reaches zero.
 
-2. All debt alerts are delivered via in‑app notification.
-
-3. The user may enable push notifications for debt alerts separately from other alert categories.
+2. All debt alerts are delivered via in‑app notification. The user may enable push notifications for debt alerts separately from other alert categories.
 
 ### Section 6. Module Relationships
 
@@ -1877,87 +1341,39 @@
 
 1. The System shall generate alerts for five categories, each originating from a specific module.
 
-    1.1. Budget overspending alerts. Originate from the rule‑based overspending detection submodule (Article VIII Section 5).
+    1.1. Budget overspending alerts. Originate from the rule‑based overspending detection submodule. Warning when a category exceeds eighty percent of its budget allocation with more than twenty‑five percent of the budget period remaining. Critical alert when any category exceeds one hundred percent of its budget allocation.
 
-        1.1.1. Warning: when a category exceeds eighty percent of its budget allocation with more than twenty‑five percent of the budget period remaining.
+    1.2. Anomaly detection alerts. Trigger when the Isolation Forest identifies a transaction as anomalous and the transaction is not excluded by cultural period rules or whitelist.
 
-        1.1.2. Critical alert: when any category exceeds one hundred percent of its budget allocation at any time.
-
-    1.2. Anomaly detection alerts. Trigger when the Isolation Forest identifies a transaction as anomalous and the transaction is not excluded by cultural period rules or whitelist (Article VIII Sections 1 through 3).
-
-    1.3. Savings goal milestone alerts. Include alerts at twenty‑five, fifty, and seventy‑five percent progress toward a savings goal, as well as goal achievement (Article IX Section 5).
+    1.3. Savings goal milestone alerts. Include alerts at twenty‑five, fifty, and seventy‑five percent progress, as well as goal achievement.
 
     1.4. Forecast‑based advisory alerts. Provide proactive guidance when current spending patterns suggest a future budget violation.
 
-    1.5. Debt management alerts. Include upcoming due date reminders, missed payment alerts, and payoff milestones (Article X Section 5).
+    1.5. Debt management alerts. Include upcoming due date reminders, missed payment alerts, and payoff milestones.
 
-2. Trigger condition for forecast‑based advisory alerts.
-
-    2.1. The System shall evaluate daily whether the user's current spending trajectory, extrapolated linearly to the end of the budget period, would exceed the total budget by more than ten percent.
-
-    2.2. The System shall also evaluate whether more than fifty percent of the budget period remains.
-
-    2.3. If both conditions are true, the System shall generate an advisory alert: "Your current spending suggests you may exceed your budget by [amount in pesos] by the end of the period. Consider reducing discretionary spending."
-
-    2.4. The thresholds of ten percent and fifty percent remaining are configurable via system parameters but shall not be user‑adjustable in the thesis version.
-
-3. Anomaly alerts shall explain the reason so the user knows whether the alert is useful.
-
-4. The user may mark an unusual transaction as intentional, and the same kind of planned spending will not be repeatedly flagged (via whitelist, see Article VIII Section 4).
+2. Trigger condition for forecast‑based advisory alerts. The System shall evaluate daily whether the user's current spending trajectory, extrapolated linearly to the end of the budget period, would exceed the total budget by more than ten percent and whether more than fifty percent of the budget period remains. If both conditions are true, the System shall generate an advisory alert.
 
 ### Section 2. Alert Delivery
 
-1. All alerts shall be delivered as in‑app notifications, appearing in a notification centre accessible via a bell icon badge on the dashboard.
+1. All alerts shall be delivered as in‑app notifications, appearing in a notification centre accessible via a bell icon badge on the dashboard. The badge displays a count of unread alerts.
 
-    1.1. The badge displays a count of unread alerts.
+2. If the user grants permission, the System shall also send push notifications to the user's mobile device for all alert categories except forecast‑based advisory, which is in‑app only by default.
 
-2. When the user opens the notification centre, alerts are grouped by category and sorted chronologically with the most recent first.
-
-3. If the user grants permission, the System shall also send push notifications to the user's mobile device for all alert categories except forecast‑based advisory, which is in‑app only by default.
-
-4. The user may separately configure push notification preferences per category, enabling or disabling push for anomaly, savings milestone, and debt alerts.
-
-5. Budget overspending alerts are mandatory and cannot be disabled for either in‑app or push delivery.
-
-    5.1. The user may only choose whether to receive push notifications for them.
-
-6. Email digests are excluded from the thesis scope.
-
-> Note — Future Work: A weekly email summary of alerts may be added in a future version.
+3. The user may separately configure push notification preferences per category. Budget overspending alerts are mandatory and cannot be disabled, but the user may choose whether to receive push notifications for them.
 
 ### Section 3. Alert Structure
 
 1. Each alert shall contain a title, a body, an action button, and a dismiss button.
 
-    1.1. Title. Briefly identifies the alert category.
+    1.1. Title. Briefly identifies the alert category (e.g., "Budget Overspending Warning" or "Unusual Transaction Detected").
 
-        1.1.1. Example: "Budget Overspending Warning" or "Unusual Transaction Detected."
+    1.2. Body. Provides a specific description (e.g., "You have used 85% of your Food budget with 10 days remaining").
 
-    1.2. Body. Provides a specific description.
-
-        1.2.1. Budget overspending alert example: "You have used 85% of your Food budget with 10 days remaining."
-        
-        1.2.2. Anomaly alert example: "PHP 4,800 at OnlineShop is higher than your usual PHP 700 for online shopping."
-        
-        1.2.3. Forecast advisory example: "Your current spending suggests you may exceed your total budget by PHP 1,500 by the end of the month."
-
-    1.3. Action button. Opens the relevant screen where the user can take corrective action.
-
-        1.3.1. Budget alerts: Opens the budget screen showing the affected category.
-        
-        1.3.2. Anomaly alerts: Opens the transaction list filtered to the flagged transaction, with the whitelist options available.
-        
-        1.3.3. Forecast advisories: Opens the forecasting dashboard.
-        
-        1.3.4. Savings milestones: Opens the savings goal detail screen.
-        
-        1.3.5. Debt alerts: Opens the debt management screen.
+    1.3. Action button. Opens the relevant screen where the user can take corrective action (budget screen, transaction list, forecasting dashboard, savings goal detail, or debt management screen).
 
     1.4. Dismiss button. Acknowledges the alert and removes it from the notification centre.
 
-        1.4.1. Dismissed alerts are logged but not shown again.
-        
-        1.4.2. The user may also clear all alerts at once using a "Clear all" button.
+2. For anomaly alerts that include whitelist options, the acknowledgment choices ("Yes, expected," "No, unexpected," "Remind me later") are presented within the alert itself.
 
 ### Section 4. Alert Configuration
 
@@ -2021,61 +1437,19 @@
 
 1. All machine learning modules in the System shall provide human‑readable explanations for their predictions and alerts.
 
-2. The explanation method, output format, and evaluation approach vary by module as defined below.
+2. The explanation method varies by module as defined below.
 
-    2.1. Financial Behavioral Profile classification module (Random Forest).
+    2.1. Financial Behavioral Profile classification module (Random Forest). Explainability using SHAP values. The System shall compute SHAP values for each classification prediction and present the top two features that most influenced the classification. The output format shall be a sentence constructed from the feature names and their values.
 
-        2.1.1. Explainability shall be provided using SHAP (SHapley Additive exPlanations).
+    2.2. Budget recommendation module (Linear Programming). Explainability by listing the active constraints that shaped the allocation and the user's priority settings. The output format is a template sentence followed by a list of the most binding constraints.
 
-        2.1.2. The System shall compute SHAP values for each classification prediction and present the top three features that most influenced the classification.
+    2.3. Forecasting module (LSTM). Explainability using feature perturbation. For each forecast, the System shall measure how the prediction changes when each input feature is set to a baseline value. The feature causing the largest change is identified as the most influential. The System generates a simple template sentence based on observable patterns.
 
-        2.1.3. The output format shall be a sentence constructed from the feature names, their values, and the difference from typical users of other profiles.
+    2.4. Anomaly detection module (Isolation Forest). Explainability by computing the deviation of each continuous feature from the user's baseline, using pre‑computed summary statistics. The feature with the largest standardised deviation determines the explanation.
 
-        2.1.4. Example: "Your profile is Stable‑Obligated mainly because your obligation ratio of 0.55 is higher than typical Flexible users, and your monthly spending coefficient of variation of 0.12 indicates stable income."
+3. All explanation outputs shall be stored in the application log for audit purposes, with a retention period of thirty days. After thirty days, the logs shall be anonymised by removing user identifiers and rounding amounts to the nearest hundred pesos.
 
-        2.1.5. The SHAP values shall be stored in the application log for audit purposes and shall be retained for thirty days, after which they are anonymised by removing user identifiers.
-
-    2.2. Budget recommendation module (Linear Programming).
-
-        2.2.1. Explainability shall be provided by listing the active constraints that shaped the allocation and the user's priority settings that influenced the objective function.
-        
-        2.2.2. The output format is a template sentence followed by a list of the most binding constraints.
-        
-        2.2.3. Template sentence: "Your [period]-day budget is [total] pesos. This is based on your predicted income of [income] and minimum savings target of [savings]."
-        
-        2.2.4. Constraint explanation: "[amount] pesos is allocated to Essentials because this category is required to be at least [percentage] percent of your budget. [amount] pesos is allocated to Discretionary because this category is capped at [percentage] percent."
-        
-        2.2.5. The explanation shall be accessible via a "Why?" button on the budget recommendation screen.
-        
-        2.2.6. The user may then edit any allocation manually, and the System shall note which constraints were overridden.
-
-    2.3. Forecasting module (LSTM).
-
-        2.3.1. Explainability shall be provided using a feature perturbation method rather than SHAP, as SHAP is computationally expensive for sequential models.
-        
-        2.3.2. For each forecast, the System shall measure how the prediction changes when each input feature is set to a baseline value or shuffled.
-        
-        2.3.3. The feature causing the largest change is identified as the most influential.
-        
-        2.3.4. For user‑facing explanations, the System shall not present raw perturbation values. Instead, it shall generate a simple template sentence based on observable patterns.
-        
-        2.3.5. Example: "Your Discretionary spending is predicted to increase because your spending in the last seven days is [amount] higher than your thirty‑day average."
-        
-        2.3.6. If no single feature dominates, the System shall state: "Your forecast is consistent with your recent spending patterns."
-        
-        2.3.7. The LSTM architecture does not include an attention layer in this version, so attention‑based explanations are not available.
-
-    2.4. Anomaly detection module (Isolation Forest).
-
-        2.4.1. Explainability shall be provided by computing the deviation of each continuous feature from the user's baseline, using pre‑computed summary statistics (median and interquartile range per category).
-        
-        2.4.2. The feature with the largest standardised deviation determines the explanation.
-        
-        2.4.3. Amount deviation example: "This transaction was flagged because the amount (5,000 pesos) is 2.5 standard deviations above your usual Food spending of 800 pesos."
-        
-        2.4.4. Merchant novelty example: "This transaction was flagged because you have never spent at this merchant before in the last 60 days."
-        
-        2.4.5. This method requires no per‑transaction model fitting and is instantaneous.
+4. The user may view the explanation for any prediction or alert by tapping a "Why?" button next to the relevant interface element.
 
 ### Section 2. Explanations Storage and Retention
 
@@ -2209,10 +1583,6 @@
 
     1.1. The synthetic dataset shall be generated from the BSP Consumer Finance Survey 2021 and the PSA Family Income and Expenditure Survey.
 
-    1.2. No real user data shall be used for training or validation.
-
-        1.2.1. Pilot user data, if collected, shall be used only for final inference demonstration and not for metric calculation.
-
 2. Random Forest classification module.
 
     2.1. Validation method: Rolling window of sixty days of training data and thirty days of test data, rolling forward by thirty days for six iterations.
@@ -2273,8 +1643,6 @@
 
     5.4. A high modification rate (above fifty percent) suggests that the default priorities or constraints do not match user preferences.
 
-> Note — RRL Validation Required: The three‑week threshold for triggering retraining or logging warnings (mentioned in earlier articles for forecasting and anomaly detection) is provisional. The researchers should justify this based on concept drift literature or adjust the threshold after pilot testing. In the thesis version, because models are frozen and not retrained on real user data, the three‑week threshold applies only to synthetic evaluation and serves as a diagnostic for model stability, not an automatic action trigger.
-
 ### Section 4. System and Algorithm Failure Conditions
 
 1. The System shall detect and respond to the following failure conditions. For each condition, the detection method, system response, and user notification are defined.
@@ -2283,7 +1651,7 @@
 
         1.1.1. Detection: MAE exceeds 20% of category mean for any broad group for fourteen consecutive days during synthetic evaluation.
         
-        1.1.2. Response: Log a warning visible to the developer in application logs. No automatic action is taken, as the model is frozen for the thesis.
+        1.1.2. Response: Log a warning visible to the developer in application logs.
         
         1.1.3. Remediation: Researchers may manually retrain the model with different hyperparameters offline.
 
@@ -2351,187 +1719,49 @@
 
     2.2. The user must tap "I agree" to proceed; declining prevents use of the application.
 
-3. Purpose limitation. Data shall be used only for the following purposes:
+3. Purpose limitation. Data shall be used only for generating budget recommendations, producing spending forecasts, detecting anomalous transactions, classifying financial behavioural profiles, and displaying transaction history.
 
-    3.1. Generating budget recommendations.
+4. Retention period. Twenty‑four months from the date of the user's last activity (any transaction entry, budget change, or login).
 
-    3.2. Producing spending forecasts.
+    4.1. After twenty‑four months of inactivity, the user's data shall be anonymised as follows: user identifier replaced with a random non‑reversible token, transaction amounts rounded to the nearest one hundred pesos, transaction dates truncated to the month only, and all merchant names and descriptions deleted.
 
-    3.3. Detecting anomalous transactions.
+    4.2. If the user has not given explicit opt‑in for anonymised research use, the data shall be permanently deleted instead of anonymised.
 
-    3.4. Classifying financial behavioural profiles.
+5. Data portability. The user may request a CSV export of all their transactions via Settings → Export Data. The export file shall be generated within five minutes and downloadable via a secure link that expires after twenty‑four hours.
 
-    3.5. Displaying transaction history to the user.
+6. Data deletion. The user may request deletion of all their data via Settings → Delete Account. Upon confirmation, the System shall immediately delete all user data from the local device and send a deletion request to the server. The server shall complete deletion within seven days, and the user shall receive an email confirmation if an email address was provided.
 
-    3.6. No data shall be used for any other purpose without new consent.
-
-4. Retention period. Thirteen months from the date of the user's last activity.
-
-    4.1. Definition of user activity. Any transaction entry, budget change, or login.
-
-    4.2. After thirteen months of inactivity, the user's data shall be anonymised as follows:
-
-        4.2.1. User identifier removed and replaced with a random non‑reversible token.
-        
-        4.2.2. Transaction amounts rounded to the nearest one hundred pesos.
-        
-        4.2.3. Transaction dates truncated to the month only.
-        
-        4.2.4. All merchant names and descriptions deleted.
-
-    4.3. If the user has not given explicit opt‑in for anonymised research use (see subsection 7), the data shall be permanently deleted instead of anonymised.
-
-> Note — RRL Validation Required: The choice of thirteen months is provisional and requires validation from either Bangko Sentral ng Pilipinas data retention guidelines, a provision of the Data Privacy Act, or literature on financial data retention for personal finance management systems. If no authoritative source supports thirteen months, the team should adopt a standard period such as twenty‑four months or align with tax record‑keeping recommendations (typically three years in the Philippines). The researchers must resolve this before final submission.
-
-5. Data portability. The user may request a CSV export of all their transactions, including date, amount, category, merchant name (if provided), and account, via Settings → Export Data.
-
-    5.1. The export file shall be generated within five minutes of the request and shall be downloadable via a secure link that expires after twenty‑four hours.
-
-6. Data deletion. The user may request deletion of all their data via Settings → Delete Account.
-
-    6.1. The System shall display a confirmation dialog: "This will permanently delete all your transactions, budgets, goals, and settings. This action cannot be undone. Continue?"
-
-    6.2. Upon confirmation, the System shall immediately delete all user data from the local device and send a deletion request to the server.
-
-    6.3. The server shall complete deletion within seven days, and the user shall receive an email confirmation if an email address was provided.
-
-7. Anonymised research use (separate opt‑in). The System shall obtain separate explicit opt‑in consent on a distinct screen during onboarding.
-
-    7.1. The opt‑in screen shall state: "Allow Odin to use your anonymised data to improve financial models for all users? Your data will be stripped of all identifiers, amounts will be rounded, and dates will be truncated to month. This does not identify you personally. You may opt out at any time in Settings."
-
-    7.2. Users who do not opt in shall have their data permanently deleted after the retention period rather than anonymised.
-
-    7.3. Users who opt in may later withdraw consent via Settings → Privacy → Remove from Research, and their data shall be excluded from future research datasets.
+7. Anonymised research use (separate opt‑in). The System shall obtain separate explicit opt‑in consent on a distinct screen during onboarding. The opt‑in screen shall state: "Allow Odin to use your anonymised data to improve financial models for all users? Your data will be stripped of all identifiers, amounts will be rounded, and dates will be truncated to month. This does not identify you personally. You may opt out at any time in Settings."
 
 ### Section 2. Data Security
 
 1. The System shall implement the following technical security controls.
 
-    1.1. In‑transit encryption. All communications between the mobile application and the server shall use TLS version 1.3 minimum, following NIST SP 800‑52 guidelines.
+    1.1. In‑transit encryption. All communications between the mobile application and the server shall use TLS version 1.3 minimum.
 
-    1.2. At‑rest encryption on server. Stored transaction data shall be encrypted using AES‑256‑GCM, compliant with FIPS 197.
+    1.2. At‑rest encryption on server. Stored transaction data shall be encrypted using AES‑256‑GCM.
 
     1.3. Key management. Encryption keys shall be managed using a key management service and shall not be stored in source code.
 
-2. Local storage on mobile device. The System shall use an encrypted SQLite database via SQLCipher with a 256‑bit key derived from the user's six‑digit PIN or biometric authentication.
+2. Local storage on mobile device. The System shall use an encrypted SQLite database via SQLCipher with a 256‑bit key derived from the user's six‑digit PIN or biometric authentication using PBKDF2 with 100,000 iterations.
 
-    2.1. The key is derived using PBKDF2 with 100,000 iterations.
+3. Authentication. The user shall set a six‑digit PIN during onboarding. If the device supports biometric authentication, the user may enable biometric login as an alternative. The System shall lock after five failed authentication attempts and require a thirty‑second cooldown.
 
-    2.2. The PIN is stored only as a salted hash; biometric authentication invokes the device's secure hardware.
-
-3. Authentication.
-
-    3.1. The user shall set a six‑digit PIN during onboarding.
-
-    3.2. If the device supports biometric authentication (FaceID, TouchID, or Android Biometric), the user may enable biometric login as an alternative to the PIN.
-
-    3.3. The PIN is required as a fallback.
-
-    3.4. The System shall lock after five failed authentication attempts and require a thirty‑second cooldown.
-
-4. Pseudonymisation before server upload. The System shall pseudonymise user data, not fully anonymise it, because the server must be able to associate subsequent uploads from the same user to maintain a coherent transaction history.
-
-    4.1. Method. Salted hash: SHA‑256 of the user's local unique identifier concatenated with a per‑device salt that is stored only on the device.
-
-    4.2. This produces a deterministic but non‑reversible identifier.
-
-    4.3. The server cannot reverse the hash to obtain the original user identifier, and without the device‑local salt, the hash cannot be recomputed from other data.
-
-    4.4. This scheme achieves pseudonymisation as defined under the Data Privacy Act.
-
-    4.5. For true anonymisation after account deletion or retention expiry, the server shall delete the mapping entirely.
+4. Pseudonymisation before server upload. The System shall pseudonymise user data using a salted hash: SHA‑256 of the user's local unique identifier concatenated with a per‑device salt stored only on the device. The server cannot reverse the hash to obtain the original user identifier.
 
 ### Section 3. Data Privacy
 
-1. No user transaction data shall be used to train or fine‑tune any global machine learning model during the thesis study.
+1. The following statement is added as a clear ethical declaration, replacing the original freeze‑all‑models statement:
 
-    1.1. This includes the Random Forest classifier, the LSTM forecasting model, and the Isolation Forest anomaly detector.
+    1.1. "For the duration of this thesis, all machine learning models are pre‑trained on synthetic data generated from BSP CFS 2021 and PSA FIES. With explicit user consent, models may be personalised using each user's own transaction data through continuous learning (weekly retraining for LSTM on a sliding window of ninety days; monthly retraining for Random Forest on a sliding window of 365 days). No user data is shared between users. Raw transaction data never leaves the device for training purposes; only aggregated features are used for server‑side personalisation. Users may opt out of personalisation at any time and continue using the pre‑trained synthetic model. For users who do not opt in, all models remain frozen on synthetic pre‑training."
 
-2. All models shall be pre‑trained exclusively on synthetic data generated from public surveys (BSP CFS 2021 and PSA FIES).
+2. Institutional ethics clearance shall be obtained from the University of Makati Research Ethics Committee prior to any user data collection for the study.
 
-3. The models shall be frozen before any user data is collected.
+3. The System shall display the following disclaimer on first launch in a modal dialog that the user must scroll to the bottom and tap "I understand" before proceeding:
 
-    3.1. This design ensures that no personal financial information influences the model weights.
+4. "Odin's predictions and recommendations are for informational purposes only. You retain full responsibility for all financial decisions. Odin is not a financial advisor. Do not make major financial decisions solely based on automated outputs."
 
-4. Inference request privacy. Inference requests sent from the mobile application to the server shall contain only the minimal feature vector required for each prediction.
-
-    4.1. Random Forest. Feature vector includes the user's aggregated statistics (income CV, obligation ratio, etc.) but no raw transaction details.
-
-    4.2. LSTM. Feature vector includes the last sixty days of daily aggregated spending per broad group, calendar features, and the user's profile, but no merchant names, descriptions, or detailed category information beyond the four broad groups.
-
-    4.3. Isolation Forest. Feature vector includes the transaction amount, category, day‑of‑period proportion, and merchant novelty flag, but not the merchant name string itself.
-
-    4.4. The server shall not persist any feature vectors beyond the request lifetime; logs shall be disabled for inference requests.
-
-5. Ethical declaration. The following statement is added as a clear ethical declaration: "For the duration of this thesis, all machine learning models remain frozen on their synthetic‑data pre‑training. No real user data—whether from pilot users, evaluation participants, or any other source—is used for model training, fine‑tuning, or weight updates of any kind."
-
-> Note — Future Work: A production deployment would need to either maintain a large user base or forgo personalised fine‑tuning.
-
-6. Right to remove from training corpus. Users shall have the right to request removal of their data from any training corpus.
-
-    6.1. A Settings → Privacy → Remove from Training option shall be provided.
-
-    6.2. Upon selection, the user's data shall be excluded from any future training batches.
-
-    6.3. This applies to future versions only. For the thesis, there is no training corpus to remove from.
-        
-> [FUTURE WORK] A production deployment would need to either maintain a large user base or forgo personalised fine‑tuning.
-
-6. Users shall have the right to request removal of their data from any training corpus. 
-
-    6.1. A Settings → Privacy → Remove from Training option shall be provided. 
-    
-    6.2. Upon selection, the user's data shall be excluded from any future training batches. 
-    
-    6.3. This applies to future versions only.
-    
-        6.3.1. For the thesis, there is no training corpus to remove from.
-
-### Section 4. Ethical Review and Disclaimers
-
-1. The System shall display the following disclaimer on first launch.
-
-    1.1. The disclaimer shall be shown in a modal dialog that the user must scroll to the bottom and tap "I understand" before proceeding to the main application.
-
-    1.2. Disclaimer text: "Odin's predictions and recommendations are for informational purposes only. You retain full responsibility for all financial decisions. Odin is not a financial advisor. Do not make major financial decisions solely based on automated outputs."
-
-2. Institutional ethics clearance. Institutional ethics clearance shall be obtained from the University of Makati Research Ethics Committee prior to any user data collection for the study.
-
-    2.1. The ethics application shall include:
-
-        2.1.1. The informed consent form (in English and Tagalog).
-        
-        2.1.2. The data privacy notice.
-        
-        2.1.3. The onboarding questionnaire.
-        
-        2.1.4. The SUS questionnaire.
-        
-        2.1.5. A description of the synthetic data generation and model training procedures.
-
-    2.2. The researchers shall start the ethics application process early, as review may take several weeks.
-
-    2.3. The timeline in Article V of the Paper Specification allocates three weeks for user evaluation, which may be insufficient if ethics clearance is not obtained in advance.
-
-3. Informed consent form requirements. The informed consent form shall include, at minimum, the following elements.
-
-    3.1. A description of the study purpose.
-
-    3.2. A description of procedures (fourteen days of system use, transaction entry, completing a questionnaire).
-
-    3.3. A statement that participation is voluntary and may be withdrawn at any time without penalty.
-
-    3.4. A description of risks (none beyond those of ordinary app use) and benefits (improved financial awareness).
-
-    3.5. A statement about data privacy and retention.
-
-    3.6. Contact information for the researchers and the ethics committee.
-
-    3.7. Signature lines for the participant and the researcher.
-
-4. A copy of the informed consent form shall be provided to the participant.
-
-### Section 5. Module Relationships
+### Section 4. Module Relationships
 
 1. The privacy and security controls described in this article are implemented at the infrastructure and application layers.
 
@@ -2549,73 +1779,41 @@
 
 ## Article XV: System Scope and Delimitations
 
-1. The following features and capabilities are explicitly excluded from the System for the thesis version, with the reasons for exclusion stated for each.
+1. The following features and capabilities are explicitly excluded from the System for the thesis version.
 
     1.1. Bank or e‑wallet API integration.
 
-        1.1.1. Reason. Application programming interface registration fees for Philippine financial institutions such as GCash and Maya require formal partnership agreements with undisclosed fees and legal review. Compliance with Bangko Sentral ng Pilipinas circulars on data sharing adds complexity beyond the thesis scope.
-        
-        1.1.2. Design note. Manual transaction entry is a deliberate design choice supported by literature indicating that manual logging increases financial mindfulness.
-        
-        1.1.3. This exclusion is noted as a limitation, and API integration is recommended for future work.
-
     1.2. Optical character recognition of receipts.
 
-        1.2.1. Reason. The ability to photograph a receipt and automatically extract transaction details would reduce user friction but introduces computer vision complexity and accuracy requirements that are not central to the personal finance management objectives of the thesis.
+    1.3. CSV or spreadsheet import.
 
-    1.3. Investment tracking for stocks, mutual funds, cryptocurrency, or any asset with variable returns.
+    1.4. Automatic transaction import.
 
-        1.3.1. Reason. These instruments require different modelling assumptions, including price volatility and market data integration, which are outside the defined scope of a personal finance management system for young adults focused on budgeting, saving, and debt management.
+    1.5. Investment tracking for stocks, mutual funds, cryptocurrency, or any asset with variable returns.
 
-    1.4. Multi‑currency support.
+    1.6. Multi‑currency support. The System operates exclusively in Philippine pesos.
 
-        1.4.1. Reason. The System operates exclusively in Philippine pesos. All amounts are stored as integer centavos of PHP. Foreign currency transactions, if any, must be manually converted by the user at the time of entry.
+    1.7. Non‑Filipino users.
 
-    1.5. Non‑Filipino users.
+    1.8. Users outside Metro Manila (for thesis validation).
 
-        1.5.1. Reason. The System is designed for the Filipino cultural and financial context, including local spending patterns, holidays, and financial products. Geographic scope is limited to individuals who live or work in Metro Manila, as defined in Article I Section 2.
+    1.9. Automated bill payment.
 
-    1.6. Users outside Metro Manila.
+    1.10. Credit score monitoring.
 
-        1.6.1. Reason. The validation study recruits participants only from Metro Manila cities, consistent with the geographic delimitation. The application may function for users outside Metro Manila, but this is not validated.
+    1.11. Tax computation.
 
-    1.7. Automated bill payment.
+    1.12. Dedicated paluwagan module (users may create a custom subcategory under Financial Allocation).
 
-        1.7.1. Reason. The System does not initiate payments to creditors, utilities, or any third party. All payments are manually recorded by the user. This exclusion is due to security and regulatory complexity, including requirements for payment system operator licences.
+    1.13. Credit card accounts (users must record credit card payments as expenses at the time of payment).
 
-    1.8. Credit score monitoring.
+    1.14. Compound interest for revolving debt (all debts modelled with simple interest).
 
-        1.8.1. Reason. Accessing credit scores in the Philippines requires third‑party API integration with recurring fees and compliance with the Credit Information Corporation regulations, which is outside the thesis budget and timeline.
+    1.15. Admin dashboards for banks or financial advisers.
 
-    1.9. Tax computation.
+    1.16. Social or gamified features.
 
-        1.9.1. Reason. Tax preparation requires professional certification and knowledge of each user's specific deductions, dependents, and filing status. The System does not provide tax advice.
-
-    1.10. Paluwagan (informal rotating savings and credit association) as a dedicated module.
-
-        1.10.1. Reason. The System does not include a dedicated module for paluwagan.
-        
-        1.10.2. Workaround. Users may create a custom subcategory under the Financial Allocation broad group named "Paluwagan" and manually record contributions as expenses and payouts as negative expenses or transfers. However, this treatment distorts spending patterns because receiving the pot appears as a negative expense rather than a cash inflow.
-        
-        1.10.3. The researchers acknowledge this as a limitation.
-
-    1.11. CSV or spreadsheet import.
-
-        1.11.1. Reason. The System does not accept batch uploads of transactions from bank‑exported files or manually created spreadsheets. All transactions must be entered manually.
-        
-        1.11.2. Note — Future Work. CSV import may be added in a future version to reduce data entry friction while preserving user control.
-
-    1.12. Credit card accounts.
-
-        1.12.1. Reason. Credit card accounts are explicitly excluded from the thesis scope (see Article V, Decision D3). Users must record credit card payments as expenses at the time of payment.
-
-    1.13. Compound interest for revolving debt.
-
-        1.13.1. Reason. Compound interest is explicitly excluded (see Article X, Decision D13). All debts are modelled with simple interest.
-
-2. Additional excluded features. Optical character recognition of receipts and CSV import are both excluded for the same reason: the thesis focuses on the machine learning models and budget recommendation engine, not on data ingestion automation. The researchers explicitly delimit these features to maintain scope.
-
-3. All exclusions listed in this article are permanent for the thesis version. They may be reconsidered for future versions of the System beyond the academic requirement.
+    1.17. Public marketplace deployment beyond what is needed for thesis evaluation.
 
 ---
 
@@ -2785,68 +1983,121 @@
 
 ---
 
-Article XVI (NEW) – Testing Decisions
-Section 1. Testing Philosophy
-Tests shall verify external behavior and user-visible outcomes, not internal implementation details.
+## Article XVII: Testing Decisions
 
-Section 2. Transaction Ledger Tests
-Transaction ledger tests shall cover creating, editing, deleting, filtering, recurring generation, transfer handling, and balance effects.
+### Section 1. Testing Philosophy
 
-Section 3. Category Taxonomy Tests
-Category taxonomy tests shall cover detailed-to-broad mappings, protected-category defaults, Filipino-context categories, and category validation.
+1. Tests shall verify external behavior and user-visible outcomes, not internal implementation details.
 
-Section 4. Profile Module Tests
-Profile module tests shall cover initial classification, explanation generation, reclassification triggers, and user confirmation behavior.
+### Section 2. Transaction Ledger Tests
 
-Section 5. Budget Recommendation Tests
-Budget recommendation tests shall cover protected categories, profile-specific allocations, surplus behavior, deficit behavior, recommendation explanations, and user overrides.
+1. Transaction ledger tests shall cover creating, editing, deleting, filtering, recurring generation, transfer handling, and balance effects.
 
-Section 6. Forecasting Tests
-Forecasting tests shall cover cold-start fallback, personalized-forecast availability, forecast metadata, per-category outputs, total outputs, and forecast consumption by dashboard and budget modules.
+### Section 3. Category Taxonomy Tests
 
-Forecasting UI tests shall verify that the next-month graph renders all four broad-category lines and remains readable on mobile.
+1. Category taxonomy tests shall cover detailed-to-broad mappings, protected-category defaults, Filipino-context categories, and category validation.
 
-Section 7. Anomaly Detection Tests
-Anomaly detection tests shall cover high category deviation, high income-ratio spending, recurring-payment suppression, user whitelisting, culturally expected exception behavior, and alert explanation output.
+### Section 4. Profile Module Tests
 
-Section 8. Savings Goal Tests
-Savings goal tests shall cover goal creation, contributions, progress states, target-date projections, prioritization, and completion behavior.
+1. Profile module tests shall cover initial classification, explanation generation, reclassification triggers, and user confirmation behavior.
 
-Section 9. Debt Management Tests
-Debt management tests shall cover debt account creation, minimum payments, Avalanche order, Snowball order, projected payoff dates, and strategy switching.
+### Section 5. Budget Recommendation Tests
 
-Section 10. Alerts Tests
-Alerts tests shall cover alert creation, acknowledgement, cooldowns, notification preferences, grouped alerts, and suppression rules.
+1. Budget recommendation tests shall cover protected categories, profile-specific allocations, surplus behavior, deficit behavior, recommendation explanations, and user overrides.
 
-Section 11. Reporting Tests
-Reporting tests shall cover budget-vs-actual, forecast-vs-actual, category summaries, date filters, savings progress, and debt progress.
+### Section 6. Forecasting Tests
 
-Section 12. Authentication and Privacy Tests
-Authentication and privacy tests shall cover login, logout, protected routes, consent state, account deletion flow, and sensitive-data access rules.
+1. Forecasting tests shall cover cold-start fallback, personalized-forecast availability, forecast metadata, per-category outputs, total outputs, and forecast consumption by dashboard and budget modules.
 
-Section 13. Mobile-First UI Tests
-Mobile-first UI tests shall cover core workflows on narrow viewports: onboarding, add transaction, dashboard, budget recommendation, forecast, alerts, savings, debt, and settings.
+2. Forecasting UI tests shall verify that the next-month graph renders all four broad-category lines and remains readable on mobile.
 
-Section 14. Web UI Tests
-Web UI tests shall cover dashboard, reports, transactions, budget, forecast, savings, debt, and settings on larger viewports.
+### Section 7. Anomaly Detection Tests
 
-Section 15. Integration Tests
-Integration tests shall cover the main data flow: onboarding to profile, profile to transaction logging, transactions to forecasts, forecasts to budget recommendation, transactions to anomaly alerts, and alerts to user feedback.
+1. Anomaly detection tests shall cover high category deviation, high income-ratio spending, recurring-payment suppression, user whitelisting, culturally expected exception behavior, and alert explanation output.
 
-Section 16. Model Evaluation
-Model evaluation shall be separate from UI tests.
+### Section 8. Savings Goal Tests
 
-Forecasting shall be evaluated using time-series-appropriate metrics such as MAE, RMSE, and related forecast-error measures.
+1. Savings goal tests shall cover goal creation, contributions, progress states, target-date projections, prioritization, and completion behavior.
 
-Anomaly detection shall be evaluated using precision, recall, and F1-score.
+### Section 9. Debt Management Tests
 
-Profile classification shall be evaluated using classification metrics if the classifier remains in scope.
+1. Debt management tests shall cover debt account creation, minimum payments, Avalanche order, Snowball order, projected payoff dates, and strategy switching.
 
-Section 17. Usability Evaluation
-Usability evaluation shall use SUS for the complete user-facing app.
+### Section 10. Alerts Tests
 
-Section 18. Software Quality Evaluation
-Software quality evaluation shall map ISO 25010 characteristics to concrete testable criteria.
+1. Alerts tests shall cover alert creation, acknowledgement, cooldowns, notification preferences, grouped alerts, and suppression rules.
+
+### Section 11. Reporting Tests
+
+1. Reporting tests shall cover budget-vs-actual, forecast-vs-actual, category summaries, date filters, savings progress, and debt progress.
+
+### Section 12. Authentication and Privacy Tests
+
+1. Authentication and privacy tests shall cover login, logout, protected routes, consent state, account deletion flow, and sensitive-data access rules.
+
+### Section 13. Mobile-First UI Tests
+
+1. Mobile-first UI tests shall cover core workflows on narrow viewports: onboarding, add transaction, dashboard, budget recommendation, forecast, alerts, savings, debt, and settings.
+
+### Section 14. Web UI Tests
+
+1. Web UI tests shall cover dashboard, reports, transactions, budget, forecast, savings, debt, and settings on larger viewports.
+
+### Section 15. Integration Tests
+
+1. Integration tests shall cover the main data flow: onboarding to profile, profile to transaction logging, transactions to forecasts, forecasts to budget recommendation, transactions to anomaly alerts, and alerts to user feedback.
+
+### Section 16. Model Evaluation
+
+1. Model evaluation shall be separate from UI tests.
+
+2. Forecasting shall be evaluated using time-series-appropriate metrics such as MAE, RMSE, and related forecast-error measures.
+
+3. Anomaly detection shall be evaluated using precision, recall, and F1-score.
+
+4. Profile classification shall be evaluated using classification metrics if the classifier remains in scope.
+
+### Section 17. Usability Evaluation
+
+1. Usability evaluation shall use SUS for the complete user-facing app.
+
+### Section 18. Software Quality Evaluation
+
+1. Software quality evaluation shall map ISO 25010 characteristics to concrete testable criteria.
+
+---
+
+## Article XVIII  – Out of Scope
+
+1. The following features are explicitly out of scope for the first full-app PRD and thesis implementation:
+
+    1.1. Bank API integration
+
+    1.2. E-wallet API integration
+
+    1.3. OCR or receipt scanning
+
+    1.4. Automatic transaction import
+
+    1.5. Investment portfolio management
+
+    1.6. Multi-currency support
+
+    1.7. Licensed financial advice, investment advice, retirement planning, or legal/tax advice
+
+    1.8. Users outside the Filipino young professional target demographic
+
+    1.9. Geographic generalization beyond Metro Manila for the thesis scope
+
+    1.10. Full production-grade fraud detection
+
+    1.11. Merchant-level enrichment from third-party providers
+
+    1.12. Social or gamified features unless separately approved
+
+    1.13. Admin dashboards for banks, institutions, or financial advisers
+
+    1.14. Public marketplace deployment requirements beyond what is needed for thesis evaluation
 
 ---
 
@@ -3006,8 +2257,6 @@ Software quality evaluation shall map ISO 25010 characteristics to concrete test
 2. Secondary data source (optional). Pre‑survey of 50‑100 Filipino working young adults.
 
 3. Tertiary data source (pilot). Up to 10 pilot users with consent, used only for final inference evaluation, not training.
-
-4. No real user data shall be used for training or fine‑tuning any ML model. Models shall be frozen before pilot deployment.
 
 ### Section 6. Ethical Considerations.
 
