@@ -29,7 +29,15 @@
 
 # Notes
 
-1. All *italicized statements* (including their subsections, whether italicized as well or not) hereforth are merely suggestions that may be modified, given that justification is provided. 
+1. All *italicized statements* (including their subsections) are suggestions that may be modified with justification.
+
+2. Article flow is hierarchical; if a system module, component, or general feature has dependencies, all of those must be discussed fully and completely first before it.
+
+   2.1. The discussion of said dependencies must be as close to the dependent module as possible. For example, three dependency features for dependent feature A must be discussed in order of Article I, II, III (dependencies), then IV (dependent). Feature B whose dependencies are not the exact same must not be Article IV.
+
+3. A system feature or topic merits its own article if it is depended upon by at least two other features or topics. If a feature is used by only one other feature or is self‑contained, it shall be described within that dependent feature's article as a section.
+
+4. Cross‑cutting dependencies, or dependencies with two or more dependents, provided that they qualify as articles, shall be defined in dedicated articles before any module that uses them. These articles appear in order of conceptual dependency (e.g. User → Account → Transaction → Category).
 
 ---
 
@@ -221,63 +229,45 @@
 
 ---
 
-## ===== Article V. Random Forest Algorithm Structure [DRAFT] =====
+## ===== Article V. Random Forest Classifier =====
 
-### Section 1. Input [DRAFT]
+### Section 1. Details
 
-1. *The Random Forest algorithm shall receive the following inputs derived from a user’s transaction history:*
+> NOTE: Should discuss prior things like training, design, architecture, etc., preferably as sections.
 
-    1.1. Income frequency (number of income transactions in the last 30 days)
+### Section 2. Input
 
-    1.2. Income amount variance (mean absolute deviation over 90 days)
+### Section 3. Process
 
-    1.3. Fixed expense count (number of distinct payees with recurring transactions)
+### Section 4. Output
 
-    1.4. Savings rate (Financial Allocation expenses divided by total income over 30 days)
+### Section 5. Details
 
-    1.5. Transaction regularity score (Shannon entropy of inter‑transaction intervals over 60 days)
-
-2. *If the user has insufficient transactions, the algorithm shall use the onboarding questionnaire instead.*
-
-> NOTE: Need to define at what level or amount is transaction sufficient.
-
-### Section 2. Process [DRAFT]
-
-1. *The algorithm shall construct an ensemble of decision trees.*
-
-    1.1. Minimum 100 trees
-
-    1.2. Maximum depth 10
-
-    1.3. Gini impurity as the split criterion.
-
-2. *Class weights shall be balanced to handle potential class imbalance.*
-
-3. *The algorithm shall output a predicted financial behavioral profile.*
-
-    3.1. SHAP values and descriptions will also be added for explainability.
-
-4. *The system shall retrain the Random Forest model monthly on each user’s accumulated transaction history only after obtaining explicit user consent.*
-
-    4.1. Sliding window of 365 days
-
-### Section 3. Output [DRAFT]
-
-1. *The output shall be:*
-
-    1.1. A financial behavioral profile (e.g., “Stable‑Flexible”) as a label
-
-    1.2. A plain‑language explanation stating the two most influential features and their values
-    
-    1.3. A confidence score (derived from the proportion of trees voting for the predicted class)
-
-2. *The output shall be stored in the user’s profile.*
+> NOTE: Should discuss posterior things like algorithm evaluation, explainability, fallback, etc., preferably as sections.
 
 ---
 
 ## ===== Article VI. Financial Behavioral Profile Classification Process =====
 
-### Section 1. Financial Behavioral Profile Classification
+> NOTE: Autonomous reclassification shall simply follow the processes of the respective classification.
+
+> NOTE: Outline the process of executing the Random Forest classification model, namely its input phase, process phase, and output phase. 
+
+### Section 1. Manual Classification
+
+> NOTE: Manual classification is when the user opts to select their profile instead of having the system assign it for them. This is when they have rejected their assigned profile during onboarding, or when they wish to change their profile via selection instead of retaking the questionnaire.
+
+### Section 2. Questionnaire Classification
+
+> NOTE: Questionnaire is different from the other classification processes, since the user invokes it during their registration or when they want to change their profile via the questionnaire.
+
+### Section 3. Cold Start Classification
+
+> NOTE: Cold start classification is when the system is due for its periodic reclassification check, but the user does not have sufficient transactions for the system to perform the standard classification.
+
+### Section 4. Standard Classification
+
+> NOTE: The basic classification process we know and love.
 
 ---
 
@@ -287,9 +277,13 @@
 
 ### Section 2. Onboarding Results
 
-### Section 3. Profile Assignment & Selection
+### Section 3. Profile Classification
 
 ### Section 4. User Profile Creation
+
+### Section 5. Periodic Reclassification Check
+
+> NOTE: Every set length of days, the system runs the classifier 
 
 ---
 
@@ -297,115 +291,349 @@
 
 ### Section 1. User Profile
 
+### Section 2. User Profile Settings
+
+> NOTE: Should atleast cover user data export and toggling of opt-in for model training.
+
 ---
 
 ## ===== Article IX. Financial Account Structure =====
+
+> NOTE: Need to consider: what if the user withdrew money from their savings, funds, or somewhere from their financial allocation group? Do we explain that it should be logged as a normal income transaction, or should we create a special process for it?
 
 ### Section 1. Financial Account
 
 ### Section 2. Financial Account Balance
 
+> NOTE: Should tackle negative balance too.
+
 ### Section 3. Financial Account Flow
 
 ---
 
-## ===== Article X. Expense Structure =====
+## ===== Article X. Transaction Structure =====
+
+### Section 1. Transaction
+
+> NOTE: Should cover the transaction types. For recurring transactions, should cover patterns.
+
+### Section 2. Transaction Fields
+
+### Section 3. Transaction Validation Rules
+
+### Section 4. Transaction Templates
+
+> NOTE: Templates are literally templates of a transaction that have some or all fields filled in (e.g., a "take-out food" template). 
+
+> The structure now is, if I'm correct:
+> Create:
+    > Transaction Record (also known as "Add Transaction" or "Record Transaction")
+        > Single
+            > Income/Expense/Transfer
+            > Manual/Recurring
+        > Template
+    > Template
+        > Income/Expense/Transfer
+        > Manual/Recurring
 
 ---
 
-## ===== Article XI. Transaction Structure =====
+## ===== Article XI. Expense Structure =====
+
+### Section 1. Expense
+
+> NOTE: This discusses the Expense Item (or just Item) and its properties. 
+
+> NOTE: Obviously, the user is in charge of creating the expense items. Items do not necessarily have to be one single individual object; they can be a collection of objects (e.g., Groceries: a collection of ingredients, goods, hygiene products) AS LONG AS that Item falls under one expense group ONLY (e.g., Groceries Item usually contains objects all classified as Essential). This is crucial for the forecasting and budget recommendation. In the event that a single expense item falls under more than one group, its costs must be split.
+
+### Section 2. Expense Categories and Subcategories
+
+> NOTE: This discusses the Subcategories to which Items are classified under (e.g. Ingredients under Food, Milk under Non-Alcoholic Beverages). This also discusses the Categories to which Subcategories are classified under (e.g. Food Subcategory under Food & Non-Alcoholic Beverages Category).
+
+> NOTE: Categories and Subcategories are based on the PSA PCOICOP.
+
+> NOTE: Users can also create their own custom categories and subcategories, but they must classify it under an expense group. 
+
+### Section 3. Expense Groups
+
+> NOTE: This discusses the Groups to which Categories are classified under (e.g. Food & Non-Alcoholic Beverages under Essentials).
+
+> NOTE: Users cannot create a custom expense group. 
+
+### Section 4. Expense Restrictions
+
+> NOTE: Expense Categories and Subcategories have Restriction Levels that can be set by the user. The system also creates default levels for each. They can be Free, meaning their floors and ceilings can be set to whatever; Protected, meaning their floors are set; and Locked, meaning both the floor and ceiling are one, AKA there's a set amount that must be reached, no more and no less. 
 
 ---
 
 ## ===== Article XII. Transaction Entry Module =====
 
+### Section 1. Manual Transaction Entry
+
+### Section 2. Recurring Transaction Entry
+
+### Section 3. Transaction Suggestions
+
+> NOTE: Should discuss ease of use by displaying frequent income/expense details (and expense categories).
+
 ---
 
 ## ===== Article XIII. Transaction History Module =====
 
+### Section 1. Transaction Records
+
+### Section 2. Transaction Records Searching Operations
+
+> NOTE: Includes searching, sorting, and filtering.
+
+### Section 3. Transaction Editing & Deletion
+
+> NOTE: Idk if it's more appropriate to discuss this topic here or in the intelligent modules that are affected by it, like the forecasting module. Or maybe an exact "Transaction Editing & Deletion" section in those modules as well?
+
+### Section 2. Transaction Record Retention
+
+> NOTE: The retention limit must be validated official guidelines, like from the BSP.
 ---
 
 ## ===== Article XIV. Budget Structure =====
 
 ### Section 1. Budget
 
+### Section 2. Budget Size
+
+### Section 3. Budget Period
+
+### Section 4. Budget Allocations
+
+### Section 5. Budget Constraints
+
+> NOTE: Should discuss floors and ceilings.
+
+### Section 6. Budget Feasibility
+
 ---
 
-## ===== Article XV. Linear Programming Algorithm Structure =====
+## ===== Article XV. Budget Strategy Structure =====
 
-> NOTE: Insert three or more sections that cover input, process, and output.
+### Section 1. Budget Strategy
+
+> NOTE: Should discuss the components of a budget strategy, like hierarchy and stuff. Here's what I'm thinking. The given budget strategies (e.g. 50/30/20) need to be distilled into a set of configurations, such that the user, with the custom budget strategy feature, can replicate the given budget strategies.
+> There needs to be a restriction configuration (for the 50% needs portion of 50/30/20 that cannot be reduced, for example). There also needs to be a hierarchy configuration, for the order of allocation.
+> We can brainstorm
+
+> NOTE: The given budget strategies should be sourced from those mentioned in the RRL.
+
+### Section 2. 50/30/20 Strategy
+
+### Section 3. Savings-First Strategy
+
+---
+
+## ===== Article XV. Linear Programming Recommender =====
+
+### Section 1. Details
+
+> NOTE: Should discuss prior things like training, design, architecture, etc., preferably as sections.
+
+### Section 2. Input
+
+### Section 3. Process
+
+### Section 4. Output
+
+### Section 6. Details
+
+> NOTE: Should discuss posterior things like algorithm evaluation, explainability, fallback, etc., preferably as sections.
+
+> NOTE: Maybe move all expainability sections/subsections of algorithm articles to their process articles isntead.
 
 ## ===== Article XVI. Budget Recommendation Process =====
+
+### Section 1. Cold-Start Budget Recommendation
+
+> NOTE: Can cold-start budget recommendations be affected by budget infeasibility? 
+
+### Section 2. Standard Budget Recommendation
+
+### Section 3. Budget Infeasibility & Reduction
+
+> NOTE: This section is for when budget size exceeds current balance plus foreseeable income streams. Discuss which allocations are reduced; in what order, and by how much per. Also need to discuss what to do when, after all legal reductions are performed, the budget is still infeasible. It may be important to consider not to tell the user outright that they don't have enough money for the budget period, as that can invoke panic and despair. This is an unfortunate occurence that is a reality to some Filipinos today, so our system must also be sensitive aside from being intelligent and ethical.
 
 ---
 
 ## ===== Article XVII. Budgeting Module =====
 
+### Section 1. Budget Recommendation
+
+### Section 2. Budget Health
+
+> NOTE: Should include a health indicator and prescribed vs. actual tracker
+
+### Section 3. Budget Surplus and Deficit
+
+> NOTE: Should discuss the actions done after observing budget surplus or deficit at the end of the budget period. Not sure whether it's appropriate to discuss it in this article or somewhere else.
+
+> NOTE: Should also discuss Budget Surplus Strategies (e.g., move surplus to balance or savings goal?)
+
+> NOTE: We can justify allotting surplus to the currently most prioritized savings goal, justified by the Zero-Based Budget Strategy.
+
+> NOTE: We also have to consider, what if the user does not have any savings goals at all?
+
+### Section 4. Budget Editing (and Deletion?)
+
 ---
 
 ## ===== Article XVIII. Forecast Structure =====
+
+### Section 1. Forecast Targets
+
+### Section 2. Forecast Horizons
+
+### Section 3. Forecast Granularities
+
+---
+
+## ===== Article XIX. Long Short-Term Memory Forecaster =====
+
+### Section 1. Details
+
+> NOTE: Should discuss prior things like training, design, architecture, etc., preferably as sections.
+
+### Section 2. Input
+
+### Section 3. Process
+
+### Section 4. Output
+
+### Section 6. Details
+
+> NOTE: Should discuss posterior things like algorithm evaluation, explainability, fallback, etc., preferably as sections.
+
+---
+
+## ===== Article XX. Forecasting Process =====
+
+### Section 1. Cold-Start Aggregated Forecasting
+
+### Section 2. Cold-Start Per-Category Forecasting
+
+### Section 3. Standard Aggregated Forecasting
+
+### Section 4. Standard Per-Category Forecasting
+
+---
+
+## ===== Article XXI. Forecast Module
 
 ### Section 1. Forecast
 
 ---
 
-## ===== Article XIX. Long Short-Term Memory Algorithm Structure =====
+## ===== Article XXI. Anomaly Structure =====
 
-> NOTE: Insert three or more sections that cover input, process, and output.
+### Section 1. Overspending Anomalies
 
----
+### Section 2. Statistical Anomalies
 
-## ===== Article XX. Financial Forecast Process =====
+### Section 3. Exclusions
 
----
-
-## ===== Article XXI. Anomalous Transaction Structure =====
-
-### Section 1. Overspending Transactions
-
-### Section 2. Anomalies
+### Section 4. Whitelist
 
 ---
 
-## ===== Article XXII. Exclusions =====
+## ===== Article XXII. Isolation Forest Anomaly Detector =====
 
-### Section 1. Occasions
+### Section 1. Details
 
-### Section 2. Whitelist
+> NOTE: Should discuss prior things like training, design, architecture, etc., preferably as sections.
+
+### Section 2. Input
+
+### Section 3. Process
+
+### Section 4. Output
+
+### Section 6. Details
+
+> NOTE: Should discuss posterior things like algorithm evaluation, explainability, fallback, etc., preferably as sections.
 
 ---
 
-## ===== Article XXIII. Isolation Forest Algorithm Structure =====
+## ===== Article XXIII. Anomaly Detection Process
 
-> NOTE: Insert three or more sections that cover input, process, and output.
+### Section 1. Cold-Start Statistical Anomaly Detection
+
+### Section 2. Standard Statistical Anomaly Detection
+
+### Section 3. Standard Overspending Anomaly Detection
+
+---
 
 ## ===== Article XXIV. Anomaly Detection Module =====
+
+### Section 1. Anomaly Detection
+
+### Section 2. Anomaly Alerts
+
+### Section 3. Anomaly Whitelisting
+
+### Section 4. Anomaly Remediation (?)
+
+> NOTE: Further action to mitigate anomalous transaction if the user wishes?
 
 ---
 
 ## ===== Article XXV. Savings Goal Structure =====
 
+### Section 1. Savings Goal
+
+### Section 2. Savings Goal Progress
+
 ---
 
 ## ===== Article XXVI. Savings Goal Module =====
+
+### Section 1. Savings Goal Hierarchy
+
+> NOTE: Tackles the savings goals and their order of priority, as set by the user or system.
+
+### Section 2. Savings Goal Strategies
+
+### Section 3. Savings Goal Projection
 
 ---
 
 ## ===== Article XXVII. Debt Structure =====
 
+### Section 1. Debt
+
 ---
 
 ## ===== Article XXVIII. Debt Module =====
 
+### Section 1. Debt Hierarchy
+
+### Section 2. Debt Strategies
+
+### Section 3. Debt Projection
+
+### Section 4. Debt Hardship
+
 ---
 
-## ===== Article XXIX. Notifications =====
+## ===== Article XXIX. Reports and Analytics =====
 
-### Section 1. Informational Notifications
+### Section 1. Budget vs. Actual Report
 
-### Section 2. Warning Notifications
+### Section 2. Forecast vs. Actual Comparison
 
-### Section 3. Alert Notifications
+### Section 3. Category Spending Summary
+
+### Section 4. Savings Progress Report
+
+### Section 5. Debt Progress Report
+
+### Section 6. Date Range Filtering
 
 ---
 
@@ -1691,19 +1919,49 @@
 
 > ^^^ --- Construction Zone End --- ^^^
 
-## ===== Article XXX. Transaction History =====
+## ===== Article XXX. Notifications Module =====
+
+### Section 1. Notifications
+
+> NOTE: Discuss types of notifications (informational, reminder, warning, alert), structure, etc.
+
+### Section 2. Notification Delivery
+
+### Section 3. Notification Preferences
 
 ---
 
-## ===== Article XXXI. Dashboard =====
+## ===== Article XXXI. Dashboard Module =====
+
+### Section 1. Dashboard
+
+### Section 2. Key Metrics Cards
+
+### Section 3. Recent Transactions
+
+### Section 4. Forecast Snapshots
+
+### Section 5. Savings and Debt Progress Highlights
 
 ---
 
-## ===== Article XXXII. Offboarding =====
+## ===== Article XXXII. Settings =====
+
+### Section 1. User Settings
+
+### Section 2. System Settings
+
+### Section 3. Privacy and Consent
+
+### Section 4. Help and Problem Reporting
 
 ---
 
-## ===== Article XXXIII. Uninstallation =====
+## ===== Article XXXIII. Offboarding =====
+
+### Section 1. User Data Deletion
+
+### Section 2. User Account Deletion
 
 ---
 
