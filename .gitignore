@@ -32,3 +32,6 @@ RRL/04_Compilations/**/*.md
 
 # Local mirrors of Google Drive
 google-drive/
+
+# Survey raw responses (contain personal data; only the findings summary is committed)
+docs/assessment-evaluation/survey/PUEPS-responses.csv
