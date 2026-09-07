@@ -128,8 +128,8 @@ Group 4 Folder/
 │   └── GROUP4 - CHAPTER 2 - V1 - 08.27.26.docx
 ├── GANTT CHART/
 │   ├── GROUP4 - GANTT CHART - V1 - 08.15.26 (Google Sheet)
-│   └── GROUP4 - GANTT CHART - V2 - 08.15.26 (Google Sheet)
-├── MEETING TRANSCRIPTIONS/
+│   └── GROUP4 - GANTT CHART - V2 - 08.31.26 (Google Sheet)
+├── TRANSCRIPTIONS/
 │   ├── SUBJECT MATTER EXPERT/ (empty)
 │   └── TECHNICAL ADIVSER/ (empty; Drive spelling preserved)
 ├── PANEL COMMENTS AND SUGGESTIONS/
@@ -139,7 +139,7 @@ Group 4 Folder/
 │   ├── ODIN Public User Expectations and Perception Survey (Google Form)
 │   └── ODIN Public User Expectations and Perception Survey (Responses) (Google Sheet)
 ├── REQUIREMENTS ENGINEERING/
-│   └── GROUP4 - USER AND SYSTEM REQUIREMENTS - V1 - 08.28.2026 (Google Doc)
+│   └── GROUP4 - USER AND SYSTEM REQUIREMENTS - V2 - 08.31.2026 (Google Doc)
 ├── RESPONSIBILITY MATRIX/
 │   └── GROUP4 - RESPONSIBILITY MATRIX - V1 - 08.15.26 (Google Sheet)
 ├── TEST PLAN/
@@ -165,8 +165,8 @@ Group 4 Folder/
 | GROUP4 - CHAPTER 2 - V1 - 08.27.26.docx | `1Pk3MIQ5JOogMsqc5vNXAmcVSIXFfYeM2` | DOCX | [Open](https://docs.google.com/document/d/1Pk3MIQ5JOogMsqc5vNXAmcVSIXFfYeM2/edit) |
 | GANTT CHART | `16IFtAeuUvIP2LRzzPmN3mF4VCN95gcFv` | Folder | [Open](https://drive.google.com/drive/folders/16IFtAeuUvIP2LRzzPmN3mF4VCN95gcFv) |
 | GROUP4 - GANTT CHART - V1 - 08.15.26 | `15kgZfwjmO85HY6EK_HrPyvfmcb7-1YC-TBzFQQNcu3k` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/15kgZfwjmO85HY6EK_HrPyvfmcb7-1YC-TBzFQQNcu3k/edit) |
-| GROUP4 - GANTT CHART - V2 - 08.15.26 | `13t2DYOGpGIK6vaK4pxoG6AqN3NsnsoTCjivP_BUMM84` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/13t2DYOGpGIK6vaK4pxoG6AqN3NsnsoTCjivP_BUMM84/edit) |
-| MEETING TRANSCRIPTIONS | `1YC1IIGMWObiFxNHPNUh-V4mq3fbuXoNp` | Folder | [Open](https://drive.google.com/drive/folders/1YC1IIGMWObiFxNHPNUh-V4mq3fbuXoNp) |
+| GROUP4 - GANTT CHART - V2 - 08.31.26 | `13t2DYOGpGIK6vaK4pxoG6AqN3NsnsoTCjivP_BUMM84` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/13t2DYOGpGIK6vaK4pxoG6AqN3NsnsoTCjivP_BUMM84/edit) |
+| TRANSCRIPTIONS | `1YC1IIGMWObiFxNHPNUh-V4mq3fbuXoNp` | Folder | [Open](https://drive.google.com/drive/folders/1YC1IIGMWObiFxNHPNUh-V4mq3fbuXoNp) |
 | SUBJECT MATTER EXPERT | `1d4i-Eu03xbogJ4fOPdpdKqs3WrQPxOpj` | Folder | [Open](https://drive.google.com/drive/folders/1d4i-Eu03xbogJ4fOPdpdKqs3WrQPxOpj) |
 | TECHNICAL ADIVSER | `10k98VHGqXG8ZCq5ijUJfMI8zoN5vJvDb` | Folder | [Open](https://drive.google.com/drive/folders/10k98VHGqXG8ZCq5ijUJfMI8zoN5vJvDb) |
 | PANEL COMMENTS AND SUGGESTIONS | `1NV6uEcBnqoaScpqNlR13U5h6pezTEkkm` | Folder | [Open](https://drive.google.com/drive/folders/1NV6uEcBnqoaScpqNlR13U5h6pezTEkkm) |
@@ -176,7 +176,7 @@ Group 4 Folder/
 | ODIN Public User Expectations and Perception Survey | `11lUJ57mwp1StnyDW37cueQoPulbVdGB0ktgnRknve4Y` | Google Form | [Open](https://docs.google.com/forms/d/11lUJ57mwp1StnyDW37cueQoPulbVdGB0ktgnRknve4Y/edit) |
 | ODIN Public User Expectations and Perception Survey (Responses) | `15oqix24YKHG2gfISPr90IujUF4yl0PmlO2wu3-6Kz_A` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/15oqix24YKHG2gfISPr90IujUF4yl0PmlO2wu3-6Kz_A/edit) |
 | REQUIREMENTS ENGINEERING | `1wZvLzJIkKjmkD_0xv9GQI8BH6Do-fvvX` | Folder | [Open](https://drive.google.com/drive/folders/1wZvLzJIkKjmkD_0xv9GQI8BH6Do-fvvX) |
-| GROUP4 - USER AND SYSTEM REQUIREMENTS - V1 - 08.28.2026 | `1G3wvr5EardluA7W7Wq-EVhOeig2gjkSeLc8DHg6Qc7g` | Google Doc | [Open](https://docs.google.com/document/d/1G3wvr5EardluA7W7Wq-EVhOeig2gjkSeLc8DHg6Qc7g/edit) |
+| GROUP4 - USER AND SYSTEM REQUIREMENTS - V2 - 08.31.2026 | `1yxAVRp2SsezUcAuqx-5R3TpP1Q_wg2Sby68YUe4LxYU` | Google Doc | [Open](https://docs.google.com/document/d/1yxAVRp2SsezUcAuqx-5R3TpP1Q_wg2Sby68YUe4LxYU/edit) |
 | RESPONSIBILITY MATRIX | `1QzaQgS0mF-6HY0cCQ-OeRuaDYUMTh2RT` | Folder | [Open](https://drive.google.com/drive/folders/1QzaQgS0mF-6HY0cCQ-OeRuaDYUMTh2RT) |
 | GROUP4 - RESPONSIBILITY MATRIX - V1 - 08.15.26 | `1ZOTt9N1r6KRAUnFlAmfqFzTNXKUDRMYgpKsCcgxEIgM` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/1ZOTt9N1r6KRAUnFlAmfqFzTNXKUDRMYgpKsCcgxEIgM/edit) |
 | TEST PLAN | `1myU_uCIUwTeLzmRou2J9FCQBrBwEDJSL` | Folder | [Open](https://drive.google.com/drive/folders/1myU_uCIUwTeLzmRou2J9FCQBrBwEDJSL) |

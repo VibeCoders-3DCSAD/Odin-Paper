@@ -11,9 +11,10 @@
 | **4.5. Dimension & Threshold Discovery** | Complete | Dimension threshold candidates, clustering analysis, binary split validation | `4.5_dimension-threshold-discovery/`, `BUDI-ML/training/datasets/dimension-discovery/` |
 | **5. Feature Engineering** | Complete | 17 derived features, cyclical encoding, interaction features, feature selection, PCA | `5_feature-engineering/` |
 | **6. Model Training** | Complete | PFP (Tier 0–4), Forecaster (RF selected; PyTorch LSTM/GRU/BiLSTM tiers implemented, not selected), Anomaly (IF + AE) | `6_model-training/` |
-| **7. Model Evaluation** | Partial | PFP/Forecaster/Anomaly evaluation JSONs + reports | `6_model-training/`, `BUDI-ML/training/models/*/evaluation.json` |
+| **7. Model Evaluation** | Partial | PFP/Forecaster/Anomaly evaluation JSONs + reports; new-scope runbook in `Odin-ML/training/docs/phases/07-model-evaluation.md` | `6_model-training/`, `Odin-ML/models/*/metadata.json` (new scope) |
+| **8. Model Selection & Versioning** | Pending (scaffolded) | Canonical `Odin-ML/models/` artifact home + `metadata.json` schema; runbook `Odin-ML/training/docs/phases/08-*.md` | `Odin-ML/models/README.md` |
 | **9. Deployment** | Partial | Serving API + budget optimizer stubbed; containerization/CI-CD pending | `1_problem-statement/deployment-architecture.md` |
-| **10. Model Monitoring** | Pending | Drift detection, retraining triggers | — |
+| **10. Model Monitoring** | Pending | Drift detection, retraining triggers | `Odin-ML/training/docs/phases/10-model-monitoring.md` |
 
 ## Data Sources
 
@@ -59,6 +60,10 @@ ml/
    └─ anomaly-training.md                # Anomaly Detector training (IF + AE)
 ```
 
+## Model Candidate Roster
+
+A new-scope model candidate roster mapping each model family to candidate algorithms from the RRL corpus lives in `Odin-ML/docs/models/model-candidate-roster.md`. It incorporates review of the batch-1..6 algorithm screenings and grounds Phase 7–8 candidate selection.
+
 ## Scripts
 
 | Script | Purpose | Status |
@@ -102,7 +107,8 @@ ml/
 
 5. python BUDI-ML/training/scripts/train_pfp.py --input BUDI-ML/training/datasets/engineered/ --output BUDI-ML/training/models/pfp/
    → Trains PFP Classifier model (Tier 0-4)
-   → Generates: BUDI-ML/training/models/pfp/ (artifacts + evaluation.json + evaluation_report.md)
+   → Generates: BUDI-ML/training/models/pfp/ (intermediate artifacts + evaluation.json + evaluation_report.md)
+   → Promote the final selected artifact to BUDI-ML/models/pfp/ with metadata.json (Phase 8)
 
 6. python BUDI-ML/training/scripts/feature_engineering_forecaster.py
    → Generates forecaster feature sets (BUDI-ML/training/datasets/forecaster/)
@@ -110,6 +116,7 @@ ml/
 7. python BUDI-ML/training/scripts/train_forecaster.py
    → Trains Forecaster model (RF + PyTorch LSTM/GRU/BiLSTM)
    → Generates: BUDI-ML/training/models/forecaster/ (artifacts + evaluation)
+   → Promote the final selected artifact to BUDI-ML/models/forecaster/ with metadata.json (Phase 8)
 
 8. python BUDI-ML/training/scripts/feature_engineering_anomaly.py
    → Generates per-transaction anomaly features
@@ -117,10 +124,16 @@ ml/
 9. python BUDI-ML/training/scripts/train_anomaly.py
    → Trains Anomaly Detector model (IF + AE)
    → Generates: BUDI-ML/training/models/anomaly/ (artifacts + evaluation)
+   → Promote the final selected artifact to BUDI-ML/models/anomaly/ with metadata.json (Phase 8)
 
 10. Serving: uvicorn app.main:app --reload --port 8000
     → Loads PFP, Forecaster, Anomaly artifacts; Budget Optimizer runs scipy LP
 ```
+
+> **New-scope canonical artifact home** is the top-level `Odin-ML/models/` directory (one final
+> artifact + `metadata.json` per family). The superseded scope's winner artifacts remain under
+> `BUDI-ML/training/figures/models/`. See `Odin-ML/models/README.md` and
+> `Odin-ML/training/docs/phases/`.
 
 ## Known Data & Version Gaps
 
