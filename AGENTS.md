@@ -32,6 +32,14 @@ Enforcement: Follow the commit message format for all commits. Keep `INDEX.md` u
 
 ---
 
+## Requirements Engineering Documents
+
+- Requirements tables intended for copy-paste into Google Docs must use the compact HTML table syntax used in `docs/requirements-engineering/reqs-eng_v2.md`: one continuous `<div class="joplin-table-wrapper"><table>...</table></div>` block without line breaks inside the table.
+- Parent functional requirements must contain one summary requirement followed by lettered child components (`a`, `b`, `c`, and so on).
+- Detailed child requirements must use the `FRXX-AAXX` identifier format and appear as separate rows in the same table.
+
+---
+
 ## Git Commit Message Standards
 
 ```text

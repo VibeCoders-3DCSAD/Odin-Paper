@@ -343,7 +343,7 @@ The module returns, at minimum: `prediction` (one of the eight PFP classes), `fi
 
 ## 6. Functional Requirements
 
-The authoritative, full requirement statements are in the Requirements Engineering document (`reqs-eng.md`), cited by ID below. This section summarizes each module.
+The authoritative, full requirement statements are in the Requirements Engineering document (`requirements-engineering.md`), cited by ID below. This section summarizes each module.
 
 ### 6.0 Cross-cutting: Offline Sync Behavior
 
