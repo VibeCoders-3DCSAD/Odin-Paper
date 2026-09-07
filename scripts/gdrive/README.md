@@ -28,6 +28,18 @@ python cli.py --download FILE_ID -o out   # Download a file
 
 Add `--limit N` to control result count (default: 10).
 
+## File Export
+
+The `fetch_drive.py` script automatically exports Google Workspace files to their native formats:
+
+| Google Workspace Type | Export Format | Extension |
+|----------------------|---------------|-----------|
+| Google Sheets | CSV | `.csv` |
+| Google Docs | DOCX | `.docx` |
+| Google Forms | PDF | `.pdf` |
+
+Direct downloads (PDFs, images, .docx files) are saved as-is.
+
 ## Files
 
 | File | Purpose |
