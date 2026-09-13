@@ -2,7 +2,7 @@
 
 - **Project:** Development of BUDI: A Personalized Intelligent Finance Management Application for Filipinos Using Classification, Forecasting, Optimization, and Anomaly Detection Models for Improving Savings and Debt
 - **Institution:** University of Makati | Group 4, III-DCSAD
-- **Last indexed:** 2026-08-31
+- **Last indexed:** 2026-09-13
 
 ---
 

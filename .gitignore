@@ -35,3 +35,6 @@ google-drive/
 
 # Survey raw responses (contain personal data; only the findings summary is committed)
 docs/assessment-evaluation/survey/PUEPS-responses.csv
+
+# Large local-only working reference (21 MB .docx; not committed)
+formats-templates/chapter-1/Reference Thesis (Group 10).docx

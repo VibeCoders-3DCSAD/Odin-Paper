@@ -2,7 +2,7 @@
 
 - **Project:** Development of BUDI: A Personalized Intelligent Finance Management Application for Filipinos Using Classification, Forecasting, Optimization, and Anomaly Detection Models for Improving Savings and Debt
 - **Institution:** University of Makati | Group 4, III-DCSAD
-- **Last indexed:** 2026-08-31
+- **Last indexed:** 2026-09-13
 
 ---
 
@@ -40,7 +40,7 @@ For everything under `docs/`, see **`docs/INDEX.md`** (authoritative for the doc
 | `docs/` | Thesis documents, standards, and documentation. See `docs/INDEX.md`. |
 | `docs/archive/` | Preserved research proposal, panel comments, and superseded documents. |
 | `archived-literature/` | Deprecated RRL working files. See `archived-literature/DEPRECATED.md`. |
-| `formats-templates/` | Format and template files for thesis outputs. |
+| `formats-templates/` | Format and template files for thesis outputs. Includes `chapter-1/Writing Chapter 1.md` (adviser guidelines) and the reference thesis `chapter-1/Reference Thesis (Group 10).docx` (gitignored, local-only benchmark). |
 | `google-drive/` | Local mirrors of Drive files. Gitignored. Run `fetch_drive.py` to refresh. |
 | `scripts/gdrive/` | Google Drive API CLI tool (local OAuth 2.0). See `scripts/gdrive/README.md`. |
 | `skills/` | Agent skills for this repository. |

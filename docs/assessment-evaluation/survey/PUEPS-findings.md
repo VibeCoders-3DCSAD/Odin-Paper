@@ -32,14 +32,15 @@
 | Unexpected financial obligations disrupt budget plans | 72% |
 | Difficulty identifying where most of the money is spent | 66% |
 
-### Behavioral gaps (Always + Often)
+### Behavioral gaps (Always + Often where that scale applies)
 
 | Behavior | % |
 | :--- | ---: |
 | Set monthly spending limits | 68% |
 | Regularly track daily/monthly expenses | 53% |
 | Follow the budget plan they prepare | 51% |
-| Regularly allocate income to savings/emergency funds | 26% |
+| Allocate income to savings/emergency funds every salary period | 43% |
+| Allocate income to savings/emergency funds every salary period **or often** | 68% |
 
 ### Feature expectations (Agree + Strongly Agree)
 
@@ -64,7 +65,7 @@
 | Manual notebook/diary recording | 28% |
 | Does not track budget at all | 19% |
 
-Only 26% regularly allocate to savings/emergency funds; 0% reported "Always" for that item.
+> **Correction (2026-09-13):** the savings row was previously reported as "26%". That figure was a mislabeled reading of the item "I regularly allocate part of my income toward savings or emergency funds.", which uses an `every salary period / often / sometimes / rarely / never` scale rather than `Always/Often`. Re-computed from `PUEPS-responses.csv`: 20/47 (43%) "every salary period", 12/47 (26%) "often", 15/47 (32%) sometimes/rarely/never. Chapter 1 quotes the combined "every salary period or often" figure of 68.1% (32/47). The "0% Always / only 26%" note applied the wrong scale and is removed.
 
 ## Notes & Limitations
 

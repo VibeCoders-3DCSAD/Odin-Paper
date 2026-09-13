@@ -120,7 +120,7 @@ Use the Google Workspace MCP with account `ctogle.a12345617@umak.edu.ph`.
 
 - Root folder: [Group 4 Folder](https://drive.google.com/drive/u/2/folders/12__5LoqZMRtzeOGPnFuLaESt3F0BDYuS)
 - Root folder ID: `12__5LoqZMRtzeOGPnFuLaESt3F0BDYuS`
-- Inventory checked: 2026-08-30
+- Inventory checked: 2026-09-13
 - All listed folders and child items are accessible with the account above.
 
 ### Drive Tree
@@ -131,7 +131,8 @@ Group 4 Folder/
 ├── CHAPTER 1/
 │   ├── GROUP4 - CHAPTER 1 - V1 - 08.06.26.docx
 │   ├── GROUP4 - CHAPTER 1 - V2 - 08.27.26.docx
-│   └── GROUP4 - CHAPTER 1 - V3 - 08.28.26.docx
+│   ├── GROUP4 - CHAPTER 1 - V3 - 08.28.26.docx
+│   └── GROUP4 - CHAPTER 1 - V4 - 09.13.26.docx
 ├── CHAPTER 2/
 │   └── GROUP4 - CHAPTER 2 - V1 - 08.27.26.docx
 ├── GANTT CHART/
@@ -169,6 +170,7 @@ Group 4 Folder/
 | GROUP4 - CHAPTER 1 - V1 - 08.06.26.docx | `1EO6Hi9mWaV-aLsN9kq2nb9l4zGckUQ4r` | DOCX | [Open](https://docs.google.com/document/d/1EO6Hi9mWaV-aLsN9kq2nb9l4zGckUQ4r/edit) |
 | GROUP4 - CHAPTER 1 - V2 - 08.27.26.docx | `15Js77QKmec0rv3JSFo8em_g2h43NcZzz` | DOCX | [Open](https://docs.google.com/document/d/15Js77QKmec0rv3JSFo8em_g2h43NcZzz/edit) |
 | GROUP4 - CHAPTER 1 - V3 - 08.28.26.docx | `1fBdmf97ERcDR1l_YRGXMEA8nmUawq3aQ` | DOCX | [Open](https://docs.google.com/document/d/1fBdmf97ERcDR1l_YRGXMEA8nmUawq3aQ/edit) |
+| GROUP4 - CHAPTER 1 - V4 - 09.13.26.docx | `15J2p7EDJTF5yzrWQBiFgtR1yuJRMZbdq` | DOCX | [Open](https://docs.google.com/document/d/15J2p7EDJTF5yzrWQBiFgtR1yuJRMZbdq/edit) |
 | CHAPTER 2 | `1rgcGoXhRFHaNbaXOCDRSEpoYleKmiiUu` | Folder | [Open](https://drive.google.com/drive/folders/1rgcGoXhRFHaNbaXOCDRSEpoYleKmiiUu) |
 | GROUP4 - CHAPTER 2 - V1 - 08.27.26.docx | `1Pk3MIQ5JOogMsqc5vNXAmcVSIXFfYeM2` | DOCX | [Open](https://docs.google.com/document/d/1Pk3MIQ5JOogMsqc5vNXAmcVSIXFfYeM2/edit) |
 | GANTT CHART | `16IFtAeuUvIP2LRzzPmN3mF4VCN95gcFv` | Folder | [Open](https://drive.google.com/drive/folders/16IFtAeuUvIP2LRzzPmN3mF4VCN95gcFv) |
