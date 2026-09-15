@@ -5,9 +5,7 @@ the **old** topic taxonomy (1.A–14.C, folders `1.X`–`13.X`).
 
 ## Status: DEPRECATED
 
-- The old topic outline has been superseded by the new thesis topical outline
-  (`docs/thesis/topical-outline/topical-outline.md`), and re-mapping the RRL
-  taxonomy to it is pending.
+- The old topic outline has been superseded by the new thesis topical outline (on Google Drive: `google-drive/topical-outline/`), and re-mapping the RRL taxonomy to it is pending.
 - The source `_summarized.json` files themselves now live in **Odin-Literature**
   (`Odin-Literature/literature/conversions/`). Every file here is a copy.
 - The old per-paper → topic mapping is preserved in each file's `topic_tags` field.

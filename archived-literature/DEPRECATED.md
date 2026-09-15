@@ -16,16 +16,14 @@
 
 ## What remains here (until manual migration)
 
-- `literature/papers/` — source PDFs (Git LFS). These will be migrated to Odin-Literature when relevance is verified against the new topical outline.
-- `literature/bucket/` — intake PDFs. Deprecated; use Odin-Literature's bucket.
-- `literature/compilations/` — deprecated old-taxonomy compilations. Do not use.
+- `papers/` — source PDFs (Git LFS). These will be migrated to Odin-Literature when relevance is verified against the new topical outline.
+- `skills/` — 4 AI prompt skills still referenced for summarizing new papers (paper-summarizer, paper-verifier, cross-topic-synthesis, synthesis-compiler). The 2 superseded skills (scorer, culler) have been deleted.
 
-## What was deprecated (not moved)
+## What was deprecated and removed
 
-- `literature/scripts/convert_batch.py` — redundant wrapper around `prepare_pdf.py`
-- `literature/scripts/pipeline.py` — orchestrator with legacy compile step
-- `literature/scripts/compile_summaries.py` — tied to old topic taxonomy
-- `literature/skills/` — AI prompt skills; not moved. Skills form through demand in Odin-Literature.
+- `scripts/` — deleted. All scripts were superseded by their equivalents in Odin-Literature/scripts/.
+- `skills/paper-scorer-skill.md` — deleted, replaced by `Odin-Literature/scripts/score.py`.
+- `skills/paper-culler-skill.md` — deleted, replaced by automated scoring in `Odin-Literature/scores/`.
 
 ## Migration timeline
 

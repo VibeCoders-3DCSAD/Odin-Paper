@@ -9,9 +9,8 @@ See `DEPRECATED.md` for full details and `_MIGRATION.md` for the migration state
 | Directory | Status |
 |-----------|--------|
 | `papers/` | Source PDFs (518, Git LFS). Pending verification against new topical outline and migration to Odin-Literature. |
-| `bucket/` | Deprecated. Use Odin-Literature's bucket. |
-| `scripts/` | Deprecated. All useful scripts moved to Odin-Literature. |
-| `skills/` | Deprecated. Not moved. Skills form through demand in Odin-Literature. |
+| `scripts/` | **Deleted.** All scripts were superseded by their equivalents in Odin-Literature/scripts/. |
+| `skills/` | 4 active skills remain (summarizer, verifier, cross-topic-synthesis, synthesis-compiler). 2 superseded skills (scorer, culler) deleted. |
 | `compilations/` | Deprecated. Old taxonomy. Do not use. |
 
 ## For new work

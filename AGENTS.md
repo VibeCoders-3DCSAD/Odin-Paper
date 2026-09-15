@@ -1,6 +1,6 @@
 # Odin-Paper — Agent Guide
 
-**Thesis**: Development of BUDI: A Personalized Intelligent Finance Management Application for Filipinos Using Classification, Forecasting, Optimization, and Anomaly Detection Models for Improving Savings and Debt
+**Thesis**: Development of BUDI: A Personalized Intelligent Finance Management App Using SVM Profile Classification, SARIMA Forecasting, LP-Based Budgeting, and IQR Anomaly Detection to Improve Filipinos' Savings and Debt
 **Group 4, III-DCSAD, University of Makati**
 
 ---
@@ -120,7 +120,7 @@ Use the Google Workspace MCP with account `ctogle.a12345617@umak.edu.ph`.
 
 - Root folder: [Group 4 Folder](https://drive.google.com/drive/u/2/folders/12__5LoqZMRtzeOGPnFuLaESt3F0BDYuS)
 - Root folder ID: `12__5LoqZMRtzeOGPnFuLaESt3F0BDYuS`
-- Inventory checked: 2026-09-13
+- Inventory checked: 2026-09-14
 - All listed folders and child items are accessible with the account above.
 
 ### Drive Tree
@@ -134,7 +134,8 @@ Group 4 Folder/
 │   ├── GROUP4 - CHAPTER 1 - V3 - 08.28.26.docx
 │   └── GROUP4 - CHAPTER 1 - V4 - 09.13.26.docx
 ├── CHAPTER 2/
-│   └── GROUP4 - CHAPTER 2 - V1 - 08.27.26.docx
+│   ├── GROUP4 - CHAPTER 2 - V1 - 09.02.26.docx
+│   └── GROUP4 - CHAPTER 2 - V2 - 09.15.26.docx
 ├── GANTT CHART/
 │   ├── GROUP4 - GANTT CHART - V1 - 08.15.26 (Google Sheet)
 │   └── GROUP4 - GANTT CHART - V2 - 08.31.26 (Google Sheet)
@@ -148,7 +149,7 @@ Group 4 Folder/
 │   ├── ODIN Public User Expectations and Perception Survey (Google Form)
 │   └── ODIN Public User Expectations and Perception Survey (Responses) (Google Sheet)
 ├── REQUIREMENTS ENGINEERING/
-│   └── GROUP4 - USER AND SYSTEM REQUIREMENTS - V2 - 08.31.2026 (Google Doc)
+│   └── GROUP4 - USER AND SYSTEM REQUIREMENTS - V1 - 08.31.2026 (Google Doc; renamed from V2 on 2026-09-15)
 ├── RESPONSIBILITY MATRIX/
 │   └── GROUP4 - RESPONSIBILITY MATRIX - V1 - 08.15.26 (Google Sheet)
 ├── TEST PLAN/
@@ -172,7 +173,8 @@ Group 4 Folder/
 | GROUP4 - CHAPTER 1 - V3 - 08.28.26.docx | `1fBdmf97ERcDR1l_YRGXMEA8nmUawq3aQ` | DOCX | [Open](https://docs.google.com/document/d/1fBdmf97ERcDR1l_YRGXMEA8nmUawq3aQ/edit) |
 | GROUP4 - CHAPTER 1 - V4 - 09.13.26.docx | `15J2p7EDJTF5yzrWQBiFgtR1yuJRMZbdq` | DOCX | [Open](https://docs.google.com/document/d/15J2p7EDJTF5yzrWQBiFgtR1yuJRMZbdq/edit) |
 | CHAPTER 2 | `1rgcGoXhRFHaNbaXOCDRSEpoYleKmiiUu` | Folder | [Open](https://drive.google.com/drive/folders/1rgcGoXhRFHaNbaXOCDRSEpoYleKmiiUu) |
-| GROUP4 - CHAPTER 2 - V1 - 08.27.26.docx | `1Pk3MIQ5JOogMsqc5vNXAmcVSIXFfYeM2` | DOCX | [Open](https://docs.google.com/document/d/1Pk3MIQ5JOogMsqc5vNXAmcVSIXFfYeM2/edit) |
+| GROUP4 - CHAPTER 2 - V1 - 09.02.26.docx | `1Pk3MIQ5JOogMsqc5vNXAmcVSIXFfYeM2` | DOCX | [Open](https://docs.google.com/document/d/1Pk3MIQ5JOogMsqc5vNXAmcVSIXFfYeM2/edit) |
+| GROUP4 - CHAPTER 2 - V2 - 09.15.26.docx | `1D7Nwbddoeg7SVnTK9qJO3DRdJYIvqBco` | DOCX | [Open](https://docs.google.com/document/d/1D7Nwbddoeg7SVnTK9qJO3DRdJYIvqBco/edit) |
 | GANTT CHART | `16IFtAeuUvIP2LRzzPmN3mF4VCN95gcFv` | Folder | [Open](https://drive.google.com/drive/folders/16IFtAeuUvIP2LRzzPmN3mF4VCN95gcFv) |
 | GROUP4 - GANTT CHART - V1 - 08.15.26 | `15kgZfwjmO85HY6EK_HrPyvfmcb7-1YC-TBzFQQNcu3k` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/15kgZfwjmO85HY6EK_HrPyvfmcb7-1YC-TBzFQQNcu3k/edit) |
 | GROUP4 - GANTT CHART - V2 - 08.31.26 | `13t2DYOGpGIK6vaK4pxoG6AqN3NsnsoTCjivP_BUMM84` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/13t2DYOGpGIK6vaK4pxoG6AqN3NsnsoTCjivP_BUMM84/edit) |
@@ -186,7 +188,7 @@ Group 4 Folder/
 | ODIN Public User Expectations and Perception Survey | `11lUJ57mwp1StnyDW37cueQoPulbVdGB0ktgnRknve4Y` | Google Form | [Open](https://docs.google.com/forms/d/11lUJ57mwp1StnyDW37cueQoPulbVdGB0ktgnRknve4Y/edit) |
 | ODIN Public User Expectations and Perception Survey (Responses) | `15oqix24YKHG2gfISPr90IujUF4yl0PmlO2wu3-6Kz_A` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/15oqix24YKHG2gfISPr90IujUF4yl0PmlO2wu3-6Kz_A/edit) |
 | REQUIREMENTS ENGINEERING | `1wZvLzJIkKjmkD_0xv9GQI8BH6Do-fvvX` | Folder | [Open](https://drive.google.com/drive/folders/1wZvLzJIkKjmkD_0xv9GQI8BH6Do-fvvX) |
-| GROUP4 - USER AND SYSTEM REQUIREMENTS - V2 - 08.31.2026 | `1yxAVRp2SsezUcAuqx-5R3TpP1Q_wg2Sby68YUe4LxYU` | Google Doc | [Open](https://docs.google.com/document/d/1yxAVRp2SsezUcAuqx-5R3TpP1Q_wg2Sby68YUe4LxYU/edit) |
+| GROUP4 - USER AND SYSTEM REQUIREMENTS - V1 - 08.31.2026 | `1yxAVRp2SsezUcAuqx-5R3TpP1Q_wg2Sby68YUe4LxYU` | Google Doc | [Open](https://docs.google.com/document/d/1yxAVRp2SsezUcAuqx-5R3TpP1Q_wg2Sby68YUe4LxYU/edit) |
 | RESPONSIBILITY MATRIX | `1QzaQgS0mF-6HY0cCQ-OeRuaDYUMTh2RT` | Folder | [Open](https://drive.google.com/drive/folders/1QzaQgS0mF-6HY0cCQ-OeRuaDYUMTh2RT) |
 | GROUP4 - RESPONSIBILITY MATRIX - V1 - 08.15.26 | `1ZOTt9N1r6KRAUnFlAmfqFzTNXKUDRMYgpKsCcgxEIgM` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/1ZOTt9N1r6KRAUnFlAmfqFzTNXKUDRMYgpKsCcgxEIgM/edit) |
 | TEST PLAN | `1myU_uCIUwTeLzmRou2J9FCQBrBwEDJSL` | Folder | [Open](https://drive.google.com/drive/folders/1myU_uCIUwTeLzmRou2J9FCQBrBwEDJSL) |

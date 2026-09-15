@@ -15,9 +15,8 @@ This repository (`Odin-Paper`) is now a **knowledge base** for thesis documentat
 | `literature/archive/` | **Deleted** | Superseded |
 | `literature/compilations/` | **Deprecated** | Do not use; old taxonomy |
 | `literature/papers/` (518 source PDFs, Git LFS) | **Kept, pending migration** | Will be verified against new topical outline and migrated to Odin-Literature manually |
-| `literature/bucket/` | **Deprecated** | Use Odin-Literature's bucket |
-| `literature/scripts/` | **Deprecated** | All useful scripts moved to Odin-Literature/scripts/ |
-| `literature/skills/` | **Deprecated** | Not moved; skills form through demand in Odin-Literature |
+| `literature/scripts/` | **Deleted** | All useful scripts superseded by Odin-Literature/scripts/ |
+| `literature/skills/` | **Partially deleted** | 4 active skills remain; 2 superseded skills (scorer, culler) deleted |
 
 ## Standards that moved
 

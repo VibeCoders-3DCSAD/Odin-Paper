@@ -12,9 +12,6 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Markitdown (freezed utility; no need to update)
-/Utilities/Markitdown
-
 # Environment variables
 .env
 
@@ -24,12 +21,6 @@ __pycache__/
 # Virtual environment
 .venv
 
-# Generated compilations (regenerate with Z_Compiler.py)
-RRL/04_Compilations/**/*.md
-!RRL/04_Compilations/0_Culler.md
-!RRL/04_Compilations/Z_Scorer.md
-!RRL/04_Compilations/Z_Verifier.md
-
 # Local mirrors of Google Drive
 google-drive/
 
@@ -37,4 +28,4 @@ google-drive/
 docs/assessment-evaluation/survey/PUEPS-responses.csv
 
 # Large local-only working reference (21 MB .docx; not committed)
-formats-templates/chapter-1/Reference Thesis (Group 10).docx
+formats-templates/Reference Thesis (Group 10).docx
