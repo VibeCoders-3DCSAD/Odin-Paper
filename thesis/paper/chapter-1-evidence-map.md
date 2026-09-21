@@ -131,8 +131,8 @@ No citations required (terms defined operationally for this study). Per adviser 
 | (what are the recurring transactions?) | SO5.6 defines recurring income/expenses/savings/debt; term kept in Section V. |
 | (how do you plan to monitor these?) (financial accounts) | SO5.9 states accounts are monitored via recorded transactions and balances, without API integration. |
 | (how do you plan to do this / breakthrough feature) (debt repayment strategies) | SO5.12 describes snowball/avalanche comparison with payoff projection. |
-| (Add: usability sub-characteristics) | SO7 adds Usability: recognizability, learnability, user error protection, UI aesthetics, accessibility. |
-| (Replace "Reliability…" with "usability") | SO7 includes Usability; Reliability retained per PRD `product-requirements-document.md`. |
+| (Add: usability sub-characteristics) | **V5:** SO7 added Usability sub-characteristics. **Finalized V5 (2026-09-21):** superseded — SO7 now follows the Drive `ISO 25010 - V1 - 09.15.2026` questionnaire, which delegates usability to SUS; the ISO list covers Functional Suitability, Performance Efficiency, Reliability, Security, and Maintainability. |
+| (Replace "Reliability…" with "usability") | **V5:** SO7 kept both Usability and Reliability. **Finalized V5:** reliability sub-characteristics updated to the Drive ISO instrument's set (faultlessness, availability, fault tolerance, recoverability). |
 | (you can check counterpart ng playstore) | SO8 names the Google Play Store as the deployment target. |
 | (please match this to your specific objectives) (functional scope) | Scope functional list enumerates exactly the SO5 features. |
 | (what is technical scope?) | Scope-Tech now defines technical scope explicitly (Section III `Scope`). |
@@ -172,3 +172,4 @@ Raw `PUEPS-responses.csv` (47 rows) recomputed for every figure quoted in Chapte
 12. **"Sufficient data" threshold** — quantify the minimum transaction history (periods/categories) that activates forecasting and anomaly baselines, resolving the cold-start behavior.
 13. **Mental-accounting citation** (I-P1, `#1`) — the historical claim cites El Hajj & Hammoud (AI/ML in markets) and Yadav et al. (IPFMS); neither supports that sentence's manual-methods history — re-cite or trim.
 14. **Improvement attribution** (III-P4) — the in-app indicators measure change, not attribution; define the baseline/timeframe (or a limitation) for claiming savings/debt improvement results from using BUDI.
+15. **Clean the Drive evaluation instruments (SO6/SO7)** — the Drive `ISO 25010 - V1 - 09.15.2026` doc is a template with residual placeholder content (stray "User Error Protection"/"User Assistance" rows under Performance Efficiency; questions still reference the source project's subject matter) and the Drive `SUS - V1 - 09.15.2026` doc prints a 1–4 scale while the scoring guide uses 5-point arithmetic. Finalize both questionnaires so the instruments match this chapter's SO7 wording before deployment.

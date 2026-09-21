@@ -9,6 +9,7 @@
 > - **Carried decisions from the Drive V5 docx:** the V5 cover title's "Rule-Based Classification" is treated as a stale leftover; the V5's own Specific Objective 4, the 09.20 technical specification (Models table), and the trained BUDI-ML artifact (`models/pfp/tier3_svm.joblib`) all identify **SVM** as the PFP model, so this draft restores SVM in the title. V5 inline comments this draft resolves: "(how exactly?)" on the savings-and-obligations sentence; "(check if the report is still applicable for individuals aged 18-59)" on the old 20–40 BSP justification; "(needs revision, since the new scope will use one model/algorithm per intelligent module)" on the algorithm paragraph; "(revise or remove…)" on the SO2 comparative-review clause; "(revise since it uses the candidate algos)" on the technical-scope paragraph; "(only include actual operational terms…)" on the definitions intro.
 > - **Missing references (corpus gaps to add in `BUDI-Literature/literature/papers/`):** no indexed paper yet for **PSA FIES**, **PSA HFCI (household financial characteristics — the tech spec alternates between "HFCI" and "HFCE"; confirm the exact dataset name, year, and version)**, **BSP CFIS (Consumer Finance and Inclusion Survey)**, or **BSP CFS (Consumer Finance Survey)**. BSP CES 2026 is in the corpus. Every claim these sources would support carries a `<!-- VERIFY: ... -->` marker until the references land.
 > - **Verify policy:** every claim not directly supported by a curated intake source carries a `<!-- VERIFY: ... -->` marker. In-text citations and the reference list are drawn only from `BUDI-Literature/literature/papers/` plus the study's own PUEPS instrument. PUEPS figures were re-transcribed against `PUEPS-responses.csv` (2026-09-13). See `chapter-1-evidence-map.md`.
+> - **SO6/SO7 aligned to the Drive instruments (2026-09-21):** the evaluation objectives now follow the Drive `GROUP4 - ISO 25010 - V1 - 09.15.2026` (IT-experts quality questionnaire) and `GROUP4 - SYSTEM USABILITY SCALE - V1 - 09.15.2026` questionnaires, which supersede the tech-spec 09.20 characteristics table in the previous draft. This drops Portability and the ISO-side Usability sub-list (usability is measured through SUS) and adds Maintainability. The Drive ISO instrument is a template with residual placeholder content (stray "User Error Protection"/"User Assistance" rows under Performance Efficiency) and the Drive SUS doc prints a 1–4 scale while scoring with 5-point arithmetic — both are flagged for cleaning before deployment.
 
 ---
 
@@ -91,16 +92,15 @@ To fulfill the general objective, the researchers have constructed the following
    11. Debt Management – allows users to record debts, track balances and payments, compare repayment strategies such as the snowball or avalanche methods to project payoff timelines, and identify potential debt risks caused by insufficient budgets or known upcoming expenses.
    12. User Settings – allows users to manage their profile, preferences, notifications, security, and application configurations.
    13. Financial Reports – allows users to view summaries and reports of income, expenses, savings, and debt for specified periods and categories, including personalized spending forecasts and anomaly alerts for unusual expenses or spending patterns that differ from their normal spending pattern.
-6. Test the functionality, performance efficiency, usability, reliability, and security of the system.
+6. Test the functionality, performance efficiency, usability, reliability, security, and maintainability of the system.
 7. Evaluate the system using the System Usability Scale (SUS) and metrics based on the ISO/IEC 25010 software quality model. The evaluation will cover:
    1. System Usability Scale (SUS)
    2. ISO/IEC 25010:
       1. Functional Suitability: functional completeness, functional correctness, and functional appropriateness
-      2. Performance Efficiency: time behavior and capacity
-      3. Reliability: availability, fault tolerance, recoverability, and data integrity
-      4. Security: confidentiality, integrity, and authenticity
-      5. Portability: adaptability and installability
-      6. Usability: appropriateness recognizability, learnability, user error protection, user interface aesthetics, and accessibility
+      2. Performance Efficiency: response time, latency, and throughput
+      3. Reliability: faultlessness, availability, fault tolerance, and recoverability
+      4. Security: confidentiality, integrity, non-repudiation, accountability, authenticity, and resistance
+      5. Maintainability: co-existence, modifiability, and testability
 8. Deploy the intelligent personal financial management application to the Android platform and document its result.
 
 ## IV. Scope and Limitations
