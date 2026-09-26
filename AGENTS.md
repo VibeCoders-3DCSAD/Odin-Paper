@@ -1,23 +1,36 @@
-# Odin-Paper — Agent Guide
+# BUDI-Base — Agent Guide
 
-**Thesis**: Development of BUDI: A Personalized Intelligent Finance Management App Using SVM Profile Classification, SARIMA Forecasting, LP-Based Budgeting, and IQR Anomaly Detection to Improve Filipinos' Savings and Debt
+**Thesis**: Development of BUDI: A Personalized Intelligent Finance Management Application for Filipinos Using Classification, Forecasting, Optimization, and Anomaly Detection Models for Improving Savings and Debt
 **Group 4, III-DCSAD, University of Makati**
 
 ---
 
 ## Repository Role
 
-This is the **knowledge base** for the Odin thesis. It contains thesis documents, specifications, PRDs, and survey instruments. It does **not** contain application code, API servers, or ML model implementations — those live in `Odin-App/` and `Odin-ML/` respectively.
+This is the **knowledge base** for the BUDI thesis. It contains thesis documents, specifications, PRDs, and survey instruments. It does **not** contain application code, API servers, or ML model implementations — those live in `BUDI-App/` and `BUDI-ML/` respectively.
 
-The RRL corpus, scoring pipeline, and related tooling live in **Odin-Literature** (https://github.com/VibeCoders-3DCSAD/Odin-Literature).
+The RRL corpus, scoring pipeline, and related tooling live in **BUDI-Literature**.
 
 > **Ground truth:** the authoritative versions of the thesis documents live in the Google Drive folder. Copies in this repository are working mirrors and may lag behind the Drive source — verify before citing.
+>
+> **Spec update (2026-09-24):** the Drive *Technical Specification V1 (09.24.2026)* is
+> the ground truth for project, paper, system, and models. Its canonical mirror is
+> `docs/requirements-engineering/technical-specification.md`. The 09.24 revision is a
+> substantial rewrite: the project identity is now **TAYA** ("Development of TAYA: A
+> Personal Financial Management App Using SARIMA-Based Seasonal Expense Forecasting
+> for Budget, Savings, and Debt Planning"; the acronym's words are still TBD in the
+> spec), and the title algorithms are stated natively — rule-based saver/borrower
+> classification, **SARIMA** forecaster (FIES 2023 + HFCE 2022 Q1–2026 Q2 temporal
+> disaggregation), **LP (HiGHS)** solver, and **IQR** detector around a central
+> Financial Plan artifact. The prior (09.20) "v2 methodology overrides" no longer
+> apply; methodology/implementation docs in `BUDI-ML/training/docs/model-methodologies/`
+> and `BUDI-ML/docs/models/` use legacy v2 naming that may lag this spec.
 
 ---
 
 ## Coding Standards
 
-This repository does not contain application code, so backend/frontend coding standards from `Odin-ML/docs/standards/REPOSITORY-STANDARDS.md` do not apply. The applicable standards are:
+This repository does not contain application code, so backend/frontend coding standards from `BUDI-ML/docs/standards/REPOSITORY-STANDARDS.md` do not apply. The applicable standards are:
 
 | Standard | Location |
 |----------|----------|
@@ -28,7 +41,7 @@ This repository does not contain application code, so backend/frontend coding st
 
 Enforcement: Follow the commit message format for all commits. Keep `INDEX.md` updated when adding or moving files.
 
-> **RRL standards** (naming conventions, summary format, workflow) have moved to **Odin-Literature**: `Odin-Literature/docs/standards/`.
+> **RRL standards** (naming conventions, summary format, workflow) have moved to **BUDI-Literature**: `BUDI-Literature/docs/standards/`.
 
 ---
 
@@ -66,7 +79,7 @@ Full reference: `docs/standards/git-commit-standards.md`
 ## Top-Level Directory Layout
 
 ```
-Odin-Paper/
+BUDI-Base/
   AGENTS.md              # This file — agent navigation and standards
   INDEX.md               # Master navigation index (authoritative)
   docs/                  # Thesis documents and standards
@@ -85,26 +98,27 @@ See **`INDEX.md`** for the authoritative index. Key documents:
 | Document | Purpose |
 |----------|---------|
 | **`docs/INDEX.md`** | Documentation index for everything under `docs/`. |
-| **`docs/requirements-engineering/system-spec.md`** | System specification. The main design contract. |
+| **`docs/requirements-engineering/technical-specification.md`** | Ground-truth technical specification (Drive mirror). The main design contract. |
 | **`docs/requirements-engineering/product-requirements-document.md`** | Product requirements. |
-| **`docs/requirements-engineering/requirements-engineering.md`** | Functional requirements per module. |
+| **`docs/requirements-engineering/feature-modules-v2.md`** | Functional requirements per module. |
 | **`docs/design-architecture/screen-descriptions/00-index.md`** | Index of the 24 screen descriptions. |
 | **`thesis/paper/chapter-1.md`** | Chapter 1 draft (Introduction) — Finalized V5. |
-| **`docs/ml/README.md`** | ML model design, data analysis, and training documentation (phases 1-6). |
+| **`docs/ml/README.md`** | ML / model methodology index (adopted new-scope designs live in BUDI-ML). |
 | **`docs/archive/research-proposal/Research-Proposal.md`** | Formal RP2 proposal (authoritative for objectives/scope). |
 
 ---
 
 ## Model & Data
 
-- ML model design, data analysis, and training documentation are in `docs/ml/` (see `docs/ml/README.md`).
-- FIES CSV, BSP/PSA data, and synthetic data handoffs are in `Odin-ML/`.
+- Adopted model methodologies and their evaluation plans are in **BUDI-ML** (`training/docs/model-methodologies/`); condensed service contracts in `BUDI-ML/docs/models/`.
+- BUDI-Base `docs/ml/` holds the study-level model index.
+- FIES CSV, BSP/PSA data, and synthetic data handoffs are in `BUDI-ML/`.
 
 ---
 
 ## Python Environment
 
-A `.venv/` exists (gitignored). This repository has no Python dependencies of its own — `requirements.txt` is a legacy artifact. All RRL processing scripts now live in **Odin-Literature**.
+A `.venv/` exists (gitignored). This repository has no Python dependencies of its own — `requirements.txt` is a legacy artifact. All RRL processing scripts now live in **BUDI-Literature**.
 
 ### scripts/gdrive/
 
@@ -170,7 +184,7 @@ Group 4 Folder/
 │   └── TRACEABILITY MATRIX/
 │       └── GROUP4 - TRACEABILITY MATRIX - V1 - 08.15.26 (Google Sheet)
 ├── TECHNICAL SPECIFICATION/
-│   └── GROUP4 - TECHNICAL SPECIFICATION - V1 - 09.20.2026 (Google Doc)
+│   └── GROUP4 - TECHNICAL SPECIFICATION - V1 - 09.24.2026 (Google Doc)
 ├── TEST PLAN/
 │   └── GROUP4 - TEST PLAN - V1 - 08.31.2026 (Google Sheet)
 ├── TOPICAL OUTLINE/
@@ -230,7 +244,7 @@ Group 4 Folder/
 | TRACEABILITY MATRIX (under SYSTEM DEVELOPMENT) | `1uYshGn_u-Huv0YrmrTD5bXtrO0wQmJyw` | Folder | [Open](https://drive.google.com/drive/folders/1uYshGn_u-Huv0YrmrTD5bXtrO0wQmJyw) |
 | GROUP4 - TRACEABILITY MATRIX - V1 - 08.15.26 | `1MFlGZn-OkQzMlq-vk3lPZ6RGndyPo51fmQXlGjozGV4` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/1MFlGZn-OkQzMlq-vk3lPZ6RGndyPo51fmQXlGjozGV4/edit) |
 | TECHNICAL SPECIFICATION | `1dnzS2gz4mzN08rQ9l5O3k6XyVBgb5nQL` | Folder | [Open](https://drive.google.com/drive/folders/1dnzS2gz4mzN08rQ9l5O3k6XyVBgb5nQL) |
-| GROUP4 - TECHNICAL SPECIFICATION - V1 - 09.20.2026 | `1v8hqqlsHuiEAugGe3or3BCG2F8zQ3aWCCyox--oMm6E` | Google Doc | [Open](https://docs.google.com/document/d/1v8hqqlsHuiEAugGe3or3BCG2F8zQ3aWCCyox--oMm6E/edit) |
+| GROUP4 - TECHNICAL SPECIFICATION - V1 - 09.24.2026 | `1v8hqqlsHuiEAugGe3or3BCG2F8zQ3aWCCyox--oMm6E` | Google Doc | [Open](https://docs.google.com/document/d/1v8hqqlsHuiEAugGe3or3BCG2F8zQ3aWCCyox--oMm6E/edit) |
 | TEST PLAN | `1myU_uCIUwTeLzmRou2J9FCQBrBwEDJSL` | Folder | [Open](https://drive.google.com/drive/folders/1myU_uCIUwTeLzmRou2J9FCQBrBwEDJSL) |
 | GROUP4 - TEST PLAN - V1 - 08.31.2026 | `1SBq-KAIvJNHh12EymJnePa3AGVkE8hPE_mfQHsmDMs4` | Google Sheet | [Open](https://docs.google.com/spreadsheets/d/1SBq-KAIvJNHh12EymJnePa3AGVkE8hPE_mfQHsmDMs4/edit) |
 | TOPICAL OUTLINE | `1g87xQAtOP1IfTZxvDrMq7iVV831C0ccv` | Folder | [Open](https://drive.google.com/drive/folders/1g87xQAtOP1IfTZxvDrMq7iVV831C0ccv) |
@@ -254,6 +268,6 @@ When locating a Drive item, search by its recorded ID or exact name. When adding
 ## Important Gotchas
 
 - **`google-drive/` is gitignored.** It holds local `.docx` mirrors fetched from Drive. Run `python scripts/gdrive/fetch_drive.py` to refresh. Drive is the source of truth.
-- The authoritative topical outline is `google-drive/topical-outline/topical-outline.md` (Drive mirror). See the `TOPICAL OUTLINE` entries in the Drive table.
-- RRL processing live in **Odin-Literature**. There are no RRL standards or pipeline scripts here; see `docs/standards/*rrl*` deprecation notices.
-- **`archived-literature/` is deprecated.** See `archived-literature/DEPRECATED.md`. All RRL work happens in Odin-Literature.
+- The authoritative topical outline is the newest `GROUP4 - TOPICAL OUTLINE - V<N> - *.docx` under `google-drive/topical-outline/` (currently V3, 09.15.26). The generated `google-drive/topical-outline/topical-outline.md` is a stale V1-era extraction; do not cite it. See the `TOPICAL OUTLINE` entries in the Drive table.
+- RRL processing live in **BUDI-Literature**. There are no RRL standards or pipeline scripts here; see `docs/standards/*rrl*` deprecation notices.
+- **`archived-literature/` is deprecated.** See `archived-literature/DEPRECATED.md`. All RRL work happens in BUDI-Literature.

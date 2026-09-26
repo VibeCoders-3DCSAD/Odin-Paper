@@ -1,12 +1,19 @@
-# Odin-Paper — Documentation Index
+# BUDI-Base — Documentation Index
 
 - **Project:** Development of BUDI: A Personalized Intelligent Finance Management Application for Filipinos Using Classification, Forecasting, Optimization, and Anomaly Detection Models for Improving Savings and Debt
 - **Institution:** University of Makati | Group 4, III-DCSAD
-- **Last indexed:** 2026-09-13
+- **Last indexed:** 2026-09-24
 
 ---
 
 > **Ground truth:** the authoritative versions of the thesis documents live in the Google Drive folder. Copies in this repository are working mirrors and may lag behind the Drive source — verify before citing.
+>
+> **Spec update (2026-09-24):** the Drive *Technical Specification V1 (09.24.2026)* is
+> ground truth (mirror: `requirements-engineering/technical-specification.md`). The
+> 09.24 rewrite renames the project **TAYA** (acronym words still TBD) and states the
+> title algorithms natively (rule-based classifier, SARIMA with FIES 2023 + HFCE
+> 2022 Q1–2026 Q2 temporal disaggregation, LP/HiGHS solver, IQR detector), so the prior
+> "v2 methodology overrides" no longer apply. Implementation docs live in **BUDI-ML**.
 
 ---
 
@@ -15,18 +22,19 @@
 | Need | Go to |
 | :--- | :--- |
 | Formal research proposal, objectives, scope | `archive/research-proposal/Research-Proposal.md` |
-| System specification (working contract) | `requirements-engineering/system-spec.md` |
+| Technical specification (ground truth, Drive mirror) | `requirements-engineering/technical-specification.md` |
 | Product requirements (PRD) | `requirements-engineering/product-requirements-document.md` |
-| Functional requirements per module | `requirements-engineering/requirements-engineering.md` |
-| Chapter drafts | `thesis/paper/chapter-1.md` |
-| ML model design and training docs | `ml/README.md` |
+| Functional requirements per module | `requirements-engineering/feature-modules-v2.md` |
+| Chapter drafts | `../thesis/paper/chapter-1.md`, `../thesis/paper/chapter-2.md` |
+| Model documentation index | `ml/README.md` + **BUDI-ML** `training/docs/model-methodologies/` |
 | Screen descriptions (24 screens) | `design-architecture/screen-descriptions/00-index.md` |
 | System architecture and data schema | `design-architecture/system-architecture.md` |
 | RRL benchmarks | `rrl/benchmarks.md` |
 | Survey instrument | `assessment-evaluation/survey/PUEPS.md` |
 | Git commit and documentation standards | `standards/` |
-| RRL corpus and scoring | **Odin-Literature** |
-| ML service and training pipeline | **Odin-ML** |
+| Adviser (Ma'am Era) writing rules & comments | `standards/adviser-writing-rules.md` |
+| RRL corpus and scoring | **BUDI-Literature** |
+| ML service and training pipeline | **BUDI-ML** |
 
 ---
 
@@ -37,12 +45,11 @@
 | `assessment-evaluation/` | Survey instruments and evaluation materials. |
 | `archive/` | Preserved research proposal, panel comments, and superseded documents. |
 | `design-architecture/` | System architecture, data schema, and screen descriptions. |
-| `ml/` | ML model design, data analysis, and training documentation. |
-| `planning-management/` | Roadmap and meeting transcripts. |
-| `requirements-engineering/` | System spec, PRD, and functional requirements. |
+| `ml/` | Study-level ML/model documentation index (methodologies live in BUDI-ML). |
+| `requirements-engineering/` | Technical specification, PRD, and functional requirements. |
 | `rrl/` | RRL benchmarks, literature matrix, and theoretical framework. |
 | `standards/` | Documentation, versioning, and git commit standards. |
-| `thesis/` | Thesis paper drafts. |
+| (root) `thesis/` | Thesis paper drafts. |
 
 ---
 
@@ -68,28 +75,19 @@
 
 ## ml/
 
-Model design, data analysis, and training documentation. See `ml/README.md` for the phase-by-phase index.
+Study-level model documentation index. The **adopted new-scope methodologies** live in
+**BUDI-ML** (`training/docs/model-methodologies/` and `docs/models/`).
 
 | Path | Purpose |
 | :--- | :--- |
-| `ml/1_problem-statement/` | MDDs, feature sets, module integration, deployment, synthetic data rules. |
-| `ml/2_data-collection/` | FIES/BSP data source documentation. |
-| `ml/3_data-preprocessing/` | Preprocessing pipeline documentation. |
-| `ml/4_eda/` | Exploratory data analysis guide. |
-| `ml/4.5_dimension-threshold-discovery/` | PFP dimension and threshold discovery. |
-| `ml/5_feature-engineering/` | Feature engineering pipeline documentation. |
-| `ml/6_model-training/` | PFP, Forecaster, and Anomaly training documentation. |
+| `ml/problem-statement/` | MDDs, feature sets, module integration, deployment, synthetic data rules, accountant validation of PFP thresholds. |
+| `ml/data-collection/` | FIES/BSP data source documentation. |
+| `ml/data-preprocessing/` | Preprocessing pipeline documentation. |
+| `ml/exploratory-data-analysis/` | Exploratory data analysis guide. |
+| `ml/dimension-threshold-discovery/` | PFP dimension and threshold discovery. |
+| `ml/feature-engineering/` | Feature engineering pipeline documentation. |
+| `ml/model-training/` | Superseded PFP/Forecaster/Anomaly training docs (kept for reference). |
 | `ml/README.md` | ML documentation index. |
-| `ml/TODO.md` | Known gaps and follow-up tasks. |
-
----
-
-## planning-management/
-
-| File | Purpose |
-| :--- | :--- |
-| `roadmap.md` | Milestones, timeline, and Gantt references. |
-| `transcripts/4-24-meeting.md` | Group session notes. |
 
 ---
 
@@ -97,9 +95,13 @@ Model design, data analysis, and training documentation. See `ml/README.md` for 
 
 | File | Purpose |
 | :--- | :--- |
-| `system-spec.md` | System specification (working contract). |
+| `technical-specification.md` | Ground-truth technical specification (Drive mirror). The main design contract. |
+| `tbd-register-resolution.md` | TBD resolution register — status, evidence, and recommended decisions per spec TBD. |
 | `product-requirements-document.md` | Product requirements document. |
-| `requirements-engineering.md` | Functional requirements per module. |
+| `feature-modules-v2.md` | Functional requirements per module. |
+| `feature-modules-v1.md` | Superseded module list (kept for reference). |
+| `audit-template-functional-requirements-v2.md` | FR audit templates. |
+| `rules-functional-requirements-v2.md` | FR writing rules. |
 
 ---
 
@@ -117,22 +119,25 @@ Model design, data analysis, and training documentation. See `ml/README.md` for 
 
 | File | Purpose |
 | :--- | :--- |
+| `adviser-writing-rules.md` | Adviser (Ma'am Era) writing rules and comments. |
 | `documentation-discipline.md` | Rules for maintaining thesis documentation. |
 | `documentation-format.md` | Shared formatting rules (metadata, headings, references). |
 | `git-commit-standards.md` | Git commit message format and scopes. |
 | `versioning.md` | Semantic versioning policy. |
-| `rrl-naming-conventions.md` | **Deprecated.** RRL naming rules now live in Odin-Literature. |
-| `rrl-workflow.md` | **Deprecated.** RRL workflow now lives in Odin-Literature. |
-| `summary-format.md` | **Deprecated.** RRL summary schema now lives in Odin-Literature. |
+
+> RRL standards (naming conventions, summary format, workflow) have moved to **BUDI-Literature**.
 
 ---
 
-## thesis/
+## thesis/ (root-level drafts)
 
 | File | Purpose |
 | :--- | :--- |
-| `paper/chapter-1.md` | Chapter 1 draft (Introduction). |
-| `paper/chapter-1-evidence-map.md` | Claim-by-claim citation audit for Chapter 1. |
+| `../thesis/paper/chapter-1.md` | Chapter 1 draft (Introduction), Finalized V5. |
+| `../thesis/paper/chapter-1-objectively-written.md` | Chapter 1 objective-register variant. |
+| `../thesis/paper/chapter-2.md` | Chapter 2 draft (RRL), Draft V2.0. |
+| `../thesis/paper/chapter-1-evidence-map.md` | Claim-by-claim citation audit for Chapter 1. |
+| `../thesis/paper/chapter-2-evidence-map.md` | Citation audit for Chapter 2. |
 
 ---
 
@@ -142,6 +147,6 @@ Model design, data analysis, and training documentation. See `ml/README.md` for 
 | :--- | :--- |
 | Understand what BUDI proposes to build | `archive/research-proposal/Research-Proposal.md` |
 | Full app product requirements | `requirements-engineering/product-requirements-document.md` |
-| Detailed system rules | `requirements-engineering/system-spec.md` |
-| Model implementation | `ml/` (design docs) + **Odin-ML** (code) |
-| RRL corpus and scoring | **Odin-Literature** |
+| Ground-truth systems/paper/models scope | `requirements-engineering/technical-specification.md` |
+| Adopted model methodologies & implementation | `ml/` (index) + **BUDI-ML** (code and methodologies) |
+| RRL corpus and scoring | **BUDI-Literature** |
