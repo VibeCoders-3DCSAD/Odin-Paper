@@ -25,9 +25,10 @@
 | # | V3 `.docx` said | Corrected to | Why |
 |---|---|---|---|
 | 1 | TAYA (19 occurrences) | BUDGIE | Chapter 1 V6 and Topical Outline V4 both adopted BUDGIE; the V3 body was not updated when the project was renamed. |
-| 2 | Huang et al. (2025) (3 occurrences) | Huang et al. (2025) | Page 1 of the source lists Anzhong Huang as sole author. |
+| 2 | Esperanza et al. (2025) | Esperanza (2025) | Page 1 lists Esperanza as the sole author. |
 | 3 | De Zarzà et al. (2024) | de Zarzà et al. (2024) | APA lowercases the particle in a surname. Citation year was already correct; the corpus stem was wrong and has been fixed. |
-| 4 | (no reference list) | References section added | The V3 `.docx` had no References section at all. |
+| 4 | (no References section) | References section added, 19 entries | The V3 `.docx` had no References section at all. Seven entries were completed from page 1 of the source PDFs, and the list was put in APA letter-by-letter order. |
+| 5 | PSA and PUEPS named in prose but not cited | `(PSA, 2026)`, `(FIES; PSA, 2023)`, `(PUEPS; Group 4, 2026)` | Three sources sat in the reference list without a matching in-text citation, which APA does not allow. |
 
 ---
 
@@ -106,7 +107,7 @@ Seasonal variations in income and expenses present significant challenges for pe
 
 The importance of incorporating seasonality into financial planning is supported by consumption theory and empirical evidence. Seasonal patterns in consumption arise from multiple sources including cultural events, holiday spending, school calendars, and weather-related variations in needs. In the Philippine context, consumption patterns are influenced by factors such as the Christmas season, school enrollment periods, and agricultural cycles, creating predictable fluctuations that affect household budgets. Financial planning tools that ignore these patterns may produce recommendations that are unrealistic or unsustainable. <!-- SOURCE NEEDED [DASMARIÑAS 2024]: cited in Seasonality in Personal Finance and six times across the SARIMA section; not in the corpus. Candidate: Dasmariñas, A. P., De Castro, G., Lazona, B. J., & Usona, L. (2024). Forecasting the impact of COVID-19 on the household final consumption expenditure (HFCE) in the Philippines. PUP Journal of Science & Technology, 14(1), 70-90. https://doi.org/10.70922/ctzevg57 - acquire and ingest before submission. -->
 
-The challenge of seasonal expense forecasting is compounded by data limitations in many contexts. While population-level seasonality can be estimated from aggregate data sources such as the Philippine Statistics Authority's HFCE dataset, individual-level seasonal patterns may differ based on personal circumstances, location, and preferences. Dasmariñas et al. (2024) demonstrated that national-level consumption patterns can be forecasted with reasonable accuracy, providing a foundation for population-based seasonal forecasting. However, the application of these patterns to individual users requires careful adaptation to personal circumstances.
+The challenge of seasonal expense forecasting is compounded by data limitations in many contexts. While population-level seasonality can be estimated from aggregate data sources such as the Philippine Statistics Authority's (PSA, 2026) HFCE dataset, individual-level seasonal patterns may differ based on personal circumstances, location, and preferences. Dasmariñas et al. (2024) demonstrated that national-level consumption patterns can be forecasted with reasonable accuracy, providing a foundation for population-based seasonal forecasting. However, the application of these patterns to individual users requires careful adaptation to personal circumstances.
 
 ## Saver and Borrower Profile Classification
 
@@ -270,11 +271,11 @@ Agile Kanban is the specific Agile variant employed in this study. Kanban emphas
 
 ### Data Collection
 
-Data collection for BUDGIE encompasses multiple sources that provide the foundation for model training and system evaluation. The PSA 2023 Family Income and Expenditure Survey (FIES) provides annual income totals, annual expense totals, family size, per-capita income, and decile ranking. This dataset serves as the source for temporal disaggregation, providing annual expense estimates that are disaggregated to monthly resolution.
+Data collection for BUDGIE encompasses multiple sources that provide the foundation for model training and system evaluation. The PSA 2023 Family Income and Expenditure Survey (FIES; PSA, 2023) provides annual income totals, annual expense totals, family size, per-capita income, and decile ranking. This dataset serves as the source for temporal disaggregation, providing annual expense estimates that are disaggregated to monthly resolution.
 
 The PSA 2022-2026 Household Final Consumption Expenditure (HFCE) provides quarterly household consumption data that serves as the source for seasonal patterns in disaggregation. The HFCE dataset covers the period from 2022 Q1 to 2026 Q2, providing 18 quarters of data for estimating seasonal patterns. While this series length is borderline for SARIMA with a seasonal period of 12, it provides sufficient data for initial model development.
 
-The Public User Expectations and Perceptions Survey (PUEPS) provides user expectations and preliminary investigation data. This survey employed purposive sampling of 47 respondents in the National Capital Region, primarily from Taguig, Pasay, Manila, and Makati. The survey results inform the user requirements and evaluation criteria for BUDGIE.
+The Public User Expectations and Perceptions Survey (PUEPS; Group 4, 2026) provides user expectations and preliminary investigation data. This survey employed purposive sampling of 47 respondents in the National Capital Region, primarily from Taguig, Pasay, Manila, and Makati. The survey results inform the user requirements and evaluation criteria for BUDGIE.
 
 ### Model Development
 
