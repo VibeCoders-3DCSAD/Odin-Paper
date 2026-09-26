@@ -47,17 +47,19 @@ Key architectural choices documented in MDD:
 
 | Output | Location | Description |
 |--------|----------|-------------|
-| `module-design-document.md` | `1_problem-statement/` | Complete model design document (1,629 lines) |
-| `bsp-fies-crosswalk.md` | `1_problem-statement/` | BSP CFS ↔ FIES NCR field mapping + archetype justification |
-| `feature-set.md` | `1_problem-statement/` | Complete feature definitions for all 3 models |
-| `walk-forward-validation.md` | `1_problem-statement/` | Temporal validation methodology |
-| `partial-window-splits.md` | `1_problem-statement/` | Train/val/test splitting strategy |
-| `roc-cutoff-selection.md` | `1_problem-statement/` | Threshold calibration for PFP |
-| `module-integration.md` | `1_problem-statement/` | Inter-module API contracts |
-| `deployment-architecture.md` | `1_problem-statement/` | Container/k8s/CI-CD design |
-| `synthetic-injection-rules.md` | `1_problem-statement/` | 20 rules for FIES→Persona→Transaction |
-| `persona-validation-list.md` | `1_problem-statement/` | 12 archetypes for SME review |
-| `persona-validation-list-SME-draft.md` | `1_problem-statement/` | SME review draft of the archetype roster |
+| `module-design-document.md` | `problem-statement/` | Complete model design document (1,629 lines) |
+| `bsp-fies-crosswalk.md` | `problem-statement/` | BSP CFS ↔ FIES NCR field mapping + archetype justification |
+| `feature-set.md` | `problem-statement/` | Complete feature definitions for all 3 models |
+| `walk-forward-validation.md` | `problem-statement/` | Temporal validation methodology |
+| `partial-window-splits.md` | `problem-statement/` | Train/val/test splitting strategy |
+| `roc-cutoff-selection.md` | `problem-statement/` | Threshold calibration for PFP |
+| `module-integration.md` | `problem-statement/` | Inter-module API contracts |
+| `deployment-architecture.md` | `problem-statement/` | Container/k8s/CI-CD design |
+| `synthetic-injection-rules.md` | `problem-statement/` | 20 rules for FIES→Persona→Transaction |
+| `persona-validation-list.md` | `problem-statement/` | 12 archetypes for SME review |
+| `persona-validation-list-SME-draft.md` | `problem-statement/` | SME review draft of the archetype roster |
+| `accountant-validation-question-log.md` | `problem-statement/` | Consultation instrument for accountant validation of the PFP synthetic-data rules (all items Pending) |
+| `accountant-validation-evidence-review.md` | `problem-statement/` | Literature-informed evidence review of the PFP threshold parameters (supports the question log; not a signed accountant approval) |
 | Open tasks & gaps | `../TODO.md` | MDD follow-up tasks and known data/version gaps |
 
 ## Key Design Rationale

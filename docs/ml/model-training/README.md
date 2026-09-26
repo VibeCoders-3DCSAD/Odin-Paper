@@ -1,9 +1,15 @@
 # Phase 6: Model Training — PFP Classifier
 
+> **SUPERSEDED SCOPE (notice added 2026-09-21).** This document describes the old
+> training-era PFP classifier (Tier 0–4, SVM winner). The adopted design is the
+> rule-based **financial classification v2** (no trained classifier). See
+> [`../_SUPERSEDED.md`](../_SUPERSEDED.md) and
+> `BUDI-ML/training/docs/model-methodologies/financial-classification-v2-methodology.md`.
+
 **Document Version:** v2.0
 **Author(s):** Guevarra
 **Date:** 2026-07-24
-**Status:** Complete
+**Status:** Complete (superseded scope)
 **Purpose:** Train and compare Tier 0-4 PFP classifiers using temporal fold evaluation
 
 ---
