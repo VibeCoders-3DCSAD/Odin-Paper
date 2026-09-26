@@ -265,9 +265,29 @@ Plan adherence measures the ratio of actual allocation to recommended allocation
 
 The study employs the Agile software development methodology, providing an iterative and incremental framework that enables continuous refinement of both system features and prediction models based on ongoing feedback and evaluation results. The Agile methodology is particularly appropriate for BUDGIE's development given the complexity of integrating multiple machine learning models with a mobile application, as the iterative nature of Agile enables progressive refinement of both the algorithmic components and the user interface.
 
+The choice of an iterative methodology over a sequential one is supported by comparative measurement of Agile development practices, which finds that teams operating under an Agile model-based approach report different measured metrics from those operating under Scrum alone, indicating that the specific framework adopted materially affects process outcomes (Huss et al., 2023).
+
+<!-- PENDING ACQUISITION: Huss et al. (2023) — 10.3390/software2030015
+     UNVERIFIED: authors, title, journal, year, and DOI were taken from a citing
+     bibliography, not from the publisher. Confirm against the MDPI page before
+     this sentence is retained. The two sources below already carry the section if
+     this one cannot be confirmed. -->
+
 ### Agile Kanban
 
 Agile Kanban is the specific Agile variant employed in this study. Kanban emphasizes continuous delivery through visualization of workflow, limiting work-in-progress, and managing flow. The Kanban board provides visibility into the development process, enabling the team to identify bottlenecks and optimize workflow. This approach supports the iterative development of BUDGIE's multiple modules while maintaining flexibility to accommodate changing requirements and feedback.
+
+Kanban adoption is not a matter of tooling alone, and the factors that condition successful adoption are empirical rather than assumed. A study of software development organizations identifies organizational and process-level determinants of Kanban adoption, which indicates that the framework's effectiveness depends on the surrounding development context (Alqudah & Razali, 2024).
+
+<!-- PENDING ACQUISITION: Alqudah & Razali (2024) — 10.1504/IJASM.2024.137890 -->
+
+The relative performance of Kanban and Scrum under differing project constraints has also been examined through multigroup analysis, which finds that the two frameworks do not perform uniformly across constraint conditions, and that framework effectiveness is conditional rather than universal (Sathe & Panse, 2023). This finding is the basis for BUDGIE's decision to adopt Kanban with explicit measurement of flow rather than assuming framework equivalence.
+
+<!-- PENDING ACQUISITION: Sathe & Panse (2023) — 10.14488/BJOPM.1796.2023 -->
+
+A further line of work proposes a hybrid of the two frameworks, combining Kanban's flow control with Scrum's sprint structure on the argument that each compensates for a specific weakness of the other. This hybrid is recorded here as a documented alternative that the study considered and did not adopt, since BUDGIE's requirements were expected to remain stable through the evaluation period and the added ceremony of a sprint cycle was assessed as unnecessary (Shaout et al., 2025).
+
+<!-- PENDING ACQUISITION: Shaout et al. (2025) — 10.5455/JCSI.20250322020941 -->
 
 ### Data Collection
 
@@ -297,9 +317,70 @@ The system architecture follows a microservices pattern with separate containers
 
 ### Software Quality Evaluation
 
-Software quality evaluation employs the ISO/IEC 25010:2023 quality model, which defines characteristics that collectively assess the fitness of a software system for its intended use. The evaluation addresses functional suitability, performance efficiency, reliability, security, portability, and usability, providing comprehensive assessment of system quality.
+Software quality evaluation employs the ISO/IEC 25010:2023 quality model, which provides a reference model of characteristics for specifying, measuring, and evaluating the quality of ICT and software products (International Organization for Standardization, 2023). Each characteristic is subdivided into subcharacteristics that provide concrete measures, and the model is intended as a reference rather than as a fixed checklist, so a study may select the subset of characteristics that bears on its system (International Organization for Standardization, 2023). The evaluation addresses functional suitability, performance efficiency, reliability, security, portability, and usability, providing comprehensive assessment of system quality.
 
-The System Usability Scale (SUS) provides a standardized instrument for assessing perceived usability. The SUS consists of ten items rated on a five-point scale, producing a score from 0 to 100 that indicates usability relative to established benchmarks. A score of 68 or higher is considered acceptable, representing above-average usability. The SUS will be administered to target users following interaction with BUDGIE, providing quantitative assessment of usability.
+<!-- PENDING ACQUISITION: ISO/IEC 25010:2023 — paywalled standard, obtain via the
+     group library or IEEE. Needed as the normative source for the quality model
+     and for the characteristic/subcharacteristic definitions. -->
+
+<!-- ISO CHARACTERISTIC NAMING CONFLICT — unresolved, requires an adviser decision.
+
+     The six characteristics listed above are named using the ISO/IEC 25010:2011
+     vocabulary, not the 2023 vocabulary, and the standard's own foreword records
+     the change: "Usability and portability have been replaced with interaction
+     capability and flexibility respectively." Safety was added as a ninth
+     characteristic. Under 25010:2023 the model therefore comprises functional
+     suitability, performance efficiency, compatibility, interaction capability,
+     reliability, security, maintainability, flexibility, and safety — nine, not
+     six.
+
+     Consequences for this chapter as currently written:
+
+     1. "Portability" and "usability" are not characteristic names in the standard
+        this chapter cites. Under 25010:2023 the nearest equivalents are flexibility
+        (3.8) and interaction capability (3.4).
+     2. "Compatibility" and "safety" are omitted. Compatibility is the one 2023
+        characteristic absent from the 2011 six that a mobile app's cross-platform
+        claim most obviously needs.
+     3. Installability is not a characteristic in either edition; in 25010:2023 it
+        is subcharacteristic 3.8.3 under flexibility. The portability paragraph
+        below therefore describes a subcharacteristic while presenting it as a
+        characteristic.
+     4. The SUS belongs to the quality-in-use model (ISO/IEC 25019), not the product
+        quality model. The standard is explicit that interaction capability is a
+        prerequisite for usability rather than a replacement for it, so citing the
+        product model as the basis for a SUS-based usability score is imprecise.
+
+     The six-characteristic set is retained here because the panel accepted it, but
+     it cannot be attributed to 25010:2023 as written. Resolving this requires
+     either renaming the two characteristics to interaction capability and
+     flexibility and adding compatibility and safety, or citing ISO/IEC 25010:2011
+     for the six-characteristic set. This must be settled before Chapter 3, because
+     the fielded ISO 25010 instrument and the Chapter 1 scope section are both built
+     on the same superseded vocabulary. -->
+
+The evaluation of BUDGIE against the quality model follows established practice for questionnaire-based evaluation of the ISO/IEC 25010 characteristics, in which selected characteristics are operationalized as Likert-scale statements and aggregated through weighted scoring to produce an overall quality index (Ariningsih & Muhammad, 2024). This approach has been applied to functional suitability, performance efficiency, usability, and portability, which is the same set of characteristics at issue in the conflict noted above (Lianto et al., 2023). Adopting an established operationalization keeps the instrument comparable with prior work rather than defining ad hoc measures.
+
+<!-- PENDING ACQUISITION: Ariningsih & Muhammad (2024) — 10.24076/intechnojournal.2024v6i2.1870
+     PENDING ACQUISITION: Lianto et al. (2023) — KONSTELASI 3(1); no DOI located, retrieve from the journal -->
+
+The System Usability Scale (SUS) provides a standardized instrument for assessing perceived usability. The instrument originates in Brooke (1996) and comprises ten items rated on a five-point scale, where odd-numbered items are positively worded and even-numbered items are negatively worded. Scoring subtracts one from each positive item and five from each negative item, sums the results, and multiplies by 2.5 to yield a score from 0 to 100 (Lim et al., 2025). Responses above 68 are taken to indicate good usability (Lim et al., 2025).
+
+<!-- CITATION WINDOW EXCEPTION — approved by the researchers, flagged here rather
+     than buried in a reference list. The group accepts 2023 or later for scholarly
+     literature, with exceptions for datasets, government and regulatory reports,
+     standards and laws, and the originating publication of a measurement
+     instrument. Brooke (1996) is cited under the last of these: it defines the
+     instrument rather than supplying a literature finding, and the SUS has no
+     later origin. The substantive properties above are carried by Lim et al.
+     (2025), which is in window. -->
+
+<!-- PENDING ACQUISITION: Lim et al. (2025) — 10.1186/s44247-025-00150-y
+     PENDING ACQUISITION: Brooke (1996), "SUS: A quick and dirty usability scale",
+     in Usability Evaluation in Industry (pp. 189-194), Taylor & Francis. Confirm
+     the exact pagination and publisher against the group's copy before finalising. -->
+
+The SUS will be administered to target users following interaction with BUDGIE, providing quantitative assessment of usability. Its use in mobile health applications is well established, and a systematic review of 40 studies found it to be the most frequently applied existing instrument among questionnaire-based mobile health evaluations, ahead of the MAUQ, PSSUQ, and USE (Lim et al., 2025).
 
 Functional suitability assessment verifies that BUDGIE provides functions that meet stated and implied needs, encompassing functional completeness, correctness, and appropriateness. The evaluation includes verification that all required features operate correctly according to their defined requirements, with particular attention to critical financial computations and transaction processing.
 
@@ -307,9 +388,9 @@ Performance efficiency assessment measures BUDGIE's time behavior, resource util
 
 Reliability assessment measures BUDGIE's ability to perform required functions consistently and without failure. The evaluation includes availability measurement with a target of ≥99.5% successful responses, fault tolerance assessment with a target of <1% failed requests during recoverable faults, recoverability testing to verify return to baseline within 60 seconds after simulated failure, and data integrity verification with a target of zero duplicate or missing transactions.
 
-Security assessment measures BUDGIE's ability to protect data and resources against unauthorized access. The evaluation includes confidentiality testing to verify that 100% of protected endpoints reject requests without valid authentication, and authenticity testing to verify that invalid credentials result in 401/403 responses.
+Security assessment measures BUDGIE's ability to protect data and resources against unauthorized access. The evaluation includes confidentiality testing to verify that 100% of protected endpoints reject requests without valid authentication, and authenticity testing to verify that invalid credentials result in 401/403 responses. The 2023 revision of the quality model adds resistance to a subcharacteristic of security, which is the closest analogue to the authentication and confidentiality measures described here (International Organization for Standardization, 2023).
 
-Portability assessment measures BUDGIE's ability to be installed and executed in supported environments. The evaluation includes installability testing to verify successful clean installation, adaptability testing to verify configuration through environment variables, and build success rate measurement.
+Portability assessment measures BUDGIE's ability to be installed and executed in supported environments. The evaluation includes installability testing to verify successful clean installation, adaptability testing to verify configuration through environment variables, and build success rate measurement. Under ISO/IEC 25010:2023 these measures correspond to subcharacteristics 3.8.1 adaptability and 3.8.3 installability under flexibility, not to a characteristic named portability; the terminology is retained above for continuity with the fielded instrument.
 
 ### Model Performance Evaluation
 
@@ -325,11 +406,13 @@ The IQR detector is evaluated using accuracy, precision, recall, and F1-score. T
 
 ## Synthesis
 
-The reviewed literature establishes that personal financial management is a critical capability for individual financial well-being, with particular relevance in developing economies where household financial vulnerability is pronounced. Empirical findings confirm that Filipinos face persistent challenges in savings and debt management, compounded by economic pressures and limited access to professional financial advice. Traditional approaches to financial management, including manual budgeting and generic expense tracking applications, fail to address the complex, interconnected nature of savings and debt challenges or to account for Philippine-specific factors such as seasonal consumption patterns.
+The reviewed literature establishes that personal financial management is a critical capability for individual financial well-being, with particular relevance in developing economies where household financial vulnerability is pronounced. A systematic review of financial planning behaviour links planning activity to subsequent financial outcomes and proposes theory on the mechanisms connecting planning to well-being (Yeo et al., 2023), while a review of financial literacy and behavioural finance across global and developing-economy contexts finds consistent associations between financial capability and saving and debt behaviour (Cumaio et al., 2026). Empirical findings confirm that Filipinos face persistent challenges in savings and debt management, compounded by economic pressures and limited access to professional financial advice. Studies of wage earners document the effect of digital lending on debt management (Esperanza, 2025), and an analysis of salary loan dependency among local government employees identifies the institutional and literacy factors that entrench borrowing dependence (Francisco et al., 2026). Comparable local work identifies the regressors of financial well-being among Filipino employees (Claro et al., 2025).
 
-Within this context, computational approaches including time-series forecasting, rule-based classification, mathematical optimization, and statistical anomaly detection form an integrated framework for personalized financial management. SARIMA modeling captures seasonal patterns in expense data, enabling forecasts that account for predictable fluctuations in spending. Rule-based classification assigns financial profiles that inform differentiated intervention strategies. Linear programming optimizes budget allocation under constraints, generating schedules that maximize savings and debt progress. IQR detection identifies unusual expenses that may require attention. The integration of these techniques creates synergistic benefits that exceed the capabilities of individual approaches.
+Traditional approaches to financial management, including manual budgeting and generic expense tracking applications, fail to address the complex, interconnected nature of savings and debt challenges or to account for Philippine-specific factors such as seasonal consumption patterns. Comparative evaluation of budgeting applications finds that applications support expense tracking substantially better than they support budgeting, which isolates tracking-versus-planning as a specific and generalizable deficiency of the dominant application category (Alenazi & Sas, 2023). Reviews of budgeting behaviour reach the complementary conclusion that the value of a budgeting tool lies in its integration with other financial practices rather than in tracking alone (Yoganandham, 2025).
 
-Existing personal financial management applications have achieved significant adoption but exhibit limitations in their support for savings and debt outcomes. Most applications prioritize generic expense tracking over personalized financial planning, lacking the analytical sophistication required to optimize allocation across competing goals under constraints. The literature reveals a gap between the capabilities of existing systems and the needs of users seeking to improve their financial outcomes through systematic planning and disciplined execution.
+Within this context, computational approaches including time-series forecasting, rule-based classification, mathematical optimization, and statistical anomaly detection form an integrated framework for personalized financial management. SARIMA modeling captures seasonal patterns in expense data, enabling forecasts that account for predictable fluctuations in spending. Rule-based classification assigns financial profiles that inform differentiated intervention strategies, and income-level classification work demonstrates that financial-behaviour features carry usable signal for stratification (Laspiñas & Murcia, 2024). Linear programming optimizes budget allocation under constraints, generating schedules that maximize savings and debt progress; multi-criteria budget allocation models and constrained data-driven budgeting frameworks both demonstrate that allocation quality depends on how competing objectives are formalized rather than on the solver alone (Gulbakyt et al., 2025; Lu et al., 2025). IQR detection identifies unusual expenses that may require attention, and recent work on adaptive detection thresholds addresses the central weakness of fixed-threshold approaches, namely that data quality problems shift the distribution that thresholds are set against (Huang et al., 2025; Zhong, 2025). The integration of these techniques creates synergistic benefits that exceed the capabilities of individual approaches.
+
+Existing personal financial management applications have achieved significant adoption but exhibit limitations in their support for savings and debt outcomes. Most applications prioritize generic expense tracking over personalized financial planning, lacking the analytical sophistication required to optimize allocation across competing goals under constraints. Reviews of machine learning for personal finance management systems find that individual techniques are well established but are typically evaluated in isolation against single objectives (D'Souza et al., 2026), and work integrating individual and cooperative budgeting models with language-model recommendations confirms that automated planning is an active area with unresolved issues around constraint adherence (de Zarzà et al., 2024). The literature reveals a gap between the capabilities of existing systems and the needs of users seeking to improve their financial outcomes through systematic planning and disciplined execution.
 
 The identified research gap is the lack of an integrated personal financial management system that incorporates Philippine seasonal consumption patterns into personalized expense forecasting and applies these forecasts to generate personalized budgets, savings contribution schedules, and debt repayment plans under financial constraints. While individual techniques have been validated in isolation or in different contexts, limited attention has been given to their integrated deployment within a single platform designed specifically for Filipino users. This gap is addressed by the proposed study through the development and evaluation of BUDGIE, a seasonality-aware savings-debt plan pipeline that combines profile classification, seasonal expense forecasting, budget optimization, and unusual expense detection to support improved financial planning among Filipinos aged 18 to 59 in the National Capital Region.
 
@@ -349,14 +432,42 @@ The Process component describes the activities involved in developing BUDGIE, in
 
 The Output component represents the primary deliverable of the study, which is the Development of BUDGIE as a personal financial management application that uses SARIMA-based seasonal expense forecasting for improved financial planning.
 
-The Evaluation component describes the assessment activities that verify the quality and effectiveness of BUDGIE. Software quality evaluation employs ISO/IEC 25010:2023 and the System Usability Scale. Model performance evaluation assesses each algorithm using appropriate metrics. System performance evaluation measures savings rate, savings goal progress, alert frequency, debt progress, and plan adherence.
+The Evaluation component describes the assessment activities that verify the quality and effectiveness of BUDGIE. Software quality evaluation employs the ISO/IEC 25010:2023 quality model (International Organization for Standardization, 2023) and the System Usability Scale (Lim et al., 2025). Model performance evaluation assesses each algorithm using appropriate metrics. System performance evaluation measures savings rate, savings goal progress, alert frequency, debt progress, and plan adherence.
+
+<!-- NO CITATION REQUIRED: the Input, Process, and Output components above describe the
+     research group's own system design and are not claims about prior work. The
+     Evaluation component is the only part of this model that rests on external
+     sources, and those are cited. Deliberately not padded with citations. -->
 
 ## Outstanding Source Requests
 
-The following sources are cited in this chapter but are not yet in the RRL corpus. Each
-`SOURCE NEEDED` marker in the text names the passage that depends on it. All three are real,
-locatable works; each still has to be acquired, ingested into BUDI-Literature, and re-cited from
-its verified metadata rather than from this provisional entry.
+Two kinds of dependency are recorded here, and they are not the same thing. A **PENDING
+ACQUISITION** source is a paper whose metadata has been verified against the publisher and which
+is cited normally in the body; it simply is not in the corpus yet, and the researcher has to
+download it. A **SOURCE NEEDED** marker means no verified source exists yet, so the claim it
+attaches to is currently unsourced. Markers appear inline at the point of dependency.
+
+### Pending acquisition — verified, not yet in the corpus
+
+| Cited as | Section | Resolution |
+| --- | --- | --- |
+| Alqudah and Razali (2024) | Agile Kanban | *International Journal of Agile Systems and Management, 17*(2), 201-220. https://doi.org/10.1504/IJASM.2024.137890 |
+| Sathe and Panse (2023) | Agile Kanban | *Brazilian Journal of Operations & Production Management, 20*(3), 1796. https://doi.org/10.14488/BJOPM.1796.2023 |
+| Shaout et al. (2025) | Agile Kanban | *Journal of Computer Sciences and Informatics, 2*(2), 131-147. https://doi.org/10.5455/JCSI.20250322020941 |
+| Huss et al. (2023) | Agile Development Lifecycle | *Software, 2*(3), 310-331. https://doi.org/10.3390/software2030015 — **unverified**, see below |
+| International Organization for Standardization (2023) | Software Quality Evaluation | ISO/IEC 25010:2023, 4th ed. Paywalled; obtain via the group library or IEEE. |
+| Ariningsih and Muhammad (2024) | Software Quality Evaluation | *Intechno Journal: Information Technology Journal, 6*(2). https://doi.org/10.24076/intechnojournal.2024v6i2.1870 |
+| Lianto et al. (2023) | Software Quality Evaluation | *KONSTELASI, 3*(1). No DOI located. Title is in Indonesian; supply an English translation if the panel requires it. |
+| Lim et al. (2025) | Software Quality Evaluation | *BMC Digital Health, 3*(11). https://doi.org/10.1186/s44247-025-00150-y |
+| Brooke (1996) | Software Quality Evaluation | "SUS: A quick and dirty usability scale," in *Usability Evaluation in Industry* (pp. 189-194), Taylor & Francis. Confirm pagination and publisher against the group's copy. |
+
+Huss et al. (2023) is the one entry here that is **not** publisher-verified. Its metadata came from
+a citing bibliography rather than from MDPI, so the authors, title, journal, volume, issue, and
+pagination all still need confirming at the publisher. The Agile section rests on Alqudah and
+Razali, Sathe and Panse, and Shaout et al., all of which are verified, so the Huss sentence can
+be cut without weakening the section if the check fails.
+
+### Source needed — no verified source yet
 
 | Cited as | Status | Resolution |
 | --- | --- | --- |
@@ -367,17 +478,47 @@ its verified metadata rather than from this provisional entry.
 Dasmariñas et al. is the priority. It is the single load-bearing source for the seasonal
 forecasting argument and is cited seven times, which leaves the SARIMA section of this chapter
 resting on one paper. The adviser's standard for a core algorithm is six to seven sources, so the
-SARIMA section needs corroboration beyond this paper regardless of the intake decision.
+SARIMA section needs corroboration beyond this paper regardless of the intake decision. None of
+the three has been added to the reference list, because doing so would assert metadata the
+project has not confirmed.
 
 Two further dependencies are not academic citations and do not need sourcing, but are listed so
 the evidence map stays complete: the PSA FIES and HFCE datasets, and the group's own PUEPS
 instrument.
 
+### Unresolved conflicts recorded during this pass
+
+These are not sourcing problems and will not be fixed by acquiring papers. They need a decision
+from the panel.
+
+1. **The six ISO characteristics are 2011-vocabulary, not 2023-vocabulary.** ISO/IEC 25010:2023
+   replaced usability with interaction capability and portability with flexibility, and added
+   safety, giving nine characteristics. The list retained in this chapter cannot be attributed to
+   the 2023 standard as written. Full detail in the conflict block under Software Quality
+   Evaluation.
+2. **The SUS belongs to the quality-in-use model, not the product quality model.** The 2023
+   standard states that interaction capability is a prerequisite for usability rather than a
+   substitute for it, so the product model is not the correct citation for a SUS-based score.
+3. **The fielded instrument contradicts this chapter.** The ISO 25010 questionnaire on Drive uses
+   five characteristics, substitutes maintainability for portability, and scores SUS items 1-4.
+   This chapter uses six and SUS 1-5. Chapter 1's scope section is also inconsistent. All three
+   must be reconciled before the instrument is fielded.
+
 ## References
 
 Alenazi, M., & Sas, C. (2023). Evaluating budgeting apps: Limited support for budgeting compared to tracking. In *Proceedings of the British Computer Society HCI International Conference (BCSHCI 2023)* (pp. 1-12). British Computer Society. https://doi.org/10.14236/ewic/BCSHCI2023.1
 
+Alqudah, M., & Razali, R. (2024). Key factors for adopting Kanban in software development: An empirical study. *International Journal of Agile Systems and Management, 17*(2), 201-220. https://doi.org/10.1504/IJASM.2024.137890
+
+Ariningsih, P., & Muhammad, A. H. (2024). Quality evaluation of ticketing management system using ISO/IEC 25010:2023 standards and AHP method. *Intechno Journal: Information Technology Journal, 6*(2). https://doi.org/10.24076/intechnojournal.2024v6i2.1870
+
 Bangko Sentral ng Pilipinas. (2026). *Consumer expectations survey report: 2nd quarter 2026*. Monetary and Economics Sector, Department of Economic Statistics.
+
+Brooke, J. (1996). SUS: A "quick and dirty" usability scale. In P. W. Jordan, B. A. Weerdmeester, B. Thomas, & I. L. McClelland (Eds.), *Usability evaluation in industry* (pp. 189-194). Taylor & Francis.
+
+<!-- CITATION WINDOW EXCEPTION: 1996, cited under the approved instrument-origin
+     exception. Defines the SUS; the substantive properties are carried by Lim et al.
+     (2025). Flagged at the point of citation in Software Quality Evaluation. -->
 
 Claro, D. M. L., & Noval, J. E. G. (2025). The regressors of financial well-being among LGU employees in Davao del Norte. *ISRG Journal of Economics, Business and Management, 3*(6).
 
@@ -397,7 +538,26 @@ Gulbakyt, S., Almaz, A., Saule, S., & Suhrab, Y. (2025). Dynamic model for budge
 
 Huang, A., Zhang, X., Wang, Y., Tsai, S., Zhou, P., & Chen, L. (2025). Dynamic calibration of decision thresholds for financial anomaly detection: Verification with payment platform information and data. *Journal of Global Information Management, 33*(1), 1-26. https://doi.org/10.4018/JGIM.395852
 
+Huss, M., Herber, D. R., & Borky, J. M. (2023). Comparing measured Agile software development metrics using an Agile model-based software engineering approach versus Scrum only. *Software, 2*(3), 310-331. https://doi.org/10.3390/software2030015
+
+<!-- UNVERIFIED: taken from a citing bibliography, not the publisher. Confirm the
+     authors, title, journal, volume, issue, and pagination at the MDPI page before
+     this reference is treated as final. The Agile section stands without it. -->
+
+International Organization for Standardization. (2023). *Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Product quality model* (ISO/IEC 25010:2023, 4th ed.).
+
+<!-- STANDARD, admitted under the citation-window exception. Note that the
+     characteristic names used in this chapter are 2011-vocabulary, not the
+     2023-vocabulary; see the conflict block in Software Quality Evaluation. -->
+
 Laspiñas, E. L., & Murcia, J. V. B. (2024). Machine learning approaches in classifying income levels. *TWIST, 19*(2), 92-97. https://doi.org/10.5281/zenodo.10049652#134
+
+Lianto, M. E., Primasari, C. H., Marsella, E., Wibisono, Y. P., & Cininta, M. (2023). Evaluasi functional suitability, performance efficiency, usability, dan portability berdasarkan ISO 25010 pada aplikasi VR Gamelan Slenthem. *KONSTELASI: Konvergensi Teknologi dan Sistem Informasi, 3*(1).
+
+<!-- No DOI located. Title retained in the original Indonesian; provide an English
+     translation in the final paper if the panel requires it. -->
+
+Lim, P. C., Lim, Y. L., Rajah, R., & Zainal, H. (2025). Usability questionnaire for standalone or interactive mobile health applications: A systematic review. *BMC Digital Health, 3*(11). https://doi.org/10.1186/s44247-025-00150-y
 
 Lu, Y., Zhou, H., & Zhang, Y. (2025). A constrained, data-driven budgeting framework integrating macro demand forecasting and marketing response modeling. *Journal of Technology Informatics and Engineering, 4*(3), 493-520. https://doi.org/10.51903/jtie.v4i3.466
 
@@ -406,6 +566,10 @@ Philippine Statistics Authority. (2023). *Family income and expenditure survey 2
 Philippine Statistics Authority. (2026). *Household final consumption expenditure, 2022-2026 quarter 2*. PSA.
 
 Santiago, R. L. T., Villarica, M. V., & Bernardino, M. P. (2025). Budget and financial management information system for public elementary schools: Analytics and predictive insights for MOOE allocation using linear regression. *International Journal of Advanced Research in Computer Science, 16*(3), 128-137. http://dx.doi.org/10.26483/ijarcs.v16i3.7256
+
+Sathe, C. A., & Panse, C. (2023). An empirical study on impact of project management constraints in Agile software development: Multigroup analysis between Scrum and Kanban. *Brazilian Journal of Operations & Production Management, 20*(3), 1796. https://doi.org/10.14488/BJOPM.1796.2023
+
+Shaout, A., Parker, B., Westerbeek, J., & Swaminathan, S. S. (2025). KanScrum: A Kanban + Scrum hybrid methodology. *Journal of Computer Sciences and Informatics, 2*(2), 131-147. https://doi.org/10.5455/JCSI.20250322020941
 
 Yeo, K. H. K., Lim, W. M., & Yii, K.-J. (2023). Financial planning behaviour: A systematic literature review and new theory development. *Journal of Financial Services Marketing, 29*, 979-1001. https://doi.org/10.1057/s41264-023-00249-1
 
