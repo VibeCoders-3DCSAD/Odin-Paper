@@ -1,6 +1,6 @@
 # BUDI-Base
 
-Knowledge base for the thesis **"Development of BUDI: A Personalized Intelligent Finance Management Application for Filipinos Using Classification, Forecasting, Optimization, and Anomaly Detection Models for Improving Savings and Debt"** by Group 4, III-DCSAD, University of Makati.
+Knowledge base for the thesis **"Development of BUDGIE: A Personal Financial Management App Using SARIMA to Improve Financial Planning"** by Group 4, III-DCSAD, University of Makati. The project was named BUDI, then TAYA; Topical Outline V4 (09.26) and Chapter 2 V3 (09.26) use **BUDGIE**.
 
 ## Purpose
 
