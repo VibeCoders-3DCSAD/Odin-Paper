@@ -4,13 +4,14 @@ Audit companion to `chapter-1.md` (**Finalized V5**). Purpose: let the adviser a
 
 ## Policy
 
-- Citation pool is **only** the curated intake in `Odin-Literature/literature/papers/` (PDFs) plus the study's own PUEPS instrument.
+- Citation pool is **only** the curated intake in `BUDI-Literature/literature/papers/` (PDFs) plus the study's own PUEPS instrument.
 - APA 7th edition.
 - **No-stretch rule:** a claim is cited only if the source directly supports it. Claims without direct support remain uncited and are flagged with `<!-- VERIFY: ... -->`.
 - **Versioning (team decision):** repo drafts that follow the Drive V5 file are numbered **5.x** (this is 5.0, the finalized revision); Drafts 4.1–4.3 were the candidate-open rewrites of the Drive V4 file. Draft 4.1 was the former V5 (committed `a179f9a`); Draft 4.2 was the former V6; Draft 4.3 (reconciled against the refreshed V4 docx, 2026-09-14) was the last revision that listed candidate algorithms with final selection deferred to Specific Objective 4. This audit covers Finalized V5.
 - **V5 (final, 2026-09-21) is reconciled against two documents re-fetched from Drive the same day:** `GROUP4 - CHAPTER 1 - V5 - 09.19.26.docx` (Drives's V5, whose inline comments this draft resolves) and `GROUP4 - TECHNICAL SPECIFICATION - V1 - 09.20.2026.docx` (the authoritative scope snapshot: users **18–59 in the NCR**, single-user Android app, offline-first core + server-side intelligent modules, one selected algorithm per module).
+- **⚠️ 2026-09-24 supersession:** the Drive *Technical Specification V1 (09.24.2026)* replaces the 09.20 scope this V5 was reconciled against — project renamed **TAYA**, profile classification is **rule-based** (SVM/PFP no longer the named model), and forecasting is SARIMA with FIES 2023 + HFCE 2022 Q1–2026 Q2 temporal disaggregation. Every claim pinned to the 09.20 spec (SVM, budget-optimizer naming, data sources) must be re-verified against 09.24 before this map is used as the current audit.
 - **Team decisions (2026-09-21) reflected in this draft:** (1) the paper **names the selected models** — SVM profile classification, SARIMA forecasting, LP-based budgeting, IQR anomaly detection — and no longer presents candidate-algorithm comparisons or any "best performing" framing (resolves the V5 inline comments on the algorithm paragraph, SO2, and the technical scope); (2) the V5 cover title's "Rule-Based Classification" is treated as a stale leftover — SVM is restored per V5 SO4, the tech-spec models table, and the trained `tier3_svm.joblib` artifact; (3) **single-user mobile application** — no admin, system-admin, or web-management roles (carried from Drafts 4.x); (4) target band is **18–59 living or working in the NCR** (revised from 20–40, resolving the V5 "(check if the report is still applicable for individuals aged 18-59)" comment); (5) the savings-and-obligations sentence in II-P3 no longer relies on third parties to justify the outcome link ("(how exactly?)" resolved by anchoring to the PUEPS savings-allocation findings).
-- **New citations** (classification → optimization → anomaly) come from the Odin-Literature batch-7 intake (2026-09-07); those sources are mid-migration and exist only as `_marked.md` conversions for now (see source key notes).
+- **New citations** (classification → optimization → anomaly) come from the BUDI-Literature batch-7 intake (2026-09-07); those sources are mid-migration and exist only as `_marked.md` conversions for now (see source key notes).
 - **Structure benchmark:** section order, heading navigation, and prose discipline follow the reference thesis `formats-templates/chapter-1/Reference Thesis (Group 10).docx` (Ch. I: Introduction → Project Context → Purpose and Description → General Objectives → Specific Objectives → Scope and Limitations → Definition of Terms).
 
 ## Source key (curated intake)
@@ -43,7 +44,7 @@ Audit companion to `chapter-1.md` (**Finalized V5**). Purpose: let the adviser a
 | Zhong, 2025 | `A--Zhong-2025_marked.md` † | University of Chicago MS thesis, 2025 |
 | PUEPS, 2026 | (own instrument) `docs/assessment-evaluation/survey/PUEPS-findings.md` + `PUEPS-responses.csv` | 2026 |
 
-> † **Batch-7 intake (2026-09-07).** Mid-migration: only the `Odin-Literature/literature/conversions/*_marked.md` conversions exist yet; each PDF lands in `Odin-Literature/literature/papers/` when the scoring-migration finishes.
+> † **Batch-7 intake (2026-09-07).** Mid-migration: only the `BUDI-Literature/literature/conversions/*_marked.md` conversions exist yet; each PDF lands in `BUDI-Literature/literature/papers/` when the scoring-migration finishes.
 
 Not cited from the intake (kept out per the no-stretch rule): `Andresen et al., 2025.pdf` (household pooling), `Rane et al., 2024.pdf` (AI acceptance), and batch-7 `A--Sappa-2024`, `A--ZhangHou-2026`, `I--Awaluddin-2023` (portfolio optimization, financial-agent studies, cost-of-living analysis). None has a claim in the current draft that it directly supports; re-evaluate later if a fitting claim emerges.
 
@@ -159,14 +160,14 @@ Raw `PUEPS-responses.csv` (47 rows) recomputed for every figure quoted in Chapte
 ## Open items for the team
 
 1. **BSP digital-finance uptake** for the 18–59 justification (II-P1, `#8`) — pull the specific figure from the cited BSP CES/CFS report or soften the claim.
-2. **PSA FIES / PSADA & household financial characteristics** — add verified references: **PSA FIES**, **PSA HFCI/HFCE (confirm exact dataset name — Drive and tech spec alternate between "HFCI" and "HFCE" — plus year and version)**, and **BSP CFIS/CFS** are **not yet indexed** in `Odin-Literature/literature/papers/`; each body claim carries a `<!-- VERIFY -->` marker until the reference lands (`#22`, SO3).
+2. **PSA FIES / PSADA & household financial characteristics** — add verified references: **PSA FIES**, **PSA HFCI/HFCE (confirm exact dataset name — Drive and tech spec alternate between "HFCI" and "HFCE" — plus year and version)**, and **BSP CFIS/CFS** are **not yet indexed** in `BUDI-Literature/literature/papers/`; each body claim carries a `<!-- VERIFY -->` marker until the reference lands (`#22`, SO3).
 3. **SDG wording** — confirm the SDG 1/8 alignment phrasing against the UN framework (`#18`).
 4. **Generalization flag `#11`** — the debt→stress mechanism cites Danahy et al. (college-student context); decide whether a qualifying clause suffices or a stronger source is needed.
 5. **Andresen et al. (2025)**, **Rane et al. (2024)**, and batch-7 **Sappa (2024)**, **Zhang & Hou (2026)**, **Awaluddin (2023)** remain in the intake uncited; confirm they are reserved for Chapters 2–3.
 6. **Locale framing** — team decision keeps NCR + purposive sampling; keep the Drive doc and this chapter consistent when the adviser re-checks.
 7. **Salvador (2024) venue** (`#16`) — cited as a research manuscript; confirm the final venue (or reclassify) before submission.
 8. **Drive copy refresh (V5)** — the Drive `V5` docx and the `09.20` tech spec were re-fetched 2026-09-21 to write this draft; the Drive docx should be updated from this finalized draft so the source of truth matches (V5 cover title still says "Rule-Based Classification"; keep SVM as in V5 SO4 / the tech-spec models table).
-9. **Batch-7 migration** — the 9 new citations (source key) exist only as `_marked.md` conversions; confirm each PDF lands in `Odin-Literature/literature/papers/` so the citation pool completes.
+9. **Batch-7 migration** — the 9 new citations (source key) exist only as `_marked.md` conversions; confirm each PDF lands in `BUDI-Literature/literature/papers/` so the citation pool completes.
 10. **Profile label taxonomy & ground truth** (SO4.1) — finalize the profile label set and its supervised ground-truth scheme in the ML modeling phase; the FIES/BSP household-level sources do not provide individual-level profile labels as-is.
 11. **Anomaly ground truth** (SO4.4) — define the labeled-anomaly scheme (e.g., synthetic labels or rule-based flags) that backs the precision/recall metrics.
 12. **"Sufficient data" threshold** — quantify the minimum transaction history (periods/categories) that activates forecasting and anomaly baselines, resolving the cold-start behavior.
