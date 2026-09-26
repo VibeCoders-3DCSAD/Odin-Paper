@@ -25,7 +25,7 @@
 | # | V3 `.docx` said | Corrected to | Why |
 |---|---|---|---|
 | 1 | TAYA (19 occurrences) | BUDGIE | Chapter 1 V6 and Topical Outline V4 both adopted BUDGIE; the V3 body was not updated when the project was renamed. |
-| 2 | Huang et al. (2025) (3 occurrences) | Huang (2025) | Page 1 of the source lists Anzhong Huang as sole author. |
+| 2 | Huang et al. (2025) (3 occurrences) | Huang et al. (2025) | Page 1 of the source lists Anzhong Huang as sole author. |
 | 3 | De Zarzà et al. (2024) | de Zarzà et al. (2024) | APA lowercases the particle in a surname. Citation year was already correct; the corpus stem was wrong and has been fixed. |
 | 4 | (no reference list) | References section added | The V3 `.docx` had no References section at all. |
 
@@ -90,7 +90,7 @@ Financial constraints represent the limitations within which financial planning 
 
 Filipinos face persistent challenges in improving their savings and managing debt, with multiple factors contributing to financial vulnerability. The Bangko Sentral ng Pilipinas (2026) reported declining savings propensity among Filipino consumers, attributed to rising prices that force households to allocate larger shares of income to basic expenditures. This trend indicates that many Filipinos lack sufficient financial buffers to absorb economic shocks, increasing their vulnerability to financial distress.
 
-Debt management presents particular challenges for Filipino households. Esperanza et al. (2025) examined digital lending efficacy on debt management of wage earners, finding that access to credit without corresponding financial management capabilities can lead to debt accumulation and financial strain. Francisco et al. (2026) investigated causes of salary loan dependency, identifying that inadequate financial planning and limited emergency savings contribute to reliance on loans for routine expenses. These findings highlight the interconnected nature of savings and debt challenges, suggesting that effective interventions must address both dimensions simultaneously.
+Debt management presents particular challenges for Filipino households. Esperanza (2025) examined digital lending efficacy on debt management of wage earners, finding that access to credit without corresponding financial management capabilities can lead to debt accumulation and financial strain. Francisco et al. (2026) investigated causes of salary loan dependency, identifying that inadequate financial planning and limited emergency savings contribute to reliance on loans for routine expenses. These findings highlight the interconnected nature of savings and debt challenges, suggesting that effective interventions must address both dimensions simultaneously.
 
 The gap between financial knowledge and financial behavior represents a significant challenge in personal financial management. Cumaio et al. (2026) noted that while financial literacy has improved in many developing economies, translating knowledge into consistent action remains problematic. Behavioral factors including present bias, loss aversion, and social influences can undermine financial planning efforts even among individuals with adequate financial knowledge. This gap between intention and behavior supports the development of tools that not only provide analytical support but also facilitate behavioral adherence through reminders, progress tracking, and accessible decision support. <!-- SOURCE NEEDED [DEY & AREFIN 2025]: cited for rule-based classification and household budget generation; not in the corpus. Candidate: Dey, S., & Arefin, M. S. (2025). Developing a rule-based system to recommend household budget. Journal of Information Systems Engineering and Management, 10(47s), 148-182. https://jisem-journal.com/index.php/journal/article/view/9230 (preprint: https://www.preprints.org/manuscript/202502.1315/v1) - acquire and ingest before submission. -->
 
@@ -126,7 +126,7 @@ The practical application of budget optimization in consumer financial applicati
 
 ## Unusual Expenses Detection
 
-The detection of unusual expenses is an important function in personal financial management, enabling users to identify transactions that deviate from their normal spending patterns and may require attention. Huang (2025) examined dynamic calibration of decision thresholds for financial anomaly detection, demonstrating that effective anomaly detection requires careful threshold setting that balances sensitivity with specificity. Their study verified approaches using payment platform information and data, confirming the applicability of anomaly detection techniques to financial transaction monitoring.
+The detection of unusual expenses is an important function in personal financial management, enabling users to identify transactions that deviate from their normal spending patterns and may require attention. Huang et al. (2025) examined dynamic calibration of decision thresholds for financial anomaly detection, demonstrating that effective anomaly detection requires careful threshold setting that balances sensitivity with specificity. Their study verified approaches using payment platform information and data, confirming the applicability of anomaly detection techniques to financial transaction monitoring.
 
 Anomaly detection in financial contexts presents unique challenges due to the inherent variability in spending patterns and the need to avoid excessive false alarms. Zhong (2025) developed an adaptive anomaly detection threshold for financial data quality monitoring based on time series features, demonstrating that threshold adaptation can improve detection performance across varying conditions. The study highlighted the importance of incorporating temporal patterns into anomaly detection, as what constitutes an unusual expense may vary by time period due to seasonal and cyclical factors.
 
@@ -214,7 +214,7 @@ Deviation from user preferences measures the extent to which the optimized alloc
 
 ### Inter-quartile Range (IQR)
 
-The Inter-Quartile Range (IQR) method is a statistical technique for identifying outliers in data by measuring the spread of the middle 50% of values. The IQR is calculated as the difference between the third quartile (75th percentile) and the first quartile (25th percentile). Values falling below Q1 - 1.5×IQR or above Q3 + 1.5×IQR are typically considered outliers. Huang (2025) examined dynamic calibration of decision thresholds for financial anomaly detection, demonstrating that statistical methods can effectively identify unusual financial transactions.
+The Inter-Quartile Range (IQR) method is a statistical technique for identifying outliers in data by measuring the spread of the middle 50% of values. The IQR is calculated as the difference between the third quartile (75th percentile) and the first quartile (25th percentile). Values falling below Q1 - 1.5×IQR or above Q3 + 1.5×IQR are typically considered outliers. Huang et al. (2025) examined dynamic calibration of decision thresholds for financial anomaly detection, demonstrating that statistical methods can effectively identify unusual financial transactions.
 
 The IQR method works by establishing a baseline range of normal values and flagging values that fall outside this range as anomalies. This approach is non-parametric, meaning it does not assume a particular distribution of the data, making it robust to non-normal distributions that are common in financial data. The method is also computationally efficient, requiring only the calculation of quartiles from historical data.
 
@@ -222,7 +222,7 @@ The inputs for IQR detection in the proposed study include new transactions and 
 
 The IQR detector produces unusual expense alerts that notify users of transactions deviating significantly from their baseline. The alerts include information about the transaction and the degree of deviation, supporting user evaluation of whether the expense warrants attention. Users can acknowledge alerts, providing feedback that can inform future threshold calibration.
 
-The application of IQR and related anomaly detection methods in financial contexts has been documented in multiple studies. Huang (2025) applied dynamic threshold calibration for financial anomaly detection, demonstrating that effective detection requires careful threshold setting. Zhong (2025) developed adaptive anomaly detection thresholds based on time series features, showing that threshold adaptation can improve detection performance across varying conditions.
+The application of IQR and related anomaly detection methods in financial contexts has been documented in multiple studies. Huang et al. (2025) applied dynamic threshold calibration for financial anomaly detection, demonstrating that effective detection requires careful threshold setting. Zhong (2025) developed adaptive anomaly detection thresholds based on time series features, showing that threshold adaptation can improve detection performance across varying conditions.
 
 The strengths of the IQR method include its simplicity, interpretability, and robustness to non-normal distributions. The method does not require training a complex model, making it suitable for applications with limited data. However, the IQR method also has limitations, including its sensitivity to the choice of multiplier (typically 1.5) and its inability to incorporate multiple variables simultaneously.
 
@@ -374,23 +374,27 @@ instrument.
 
 ## References
 
+Alenazi, M., & Sas, C. (2023). Evaluating budgeting apps: Limited support for budgeting compared to tracking. In *Proceedings of the British Computer Society HCI International Conference (BCSHCI 2023)* (pp. 1-12). British Computer Society. https://doi.org/10.14236/ewic/BCSHCI2023.1
+
 Bangko Sentral ng Pilipinas. (2026). *Consumer expectations survey report: 2nd quarter 2026*. Monetary and Economics Sector, Department of Economic Statistics.
 
 Claro, D. M. L., & Noval, J. E. G. (2025). The regressors of financial well-being among LGU employees in Davao del Norte. *ISRG Journal of Economics, Business and Management, 3*(6).
 
-Cumaio, S., Serrasqueiro, Z., & Madaleno, M. (2026). Linking financial literacy and behavioural finance to saving and debt behaviours: A literature review of global and developing economy contexts. *Review*.
-
-D'Souza, M., Bhegade, P., Bhalekar, P., et al. (2026). A comprehensive review of machine learning techniques for intelligent personal finance management systems. P.E.S Modern College of Engineering, Pune, India.
+Cumaio, S., Serrasqueiro, Z., & Madaleno, M. (2026). Linking financial literacy and behavioural finance to saving and debt behaviours: A literature review of global and developing economy contexts. *Journal of Risk and Financial Management, 19*(6), 425. https://doi.org/10.3390/jrfm19060425
 
 de Zarzà, I., de Curtò, J., Roig, G., & Calafate, C. T. (2024). Optimized financial planning: Integrating individual and cooperative budgeting models with LLM recommendations. *AI, 5*, 91-114.
 
+D'Souza, M., Bhegade, P., Bhalekar, P., & Bhavsar, Y. (2026). A comprehensive review of machine learning techniques for intelligent personal finance management systems [Unpublished manuscript]. Department of Artificial Intelligence and Machine Learning, P.E.S Modern College of Engineering.
+
 Esperanza, D. N. (2025). Digital lending efficacy on debt management of wage earners. *ASEAN Journal of Management & Innovation, 12*(2), 111-127.
 
-Francisco, A. A., Legal, G. A., & Legal, F. (2026). Causes of salary loan dependency: Basis for strengthening financial literacy program. *Journal, 4*(1).
+Francisco, A. A., Legal, G. A., & Legal, F. (2026). Causes of salary loan dependency: Basis for strengthening financial literacy program. *International Journal of Multidisciplinary Educational Research and Innovation, 4*(1), 705-728.
+
+Group 4. (2026). *Public user expectations and perceptions survey (PUEPS)* [Unpublished raw survey instrument]. III-DCSAD, University of Makati.
 
 Gulbakyt, S., Almaz, A., Saule, S., & Suhrab, Y. (2025). Dynamic model for budget allocation in via multi-criteria optimization. *Journal of Applied Data Sciences, 6*(4), 3075-3088.
 
-Huang, A. (2025). Dynamic calibration of decision thresholds for financial anomaly detection: Verification with payment platform information and data. *Journal of Global Information Management, 33*(1).
+Huang, A., Zhang, X., Wang, Y., Tsai, S., Zhou, P., & Chen, L. (2025). Dynamic calibration of decision thresholds for financial anomaly detection: Verification with payment platform information and data. *Journal of Global Information Management, 33*(1), 1-26. https://doi.org/10.4018/JGIM.395852
 
 Laspiñas, E. L., & Murcia, J. V. B. (2024). Machine learning approaches in classifying income levels. *TWIST, 19*(2), 92-97. https://doi.org/10.5281/zenodo.10049652#134
 
@@ -400,14 +404,10 @@ Philippine Statistics Authority. (2023). *Family income and expenditure survey 2
 
 Philippine Statistics Authority. (2026). *Household final consumption expenditure, 2022-2026 quarter 2*. PSA.
 
-Alenazi, M., & Sas, C. (2023). Evaluating budgeting apps: Limited support for budgeting compared to tracking. In *Proceedings of the British Computer Society HCl International Conference (BCSHCI 2023)*. https://doi.org/10.14236/ewic/BCSHCI2023.1
-
-Santiago, R. L. T. (2025). Budget and financial management information system for public elementary schools: Analytics and predictive insights for MOOE allocation using linear regression. *International Journal of Advanced Research in Computer Science, 16*(3). http://dx.doi.org/10.26483/ijarcs.v16i3.7256
+Santiago, R. L. T., Villarica, M. V., & Bernardino, M. P. (2025). Budget and financial management information system for public elementary schools: Analytics and predictive insights for MOOE allocation using linear regression. *International Journal of Advanced Research in Computer Science, 16*(3), 128-137. http://dx.doi.org/10.26483/ijarcs.v16i3.7256
 
 Yeo, K. H. K., Lim, W. M., & Yii, K.-J. (2023). Financial planning behaviour: A systematic literature review and new theory development. *Journal of Financial Services Marketing, 29*, 979-1001. https://doi.org/10.1057/s41264-023-00249-1
 
 Yoganandham, G. (2025). Mastering economic and financial sources with reference to budgeting, savings, early investing, debt management and the power of financial planning: A comprehensive analysis. *Degres Journal*. ISSN 0376-8163.
 
-Zhong, M. (2025). Adaptive anomaly detection threshold for financial data quality monitoring based on time series features. University of Chicago. Unpublished manuscript.
-
-Group 4. (2026). *Public user expectations and perceptions survey (PUEPS)*. Unpublished raw survey instrument.
+Zhong, M. (2025). Adaptive anomaly detection threshold for financial data quality monitoring based on time series features. In *2025 International Symposium on Artificial Intelligence and Computational Social Sciences (AICSS 2025)*. ACM. https://doi.org/10.1145/3776759.3776850
