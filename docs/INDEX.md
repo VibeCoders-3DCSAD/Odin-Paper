@@ -1,19 +1,26 @@
 # BUDI-Base — Documentation Index
 
-- **Project:** Development of BUDI: A Personalized Intelligent Finance Management Application for Filipinos Using Classification, Forecasting, Optimization, and Anomaly Detection Models for Improving Savings and Debt
+- **Project:** Development of BUDGIE: A Personal Financial Management App Using SARIMA to Improve Financial Planning
 - **Institution:** University of Makati | Group 4, III-DCSAD
-- **Last indexed:** 2026-09-24
+- **Last indexed:** 2026-09-26
 
 ---
 
 > **Ground truth:** the authoritative versions of the thesis documents live in the Google Drive folder. Copies in this repository are working mirrors and may lag behind the Drive source — verify before citing.
 >
+> **Outline update (2026-09-26):** the project is now **BUDGIE** — "Development of
+> BUDGIE: A Personal Financial Management App Using SARIMA to Improve Financial Planning".
+> Topical Outline V4 and Chapter 2 V3 (both 09.26) use BUDGIE. V4 replaced the SVM
+> classifier with a rule-based one and dropped the savings/debt subtypes and TAM/UTAUT.
+> `TAYA`, named in the 09.24 technical specification, is superseded. Drive Chapter 1 V6
+> is only half-renamed and still says BUDI/SVM in its Scope and Limitations.
+>
 > **Spec update (2026-09-24):** the Drive *Technical Specification V1 (09.24.2026)* is
-> ground truth (mirror: `requirements-engineering/technical-specification.md`). The
-> 09.24 rewrite renames the project **TAYA** (acronym words still TBD) and states the
-> title algorithms natively (rule-based classifier, SARIMA with FIES 2023 + HFCE
-> 2022 Q1–2026 Q2 temporal disaggregation, LP/HiGHS solver, IQR detector), so the prior
-> "v2 methodology overrides" no longer apply. Implementation docs live in **BUDI-ML**.
+> still ground truth for system and module detail (mirror:
+> `requirements-engineering/technical-specification.md`). Its algorithm set still holds
+> (rule-based classifier, SARIMA with FIES 2023 + HFCE 2022 Q1–2026 Q2 temporal
+> disaggregation, LP/HiGHS solver, IQR detector); its project name does not.
+> Implementation docs live in **BUDI-ML**.
 
 ---
 
@@ -135,9 +142,9 @@ Study-level model documentation index. The **adopted new-scope methodologies** l
 | :--- | :--- |
 | `../thesis/paper/chapter-1.md` | Chapter 1 draft (Introduction), Finalized V5. |
 | `../thesis/paper/chapter-1-objectively-written.md` | Chapter 1 objective-register variant. |
-| `../thesis/paper/chapter-2.md` | Chapter 2 draft (RRL), Draft V2.0. |
+| `../thesis/paper/chapter-2.md` | Chapter 2 (RRL), **V3.0** — mirrors the 09.26 Drive V3 and covers all 26 Outline V4 leaves. |
 | `../thesis/paper/chapter-1-evidence-map.md` | Claim-by-claim citation audit for Chapter 1. |
-| `../thesis/paper/chapter-2-evidence-map.md` | Citation audit for Chapter 2. |
+| `../thesis/paper/chapter-2-evidence-map.md` | Citation audit of Chapter 2 V3 against the RRL corpus, with open items. |
 
 ---
 

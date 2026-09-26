@@ -1,22 +1,31 @@
 # BUDI-Base — Repository Index
 
-- **Project:** Development of BUDI: A Personalized Intelligent Finance Management Application for Filipinos Using Classification, Forecasting, Optimization, and Anomaly Detection Models for Improving Savings and Debt
+- **Project:** Development of BUDGIE: A Personal Financial Management App Using SARIMA to Improve Financial Planning
 - **Institution:** University of Makati | Group 4, III-DCSAD
-- **Last indexed:** 2026-09-24
+- **Last indexed:** 2026-09-26
 
 ---
 
 > **Ground truth:** the authoritative versions of the thesis documents live in the Google Drive folder. Copies in this repository are working mirrors and may lag behind the Drive source — verify before citing.
 >
+> **Outline update (2026-09-26):** the project identity is now **BUDGIE** — "Development
+> of BUDGIE: A Personal Financial Management App Using SARIMA to Improve Financial
+> Planning". Topical Outline V4 (09.26) and Chapter 2 V3 (09.26) both use BUDGIE and
+> agree with each other. V4 is a full rewrite: the savings/debt subtypes, TAM/UTAUT, and
+> the SVM classifier are gone, replaced by a **rule-based** saver/borrower classifier,
+> seasonal expense forecasting, budget creation by constraint optimization, and unusual
+> expense detection. `TAYA`, named in the 09.24 technical specification, is superseded.
+>
+> **Chapter 1 is only half-renamed.** Drive Chapter 1 V6 (09.24) carries BUDGIE on its
+> title page and introduction, but its Scope and Limitations still says BUDI and still
+> uses SVM. Do not treat it as settled on identity or algorithms.
+>
 > **Spec update (2026-09-24):** the Drive *Technical Specification V1 (09.24.2026)* is
-> the ground truth for project, paper, system, and models. Its canonical mirror is
-> `docs/requirements-engineering/technical-specification.md`. The 09.24 revision is a
-> substantial rewrite: the project identity is now **TAYA** ("Development of TAYA: A
-> Personal Financial Management App Using SARIMA-Based Seasonal Expense Forecasting…",
-> acronym words still TBD), built on FIES 2023 + HFCE 2022 Q1–2026 Q2 with a
-> rule-based classifier, SARIMA forecaster, LP (HiGHS) solver, and IQR detector around
-> a central **Financial Plan** artifact. The prior (09.20) "v2 methodology overrides"
-> no longer need to be applied — the title algorithms are stated natively.
+> still ground truth for system, module, and implementation detail. Its canonical mirror
+> is `docs/requirements-engineering/technical-specification.md`. The algorithm set it
+> states still holds (rule-based classifier, SARIMA forecaster on FIES 2023 + HFCE
+> 2022 Q1–2026 Q2, LP/HiGHS solver, IQR detector around a central **Financial Plan**
+> artifact); its project name does not.
 > Implementation docs live in **BUDI-ML** (`training/docs/model-methodologies/`,
 > `docs/models/`) and use legacy v2 naming that may lag this spec.
 
@@ -64,11 +73,11 @@ For everything under `docs/`, see **`docs/INDEX.md`** (authoritative for the doc
 | Layer | Source | Notes |
 | :--- | :--- | :--- |
 | Formal research proposal | `docs/archive/research-proposal/Research-Proposal.md` | Authoritative for RP2 framing, objectives, scope. |
-| Topical outline | `google-drive/topical-outline/GROUP4 - TOPICAL OUTLINE - V3 - 09.15.26.docx` | Drive mirror (gitignored). Authoritative thesis structure. |
-| Technical specification | `docs/requirements-engineering/technical-specification.md` | Ground truth (Drive mirror). Scope decisions, systems, models. |
+| Topical outline | `google-drive/topical-outline/GROUP4 - TOPICAL OUTLINE - V4 - 09.26.26.docx` | Drive mirror (gitignored). Authoritative thesis structure. |
+| Technical specification | `docs/requirements-engineering/technical-specification.md` | Ground truth for system/module detail (Drive mirror). Names the project TAYA, which V4 supersedes. |
 | Product requirements | `docs/requirements-engineering/product-requirements-document.md` | Full-app PRD with user stories and scope. |
 | Model methodologies | `BUDI-ML/training/docs/model-methodologies/` | Adopted new-scope designs; override spec algorithm column. |
-| Paper chapters | `thesis/paper/` | Drafts: `chapter-1.md`, `chapter-2.md`, plus evidence maps. |
+| Paper chapters | `thesis/paper/` | `chapter-1.md` (local mirror is V5; Drive V6 newer and half-renamed), `chapter-2.md` (**V3.0**, current), `chapter-2-evidence-map.md`. |
 | RRL corpus & scoring | **BUDI-Literature** | Conversions, summaries, scores, module config. |
 
 ---
@@ -82,7 +91,7 @@ For everything under `docs/`, see **`docs/INDEX.md`** (authoritative for the doc
 | Ground-truth technical/systems scope | `docs/requirements-engineering/technical-specification.md` |
 | Full app product requirements | `docs/requirements-engineering/product-requirements-document.md` |
 | Adopted model methodologies | **BUDI-ML** — `training/docs/model-methodologies/` and `docs/models/` |
-| Chapter drafts | `thesis/paper/` |
+| Chapter drafts | `thesis/paper/` (Chapter 2 is current at V3.0) |
 | List/search/download Drive files | `scripts/gdrive/README.md` |
 | RRL corpus and scoring | **BUDI-Literature** — `scores/index.json` / `scores/report.md` |
 | RRL processing workflow | **BUDI-Literature** — `docs/standards/rrl-workflow.md` |
