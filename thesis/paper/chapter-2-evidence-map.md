@@ -30,11 +30,19 @@ BUDI-Literature corpus. Counts: 15 resolved cleanly, 1 corrected, 3 **missing fr
 ## What this means
 
 **The 15 clean resolutions are not all equally solid.** Metadata in the sidecar is marked
-`verified` only where it was read off page 1 of the source PDF. Of the works this chapter leans
-on, the ones still marked unverified are those whose stem resolved but whose title and venue
-were never transcribed. They are cited in the chapter on the strength of the source filename
-alone, which is exactly the failure mode that produced the seven wrong stems fixed in
-BUDI-Literature. Closing those is the next metadata task.
+`verified` only where it was read off page 1 of the source PDF. As of 2026-09-26 that is 23 of
+the 91 entries; the other 68 carry conversion frontmatter only. Of the works this chapter leans
+on, the unverified ones are cited on the strength of the source filename alone, which is exactly
+the failure mode that produced the seven wrong stems fixed in BUDI-Literature. Closing the rest
+is the next metadata task.
+
+**Two of the entries marked `verified` were wrong**, so the mark cannot be trusted without
+reading the page. One was a false negative (Huang, six authors behind a two-column masthead, read
+as a sole author) and three were placeholders that had never actually been transcribed: Cumaio's
+venue was the literal string `"Review"`, Francisco's was `"Journal"`, and Zhong was recorded as an
+unpublished manuscript when it is an ACM conference paper with a DOI. All seven are fixed. The
+general lesson is in the correction log below: verify the author block visually, and do not treat
+a successful extraction as a successful verification.
 
 **Three sources do not exist in the corpus at all.**
 
