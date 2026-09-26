@@ -1,24 +1,29 @@
+---
+"document-type": "prd",
+"version": 0.1.0,
+"date": "2026.08.07",
+"authors": [
+  "Gabion, Stefanie S.",
+  "Guevarra, Joaquin Luis T.",
+  "San Jose, Alexa Joanne Paula G.",
+  "Togle, Charles Nathaniel B."
+]
+---
+
 # Products Requirement Document
 
-## Metadata
-
-```json
-{
-  "document-type": "prd",
-  "version": 0.1.0,
-  "date": "2026.08.07",
-  "authors": [
-    "Gabion, Stefanie S.",
-    "Guevarra, Joaquin Luis T.",
-    "San Jose, Alexa Joanne Paula G.",
-    "Togle, Charles Nathaniel B."
-  ]
-}
-```
+> **Scope note (2026-09-24):** the Drive *Technical Specification V1 (09.24.2026)*
+> supersedes the 09.20 version this PRD was aligned with. The 09.24 spec renames the
+> project **TAYA**, replaces SVM profile classification with a **rule-based** saver/
+> borrower classifier, and anchors forecasting on **FIES 2023 + HFCE 2022 Q1–2026 Q2
+> temporal disaggregation** with a central Financial Plan artifact. This PRD's target
+> population (Filipinos aged 18–59 living or working in NCR) is unchanged; algorithm
+> references above may lag the 09.24 spec. App implementation details (offline-first
+> sync, storage) are governed by the BUDI-App repo and intentionally unchanged here.
 
 ## Problem Statement
 
-Filipino working young adults need a personal finance management system that remains useful in the real conditions where they manage money: intermittent internet, variable income, fixed obligations, family support, culturally patterned expenses, debt pressure, and limited time for manual tracking.
+Filipinos aged 18 to 59 need a personal finance management system that remains useful in the real conditions where they manage money: intermittent internet, variable income, fixed obligations, family support, culturally patterned expenses, debt pressure, and limited time for manual tracking.
 
 Generic expense trackers help users record what already happened, but they do not adequately support Filipino budgeting behavior, protected obligations, financial behavioral profiling, forward-looking cash planning, offline transaction entry, local-first dashboards, or thesis-grade evaluation of intelligent finance modules.
 
@@ -31,7 +36,7 @@ The current implementation direction is offline-first. The app must not treat th
 
 ## Solution
 
-Build Odin as an Android-first personal finance management application for Filipino working young adults, with all offline-capable modules backed by local SQLite repositories and background synchronization.
+Build Odin as an Android-first personal finance management application for Filipinos aged 18 to 59 living or working in the National Capital Region, with all offline-capable modules backed by local SQLite repositories and background synchronization.
 
 The canonical implementation model is:
 
@@ -43,7 +48,7 @@ The UI reads from local SQLite and writes through feature repositories. Network 
 
 Odin remains a decision-support system, not a licensed financial adviser. It must explain outputs in plain language, keep users in control of final decisions, and avoid shame-based financial messaging.
 
-The app shall support general users, but the thesis target population and model-training target remain Filipino working young adults aged 20 to 40 who live or work in Metro Manila. During onboarding, Odin shall inform users that the app is a thesis project designed primarily for that target group, that all users may use the app, and that only qualifying target-user data will be used to train or improve AI models when consent allows it.
+The app shall support general users, but the thesis target population and model-training target remain Filipinos aged 18 to 59 who live or work in the National Capital Region. During onboarding, Odin shall inform users that the app is a thesis project designed primarily for that target group, that all users may use the app, and that only qualifying target-user data will be used to train or improve AI models when consent allows it.
 
 Android is the primary supported platform. iOS-specific development, testing, and distribution are out of scope unless a future requirement explicitly changes this. Web access may exist for development or wider-layout review flows, but mobile remains the primary product experience.
 
@@ -160,8 +165,8 @@ Confirmed primary product areas are:
 - Financial accounts, income sources, obligations, transactions, transaction templates, recurring records, budgets, savings goals, debt records, alert actions, notification preferences, and approved user feedback entities use user CRUD sync where included.
 - Dashboard and reports prefer local aggregate reads over server-only read endpoints.
 - Budget recommendation generation is online execution or server-side calculation, with cached results for offline display.
-- LSTM forecast generation and refresh are online execution, with cached forecast runs, series, points, explanations, and metadata for offline display.
-- Isolation Forest anomaly detection is online execution or server-derived output where applicable, with cached results for offline display.
+- Forecast generation (pooled SARIMA) and refresh are online execution, with cached forecast runs, series, points, explanations, and metadata for offline display.
+- Anomaly detection (dual-channel IQR) is online execution or server-derived output where applicable, with cached results for offline display.
 - User feedback, whitelist rules, expected-event suppression, and alert suppression rules may use user CRUD sync when approved by schema and ownership validation.
 - Savings and debt projection outputs are cached snapshots unless implemented as local calculations in a future validated design.
 - Savings goals and debt management are still under active consultation. The PRD records directional requirements, but final category standards and some algorithms require RRL, informal interviews, and SME validation.
@@ -208,7 +213,7 @@ Confirmed primary product areas are:
 - Help/problem reporting tests should cover local FAQ availability, required problem-report fields, online submission, offline network-required messaging, and no admin workflow.
 - Sync recovery tests should cover visible sync status, pending and failed counts, manual sync, exhausted failure sheet, friendly failure messages, pagination, discard confirmation, discarded-row retention, cleanup cutoff, and logout retry behavior.
 - Mobile UI tests should cover core workflows on narrow viewports: onboarding, transaction entry, dashboard, budgets, forecasts, alerts, savings, debt, reports, settings, and sync recovery.
-- Model evaluation remains separate from UI tests. Random Forest classification, LSTM forecasting, Isolation Forest anomaly detection, and Linear Programming recommendation quality should be measured with thesis-approved metrics and datasets.
+- Model evaluation remains separate from UI tests. Rule-based financial classification, SARIMA expense forecasting, dual-channel IQR anomaly detection, and hierarchical Linear Programming budget optimization quality should be measured with thesis-approved metrics and datasets.
 - Usability evaluation should use SUS for the complete user-facing app.
 - Software quality evaluation should map ISO 25010 characteristics to concrete behavior, including functional suitability, usability, reliability, performance efficiency, security, maintainability, and portability.
 
