@@ -1,348 +1,413 @@
-# Chapter 2: Review of Related Literature and Studies (Draft V2.0)
+# Chapter 2: Review of Related Literature and Studies (V3.0)
 
 > **Status of this draft**
 >
-> - Working mirror of `google-drive/chapter-2/GROUP4 - CHAPTER 2 - V2 - 09.15.26.docx`; supersedes the earlier V1.0 draft (`chapter-2.md` of 09-03 and `GROUP4 - CHAPTER 2 - V1 - 09.02.26.docx`).
-> - Structured per `formats-templates/chapter-2/Writing Chapter 2.docx` (official guideline) with reference to `formats-templates/Reference Thesis (Group 10).docx`.
-> - Incorporates Ma'am Era's inline comments on the V2 document: open each discussion with the study's own idea, direct every section to BUDI, combine savings and debt, name personalization explicitly, tie all data types to the system's inputs, rewrite the fragmented sentences, make the methodology BUDI-specific, and produce a full synthesis.
-> - Citation policy: APA 7th edition. Citations are placed only where a curated corpus source directly supports the claim; unverified or risky sources are marked with `<!-- VERIFY: ... -->`.
-> - Conceptual Model, Tables on Existing Literature, and Research Gaps — previously deferred — are now included.
+> - Working mirror of `google-drive/chapter-2/GROUP4 - CHAPTER 2 - V3 - 09.26.26.docx`, the
+>   newest Chapter 2 on Drive. Supersedes the V2.0 draft of 09.15.26.
+> - Scoped to `google-drive/topical-outline/GROUP4 - TOPICAL OUTLINE - V4 - 09.26.26.docx`.
+>   The V4 outline and this V3 chapter were revised together on 09.26: the document's own table
+>   of contents is the V4 leaf list, so the structure below already matches the current outline
+>   and needed no re-ordering.
+> - Project identity changed to **BUDGIE** in this revision, matching Chapter 1 V6
+>   (`GROUP4 - CHAPTER 1 - V6 - 09.24.26.docx`) and Topical Outline V4. The V3 `.docx` body
+>   still read **TAYA** in all 19 places; those are corrected here. See "Open items" below.
+> - **Citation audit applied.** Every author-date citation in the V3 body was resolved against
+>   the BUDI-Literature corpus (91 papers). 15 of 20 resolved cleanly, 1 was corrected, 3 are missing
+>   from the corpus and carry a `SOURCE NEEDED` marker.
+> - Citation policy: APA 7th edition. Nothing is cited from an unverified identity.
+> - Figure 1 (Conceptual Model) is a placeholder: the diagram lives in the `.docx` media folder
+>   and has not been exported to this repository.
 
 ---
 
-## Introduction
+## Corrections applied to the V3 body
 
-This chapter presents the literature and studies relevant to the development of BUDI, a personalized intelligent finance management application that combines Support Vector Machine (SVM) profile classification, Seasonal Autoregressive Integrated Moving Average (SARIMA) forecasting, linear programming (LP)-based budgeting, and interquartile-range (IQR) anomaly detection to improve Filipinos' savings and debt. The review examines the personal savings and debt behavior of the target user, the functions and intelligent features of existing finance management applications, the models, algorithms, and data used by such systems, the methodology for developing them, and the frameworks used to evaluate them.
-
-The discussion is organized thematically into five major areas that mirror the structure of the study's topical outline. First, the literature on personal savings and debt in the Philippines establishes what improved savings and debt look like for the typical Filipino user. Second, the literature on personalized intelligent finance management applications establishes the functions, forms, and intelligent capabilities expected of the proposed system. Third, the literature on system models and algorithms examines the classification, forecasting, optimization, and anomaly-detection approaches that support each of BUDI's modules, together with the data they require. Fourth, the literature on system development practices grounds the methodology adopted in building the application. Fifth, the literature on system evaluation identifies the metrics and models used to judge the system's usability and acceptance. The reviewed works are analyzed and synthesized to determine existing practices, identify limitations, and establish the research gap addressed by BUDI.
-
----
-
-## 1. Personal Savings and Debt in the Philippines
-
-### 1.1. The Target User
-
-Understanding the demographic, social, psychological, and economic profile of the target user is essential before designing any personal finance management intervention, because each dimension determines how an individual saves, borrows, and budgets. In the Philippine context, these factors interact strongly: household composition, income stability, social norms, self-control, and financial literacy jointly shape whether an individual builds emergency funds, takes on debt, and follows a budget. The relevance to BUDI is straightforward — the application's personalization engine relies on this profile to classify users, and its savings and debt features must respond to the realities of this profile.
-
-Demographic characteristics such as age, household composition, and stage in life influence financial decision making. Young adults face formative decisions about savings, debt, and budgeting, making them a critical demographic for financial intervention (Bangko Sentral ng Pilipinas [BSP], 2026). In the National Capital Region, income and years of investing correlate positively with the financial well-being of Filipino young professionals aged 25–35, yet the study found investing experience to be considerably low, indicating that this segment has room for targeted financial support (Cruz et al., 2026). Household composition further complicates planning because many Filipino workers support extended family members, so a portion of income is continuously assigned to family obligations (Abila & Ulibas, 2026). These findings imply that BUDI's target-user model must account for shared-family obligations and a young, income-constrained working population rather than assume a single-earner household.
-
-Social and societal factors are equally consequential. Social influence from peers and family shapes financial norms and practices, and parental socialization about money establishes foundational behaviors that persist into adulthood (Bulan & Nemino, 2025; Tangney et al., 2004, as cited in Bulan & Nemino, 2025). Relative income perceptions — comparing one's financial status with others — also affect saving motivation and spending patterns (Wang-Ly & Newell, 2023). On the psychological side, self-control is a critical positive determinant of saving behavior, and the interplay of behavioral intention moderates how strongly self-control translates into actual saving discipline among Filipino MSME owners (Bulan & Nemino, 2025). Financial literacy improves budgeting and investment behavior, although knowledge alone does not automatically produce savings, a distinction that matters when designing behavior-oriented app features (Cumaio et al., 2026; Dheepiga & Sivakumar, 2025). Collectively, these results indicate that BUDI's personalization should weigh behavioral and social signals — not only income — when guiding users.
-
-Economic conditions determine the capacity to save and the burden of debt. Income volatility creates uncertainty that complicates financial planning, and individuals with unstable incomes struggle to maintain consistent saving habits (Ganong et al., 2025; Wang-Ly & Newell, 2023). National data reflect this: only about one in three Filipino adults kept some form of savings in 2021, and more than half relied on family and friends when an emergency expense arose, because emergency funds were present in under one in five households (BSP, 2023). Financial well-being — the subjective perception of security and the ability to meet current and future obligations — depends on both objective conditions and subjective perceptions (Bai, 2023; Erno & Grefalde, 2026) <!-- VERIFY: Erno & Grefalde venue appears anomalous in the source; confirm journal before Google Docs use -->. Budgeting, access to financial services, and prudent debt management therefore matter as much as income level (Claro & Noval, 2025; Sohilauw et al., 2026). For BUDI, this establishes that the target user is financially fragile, income-sensitive, and behavior-driven — precisely the population an intelligent savings-and-debt assistant is expected to serve.
-
-### 1.2. Personal Savings and Debt
-
-Personal savings and debt are two sides of the same financial picture: savings represent the portion of income not consumed and the buffer that keeps individuals out of debt, while debt represents obligations that, when excessive, consume income and erode the capacity to save (Yoganandham, 2025). For this reason, the two are discussed together — a financially healthy individual simultaneously accumulates savings (especially emergency savings) and avoids unmanageable debt. This combined view directly informs BUDI, because the application's budgeting, forecasting, and debt-repayment modules must treat savings capacity and debt burden as linked variables rather than separate features.
-
-Savings serve four functions that matter to the Filipino user: providing financial security and stability, acting as a buffer against unexpected expenses, building financial resilience, and enabling the achievement of short- and long-term goals (Yoganandham, 2025). Emergency savings are the most consequential type. Households with adequate emergency savings withstand income shocks without resorting to high-cost borrowing, whereas households without them fall back on formal and informal loans (BSP, 2023; Danahy et al., 2024). The gap is wide in the Philippines: financial-inclusion dashboards show household banking rose over time, but many savers keep funds at home or in non-bank forms, and family, friends, work, and loans rather than own savings remained the leading emergency-fund sources (BSP, 2023; BSP, 2025). Systematic saving also enables long-term goals such as education, homeownership, and retirement (Yeo et al., 2023). These findings establish the design target for BUDI's savings module: build an automatic, goal-based emergency fund that converts irregular income into consistent savings.
-
-Personal debt encompasses consumer debt such as credit cards and personal loans, and housing debt such as mortgages, each with different terms, interest rates, and repayment structures that affect financial well-being (Yoganandham, 2025). The causes of debt are psychological and economic in roughly equal measure. Low self-control, procrastination, and impulse spending drive borrowing beyond need (Bulan & Nemino, 2025), while unemployment, income insufficiency, and emergencies force borrowing to meet basic needs (Francisco et al., 2026). Filipino public-sector employees illustrate the pattern: salary loans are taken for daily living expenses, debt repayment, medical needs, and education, and salary-deduction repayment paradoxically reinforces dependency because take-home pay keeps shrinking, prompting reborrowing (Francisco et al., 2026). At the national level, borrowing has become more common than saving — nearly half of adults held outstanding loans in 2021 and most borrowed from informal sources (BSP, 2023). Digital lending compounds the risk: easier access to credit is associated with reduced financial restraint among wage earners (Esperanza et al., 2025). Excessive debt produces financial stress that affects mental health, productivity, and overall well-being, and it can consume a disproportionate share of income, limiting saving capacity and creating cycles of vulnerability (Danahy et al., 2024; Francisco et al., 2026).
-
-Repayment is as behavioral as it is mathematical. The snowball method pays off the smallest debts first for psychological wins, while the avalanche method pays off the highest-interest debts first for mathematical optimality (Yoganandham, 2025). Avoiding accumulation through disciplined spending and saving is generally preferable to managing existing debt (Yeo et al., 2023). Bibliometric evidence confirms that financial literacy and self-efficacy are central drivers of effective debt management, while impulsivity, overconfidence, and poor self-control undermine debt strategies (Samli et al., 2026). For BUDI, this means the debt module should offer both repayment strategies and reinforcement of the behaviors that prevent reborrowing, because the data show that behavioral, not only mathematical, support is what Filipino borrowers need.
-
-### 1.3. Ways of Improving Personal Savings and Debt
-
-Improving savings and debt requires a multifaceted approach that combines financial planning, resource allocation, skill development, and behavioral change; no single intervention — a budget alone or a lecture on financial literacy — reliably produces improvement by itself (Yoganandham, 2025). This combined logic is what BUDI implements: planning features set goals, budgeting features allocate money, literacy features build knowledge, and behavioral features reinforce habit. The literature reviewed below justifies each of these four levers.
-
-Financial planning is the foundation. Planning involves setting financial goals, creating budgets, and developing strategies to achieve them, and it enables individuals to prioritize spending, allocate resources, and build savings systematically (Yeo et al., 2023). Effective planning must also adapt to changing circumstances and irregular income patterns, so plans that are rigid fail where adaptive ones succeed (Ganong et al., 2025; R. Huang et al., 2025). Resource allocation through budgeting is the most operational of the levers: budgeting helps individuals track income and expenses, identify patterns, and decide between essentials, savings, and discretionary spending, and disciplined budget-following is consistently linked to better financial health and lower debt-trap risk (Dheepiga & Sivakumar, 2025; Prakoso & Apriliani, 2024; Yoganandham, 2025). Conscious "mental budgeting" — mentally classifying and watching expenditures — is associated with higher subjective financial well-being because it makes limits salient (Bai, 2023).
-
-Skill and knowledge improvement strengthens the other levers. Financial-literacy education improves budgeting, saving, and investment decisions, yet several Filipino and Southeast Asian studies caution that knowledge transfers to behavior only when combined with practice, motivation, and access (Claro & Noval, 2025; Cumaio et al., 2026; Dheepiga & Sivakumar, 2025; Encarnacion & Vecina, 2025). Behavioral and habitual improvement is consequently the fourth and decisive lever. Regular saving, prudent spending, and strategic investment are habits built through consistent practice and self-control, and internal motivation sustains them over time (Bulan & Nemino, 2025; Yeo et al., 2023). Digital tools amplify this behavioral channel: e-payment records and dashboards improve monitoring and budgeting, and app nudges such as spending alerts, weekly summaries, and category caps curb impulsive spending, particularly when matched to the user's financial literacy (Yuttama, 2025). These findings collectively justify BUDI's design — an application that does not merely record transactions, but plans, budgets, trains, and reinforces good financial behavior.
+| # | V3 `.docx` said | Corrected to | Why |
+|---|---|---|---|
+| 1 | TAYA (19 occurrences) | BUDGIE | Chapter 1 V6 and Topical Outline V4 both adopted BUDGIE; the V3 body was not updated when the project was renamed. |
+| 2 | Huang et al. (2025) (3 occurrences) | Huang (2025) | Page 1 of the source lists Anzhong Huang as sole author. |
+| 3 | De Zarzà et al. (2024) | de Zarzà et al. (2024) | APA lowercases the particle in a surname. Citation year was already correct; the corpus stem was wrong and has been fixed. |
+| 4 | (no reference list) | References section added | The V3 `.docx` had no References section at all. |
 
 ---
 
-## 2. Personalized Intelligent Finance Management Applications
+## Open items for the adviser
 
-### 2.1. Finance Management Functions
-
-Finance management in an application context means managing income, expenses, savings, debts, investments, and budgets through systematic tracking, analysis, and optimization (Yadav et al., 2026). Income management records and analyzes all sources of earnings, including salaries, allowances, and side income; expense management categorizes expenditures to reveal spending patterns and reduction opportunities; and budget management creates spending plans aligned with income, goals, and priorities (Hajj & Hammoud, 2023; Yadav et al., 2026). Savings management supports goal-setting and progress tracking, while debt management tracks obligations, compares repayment strategies, and discourages excessive borrowing (Yoganandham, 2025; Yadav et al., 2026). Investment management adds portfolio tracking and decision support that extend an application beyond day-to-day budgeting (Hajj & Hammoud, 2023). These six functions map one-to-one onto BUDI's modules: income ledgerization, expense categorization, budget allocation, emergency-fund goals, debt-repayment plans, and spending insights.
-
-### 2.2. Forms of Finance Management Applications
-
-Finance management applications take two main forms — mobile applications that offer accessibility and on-the-go tracking, and web-based platforms that provide comprehensive features for detailed analysis (Yadav et al., 2026). The choice between the two depends on user preferences, device availability, and feature requirements, and a mobile-first approach aligns with the digital habits of the younger demographics that dominate smartphone-based financial activity (R. Huang et al., 2025). Institutional and personal experiences support this view: budgeting information systems and intelligent budget-management apps have been delivered as mobile and web applications with strong acceptance when they combined tracking with predictive or analytical capabilities (Ghonaim & El-Sharawy, 2025; Santiago et al., 2025). For BUDI, a mobile-first implementation matches the target user's device reality and the need for always-available expense entry.
-
-### 2.3. Personalization in Finance Management Applications
-
-Personalization tailors financial guidance and recommendations to each user's specific circumstances, preferences, and goals, because no two users share the same income, obligations, or spending psychology (R. Huang et al., 2025; Yadav et al., 2026). Personalization techniques include behavioral profiling, preference learning, adaptive recommendations, and behavior-aware user clustering, which analyze user behavior and financial patterns to deliver relevant insights rather than generic advice (Yang, J., 2024; R. Huang et al., 2025; R Singh, 2025). The benefits are tangible: users report greater engagement, understanding, and trust when guidance is personalized, explainable, and behavior-aware (R. Huang et al., 2025). However, personalization depends on sufficient user data and on algorithms that can turn that data into meaningful customization without overwhelming the user (Yadav et al., 2026; Zhang & Lu, 2026). BUDI operationalizes these findings through its SVM profile classification, which personalizes budgets, forecasts, and alerts to the user's financial profile.
-
-### 2.4. Intelligent Features in Finance Management Applications
-
-Intelligent features — artificial intelligence (AI), machine learning (ML), and deep learning (DL) capabilities that go beyond recording — are what distinguish modern finance applications from digital ledgers. Reviews of AI in fintech show that ML techniques support credit scoring, fraud detection, automated advisory, and personalization by extracting signal from transaction and behavioral data (Hajj & Hammoud, 2023; Zhang & Lu, 2026). Intelligent expense classification and smart budgeting echo BUDI's own architecture: proposed personal finance management systems classify expenses with supervised classifiers, forecast with time-series models, and flag outliers with clustering or isolation-based detectors (DSouza et al., 2026; Yadav et al., 2026). Deep sequential models such as recurrent neural networks and Long Short-Term Memory (LSTM) networks analyze transaction sequences and forecast future consumer behavior with high accuracy (Chen & Tan, 2025; Ghonaim & El-Sharawy, 2025).
-
-Robo-advisors represent the advisory layer of these systems, combining algorithmic analysis with user preferences to generate personalized recommendations (R. Huang et al., 2025; Hajj & Hammoud, 2023). Anomaly detection completes the intelligent feature set by identifying unusual transactions or spending patterns that may indicate errors, fraud, or problematic financial behavior; such systems establish a baseline of normal behavior and flag deviations for user review (A. Huang et al., 2025). Evidence indicates that static detection thresholds deteriorate over time, so adaptive and dynamically calibrated detectors maintain accuracy as spending behavior changes (A. Huang et al., 2025; Zhong, 2025).
-
-Because intelligent features generate alerts and summaries, their presentation must respect the limits of human working memory. Miller's Law holds that working memory retains roughly seven, plus or minus two, chunks of information (Miller, 1956), and more conservative studies place the limit near four plus or minus one (Cowan, 2001). Consequently, BUDI's insights, alerts, and notifications should convey a small number of high-value items at a time — a few flagged transactions, three to four budget categories, one forecast — rather than overload the user. This presentation principle connects the intelligent-feature literature directly to the application's usability design.
+1. **Project identity is inconsistent across Drive.** Chapter 1 V6 is itself only partly
+   updated: its title page and introduction say BUDGIE, but its Scope and Limitations section
+   still describes "the development of BUDI" using **SVM** for profile classification, which
+   Outline V4 replaced with a **rule-based** classifier. This chapter follows V4 and uses
+   rule-based. Chapter 1 needs a matching pass.
+2. **ISO/IEC 25010 characteristic list disagrees three ways.** This chapter and Chapter 1 V6
+   both list six characteristics (functional suitability, performance efficiency, reliability,
+   security, portability, usability). The fielded instrument
+   `GROUP4 - ISO 25010 - V1 - 09.15.2026.docx` instead uses five (it omits portability and
+   substitutes maintainability) and files the usability sub-characteristics under performance
+   efficiency. The instrument also still carries "Pawpid" pet-adoption wording, a 1-4 SUS scale
+   instead of 1-5, and no edition year. The instrument must be rebuilt before fielding, and the
+   characteristic list settled once across Chapters 1, 2, and the instrument.
+3. **The SARIMA section rests on a single source.** Dasmariñas et al. (2024) is cited seven
+   times and is not in the corpus. The adviser's standard for a core algorithm is six to seven
+   sources, so this section needs corroboration even once that paper is acquired.
 
 ---
 
-## 3. System Models and Algorithms
+# CHAPTER II
 
-BUDI's value proposition rests on four computational models, each supporting a distinct module: SVM profile classification assigns users to financial-profile categories, SARIMA forecasting predicts future income and expenses, LP-based budgeting allocates income across expense categories to maximize savings under constraints, and IQR-based anomaly detection flags unusual transactions. This section reviews the literature supporting each model in turn, following the guideline structure of definition, how the model works, previous applications, findings, strengths and limitations, and relevance to the proposed system. Where individual model families have been reviewed, this chapter is deliberately directed to how the findings apply to BUDI's modules, not to the model families in the abstract.
+## Review of Related Literature and Studies
 
-### 3.1. Datasets and Data Preprocessing
+This chapter presents the literature and studies relevant to the development of BUDGIE. The review examines concepts, technologies, existing systems, and computational approaches that provide the theoretical and empirical foundation of the study.
 
-The datasets that feed personal finance models are first and foremost time series: chronologically arranged financial transactions that capture spending patterns, income flows, and account balances over time, enabling the analysis of trends, seasonality, and behavioral changes (Chen et al., 2024). Each data type in BUDI is tied to a concrete input the application actually consumes: recorded transactions feed expense categorization and anomaly detection; the history of income and recurring obligations feeds income and expense forecasts; period-end budget states feed budget reallocation; and flagged-transaction history feeds the adaptive behavior of the anomaly module. Where real transaction data are scarce during development, synthetic data generation creates realistic financial profiles for model training and testing (Salvador, 2024). Government surveys such as the Bangko Sentral ng Pilipinas (BSP) Consumer Finance and Consumer Expectations surveys provide the macro-level savings and debt indicators used to contextualize and validate these profiles (BSP, 2023, 2026). Public benchmarks and platform datasets from other countries — such as aggregated credit-card spending and fraud-transaction tables — have supported comparable classification and anomaly-detection studies and are used here only where Philippine data are absent (Agrawal et al., 2025; A. Huang et al., 2025).
+## Personal Financial Management
 
-Data preprocessing is as decisive as the model itself. Cleaning, normalization, feature engineering, and train-test splitting are standard steps in time-series pipelines (Chen et al., 2024). Transaction-level features — spending categories, frequency patterns, trend indicators, and time-windowed amounts — are the input variables from which classifiers and forecasters learn (Chen & Tan, 2025; Yang et al., 2024b). Outlier handling with interquartile-range (IQR) analysis and z-score thresholds is an established preprocessing practice in financial data pipelines before modeling (Begum, 2025; Chen & Tan, 2025). For BUDI, this means the feature-engineering layer converts raw transaction entries into the category, frequency, and trend variables that the classification, forecasting, and anomaly modules require, and the IQR procedure used in preprocessing is the same statistical logic extended into the production anomaly detector.
+Personal financial management (PFM) refers to the systematic process of managing individual income, expenses, savings, and debt to achieve financial goals and maintain financial well-being. According to Yoganandham (2025), financial planning is an indispensable part of modern life, enabling individuals to navigate financial complexities, optimize resource allocation, and safeguard their financial well-being against economic uncertainties. The practice encompasses budgeting, savings management, debt management, and investment planning, all of which contribute to long-term financial security and resilience.
 
-### 3.2. Classification Models and Concept Drift
+The importance of personal financial management extends beyond individual benefit to broader economic stability. Cumaio et al. (2026) emphasized that individual decisions regarding savings and debt are particularly relevant in developing economies where household financial vulnerability is more pronounced. Their review of global and developing economy contexts established that financial literacy and behavioral finance factors significantly influence saving and debt behaviors, with implications for household financial stability and economic participation. This finding underscores the need for accessible financial management tools that support informed decision-making among vulnerable populations.
 
-Classification models learn patterns from historical data to predict future states. In personal finance, a classifier assigns a user to a financial-profile category — such as a savings-oriented, stable, at-risk, or debt-prone profile — based on financial behaviors and characteristics (Yadav et al., 2026). This is precisely the task BUDI's profile classification performs, and the literature shows the approach is well established: classifiers predict consumer behavior, wealth quintiles, creditworthiness, and spending risk across financial domains (Ghonaim & El-Sharawy, 2025; Salvador, 2024; Zhang & Hou, 2026).
+In the Philippine context, financial management challenges are compounded by economic pressures and limited access to formal financial services. The Bangko Sentral ng Pilipinas (2026) reported that Filipino consumers in Q2 2026 were less likely to save, possibly because rising prices prompted them to allocate a larger share of their income on expenditures. Households appeared to be more cautious, less inclined to borrow in the next 12 months while still expecting higher spending on basic needs. These results indicate that households are prioritizing essential goods while cutting back on discretionary purchases as they become less optimistic about their financial situation, highlighting the critical need for tools that help Filipinos manage limited resources more effectively.
 
-The central challenge for such classifiers is concept drift — the gradual change in the statistical properties of data over time (Abdullahi et al., 2025). User financial behavior evolves with life changes, economic conditions, and personal development, so a model trained on past spending becomes less accurate as the user's circumstances change (Abdullahi et al., 2025; Chikoore et al., 2026). A systematic review of concept-drift mitigation in time-series applications identifies Support Vector Machines (SVM) as the most effective learner for detecting and adapting to drift in classification and regression tasks, owing to their high detection accuracy and effective memory (Abdullahi et al., 2025). Adaptive credit-scoring studies corroborate this finding: frameworks that retrain or dynamically reweight models as drift is detected maintain accuracy, whereas static models degrade (Chikoore et al., 2026).
+## Financial Planning
 
-Support Vector Machines separate classes by finding a decision boundary that maximizes the margin between them, generalizing well even with moderate data (Abdullahi et al., 2025; Hu et al., 2023) <!-- VERIFY: Hu et al. 2023 is a predict+optimize MILP study; the SVM-margin statement is supported by Abdullahi et al. 2025, and its use for the optimization subtopic is where it belongs -->. Empirical comparisons report that SVM offers strong interpretability and stability, although it trains more slowly than gradient-boosted ensembles on very large datasets (Zhang & Hou, 2026). Ensemble methods such as XGBoost and LightGBM often post the highest raw accuracy in large-scale tasks (Shaha & Gavekar, 2025; Zhang & Hou, 2026), and boosting classifiers have predicted Philippine household wealth quintiles with high accuracy on national survey data (Salvador, 2024). Where the literature is clear is the trade-off: accuracy, interpretability, and training cost must be balanced for the deployment context (Reyes et al., 2024; Zhang & Hou, 2026). For BUDI, this justifies SVM as the primary classifier — its drift resilience, interpretability, and small-data behavior suit a mobile application with a continuously changing user — while noting that the drift literature and boosting benchmarks inform how the model should be monitored and retrained over the user's financial lifecycle.
+Financial planning is a comprehensive process that involves assessing one's current financial situation, defining financial goals, developing strategies to achieve those goals, and monitoring progress over time. Yoganandham (2025) described financial planning as a systematic approach that enhances the ability to make sound economic decisions, fostering resilience against economic uncertainties and ensuring intergenerational wealth transfer. The process encompasses multiple domains including budgeting, savings, debt management, and investment, all of which must be coordinated to achieve optimal financial outcomes.
 
-### 3.3. Time-Series Forecasting
+The theoretical foundation of financial planning behavior has been extensively examined in the literature. Yeo et al. (2023) conducted a systematic literature review and developed a new theory of financial planning behavior, identifying that financial planning is influenced by a combination of individual characteristics, environmental factors, and behavioral biases. Their review established that effective financial planning requires not only technical knowledge but also behavioral commitment and consistent execution. This finding has important implications for the design of financial management applications, suggesting that systems must support both analytical capabilities and behavioral adherence.
 
-Time-series forecasting predicts future values from historical patterns and is the module that lets BUDI anticipate the user's income and expenses rather than merely record them. Statistical and machine-learning forecasting families both appear in the finance literature, and the choice between them is the core modeling decision for this module (Chen et al., 2024; Chen & Tan, 2025; Sonkavde et al., 2023).
+In the Philippine setting, Claro and Noval (2025) investigated the regressors of financial well-being among local government employees in Davao del Norte, finding that financial planning practices significantly influence financial well-being outcomes. Their study confirmed that individuals who engage in systematic financial planning report higher levels of financial satisfaction and security. These findings support the development of tools that facilitate and encourage systematic financial planning among Filipino users, particularly those with limited access to professional financial advice.
 
-Classical statistical models remain strong for personal finance because monthly income and expense series are short, regular, and highly seasonal. The Seasonal ARIMA (SARIMA) model extends ARIMA with seasonal differencing and seasonal autoregressive and moving-average terms, and is specifically endorsed for consumer finance where seasonality is commonly observed (DSouza et al., 2026). Systematic reviews of budget forecasting over four decades list SARIMA among the dominant statistical methods alongside ARIMA, Holt–Winters, and neural approaches, with MAPE, RMSE, and MAE as the standard evaluation metrics (Kara & Şengüler, 2025). A constrained budgeting framework that forecasts category-level demand with a SARIMAX model and then feeds those forecasts into a constraint-aware optimizer — the same forecast-then-optimize pipeline BUDI uses — reported roughly 2.85% MAPE on aggregate demand and showed that unconstrained point forecasts can violate budget constraints, motivating the optimizer stage (Lu et al., 2025).
+### Financial Planning Process
 
-Deep-learning forecasting models — convolutional networks, RNN/LSTM, GRU, and Transformers — excel at very large, multivariate time series, but no single architecture dominates across datasets, and their advantage over simpler baselines narrows on the small, regular series that characterize a household budget (Chen et al., 2024). Hybrid and ensemble approaches that blend statistical and ML forecasters perform well on financial series (Sonkavde et al., 2023). What the literature establishes for BUDI is a clear division of labor: SARIMA's seasonal structure and small-sample interpretability make it the appropriate forecaster for monthly income and expense data, while ML/DL alternatives are treated as benchmarks to detect and avoid overfitting on shallow household histories.
+The financial planning process typically involves several sequential stages: assessing the current financial situation, establishing financial goals, developing a plan, executing the plan, and reviewing and monitoring progress. Yoganandham (2025) emphasized that each stage requires careful attention and that the process is iterative rather than linear, with reviews and adjustments occurring as circumstances change. The execution and adherence stage is particularly critical, as even well-designed plans fail without consistent implementation.
 
-### 3.4. Budget Optimization
+Cumaio et al. (2026) highlighted that adherence to financial plans is influenced by both individual self-control and environmental factors, with behavioral finance research demonstrating that individuals often struggle to maintain disciplined financial behaviors despite good intentions. Their review suggested that external support mechanisms, such as automated reminders and progress tracking, can improve adherence by reducing reliance on individual willpower. These findings support the integration of monitoring and feedback features in personal financial management applications.
 
-Budget allocation is naturally modeled as a constrained optimization problem: distribute available income across expense categories, savings, and debt payments to maximize savings while honoring essential expenses and user preferences. Formalizing budgeting this way lets an application compute an optimal plan rather than rely on rules of thumb (De Zarzà et al., 2024; Yoganandham, 2025).
+### Financial Goals and Constraints
 
-Constrained optimization frameworks for budgeting, which maximize savings across monthly expense categories given income and preferences, are the closest published analogue to BUDI's LP module (De Zarzà et al., 2024) <!-- VERIFY: source filename says 2023 but publication is 2024 (AI 5, 91–114); confirm before formal use -->. The research literature provides the mathematical backbone as well: when the parameters that constrain an optimization problem — such as future income — are unknown, a forecast must first be made, and end-to-end "predict + optimize" approaches train the forecasting and optimization stages together so that predicted parameters remain feasible under the true constraints (Hu et al., 2023). Portfolio and allocation studies add that optimization benefits from robust risk profiling of the user, since the constraint set differs meaningfully between saving- and debt-prone profiles (Sappa, 2024). Combined with the SARIMAX-forecast-to-optimizer evidence (Lu et al., 2025), this literature supports BUDI's design: SARIMA forecasts supply the income parameter, the LP solver maximizes savings within the user's budget constraints, and the constraint weights are personalized from the classification profile.
+Financial goals represent the desired outcomes that financial planning seeks to achieve, ranging from short-term objectives such as building an emergency fund to long-term goals such as retirement savings or debt elimination. Yoganandham (2025) noted that effective financial planning requires clear goal definition with specific amounts, timelines, and priorities. The presence of multiple goals creates allocation challenges, as limited resources must be distributed across competing objectives.
 
-### 3.5. Anomalous Transaction Detection
+Financial constraints represent the limitations within which financial planning must operate, including income levels, fixed expenses, debt obligations, and other commitments. de Zarzà et al. (2024) developed mathematical optimization models for individual and household financial planning, demonstrating that budget allocation can be formulated as a constrained optimization problem that maximizes goal achievement within available resources. Their approach incorporated multiple objectives and constraints, providing a framework for systematic allocation decisions that balance competing priorities.
 
-Anomaly detection identifies transactions that deviate from the user's established spending patterns, which may indicate errors, fraud, or behavior the user should review. Detection approaches span statistical, heuristic, machine-learning, and deep-learning families, and the choice among them depends on whether the anomaly is a point deviation or a sequence pattern (Sankaewtong et al., 2025; Zhang et al., 2023).
+### Problems in Financial Planning
 
-BUDI's anomaly module uses an interquartile-range (IQR) statistical detector: it computes quartiles of recent transaction amounts per category and flags values beyond a calibrated whisker as anomalous. Three strands of literature support this choice. First, statistical methods remain a recognized, if underrepresented, family in transaction anomaly detection, which means the IQR approach occupies a legitimate but less-populated research space that this study contributes to (Sankaewtong et al., 2025). Second, IQR and z-score procedures are standard outlier logic in financial data pipelines, establishing that quartile-based screening is a credible foundation for transaction screening (Begum, 2025; Chen & Tan, 2025). Third, the anomaly-detection literature emphasizes that static thresholds fail under distributional shift: detectors whose thresholds are not updated generate rising false positives as user behavior evolves, while dynamically calibrated thresholds reduce false alarms and preserve recall (A. Huang et al., 2025; Zhong, 2025). Benchmarks of state-of-the-art detectors also show that no single method dominates, and heavier machine-learning detectors trade their small accuracy gains against speed, data, and explainability — all of which matter on-device (Zhang et al., 2023).
+Filipinos face persistent challenges in improving their savings and managing debt, with multiple factors contributing to financial vulnerability. The Bangko Sentral ng Pilipinas (2026) reported declining savings propensity among Filipino consumers, attributed to rising prices that force households to allocate larger shares of income to basic expenditures. This trend indicates that many Filipinos lack sufficient financial buffers to absorb economic shocks, increasing their vulnerability to financial distress.
 
-For BUDI, the findings are direct: the IQR detector provides a fast, explainable, data-efficient baseline for flagging unusual spending, and it must be paired with periodic recalibration — such as recomputing quartiles on a rolling window of the user's own history — to avoid the degradation documented for static statistical thresholds. This requirement connects the anomaly module to the drift-aware design principles reviewed for classification.
+Debt management presents particular challenges for Filipino households. Esperanza et al. (2025) examined digital lending efficacy on debt management of wage earners, finding that access to credit without corresponding financial management capabilities can lead to debt accumulation and financial strain. Francisco et al. (2026) investigated causes of salary loan dependency, identifying that inadequate financial planning and limited emergency savings contribute to reliance on loans for routine expenses. These findings highlight the interconnected nature of savings and debt challenges, suggesting that effective interventions must address both dimensions simultaneously.
 
-### 3.6. Model Performance Metrics
+The gap between financial knowledge and financial behavior represents a significant challenge in personal financial management. Cumaio et al. (2026) noted that while financial literacy has improved in many developing economies, translating knowledge into consistent action remains problematic. Behavioral factors including present bias, loss aversion, and social influences can undermine financial planning efforts even among individuals with adequate financial knowledge. This gap between intention and behavior supports the development of tools that not only provide analytical support but also facilitate behavioral adherence through reminders, progress tracking, and accessible decision support. <!-- SOURCE NEEDED [DEY & AREFIN 2025]: cited for rule-based classification and household budget generation; not in the corpus. Candidate: Dey, S., & Arefin, M. S. (2025). Developing a rule-based system to recommend household budget. Journal of Information Systems Engineering and Management, 10(47s), 148-182. https://jisem-journal.com/index.php/journal/article/view/9230 (preprint: https://www.preprints.org/manuscript/202502.1315/v1) - acquire and ingest before submission. -->
 
-The four modules are evaluated with the metrics conventional to their tasks. For the classification module, accuracy, precision, recall, and F1 measure how correctly users are placed in savings-, debt-, and spending-profile categories, and are the standard reporting metrics in the reviewed classification and concept-drift studies (Chikoore et al., 2026; Shaha & Gavekar, 2025; Zhang & Hou, 2026). For the forecasting module, the symmetric MAPE, RMSE, and MAE compare predicted against actual income and expenses, and these are the dominant forecast-evaluation metrics in the budget-forecasting literature (Kara & Şengüler, 2025; Lu et al., 2025). For the optimization module, the objective value — savings achieved — is measured against the LP solution's guarantee, with constraint feasibility as the primary validity check (Hu et al., 2023; Lu et al., 2025). For the anomaly module, precision, recall, F1, and the false-positive rate measure how often the detector flags real anomalies without overwhelming the user with noise, and dynamic-threshold studies report exactly these metrics in evaluating calibrated detectors (A. Huang et al., 2025; Shaha & Gavekar, 2025; Zhong, 2025). Where user segmentation and clustering complement the classifier, separation metrics such as the Silhouette coefficient and Davies–Bouldin index complete the picture (Salminen et al., 2023). Reporting all four module families on their own metrics — rather than a single global accuracy — reflects how the reviewed literature evaluates heterogeneous financial-model stacks.
+## Personal Financial Management Applications
 
----
+Personal financial management applications have emerged as tools to support individuals in managing their finances, offering features ranging from basic expense tracking to sophisticated financial planning capabilities. Alenazi and Sas (2023) evaluated budgeting apps and found that while the market has grown rapidly, most applications provide limited support for budgeting compared to tracking, with a significant gap between user needs and application capabilities. Their analysis identified that many apps prioritize transaction recording over proactive financial planning, limiting their potential to improve financial outcomes.
 
-## 4. System Methodology
+The rapid growth of financial management applications reflects increasing demand for accessible financial tools. Bitrián et al. (2021, as cited by Alenazi & Sas, 2023) noted that financial management apps supporting users to track expenses and create budgets have experienced rapid growth as one of the fastest growing categories of finance apps. However, the availability of tools does not necessarily translate to improved financial outcomes, as many applications lack the sophistication required to address complex financial challenges such as optimizing savings and debt simultaneously.
 
-This section explains how BUDI itself is being developed, rather than describing what software engineering or machine learning in general are. The project follows an agile, iterative development process in which the application is built, tested, and refined against feedback in short cycles; this matches the recommended practice for personal finance management systems, where iterative development and continuous user feedback are explicitly advised (Yadav et al., 2026).
+## Seasonality in Personal Finance
 
-The machine-learning workstream follows the standard pipeline that the reviewed literature assumes: data collection, preprocessing, model training, validation, and deployment (Chen et al., 2024). For BUDI, collection means recording the user's actual transactions; preprocessing converts those transactions into the category, frequency, and trend features described in Section 3.1; training fits the SVM, SARIMA, LP, and IQR modules on the user's history; validation uses out-of-sample checks to confirm generalization; and deployment embeds the trained modules in the mobile application. Model selection follows the accuracy-interpretability trade-off established in Section 3.6, preferring the transparent statistical and classical models that suit on-device, personal-scale data (Reyes et al., 2024).
+Seasonal variations in income and expenses present significant challenges for personal financial management, particularly in economies where consumption patterns exhibit strong seasonal fluctuations. Dasmariñas et al. (2024) investigated forecasting the impact of COVID-19 on household final consumption expenditure in the Philippines using SARIMA and historical quarterly HFCE data. Their study demonstrated that Philippine household consumption exhibits significant seasonal patterns that can be modeled and forecasted using time-series techniques. However, their research focused on aggregate household consumption rather than applying these patterns to personalized financial planning.
 
-A dedicated survey component feeds the requirements of the personalization layer. The public user-expectations survey collects preferences, pain points, and expectations from prospective Filipino users, and the resulting evidence is used to set feature priorities before each development cycle — the same evidence-based practice that separates BUDI from speculative feature selection. The application is implemented as a mobile-first product using a modern technology stack — React Native (Expo) on the client, an Express/TypeScript API, and a Supabase backend — with the four model families integrated through a lightweight ML service. This stack, and the split of concerns between the application and the model service, was chosen because it allows each model to be trained and improved independently while the app consumes their outputs through standardized interfaces. The development is carried out cross-functionally by a small team spanning application development, data science, and technical documentation, reflecting the interdisciplinary collaboration that intelligent-finance systems require (R. Huang et al., 2025).
+The importance of incorporating seasonality into financial planning is supported by consumption theory and empirical evidence. Seasonal patterns in consumption arise from multiple sources including cultural events, holiday spending, school calendars, and weather-related variations in needs. In the Philippine context, consumption patterns are influenced by factors such as the Christmas season, school enrollment periods, and agricultural cycles, creating predictable fluctuations that affect household budgets. Financial planning tools that ignore these patterns may produce recommendations that are unrealistic or unsustainable. <!-- SOURCE NEEDED [DASMARIÑAS 2024]: cited in Seasonality in Personal Finance and six times across the SARIMA section; not in the corpus. Candidate: Dasmariñas, A. P., De Castro, G., Lazona, B. J., & Usona, L. (2024). Forecasting the impact of COVID-19 on the household final consumption expenditure (HFCE) in the Philippines. PUP Journal of Science & Technology, 14(1), 70-90. https://doi.org/10.70922/ctzevg57 - acquire and ingest before submission. -->
 
----
+The challenge of seasonal expense forecasting is compounded by data limitations in many contexts. While population-level seasonality can be estimated from aggregate data sources such as the Philippine Statistics Authority's HFCE dataset, individual-level seasonal patterns may differ based on personal circumstances, location, and preferences. Dasmariñas et al. (2024) demonstrated that national-level consumption patterns can be forecasted with reasonable accuracy, providing a foundation for population-based seasonal forecasting. However, the application of these patterns to individual users requires careful adaptation to personal circumstances.
 
-## 5. System Evaluation
+## Saver and Borrower Profile Classification
 
-### Metrics
+Understanding individual financial behavior patterns is essential for delivering personalized financial management support. Profile classification enables systems to tailor recommendations and strategies based on user characteristics, improving relevance and effectiveness. Laspiñas and Murcia (2024) applied machine learning approaches to classify income levels, demonstrating that financial characteristics can be systematically categorized to support targeted interventions. Their study confirmed that rule-based and statistical approaches can effectively segment users based on financial attributes.
 
-System evaluation for BUDI measures not only that the models perform well but that the application is usable, accepted, and demonstrably improves the user's savings and debt — an improvement the study must be able to measure. Perceived usefulness, defined as the user's belief that the system improves their financial management, is the first such measure (Rane et al., 2024). Performance expectancy, the user's expectation that the system enhances financial outcomes, is the second, and facilitating conditions — the availability of the technical infrastructure, training, and support needed to use the system — form the third (Rane et al., 2024). Together these constructs, drawn from established technology-acceptance literature, are applied to BUDI through a survey instrument that asks prospective users about the usefulness, expected benefit, and ease of use of the application.
+The classification of individuals as savers or borrowers has theoretical foundations in behavioral finance and practical implications for financial planning. Cumaio et al. (2026) reviewed the literature on saving and debt behaviors, identifying that individuals exhibit distinct patterns in their financial decision-making based on psychological factors, demographic characteristics, and contextual influences. Savers prioritize setting aside funds for future goals, while borrowers have outstanding debt obligations that require management. Some individuals exhibit both characteristics, while others may be classified as neither.
 
-### Models and Theories for Evaluation
+The application of profile classification in financial management systems enables differentiated intervention strategies. Dey and Arefin (2025) developed a rule-based system for household budget generation, demonstrating that personalized recommendations based on user characteristics can improve budget relevance and adherence. Their approach incorporated multiple user attributes to generate tailored budget recommendations, supporting the value of profile-based personalization. In the context of savings and debt management, profile classification can inform the prioritization of goals, the aggressiveness of savings targets, and the urgency of debt reduction strategies.
 
-The Technology Acceptance Model (TAM) evaluates technology adoption from perceived usefulness and perceived ease of use, which shape attitudes, intentions, and actual use (Rane et al., 2024; Santiago et al., 2025). The Unified Theory of Acceptance and Use of Technology (UTAUT) extends this with social influence, facilitating conditions, and related factors, providing a more comprehensive account of acceptance in diverse consumer contexts (Rane et al., 2024). Both frameworks have been applied to financial-technology adoption, including intelligent and AI-based financial services, and their constructs appear directly in the acceptance literature's clusters around perceived usefulness, ease of use, and user acceptance (Rane et al., 2024). For a system evaluation, TAM/UTAUT are complemented by usability measurement — the System Usability Scale (SUS), a widely used instrument for judging perceived usability — and by software-quality models such as ISO/IEC 25010, which frame functional suitability, reliability, and usability as explicit quality characteristics (Brooke, 1996; ISO/IEC, 2011). BUDI's evaluation plan therefore combines model-performance metrics (Section 3.6), a SUS-based usability assessment, and a TAM/UTAUT acceptance survey, so that both the models and the product are judged with established instruments.
+## Budget Creation and Optimization
 
----
+Budget creation is a fundamental component of personal financial management, providing a framework for allocating income across expense categories, savings goals, and debt repayments. Lu et al. (2025) described a budget as simultaneously a forecast, a commitment device, and a control system, serving multiple functions in financial management. In modern financial planning, budgeting processes must accommodate rapid changes in consumer behavior and the expectation that financial plans can be refreshed quickly as conditions change.
+
+The optimization of budget allocation under constraints represents a mathematical challenge that has been addressed through various computational approaches. Gulbakyt et al. (2025) developed a dynamic model for budget allocation via multi-criteria optimization, demonstrating that mathematical optimization can generate allocation recommendations that balance multiple objectives. de Zarzà et al. (2024) applied optimization techniques to financial planning, incorporating both individual and cooperative budgeting scenarios with LLM-based recommendations. Their work demonstrated that optimization approaches can generate feasible and effective budget allocations under realistic constraints.
+
+The practical application of budget optimization in consumer financial applications requires balancing analytical sophistication with usability. Santiago et al. (2025) developed a budget and financial management information system for public elementary schools, incorporating analytics and predictive insights for allocation decisions. Their system demonstrated that optimization and forecasting techniques can be integrated into practical financial management tools, supporting improved allocation decisions. However, the complexity of optimization models must be managed to ensure that recommendations are understandable and actionable for users without technical expertise.
+
+## Unusual Expenses Detection
+
+The detection of unusual expenses is an important function in personal financial management, enabling users to identify transactions that deviate from their normal spending patterns and may require attention. Huang (2025) examined dynamic calibration of decision thresholds for financial anomaly detection, demonstrating that effective anomaly detection requires careful threshold setting that balances sensitivity with specificity. Their study verified approaches using payment platform information and data, confirming the applicability of anomaly detection techniques to financial transaction monitoring.
+
+Anomaly detection in financial contexts presents unique challenges due to the inherent variability in spending patterns and the need to avoid excessive false alarms. Zhong (2025) developed an adaptive anomaly detection threshold for financial data quality monitoring based on time series features, demonstrating that threshold adaptation can improve detection performance across varying conditions. The study highlighted the importance of incorporating temporal patterns into anomaly detection, as what constitutes an unusual expense may vary by time period due to seasonal and cyclical factors.
+
+The application of anomaly detection in personal financial management systems must account for individual spending patterns. Unlike fraud detection in institutional settings, personal expense anomaly detection must be calibrated to each user's baseline behavior. This personalization requirement creates cold-start challenges for new users who lack sufficient transaction history to establish a reliable baseline. The literature suggests that population-level patterns can partially mitigate cold-start conditions while personalization improves as user history accumulates.
+
+## Financial Plan Composition and Execution
+
+The composition of a comprehensive financial plan that integrates budget allocations, savings schedules, debt repayments, and monitoring mechanisms represents the culmination of personal financial management processes. Yoganandham (2025) emphasized that financial planning must address multiple domains simultaneously, as decisions in one area affect outcomes in others. For example, aggressive debt repayment may reduce funds available for savings, while excessive savings may leave insufficient resources for debt obligations.
+
+The execution and adherence phase of financial planning is critical for achieving desired outcomes. Yeo et al. (2023) found that financial planning behavior is influenced by both capability and motivation factors, with adherence requiring ongoing commitment and support. Their review suggested that feedback mechanisms and progress monitoring can improve adherence by providing users with visibility into their progress and early warning of deviations from plans. These findings support the integration of monitoring and alerting features in financial management applications.
+
+## Models and Algorithms
+
+### Seasonal Auto-Regressive Integrated Moving Average (SARIMA)
+
+The Seasonal Auto-Regressive Integrated Moving Average (SARIMA) model is a statistical time-series forecasting algorithm that extends the ARIMA model to incorporate seasonal patterns. SARIMA is defined by parameters (p, d, q)(P, D, Q, s), where p represents autoregressive terms, d represents differencing for stationarity, q represents moving average terms, and P, D, Q, and s represent the corresponding seasonal components with s denoting the seasonal period. According to Dasmariñas et al. (2024), SARIMA has been effectively applied to Philippine household consumption data, demonstrating its suitability for modeling seasonal patterns in economic time series.
+
+The SARIMA model works by combining autoregressive and moving average components with seasonal differencing to capture both short-term dynamics and recurring seasonal patterns. The model uses lagged values and residual errors to extract linear trends and seasonal patterns from historical time series data. This capability makes SARIMA particularly well-suited for forecasting expenses that exhibit regular seasonal fluctuations, such as increased spending during holiday periods or school enrollment seasons.
+
+The inputs required for SARIMA modeling include a sufficiently long time series of historical data, with the seasonal period determining the minimum data requirements. For monthly data with annual seasonality, a minimum of several years of observations is typically required to reliably estimate seasonal parameters. Dasmariñas et al. (2024) used quarterly HFCE data for their analysis, demonstrating that seasonal patterns can be captured even with quarterly observations, though monthly data provides finer resolution for forecasting applications.
+
+SARIMA produces forecasts of future values along with confidence intervals that quantify uncertainty. The model output includes point forecasts for each future period and measures of forecast uncertainty that can inform decision-making under uncertainty. This output characteristic is valuable for financial planning applications, where users benefit from understanding not only expected values but also the range of plausible outcomes.
+
+The application of SARIMA in financial forecasting has been extensively documented. Dasmariñas et al. (2024) applied SARIMA to forecast the impact of COVID-19 on Philippine household consumption, demonstrating that the model could capture both seasonal patterns and the effects of extraordinary events. However, the study also noted limitations, including the model's assumption of linear relationships and its sensitivity to structural breaks in the data. These limitations suggest that SARIMA is most appropriate for stable time series with consistent seasonal patterns.
+
+The strengths of SARIMA include its interpretability, established theoretical foundation, and ability to quantify forecast uncertainty. The model provides explicit parameters that describe the relationship between current and past values, supporting understanding of the underlying dynamics. However, SARIMA also has limitations, including its assumption of linearity and its requirement for sufficient historical data. For personal financial management applications, these limitations are partially mitigated by the availability of population-level data that can supplement individual user data, particularly for new users.
+
+In the context of the proposed study, SARIMA serves as the forecasting engine for seasonal expense prediction. The model will be trained on temporally disaggregated monthly expense estimates derived from PSA FIES and HFCE data, producing forecasts of per-category expense differences and composition. These forecasts will inform budget optimization and financial plan composition, providing users with seasonally-adjusted expense projections that account for predictable fluctuations in spending patterns.
+
+#### Performance Metrics for SARIMA
+
+The performance of SARIMA models is evaluated using multiple metrics that assess different aspects of forecast accuracy. Mean Absolute Error (MAE) measures the average magnitude of forecast errors, providing an interpretable measure of typical forecast deviation in original units. Dasmariñas et al. (2024) used MAE among other metrics in their evaluation, demonstrating its utility for comparing forecast accuracy across different model specifications.
+
+Root Mean Square Error (RMSE) measures the standard deviation of forecast errors, penalizing larger errors more heavily through its squared formulation. This metric is particularly useful for assessing whether a model produces occasional large errors that could lead to significant planning miscalculations. Dasmariñas et al. (2024) reported RMSE values in their SARIMA evaluation, providing benchmarks for assessing model performance.
+
+Symmetric Mean Absolute Percentage Error (SMAPE) expresses forecast accuracy as a percentage, enabling comparison across time series with different scales. This metric is valuable for financial forecasting applications where absolute error magnitudes may vary considerably across categories. The symmetry property of SMAPE addresses the asymmetry of traditional MAPE when actual values approach zero, making it more appropriate for expense categories that may have low or zero values in some periods.
+
+Mean Directional Accuracy (MDA) measures the proportion of forecasts that correctly predict the direction of change, whether the value will increase or decrease. This metric is particularly relevant for financial planning applications, where knowing whether expenses will rise or fall may be more important than the precise magnitude of change. MDA complements magnitude-based metrics by assessing the model's ability to capture directional patterns.
+
+### Rule-Based Classification
+
+Rule-based algorithms classify inputs using explicit if-then rules derived from domain knowledge or empirical analysis. Unlike machine learning approaches that learn patterns from data, rule-based systems apply predetermined rules that encode expert knowledge or established criteria. Dey and Arefin (2025) developed a rule-based system for household budget generation, demonstrating that rule-based approaches can effectively generate personalized recommendations based on user characteristics.
+
+The rule-based approach offers several advantages for financial profile classification. The rules are transparent and interpretable, enabling users to understand why they received a particular classification. This transparency supports user trust and facilitates explanation generation, which is important for financial applications where users need to understand the basis for recommendations. Additionally, rule-based systems do not require labeled training data, which may be unavailable for many financial classification tasks.
+
+The inputs for rule-based classification in the proposed study include questionnaire answers and cash flow transaction history. The rules compute financial-condition dimensions including Emergency Fund Coverage (EFC), Debt-Service-to-Income (DSTI), Financial Margin (FM), and Credit Card Behavior (CCB). These dimensions are then combined using threshold rules to produce profile classifications of saver, borrower, both, or neither.
+
+The rule-based algorithm produces a profile classification along with associated dimensions and a profile explanation. The profile classification informs downstream processing, including budget optimization and financial plan composition. The explanation provides users with insight into their classification, supporting understanding and acceptance of subsequent recommendations.
+
+The application of rule-based algorithms in financial contexts has been documented in multiple studies. Laspiñas and Murcia (2024) applied machine learning approaches including rule-based methods to classify income levels, demonstrating that systematic classification can support targeted financial interventions. Dey and Arefin (2025) applied rule-based logic to budget generation, showing that expert-derived rules can produce reasonable recommendations without requiring training data.
+
+The evaluation of rule-based classification presents unique challenges due to the absence of ground-truth labels. In the proposed study, evaluation will employ rule-derived reference labels for self-consistency checking, boundary-case test sets for edge conditions, and subject matter expert spot checks. This multi-faceted approach addresses the limitations of evaluating rule-based systems without human-labeled data.
+
+#### Performance Metrics for Rule-Based Classification
+
+Accuracy measures the overall proportion of correct classifications, providing a summary measure of classification performance. For rule-based systems, accuracy assessment requires a labeled dataset that may be constructed through expert annotation or derived from the rules themselves. The proposed study will use rule-derived reference labels for self-consistency evaluation, supplemented by boundary-case testing.
+
+Precision measures the proportion of positive predictions that are correct, assessing the system's ability to avoid false positives. In the context of profile classification, precision indicates how often users classified as borrowers (for example) actually exhibit borrower characteristics. High precision is important for ensuring that recommendations are appropriate for the assigned profile.
+
+Recall measures the proportion of actual positive cases that are correctly identified, assessing the system's ability to avoid false negatives. Recall indicates how many users who should be classified as borrowers (for example) are actually classified as such. High recall is important for ensuring that users who need debt management support receive appropriate recommendations.
+
+The F1-score is the harmonic mean of precision and recall, providing a balanced measure that accounts for both types of classification errors. This metric is particularly useful when the costs of false positives and false negatives are similar, providing a single summary measure of classification quality.
+
+### Linear Programming
+
+Linear programming (LP) is a mathematical optimization technique that finds the best outcome in a mathematical model whose requirements are represented by linear relationships. The technique involves maximizing or minimizing a linear objective function subject to linear equality and inequality constraints. de Zarzà et al. (2024) applied optimization techniques to financial planning, demonstrating that budget allocation can be formulated as a constrained optimization problem solvable using linear programming methods.
+
+The linear programming approach to budget optimization involves defining decision variables representing allocation amounts, an objective function representing the goal to be maximized (such as total savings and debt progress), and constraints representing limitations on allocations. The solution to the linear program provides the optimal allocation that maximizes the objective while satisfying all constraints.
+
+The inputs for linear programming in the proposed study include the expense forecast from SARIMA, the user's saver and borrower profile, the user's savings goals, the user's debts, the user's income, and the user's fixed expenses. These inputs define the objective function and constraints for the optimization problem.
+
+The linear programming solver produces a budget allocation, per-goal savings contribution schedules, per-debt repayment schedules, feasibility status, and an explanation. The feasibility status indicates whether a feasible solution exists that satisfies all constraints, which is important for identifying situations where user goals are infeasible given their resources.
+
+The application of linear programming in financial contexts has been documented in multiple studies. Gulbakyt et al. (2025) developed a dynamic model for budget allocation via multi-criteria optimization, demonstrating that optimization techniques can generate effective allocation recommendations. de Zarzà et al. (2024) applied optimization to individual and cooperative budgeting scenarios, showing that linear programming can accommodate multiple objectives and constraints.
+
+The strengths of linear programming include its ability to find optimal solutions, its established theoretical foundation, and its computational efficiency for problems of moderate size. The HiGHS solver, which will be used in the proposed study, provides an open-source implementation capable of solving large-scale linear programs efficiently. However, linear programming also has limitations, including its requirement for linear relationships and its inability to handle uncertainty directly.
+
+#### Performance Metrics for Linear Programming
+
+Constraint satisfaction rate measures the proportion of constraints that are satisfied by the optimal solution. In financial planning applications, this metric indicates whether all user requirements and limitations are respected in the allocation. A high constraint satisfaction rate indicates that the solver successfully found solutions that meet all specified conditions.
+
+Budget utilization rate measures the proportion of available income that is allocated in the budget. This metric indicates whether the optimization fully utilizes available resources or leaves funds unallocated. High utilization may indicate aggressive allocation, while low utilization may indicate conservative assumptions or infeasible constraints that prevent full allocation.
+
+Deviation from user preferences measures the extent to which the optimized allocation differs from user-specified priorities or preferences. This metric assesses whether the optimization respects user preferences or overrides them in pursuit of objective maximization. Low deviation indicates that recommendations align with user priorities, supporting acceptance and adherence.
+
+### Inter-quartile Range (IQR)
+
+The Inter-Quartile Range (IQR) method is a statistical technique for identifying outliers in data by measuring the spread of the middle 50% of values. The IQR is calculated as the difference between the third quartile (75th percentile) and the first quartile (25th percentile). Values falling below Q1 - 1.5×IQR or above Q3 + 1.5×IQR are typically considered outliers. Huang (2025) examined dynamic calibration of decision thresholds for financial anomaly detection, demonstrating that statistical methods can effectively identify unusual financial transactions.
+
+The IQR method works by establishing a baseline range of normal values and flagging values that fall outside this range as anomalies. This approach is non-parametric, meaning it does not assume a particular distribution of the data, making it robust to non-normal distributions that are common in financial data. The method is also computationally efficient, requiring only the calculation of quartiles from historical data.
+
+The inputs for IQR detection in the proposed study include new transactions and a seasonally-aware baseline. The seasonal baseline accounts for predictable variations in spending patterns, ensuring that seasonal fluctuations are not incorrectly flagged as anomalies. This adaptation is important for financial applications where spending patterns vary systematically across time periods.
+
+The IQR detector produces unusual expense alerts that notify users of transactions deviating significantly from their baseline. The alerts include information about the transaction and the degree of deviation, supporting user evaluation of whether the expense warrants attention. Users can acknowledge alerts, providing feedback that can inform future threshold calibration.
+
+The application of IQR and related anomaly detection methods in financial contexts has been documented in multiple studies. Huang (2025) applied dynamic threshold calibration for financial anomaly detection, demonstrating that effective detection requires careful threshold setting. Zhong (2025) developed adaptive anomaly detection thresholds based on time series features, showing that threshold adaptation can improve detection performance across varying conditions.
+
+The strengths of the IQR method include its simplicity, interpretability, and robustness to non-normal distributions. The method does not require training a complex model, making it suitable for applications with limited data. However, the IQR method also has limitations, including its sensitivity to the choice of multiplier (typically 1.5) and its inability to incorporate multiple variables simultaneously.
+
+#### Performance Metrics for IQR
+
+Accuracy measures the overall proportion of correct anomaly classifications, providing a summary measure of detection performance. For anomaly detection, accuracy assessment requires labeled data indicating which transactions are truly anomalous, which may be constructed through expert annotation or user feedback.
+
+Precision measures the proportion of detected anomalies that are true anomalies, assessing the system's ability to avoid false alarms. In the context of unusual expense detection, high precision indicates that most alerts correspond to genuinely unusual expenses, reducing alert fatigue and maintaining user attention to important notifications.
+
+Recall measures the proportion of true anomalies that are detected, assessing the system's ability to identify all unusual expenses. High recall indicates that few unusual expenses are missed, providing comprehensive monitoring of spending patterns.
+
+The F1-score provides a balanced measure combining precision and recall, useful when both false positives and false negatives have similar costs. For expense anomaly detection, the F1-score summarizes the system's overall detection quality.
+
+### Model and Algorithm Integration
+
+The integration of multiple models and algorithms creates a comprehensive pipeline that addresses the full spectrum of personal financial management functions. Each algorithm contributes specialized capabilities: SARIMA provides seasonal expense forecasting, rule-based classification assigns financial profiles, linear programming optimizes budget allocation, and IQR detects unusual expenses. The integration of these components produces synergistic benefits that exceed the capabilities of individual algorithms.
+
+D'Souza et al. (2026) reviewed machine learning techniques for intelligent personal finance management systems, identifying that effective systems integrate multiple techniques including forecasting, classification, and anomaly detection. Their review noted that budgeting and expense analysis often utilize methods such as Exponentially Weighted Moving Averages, clustering, Random Forests, ARIMA, and LSTM models to reveal spending patterns and manage budget constraints. The integration of multiple techniques enables comprehensive analysis that addresses different aspects of financial management.
+
+The integration architecture in the proposed study employs a pipeline design where outputs from one stage inform subsequent stages. Profile classification establishes the user context that influences budget optimization. Expense forecasting provides predictions that constrain budget allocation. Budget optimization generates schedules that are monitored for deviation. Unusual expense detection identifies transactions requiring attention. The Financial Planning module composes these outputs into a coherent plan for user approval.
+
+The performance of the integrated system is evaluated through multiple levels of metrics. Individual algorithm metrics assess the performance of each component. System-level performance indicators assess the overall effectiveness of the integrated pipeline. This multi-level evaluation approach, demonstrated by Srisamai and Siriruk (2023) in their inventory management study, provides comprehensive assessment of both technical and operational performance. <!-- SOURCE NEEDED [SRISAMAI & SIRIRUK 2023]: cited for the multi-level evaluation framework; not in the corpus and the exact paper is unconfirmed. Likely: Srisamai, K., & Siriruk, P. Demand forecasting to reduce dead stock and loss sales: a case study of the wholesale electric equipment and part company. 13th Annual International Conference on Industrial Engineering and Operations Management (IEOM), 2023. - confirm this is the intended source and obtain the proceedings page numbers and DOI before submission. -->
+
+#### Performance Indicators for Model Integration
+
+Savings rate measures the ratio of savings contributions to monthly income, providing an indicator of the user's progress toward building financial reserves. This indicator is derived from the Savings Goal Management and Budget Management modules, reflecting the allocation decisions generated by the optimization process.
+
+Savings goal progress measures the ratio of funded periods to total periods planned for each goal, indicating progress toward specific savings objectives. This indicator reflects adherence to the savings schedule generated by the budget optimization process.
+
+Alert frequency measures the number of unusual-expense alerts per month, providing an indicator of spending volatility and the system's detection activity. High alert frequency may indicate irregular spending patterns or overly sensitive detection thresholds.
+
+Debt progress measures the ratio of principal paid to the planned amount per debt, indicating progress toward debt reduction. This indicator reflects adherence to the debt repayment schedule generated by the optimization process.
+
+Plan adherence measures the ratio of actual allocation to recommended allocation, providing an indicator of the user's compliance with system recommendations. High plan adherence indicates that recommendations are realistic and acceptable to users.
+
+## Methodology
+
+### Agile Development Lifecycle
+
+The study employs the Agile software development methodology, providing an iterative and incremental framework that enables continuous refinement of both system features and prediction models based on ongoing feedback and evaluation results. The Agile methodology is particularly appropriate for BUDGIE's development given the complexity of integrating multiple machine learning models with a mobile application, as the iterative nature of Agile enables progressive refinement of both the algorithmic components and the user interface.
+
+### Agile Kanban
+
+Agile Kanban is the specific Agile variant employed in this study. Kanban emphasizes continuous delivery through visualization of workflow, limiting work-in-progress, and managing flow. The Kanban board provides visibility into the development process, enabling the team to identify bottlenecks and optimize workflow. This approach supports the iterative development of BUDGIE's multiple modules while maintaining flexibility to accommodate changing requirements and feedback.
+
+### Data Collection
+
+Data collection for BUDGIE encompasses multiple sources that provide the foundation for model training and system evaluation. The PSA 2023 Family Income and Expenditure Survey (FIES) provides annual income totals, annual expense totals, family size, per-capita income, and decile ranking. This dataset serves as the source for temporal disaggregation, providing annual expense estimates that are disaggregated to monthly resolution.
+
+The PSA 2022-2026 Household Final Consumption Expenditure (HFCE) provides quarterly household consumption data that serves as the source for seasonal patterns in disaggregation. The HFCE dataset covers the period from 2022 Q1 to 2026 Q2, providing 18 quarters of data for estimating seasonal patterns. While this series length is borderline for SARIMA with a seasonal period of 12, it provides sufficient data for initial model development.
+
+The Public User Expectations and Perceptions Survey (PUEPS) provides user expectations and preliminary investigation data. This survey employed purposive sampling of 47 respondents in the National Capital Region, primarily from Taguig, Pasay, Manila, and Makati. The survey results inform the user requirements and evaluation criteria for BUDGIE.
+
+### Model Development
+
+Model development follows the standard machine learning pipeline of data preprocessing, feature engineering, model training, cross-validation, performance evaluation, and model integration. The temporal disaggregation process transforms annual FIES data into monthly estimates using HFCE-calibrated proportional benchmarking. This process produces seasonally adjusted monthly expense estimates that serve as the foundation for SARIMA forecasting.
+
+The SARIMA model is trained on the disaggregated monthly series, with seasonal orders determined from the population-level data. The model produces monthly multipliers per category and population-level baseline forecasts that inform budget optimization. Personal forecast blending occurs when sufficient user history is available, with the blend weight increasing linearly from zero to one as history grows from 24 to 48 months.
+
+The rule-based classifier is developed from domain knowledge and financial planning principles. The classification rules incorporate four financial-condition dimensions: Emergency Fund Coverage, Debt-Service-to-Income, Financial Margin, and Credit Card Behavior. These dimensions are computed from user questionnaire responses and transaction history, then combined using threshold rules to produce profile classifications.
+
+The linear programming solver is implemented using the HiGHS solver, an open-source optimization library capable of solving large-scale linear programs. The solver incorporates the expense forecast, user profile, savings goals, debts, income, and fixed expenses as inputs, producing optimized budget allocations and schedules.
+
+### System Development
+
+BUDGIE is developed as a mobile application using React Native with Expo SDK 55, providing cross-platform compatibility with primary support for Android devices. The backend services are implemented using Node.js 24 LTS with Express 5.1, with Supabase providing authentication and data storage. The model and algorithm microservice is implemented using Python 3.14 with FastAPI, providing REST APIs for classification, forecasting, optimization, and anomaly detection.
+
+The system architecture follows a microservices pattern with separate containers for the API gateway, classifier, forecaster, detector, transaction service, and solver. This architecture supports independent scaling and deployment of components while maintaining loose coupling through event-driven communication. Core features are offline-capable with local caching, while modules with models or algorithms are server-side with graceful degradation during connectivity loss.
+
+## System Evaluation
+
+### Software Quality Evaluation
+
+Software quality evaluation employs the ISO/IEC 25010:2023 quality model, which defines characteristics that collectively assess the fitness of a software system for its intended use. The evaluation addresses functional suitability, performance efficiency, reliability, security, portability, and usability, providing comprehensive assessment of system quality.
+
+The System Usability Scale (SUS) provides a standardized instrument for assessing perceived usability. The SUS consists of ten items rated on a five-point scale, producing a score from 0 to 100 that indicates usability relative to established benchmarks. A score of 68 or higher is considered acceptable, representing above-average usability. The SUS will be administered to target users following interaction with BUDGIE, providing quantitative assessment of usability.
+
+Functional suitability assessment verifies that BUDGIE provides functions that meet stated and implied needs, encompassing functional completeness, correctness, and appropriateness. The evaluation includes verification that all required features operate correctly according to their defined requirements, with particular attention to critical financial computations and transaction processing.
+
+Performance efficiency assessment measures BUDGIE's time behavior, resource utilization, and capacity under defined conditions. The evaluation includes response time measurement with a target of p95 API response ≤2,000 ms, error rate assessment with a target of <1% under baseline load, and capacity testing to verify support for 150 concurrent virtual users.
+
+Reliability assessment measures BUDGIE's ability to perform required functions consistently and without failure. The evaluation includes availability measurement with a target of ≥99.5% successful responses, fault tolerance assessment with a target of <1% failed requests during recoverable faults, recoverability testing to verify return to baseline within 60 seconds after simulated failure, and data integrity verification with a target of zero duplicate or missing transactions.
+
+Security assessment measures BUDGIE's ability to protect data and resources against unauthorized access. The evaluation includes confidentiality testing to verify that 100% of protected endpoints reject requests without valid authentication, and authenticity testing to verify that invalid credentials result in 401/403 responses.
+
+Portability assessment measures BUDGIE's ability to be installed and executed in supported environments. The evaluation includes installability testing to verify successful clean installation, adaptability testing to verify configuration through environment variables, and build success rate measurement.
+
+### Model Performance Evaluation
+
+Model performance evaluation assesses the accuracy and effectiveness of the algorithms employed in BUDGIE. Each algorithm is evaluated using metrics appropriate to its function, providing objective assessment of model capabilities.
+
+The SARIMA forecaster is evaluated using MAE, SMAPE, MDA, and RMSE, with comparison against a seasonal naive baseline. These metrics assess different aspects of forecast accuracy, including average error magnitude, percentage error, directional accuracy, and error variance. The evaluation includes assessment of disaggregation accuracy to verify that temporal disaggregation preserves seasonal patterns.
+
+The rule-based classifier is evaluated using accuracy, precision, recall, and F1-score. Given the absence of human-labeled ground-truth data, evaluation employs rule-derived reference labels for self-consistency assessment, boundary-case test sets for edge condition verification, and subject matter expert spot checks for validation.
+
+The linear programming solver is evaluated using constraint satisfaction rate, budget utilization rate, and deviation from user preferences. These metrics assess whether the solver produces feasible solutions that respect constraints, fully utilize available resources, and align with user priorities.
+
+The IQR detector is evaluated using accuracy, precision, recall, and F1-score. The evaluation assesses the detector's ability to identify unusual expenses while minimizing false alarms, using labeled data constructed through expert annotation or user feedback.
 
 ## Synthesis
 
-The reviewed literature converges on several points that directly shape BUDI. First, savings and debt in the Philippines are heavily influenced by the user's demographic, social, psychological, and economic circumstances: income instability, household obligations, self-control, and financial literacy jointly determine whether a Filipino saves, borrows, or struggles to budget (Abila & Ulibas, 2026; Bulan & Nemino, 2025; Ganong et al., 2025; Wang-Ly & Newell, 2023). Philippine surveys show that saving is rare, borrowing is common, emergency funds are scarce, and financial literacy is low, establishing an urgent and measurable need for a tool that improves savings and debt (BSP, 2023, 2025).
+The reviewed literature establishes that personal financial management is a critical capability for individual financial well-being, with particular relevance in developing economies where household financial vulnerability is pronounced. Empirical findings confirm that Filipinos face persistent challenges in savings and debt management, compounded by economic pressures and limited access to professional financial advice. Traditional approaches to financial management, including manual budgeting and generic expense tracking applications, fail to address the complex, interconnected nature of savings and debt challenges or to account for Philippine-specific factors such as seasonal consumption patterns.
 
-Second, the technology to meet that need already exists in pieces. Intelligent finance applications have demonstrated the value of expense classification, smart budgeting, forecasting, and anomaly alerts (DSouza et al., 2026; Yadav et al., 2026), and the relevant computational approaches are mature: SVM classification with concept-drift adaptation (Abdullahi et al., 2025; Chikoore et al., 2026), SARIMA seasonal forecasting (DSouza et al., 2026; Kara & Şengüler, 2025), constrained budget optimization (De Zarzà et al., 2024; Lu et al., 2025), and statistical anomaly detection with dynamic threshold calibration (A. Huang et al., 2025; Zhong, 2025; Zhang et al., 2023).
+Within this context, computational approaches including time-series forecasting, rule-based classification, mathematical optimization, and statistical anomaly detection form an integrated framework for personalized financial management. SARIMA modeling captures seasonal patterns in expense data, enabling forecasts that account for predictable fluctuations in spending. Rule-based classification assigns financial profiles that inform differentiated intervention strategies. Linear programming optimizes budget allocation under constraints, generating schedules that maximize savings and debt progress. IQR detection identifies unusual expenses that may require attention. The integration of these techniques creates synergistic benefits that exceed the capabilities of individual approaches.
 
-Third, existing systems each solve part of the problem but not the whole. Foundational frameworks for intelligent personal finance management enumerate the same classification–forecasting–optimization–anomaly stack as BUDI, but they remain architectural proposals without implementation or evaluation (De Zarzà et al., 2024; Yadav et al., 2026). Multi-agent wealth advisors deliver personalization and explainability but target investment portfolios rather than everyday savings and debt (R. Huang et al., 2025). Budget-management apps provide tracking and risk classification but do not integrate the four-model stack (Ghonaim & El-Sharawy, 2025). Reviewed systems therefore demonstrate the components BUDI needs while leaving the integration itself open.
+Existing personal financial management applications have achieved significant adoption but exhibit limitations in their support for savings and debt outcomes. Most applications prioritize generic expense tracking over personalized financial planning, lacking the analytical sophistication required to optimize allocation across competing goals under constraints. The literature reveals a gap between the capabilities of existing systems and the needs of users seeking to improve their financial outcomes through systematic planning and disciplined execution.
 
-Fourth, this integration exposes the research gap. Most reviewed intelligent-finance literature originates in Western, developed-economy, or investment-focused contexts, with limited attention to Filipino mass-market users and their specific savings and debt realities (BSP, 2023, 2026; Cumaio et al., 2026). Concept drift in personal spending profiles is only beginning to be addressed in adaptive credit-scoring work, and it has not been studied for household budgeting classifiers in a developing-economy mobile application (Abdullahi et al., 2025; Chikoore et al., 2026). The literature is also thin on the simultaneous, personalized combination of profile classification, seasonal forecasting, budget optimization, and anomaly detection within a single platform — the exact configuration BUDI proposes (DSouza et al., 2026; Yadav et al., 2026).
-
-Finally, the proposed study responds to this gap by developing BUDI: a Filipino-focused, mobile-first application integrating SVM profile classification, SARIMA forecasting, LP-based budgeting, and IQR anomaly detection, personalized to each user's financial profile and evaluated with model metrics, usability instruments, and acceptance frameworks that the literature endorses (Brooke, 1996; Rane et al., 2024). In doing so, the study contributes a contextualized implementation of a four-model intelligent finance architecture to a population the current literature largely leaves unmodeled.
-
----
-
-## Tables on Existing Literature
-
-The table below compares the intelligent finance management systems reviewed in this chapter, following the guideline's comparison dimensions (purpose, target users, major features, technologies/models, results, strengths, limitations, relevance to BUDI).
-
-| System / Study | Purpose | Target users | Major features | Technologies / models | Results / findings | Strengths | Limitations | Relevance to BUDI |
-|---|---|---|---|---|---|---|---|---|
-| Wealth-Voyager (R. Huang et al., 2025) | Intelligent wealth management advisory | Individual investors | Multi-agent advisory, strategy allocation, explainable conversational guidance | LLM-based multi-agent framework (AlphaForge + DualAdvisor) | Better risk-adjusted returns in a six-week pilot; improved user engagement and trust | Personalization and transparency by design; user-tested | Investment portfolio focus; short evaluation window; small user study | Source of the personalization and explainability principles BUDI applies to savings guidance |
-| Intelligent PFM System / IPFMS (Yadav et al., 2026) | Smart budgeting and real-time expense tracking | General personal finance users | Expense classification, budget forecasting, anomaly alerts | Logistic regression / RF / SVM classifiers; ARIMA, Prophet, LSTM forecasters; K-Means/DBSCAN/isolation-forest anomaly | None reported (architectural proposal) | Explicitly assembles the same model stack as BUDI | No implementation or evaluation; low-tier venue | Direct architectural blueprint for BUDI's four-module design |
-| RNN Budget Management App (Ghonaim & El-Sharawy, 2025) | Mobile budget and risk management | Mobile app users (Arabic/English) | Transaction risk classification, budget management | RNN classifier over Kaggle financial-transaction data | 97.45% classification accuracy | Mobile-first; high accuracy on real transaction data | Single model; no concept drift; categories are derived | Validates on-device transaction classification in a budget app |
-| Constrained Budgeting Framework (De Zarzà et al., 2024) | Savings-maximizing budget allocation | Individual and cooperative households | Constraint-based budget optimization with LLM guidance | Constraint-based optimization / LP-style allocation model | Demonstrates feasible savings-maximizing plans (qualitative) | Formalizes budgeting as optimization — closest analogue to BUDI's LP module | No quantitative evaluation; LLM integration informal; cooperative scale exceeds BUDI scope | Supports the LP-based budgeting module and its constraint formulation |
-| SARIMAX + Constrained Optimizer (Lu et al., 2025) | Demand forecast then constraint-aware budgeting | Marketing/budget planners | Category demand forecasting feeding a constrained optimization stage | SARIMAX model + constrained optimizer; Monte Carlo stress testing | ~2.85% MAPE on total demand; point forecasts can violate constraints | Exact BUDI pattern: forecast-then-optimize; error-aware | Not a consumer mobile app; enterprise framing | Justifies the SARIMA-to-LP pipeline used in BUDI |
-| BUDI (proposed) | Personalized savings-and-debt improvement for Filipinos | Filipino individuals with irregular or fixed incomes | Profile classification, expense tracking, income/expense forecast, LP budget plan, emergency-fund goals, debt repayment, anomaly alerts, personalized insights | SVM classification w/ concept drift; SARIMA forecasting; LP optimization; IQR anomaly detection | To be established by model metrics, SUS, and TAM/UTAUT evaluation | Single integrated, personalized platform for the four model families; localized to Philippine incomes, obligations, and savings norms | Not yet evaluated; depends on available transaction data | The present study |
-
----
-
-## Research Gaps
-
-The following gaps are drawn from, and supported by, the reviewed literature.
-
-| Type of Gap | Gap identified | Supported by |
-|---|---|---|
-| Contextual Gap | Most intelligent finance-management research targets developed economies and investment-focused users; little work models Filipino mass-market savings and debt behavior within an application | Cumaio et al., 2026; BSP, 2023, 2026 |
-| Integration Gap | Existing systems implement classification, forecasting, optimization, or anomaly detection separately; limited work integrates all four in one personalized platform | Yadav et al., 2026; DSouza et al., 2026; R. Huang et al., 2025 |
-| Technological Gap | Prediction modules seldom feed a constraint-aware budgeting optimizer; forecast-then-optimize pipelines for personal budgets are rare outside enterprise marketing budget settings | Lu et al., 2025; De Zarzà et al., 2024 |
-| Methodological Gap | Concept drift in personal spending-profile classification is studied in credit-scoring contexts but not for household budgeting classifiers in mobile applications | Abdullahi et al., 2025; Chikoore et al., 2026 |
-| Feature Gap | Reviewed systems that detect anomalous transactions rely on heavier ML detectors; a fast, explainable, statistically grounded detector that recalibrates to the user's own history is not commonly provided | A. Huang et al., 2025; Zhong, 2025; Zhang et al., 2023 |
-| Data Gap | Philippine household financial modeling is limited to survey-based classification (e.g., wealth quintiles); transaction-level datasets tied to a deployed Filipino mobile application are absent | Salvador, 2024; BSP, 2023 |
-| Evaluation Gap | Few intelligent finance applications for developing economies are evaluated simultaneously with model metrics, usability (SUS), and acceptance frameworks (TAM/UTAUT) | Rane et al., 2024; Santiago et al., 2025 |
-
----
+The identified research gap is the lack of an integrated personal financial management system that incorporates Philippine seasonal consumption patterns into personalized expense forecasting and applies these forecasts to generate personalized budgets, savings contribution schedules, and debt repayment plans under financial constraints. While individual techniques have been validated in isolation or in different contexts, limited attention has been given to their integrated deployment within a single platform designed specifically for Filipino users. This gap is addressed by the proposed study through the development and evaluation of BUDGIE, a seasonality-aware savings-debt plan pipeline that combines profile classification, seasonal expense forecasting, budget optimization, and unusual expense detection to support improved financial planning among Filipinos aged 18 to 59 in the National Capital Region.
 
 ## Conceptual Model of the Study
 
-The conceptual model summarizes the major components of the study and how they relate. An Input–Process–Output (IPO) model is used because the study is a system-development project whose components are knowledge, data, software and hardware inputs; a sequence of processes; and the developed system as output.
+The conceptual framework of the study follows an Input-Process-Output (IPO) model that illustrates the systematic development and evaluation of BUDGIE. The model is structured around four components: Input, Process, Output, and Evaluation.
 
-### IPO Diagram
+<!-- FIGURE 1 PLACEHOLDER: conceptual model (IPO) diagram. Source image is in the
 
-```
-INPUT                                         PROCESS                                        OUTPUT
-Knowledge Requirements                        Requirements Analysis                          Developed [BUDI]:
-  User requirements (survey)                    Personalization target-user                    Personalized Intelligent
-  Financial domain concepts                     profile definition                             Finance Management App
-  Behavioral and psychological factors        Algorithm / Model Implementation                with expected capabilities:
-  Business and design rules                     - SVM profile classification                   - Expense & income tracking
-Data Requirements                               - SARIMA income/expense forecasting            - Budget allocation (LP-based)
-  Transaction records (income, expense)         - LP-based budgeting                            - Smart alerts for anomalies
-  Time-series history                           - IQR anomaly detection                         - Forecasts of future income
-  Budget states and goals                      System Analysis and Design                       and expenses
-  Synthetic personas for development            - Mobile-first app architecture                - Personalized insights and
-  Government survey context (BSP/FIES)          - Model-service integration                      actionable advice
-Software Requirements                          Development
-  Python (modeling) / React Native (Expo)       - Iterative development cycles
-  Express/TypeScript API, Supabase             Testing
-  scikit-learn / statsmodels / LP solver        - Model performance metrics
-Hardware Requirements                           - Unit and integration tests
-  Mobile devices / server resources            Evaluation
-  Development workstations                      - SUS usability assessment
-                                                - TAM/UTAUT acceptance survey
-                                                - Savings-and-debt impact measurement
-```
+     Chapter 2 V3 .docx media folder and has not been exported to the repository. -->
 
-### Discussion of the Conceptual Framework
+Figure 1. Conceptual Model of the Study
 
-The Input box assembles what the study needs before any process begins. Knowledge requirements capture the user requirements gathered through the public user-expectations survey, the personal-finance domain concepts and behavioral determinants reviewed in this chapter, and the design rules derived from the topical outline. Data requirements specify the raw materials of the computational models: the user's recorded transactions; the time-series history of income and expenses that drives the SARIMA forecaster; period-end budget states and savings/debt goals that drive the LP optimizer; synthetic personas that let models be trained and tested before sufficient real data accumulate; and government surveys such as the BSP consumer surveys that provide the macro context validating the profiles. Software and hardware requirements bound the technical implementation — Python-based modeling tooling for the model service, React Native (Expo) for the mobile client, an Express/TypeScript API with a Supabase backend, and the devices and workstations used to build and run the system.
+The Input component identifies the knowledge, software, hardware, and data requirements necessary for the conduct of the study. Knowledge requirements encompass the theoretical foundations and computational techniques employed in BUDGIE. Software requirements specify the development tools and technologies used. Hardware requirements define the computing resources needed for development and testing. Data requirements identify the datasets used for model training and system evaluation.
 
-The Process box sequences the major activities of the study. Requirements analysis converts the knowledge inputs into a fixed personalization target-user profile and feature set. Algorithm/model implementation develops the four computational modules — the SVM profile classifier, the SARIMA forecaster, the LP budget optimizer, and the IQR anomaly detector — consistent with the model-selection and metric evidence reviewed in Sections 3 and 6. System analysis and design then organizes these modules into the application's architecture, separating the app from the model service. Development proceeds in iterative cycles, and testing validates both the models (through their performance metrics) and the application (through integration and acceptance checks). Finally, evaluation applies the SUS questionnaire, the TAM/UTAUT instruments, and the savings-and-debt impact measurement to judge the finished system.
+The Process component describes the activities involved in developing BUDGIE, including requirements analysis, system design, module implementation, algorithm integration, and testing. The Agile Kanban methodology guides the development process, providing an iterative framework that enables continuous refinement based on feedback and evaluation results.
 
-The Output box is the primary product — the developed BUDI application — together with its expected capabilities: accurate expense and income tracking; LP-optimized budget allocations that maximize savings under the user's constraints; smart anomaly alerts that flag unusual transactions without overwhelming the user; forecasts of future income and expenses from the SARIMA module; and personalized insights that convert the user's own data into actionable, memory-respectful guidance. The diagram is relationship-preserving: each output capability traces to a specific input (for example, forecasts trace to the time-series history inputs, and personalized budgets trace to the behavioral and goal inputs) mediated by the corresponding process. This model therefore holds the study together: the literature reviewed in this chapter supplies the inputs and the process rationale, and the evaluated application is the output that closes the research gap identified in the synthesis.
+The Output component represents the primary deliverable of the study, which is the Development of BUDGIE as a personal financial management application that uses SARIMA-based seasonal expense forecasting for improved financial planning.
 
----
+The Evaluation component describes the assessment activities that verify the quality and effectiveness of BUDGIE. Software quality evaluation employs ISO/IEC 25010:2023 and the System Usability Scale. Model performance evaluation assesses each algorithm using appropriate metrics. System performance evaluation measures savings rate, savings goal progress, alert frequency, debt progress, and plan adherence.
+
+## Outstanding Source Requests
+
+The following sources are cited in this chapter but are not yet in the RRL corpus. Each
+`SOURCE NEEDED` marker in the text names the passage that depends on it. All three are real,
+locatable works; each still has to be acquired, ingested into BUDI-Literature, and re-cited from
+its verified metadata rather than from this provisional entry.
+
+| Cited as | Status | Resolution |
+| --- | --- | --- |
+| Dasmariñas et al. (2024) | Confirmed, 7 citations, absent from corpus | Dasmariñas, A. P., De Castro, G., Lazona, B. J., & Usona, L. (2024). *PUP Journal of Science & Technology, 14*(1), 70-90. https://doi.org/10.70922/ctzevg57 |
+| Dey and Arefin (2025) | Confirmed, 3 citations, absent from corpus | Dey, S., & Arefin, M. S. (2025). *Journal of Information Systems Engineering and Management, 10*(47s), 148-182. |
+| Srisamai and Siriruk (2023) | 1 citation, paper identity unconfirmed | Likely the 13th IEOM conference paper on demand forecasting and dead stock. Confirm before citing. |
+
+Dasmariñas et al. is the priority. It is the single load-bearing source for the seasonal
+forecasting argument and is cited seven times, which leaves the SARIMA section of this chapter
+resting on one paper. The adviser's standard for a core algorithm is six to seven sources, so the
+SARIMA section needs corroboration beyond this paper regardless of the intake decision.
+
+Two further dependencies are not academic citations and do not need sourcing, but are listed so
+the evidence map stays complete: the PSA FIES and HFCE datasets, and the group's own PUEPS
+instrument.
 
 ## References
 
-Abdullahi, M., Alhussian, H., Aziz, N., Abdulkadir, S. J., Baashar, Y., Alashhab, A. A., & Afrin, A. (2025). A systematic literature review of concept drift mitigation in time-series applications. *IEEE Access, 13*, 119387–119418. https://doi.org/10.1109/ACCESS.2025.3587231
+Bangko Sentral ng Pilipinas. (2026). *Consumer expectations survey report: 2nd quarter 2026*. Monetary and Economics Sector, Department of Economic Statistics.
 
-Abila, J. P., & Ulibas, R. (2026). Analyzing the financial management practices and resilience of online freelancers in Laguna amid digital platform taxation. *International Journal of Multidisciplinary Educational Research and Innovation, 4*(2), 118–131.
+Claro, D. M. L., & Noval, J. E. G. (2025). The regressors of financial well-being among LGU employees in Davao del Norte. *ISRG Journal of Economics, Business and Management, 3*(6).
 
-Agrawal, R., Hamdare, S., & Khanna, A. (2025). Analyzing and rewarding credit card spending habits in India: A machine learning approach. *International Journal of Computational Intelligence Systems, 18*, Article 165. https://doi.org/10.1007/s44196-025-00899-0
+Cumaio, S., Serrasqueiro, Z., & Madaleno, M. (2026). Linking financial literacy and behavioural finance to saving and debt behaviours: A literature review of global and developing economy contexts. *Review*.
 
-Bai, R. (2023). Impact of financial literacy, mental budgeting and self control on financial wellbeing: Mediating impact of investment decision making. *PLoS ONE, 18*(11), Article e0294466. https://doi.org/10.1371/journal.pone.0294466
+D'Souza, M., Bhegade, P., Bhalekar, P., et al. (2026). A comprehensive review of machine learning techniques for intelligent personal finance management systems. P.E.S Modern College of Engineering, Pune, India.
 
-Bangko Sentral ng Pilipinas. (2023). *Financial inclusion in the Philippines dashboard: As of fourth quarter 2023*. Bangko Sentral ng Pilipinas.
+de Zarzà, I., de Curtò, J., Roig, G., & Calafate, C. T. (2024). Optimized financial planning: Integrating individual and cooperative budgeting models with LLM recommendations. *AI, 5*, 91-114.
 
-Bangko Sentral ng Pilipinas. (2025). *Bangko Sentral ng Pilipinas annual report 2025*. Bangko Sentral ng Pilipinas.
+Esperanza, D. N. (2025). Digital lending efficacy on debt management of wage earners. *ASEAN Journal of Management & Innovation, 12*(2), 111-127.
 
-Bangko Sentral ng Pilipinas. (2026). *Consumer expectations survey report: 2nd quarter 2026*. Department of Economic Statistics, Bangko Sentral ng Pilipinas.
+Francisco, A. A., Legal, G. A., & Legal, F. (2026). Causes of salary loan dependency: Basis for strengthening financial literacy program. *Journal, 4*(1).
 
-Begum, M. (2025). Machine learning in financial risk and behavior analysis: Predictive insights on bankruptcy, fraud, and consumer trends in the USA. *Journal of Data & Digital Innovation, 2*(1), 36–54.
+Gulbakyt, S., Almaz, A., Saule, S., & Suhrab, Y. (2025). Dynamic model for budget allocation in via multi-criteria optimization. *Journal of Applied Data Sciences, 6*(4), 3075-3088.
 
-Brooke, J. (1996). SUS: A "quick and dirty" usability scale. In P. W. Jordan, B. Thomas, B. A. Weerdmeester, & I. L. McClelland (Eds.), *Usability evaluation in industry* (pp. 189–194). Taylor & Francis.
+Huang, A. (2025). Dynamic calibration of decision thresholds for financial anomaly detection: Verification with payment platform information and data. *Journal of Global Information Management, 33*(1).
 
-Bulan, P. J., & Nemino, M. R. (2025). The interplay of behavioral intention on the relationship between self-control and saving behavior among MSME business owners. *International Journal of Management Studies and Social Science Research, 7*(2), 139–150. https://doi.org/10.56293/IJMSSSR.2025.5518
+Laspiñas, E. L., & Murcia, J. V. B. (2024). Machine learning approaches in classifying income levels. *TWIST, 19*(2), 92-97. https://doi.org/10.5281/zenodo.10049652#134
 
-Chen, J., Chen, T., Wang, Y., & Wang, L. (2024). A survey of time series data forecasting methods based on deep learning. *Journal of Basic and Applied Research International, 30*(6), 140–157.
+Lu, Y., Zhou, H., & Zhang, Y. (2025). A constrained, data-driven budgeting framework integrating macro demand forecasting and marketing response modeling. *Journal of Technology Informatics and Engineering, 4*(3), 493-520. https://doi.org/10.51903/jtie.v4i3.466
 
-Chen, S., & Tan, W. (2025). LSTM-based consumer behavior prediction model research. In *Proceedings of the 2025 2nd International Conference on Digital Economy and Computer Science (DECS 2025)*. ACM. https://doi.org/10.1145/3785706.3785906
+Philippine Statistics Authority. (2023). *Family income and expenditure survey 2023*. PSA.
 
-Chikoore, R., Ojo, S. O., & Kogeda, O. P. (2026). Adaptive credit scoring model with concept drift detection and adaptation technique for a dynamic environment. *IEEE Access, 14*, 90371–90405. https://doi.org/10.1109/ACCESS.2026.3703181
+Philippine Statistics Authority. (2026). *Household final consumption expenditure, 2022-2026 quarter 2*. PSA.
 
-Claro, D. M. L., & Noval, J. E. G. (2025). The regressors of financial well-being among LGU employees in Davao del Norte. *ISRG Journal of Economics & Business Management, 3*(6), 171–187. https://doi.org/10.5281/zenodo.17775590
+Alenazi, M., & Sas, C. (2023). Evaluating budgeting apps: Limited support for budgeting compared to tracking. In *Proceedings of the British Computer Society HCl International Conference (BCSHCI 2023)*. https://doi.org/10.14236/ewic/BCSHCI2023.1
 
-Cowan, N. (2001). The magical number 4 in short-term memory: A reconsideration of mental storage capacity. *Behavioral and Brain Sciences, 24*(1), 87–114. https://doi.org/10.1017/S0140525X01003922
+Santiago, R. L. T. (2025). Budget and financial management information system for public elementary schools: Analytics and predictive insights for MOOE allocation using linear regression. *International Journal of Advanced Research in Computer Science, 16*(3). http://dx.doi.org/10.26483/ijarcs.v16i3.7256
 
-Cruz, M. A. T. D., Jurada, P. H. G., Recreo, C. R., Mandigma, M. B. S., & Magbata, E. V. S. (2026). Dependence of Filipino young professionals' well-being on their investing years and income in the National Capital Region. *Review of Integrative Business and Economics Research, 15*(2), 902–919.
+Yeo, K. H. K., Lim, W. M., & Yii, K.-J. (2023). Financial planning behaviour: A systematic literature review and new theory development. *Journal of Financial Services Marketing, 29*, 979-1001. https://doi.org/10.1057/s41264-023-00249-1
 
-Cumaio, S., Serrasqueiro, Z., & Madaleno, M. (2026). Linking financial literacy and behavioural finance to saving and debt behaviours: A literature review of global and developing economy contexts. *Journal of Risk and Financial Management, 19*(6), Article 425. https://doi.org/10.3390/jrfm19060425
+Yoganandham, G. (2025). Mastering economic and financial sources with reference to budgeting, savings, early investing, debt management and the power of financial planning: A comprehensive analysis. *Degres Journal*. ISSN 0376-8163.
 
-Danahy, R., Lillard, D., Loibl, C., & Montalto, C. P. (2024). Financial stress among college students: New data about student loan debt, lack of emergency savings, social and personal resources. *Journal of Consumer Affairs, 58*(2), 692–709. https://doi.org/10.1111/joca.12581
+Zhong, M. (2025). Adaptive anomaly detection threshold for financial data quality monitoring based on time series features. University of Chicago. Unpublished manuscript.
 
-De Zarzà, I., de Curtò, J., Roig, G., & Calafate, C. T. (2024). Optimized financial planning: Integrating individual and cooperative budgeting models with LLM recommendations. *AI, 5*(1), 91–114. https://doi.org/10.3390/ai5010006
-
-Dheepiga, S., & Sivakumar, N. (2025). How financial literacy influences budgeting, investment, and savings behaviors. *International Research Journal of Business Studies, 18*(1), 101–114.
-
-DSouza, M., Bhegade, P., Bhalekar, P., & Bhavsar, Y. (2026). A comprehensive review of machine learning techniques for intelligent personal finance management systems. *[Preprint, P.E.S Modern College of Engineering, Pune].* <!-- VERIFY: preprint-style review; confirm venue -->
-
-Encarnacion, M. J. G., & Vecina, R. A. P. (2025). Improving financial performance through financial literacy, good financial practice and fintech adoption. *Divine Word International Journal of Management and Humanities, 4*(2), 1688–1707.
-
-Erno, G. Y. L., & Grefalde, J. Q. (2026). Behavioral and psychological drivers of sustainable saving and financial resilience among community households. <!-- VERIFY: source venue string appears anomalous; confirm journal and volume/issue -->
-
-Esperanza, D. N., Bithay, L. L., Jesus, J. B., Ople-Alviola, C., Sumilhig, J. M., & Basilisco, G. L. (2025). Digital lending efficacy on debt management of wage earners. *ASEAN Journal of Management & Innovation, 12*(2), 111–127.
-
-Francisco, A., Legal, G., & Legal, F. (2026). Causes of salary loan dependency: Basis for strengthening financial literacy program. *International Journal of Multidisciplinary Educational Research and Innovation, 4*(1), 705–728.
-
-Ganong, P., Noel, P. J., Patterson, C., Vavra, J. S., & Weinberg, A. (2025). *Earnings instability* (NBER Working Paper No. 34227). National Bureau of Economic Research.
-
-Ghonaim, W. A., & El-Sharawy, E. E. (2025). An intelligent budget management mobile application based on a recurrent neural network. *International Journal of Theoretical and Applied Research, 4*(2), 840–852. https://doi.org/10.21608/IJTAR.2025.427658.1148
-
-Hajj, M. E., & Hammoud, J. (2023). Unveiling the influence of artificial intelligence and machine learning on financial markets: A comprehensive analysis of AI applications in trading, risk management, and financial operations. *Journal of Risk and Financial Management, 16*(10), Article 434. https://doi.org/10.3390/jrfm16100434
-
-Hu, X., Lee, J. C. H., & Lee, J. H. M. (2023). Two-stage predict+optimize for mixed integer linear programs with unknown parameters in constraints. In *Advances in Neural Information Processing Systems 36 (NeurIPS 2023)*.
-
-Huang, A., Zhang, X., Wang, Y., Tsai, S., Zhou, P., & Chen, L. (2025). Dynamic calibration of decision thresholds for financial anomaly detection: Verification with payment platform information and data. *Journal of Global Information Management, 33*(1). https://doi.org/10.4018/JGIM.395852
-
-Huang, R., Zhao, Z., Chen, S., Wu, X., & Zhao, J. L. (2025). Wealth-Voyager: Navigating intelligent wealth management with a multi-agent framework. In *Proceedings of the 2025 International Conference on Generative Artificial Intelligence for Business (GAIB 2025)*. ACM. https://doi.org/10.1145/3766918.3766944
-
-ISO/IEC. (2011). *ISO/IEC 25010:2011 — Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models*. International Organization for Standardization.
-
-Kara, B., & Şengüler, H. (2025). A comparative analysis of budget forecasting methods: A systematic literature review covering the 1983–2024 period. *Public Budgeting & Finance*. https://doi.org/10.1111/pbaf.70008
-
-Lu, Y., Zhou, H., & Zhang, Y. (2025). A constrained, data-driven budgeting framework integrating macro demand forecasting and marketing response modeling. *Journal of Technology Informatics and Engineering, 4*(3), 493–520. https://doi.org/10.51903/jtie.v4i3.466
-
-Miller, G. A. (1956). The magical number seven, plus or minus two: Some limits on our capacity for processing information. *Psychological Review, 63*(2), 81–97. https://doi.org/10.1037/h0043158
-
-Prakoso, T., & Apriliani, R. (2024). Budgeting and saving effectiveness as the main pillar of sustainable personal financial management. *Indonesian Journal of Islamic Economics and Finance, 4*(2), 257–272. https://doi.org/10.37680/ijief.v4i2.6187
-
-Rane, N. L., Choudhary, S. P., & Rane, J. (2024). Acceptance of artificial intelligence technologies in business management, finance, and e-commerce: Factors, challenges, and strategies. *Studies in Economics and Business Relations, 5*(2), 23–44. https://doi.org/10.48185/sebr.v5i2.1333
-
-Reyes, J. M., Santos, L. P., & Perez, A. (2024). A comparative analysis of machine learning models for predictive analytics in finance. *International Journal of Applied Mathematics and Computing, 1*(1), 14–20. https://doi.org/10.62951/ijamc.v1i1.3
-
-R Singh, S. S., & Singh, A. K. (2025). Digital persona modeling for context-aware financial decisioning. *International Journal of Research in Multidisciplinary Technology, 1*(4), 1–14.
-
-Salminen, J., Mustak, M., Sufyan, M., & Jansen, B. J. (2023). How can algorithms help in segmenting users and customers? A systematic review and research agenda for algorithmic customer segmentation. *Journal of Marketing Analytics, 11*, 677–692. https://doi.org/10.1057/s41270-023-00235-5
-
-Salvador, E. L. V. (2024). Use of boosting algorithms in household-level poverty measurement: A machine learning approach to predict and classify household wealth quintiles in the Philippines. *[Preprint submitted to Elsevier].* <!-- VERIFY: preprint; no DOI/venue confirmed -->
-
-Samli, F. B., Zaini, Z., & Yusof, K. S. (2026). A bibliometric analysis of how financial behaviour drives effective debt management. *Labuan Bulletin of International Business & Finance, 24*(1), 114–129.
-
-Sankaewtong, K., Kim, T., Tessone, C. J., & Ikeda, Y. (2025). SoK: Advances in anomaly detection techniques for cryptoasset transactions. *IEEE Access, 13*, 202576–202602. https://doi.org/10.1109/ACCESS.2025.3636560
-
-Santiago, R. L. T., Villarica, M. V., & Bernardino, M. P. (2025). Budget and financial management information system for public elementary schools: Analytics and predictive insights for MOOE allocation using linear regression. *International Journal of Advanced Research in Computer Science, 16*(3), 128–150.
-
-Sappa, A. (2024). AI based portfolio optimization and customer risk profiling in fintech platforms. *Research Briefs on Information & Communication Technology Evolution, 10*, Article 11. https://doi.org/10.69978/rebicte.v10i.205
-
-Shaha, P., & Gavekar, V. (2025). Enhancing online fraud detection: Leveraging machine learning and behavioral indicators for improved accuracy and real-time detection. *EPJ Web of Conferences, 328*, Article 01003. https://doi.org/10.1051/epjconf/202532801003
-
-Sohilauw, M. I., Rosdiana, Arifin, A. H., Nasir, & Yunus, M. K. (2026). Income, saving behavior, and household financial decision-making: A moderated-mediation analysis of behavioral and economic factors in Indonesia. *Journal of Economics, Entrepreneurship, Management Business and Accounting, 4*(4), 1–22. https://doi.org/10.61255/jeemba.v4i4.844
-
-Sonkavde, G., Dharrao, D. S., Bongale, A. M., Deokate, S. T., Doreswamy, D., & Bhat, S. K. (2023). Forecasting stock market prices using machine learning and deep learning models: A systematic review, performance analysis and discussion of implications. *International Journal of Financial Studies, 11*(3), Article 94. https://doi.org/10.3390/ijfs11030094
-
-Wang-Ly, N., & Newell, B. R. (2023). *How income volatility influences saving decisions: Evidence from the lab* (SSRN Working Paper No. 4509925). https://ssrn.com/abstract=4509925
-
-Yadav, S., Kumar, V., & Maurya, A. (2026). Intelligent personal finance management system for smart budgeting and real-time expense tracking: Design and development. *International Scientific Journal of Engineering and Management, 5*(4). https://doi.org/10.55041/ISJEM06330
-
-Yang, J. (2024). Study of an adaptive financial recommendation algorithm using big data analysis and user interest pattern with fuzzy K-means algorithm. *International Journal of Computational Intelligence Systems, 17*, Article 310. https://doi.org/10.1007/s44196-024-00719-x <!-- VERIFY: methodological precedent for adaptive user clustering/interest patterns; confirm exact match before formal use -->
-
-Yang, T., Xin, Q., Zhan, X., Zhuang, S., & Li, H. (2024b). Enhancing financial services through big data and AI-driven customer insights and risk analysis. *Journal of Knowledge Learning and Science Technology, 3*(3), 53–62. https://doi.org/10.60087/jklst.vol3.n3.p53-62
-
-Yeo, K. H. K., Lim, W. M., & Yii, K. J. (2023). Financial planning behaviour: A systematic literature review and new theory development. *Journal of Financial Services Marketing, 29*, 979–1001. https://doi.org/10.1057/s41264-023-00249-1
-
-Yoganandham, G. (2025). Mastering economic and financial sources with reference to budgeting, savings, early investing, debt management and the power of financial planning — A comprehensive analysis. *Degres Journal, 10*(1), 25–40.
-
-Yuttama, F. R. (2025). Behavioral shifts in digital finance: How e-payment influences consumer spending and financial literacy. *Journal of Management and Entrepreneurship Research, 6*(4), 358–371. https://doi.org/10.34001/jmer.2025.12.06.4-80
-
-Zhang, A., Deng, S., Cui, D., Yuan, Y., & Wang, G. (2023). An experimental evaluation of anomaly detection in time series. *Proceedings of the VLDB Endowment, 17*(3), 483–496. https://doi.org/10.14778/3632093.3632110
-
-Zhang, H., & Hou, Y. (2026). Consumer behavior data mining and analysis using machine learning algorithms. *Procedia Computer Science, 281*, 1463–1468.
-
-Zhang, Z., & Lu, M. (2026). Artificial intelligence-driven transformation in financial technology: Applications, agents and challenges. *Engineered Science, 41*, Article 2245. https://doi.org/10.30919/es2245
-
-Zhong, M. (2025). Adaptive anomaly detection threshold for financial data quality monitoring based on time series features. In *Proceedings of the International Conference on Advanced and Intelligent Computing Systems (AICSS 2025)*. ACM. https://doi.org/10.1145/3776759.3776850
+Group 4. (2026). *Public user expectations and perceptions survey (PUEPS)*. Unpublished raw survey instrument.

@@ -1,303 +1,1882 @@
-# Chapter 2 – Evidence Map (Claim → Citation → Finding)
+# Chapter 2 Evidence Map (V3.0)
 
-Audit companion to `chapter-2.md` (Draft V2.0). Purpose: verify that every in-text citation placed in Chapter 2 is accounted for, is genuinely supported by the cited source (no-stretch rule), and that the reference list contains only cited works (and vice versa).
+Generated 2026-09-26 against `GROUP4 - CHAPTER 2 - V3 - 09.26.26.docx`.
 
-## Policy
+Every author-date citation in the chapter body was resolved against the 91-paper
+BUDI-Literature corpus. Counts: 15 resolved cleanly, 1 corrected, 3 **missing from the corpus**, 1 secondary citation.
 
-- Citation pool: curated intake + bucket in `BUDI-Literature/literature/`. Note: `literature/summaries/*_summarized.json` are 0-byte placeholders; the real source of evidence is `literature/conversions/*_marked.md` (the HTML→markdown conversions of the paper exports).
-- APA 7th edition.
-- No-stretch rule: claims cited only if the source directly supports them.
-- Unverified/risky sources carry `<!-- VERIFY: ... -->` in `chapter-2.md`; this map lists them under "Residual verify" and in the "Open items".
-- Automated cross-check run 2026-09-15: all 59 reference entries are cited in text; every in-text citation resolves to a reference entry (BSP is the in-text form of "Bangko Sentral ng Pilipinas"; "Tangney et al., 2004" is a secondary source cited *as cited in* Bulan & Nemino, 2025, so it has no separate entry by design).
-- This is the V2 map; it supersedes the V1 claim tables (which tracked the superseded V1.0 draft).
+| Cited as | Resolves to | Corpus stem | Metadata | Status |
+| --- | --- | --- | --- | --- |
+| Yoganandham (2025) | Yoganandham (2025) | `I--Yoganandham-2025` | verified | ok |
+| Cumaio et al. (2026) | Cumaio et al. (2026) | `I--Cumaio-2026` | verified | ok |
+| The Bangko Sentral ng Pilipinas (2026) | The Bangko Sentral ng Pilipinas (2026) | `L--BangkoSentral-2026` | verified | ok |
+| Yeo et al. (2023) | Yeo et al. (2023) | `I--Yeo-2023` | verified | ok |
+| Claro and Noval (2025) | Claro and Noval (2025) | `L--Claro-2025` | verified | ok |
+| de Zarzà et al. (2024) | de Zarzà et al. (2024) | `A--DeZarza-2024` | verified | ok |
+| Esperanza et al. (2025) | Esperanza et al. (2025) | `L--Esperanza-2025` | verified | ok |
+| Francisco et al. (2026) | Francisco et al. (2026) | `L--Francisco-2026` | verified | ok |
+| Alenazi and Sas (2023) | Alenazi and Sas (2023) | `A--Alenazi-2023` | verified | ok |
+| Bitrián et al. (2021, as cited by Alenazi & Sas, 2023) | Bitrián et al. (2021, as cited by Alenazi & Sas, 2023) | `(secondary, no corpus entry needed)` | unverified | secondary citation |
+| Laspiñas and Murcia (2024) | Laspiñas and Murcia (2024) | `— not in corpus —` | unverified | ok |
+| Dey and Arefin (2025) | Dey and Arefin (2025) | `— not in corpus —` | unverified | **MISSING** |
+| Lu et al. (2025) | Lu et al. (2025) | `A--Lu-2025` | verified | ok |
+| Gulbakyt et al. (2025) | Gulbakyt et al. (2025) | `A--Gulbakyt-2025` | verified | ok |
+| Santiago et al. (2025) | Santiago et al. (2025) | `L--Santiago-2025` | unverified | ok |
+| Huang et al. (2025) | Huang (2025) | `A--Huang-2025` | verified | corrected |
+| Zhong (2025) | Zhong (2025) | `A--Zhong-2025` | verified | ok |
+| D'Souza et al. (2026) | D'Souza et al. (2026) | `A--DSouza-2026` | verified | ok |
+| Dasmariñas et al. (2024) | Dasmariñas et al. (2024) | `— not in corpus —` | unverified | **MISSING** |
+| Srisamai and Siriruk (2023) | Srisamai and Siriruk (2023) | `— not in corpus —` | unverified | **MISSING** |
 
-## Source key
 
-| Key (as cited) | Venue / Year | Status |
-|---|---|---|
-| Abdullahi et al., 2025 | IEEE Access, 2025 | Verified |
-| Abila & Ulibas, 2026 | IJMERI 4(2), 2026 | Verified |
-| Agrawal et al., 2025 | Int. J. Computational Intelligence Systems 18, 2025 | Verified |
-| Bai, 2023 | PLoS ONE 18(11), 2023 | Verified |
-| BSP, 2023 | BSP Financial Inclusion Dashboard 2023 | Verified (institutional report) |
-| BSP, 2025 | BSP Annual Report 2025 | Verified (institutional report) |
-| BSP, 2026 | BSP Consumer Expectations Survey 2Q 2026 | Verified |
-| Begum, 2025 | J. Data & Digital Innovation 2(1), 2025 | Verified |
-| Brooke, 1996 | SUS, Usability Evaluation in Industry | Verified (seminal instrument) |
-| Bulan & Nemino, 2025 | IJMSSSR 7(2), 2025 | Verified (ex-bucket) |
-| Chen, J. et al., 2024 | JBARI 30(6), 2024 | Verified |
-| Chen, S., & Tan, 2025 | DECS 2025 (ACM) | Verified |
-| Chikoore et al., 2026 | IEEE Access, 2026 | Verified |
-| Claro & Noval, 2025 | ISRG J. Econ & Business Mgmt 3(6), 2025 | Verified |
-| Cowan, 2001 | Behavioral and Brain Sciences 24(1) | Verified (seminal) |
-| Cruz et al., 2026 | RIBER 15(2), 2026 | Verified (local) |
-| Cumaio et al., 2026 | JRFM 19(6), Article 425 | Verified |
-| Danahy et al., 2024 | J. Consumer Affairs 58(2), 2024 | Verified |
-| De Zarzà et al., 2024 | AI 5(1), 91–114, 2024 | Resolved (filename said 2023; publication is 2024) |
-| Dheepiga & Sivakumar, 2025 | IRJBS 18(1), 2025 | Verified (ex-bucket) |
-| DSouza et al., 2026 | Preprint, P.E.S. Modern College, Pune | **VERIFY venue** |
-| Encarnacion & Vecina, 2025 | Divine Word IJMAH 4(2), 2025 | Verified (local) |
-| Erno & Grefalde, 2026 | venue string anomalous | **VERIFY venue/volume** |
-| Esperanza et al., 2025 | ASEAN J. Mgmt & Innovation 12(2), 2025 | Verified (local) |
-| Francisco et al., 2026 | IJMERI 4(1), 2026 | Verified (ex-bucket, local) |
-| Ganong et al., 2025 | NBER WP 34227 | Verified |
-| Ghonaim & El-Sharawy, 2025 | IJTAR 4(2), 2025 | Verified |
-| Hajj & Hammoud, 2023 | JRFM 16(10), 2023 | Verified |
-| Hu et al., 2023 | NeurIPS 36, 2023 | Verified (predict+optimize) |
-| Huang, A. et al., 2025 | J. Global Information Management 33(1) | Verified |
-| Huang, R. et al., 2025 | GAIB 2025 (ACM) | Verified |
-| ISO/IEC, 2011 | ISO/IEC 25010:2011 | Verified (standard) |
-| Kara & Şengüler, 2025 | Public Budgeting & Finance | Verified |
-| Lu et al., 2025 | J. Technology Informatics and Engineering 4(3), 2025 | Verified |
-| Miller, 1956 | Psychological Review 63(2) | Verified (seminal) |
-| Prakoso & Apriliani, 2024 | IJISEF 4(2), 2024 | Verified |
-| Rane et al., 2024 | Studies in Economics and Business Relations 5(2), 2024 | Verified (ex-bucket) |
-| Reyes et al., 2024 | IJAMC 1(1), 2024 | Verified (**VERIFY authorship/venue** — placeholder-style authors) |
-| R Singh & Singh, 2025 | IJRMIT 1(4), 2025 | Verified (in-text "R Singh, 2025") |
-| Salminen et al., 2023 | J. Marketing Analytics 11, 2023 | Verified (first-pages extraction) |
-| Salvador, 2024 | Preprint (Elsevier submission) | **VERIFY preprint status** |
-| Samli et al., 2026 | LBIBF 24(1), 2026 | Verified |
-| Sankaewtong et al., 2025 | IEEE Access, 2025 | Verified |
-| Santiago et al., 2025 | IJARCS 16(3), 2025 | Verified (local) |
-| Sappa, 2024 | ReBICTE 10, Article 11 | Verified |
-| Shaha & Gavekar, 2025 | EPJ Web of Conferences 328 | Verified |
-| Sohilauw et al., 2026 | JEEMBA 4(4), 2026 | Verified |
-| Sonkavde et al., 2023 | IJFS 11(3), Article 94 | Verified |
-| Wang-Ly & Newell, 2023 | SSRN 4509925 | Verified |
-| Yadav et al., 2026 | ISJEM 5(4), 2026 | Verified |
-| Yang, J., 2024 | IJCIS 17, Article 310 | **VERIFY use** (methodological precedent) |
-| Yang, T. et al., 2024b | JKLST 3(3), 2025 | Verified (in-text "Yang et al., 2024b") |
-| Yeo et al., 2023 | J. Financial Services Marketing 29 | Verified |
-| Yoganandham, 2025 | Degres Journal 10(1) | Verified |
-| Yuttama, 2025 | JMER 6(4), 2025 | Verified (ex-bucket) |
-| Zhang, A. et al., 2023 | VLDB Endowment 17(3), 2024 | Verified (in-text "Zhang et al., 2023") |
-| Zhang, H., & Hou, 2026 | Procedia Computer Science 281 | Verified |
-| Zhang, Z., & Lu, 2026 | Engineered Science 41, Article 2245 | Verified |
-| Zhong, 2025 | AICSS 2025 (ACM) | Verified |
+#
+#
+ 
+W
+h
+a
+t
+ 
+t
+h
+i
+s
+ 
+m
+e
+a
+n
+s
 
-References intentionally absent from the list (cited as secondary, per APA): Tangney et al., 2004 (appears only as "as cited in Bulan & Nemino, 2025").
 
-## Claim-by-claim mapping
 
-### 1. Personal Savings and Debt in the Philippines
 
-#### 1.1. The Target User
+*
+*
+T
+h
+e
+ 
+1
+4
+ 
+c
+l
+e
+a
+n
+ 
+r
+e
+s
+o
+l
+u
+t
+i
+o
+n
+s
+ 
+a
+r
+e
+ 
+n
+o
+t
+ 
+a
+l
+l
+ 
+e
+q
+u
+a
+l
+l
+y
+ 
+s
+o
+l
+i
+d
+.
+*
+*
+ 
+M
+e
+t
+a
+d
+a
+t
+a
+ 
+i
+n
+ 
+t
+h
+e
+ 
+s
+i
+d
+e
+c
+a
+r
+ 
+i
+s
+ 
+m
+a
+r
+k
+e
+d
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 1 | 1.1-P1 | Target-user profile is essential before designing any PFM intervention; factors jointly determine saving/borrowing/budgeting | (own idea, no citation) | Guideline: open with the study's own idea | None |
-| 2 | 1.1-P2 | Young adults are a critical demographic for financial intervention | (BSP, 2026) | BSP CES 2Q 2026: NCR consumer expectations | Specific NCR figures |
-| 3 | 1.1-P2 | Income & investing years correlate with young professionals' (25–35, NCR) financial well-being; investing experience low | (Cruz et al., 2026) | Cruz et al.: Filipino young professionals' well-being study | None |
-| 4 | 1.1-P2 | Many Filipino workers support extended family members | (Abila & Ulibas, 2026) | Freelancers in Laguna: family obligations among income pressures | Sample is freelancer-scoped; used as an illustrative local practice |
-| 5 | 1.1-P3 | Social influence and parental money socialization shape financial norms | (Bulan & Nemino, 2025; Tangney et al., 2004 as cited in Bulan & Nemino, 2025) | Bulan & Nemino: social context of saving behavior | Tangney is secondary (by design) |
-| 6 | 1.1-P3 | Relative income perceptions affect saving motivation and spending | (Wang-Ly & Newell, 2023) | Lab evidence that income comparisons shape saving decisions | Lab context |
-| 7 | 1.1-P3 | Self-control positively predicts saving; behavioral intention moderates it (Filipino MSME owners) | (Bulan & Nemino, 2025) | Bulan & Nemino: empirical self-control → saving analysis | None |
-| 8 | 1.1-P3 | Financial literacy improves budgeting/investment, but knowledge alone does not ensure saving | (Cumaio et al., 2026; Dheepiga & Sivakumar, 2025) | Both: literacy-behavior transfer is partial | None |
-| 9 | 1.1-P4 | Income volatility complicates financial planning and consistent saving | (Ganong et al., 2025; Wang-Ly & Newell, 2023) | Ganong: earnings instability; Wang-Ly: volatility → saving decisions | None |
-| 10 | 1.1-P4 | ~1 in 3 Filipino adults saved; >half relied on family/friends in emergencies; emergency funds <1 in 5 households | (BSP, 2023) | BSP Financial Inclusion Dashboard 2023 | Dashboard-level figures |
-| 11 | 1.1-P4 | Financial well-being = subjective perception of security + ability to meet obligations | (Bai, 2023; Erno & Grefalde, 2026) | Bai: financial well-being determinants; Erno & Grefalde: financial resilience domains | **Erno venue to confirm** |
-| 12 | 1.1-P4 | Budgeting, service access, and prudent debt management matter as much as income | (Claro & Noval, 2025; Sohilauw et al., 2026) | Claro & Noval: regressors of financial well-being; Sohilauw: income/saving/decision factors | None |
 
-#### 1.2. Personal Savings and Debt
+`
+v
+e
+r
+i
+f
+i
+e
+d
+`
+ 
+o
+n
+l
+y
+ 
+w
+h
+e
+r
+e
+ 
+i
+t
+ 
+w
+a
+s
+ 
+r
+e
+a
+d
+ 
+o
+f
+f
+ 
+p
+a
+g
+e
+ 
+1
+ 
+o
+f
+ 
+t
+h
+e
+ 
+s
+o
+u
+r
+c
+e
+ 
+P
+D
+F
+.
+ 
+O
+f
+ 
+t
+h
+e
+ 
+w
+o
+r
+k
+s
+ 
+t
+h
+i
+s
+ 
+c
+h
+a
+p
+t
+e
+r
+ 
+l
+e
+a
+n
+s
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 13 | 1.2-P1 | Savings and debt are two sides of one financial picture; both must be treated as linked | (own idea + Yoganandham, 2025) | Yoganandham: budgeting/savings/debt as one analysis | None |
-| 14 | 1.2-P2 | Savings: security/stability, buffer, resilience, goal achievement | (Yoganandham, 2025) | Yoganandham: functions of saving | None |
-| 15 | 1.2-P2 | Emergency savings prevent fallback to high-cost borrowing; absence → formal/informal loans | (BSP, 2023; Danahy et al., 2024) | BSP: emergency-fund sources; Danahy: emergency savings among college students | Danahy is college-student-scoped; used for the buffer mechanism |
-| 16 | 1.2-P2 | Many PH savers hold funds at home / non-bank; loans still lead as emergency-fund source | (BSP, 2023; BSP, 2025) | BSP dashboards/annual report | Institutional figures |
-| 17 | 1.2-P2 | Systematic saving enables education, homeownership, retirement goals | (Yeo et al., 2023) | Yeo: financial planning behaviour → goal attainment | None |
-| 18 | 1.2-P3 | Debt types: consumer (cards, personal loans) and housing (mortgages) with different terms | (Yoganandham, 2025) | Yoganandham: debt management coverage | None |
-| 19 | 1.2-P3 | Psychological causes: low self-control, procrastination, impulse spending | (Bulan & Nemino, 2025) | Bulan & Nemino: self-control and saving/debt behavior | None |
-| 20 | 1.2-P3 | Economic causes: unemployment, income insufficiency, emergencies | (Francisco et al., 2026) | Public-sector salary-loan dependency causes | None |
-| 21 | 1.2-P3 | Salary-deduction repayment paradoxically reinforces dependency (reborrowing cycle) | (Francisco et al., 2026) | Francisco: quoted salary-loan behavior | None |
-| 22 | 1.2-P3 | Borrowing now more common than saving; ~half adults held loans in 2021, mostly informal | (BSP, 2023) | BSP Financial Inclusion Dashboard 2023 | Dashboard-level figures |
-| 23 | 1.2-P3 | Easier digital credit access reduces financial restraint among wage earners | (Esperanza et al., 2025) | Esperanza: digital lending vs debt management | None |
-| 24 | 1.2-P3 | Excessive debt → financial stress → mental health, productivity, well-being; consumption of income share | (Danahy et al., 2024; Francisco et al., 2026) | Danahy: stress effects; Francisco: income-consumption of debt | Danahy is student-scoped |
-| 25 | 1.2-P4 | Snowball (smallest first) vs avalanche (highest interest first) repayment methods | (Yoganandham, 2025) | Yoganandham: repayment strategies | None |
-| 26 | 1.2-P4 | Avoiding accumulation through discipline is preferable to managing existing debt | (Yeo et al., 2023) | Yeo: planning behaviour/avoidance | None |
-| 27 | 1.2-P4 | Financial literacy + self-efficacy drive effective debt management; impulsivity and overconfidence undermine it | (Samli et al., 2026) | Samli: bibliometric debt-management drivers | None |
 
-#### 1.3. Ways of Improving Personal Savings and Debt
+o
+n
+,
+ 
+t
+h
+e
+ 
+o
+n
+e
+s
+ 
+s
+t
+i
+l
+l
+ 
+m
+a
+r
+k
+e
+d
+ 
+u
+n
+v
+e
+r
+i
+f
+i
+e
+d
+ 
+a
+r
+e
+ 
+t
+h
+o
+s
+e
+ 
+w
+h
+o
+s
+e
+ 
+s
+t
+e
+m
+ 
+r
+e
+s
+o
+l
+v
+e
+d
+ 
+b
+u
+t
+ 
+w
+h
+o
+s
+e
+ 
+t
+i
+t
+l
+e
+ 
+a
+n
+d
+ 
+v
+e
+n
+u
+e
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 28 | 1.3-P1 | No single intervention reliably improves savings/debt; needs planning+allocation+skills+behavior | (own idea + Yoganandham, 2025) | Yoganandham: multifactor financial planning analysis | None |
-| 29 | 1.3-P2 | Financial planning = goals + budgets + strategies; enables prioritization and systematic saving | (Yeo et al., 2023) | Yeo: planning behaviour components | None |
-| 30 | 1.3-P2 | Plans must adapt to changing circumstances and irregular incomes; rigid plans fail | (Ganong et al., 2025; R. Huang et al., 2025) | Ganong: instability; R. Huang: adaptive planning in wealth app | None |
-| 31 | 1.3-P2 | Budgeting tracks income/expenses, reveals patterns, supports essentials-vs-discretionary decisions; disciplined following → better health, lower debt-trap risk | (Dheepiga & Sivakumar, 2025; Prakoso & Apriliani, 2024; Yoganandham, 2025) | All three: budgeting mechanics and benefits | None |
-| 32 | 1.3-P2 | Mental budgeting associated with higher subjective financial well-being | (Bai, 2023) | Bai: mental budgeting → well-being | None |
-| 33 | 1.3-P3 | Financial literacy transfers to behavior only with practice, motivation, access | (Claro & Noval, 2025; Cumaio et al., 2026; Dheepiga & Sivakumar, 2025; Encarnacion & Vecina, 2025) | All four: knowledge-behavior gap | None |
-| 34 | 1.3-P3 | Regular saving, prudent spending, strategic investing are habits sustained by self-control and motivation | (Bulan & Nemino, 2025; Yeo et al., 2023) | Bulan & Nemino: self-control; Yeo: motivation | None |
-| 35 | 1.3-P3 | E-payment records, dashboards, and nudges (alerts, weekly summaries, category caps) curb impulsive spending | (Yuttama, 2025) | Yuttama: e-payment behavioral effects | None |
 
-### 2. Personalized Intelligent Finance Management Applications
+w
+e
+r
+e
+ 
+n
+e
+v
+e
+r
+ 
+t
+r
+a
+n
+s
+c
+r
+i
+b
+e
+d
+.
+ 
+T
+h
+e
+y
+ 
+a
+r
+e
+ 
+c
+i
+t
+e
+d
+ 
+i
+n
+ 
+t
+h
+e
+ 
+c
+h
+a
+p
+t
+e
+r
+ 
+o
+n
+ 
+t
+h
+e
+ 
+s
+t
+r
+e
+n
+g
+t
+h
+ 
+o
+f
+ 
+t
+h
+e
+ 
+s
+o
+u
+r
+c
+e
+ 
+f
+i
+l
+e
+n
+a
+m
+e
 
-#### 2.1. Finance Management Functions
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 36 | 2.1-P1 | Finance management = income, expenses, savings, debts, investments, budgets via tracking/analysis/optimization | (Yadav et al., 2026) | Yadav: intelligent PFM scope | None |
-| 37 | 2.1-P1 | Income/expense/budget management functions | (Hajj & Hammoud, 2023; Yadav et al., 2026) | Hajj: AI financial operations; Yadav: PFM features | None |
-| 38 | 2.1-P1 | Savings and debt management functions (goals, tracking, repayment strategies) | (Yoganandham, 2025; Yadav et al., 2026) | Both: savings/debt feature coverage | None |
-| 39 | 2.1-P1 | Investment management extends beyond day-to-day budgeting | (Hajj & Hammoud, 2023) | Hajj: portfolio/investment AI usage | None |
+a
+l
+o
+n
+e
+,
+ 
+w
+h
+i
+c
+h
+ 
+i
+s
+ 
+e
+x
+a
+c
+t
+l
+y
+ 
+t
+h
+e
+ 
+f
+a
+i
+l
+u
+r
+e
+ 
+m
+o
+d
+e
+ 
+t
+h
+a
+t
+ 
+p
+r
+o
+d
+u
+c
+e
+d
+ 
+t
+h
+e
+ 
+s
+e
+v
+e
+n
+ 
+w
+r
+o
+n
+g
+ 
+s
+t
+e
+m
+s
+ 
+f
+i
+x
+e
+d
+ 
+i
+n
 
-#### 2.2. Forms of Finance Management Applications
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 40 | 2.2-P1 | Two forms: mobile (accessibility) and web (comprehensive analysis); choice depends on preferences/device/features | (Yadav et al., 2026) | Yadav: PFM delivery forms | None |
-| 41 | 2.2-P1 | Mobile-first aligns with younger demographics' digital habits | (R. Huang et al., 2025) | R. Huang: mobile/digital wealth management | None |
-| 42 | 2.2-P1 | Budget information systems and intelligent budget apps delivered as mobile/web with strong acceptance when combining tracking + analytics | (Ghonaim & El-Sharawy, 2025; Santiago et al., 2025) | Ghonaim: RNN budget app; Santiago: budget MIS for schools | Santiago is a school-MIS context; used for acceptance line |
+B
+U
+D
+I
+-
+L
+i
+t
+e
+r
+a
+t
+u
+r
+e
+.
+ 
+C
+l
+o
+s
+i
+n
+g
+ 
+t
+h
+o
+s
+e
+ 
+i
+s
+ 
+t
+h
+e
+ 
+n
+e
+x
+t
+ 
+m
+e
+t
+a
+d
+a
+t
+a
+ 
+t
+a
+s
+k
+.
 
-#### 2.3. Personalization in Finance Management Applications
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 43 | 2.3-P1 | Personalization tailors guidance to individual circumstances, preferences, goals | (R. Huang et al., 2025; Yadav et al., 2026) | Both: personalization-first systems | None |
-| 44 | 2.3-P1 | Techniques: behavioral profiling, preference learning, adaptive recommendations, behavior-aware clustering | (Yang, J., 2024; R. Huang et al., 2025; R Singh, 2025) | Yang J.: adaptive interest-pattern recommendation; R. Huang: multi-agent profiling; R Singh: persona modeling | **Yang J. use** — confirm it supports "clustering for personalization" |
-| 45 | 2.3-P1 | Benefits: greater engagement, understanding, trust | (R. Huang et al., 2025) | R. Huang: pilot engagement/trust | None |
-| 46 | 2.3-P1 | Depends on sufficient data and algorithms that customize without overwhelming the user | (Yadav et al., 2026; Zhang & Lu, 2026) | Both: data dependence of personalization | None |
 
-#### 2.4. Intelligent Features in Finance Management Applications
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 47 | 2.4-P1 | AI/ML/DL distinct intelligent features; support credit scoring, fraud detection, advisory, personalization | (Hajj & Hammoud, 2023; Zhang & Lu, 2026) | Both: fintech ML survey coverage | None |
-| 48 | 2.4-P1 | Intelligent expense classification + smart budgeting echo BUDI (classifiers, forecasters, outlier detectors) | (DSouza et al., 2026; Yadav et al., 2026) | DSouza: PFM ML review; Yadav: PFM architecture | **DSouza venue** |
-| 49 | 2.4-P1 | RNN/LSTM analyze transaction sequences and forecast consumer behavior accurately | (Chen & Tan, 2025; Ghonaim & El-Sharawy, 2025) | Both: LSTM/RNN forecasting | None |
-| 50 | 2.4-P2 | Robo-advisors: algorithmic analysis + preferences → personalized recommendations | (R. Huang et al., 2025; Hajj & Hammoud, 2023) | Both: advisory features | None |
-| 51 | 2.4-P2 | Anomaly detection establishes normal baseline, flags deviations (errors/fraud/problem behavior) | (A. Huang et al., 2025) | A. Huang: dynamic threshold anomaly detection | None |
-| 52 | 2.4-P2 | Static thresholds deteriorate; adaptive/dynamic calibration preserves accuracy | (A. Huang et al., 2025; Zhong, 2025) | A. Huang: calibration verification; Zhong: adaptive threshold | None |
-| 53 | 2.4-P3 | Working memory limits (~7±2 Miller; ~4±1 Cowan) → present few high-value items at a time | (Miller, 1956; Cowan, 2001) | Both: seminal capacity studies | None |
+*
+*
+T
+h
+r
+e
+e
+ 
+s
+o
+u
+r
+c
+e
+s
+ 
+d
+o
+ 
+n
+o
+t
+ 
+e
+x
+i
+s
+t
+ 
+i
+n
+ 
+t
+h
+e
+ 
+c
+o
+r
+p
+u
+s
+ 
+a
+t
+ 
+a
+l
+l
+.
+*
+*
 
-### 3. System Models and Algorithms
 
-#### 3.1. Datasets and Data Preprocessing
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 54 | 3.1-P1 | Datasets are time series: trends, seasonality, behavioral change over time | (Chen et al., 2024) | Chen: time-series forecasting survey | None |
-| 55 | 3.1-P1 | Each data type tied to a concrete BUDI input (transactions, income/expense history, budget states, flagged history) | (own idea, no citation) | Guideline: tie data types to the system's inputs | None |
-| 56 | 3.1-P1 | Synthetic data generates realistic financial profiles for training/testing | (Salvador, 2024) | Salvador: household wealth modeling data | **Salvador preprint** |
-| 57 | 3.1-P1 | Government surveys (BSP Consumer Finance/Expectations) provide macro-level context | (BSP, 2023, 2026) | BSP reports | None |
-| 58 | 3.1-P1 | Public/foreign benchmarks used only where Philippine data are absent | (Agrawal et al., 2025; A. Huang et al., 2025) | Agrawal: credit-card spending data; A. Huang: payment-platform anomaly data | None |
-| 59 | 3.1-P2 | Preprocessing: cleaning, normalization, feature engineering, train-test split | (Chen et al., 2024) | Chen: pipeline steps | None |
-| 60 | 3.1-P2 | Features: categories, frequency, trends, time-windowed amounts | (Chen & Tan, 2025; Yang et al., 2024b) | Chen & Tan: LSTM features; Yang et al., 2024b: customer-insight features | None |
-| 61 | 3.1-P2 | IQR/z-score outlier handling is standard preprocessing in financial pipelines | (Begum, 2025; Chen & Tan, 2025) | Begum: ML financial risk preprocessing; Chen & Tan: data cleaning | None |
 
-#### 3.2. Classification Models and Concept Drift
+|
+ 
+C
+i
+t
+e
+d
+ 
+a
+s
+ 
+|
+ 
+C
+i
+t
+a
+t
+i
+o
+n
+s
+ 
+|
+ 
+R
+i
+s
+k
+ 
+|
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 62 | 3.2-P1 | Classifiers assign users to financial-profile categories (savings-oriented, stable, at-risk, debt-prone) | (Yadav et al., 2026) | Yadav: profile classification | None |
-| 63 | 3.2-P1 | Established practice: classifiers predict consumer behavior, wealth quintiles, creditworthiness, spending risk | (Ghonaim & El-Sharawy, 2025; Salvador, 2024; Zhang & Hou, 2026) | Ghonaim: transaction risk class; Salvador: wealth quintiles; Zhang & Hou: consumer behavior mining | None |
-| 64 | 3.2-P2 | Concept drift = gradual change in statistical properties over time | (Abdullahi et al., 2025) | Abdullahi: drift definition | None |
-| 65 | 3.2-P2 | User behavior evolves; static classifiers lose accuracy | (Abdullahi et al., 2025; Chikoore et al., 2026) | Both: drift → degradation | None |
-| 66 | 3.2-P2 | Systematic review identifies SVM as most effective learner for drift in time-series classification/regression | (Abdullahi et al., 2025) | Abdullahi: SVM under drift | None |
-| 67 | 3.2-P2 | Adaptive credit-scoring frameworks maintain accuracy; static models degrade | (Chikoore et al., 2026) | Chikoore: adaptive credit scoring | None |
-| 68 | 3.2-P3 | SVM maximizes the margin between classes; generalizes with moderate data | (Abdullahi et al., 2025; Hu et al., 2023) | Abdullahi: SVM under drift; (Hu referenced for the predict+optimize link, not the margin) | **Hu placement** — margin claim rests on Abdullahi; Hu is cited for predict+optimize in §3.4 |
-| 69 | 3.2-P3 | SVM: strong interpretability/stability, slower training than ensembles on large data | (Zhang & Hou, 2026) | Zhang & Hou: ML comparison | None |
-| 70 | 3.2-P3 | XGBoost/LightGBM post highest raw accuracy at scale | (Shaha & Gavekar, 2025; Zhang & Hou, 2026) | Both: ensemble benchmarks | None |
-| 71 | 3.2-P3 | Boosting classifiers predict PH household wealth quintiles with high accuracy | (Salvador, 2024) | Salvador: Philippine survey data | **Salvador preprint** |
-| 72 | 3.2-P3 | Accuracy/interpretability/training cost must be balanced for deployment context | (Reyes et al., 2024; Zhang & Hou, 2026) | Both: model trade-offs | **Reyes authorship/venue** |
-| 73 | 3.2-P3 | BUDI conclusion: SVM primary classifier; drift literature informs monitoring/retraining | (own syntch reasoning over 3.2 sources) | Derived from #62–72 | None |
 
-#### 3.3. Time-Series Forecasting
+|
+ 
+-
+-
+-
+ 
+|
+ 
+-
+-
+-
+ 
+|
+ 
+-
+-
+-
+ 
+|
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 74 | 3.3-P1 | Statistical and ML forecasting families both appear; choice is the core decision | (Chen et al., 2024; Chen & Tan, 2025; Sonkavde et al., 2023) | All three: forecasting survey coverage | None |
-| 75 | 3.3-P2 | Classical models remain strong for short, regular, seasonal series | (own synthesis) | Derived from #76–78 | None |
-| 76 | 3.3-P2 | SARIMA extends ARIMA with seasonal terms; endorsed for consumer finance with seasonality | (DSouza et al., 2026) | DSouza: SARIMA in PFM | **DSouza venue** |
-| 77 | 3.3-P2 | 40-year budget-forecasting review lists SARIMA among dominant statistical methods; MAPE/RMSE/MAE standard metrics | (Kara & Şengüler, 2025) | Kara & Şengüler: budget forecasting review | None |
-| 78 | 3.3-P2 | SARIMAX→constrained optimizer pipeline: ~2.85% MAPE; unconstrained forecasts can violate budget constraints | (Lu et al., 2025) | Lu: forecast-then-optimize evidence | None |
-| 79 | 3.3-P3 | Deep models excel on large multivariate series; advantage narrows on small regular series | (Chen et al., 2024) | Chen: DL limits on small series | None |
-| 80 | 3.3-P3 | Hybrid/ensemble statistical+ML forecasters perform well on financial series | (Sonkavde et al., 2023) | Sonkavde: hybrid forecasting review | None |
-| 81 | 3.3-P3 | BUDI conclusion: SARIMA primary; ML/DL as benchmarks to avoid overfitting shallow household histories | (own synthesis) | Derived from #74–80 | None |
 
-#### 3.4. Budget Optimization
+|
+ 
+D
+a
+s
+m
+a
+r
+i
+ñ
+a
+s
+ 
+e
+t
+ 
+a
+l
+.
+ 
+(
+2
+0
+2
+4
+)
+ 
+|
+ 
+7
+ 
+|
+ 
+T
+h
+e
+ 
+s
+e
+a
+s
+o
+n
+a
+l
+ 
+f
+o
+r
+e
+c
+a
+s
+t
+i
+n
+g
+ 
+a
+r
+g
+u
+m
+e
+n
+t
+ 
+a
+n
+d
+ 
+t
+h
+e
+ 
+w
+h
+o
+l
+e
+ 
+S
+A
+R
+I
+M
+A
+ 
+s
+e
+c
+t
+i
+o
+n
+ 
+r
+e
+s
+t
+ 
+o
+n
+ 
+t
+h
+i
+s
+ 
+o
+n
+e
+ 
+p
+a
+p
+e
+r
+.
+ 
+I
+t
+ 
+i
+s
+ 
+c
+o
+n
+f
+i
+r
+m
+e
+d
+ 
+t
+o
+ 
+e
+x
+i
+s
+t
+ 
+(
+P
+U
+P
+ 
+J
+o
+u
+r
+n
+a
+l
+ 
+o
+f
+ 
+S
+c
+i
+e
+n
+c
+e
+ 
+&
+ 
+T
+e
+c
+h
+n
+o
+l
+o
+g
+y
+ 
+1
+4
+(
+1
+)
+,
+ 
+7
+0
+-
+9
+0
+,
+ 
+d
+o
+i
+ 
+1
+0
+.
+7
+0
+9
+2
+2
+/
+c
+t
+z
+e
+v
+g
+5
+7
+)
+ 
+a
+n
+d
+ 
+C
+h
+a
+p
+t
+e
+r
+ 
+2
+'
+s
+ 
+c
+h
+a
+r
+a
+c
+t
+e
+r
+i
+s
+a
+t
+i
+o
+n
+ 
+o
+f
+ 
+i
+t
+ 
+i
+s
+ 
+a
+c
+c
+u
+r
+a
+t
+e
+,
+ 
+b
+u
+t
+ 
+i
+t
+ 
+i
+s
+ 
+n
+o
+t
+ 
+i
+n
+ 
+t
+h
+e
+ 
+c
+o
+r
+p
+u
+s
+.
+ 
+|
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 82 | 3.4-P1 | Budget allocation modeled as constrained optimization (maximize savings within essentials/preferences) | (De Zarzà et al., 2024; Yoganandham, 2025) | De Zarzà: budget optimization; Yoganandham: budgeting as systematic allocation | None |
-| 83 | 3.4-P2 | Constrained budgeting frameworks maximizing savings across monthly categories = closest analogue to BUDI's LP module | (De Zarzà et al., 2024) | De Zarzà: savings-maximizing allocation | Year resolved (2024) |
-| 84 | 3.4-P2 | Unknown optimization parameters require a forecast first; predict+optimize trains stages jointly to preserve feasibility | (Hu et al., 2023) | Hu: MILP predict+optimize with unknown constraint parameters | None |
-| 85 | 3.4-P2 | Optimization benefits from risk profiling; constraint sets differ between saving- and debt-prone profiles | (Sappa, 2024) | Sappa: portfolio optimization + risk profiling | None |
-| 86 | 3.4-P2 | SARIMA forecasts → LP solver → personalized constraint weights (BUDI pipeline) | (derived from Lu et al., 2025 + De Zarzà et al., 2024) | Lu: forecast-to-optimizer; De Zarzà: LP analogue | None |
 
-#### 3.5. Anomalous Transaction Detection
+|
+ 
+D
+e
+y
+ 
+a
+n
+d
+ 
+A
+r
+e
+f
+i
+n
+ 
+(
+2
+0
+2
+5
+)
+ 
+|
+ 
+3
+ 
+|
+ 
+C
+o
+n
+f
+i
+r
+m
+e
+d
+ 
+t
+o
+ 
+e
+x
+i
+s
+t
+ 
+(
+J
+I
+S
+E
+M
+ 
+1
+0
+(
+4
+7
+s
+)
+,
+ 
+1
+4
+8
+-
+1
+8
+2
+)
+.
+ 
+S
+u
+p
+p
+o
+r
+t
+s
+ 
+t
+h
+e
+ 
+r
+u
+l
+e
+-
+b
+a
+s
+e
+d
+ 
+b
+u
+d
+g
+e
+t
+ 
+c
+l
+a
+i
+m
+.
+ 
+|
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 87 | 3.5-P1 | Detection families: statistical, heuristic, ML, DL; choice depends on point vs sequence anomaly | (Sankaewtong et al., 2025; Zhang et al., 2023) | Both: anomaly-detection technique surveys/benchmarks | None |
-| 88 | 3.5-P2 | IQR detector (quartiles, calibrated whisker) is BUDI's design | (own idea) | Guideline: own approach first | None |
-| 89 | 3.5-P2 | Statistical methods are a recognized but underrepresented family; IQR is a legit, less-populated research space | (Sankaewtong et al., 2025) | Sankaewtong: statistical-methods coverage in crypto-anomaly SoK | Crypto dataset context; drawn as a general landscape claim |
-| 90 | 3.5-P2 | IQR/z-score are standard outlier logic in financial pipelines | (Begum, 2025; Chen & Tan, 2025) | Both: preprocessing with IQR/z-score | None |
-| 91 | 3.5-P2 | Static thresholds fail under distributional shift; dynamic calibration reduces false alarms, preserves recall | (A. Huang et al., 2025; Zhong, 2025) | Both: threshold calibration evidence | None |
-| 92 | 3.5-P2 | Benchmarks: no single method dominates; heavier ML detectors trade small accuracy gains vs speed/data/explainability | (Zhang et al., 2023) | Zhang et al.: anomaly-detection experimental evaluation | None |
-| 93 | 3.5-P3 | BUDI conclusion: IQR = fast, explainable, data-efficient baseline + rolling recalibration | (derived from #87–92) | Derived | None |
 
-#### 3.6. Model Performance Metrics
+|
+ 
+S
+r
+i
+s
+a
+m
+a
+i
+ 
+a
+n
+d
+ 
+S
+i
+r
+i
+r
+u
+k
+ 
+(
+2
+0
+2
+3
+)
+ 
+|
+ 
+1
+ 
+|
+ 
+C
+i
+t
+e
+d
+ 
+f
+o
+r
+ 
+a
+ 
+m
+u
+l
+t
+i
+-
+l
+e
+v
+e
+l
+ 
+e
+v
+a
+l
+u
+a
+t
+i
+o
+n
+ 
+f
+r
+a
+m
+e
+w
+o
+r
+k
+ 
+i
+n
+ 
+a
+n
+ 
+i
+n
+v
+e
+n
+t
+o
+r
+y
+ 
+s
+t
+u
+d
+y
+.
+ 
+A
+ 
+S
+r
+i
+s
+a
+m
+a
+i
+ 
+&
+ 
+S
+i
+r
+i
+r
+u
+k
+ 
+2
+0
+2
+3
+ 
+I
+E
+O
+M
+ 
+p
+a
+p
+e
+r
+ 
+o
+n
+ 
+d
+e
+m
+a
+n
+d
+ 
+f
+o
+r
+e
+c
+a
+s
+t
+i
+n
+g
+ 
+e
+x
+i
+s
+t
+s
+,
+ 
+b
+u
+t
+ 
+i
+t
+ 
+i
+s
+ 
+n
+o
+t
+ 
+c
+o
+n
+f
+i
+r
+m
+e
+d
+ 
+t
+o
+ 
+b
+e
+ 
+t
+h
+e
+ 
+i
+n
+t
+e
+n
+d
+e
+d
+ 
+s
+o
+u
+r
+c
+e
+.
+ 
+|
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 94 | 3.6-P1 | Classification: accuracy, precision, recall, F1 | (Chikoore et al., 2026; Shaha & Gavekar, 2025; Zhang & Hou, 2026) | All three report these metrics | None |
-| 95 | 3.6-P1 | Forecasting: sMAPE, RMSE, MAE | (Kara & Şengüler, 2025; Lu et al., 2025) | Both use these forecast metrics | None |
-| 96 | 3.6-P1 | Optimization: objective (savings) vs LP guarantee; constraint feasibility as validity check | (Hu et al., 2023; Lu et al., 2025) | Both: constrained-optimization correctness | None |
-| 97 | 3.6-P1 | Anomaly: precision, recall, F1, false-positive rate | (A. Huang et al., 2025; Shaha & Gavekar, 2025; Zhong, 2025) | All three report these | None |
-| 98 | 3.6-P1 | Clustering: Silhouette, Davies–Bouldin | (Salminen et al., 2023) | Salminen: segmentation quality metrics | None |
 
-### 4. System Methodology
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 99 | 4-P1 | Agile iterative development + continuous user feedback advised for PFM systems | (Yadav et al., 2026) | Yadav: development approach | None |
-| 100 | 4-P2 | ML pipeline: collection, preprocessing, training, validation, deployment | (Chen et al., 2024) | Chen: survey pipeline framing | None |
-| 101 | 4-P2 | Model selection follows accuracy-interpretability trade-off; transparent classical models suit on-device personal data | (Reyes et al., 2024) | Reyes: ML model comparison | **Reyes authorship/venue** |
-| 102 | 4-P3 | Interdisciplinary collaboration required for intelligent-finance systems | (R. Huang et al., 2025) | R. Huang: multi-agent team design | None |
-| 103 | 4-P3 | Survey feeds requirements; mobile-first stack; independent model service (BUDI specifics) | (own idea) | Guideline: make methodology BUDI-specific | None |
 
-### 5. System Evaluation
+*
+*
+N
+o
+n
+-
+a
+c
+a
+d
+e
+m
+i
+c
+ 
+d
+e
+p
+e
+n
+d
+e
+n
+c
+i
+e
+s
+*
+*
+ 
+(
+n
+o
+ 
+s
+o
+u
+r
+c
+i
+n
+g
+ 
+r
+e
+q
+u
+i
+r
+e
+d
+,
+ 
+l
+i
+s
+t
+e
+d
+ 
+f
+o
+r
+ 
+c
+o
+m
+p
+l
+e
+t
+e
+n
+e
+s
+s
+)
+:
+ 
+P
+S
+A
+ 
+F
+I
+E
+S
+ 
+2
+0
+2
+3
+,
 
-#### Metrics
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 104 | 5-M1 | Perceived usefulness = belief the system improves financial management | (Rane et al., 2024) | Rane: TAM constructs in AI acceptance | None |
-| 105 | 5-M1 | Performance expectancy = expectation system enhances outcomes | (Rane et al., 2024) | Rane: UTAUT construct | None |
-| 106 | 5-M1 | Facilitating conditions = infrastructure/training/support availability | (Rane et al., 2024) | Rane: UTAUT construct | None |
+P
+S
+A
+ 
+H
+F
+C
+E
+ 
+2
+0
+2
+2
+ 
+Q
+1
+-
+2
+0
+2
+6
+ 
+Q
+2
+,
+ 
+a
+n
+d
+ 
+t
+h
+e
+ 
+g
+r
+o
+u
+p
+'
+s
+ 
+o
+w
+n
+ 
+P
+U
+E
+P
+S
+ 
+i
+n
+s
+t
+r
+u
+m
+e
+n
+t
+.
 
-#### Models and Theories for Evaluation
 
-| # | Location | Claim (abridged) | In-text citation | What the source supports | Residual verify |
-|---|----------|------------------|------------------|--------------------------|-----------------|
-| 107 | 5-T1 | TAM: perceived usefulness + perceived ease of use → attitudes, intentions, actual use | (Rane et al., 2024; Santiago et al., 2025) | Rane: TAM survey; Santiago: acceptance in budget MIS | None |
-| 108 | 5-T1 | UTAUT extends TAM with social influence, facilitating conditions | (Rane et al., 2024) | Rane: UTAUT coverage | None |
-| 109 | 5-T1 | Both applied to fintech and AI financial services adoption | (Rane et al., 2024) | Rane: fintech acceptance clusters | None |
-| 110 | 5-T1 | SUS for usability; ISO/IEC 25010 for quality characteristics | (Brooke, 1996; ISO/IEC, 2011) | Both: instruments/standards | None |
 
-### Synthesis, Tables, and Research Gaps
 
-The Synthesis recomposes claims #1–110 thematically; Table rows and Research Gap cells cite the same verified sources (De Zarzà et al., 2024; Yadav et al., 2026; Ghonaim & El-Sharawy, 2025; R. Huang et al., 2025; Lu et al., 2025; Abdullahi et al., 2025; Chikoore et al., 2026; A. Huang et al., 2025; Zhong, 2025; Zhang et al., 2023; BSP, 2023, 2026; Cumaio et al., 2026; DSouza et al., 2026; Salvador, 2024; Rane et al., 2024; Santiago et al., 2025) — no new claims are introduced there.
+*
+*
+D
+e
+l
+i
+b
+e
+r
+a
+t
+e
+l
+y
+ 
+n
+o
+t
+ 
+c
+h
+a
+n
+g
+e
+d
+.
+*
+*
+ 
+T
+h
+e
+ 
+I
+S
+O
+/
+I
+E
+C
+ 
+2
+5
+0
+1
+0
+ 
+c
+h
+a
+r
+a
+c
+t
+e
+r
+i
+s
+t
+i
+c
+ 
+l
+i
+s
+t
+ 
+i
+n
+ 
+t
+h
+e
+ 
+c
+h
+a
+p
+t
+e
+r
+ 
+w
+a
+s
+ 
+l
+e
+f
+t
+ 
+a
+s
+ 
+t
+h
+e
 
-## Audit summary (2026-09-15)
 
-- **References ↔ citations**: 59 reference entries; automated check found all 59 cited in text and no in-text citation missing from the list. BSP = Bangko Sentral ng Pilipinas (institutional author); Tangney et al., 2004 is a secondary citation ("as cited in"), correctly absent from references.
-- **Section quotas (guideline: ≥5 sources/theme; 6–7 for algorithm topics)**: Theme 1 = 16 unique works; Theme 2 = 10; Theme 3 = 22; Theme 4 = 3 (methodology reuses prior sources, per guideline BUDI-specific rewriting); Theme 5 = 3 (+ ISO standard). Recency: roughly four-fifths of sources are 2024–2026.
-- **Local/foreign balance**: Filipino-authored/local studies cited include Abila & Ulibas, Bulan & Nemino, Claro & Noval, Cruz et al., Encarnacion & Vecina, Erno & Grefalde, Esperanza et al., Francisco et al., Santiago et al., Salvador, plus BSP institutional data — satisfying the guideline's local emphasis alongside international sources.
-- **No-stretch posture**: contested/wide claims were either reworded to source-scope (Danahy student context, Wang-Ly lab context, Sankaewtong crypto datasets) or flagged (see open items).
+D
+r
+i
+v
+e
+ 
+V
+3
+ 
+b
+o
+d
+y
+ 
+h
+a
+s
+ 
+i
+t
+,
+ 
+b
+e
+c
+a
+u
+s
+e
+ 
+C
+h
+a
+p
+t
+e
+r
+ 
+1
+ 
+V
+6
+ 
+a
+g
+r
+e
+e
+s
+ 
+w
+i
+t
+h
+ 
+i
+t
+ 
+a
+n
+d
+ 
+d
+i
+v
+e
+r
+g
+i
+n
+g
+ 
+w
+o
+u
+l
+d
+ 
+d
+e
+s
+y
+n
+c
+h
+r
+o
+n
+i
+s
+e
+ 
+t
+h
+e
 
-## Open items for the team
 
-1. **VERIFY markers left in `chapter-2.md` (resolve before Google Docs submission):**
-   - Erno & Grefalde, 2026 — venue string anomalous; confirm journal + volume/issue.
-   - DSouza et al., 2026 — preprint; confirm venue or classify as preprint.
-   - Salvador, 2024 — preprint (Elsevier submission); confirm status.
-   - Reyes et al., 2024 — authors/names look placeholder-style; confirm real authorship and venue.
-   - Yang, J., 2024 — confirm the fuzzy K-means "interest pattern" claim actually matches the 2.3 sentence using it.
-   - Hu et al., 2023 — ensure it is only used for the predict+optimize claim (3.4 and the SVM paragraph's optimization link), not for the SVM-margin claim.
-   - De Zarzà et al., 2024 — year already resolved (filename said 2023; publication is 2024); no action.
-2. **Dataset-context hedges**: consider whether Sankaewtong (crypto transactions) needs an explicit caveat sentence beyond the current framing.
-3. **Theme 4 source depth**: methodology relies on Yadav, Chen et al., Reyes et al., and R. Huang et al.; acceptable per the BUDI-specific rewriting guideline, but a dedicated software-development-methodology source would strengthen it if Ma'am asks for more.
-4. **Next V2 consultation**: reconcile the markdown's headings against `GROUP4 - CHAPTER 2 - V2 - 09.15.26.docx` before the group meeting (Era's 3 inline notes were addressed: "add more" → 2.4 + 3.x depth; "make an intro of system models and algorithms" → §3 opening paragraph; "didnt see article that would be helpful" → Cumaio et al. replaced the earlier doubtful source for the literacy–savings link).
+t
+w
+o
+ 
+c
+h
+a
+p
+t
+e
+r
+s
+.
+ 
+T
+h
+e
+ 
+f
+i
+e
+l
+d
+e
+d
+ 
+I
+S
+O
+ 
+q
+u
+e
+s
+t
+i
+o
+n
+n
+a
+i
+r
+e
+ 
+d
+i
+s
+a
+g
+r
+e
+e
+s
+ 
+w
+i
+t
+h
+ 
+b
+o
+t
+h
+.
+ 
+T
+h
+a
+t
+ 
+c
+o
+n
+f
+l
+i
+c
+t
+ 
+i
+s
+ 
+r
+e
+c
+o
+r
+d
+e
+d
+ 
+a
+s
+ 
+a
+n
+
+
+o
+p
+e
+n
+ 
+i
+t
+e
+m
+ 
+i
+n
+ 
+`
+c
+h
+a
+p
+t
+e
+r
+-
+2
+.
+m
+d
+`
+ 
+f
+o
+r
+ 
+t
+h
+e
+ 
+a
+d
+v
+i
+s
+e
+r
+ 
+t
+o
+ 
+s
+e
+t
+t
+l
+e
+,
+ 
+r
+a
+t
+h
+e
+r
+ 
+t
+h
+a
+n
+ 
+s
+i
+l
+e
+n
+t
+l
+y
+ 
+r
+e
+s
+o
+l
+v
+e
+d
+ 
+h
+e
+r
+e
+.
+
+
