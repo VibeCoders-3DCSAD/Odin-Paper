@@ -1,6 +1,6 @@
 # Git Commit Message Standards
 
-Shared across all Odin repositories.
+Shared across all BUDI repositories.
 
 ## Format
 
@@ -32,7 +32,7 @@ Shared across all Odin repositories.
 | `style` | Formatting-only changes with no behavior impact |
 | `test` | Test-only changes |
 
-## Commit Scopes (Odin-Paper)
+## Commit Scopes (BUDI-Base)
 
 | Scope | Use For |
 |-------|---------|
@@ -44,7 +44,7 @@ Shared across all Odin repositories.
 | `standards` | Shared engineering standards and agent guidance |
 | `deps` | Dependency additions, removals, upgrades |
 
-> **Note:** RRL corpus commits (previously `rrl` scope) now belong in **Odin-Literature**. Odin-Paper only tracks RRL-related documentation references.
+> **Note:** RRL corpus commits (previously `rrl` scope) now belong in **BUDI-Literature**. BUDI-Base only tracks RRL-related documentation references.
 
 Examples:
 
