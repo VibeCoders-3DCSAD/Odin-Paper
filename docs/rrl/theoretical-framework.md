@@ -10,7 +10,7 @@
 
 ## Notes
 
-The RRL corpus and its structured summaries live in **Odin-Literature** (see `Odin-Literature/docs/standards/summary-format.md`). When written, this framework should cite the selected papers from Odin-Literature.
+The RRL corpus and its structured summaries live in **BUDI-Literature** (see `BUDI-Literature/docs/standards/summary-format.md`). When written, this framework should cite the selected papers from BUDI-Literature.
 
 ## Owner
 

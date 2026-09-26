@@ -1,22 +1,16 @@
-# Benchmarking Analysis: Personal Financial Management (PFM) Mobile Applications
-
+---
+"document-type": "benchmark",
+"version": 0.1.0,
+"date": "2026.08.10",
+"authors": [
+	"Gabion, Stefanie S.",
+	"Guevarra, Joaquin Luis T.",
+	"San Jose, Alexa Joanne Paula G.",
+	"Togle, Charles Nathaniel B."
+]
 ---
 
-## Metadata
-
-```json
-{
-  "document-type": "benchmark",
-  "version": 0.1.0,
-  "date": "2026.08.10",
-  "authors": [
-    "Gabion, Stefanie S.",
-    "Guevarra, Joaquin Luis T.",
-    "San Jose, Alexa Joanne Paula G.",
-    "Togle, Charles Nathaniel B."
-  ]
-}
-```
+# Benchmarking Analysis: Personal Financial Management (PFM) Mobile Applications
 
 ---
 

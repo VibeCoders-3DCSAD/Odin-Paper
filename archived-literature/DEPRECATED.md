@@ -1,30 +1,29 @@
-# Odin-Paper — literature/ (DEPRECATED)
+# BUDI-Base — literature/ (DEPRECATED)
 
-**This entire directory is deprecated.** All RRL processing has moved to **Odin-Literature** (https://github.com/VibeCoders-3DCSAD/Odin-Literature).
+**This entire directory is deprecated.** All RRL processing has moved to **BUDI-Literature** (https://github.com/VibeCoders-3DCSAD/Odin-Literature).
 
 ## What lives where now
 
 | What | Where it is now |
 |------|-----------------|
-| Curated corpus (conversions, summaries, scores) | `Odin-Literature/literature/conversions/` |
-| Scoring pipeline (embed, score, manifest) | `Odin-Literature/scripts/` |
-| Module configuration | `Odin-Literature/config/modules.yaml` |
-| PDF fetch/convert/dedupe/count scripts | `Odin-Literature/scripts/` |
-| Summary JSON schema | `Odin-Literature/docs/standards/summary-format.md` |
-| Naming conventions | `Odin-Literature/docs/standards/rrl-naming-conventions.md` |
-| Workflow documentation | `Odin-Literature/docs/standards/rrl-workflow.md` |
+| Curated corpus (conversions, summaries, scores) | `BUDI-Literature/literature/conversions/` |
+| Scoring pipeline (embed, score, manifest) | `BUDI-Literature/scripts/` |
+| Module configuration | `BUDI-Literature/config/modules.yaml` |
+| PDF fetch/convert/dedupe/count scripts | `BUDI-Literature/scripts/` |
+| Summary JSON schema | `BUDI-Literature/docs/standards/summary-format.md` |
+| Naming conventions | `BUDI-Literature/docs/standards/rrl-naming-conventions.md` |
+| Workflow documentation | `BUDI-Literature/docs/standards/rrl-workflow.md` |
 
 ## What remains here (until manual migration)
 
-- `papers/` — source PDFs (Git LFS). These will be migrated to Odin-Literature when relevance is verified against the new topical outline.
-- `skills/` — 4 AI prompt skills still referenced for summarizing new papers (paper-summarizer, paper-verifier, cross-topic-synthesis, synthesis-compiler). The 2 superseded skills (scorer, culler) have been deleted.
+- `papers/` — source PDFs (Git LFS), batch-1 through batch-6. These will be migrated to BUDI-Literature when relevance is verified against the new topical outline.
 
 ## What was deprecated and removed
 
-- `scripts/` — deleted. All scripts were superseded by their equivalents in Odin-Literature/scripts/.
-- `skills/paper-scorer-skill.md` — deleted, replaced by `Odin-Literature/scripts/score.py`.
-- `skills/paper-culler-skill.md` — deleted, replaced by automated scoring in `Odin-Literature/scores/`.
+- `compilations/` — deleted. Old taxonomy, superseded by the flat corpus in BUDI-Literature.
+- `scripts/` — deleted. All scripts were superseded by their equivalents in BUDI-Literature/scripts/.
+- `skills/` — deleted in full. The summarizing skills (paper-summarizer, paper-verifier, cross-topic-synthesis, synthesis-compiler) are superseded by the BUDI-Literature two-phase workflow; the scoring skills (scorer, culler) by `BUDI-Literature/scripts/score.py` and automated scoring in `BUDI-Literature/scores/`.
 
 ## Migration timeline
 
-PDFs in `literature/papers/` will be verified against the new topical outline and migrated to Odin-Literature manually. Until then, the Odin-Literature pipeline operates on the already-migrated markdown conversions (518 papers in `literature/conversions/batch-1..6/`).
+PDFs in `archived-literature/papers/` will be verified against the new topical outline and migrated to BUDI-Literature manually. Until then, the BUDI-Literature pipeline operates on the markdown conversions already migrated out of this directory.

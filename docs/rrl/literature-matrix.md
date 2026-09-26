@@ -10,7 +10,7 @@
 
 ## Notes
 
-The RRL corpus, scoring, and processing pipeline live in **Odin-Literature** (see `Odin-Literature/docs/standards/`). This file, when written, should reference the selected papers from Odin-Literature rather than duplicate the corpus.
+The RRL corpus, scoring, and processing pipeline live in **BUDI-Literature** (see `BUDI-Literature/docs/standards/`). This file, when written, should reference the selected papers from BUDI-Literature rather than duplicate the corpus.
 
 ## Owner
 
