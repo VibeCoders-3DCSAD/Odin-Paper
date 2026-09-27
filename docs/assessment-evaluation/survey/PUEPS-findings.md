@@ -1,6 +1,6 @@
 # PUEPS Findings Summary
 
-**Source:** "ODIN Public User Expectations and Perception Survey (Responses)" Google Sheet, exported from Google Drive on 2026-09-07. Raw CSV cached locally (gitignored) beside this file as `PUEPS-responses.csv`. This is the missing results file referenced by `chapter-1.md` (V2.1) and `chapter-1-evidence-map.md`.
+**Source:** "ODIN Public User Expectations and Perception Survey (Responses)" Google Sheet, exported from Google Drive on 2026-09-07. Raw CSV cached locally (gitignored) beside this file as `PUEPS-responses.csv`. This is the results file the Chapter 1 drafts referred to; the repo-side Chapter 1 mirrors (`chapter-1.md`, `chapter-1-evidence-map.md`) were removed on 2026-09-27 as stale duplicates of the authoritative Drive documents, so this file now stands on its own. The `Group 4` (2026) reference in Chapter 2's bibliography points here.
 
 ## Study Design
 

@@ -14,7 +14,7 @@
 - **2026-09-24 — Technical Specification V1 (09.24.2026) fetched & re-mirrored.** The
   Drive doc (same ID `1v8hqqlsHuiEAugGe3or3BCG2F8zQ3aWCCyox--oMm6E`, renamed from
   V1 09.20.2026, last modified 2026-09-24 07:51Z) is now the ground truth. Mirror
-  regenerated at `docs/requirements-engineering/technical-specification.md`; the 09.20
+  regenerated in the Drive *Technical Specification V1 (09.24.2026)*; the 09.20
   docx in `google-drive/technical-specification/` was replaced. The 09.24 revision is a
   **substantial rewrite**: project identity is now **TAYA** ("Development of TAYA: A
   Personal Financial Management App Using SARIMA-Based Seasonal Expense Forecasting
@@ -30,7 +30,7 @@
   realignment when filling the models TBDs.
 - **2026-09-21 — New-scope realignment (SUPERSEDED by 09.24 fetch).** The Drive *Technical Specification V1
   (09.20.2026)* was the ground truth for systems, paper, and models (mirror:
-  `docs/requirements-engineering/technical-specification.md`). The adopted model
+  the Drive *Technical Specification V1 (09.24.2026)*). The adopted model
   methodologies (financial classification v2 — rule-based EFC/DSTI/FM/credit-card;
   anomaly alerts v2 — dual-channel IQR; budget optimizer v2 — hierarchical LP)
   **override the spec's title-algorithm column**. Methodology documents were injected

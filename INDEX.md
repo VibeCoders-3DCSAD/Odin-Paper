@@ -22,7 +22,7 @@
 >
 > **Spec update (2026-09-24):** the Drive *Technical Specification V1 (09.24.2026)* is
 > still ground truth for system, module, and implementation detail. Its canonical mirror
-> is `docs/requirements-engineering/technical-specification.md`. The algorithm set it
+> is the Drive *Technical Specification V1 (09.24.2026)*. The algorithm set it
 > states still holds (rule-based classifier, SARIMA forecaster on FIES 2023 + HFCE
 > 2022 Q1–2026 Q2, LP/HiGHS solver, IQR detector around a central **Financial Plan**
 > artifact); its project name does not.
@@ -36,10 +36,10 @@
 | Need | Go to |
 | :--- | :--- |
 | Formal RP2 proposal, title, objectives, scope | `docs/archive/research-proposal/Research-Proposal.md` |
-| Technical specification (ground truth, Drive mirror) | `docs/requirements-engineering/technical-specification.md` |
+| Technical specification (ground truth, Drive only) | `google-drive/technical-specification/` — no repo mirror |
 | Product requirements (PRD) | `docs/requirements-engineering/product-requirements-document.md` |
 | Functional requirements per module | `docs/requirements-engineering/feature-modules-v2.md` |
-| Chapter 1 draft | `thesis/paper/chapter-1.md` |
+| Chapter 1 draft | Drive only — `GROUP4 - CHAPTER 1 - V6 - 09.24.26.docx`; no repo mirror |
 | Model methodologies (adopted new-scope) | `docs/ml/README.md` → **BUDI-ML** `training/docs/model-methodologies/` |
 | Screen descriptions (24 screens) | `docs/design-architecture/screen-descriptions/00-index.md` |
 | System architecture and data schema | `docs/design-architecture/system-architecture.md` |
@@ -74,10 +74,10 @@ For everything under `docs/`, see **`docs/INDEX.md`** (authoritative for the doc
 | :--- | :--- | :--- |
 | Formal research proposal | `docs/archive/research-proposal/Research-Proposal.md` | Authoritative for RP2 framing, objectives, scope. |
 | Topical outline | `google-drive/topical-outline/GROUP4 - TOPICAL OUTLINE - V4 - 09.26.26.docx` | Drive mirror (gitignored). Authoritative thesis structure. |
-| Technical specification | `docs/requirements-engineering/technical-specification.md` | Ground truth for system/module detail (Drive mirror). Names the project TAYA, which V4 supersedes. |
+| Technical specification | Drive *Technical Specification V1 (09.24.2026)* | Ground truth for system/module detail. No repo mirror. Names the project TAYA, which V4 supersedes. |
 | Product requirements | `docs/requirements-engineering/product-requirements-document.md` | Full-app PRD with user stories and scope. |
 | Model methodologies | `BUDI-ML/training/docs/model-methodologies/` | Adopted new-scope designs; override spec algorithm column. |
-| Paper chapters | `thesis/paper/` | `chapter-1.md` (local mirror is V5; Drive V6 newer and half-renamed), `chapter-2.md` (**V3.0**, current), `chapter-2-evidence-map.md`. |
+| Paper chapters | `thesis/paper/` | `chapter-2.md` (**V3.0**, current), `chapter-2-evidence-map.md`. Chapter 1 is Drive-only: `GROUP4 - CHAPTER 1 - V6 - 09.24.26.docx`. |
 | RRL corpus & scoring | **BUDI-Literature** | Conversions, summaries, scores, module config. |
 
 ---
@@ -88,7 +88,7 @@ For everything under `docs/`, see **`docs/INDEX.md`** (authoritative for the doc
 | :--- | :--- |
 | Understand what BUDI proposes to build | `docs/archive/research-proposal/Research-Proposal.md` |
 | Topical outline of the thesis | `google-drive/topical-outline/GROUP4 - TOPICAL OUTLINE - V3 - 09.15.26.docx` |
-| Ground-truth technical/systems scope | `docs/requirements-engineering/technical-specification.md` |
+| Ground-truth technical/systems scope | Drive *Technical Specification V1 (09.24.2026)* |
 | Full app product requirements | `docs/requirements-engineering/product-requirements-document.md` |
 | Adopted model methodologies | **BUDI-ML** — `training/docs/model-methodologies/` and `docs/models/` |
 | Chapter drafts | `thesis/paper/` (Chapter 2 is current at V3.0) |

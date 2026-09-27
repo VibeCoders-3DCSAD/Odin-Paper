@@ -51,7 +51,6 @@ def fetch_folder(creds, folder_id: str, out_dir: Path) -> None:
                 ext_map = {
                     "application/vnd.google-apps.spreadsheet": ".csv",
                     "application/vnd.google-apps.document": ".docx",
-                    "application/vnd.google-apps.form": ".pdf",
                 }
                 ext = ext_map[item["mimeType"]]
                 out_path = out_dir / (name + ext)
@@ -66,6 +65,13 @@ def fetch_folder(creds, folder_id: str, out_dir: Path) -> None:
                 _rows.append((len(out_dir.relative_to(GOOGLE_DRIVE_DIR).parts), name, item["id"],
                               item["mimeType"].rsplit(".", 1)[-1].title(), _stamp(item),
                               str(out_path.relative_to(GOOGLE_DRIVE_DIR))))
+            else:
+                # No export target exists for this Workspace type. Google Forms are
+                # the only one in this Drive and files().export() rejects them, so
+                # this is expected rather than an error. Say so explicitly instead
+                # of dropping the file silently.
+                print(f"  SKIPPED (no export target): {name} [{item['mimeType'].rsplit('.', 1)[-1]}]"
+                      " -- use the Forms API, or a sibling doc/sheet if one exists")
         else:
             # Direct download (PDFs, images, .docx, etc.)
             out_path = out_dir / name

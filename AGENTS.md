@@ -20,14 +20,23 @@ The RRL corpus, scoring pipeline, and related tooling live in **BUDI-Literature*
 > the savings/debt product subtypes, TAM/UTAUT, and the SVM classifier are gone, replaced
 > by a **rule-based** saver/borrower classifier, seasonal expense forecasting, budget
 > creation by constraint optimization, and unusual expense detection. `TAYA`, named in the
-> 09.24 technical specification and still used in its canonical mirror
-> `docs/requirements-engineering/technical-specification.md`, is **superseded** and should
-> not be used to settle naming questions.
+> 09.24 technical specification, is **superseded** and should not be used to settle naming
+> questions.
+>
+> **Repo-side Drive mirrors were removed on 2026-09-27** to cut duplication. These are gone:
+> `docs/requirements-engineering/technical-specification.md`,
+> `thesis/paper/chapter-1.md`, `thesis/paper/chapter-1-evidence-map.md`,
+> `thesis/paper/chapter-1-objectively-written.md`, and
+> `skills/topical-outline-prompt-maker.md`. **Drive is the only source for all of them.**
+> Re-fetch with `python scripts/gdrive/fetch_drive.py`; do not recreate a mirror that drifts.
+> The Chapter 1 mirrors were the most harmful of the five: the stale V5 copy caused a wrong
+> ISO/IEC 25010 conclusion in the Chapter 2 evidence map before it was caught. This is the
+> mirror-lag trap below, and the fix was to delete the mirror rather than refresh it.
 >
 > **Chapter 2 V3 (09.26) is the current Chapter 2.** Its canonical mirror is
-> `thesis/paper/chapter-2.md` (V3.0). It was written against Outline V4 on the same day,
-> so the two are already aligned; see `thesis/paper/chapter-2-evidence-map.md` for the
-> citation audit and its open items.
+> `thesis/paper/chapter-2.md` (V3.0), now restructured to the 92-heading topical outline.
+> See `thesis/paper/chapter-2-evidence-map.md` for the citation audit, the provenance audit
+> of which references the corpus can actually produce, and its open items.
 >
 > **Chapter 1 is only half-renamed.** `GROUP4 - CHAPTER 1 - V6 - 09.24.26.docx` carries
 > BUDGIE on its title page and introduction, but its Scope and Limitations section still
@@ -35,12 +44,14 @@ The RRL corpus, scoring pipeline, and related tooling live in **BUDI-Literature*
 > rule-based. Do not treat Chapter 1 V6 as settled on either identity or algorithms.
 >
 > **Spec update (2026-09-24):** the Drive *Technical Specification V1 (09.24.2026)* is
-> still the ground truth for system, module, and implementation detail, and its canonical
-> mirror is `docs/requirements-engineering/technical-specification.md`. The 09.24 revision
+> the ground truth for system, module, and implementation detail. The repo mirror was
+> removed on 2026-09-27, so read the Drive document. The 09.24 revision
 > stated the project identity as **TAYA** and the title algorithms as rule-based
 > classification, **SARIMA** forecasting (FIES 2023 + HFCE 2022 Q1–2026 Q2 temporal
 > disaggregation), **LP (HiGHS)** solving, and **IQR** detection around a central Financial
-> Plan artifact. The algorithm set still holds; the name does not. Methodology and
+> Plan artifact. The algorithm set still holds; the name does not. Note that the SARIMA
+> estimation window is 18 quarters, which is short for identifying annual seasonality —
+> `L--Dasmarinas-2024` is the domestic comparison point at 84. Methodology and
 > implementation docs in `BUDI-ML/training/docs/model-methodologies/` and
 > `BUDI-ML/docs/models/` use legacy v2 naming that lags both.
 
@@ -116,11 +127,12 @@ See **`INDEX.md`** for the authoritative index. Key documents:
 | Document | Purpose |
 |----------|---------|
 | **`docs/INDEX.md`** | Documentation index for everything under `docs/`. |
-| **`docs/requirements-engineering/technical-specification.md`** | Ground-truth technical specification (Drive mirror). The main design contract. |
+| **`thesis/paper/chapter-2.md`** | Chapter 2 (RRL) — restructured to the 92-heading topical outline. Current. |
+| **`thesis/paper/chapter-2-evidence-map.md`** | Citation audit of Chapter 2 against the RRL corpus, plus a provenance audit of which references the corpus can actually produce. |
 | **`docs/requirements-engineering/product-requirements-document.md`** | Product requirements. |
 | **`docs/requirements-engineering/feature-modules-v2.md`** | Functional requirements per module. |
 | **`docs/design-architecture/screen-descriptions/00-index.md`** | Index of the 24 screen descriptions. |
-| **`thesis/paper/chapter-1.md`** | Chapter 1 draft (Introduction) — local mirror is V5; Drive V6 (09.24) is newer and is only half-renamed to BUDGIE. |
+| **`GROUP4 - CHAPTER 1 - V6 - 09.24.26.docx`** (Drive) | Chapter 1 draft (Introduction). No repo mirror — read the Drive file. V6 is only half-renamed to BUDGIE. |
 | **`thesis/paper/chapter-2.md`** | Chapter 2 (RRL) — V3.0, mirroring the 09.26 Drive V3. Current. |
 | **`thesis/paper/chapter-2-evidence-map.md`** | Citation audit of Chapter 2 V3 against the RRL corpus, with its open items. |
 | **`docs/ml/README.md`** | ML / model methodology index (adopted new-scope designs live in BUDI-ML). |

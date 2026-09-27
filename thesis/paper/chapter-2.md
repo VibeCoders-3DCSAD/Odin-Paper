@@ -556,6 +556,15 @@ be solved jointly (Lu et al., 2025). Budget allocation models using multi-criter
 consume forecast inputs in the same way (Gulbakyt et al., 2025), and mobile budget applications have
 applied recurrent networks to budget management directly (Ghonaim & El-Sharawy, 2025).
 
+The closest domestic precedent models quarterly Philippine household consumption expenditure directly,
+over 84 quarters spanning 2001 to 2021, and finds that SARIMA returns the lowest combined error
+among the time-series models compared, with the support vector regression variant performing best
+among the machine-learning regressors (Dasmariñas et al., 2024). Two features of that result bear
+directly on the design here. The series is long enough to identify a quarterly seasonal structure,
+which is the empirical question that the aggregation assumption in this chapter rests on. The
+comparison is also model-selection evidence rather than an assumption: SARIMA was chosen on error
+metrics, not adopted by default, which is the standard this chapter holds itself to.
+
 Forecasting approaches suitable for seasonal expense series are well represented. Expense-tracker
 work applies machine learning to transaction data with seasonal structure
 (Thakur & Jadhav, 2025), credit-card spending prediction applies comparable methods
@@ -564,10 +573,14 @@ allocation (Santiago et al., 2025). Household planning formalisations use foreca
 (de Zarzà et al., 2024), and adaptive-threshold work addresses the related problem of monitoring
 forecast-driven financial data quality (Zhong, 2025).
 
-<!-- NEEDS MORE SOURCES: 6 required for a core-algorithm topic; 6 attached, but all are
-     adjacent-domain. No source in the verified set forecasts individual Philippine household
-     expense seasonality. Dasmariñas et al. (2024) is the direct precedent and is still missing;
-     it is the highest-value acquisition in the entire chapter. -->
+<!-- NEEDS MORE SOURCES: 7 required for a core-algorithm topic; 7 now attached. Dasmariñas
+     et al. (2024) closed the Philippine-precedent gap: it models quarterly household consumption
+     expenditure for the Philippines and selected SARIMA on error metrics, so the section is no
+     longer adjacent-domain only. The residual gap is narrower and is stated rather than padded:
+     Dasmariñas et al. models national aggregate consumption, not individual household expense
+     seasonality, and no verified source in the set forecasts an individual household's monthly
+     expenses. Aggregate-to-individual disaggregation therefore remains an assumption of this
+     chapter, not a sourced result. Dey and Arefin (2025) is the outstanding acquisition. -->
 
 ### Importance of Seasonal Expense Forecasting
 
@@ -793,14 +806,25 @@ pressure (Esperanza, 2025), and institutional analytics demonstrate the monitori
 (Santiago et al., 2025).
 
 <!-- Cite the BSP financial planning cycle here. Look for it in BUDI-Literature -->
-<!-- NOT SATISFIABLE from the corpus. All six Bangko Sentral entries were checked on 2026-09-27:
-     the Q4 2023 Financial Inclusion dashboard, the Financial Inclusion Dashboard, the Annual
-     Report 2025, the Consumer Expectations Survey Q2 2026, and two statistical releases. None is
-     a financial planning cycle document, and one (L--BangkoSentral-2023b) is in fact a regional
-     economic development paper whose own text dates it to June 2005, so its 2023 stem is wrong.
+<!-- NOT SATISFIABLE from the held corpus text. All Bangko Sentral entries were checked on
+     2026-09-27: the Q4 2023 Financial Inclusion dashboard, the Financial Inclusion Dashboard, the
+     Annual Report 2025, the Consumer Expectations Survey Q2 2026, and two statistical releases. None
+     is a financial planning cycle document, and the phrase "planning cycle" does not occur in any of
+     them. Every "cycle" match is monetary policy: easing cycles, off-cycle meetings, credit cycles.
+     The likeliest explanation is that the cycle is presented as a figure. L--BangkoSentral-2023b was
+     converted through the pypdf text() fallback, which extracts text only and silently drops all
+     figures, and L--BangkoSentral-2025 and -2026b carry 20 and 65 figure references whose content
+     was likewise never captured. A single image-only BSP document would not be sufficient empirical
+     backing for the cycle in any case, so this section stays flagged. Resolution needs either manual
+     figure extraction or OCR of the source PDFs, plus at least one non-BSP source on the cycle.
      The central-bank statistics that ARE available are cited for context in Context of Financial
      Planning, Problems faced by Individuals, and Budget Constraints. Request re-listed under
      Outstanding Source Requests. -->
+<!-- CORRECTION 2026-09-27: an earlier version of this comment asserted that L--BangkoSentral-2023b
+     "is in fact a 2005 document whose 2023 stem is wrong". That was a misreading and is retracted.
+     It is the 2023 edition of the Report on Regional Economic Developments in the Philippines, an
+     annual series; 2005 is the maiden-issue year stated in its own preface. The stem year is
+     correct. -->
 
 # Models and Algorithms
 
@@ -824,11 +848,16 @@ pattern are estimated jointly from history (Lu et al., 2025).
 
 Its inputs are a time series long enough to identify the seasonal structure. For monthly data with
 annual seasonality this means several annual cycles, and the series length therefore determines
-whether the seasonal terms are estimable at all. The Philippine household consumption series used
-for population-level structure spans eighteen quarters (PSA, 2026), which is borderline for an
-annual seasonal period and adequate for initial estimation (Lu et al., 2025). Outputs are point forecasts for each
-future period together with prediction intervals quantifying forecast uncertainty
-(Santiago et al., 2025).
+whether the seasonal terms are estimable at all. The window this study estimates over is eighteen
+quarters of Philippine consumption data, 2022 Q1 to 2026 Q2, which is a genuine constraint rather
+than a formality: it spans four and a half annual cycles, and the seasonal terms are being estimated
+from a small number of cycles. The domestic comparison point is the eighty-four quarterly
+observations of Philippine household consumption expenditure from 2001 to 2021 modelled by Dasmariñas
+et al. (2024), roughly a fifth again more data than this study has available. Identification of the
+seasonal structure at eighteen quarters is therefore an assumption to be tested and reported, not a
+guarantee, and it is the reason the estimation approach is stated explicitly rather than treated as
+settled (Lu et al., 2025; Dasmariñas et al., 2024). Outputs are point forecasts for each future
+period together with prediction intervals quantifying forecast uncertainty (Santiago et al., 2025).
 
 Prior applications in the reviewed set establish the model's suitability for seasonal financial
 series. Constrained data-driven budgeting applies forecasting jointly with allocation
@@ -841,9 +870,14 @@ institutional budget systems apply predictive analytics to forward allocation
 
 Its strengths are interpretability, an established theoretical basis, and native quantification of
 uncertainty, all of which matter when a forecast must be explained to a user deciding how much to
-reserve (Lu et al., 2025; Santiago et al., 2025). Its limitations follow directly: the linearity
-assumption, the data-volume requirement, and sensitivity to structural breaks such as the pandemic
-period visible in Philippine consumption data (de Zarzà et al., 2024; Lu et al., 2025). Adaptive
+reserve (Lu et al., 2025; Santiago et al., 2025). The choice of the model over the alternatives is
+itself evidenced rather than assumed: on Philippine quarterly consumption data, SARIMA produced the
+lowest combined error across the time-series models compared, against triple exponential smoothing
+and TBATS, and the seasonal autoregressive form was the one that survived that comparison
+(Dasmariñas et al., 2024). Its limitations follow directly: the linearity assumption, the
+data-volume requirement, and sensitivity to structural breaks such as the pandemic period visible in
+Philippine consumption data, which the same study shows materially distorts fitted relationships and
+depresses measured growth (de Zarzà et al., 2024; Lu et al., 2025; Dasmariñas et al., 2024). Adaptive
 threshold work provides the complement for the drift problem, since a model whose distribution
 shifts needs re-estimation rather than a fixed rule (Zhong, 2025).
 
@@ -853,9 +887,13 @@ blended with personal history as that history accumulates. The relevance is that
 reviewed method that produces a seasonally resolved monthly expectation from annual data, which is
 what budget composition requires (Lu et al., 2025; de Zarzà et al., 2024).
 
-<!-- NEEDS MORE SOURCES: 7 required for a core algorithm; 6 attached. The missing source is
-     Dasmariñas et al. (2024), the only Philippine household-consumption SARIMA study in the
-     project and the one that supplies the seasonal decomposition this design assumes. -->
+<!-- NEEDS MORE SOURCES: 7 required for a core algorithm; 7 now attached. Dasmariñas et al.
+     (2024) closes the gap this section previously could not fill, and is the stronger source for
+     it: it is a Philippine household-consumption study that selected SARIMA on RMSE, MSE and MAE
+     rather than assuming it, and it reports the same structural-break risk from the pandemic period
+     that this section names as a limitation. The narrower residual gap, stated rather than padded,
+     is that Dasmariñas et al. models national aggregate consumption rather than an individual
+     household's monthly expenses, and no source in the set does the latter. -->
 
 ### SARIMA in Forecasting
 
@@ -1736,9 +1774,12 @@ literature rather than proposed as novel.
 The conceptual framework follows an Input-Process-Output model, extended with an evaluation
 component, that traces the systematic development and evaluation of BUDGIE.
 
-<!-- FIGURE 1 PLACEHOLDER: conceptual model (IPO) diagram. Source image is in the
-
-     Chapter 2 V3 .docx media folder and has not been exported to the repository. -->
+<!-- FIGURE 1 PLACEHOLDER: conceptual model (IPO) diagram. NOT YET CREATED. The Chapter 2
+     V3 .docx carries the caption "Figure 1." with no image behind it, and none of the sixteen
+     chapter .docx files in google-drive/ embeds any image, so there is no source diagram in the
+     repository to export. An earlier version of this comment claimed the image was in the .docx
+     media folder; that was wrong and has been corrected. The diagram must be drawn from the
+     IPO description below, or obtained from the panel. -->
 
 Figure 1. Conceptual Model of the Study
 
@@ -1815,30 +1856,69 @@ whose identity is not confirmed and which must not be treated as final.
 ### Source needed
 
 1. **BSP financial planning cycle.** Requested by the panel reviewer at the "Review and Monitoring"
-   subsection, with the instruction to look in BUDI-Literature. **Not satisfiable from the corpus.**
-   All six Bangko Sentral entries were read on 2026-09-27: the Q4 2023 and full-year Financial
-   Inclusion dashboards, the Annual Report 2025, the Consumer Expectations Survey Q2 2026, and two
-   statistical releases. None is a financial planning cycle document. Additionally
-   `L--BangkoSentral-2023b` is not a 2023 document at all; its own text states it was released in
-   June 2005, so the stem year is wrong and the entry needs re-ingestion under a corrected year.
-   The central-bank statistics that are available are cited for context in *Context of Financial
-   Planning*, *Problems faced by Individuals in Financial Planning*, and *Budget Constraints*.
-   To satisfy the request, either a BSP financial-planning or financial-planning-process
-   publication must be supplied from outside the corpus, or the reviewer must confirm that the
+   subsection, with the instruction to look in BUDI-Literature. **Not satisfiable from the held
+   corpus text.** All Bangko Sentral entries were read on 2026-09-27: the Q4 2023 and full-year
+   Financial Inclusion dashboards, the Annual Report 2025, the Consumer Expectations Survey Q2 2026,
+   and two statistical releases. None is a financial planning cycle document, and the phrase "planning
+   cycle" appears in none of them; every "cycle" match is monetary policy. The cycle is most likely
+   presented as a figure, and figure content was never captured: `L--BangkoSentral-2023b` was
+   converted via the pypdf `text()` fallback, which drops all figures, while `L--BangkoSentral-2025`
+   and `-2026b` carry 20 and 65 figure references with no extracted content. The central-bank
+   statistics that are available are cited for context in *Context of Financial Planning*, *Problems
+   faced by Individuals in Financial Planning*, and *Budget Constraints*. One image-only BSP document
+   would not be sufficient empirical backing in any case, so resolution needs figure extraction or
+   OCR **and** at least one non-BSP source on the cycle, or the reviewer must confirm that the
    Consumer Expectations Survey is the intended source.
-2. **Dasmariñas et al. (2024).** The direct precedent for the seasonal decomposition this design
-   assumes, and the only Philippine household-consumption forecasting study in the project. Cited
-   seven times in the previous draft from memory; it is now cited zero times and replaced with six
-   corpus sources, but it remains the highest-value acquisition in the chapter. Candidate: Dasmariñas,
-   A. P., De Castro, G., Lazona, B. J., & Usona, L. (2024). Forecasting the impact of COVID-19 on
-   the household final consumption expenditure (HFCE) in the Philippines. PUP Journal of Science &
-   Technology, 14(1), 70-90. https://doi.org/10.70922/ctzevg57
+   *Correction:* an earlier revision of this entry claimed `L--BangkoSentral-2023b` was a 2005
+   document with a wrong stem year. Retracted — it is the 2023 edition of an annual series whose
+   preface records the maiden issue as June 2005. The stem is correct.
+2. **Dasmariñas et al. (2024).** **RESOLVED 2026-09-27.** The file has been acquired, converted, and
+   verified; it is now `L--Dasmarinas-2024` in BUDI-Literature and is cited in *Seasonal Expense
+   Forecasting* and *SARIMA*. Venue, pages, and DOI were confirmed against the publisher's record
+   rather than assumed, so the earlier concern about an unverified DOI no longer applies. Its scope
+   limit is recorded in the sidecar: it models national aggregate consumption, not individual
+   household expense seasonality, so the disaggregation step from population to individual remains
+   flagged as an assumption rather than a sourced result.
 3. **Dey & Arefin (2025).** The closest direct precedent for the rule-based classifier chosen. The
    *Saver and Borrower Profile Classification* topic is not short without it, so this is a strength
    rather than a gap. Candidate: Dey, S., & Arefin, M. S. (2025). Developing a rule-based system to
    recommend household budget. Journal of Information Systems Engineering and Management, 10(47s),
    148-182. https://jisem-journal.com/index.php/journal/article/view/9230
    (preprint: https://www.preprints.org/manuscript/202502.1315/v1)
+
+### PENDING ACQUISITION
+
+These are cited in this chapter but the project does not hold the file. They were inherited from
+Chapter 2 V3, which did not hold them either, and an earlier revision of this document reported its
+reference list as clean. That check was internal-consistency only: it confirmed the chapter agreed
+with itself, not that the corpus could produce every source. A separate provenance audit against
+`BUDI-Literature` found these six. This is the most significant unresolved issue in the chapter and
+is recorded prominently rather than left implicit.
+
+11. **Brooke, J. (1996).** *SUS: A "quick and dirty" usability scale.* In *Usability Evaluation in
+    Industry*, 189-194. The canonical System Usability Scale source, load-bearing for *Software
+    Quality Evaluation*, and the chapter's only pre-2023 exception. Not held. Highest priority: the
+    paper is one page and the shortfall is narrow, since the reviewed usability evidence clusters in
+    only two other papers.
+12. **Philippine Statistics Authority (2023).** *Family Income and Expenditure Survey.* Not held.
+    Currently supports the annual income, expense, household-size, and distributional inputs in the
+    Conceptual Model.
+13. **Philippine Statistics Authority (2026).** *Household Final Consumption Expenditure* series. Not
+    held. Currently supports the seasonal proportions used in the temporal disaggregation. Dasmariñas
+    et al. (2024) is now held and covers Philippine quarterly consumption expenditure 2001-2021, so it
+    is a partial substitute, but it is an academic study of an aggregate series rather than the
+    official statistics release the design names.
+14. **Ariningsih, P., & Muhammad, A. H. (2024).** *Quality evaluation of Indonesian sharia
+    fintech.* Not held. Cited for PFM feature comparison.
+15. **Lianto, M. E., Primasari, C. H., Marsella, E., Wibisono, Y., et al. (2023).** Budgeting-app
+    study. Not held. Cited for PFM feature comparison.
+16. **Lim, P. C., Lim, Y. L., Rajah, R., & Zainal, H. (2025).** *Usability* study. Not held. Cited
+    for PFM feature comparison and the usability argument.
+
+Two entries in the reference list are legitimately outside the corpus and are **not** defects:
+*International Organization for Standardization* (2023) is a standard, and *Group 4* (2026) is the
+team's own survey instrument, which lives in `BUDI-Base/questionnaires/` rather than in
+BUDI-Literature.
 
 ### Moved to Chapter 3
 
@@ -1902,6 +1982,8 @@ Brooke, J. (1996). SUS: A "quick and dirty" usability scale. In P. W. Jordan, B.
 Claro, D. M. L., & Noval, J. E. G. (2025). The regressors of financial well-being among LGU employees in Davao del Norte. *ISRG Journal of Economics, Business and Management, 3*(6).
 
 Cumaio, S., Serrasqueiro, Z., & Madaleno, M. (2026). Linking financial literacy and behavioural finance to saving and debt behaviours: A literature review of global and developing economy contexts. *Journal of Risk and Financial Management, 19*(6), 425. https://doi.org/10.3390/jrfm19060425
+
+Dasmariñas, A. P., De Castro, G. H., Lazona, B. J. M., & Usona, L. P. (2024). Forecasting the impact of COVID-19 on the household final consumption expenditure (HFCE) in the Philippines. *PUP Journal of Science & Technology, 14*(1), 70-90. https://doi.org/10.70922/ctzevg57
 
 de Zarzà, I., de Curtò, J., Roig, G., & Calafate, C. T. (2024). Optimized financial planning: Integrating individual and cooperative budgeting models with LLM recommendations. *AI, 5*, 91-114.
 

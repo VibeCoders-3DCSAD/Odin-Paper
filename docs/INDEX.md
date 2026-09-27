@@ -17,7 +17,7 @@
 >
 > **Spec update (2026-09-24):** the Drive *Technical Specification V1 (09.24.2026)* is
 > still ground truth for system and module detail (mirror:
-> `requirements-engineering/technical-specification.md`). Its algorithm set still holds
+> the Drive *Technical Specification V1 (09.24.2026)*). Its algorithm set still holds
 > (rule-based classifier, SARIMA with FIES 2023 + HFCE 2022 Q1–2026 Q2 temporal
 > disaggregation, LP/HiGHS solver, IQR detector); its project name does not.
 > Implementation docs live in **BUDI-ML**.
@@ -29,10 +29,10 @@
 | Need | Go to |
 | :--- | :--- |
 | Formal research proposal, objectives, scope | `archive/research-proposal/Research-Proposal.md` |
-| Technical specification (ground truth, Drive mirror) | `requirements-engineering/technical-specification.md` |
+| Technical specification (ground truth) | Drive only — `google-drive/technical-specification/` |
 | Product requirements (PRD) | `requirements-engineering/product-requirements-document.md` |
 | Functional requirements per module | `requirements-engineering/feature-modules-v2.md` |
-| Chapter drafts | `../thesis/paper/chapter-1.md`, `../thesis/paper/chapter-2.md` |
+| Chapter drafts | `../thesis/paper/chapter-2.md` (Chapter 1 is Drive-only) |
 | Model documentation index | `ml/README.md` + **BUDI-ML** `training/docs/model-methodologies/` |
 | Screen descriptions (24 screens) | `design-architecture/screen-descriptions/00-index.md` |
 | System architecture and data schema | `design-architecture/system-architecture.md` |
@@ -102,7 +102,7 @@ Study-level model documentation index. The **adopted new-scope methodologies** l
 
 | File | Purpose |
 | :--- | :--- |
-| `technical-specification.md` | Ground-truth technical specification (Drive mirror). The main design contract. |
+| _(removed 2026-09-27)_ | `technical-specification.md` — Drive mirror deleted to cut duplication. Read the Drive *Technical Specification V1 (09.24.2026)*. |
 | `tbd-register-resolution.md` | TBD resolution register — status, evidence, and recommended decisions per spec TBD. |
 | `product-requirements-document.md` | Product requirements document. |
 | `feature-modules-v2.md` | Functional requirements per module. |
@@ -140,10 +140,10 @@ Study-level model documentation index. The **adopted new-scope methodologies** l
 
 | File | Purpose |
 | :--- | :--- |
-| `../thesis/paper/chapter-1.md` | Chapter 1 draft (Introduction), Finalized V5. |
-| `../thesis/paper/chapter-1-objectively-written.md` | Chapter 1 objective-register variant. |
+| _(removed 2026-09-27)_ | `../thesis/paper/chapter-1.md` — stale V5 mirror deleted; it caused a wrong ISO 25010 conclusion. Read Drive `GROUP4 - CHAPTER 1 - V6 - 09.24.26.docx`. |
+| _(removed 2026-09-27)_ | `../thesis/paper/chapter-1-objectively-written.md` — deleted as a stale Chapter 1 variant. |
 | `../thesis/paper/chapter-2.md` | Chapter 2 (RRL), **V3.0** — mirrors the 09.26 Drive V3 and covers all 26 Outline V4 leaves. |
-| `../thesis/paper/chapter-1-evidence-map.md` | Claim-by-claim citation audit for Chapter 1. |
+| _(removed 2026-09-27)_ | `../thesis/paper/chapter-1-evidence-map.md` — deleted with the stale Chapter 1 mirror. |
 | `../thesis/paper/chapter-2-evidence-map.md` | Citation audit of Chapter 2 V3 against the RRL corpus, with open items. |
 
 ---
@@ -154,6 +154,6 @@ Study-level model documentation index. The **adopted new-scope methodologies** l
 | :--- | :--- |
 | Understand what BUDI proposes to build | `archive/research-proposal/Research-Proposal.md` |
 | Full app product requirements | `requirements-engineering/product-requirements-document.md` |
-| Ground-truth systems/paper/models scope | `requirements-engineering/technical-specification.md` |
+| Ground-truth systems/paper/models scope | Drive *Technical Specification V1 (09.24.2026)* |
 | Adopted model methodologies & implementation | `ml/` (index) + **BUDI-ML** (code and methodologies) |
 | RRL corpus and scoring | **BUDI-Literature** |

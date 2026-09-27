@@ -67,12 +67,48 @@ Evaluation component rests on external sources, and those are now cited.
 
 | Check | Result |
 | --- | --- |
-| References in list | 27 |
+| References in list | 30 |
 | References never cited in the body | 0 |
 | In-text citations with no reference entry | 0 |
 | References dated before 2023 | 1 — Brooke (1996), a declared window exception, flagged at the point of citation |
 | References whose metadata is unverified | 1 — Huss et al. (2023), flagged inline and cuttable |
-| Sources cited but absent from the corpus | 12 (9 pending acquisition, 3 source-needed) |
+| Sources cited but absent from the corpus | 5 — see the provenance audit below |
+
+## Provenance audit 2026-09-27: which references the project can actually produce
+
+**The integrity table above was measuring the wrong thing.** Its checks were internal: they confirmed
+that the reference list and the body agreed with each other, that nothing was orphaned, and that
+years fell inside the declared window. None of them asked whether `BUDI-Literature` holds the file.
+The chapter reported itself clean while citing six sources the project does not have.
+
+A provenance check was run on 2026-09-27: every reference in the chapter was resolved against
+`literature/conversions/`, `literature/papers/`, and `literature/bucket/` in BUDI-Literature, plus
+`questionnaires/` in this repository.
+
+| Reference | In chapter | Held? | Consequence |
+| --- | --- | --- | --- |
+| Dasmariñas et al. (2024) | 9 citations | **Yes**, acquired 2026-09-27 as `L--Dasmarinas-2024` | Resolved. Was the single worst gap. |
+| Brooke (1996) | SUS, usability | **No** | Canonical SUS source, load-bearing, 1-page paper. Highest-priority acquisition. |
+| Philippine Statistics Authority (2023) | Conceptual Model inputs | **No** | FIES annual data. |
+| Philippine Statistics Authority (2026) | Seasonal proportions | **No** | HFCE series. Dasmariñas is a partial substitute but is an academic study of an aggregate series, not the official release. |
+| Ariningsih & Muhammad (2024) | PFM feature comparison | **No** | Indonesian sharia fintech evaluation. |
+| Lianto et al. (2023) | PFM feature comparison | **No** | Budgeting-app study. |
+| Lim et al. (2025) | PFM features, usability | **No** | Usability study. |
+| International Organization for Standardization (2023) | ISO/IEC 25010 | N/A | A standard. Correctly not a corpus paper. |
+| Group 4 (2026) | PUEPS instrument | N/A | The team's own instrument; lives in `questionnaires/`, not BUDI-Literature. |
+
+The remaining 21 references all resolve to held files.
+
+**Why this went unnoticed.** These six were inherited from Chapter 2 V3, which did not hold them
+either — V3's own audit table admitted the same problem for Dasmariñas. V3 cited them from a
+citing bibliography, so the strings were plausible enough to survive a citation-formatting pass. The
+project has already retracted one false verification claim in this area
+(`docs/NEW-SCOPE-SOURCES.md`, commit `75d4cbe`), which claimed every DOI had been checked when two
+had been invented. **Standing rule: a reference is not verified until the file is in the corpus.**
+Metadata read off a citing bibliography is provenance, not verification.
+
+**Check the corpus, not the chapter.** Any future reference-count QA must resolve each entry against
+the corpus. Internal consistency cannot detect a well-formed citation to a paper nobody has.
 
 ## What this means
 
@@ -91,16 +127,21 @@ unpublished manuscript when it is an ACM conference paper with a DOI. All seven 
 general lesson is in the correction log below: verify the author block visually, and do not treat
 a successful extraction as a successful verification.
 
-**Three sources do not exist in the corpus at all.**
+**Three sources do not exist in the corpus at all.** *(Status as of the 2026-09-27 provenance
+audit; Dasmariñas has since been acquired.)*
 
 | Cited as | Citations | Risk |
 | --- | --- | --- |
-| Dasmariñas et al. (2024) | 7 | The seasonal forecasting argument and the whole SARIMA section rest on this one paper. It is confirmed to exist (PUP Journal of Science & Technology 14(1), 70-90, doi 10.70922/ctzevg57) and Chapter 2's characterisation of it is accurate, but it is not in the corpus. |
-| Dey and Arefin (2025) | 3 | Confirmed to exist (JISEM 10(47s), 148-182). Supports the rule-based budget claim. |
+| ~~Dasmariñas et al. (2024)~~ | 7 → 9 | **RESOLVED 2026-09-27.** Acquired, converted, and verified as `L--Dasmarinas-2024`. Venue, pages, and DOI confirmed against the publisher's record rather than assumed. Scope limit recorded: national aggregate consumption only, so the population-to-individual disaggregation step remains flagged as an assumption. |
+| Dey and Arefin (2025) | 3 | Confirmed to exist (JISEM 10(47s), 148-182). Supports the rule-based budget claim. Still not held. |
 | Srisamai and Siriruk (2023) | 1 | Cited for a multi-level evaluation framework in an inventory study. A Srisamai & Siriruk 2023 IEOM paper on demand forecasting exists, but it is not confirmed to be the intended source. |
 
-**Non-academic dependencies** (no sourcing required, listed for completeness): PSA FIES 2023,
-PSA HFCE 2022 Q1-2026 Q2, and the group's own PUEPS instrument.
+**Non-academic dependencies** *(corrected 2026-09-27)*: PSA FIES 2023 and PSA HFCE 2022 Q1–2026 Q2
+were previously listed here as needing no sourcing, on the grounds that they were government data
+and the group's own PUEPS instrument. That was wrong for the two PSA sources: they are external
+documents the project does not hold, and they are cited in the reference list like any other source.
+They belong in the provenance audit above as pending acquisitions. Only the PUEPS instrument is
+genuinely non-academic.
 
 **The two chapters agree, and the fielded instrument is the sole outlier.** Chapter 1's stated
 objective reads "Test the functionality, reliability, performance efficiency, usability, security,
@@ -341,8 +382,10 @@ three-way.
 
 Two lessons, both now standing rules for this repo:
 
-1. **A repo mirror is not the document.** `thesis/paper/chapter-1.md` is V5; Drive V6 is newer. Any
-   claim about Chapter 1's content must come from the `.docx`. This is stated in `AGENTS.md` and was
+1. **A repo mirror is not the document.** `thesis/paper/chapter-1.md` was a V5 mirror while Drive V6
+   was newer. It has since been deleted rather than refreshed, because a mirror that lags is worse
+   than no mirror — it reads as authoritative. Any claim about Chapter 1's content must come from the
+   `.docx`. This is stated in `AGENTS.md` and was
    ignored anyway, which is the real failure.
 2. **Verify before correcting.** This entry existed to correct a *previous* wrong claim, and it
    introduced a new one while doing so. A correction is a claim and needs the same evidence as the
@@ -350,3 +393,37 @@ Two lessons, both now standing rules for this repo:
 
 The retraction is recorded here rather than deleted so the error stays auditable.
 
+### 2026-09-27 — retracted: "`L--BangkoSentral-2023b` is a 2005 document with a wrong stem"
+
+**This entry was wrong and is withdrawn.** It claimed the entry was not a 2023 document, that its own
+text dated it to June 2005, and that it needed re-ingestion under a corrected year. The document is
+the **2023 edition of the Report on Regional Economic Developments in the Philippines**, an annual
+series. The 2005 in the file is the maiden-issue year stated in its own preface: *"The first Report
+on Regional Economic Developments in the Philippines (RREDP) was approved by the Monetary Board and
+released in June 2005."* The stem year is correct and no re-ingestion is needed.
+
+Cause: a regex harvested every year in the first 4,000 characters and the earliest one was taken as
+the publication date. A publication series' founding year is not its current edition's date.
+
+Standing rule: **do not infer a document's date from the earliest year appearing in it.** Cite the
+year on the title page, or in the sidecar's verified field.
+
+### 2026-09-27 — retracted: "Figure 1's source image is in the V3 .docx media folder"
+
+**This entry was wrong and is withdrawn.** It claimed a source diagram existed in the `.docx` media
+folder and had merely not been exported. No `.docx` in `google-drive/chapter-1/` or
+`google-drive/chapter-2/` — all sixteen of them — embeds any image at all. The V3 file carries the
+caption `Figure 1.` with nothing behind it.
+
+The diagram has not been made. It must be drawn from the IPO description or obtained from the panel.
+The comment in `chapter-2.md` has been corrected to say so.
+
+Lesson: this was an unverified assertion about a file's internals, made without opening the archive.
+Checking `word/media/` in the `.docx` takes one command.
+
+### 2026-09-27 — "29 references, no orphans" was the wrong conclusion
+
+Not a retraction of a finding so much as of a check. The chapter reported a clean reference list
+because the QA compared the reference list against the body. Both were well-formed, so both agreed,
+and six references to papers the project does not hold passed unnoticed. See **Provenance audit
+2026-09-27** above for the corrected position and the standing rule.

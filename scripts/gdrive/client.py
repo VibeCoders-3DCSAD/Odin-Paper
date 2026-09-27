@@ -3,11 +3,22 @@
 from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
 
-# MIME type mapping for Google Workspace file exports
+# MIME type mapping for Google Workspace file exports.
+#
+# Google Forms are deliberately absent. files().export() cannot export a Form at
+# all and returns "The requested conversion is not supported." for every Form,
+# so the previous form -> application/pdf entry could only ever fail. Both
+# Forms in the group's Drive (the PUEPS form and the Preliminary Investigation
+# form) also have a sibling document or responses sheet that downloads fine, so
+# nothing was lost when the export failed.
+#
+# To read a Form's questions or responses, use the Forms API
+# (forms.googleapis.com/v1/forms/{formId}) rather than a Drive export. Note the
+# Forms API returns the form definition only; response data is not exposed that
+# way, so a linked responses spreadsheet remains the practical source.
 EXPORT_MIME_TYPES = {
     "application/vnd.google-apps.spreadsheet": "text/csv",
     "application/vnd.google-apps.document": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-    "application/vnd.google-apps.form": "application/pdf",
 }
 
 

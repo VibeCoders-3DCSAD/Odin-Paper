@@ -10,7 +10,7 @@
 > defined, gap remains), **DECISION** (open call; recommended option proposed for team
 > confirmation), **OPEN** (no candidate yet / awaiting external input).
 >
-> Canonical mirror of the spec: `docs/requirements-engineering/technical-specification.md`.
+> The spec now lives only on Drive: *Technical Specification V1 (09.24.2026)*. The repo mirror was removed on 2026-09-27.
 
 ---
 
@@ -321,5 +321,5 @@ the 09.24 spec's Financial Plan pipeline as the conceptual core. Owner: Paper/RR
    the group can ratify.
 3. Run the two calibration experiments that unblock #6 and #8 (blend/personal-SARIMA threshold;
    IQR `N_min` stability) in BUDI-ML.
-4. Keep `docs/requirements-engineering/technical-specification.md` and this register in sync with the
+4. Keep the Drive *Technical Specification V1 (09.24.2026)* and this register in sync with the
    Drive doc as the paper TBDs (23–27) move through RRL validation.

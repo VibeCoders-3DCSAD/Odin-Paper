@@ -16,8 +16,8 @@ This repository contains thesis documents, specifications, PRDs, and survey inst
 | Agent guide | `AGENTS.md` |
 | Documentation index | `docs/INDEX.md` |
 | Topical outline | `google-drive/topical-outline/GROUP4 - TOPICAL OUTLINE - V3 - 09.15.26.docx` |
-| Technical specification (Drive mirror, ground truth) | `docs/requirements-engineering/technical-specification.md` |
-| Chapter drafts | `thesis/paper/chapter-1.md`, `thesis/paper/chapter-2.md` |
+| Technical specification (ground truth) | Drive only — no repo mirror |
+| Chapter drafts | `thesis/paper/chapter-2.md` (Chapter 1 is Drive-only) |
 | Product requirements | `docs/requirements-engineering/product-requirements-document.md` |
 | Research proposal | `docs/archive/research-proposal/Research-Proposal.md` |
 | RRL corpus & scoring | **BUDI-Literature** |
@@ -26,7 +26,7 @@ This repository contains thesis documents, specifications, PRDs, and survey inst
 > the ground truth. It is a substantial rewrite — project identity is now **TAYA**,
 > built on SARIMA with FIES 2023 + HFCE 2022 Q1–2026 Q2 temporal disaggregation and a
 > central Financial Plan artifact. See `AGENTS.md` and
-> `docs/requirements-engineering/technical-specification.md`.
+> the Drive *Technical Specification V1 (09.24.2026)*.
 
 ## Git LFS
 
