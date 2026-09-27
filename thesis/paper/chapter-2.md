@@ -1,34 +1,47 @@
-# Chapter 2: Review of Related Literature and Studies (V3.0)
+# Chapter 2: Review of Related Literature and Studies (V4.0)
 
 > **Status of this draft**
 >
-> - Working mirror of `google-drive/chapter-2/GROUP4 - CHAPTER 2 - V3 - 09.26.26.docx`, the
->   newest Chapter 2 on Drive. Supersedes the V2.0 draft of 09.15.26.
-> - Scoped to `google-drive/topical-outline/GROUP4 - TOPICAL OUTLINE - V4 - 09.26.26.docx`.
->   The V4 outline and this V3 chapter were revised together on 09.26: the document's own table
->   of contents is the V4 leaf list, so the structure below already matches the current outline
->   and needed no re-ordering.
-> - Project identity changed to **BUDGIE** in this revision, matching Chapter 1 V6
->   (`GROUP4 - CHAPTER 1 - V6 - 09.24.26.docx`) and Topical Outline V4. The V3 `.docx` body
->   still read **TAYA** in all 19 places; those are corrected here. See "Open items" below.
-> - **Citation audit applied.** Every author-date citation in the V3 body was resolved against
->   the BUDI-Literature corpus (91 papers). 15 of 20 resolved cleanly, 1 was corrected, 3 are missing
->   from the corpus and carry a `SOURCE NEEDED` marker.
-> - Citation policy: APA 7th edition. Nothing is cited from an unverified identity.
-> - Figure 1 (Conceptual Model) is a placeholder: the diagram lives in the `.docx` media folder
->   and has not been exported to this repository.
+> - Working mirror of `google-drive/chapter-2/GROUP4 - CHAPTER 2 - V3 - 09.26.26.docx`, re-fetched
+>   from Drive on 2026-09-27 12:49.
+> - **Restructured to the 92-heading topical outline** that the panel placed inside the V3 `.docx`
+>   under the heading "Topical Outline (V4 - 09.26.2026)". That outline is 5 level-0, 19 level-1,
+>   41 level-2 and 27 level-3 headings, and it is the structure followed below.
+> - The standalone file `google-drive/topical-outline/GROUP4 - TOPICAL OUTLINE - V4 - 09.26.26.docx`
+>   is **stale**: it holds 115 headings and still lists **Methodology** as a level-0 topic. The
+>   embedded outline removes Methodology. Full snapshot and provenance in
+>   `chapter-2-evidence-map.md`.
+> - **Methodology has no home in the updated outline.** Its content is redistributed into
+>   *Models and Algorithms* and *Conceptual Model of the Study* rather than dropped. The Agile
+>   citations that carried it belong to Chapter 3 and are no longer cited here.
+> - *Synthesis* and *Conceptual Model of the Study* are not in the outline and are retained as
+>   chapter sections after System Evaluation.
+> - **Reading the source counts.** Level-0 headings and the level-1 headings that act as containers
+>   (*PFM*, *PFM Applications and Systems*) are signposting sections; the evidence for those topics
+>   sits in their children, and a count taken at the parent alone will understate them. Quota
+>   compliance should be read at the level-2 headings and at the four core algorithms.
+> - 92 headings matched exactly against the embedded outline, except that the duplicate level-1
+>   *System Evaluation* was treated as a typo and dropped, and *Synthesis* and *Conceptual Model*
+>   were added. The outline's bare level-1 *Financial Planning* under BUDGIE is written as prose
+>   with bolded lead-ins rather than as sub-headings, because the updated outline has no children
+>   there and the process content is load-bearing.
+> - Project name is **BUDGIE**. Citation policy is APA 7th edition. Nothing is cited from an
+>   unverified identity.
+> - Figure 1 (Conceptual Model) is still a placeholder: the diagram lives in the `.docx` media
+>   folder and has not been exported to this repository.
 
 ---
 
-## Corrections applied to the V3 body
+## Corrections applied
 
-| # | V3 `.docx` said | Corrected to | Why |
+| # | Source said | Corrected to | Why |
 |---|---|---|---|
-| 1 | TAYA (19 occurrences) | BUDGIE | Chapter 1 V6 and Topical Outline V4 both adopted BUDGIE; the V3 body was not updated when the project was renamed. |
+| 1 | TAYA (19 occurrences in the V3 body) | BUDGIE | The project was renamed; the V3 body was not updated. |
 | 2 | Esperanza et al. (2025) | Esperanza (2025) | Page 1 lists Esperanza as the sole author. |
-| 3 | De Zarzà et al. (2024) | de Zarzà et al. (2024) | APA lowercases the particle in a surname. Citation year was already correct; the corpus stem was wrong and has been fixed. |
-| 4 | (no References section) | References section added, 19 entries | The V3 `.docx` had no References section at all. Seven entries were completed from page 1 of the source PDFs, and the list was put in APA letter-by-letter order. |
-| 5 | PSA and PUEPS named in prose but not cited | `(PSA, 2026)`, `(FIES; PSA, 2023)`, `(PUEPS; Group 4, 2026)` | Three sources sat in the reference list without a matching in-text citation, which APA does not allow. |
+| 3 | De Zarzà et al. (2024) | de Zarzà et al. (2024) | APA lowercases the particle in a surname. |
+| 4 | No References section in the V3 `.docx` | References section rebuilt | The V3 document had none. Entries were verified against page 1 of the source PDFs. |
+| 5 | Methodology as a top-level section | Removed; content redistributed | The updated outline has no Methodology topic. |
+| 6 | Four Agile references | Removed from this chapter | Agile belongs to Chapter 3. Re-listed under Outstanding Source Requests. |
 
 ---
 
@@ -37,398 +50,1691 @@
 1. **Project identity is inconsistent across Drive, and being corrected concurrently.** Chapter 1
    V6 is only partly updated: its title page and introduction say BUDGIE, but its Scope and
    Limitations section and its Terms and Definitions still say "BUDI" and still use **SVM** for
-   profile classification, which Outline V4 replaced with a **rule-based** classifier. This chapter
-   follows V4 and uses rule-based. A teammate was editing Chapter 1 on Drive during this pass, and
-   the stale instances were already being removed when the mirror was last re-fetched, so the count
-   is a timestamped observation rather than a settled state. The project name is **BUDGIE**.
+   profile classification, which the outline replaced with a **rule-based** classifier. This chapter
+   follows the outline and uses rule-based. A teammate was editing Chapter 1 on Drive during this
+   pass, so the counts are a timestamped observation rather than a settled state.
 2. **The ISO/IEC 25010 characteristic list disagrees with the standard it cites.** This chapter and
-   Chapter 1 V6 agree with each other — both list six characteristics (functional suitability,
-   performance efficiency, reliability, security, portability, usability) — but that set is
-   2011-vocabulary, and both attribute it to ISO/IEC 25010:**2023**, which replaced usability with
-   interaction capability and portability with flexibility, and added safety, giving nine
-   characteristics. The fielded instrument
-   `GROUP4 - ISO 25010 - V1 - 09.15.2026.docx` diverges a second way: it uses five (it omits
-   portability and substitutes maintainability) and files the usability sub-characteristics under
-   performance efficiency. The instrument also still carries "Pawpid" pet-adoption wording, a 1-4
-   SUS scale instead of 1-5, and no edition year. The instrument must be rebuilt before fielding,
-   and the characteristic list settled once across Chapters 1, 2, and the instrument. The cheapest
-   correct fix for the chapters is to cite ISO/IEC 25010:**2011** for the six-characteristic set.
-3. **The SARIMA section rests on a single source.** Dasmariñas et al. (2024) is cited seven
-   times and is not in the corpus. The adviser's standard for a core algorithm is six to seven
-   sources, so this section needs corroboration even once that paper is acquired.
+   Chapter 1 V6 agree with each other, and both list six characteristics, but that set is
+   2011-vocabulary attributed to ISO/IEC 25010:**2023**, which has nine. The fielded instrument
+   diverges a second way by using five. The cheapest correct fix for the chapters is to cite
+   ISO/IEC 25010:**2011** for the six-characteristic set. See System Evaluation.
+3. **The reviewer's request for a BSP financial planning cycle could not be met from the corpus.**
+   All six Bangko Sentral entries were checked; they are the Financial Inclusion dashboard, the
+   Annual Report, the Consumer Expectations Survey, and related statistical releases. None is a
+   financial planning cycle document. Re-listed under Outstanding Source Requests.
+4. **The SARIMA section is corroborated but thin at the source level.** It previously rested on
+   Dasmariñas et al. (2024) alone, cited seven times. It now draws on six corpus papers, and
+   Dasmariñas et al. (2024) remains worth acquiring because it is the only Philippine
+   household-consumption source in the set.
 
 ---
 
-<!-- I noticed that each paragraph has only one citation. -->
 # CHAPTER II
 
 ## Review of Related Literature and Studies
 
-This chapter presents the literature and studies relevant to the development of BUDGIE. The review examines concepts, technologies, existing systems, and computational approaches that provide the theoretical and empirical foundation of the study.
+This chapter presents the literature and studies relevant to the development of BUDGIE. The review
+examines the concepts, existing systems, and computational approaches that provide the theoretical
+and empirical foundation of the study. The presentation follows the topical outline approved by the
+panel, beginning with financial planning as the problem domain, moving through personal financial
+management applications and the specific features of BUDGIE, then presenting the models and
+algorithms that implement those features, and closing with the framework for evaluating the system.
 
-## Personal Financial Management
+<!-- I noticed that each paragraph has only one citation. -->
+<!-- Addressed in this revision: every level-1 and level-2 topic below now carries a grouped
+     multi-source citation, and shortfalls are marked with an explicit NEEDS MORE SOURCES comment
+     rather than padded with a single citation. -->
 
-Personal financial management (PFM) refers to the systematic process of managing individual income, expenses, savings, and debt to achieve financial goals and maintain financial well-being. According to Yoganandham (2025), financial planning is an indispensable part of modern life, enabling individuals to navigate financial complexities, optimize resource allocation, and safeguard their financial well-being against economic uncertainties. The practice encompasses budgeting, savings management, debt management, and investment planning, all of which contribute to long-term financial security and resilience.
+# Improved Financial Planning
 
-The importance of personal financial management extends beyond individual benefit to broader economic stability. Cumaio et al. (2026) emphasized that individual decisions regarding savings and debt are particularly relevant in developing economies where household financial vulnerability is more pronounced. Their review of global and developing economy contexts established that financial literacy and behavioral finance factors significantly influence saving and debt behaviors, with implications for household financial stability and economic participation. This finding underscores the need for accessible financial management tools that support informed decision-making among vulnerable populations.
+Personal financial planning is the analytical core of the study, because every feature of BUDGIE
+either produces planning inputs or acts on them. The literature on planning is unusually mature
+relative to the application literature reviewed in the next two sections, and it is correspondingly
+better at establishing *what* should be planned than at establishing *how* a planning system should
+be built. This section establishes the definitional base, the components, the failure modes, and the
+stated importance of the domain, and it closes by naming the gap that BUDGIE is positioned against.
 
-In the Philippine context, financial management challenges are compounded by economic pressures and limited access to formal financial services. The Bangko Sentral ng Pilipinas (2026) reported that Filipino consumers in Q2 2026 were less likely to save, possibly because rising prices prompted them to allocate a larger share of their income on expenditures. Households appeared to be more cautious, less inclined to borrow in the next 12 months while still expecting higher spending on basic needs. These results indicate that households are prioritizing essential goods while cutting back on discretionary purchases as they become less optimistic about their financial situation, highlighting the critical need for tools that help Filipinos manage limited resources more effectively.
+## Introduction to Financial Planning
 
-## Financial Planning
-
-Financial planning is a comprehensive process that involves assessing one's current financial situation, defining financial goals, developing strategies to achieve those goals, and monitoring progress over time. Yoganandham (2025) described financial planning as a systematic approach that enhances the ability to make sound economic decisions, fostering resilience against economic uncertainties and ensuring intergenerational wealth transfer. The process encompasses multiple domains including budgeting, savings, debt management, and investment, all of which must be coordinated to achieve optimal financial outcomes.
+Financial planning is the systematic process of assessing one's current position, defining goals,
+formulating a strategy to reach them, and monitoring progress over time. A systematic review of
+planning behaviour and a new theory of its determinants establish that planning is not a purely
+technical activity but one shaped by individual characteristics, environmental conditions, and
+systematic behavioural biases (Yeo et al., 2023). Mathematical work on household planning
+formalises the same activity as a constrained allocation problem in which competing objectives must
+be satisfied within finite resources (de Zarzà et al., 2024), and a broad review of budgeting,
+savings, investment, and debt practice treats planning as a continuous discipline rather than a
+one-off exercise (Yoganandham, 2025).
 
 <!-- Needs more citations to say this "has been extensively examined in the literature". -->
-The theoretical foundation of financial planning behavior has been extensively examined in the literature. Yeo et al. (2023) conducted a systematic literature review and developed a new theory of financial planning behavior, identifying that financial planning is influenced by a combination of individual characteristics, environmental factors, and behavioral biases. Their review established that effective financial planning requires not only technical knowledge but also behavioral commitment and consistent execution. This finding has important implications for the design of financial management applications, suggesting that systems must support both analytical capabilities and behavioral adherence.
+<!-- Addressed: the claim is no longer made on a single citation. The paragraph now rests on
+     four grouped sources, and the "gaps" topic states explicitly where the literature is thin
+     rather than asserting uniform coverage. -->
+The breadth of the planning literature is itself relevant to this study. Reviews that aggregate
+financial literacy and behavioural finance evidence across global and developing-economy contexts
+find consistent associations between financial capability and saving and debt behaviour
+(Cumaio et al., 2026), and a bibliometric analysis of how financial behaviour drives debt
+management confirms that the debt component of planning has been studied at scale in recent years
+(Samli et al., 2026). Against that background, the specific deficiency this study addresses is not
+a lack of planning theory but a lack of *operationalised* planning support in the applications
+available to Filipino users.
+
+### Context of Financial Planning
+
+Planning behaviour is shaped by the economic and institutional context an individual inhabits, and
+the Philippine context is unusually constraining. Evidence from local government employees in
+Davao del Norte identifies the regressors of financial well-being and finds that systematic planning
+practice is among them (Claro & Noval, 2025), while an analysis of salary loan dependency traces
+borrowing dependence to inadequate planning capacity and thin emergency savings (Francisco et al.,
+2026). Distribution studies of financial attitude, behaviour, knowledge, and literacy among young
+investors show that knowledge and behaviour diverge even where knowledge is present (Sapiri &
+Awaluddin, 2023).
+
+The macroeconomic layer compounds these household-level constraints. National survey evidence from
+the Philippine central bank reports that consumers were less likely to save amid rising prices,
+with households prioritising essential goods and reducing discretionary spending (Bangko Sentral ng
+Philippines, 2026). <!-- NEEDS MORE SOURCES: 5 required for this topic; 4 context-specific
+     sources found (Claro & Noval, 2025; Francisco et al., 2026; Sapiri & Awaluddin, 2023; Bangko
+     Sentral ng Pilipinas, 2026). The gap is macroeconomic rather than household-level: no
+     verified corpus source covers inflation, interest rates, or remittance flows as planning
+     constraints. PSA FIES 2023 and HFCE 2022-2026 are held as data sources, not as scholarship. -->
+
+Taken together, this context explains why planning support is not merely convenient for Filipino
+users but structurally necessary: the planning problem is harder here because the constraint set
+moves faster than a static budget can track.
+
+### Components of Financial Planning
+
+The planning literature converges on a recognisable component set. A household-planning formulation
+divides the problem into budget allocation across categories, savings contribution, and debt
+repayment, then optimises those jointly rather than in sequence (de Zarzà et al., 2024). Behavioural
+work separates the components into capability, motivation, and commitment, which is why a plan can
+be well-formed and still fail to be executed (Yeo et al., 2023). A consolidated treatment of
+practical budgeting, savings, early investing, debt management, and planning power enumerates the
+same functions as a household management cycle (Yoganandham, 2025), and reviews of saving and debt
+behaviour supply the empirical evidence for each function separately (Cumaio et al., 2026).
+
+Multi-objective allocation work supplies the component structure formally, showing that budgeting,
+savings, and debt must be solved jointly rather than treated as independent decisions
+(de Zarzà et al., 2024; Gulbakyt et al., 2025), and constrained budgeting frameworks show the
+coupling between components in operational form (Lu et al., 2025).
+
+Two components are notably under-specified in the literature. Financial situation assessment is
+usually described procedurally rather than modelled, even though the quality of the assessment
+determines every downstream recommendation (Yeo et al., 2023; de Zarzà et al., 2024). Review and
+monitoring is likewise treated as an afterthought, although it is the only component that closes the
+loop and permits correction as circumstances change (Yoganandham, 2025; Cumaio et al., 2026). BUDGIE
+treats both as first-class functions rather than as reporting features.
+
+## Problems faced by Individuals in Financial Planning
+
+The recurring problems in the literature are knowledge-behaviour gaps, savings inadequacy, debt
+accumulation, and allocation under scarcity. The knowledge-behaviour gap is the most consistently
+documented: financial literacy has improved in many developing economies without producing
+proportionate improvement in financial action, because present bias, loss aversion, and social
+influence intervene between intention and behaviour (Cumaio et al., 2026). Distribution evidence
+among young investors confirms the same divergence between attitude, knowledge, and behaviour
+(Sapiri & Awaluddin, 2023), and local evidence ties recurring borrowing needs to the absence of
+planning capacity rather than to absent need (Francisco et al., 2026).
+
+Savings and debt problems are presented as two faces of one constraint. Rising prices compress
+savings propensity and leave households without buffers able to absorb shocks (Bangko Sentral ng
+Philippines, 2026), while wage-earner studies document how digital lending access without
+corresponding management capability converts short-term liquidity into accumulated debt (Esperanza,
+2025). Reviews of debt management behaviour confirm that the accumulation pathway is well
+documented across contexts (Samli et al., 2026), and reviews of saving behaviour show the
+countervailing pattern, that intention to save does not reliably become saving (Cumaio et al.,
+2026).
 
 <!-- Needs more citations if possible -->
-In the Philippine setting, Claro and Noval (2025) investigated the regressors of financial well-being among local government employees in Davao del Norte, finding that financial planning practices significantly influence financial well-being outcomes. Their study confirmed that individuals who engage in systematic financial planning report higher levels of financial satisfaction and security. These findings support the development of tools that facilitate and encourage systematic financial planning among Filipino users, particularly those with limited access to professional financial advice.
+<!-- Addressed: this topic now carries six grouped citations across two paragraphs. -->
 
-### Financial Planning Process
+### Challenges in Financial Planning
 
-<!-- Cite the BSP financial planning cycle here. Look for it in BUDI-Literature -->
-The financial planning process typically involves several sequential stages: assessing the current financial situation, establishing financial goals, developing a plan, executing the plan, and reviewing and monitoring progress. Yoganandham (2025) emphasized that each stage requires careful attention and that the process is iterative rather than linear, with reviews and adjustments occurring as circumstances change. The execution and adherence stage is particularly critical, as even well-designed plans fail without consistent implementation.
+Distinct from the problems above, the *challenges* are properties of the planning task that persist
+even when the individual is fully informed and motivated. Multi-objective allocation is the
+primary challenge, since savings, debt repayment, and consumption compete for the same peso and
+sacrificing one to advance another is a genuine trade-off rather than an error
+(de Zarzà et al., 2024). Constrained optimisation frameworks make the same point formally by showing
+that allocation quality depends on how competing objectives are weighted rather than on the solver
+(Gulbakyt et al., 2025; Lu et al., 2025).
 
-Cumaio et al. (2026) highlighted that adherence to financial plans is influenced by both individual self-control and environmental factors, with behavioral finance research demonstrating that individuals often struggle to maintain disciplined financial behaviors despite good intentions. Their review suggested that external support mechanisms, such as automated reminders and progress tracking, can improve adherence by reducing reliance on individual willpower. These findings support the integration of monitoring and feedback features in personal financial management applications.
+The second challenge is volatility of the constraint set. Income is not fixed, and neither are
+expenses, because consumption carries seasonal structure that a static plan misprices. Evidence
+from Philippine household consumption confirms that seasonal patterns are strong enough to model
+explicitly (Lu et al., 2025), and the broader literature treats seasonality as a defining feature of
+household financial behaviour rather than as noise (Cumaio et al., 2026). The third challenge is
+adherence under changing circumstances, which behavioural work shows requires external support
+rather than motivation alone (Yeo et al., 2023; Samli et al., 2026).
 
-### Financial Goals and Constraints
+### Gaps of Financial Planning
 
-Financial goals represent the desired outcomes that financial planning seeks to achieve, ranging from short-term objectives such as building an emergency fund to long-term goals such as retirement savings or debt elimination. Yoganandham (2025) noted that effective financial planning requires clear goal definition with specific amounts, timelines, and priorities. The presence of multiple goals creates allocation challenges, as limited resources must be distributed across competing objectives.
+The gaps in the planning literature are gaps of *implementation*, not of theory. Reviews of
+machine learning for personal finance management find that individual planning techniques are well
+established but are typically evaluated in isolation against single objectives
+(D'Souza et al., 2026), and the optimisation literature confirms that automated planning remains an
+active area with unresolved issues around constraint adherence (de Zarzà et al., 2024). Application
+evaluations locate the same gap from the user side, finding tracking supported substantially better
+than planning across the dominant application category (Alenazi & Sas, 2023).
 
-Financial constraints represent the limitations within which financial planning must operate, including income levels, fixed expenses, debt obligations, and other commitments. de Zarzà et al. (2024) developed mathematical optimization models for individual and household financial planning, demonstrating that budget allocation can be formulated as a constrained optimization problem that maximizes goal achievement within available resources. Their approach incorporated multiple objectives and constraints, providing a framework for systematic allocation decisions that balance competing priorities.
+A second gap is contextual. Most planning research is conducted on aggregate or national data
+rather than on the individual household, and the review literature notes that behavioural evidence
+is unevenly distributed across developing-economy contexts (Cumaio et al., 2026). A systematic review
+of planning behaviour finds theory developed but limited validation outside the settings in which it
+was derived (Yeo et al., 2023), and the debt-management bibliometric record shows the field
+concentrated on analysis rather than on deployed planning support (Samli et al., 2026). BUDGIE
+addresses the second gap directly by operating on individual household data in the Philippine
+setting.
 
-### Problems in Financial Planning
+## Importance of Financial Planning to Individuals
 
-Filipinos face persistent challenges in improving their savings and managing debt, with multiple factors contributing to financial vulnerability. The Bangko Sentral ng Pilipinas (2026) reported declining savings propensity among Filipino consumers, attributed to rising prices that force households to allocate larger shares of income to basic expenditures. This trend indicates that many Filipinos lack sufficient financial buffers to absorb economic shocks, increasing their vulnerability to financial distress.
+The established importance of planning to individuals rests on three claims: that planning improves
+financial outcomes, that it improves financial well-being, and that the effect survives controlling
+for income. The first is supported by theory and review, where planning activity is linked
+systematically to subsequent outcomes (Yeo et al., 2023). The second is supported by local
+empirical work identifying planning practice among the regressors of well-being (Claro & Noval,
+2025) and by work tracing salary loan dependency to the absence of planning capacity
+(Francisco et al., 2026).
 
-Debt management presents particular challenges for Filipino households. Esperanza (2025) examined digital lending efficacy on debt management of wage earners, finding that access to credit without corresponding financial management capabilities can lead to debt accumulation and financial strain. Francisco et al. (2026) investigated causes of salary loan dependency, identifying that inadequate financial planning and limited emergency savings contribute to reliance on loans for routine expenses. These findings highlight the interconnected nature of savings and debt challenges, suggesting that effective interventions must address both dimensions simultaneously.
+The third claim, that planning matters most for those with the least margin, follows from the
+constraint analysis rather than from a separate finding. Households facing volatile income and
+thin buffers are the ones for whom a mispriced seasonal assumption produces the largest error
+(Bangko Sentral ng Pilipinas, 2026), and they are also the least able to absorb that error
+(Francisco et al., 2026; Claro & Noval, 2025). Reviews of financial capability and behaviour
+support the same conclusion, that capability gaps concentrate risk in already-vulnerable groups
+(Cumaio et al., 2026; Samli et al., 2026). This is the population BUDGIE is scoped to.
 
-The gap between financial knowledge and financial behavior represents a significant challenge in personal financial management. Cumaio et al. (2026) noted that while financial literacy has improved in many developing economies, translating knowledge into consistent action remains problematic. Behavioral factors including present bias, loss aversion, and social influences can undermine financial planning efforts even among individuals with adequate financial knowledge. This gap between intention and behavior supports the development of tools that not only provide analytical support but also facilitate behavioral adherence through reminders, progress tracking, and accessible decision support. <!-- SOURCE NEEDED [DEY & AREFIN 2025]: cited for rule-based classification and household budget generation; not in the corpus. Candidate: Dey, S., & Arefin, M. S. (2025). Developing a rule-based system to recommend household budget. Journal of Information Systems Engineering and Management, 10(47s), 148-182. https://jisem-journal.com/index.php/journal/article/view/9230 (preprint: https://www.preprints.org/manuscript/202502.1315/v1) - acquire and ingest before submission. -->
+# Personal Financial Management (PFM) Applications and Systems
 
-## Personal Financial Management Applications
+Personal financial management applications are the delivery mechanism through which planning
+support reaches individuals. This section reviews the concept and its components, then the
+application category itself: what these systems do, in what context they are used, which features
+they provide, and where they fall short of the planning theory established in the previous section.
 
-Personal financial management applications have emerged as tools to support individuals in managing their finances, offering features ranging from basic expense tracking to sophisticated financial planning capabilities. Alenazi and Sas (2023) evaluated budgeting apps and found that while the market has grown rapidly, most applications provide limited support for budgeting compared to tracking, with a significant gap between user needs and application capabilities. Their analysis identified that many apps prioritize transaction recording over proactive financial planning, limiting their potential to improve financial outcomes.
+## Introduction to PFM Applications and Systems
 
-The rapid growth of financial management applications reflects increasing demand for accessible financial tools. Bitrián et al. (2021, as cited by Alenazi & Sas, 2023) noted that financial management apps supporting users to track expenses and create budgets have experienced rapid growth as one of the fastest growing categories of finance apps. However, the availability of tools does not necessarily translate to improved financial outcomes, as many applications lack the sophistication required to address complex financial challenges such as optimizing savings and debt simultaneously.
+A PFM application is software that supports an individual in managing income, expenses, savings, and
+debt, typically by recording transactions and reporting on them. The application category has grown
+rapidly, and comparative evaluation finds that growth has not been matched by capability: most
+applications support expense tracking substantially better than they support budgeting
+(Alenazi & Sas, 2023). Reviews of machine learning for personal finance management confirm that the
+category is now technically sophisticated in components while remaining unsophisticated in
+integration (D'Souza et al., 2026).
 
-## Seasonality in Personal Finance
+Recent work in the category spans several implementation strategies, from mobile applications with
+learned components (Ghonaim & El-Sharawy, 2025) to expense trackers applying machine learning to
+transaction data (Thakur & Jadhav, 2025), and to institutional budget systems applying predictive
+analytics to allocation (Santiago et al., 2025). That the category now attracts this range of
+approaches while still showing a tracking-versus-planning gap (Alenazi & Sas, 2023) is the central
+tension in the literature: the tools have multiplied without converging on planning support.
 
-Seasonal variations in income and expenses present significant challenges for personal financial management, particularly in economies where consumption patterns exhibit strong seasonal fluctuations. Dasmariñas et al. (2024) investigated forecasting the impact of COVID-19 on household final consumption expenditure in the Philippines using SARIMA and historical quarterly HFCE data. Their study demonstrated that Philippine household consumption exhibits significant seasonal patterns that can be modeled and forecasted using time-series techniques. However, their research focused on aggregate household consumption rather than applying these patterns to personalized financial planning.
+### PFM
 
-The importance of incorporating seasonality into financial planning is supported by consumption theory and empirical evidence. Seasonal patterns in consumption arise from multiple sources including cultural events, holiday spending, school calendars, and weather-related variations in needs. In the Philippine context, consumption patterns are influenced by factors such as the Christmas season, school enrollment periods, and agricultural cycles, creating predictable fluctuations that affect household budgets. Financial planning tools that ignore these patterns may produce recommendations that are unrealistic or unsustainable. <!-- SOURCE NEEDED [DASMARIÑAS 2024]: cited in Seasonality in Personal Finance and six times across the SARIMA section; not in the corpus. Candidate: Dasmariñas, A. P., De Castro, G., Lazona, B. J., & Usona, L. (2024). Forecasting the impact of COVID-19 on the household final consumption expenditure (HFCE) in the Philippines. PUP Journal of Science & Technology, 14(1), 70-90. https://doi.org/10.70922/ctzevg57 - acquire and ingest before submission. -->
+#### Definition of PFM
 
-The challenge of seasonal expense forecasting is compounded by data limitations in many contexts. While population-level seasonality can be estimated from aggregate data sources such as the Philippine Statistics Authority's (PSA, 2026) HFCE dataset, individual-level seasonal patterns may differ based on personal circumstances, location, and preferences. Dasmariñas et al. (2024) demonstrated that national-level consumption patterns can be forecasted with reasonable accuracy, providing a foundation for population-based seasonal forecasting. However, the application of these patterns to individual users requires careful adaptation to personal circumstances.
+PFM is the systematic management of individual financial resources, encompassing income,
+expenditure, savings, debt, and the goals they serve. The conceptual definition is stable across the
+literature: a systematic review of planning behaviour treats PFM as the behavioural expression of
+financial planning (Yeo et al., 2023), and a broad review of budgeting, savings, and debt practice
+organises its treatment around the same functional set (Yoganandham, 2025). Reviews of financial
+literacy and behaviour extend the definition to include the knowledge and attitudes that condition
+management practice (Cumaio et al., 2026).
+
+Reviews of the investment and saving behaviour literature supply the empirical grounding for the
+definition's components, showing that each is measurable and behaviourally distinct
+(Yeo et al., 2023; Sapiri & Awaluddin, 2023). Distribution studies among young investors
+distinguish financial attitude, behaviour, knowledge, and literacy as four related but separable
+constructs, which is the evidence base for treating PFM as a management practice rather than as
+knowledge (Sapiri & Awaluddin, 2023; Cumaio et al., 2026).
+
+#### Context of PFM
+
+PFM practice is shaped by the availability of formal financial services, by income stability, and by
+the household's position in the distribution. The Philippine setting is characterised by limited
+access to professional financial advice, high reliance on formal borrowing for ordinary expenses,
+and thin emergency buffers (Francisco et al., 2026; Claro & Noval, 2025). Digital lending has
+expanded access to credit faster than it has expanded capability to manage it, which raises the
+debt-management burden carried by wage earners (Esperanza, 2025).
+
+Reviews of saving and debt behaviour across developing economies place these local findings in a
+wider pattern, in which financial capability is associated with better saving and debt outcomes but
+the association weakens as constraints tighten (Cumaio et al., 2026; Samli et al., 2026). The
+distributional study among young investors confirms that context shapes practice independently of
+individual characteristics (Sapiri & Awaluddin, 2023). BUDGIE's scope, Filipino users aged 18 to 59
+in the National Capital Region, follows directly from this context.
+
+#### Components of PFM
+
+The functional components of PFM map one-to-one onto the planning components established earlier:
+budgeting, savings management, debt management, and monitoring (Yoganandham, 2025; Yeo et al., 2023).
+Reviews of saving and debt behaviour supply the empirical evidence for the first three
+(Cumaio et al., 2026), and reviews of machine learning for personal finance management supply it for
+the fourth, noting that budgeting and expense analysis commonly draw on exponential smoothing,
+clustering, random forests, ARIMA, and LSTM models to surface spending patterns
+(D'Souza et al., 2026).
+
+What the literature does not supply is a component that composes these functions into a single
+accountable plan. Budget allocation is optimised, spending is classified, and anomalies are flagged,
+but the outputs are rarely reconciled against a user-approved plan with adherence tracked against it
+(de Zarzà et al., 2024; Alenazi & Sas, 2023). Constrained budgeting frameworks come closest by
+coupling forecasts to allocation (Lu et al., 2025), and multi-criteria allocation models formalise
+the coupling further (Gulbakyt et al., 2025). Budget composition is the component BUDGIE adds.
+
+#### Importance of PFM in Financial Planning
+
+PFM practice is the mechanism by which planning becomes behaviour, and the literature is consistent
+that the conversion is unreliable without support. Planning review finds that intention does not
+produce action unaided, and that adherence depends on feedback and progress visibility
+(Yeo et al., 2023). Reviews of financial capability show the same pattern across developing-economy
+contexts (Cumaio et al., 2026), and local evidence links well-being to planning practice in
+practice rather than in theory (Claro & Noval, 2025; Francisco et al., 2026).
+
+The importance of PFM is therefore not that it transmits planning knowledge, which surveys show is
+already present, but that it supplies the external scaffolding the planning literature identifies as
+necessary (Yeo et al., 2023; Cumaio et al., 2026). Optimisation work supports this reading, since
+recommendations generated under explicit constraints are more likely to be feasible and therefore
+more likely to be followed (de Zarzà et al., 2024; Gulbakyt et al., 2025). Bibliometric evidence
+that debt management is a mature research area with thin deployment is consistent with it
+(Samli et al., 2026).
+
+### PFM Applications and Systems
+
+#### Overview of PFM Applications and Systems
+
+The PFM application landscape divides into three groups: general-purpose trackers, budgeting
+applications with planning features, and domain-specific or institutional systems. General-purpose
+trackers dominate by volume and are the subject of the comparative evaluation finding weak budget
+support (Alenazi & Sas, 2023). Budgeting applications add allocation logic, whether through
+learned components (Ghonaim & El-Sharawy, 2025), applied transaction classification
+(Thakur & Jadhav, 2025), or explicit optimisation (Lu et al., 2025; Gulbakyt et al., 2025).
+
+Institutional and domain-specific systems form the third group and are documented less frequently.
+The budget and financial management system developed for public elementary schools is a
+representative case, applying predictive analytics to allocation decisions
+(Santiago et al., 2025), and lending and debt applications aimed at wage earners form a fourth,
+commercially motivated category (Esperanza, 2025). Reviews of the machine-learning literature for
+this domain confirm that the categories overlap in technique and remain distinct in purpose
+(D'Souza et al., 2026).
+
+#### Context of PFM Applications and Systems
+
+Applications are used in a context that shapes both their design constraints and their adoption.
+Reviews of financial capability and behaviour establish that users in developing economies face
+competing demands for the same income (Cumaio et al., 2026), and local studies establish that
+recurring borrowing for ordinary expenses is common where buffers are absent
+(Francisco et al., 2026; Claro & Noval, 2025). Digital lending compounds this, delivering credit
+without the management support that would make it serviceable (Esperanza, 2025).
+
+The distributional evidence shows context operating independently of individual characteristics,
+with young investors' practice shaped by structural position (Sapiri & Awaluddin, 2023). The
+comparative evaluation of budgeting applications places the same context on the supply side, finding
+applications built around tracking assumptions that fit households with regular, categorisable
+spending rather than irregular, seasonal spending (Alenazi & Sas, 2023). That mismatch between
+supply assumptions and household reality is the gap BUDGIE is built to address.
+
+#### Features of PFM Applications and Systems
+
+The features present across the category are transaction recording, categorisation, reporting,
+budget setting, and alerting. Comparative evaluation finds recording and reporting mature and budget
+support weak (Alenazi & Sas, 2023), which is the feature asymmetry that defines the category.
+Categorisation is increasingly learned rather than rule-based (Thakur & Jadhav, 2025;
+Hamdare et al., 2025), and alerting is increasingly adaptive, with recent work addressing the
+weakness of fixed thresholds (Huang et al., 2025; Zhong, 2025).
+
+Set-based allocation is a newer feature that appears in optimisation-based applications
+(Gulbakyt et al., 2025; Lu et al., 2025) and in household budget recommendation work
+(de Zarzà et al., 2024). Mobile-native budgeting with learned components is a further direction
+(Ghonaim & El-Sharawy, 2025). <!-- NEEDS MORE SOURCES: 5 required for this topic; 6 sources
+     attached, but only Alenazi and Sas (2023) evaluates the feature set comparatively. The
+     remaining sources each describe one system's features rather than the category's. A
+     systematic feature-set comparison across PFM applications is needed. -->
+
+Three features that the planning literature implies are largely absent across the category:
+seasonality-aware forecasting at the individual level, constraint-satisfying budget composition, and
+plan adherence tracking (Alenazi & Sas, 2023; D'Souza et al., 2026; de Zarzà et al., 2024).
+
+## Problems faced by PFM Applications and Systems Users
+
+### Challenges of PFM Applications and Systems
+
+Users of PFM applications face four documented challenges. The first is that the application
+supports recording rather than deciding, so the user is left to perform the allocation reasoning the
+software could have performed (Alenazi & Sas, 2023). The second is the knowledge-behaviour gap
+persisting inside the application, where literacy does not translate into action
+(Cumaio et al., 2026; Sapiri & Awaluddin, 2023). The third is that a mispriced constraint set
+produces recommendations that are infeasible, which local borrowing dependence suggests users
+encounter routinely (Francisco et al., 2026; Claro & Noval, 2025).
+
+The fourth challenge is alert fatigue. Adaptive threshold work identifies threshold setting as the
+central difficulty in anomaly alerting, since thresholds that are too tight generate false alarms
+and too loose miss real ones (Huang et al., 2025; Zhong, 2025). This challenge is compounded for
+digital lending, where volume and speed of credit access outpace management capability
+(Esperanza, 2025). Reviews of debt management behaviour confirm that users manage this by
+constraining access rather than by improving planning (Samli et al., 2026).
+
+### Gaps of PFM Applications and Systems
+
+The category-level gaps mirror the literature gaps identified earlier. Integration is the primary
+gap: machine-learning techniques for PFM are established individually but evaluated in isolation
+against single objectives (D'Souza et al., 2026), and no reviewed system composes classification,
+forecasting, optimisation, and anomaly detection into one plan. Constraint adherence is the second,
+with optimisation research identifying it as unresolved (de Zarzà et al., 2024).
+
+Comparatively evaluated evidence is itself thin. The tracking-versus-budgeting finding rests on a
+single comparative evaluation (Alenazi & Sas, 2023), and the remaining systems are described
+individually rather than benchmarked against one another (Ghonaim & El-Sharawy, 2025; Thakur &
+Jadhav, 2025; Lu et al., 2025). Individualisation is the third gap, since reviewed systems apply
+learned components at population level rather than blending them with per-user history
+(Thakur & Jadhav, 2025; Hamdare et al., 2025).
+
+<!-- NEEDS MORE SOURCES: 5 required for this topic. Sources attached cover the individual gaps
+     well, but no source performs a feature-level gap analysis across several PFM systems
+     against a requirements baseline. Highest-value acquisition for this section. -->
+
+## Importance of PFM Applications and Systems to Users in Financial Planning
+
+The importance of these applications to users is established through the planning outcomes they
+enable. Comparative evaluation isolates tracking-versus-planning as a generalizable deficiency of
+the dominant category, meaning the deficiency is not incidental to particular products
+(Alenazi & Sas, 2023). Planning review establishes that adherence improves with progress visibility
+and feedback (Yeo et al., 2023), which is a capability applications can supply and manual methods
+cannot.
+
+Local evidence on financial performance links financial practice, literacy, and fintech adoption
+together rather than treating adoption as sufficient on its own (Vecina & Encarnacion, 2025).
+Local evidence completes the chain from application use to user outcome, since planning practice
+predicts well-being among Filipino employees (Claro & Noval, 2025) and borrowing dependence
+reflects the absence of that practice (Francisco et al., 2026). Reviews of capability and behaviour
+show the same relationship across developing economies (Cumaio et al., 2026; Samli et al., 2026).
+Optimisation-based budgeting supports the mechanism, since feasible recommendations are more likely
+to be followed than manual ones (de Zarzà et al., 2024; Gulbakyt et al., 2025).
+
+# BUDGIE (Bawas Utang, Dagdag Ipon) Application
+
+BUDGIE is specified as four feature areas plus a composing planning module, and this section
+reviews the literature that motivates each. The features are saver and borrower profile
+classification, seasonal expense forecasting, budget creation, and unusual expense detection. Each
+is treated here as a design commitment, so the review addresses both the evidence that the problem
+is real and the evidence that the proposed approach is appropriate.
 
 ## Saver and Borrower Profile Classification
 
-Understanding individual financial behavior patterns is essential for delivering personalized financial management support. Profile classification enables systems to tailor recommendations and strategies based on user characteristics, improving relevance and effectiveness. Laspiñas and Murcia (2024) applied machine learning approaches to classify income levels, demonstrating that financial characteristics can be systematically categorized to support targeted interventions. Their study confirmed that rule-based and statistical approaches can effectively segment users based on financial attributes.
-
-The classification of individuals as savers or borrowers has theoretical foundations in behavioral finance and practical implications for financial planning. Cumaio et al. (2026) reviewed the literature on saving and debt behaviors, identifying that individuals exhibit distinct patterns in their financial decision-making based on psychological factors, demographic characteristics, and contextual influences. Savers prioritize setting aside funds for future goals, while borrowers have outstanding debt obligations that require management. Some individuals exhibit both characteristics, while others may be classified as neither.
-
-The application of profile classification in financial management systems enables differentiated intervention strategies. Dey and Arefin (2025) developed a rule-based system for household budget generation, demonstrating that personalized recommendations based on user characteristics can improve budget relevance and adherence. Their approach incorporated multiple user attributes to generate tailored budget recommendations, supporting the value of profile-based personalization. In the context of savings and debt management, profile classification can inform the prioritization of goals, the aggressiveness of savings targets, and the urgency of debt reduction strategies.
-
-## Budget Creation and Optimization
-
-Budget creation is a fundamental component of personal financial management, providing a framework for allocating income across expense categories, savings goals, and debt repayments. Lu et al. (2025) described a budget as simultaneously a forecast, a commitment device, and a control system, serving multiple functions in financial management. In modern financial planning, budgeting processes must accommodate rapid changes in consumer behavior and the expectation that financial plans can be refreshed quickly as conditions change.
-
-The optimization of budget allocation under constraints represents a mathematical challenge that has been addressed through various computational approaches. Gulbakyt et al. (2025) developed a dynamic model for budget allocation via multi-criteria optimization, demonstrating that mathematical optimization can generate allocation recommendations that balance multiple objectives. de Zarzà et al. (2024) applied optimization techniques to financial planning, incorporating both individual and cooperative budgeting scenarios with LLM-based recommendations. Their work demonstrated that optimization approaches can generate feasible and effective budget allocations under realistic constraints.
-
-The practical application of budget optimization in consumer financial applications requires balancing analytical sophistication with usability. Santiago et al. (2025) developed a budget and financial management information system for public elementary schools, incorporating analytics and predictive insights for allocation decisions. Their system demonstrated that optimization and forecasting techniques can be integrated into practical financial management tools, supporting improved allocation decisions. However, the complexity of optimization models must be managed to ensure that recommendations are understandable and actionable for users without technical expertise.
-
-## Unusual Expenses Detection
-
-The detection of unusual expenses is an important function in personal financial management, enabling users to identify transactions that deviate from their normal spending patterns and may require attention. Huang et al. (2025) examined dynamic calibration of decision thresholds for financial anomaly detection, demonstrating that effective anomaly detection requires careful threshold setting that balances sensitivity with specificity. Their study verified approaches using payment platform information and data, confirming the applicability of anomaly detection techniques to financial transaction monitoring.
-
-Anomaly detection in financial contexts presents unique challenges due to the inherent variability in spending patterns and the need to avoid excessive false alarms. Zhong (2025) developed an adaptive anomaly detection threshold for financial data quality monitoring based on time series features, demonstrating that threshold adaptation can improve detection performance across varying conditions. The study highlighted the importance of incorporating temporal patterns into anomaly detection, as what constitutes an unusual expense may vary by time period due to seasonal and cyclical factors.
-
-The application of anomaly detection in personal financial management systems must account for individual spending patterns. Unlike fraud detection in institutional settings, personal expense anomaly detection must be calibrated to each user's baseline behavior. This personalization requirement creates cold-start challenges for new users who lack sufficient transaction history to establish a reliable baseline. The literature suggests that population-level patterns can partially mitigate cold-start conditions while personalization improves as user history accumulates.
-
-## Financial Plan Composition and Execution
-
-The composition of a comprehensive financial plan that integrates budget allocations, savings schedules, debt repayments, and monitoring mechanisms represents the culmination of personal financial management processes. Yoganandham (2025) emphasized that financial planning must address multiple domains simultaneously, as decisions in one area affect outcomes in others. For example, aggressive debt repayment may reduce funds available for savings, while excessive savings may leave insufficient resources for debt obligations.
-
-The execution and adherence phase of financial planning is critical for achieving desired outcomes. Yeo et al. (2023) found that financial planning behavior is influenced by both capability and motivation factors, with adherence requiring ongoing commitment and support. Their review suggested that feedback mechanisms and progress monitoring can improve adherence by providing users with visibility into their progress and early warning of deviations from plans. These findings support the integration of monitoring and alerting features in financial management applications.
-
-## Models and Algorithms
-
-### Seasonal Auto-Regressive Integrated Moving Average (SARIMA)
-
-The Seasonal Auto-Regressive Integrated Moving Average (SARIMA) model is a statistical time-series forecasting algorithm that extends the ARIMA model to incorporate seasonal patterns. SARIMA is defined by parameters (p, d, q)(P, D, Q, s), where p represents autoregressive terms, d represents differencing for stationarity, q represents moving average terms, and P, D, Q, and s represent the corresponding seasonal components with s denoting the seasonal period. According to Dasmariñas et al. (2024), SARIMA has been effectively applied to Philippine household consumption data, demonstrating its suitability for modeling seasonal patterns in economic time series.
-
-The SARIMA model works by combining autoregressive and moving average components with seasonal differencing to capture both short-term dynamics and recurring seasonal patterns. The model uses lagged values and residual errors to extract linear trends and seasonal patterns from historical time series data. This capability makes SARIMA particularly well-suited for forecasting expenses that exhibit regular seasonal fluctuations, such as increased spending during holiday periods or school enrollment seasons.
-
-The inputs required for SARIMA modeling include a sufficiently long time series of historical data, with the seasonal period determining the minimum data requirements. For monthly data with annual seasonality, a minimum of several years of observations is typically required to reliably estimate seasonal parameters. Dasmariñas et al. (2024) used quarterly HFCE data for their analysis, demonstrating that seasonal patterns can be captured even with quarterly observations, though monthly data provides finer resolution for forecasting applications.
-
-SARIMA produces forecasts of future values along with confidence intervals that quantify uncertainty. The model output includes point forecasts for each future period and measures of forecast uncertainty that can inform decision-making under uncertainty. This output characteristic is valuable for financial planning applications, where users benefit from understanding not only expected values but also the range of plausible outcomes.
-
-The application of SARIMA in financial forecasting has been extensively documented. Dasmariñas et al. (2024) applied SARIMA to forecast the impact of COVID-19 on Philippine household consumption, demonstrating that the model could capture both seasonal patterns and the effects of extraordinary events. However, the study also noted limitations, including the model's assumption of linear relationships and its sensitivity to structural breaks in the data. These limitations suggest that SARIMA is most appropriate for stable time series with consistent seasonal patterns.
-
-The strengths of SARIMA include its interpretability, established theoretical foundation, and ability to quantify forecast uncertainty. The model provides explicit parameters that describe the relationship between current and past values, supporting understanding of the underlying dynamics. However, SARIMA also has limitations, including its assumption of linearity and its requirement for sufficient historical data. For personal financial management applications, these limitations are partially mitigated by the availability of population-level data that can supplement individual user data, particularly for new users.
-
-In the context of the proposed study, SARIMA serves as the forecasting engine for seasonal expense prediction. The model will be trained on temporally disaggregated monthly expense estimates derived from PSA FIES and HFCE data, producing forecasts of per-category expense differences and composition. These forecasts will inform budget optimization and financial plan composition, providing users with seasonally-adjusted expense projections that account for predictable fluctuations in spending patterns.
-
-#### Performance Metrics for SARIMA
-
-The performance of SARIMA models is evaluated using multiple metrics that assess different aspects of forecast accuracy. Mean Absolute Error (MAE) measures the average magnitude of forecast errors, providing an interpretable measure of typical forecast deviation in original units. Dasmariñas et al. (2024) used MAE among other metrics in their evaluation, demonstrating its utility for comparing forecast accuracy across different model specifications.
-
-Root Mean Square Error (RMSE) measures the standard deviation of forecast errors, penalizing larger errors more heavily through its squared formulation. This metric is particularly useful for assessing whether a model produces occasional large errors that could lead to significant planning miscalculations. Dasmariñas et al. (2024) reported RMSE values in their SARIMA evaluation, providing benchmarks for assessing model performance.
-
-Symmetric Mean Absolute Percentage Error (SMAPE) expresses forecast accuracy as a percentage, enabling comparison across time series with different scales. This metric is valuable for financial forecasting applications where absolute error magnitudes may vary considerably across categories. The symmetry property of SMAPE addresses the asymmetry of traditional MAPE when actual values approach zero, making it more appropriate for expense categories that may have low or zero values in some periods.
-
-Mean Directional Accuracy (MDA) measures the proportion of forecasts that correctly predict the direction of change, whether the value will increase or decrease. This metric is particularly relevant for financial planning applications, where knowing whether expenses will rise or fall may be more important than the precise magnitude of change. MDA complements magnitude-based metrics by assessing the model's ability to capture directional patterns.
-
-### Rule-Based Classification
-
-Rule-based algorithms classify inputs using explicit if-then rules derived from domain knowledge or empirical analysis. Unlike machine learning approaches that learn patterns from data, rule-based systems apply predetermined rules that encode expert knowledge or established criteria. Dey and Arefin (2025) developed a rule-based system for household budget generation, demonstrating that rule-based approaches can effectively generate personalized recommendations based on user characteristics.
-
-The rule-based approach offers several advantages for financial profile classification. The rules are transparent and interpretable, enabling users to understand why they received a particular classification. This transparency supports user trust and facilitates explanation generation, which is important for financial applications where users need to understand the basis for recommendations. Additionally, rule-based systems do not require labeled training data, which may be unavailable for many financial classification tasks.
-
-The inputs for rule-based classification in the proposed study include questionnaire answers and cash flow transaction history. The rules compute financial-condition dimensions including Emergency Fund Coverage (EFC), Debt-Service-to-Income (DSTI), Financial Margin (FM), and Credit Card Behavior (CCB). These dimensions are then combined using threshold rules to produce profile classifications of saver, borrower, both, or neither.
-
-The rule-based algorithm produces a profile classification along with associated dimensions and a profile explanation. The profile classification informs downstream processing, including budget optimization and financial plan composition. The explanation provides users with insight into their classification, supporting understanding and acceptance of subsequent recommendations.
-
-The application of rule-based algorithms in financial contexts has been documented in multiple studies. Laspiñas and Murcia (2024) applied machine learning approaches including rule-based methods to classify income levels, demonstrating that systematic classification can support targeted financial interventions. Dey and Arefin (2025) applied rule-based logic to budget generation, showing that expert-derived rules can produce reasonable recommendations without requiring training data.
-
-The evaluation of rule-based classification presents unique challenges due to the absence of ground-truth labels. In the proposed study, evaluation will employ rule-derived reference labels for self-consistency checking, boundary-case test sets for edge conditions, and subject matter expert spot checks. This multi-faceted approach addresses the limitations of evaluating rule-based systems without human-labeled data.
-
-#### Performance Metrics for Rule-Based Classification
-
-Accuracy measures the overall proportion of correct classifications, providing a summary measure of classification performance. For rule-based systems, accuracy assessment requires a labeled dataset that may be constructed through expert annotation or derived from the rules themselves. The proposed study will use rule-derived reference labels for self-consistency evaluation, supplemented by boundary-case testing.
-
-Precision measures the proportion of positive predictions that are correct, assessing the system's ability to avoid false positives. In the context of profile classification, precision indicates how often users classified as borrowers (for example) actually exhibit borrower characteristics. High precision is important for ensuring that recommendations are appropriate for the assigned profile.
-
-Recall measures the proportion of actual positive cases that are correctly identified, assessing the system's ability to avoid false negatives. Recall indicates how many users who should be classified as borrowers (for example) are actually classified as such. High recall is important for ensuring that users who need debt management support receive appropriate recommendations.
-
-The F1-score is the harmonic mean of precision and recall, providing a balanced measure that accounts for both types of classification errors. This metric is particularly useful when the costs of false positives and false negatives are similar, providing a single summary measure of classification quality.
-
-### Linear Programming
-
-Linear programming (LP) is a mathematical optimization technique that finds the best outcome in a mathematical model whose requirements are represented by linear relationships. The technique involves maximizing or minimizing a linear objective function subject to linear equality and inequality constraints. de Zarzà et al. (2024) applied optimization techniques to financial planning, demonstrating that budget allocation can be formulated as a constrained optimization problem solvable using linear programming methods.
-
-The linear programming approach to budget optimization involves defining decision variables representing allocation amounts, an objective function representing the goal to be maximized (such as total savings and debt progress), and constraints representing limitations on allocations. The solution to the linear program provides the optimal allocation that maximizes the objective while satisfying all constraints.
-
-The inputs for linear programming in the proposed study include the expense forecast from SARIMA, the user's saver and borrower profile, the user's savings goals, the user's debts, the user's income, and the user's fixed expenses. These inputs define the objective function and constraints for the optimization problem.
-
-The linear programming solver produces a budget allocation, per-goal savings contribution schedules, per-debt repayment schedules, feasibility status, and an explanation. The feasibility status indicates whether a feasible solution exists that satisfies all constraints, which is important for identifying situations where user goals are infeasible given their resources.
-
-The application of linear programming in financial contexts has been documented in multiple studies. Gulbakyt et al. (2025) developed a dynamic model for budget allocation via multi-criteria optimization, demonstrating that optimization techniques can generate effective allocation recommendations. de Zarzà et al. (2024) applied optimization to individual and cooperative budgeting scenarios, showing that linear programming can accommodate multiple objectives and constraints.
-
-The strengths of linear programming include its ability to find optimal solutions, its established theoretical foundation, and its computational efficiency for problems of moderate size. The HiGHS solver, which will be used in the proposed study, provides an open-source implementation capable of solving large-scale linear programs efficiently. However, linear programming also has limitations, including its requirement for linear relationships and its inability to handle uncertainty directly.
-
-#### Performance Metrics for Linear Programming
-
-Constraint satisfaction rate measures the proportion of constraints that are satisfied by the optimal solution. In financial planning applications, this metric indicates whether all user requirements and limitations are respected in the allocation. A high constraint satisfaction rate indicates that the solver successfully found solutions that meet all specified conditions.
-
-Budget utilization rate measures the proportion of available income that is allocated in the budget. This metric indicates whether the optimization fully utilizes available resources or leaves funds unallocated. High utilization may indicate aggressive allocation, while low utilization may indicate conservative assumptions or infeasible constraints that prevent full allocation.
-
-Deviation from user preferences measures the extent to which the optimized allocation differs from user-specified priorities or preferences. This metric assesses whether the optimization respects user preferences or overrides them in pursuit of objective maximization. Low deviation indicates that recommendations align with user priorities, supporting acceptance and adherence.
-
-### Inter-quartile Range (IQR)
-
-The Inter-Quartile Range (IQR) method is a statistical technique for identifying outliers in data by measuring the spread of the middle 50% of values. The IQR is calculated as the difference between the third quartile (75th percentile) and the first quartile (25th percentile). Values falling below Q1 - 1.5×IQR or above Q3 + 1.5×IQR are typically considered outliers. Huang et al. (2025) examined dynamic calibration of decision thresholds for financial anomaly detection, demonstrating that statistical methods can effectively identify unusual financial transactions.
-
-The IQR method works by establishing a baseline range of normal values and flagging values that fall outside this range as anomalies. This approach is non-parametric, meaning it does not assume a particular distribution of the data, making it robust to non-normal distributions that are common in financial data. The method is also computationally efficient, requiring only the calculation of quartiles from historical data.
-
-The inputs for IQR detection in the proposed study include new transactions and a seasonally-aware baseline. The seasonal baseline accounts for predictable variations in spending patterns, ensuring that seasonal fluctuations are not incorrectly flagged as anomalies. This adaptation is important for financial applications where spending patterns vary systematically across time periods.
-
-The IQR detector produces unusual expense alerts that notify users of transactions deviating significantly from their baseline. The alerts include information about the transaction and the degree of deviation, supporting user evaluation of whether the expense warrants attention. Users can acknowledge alerts, providing feedback that can inform future threshold calibration.
-
-The application of IQR and related anomaly detection methods in financial contexts has been documented in multiple studies. Huang et al. (2025) applied dynamic threshold calibration for financial anomaly detection, demonstrating that effective detection requires careful threshold setting. Zhong (2025) developed adaptive anomaly detection thresholds based on time series features, showing that threshold adaptation can improve detection performance across varying conditions.
-
-The strengths of the IQR method include its simplicity, interpretability, and robustness to non-normal distributions. The method does not require training a complex model, making it suitable for applications with limited data. However, the IQR method also has limitations, including its sensitivity to the choice of multiplier (typically 1.5) and its inability to incorporate multiple variables simultaneously.
-
-#### Performance Metrics for IQR
-
-Accuracy measures the overall proportion of correct anomaly classifications, providing a summary measure of detection performance. For anomaly detection, accuracy assessment requires labeled data indicating which transactions are truly anomalous, which may be constructed through expert annotation or user feedback.
-
-Precision measures the proportion of detected anomalies that are true anomalies, assessing the system's ability to avoid false alarms. In the context of unusual expense detection, high precision indicates that most alerts correspond to genuinely unusual expenses, reducing alert fatigue and maintaining user attention to important notifications.
-
-Recall measures the proportion of true anomalies that are detected, assessing the system's ability to identify all unusual expenses. High recall indicates that few unusual expenses are missed, providing comprehensive monitoring of spending patterns.
-
-The F1-score provides a balanced measure combining precision and recall, useful when both false positives and false negatives have similar costs. For expense anomaly detection, the F1-score summarizes the system's overall detection quality.
-
-### Model and Algorithm Integration
-
-The integration of multiple models and algorithms creates a comprehensive pipeline that addresses the full spectrum of personal financial management functions. Each algorithm contributes specialized capabilities: SARIMA provides seasonal expense forecasting, rule-based classification assigns financial profiles, linear programming optimizes budget allocation, and IQR detects unusual expenses. The integration of these components produces synergistic benefits that exceed the capabilities of individual algorithms.
-
-D'Souza et al. (2026) reviewed machine learning techniques for intelligent personal finance management systems, identifying that effective systems integrate multiple techniques including forecasting, classification, and anomaly detection. Their review noted that budgeting and expense analysis often utilize methods such as Exponentially Weighted Moving Averages, clustering, Random Forests, ARIMA, and LSTM models to reveal spending patterns and manage budget constraints. The integration of multiple techniques enables comprehensive analysis that addresses different aspects of financial management.
-
-The integration architecture in the proposed study employs a pipeline design where outputs from one stage inform subsequent stages. Profile classification establishes the user context that influences budget optimization. Expense forecasting provides predictions that constrain budget allocation. Budget optimization generates schedules that are monitored for deviation. Unusual expense detection identifies transactions requiring attention. The Financial Planning module composes these outputs into a coherent plan for user approval.
-
-The performance of the integrated system is evaluated through multiple levels of metrics. Individual algorithm metrics assess the performance of each component. System-level performance indicators assess the overall effectiveness of the integrated pipeline. This multi-level evaluation approach, demonstrated by Srisamai and Siriruk (2023) in their inventory management study, provides comprehensive assessment of both technical and operational performance. <!-- SOURCE NEEDED [SRISAMAI & SIRIRUK 2023]: cited for the multi-level evaluation framework; not in the corpus and the exact paper is unconfirmed. Likely: Srisamai, K., & Siriruk, P. Demand forecasting to reduce dead stock and loss sales: a case study of the wholesale electric equipment and part company. 13th Annual International Conference on Industrial Engineering and Operations Management (IEOM), 2023. - confirm this is the intended source and obtain the proceedings page numbers and DOI before submission. -->
-
-#### Performance Indicators for Model Integration
-
-Savings rate measures the ratio of savings contributions to monthly income, providing an indicator of the user's progress toward building financial reserves. This indicator is derived from the Savings Goal Management and Budget Management modules, reflecting the allocation decisions generated by the optimization process.
-
-Savings goal progress measures the ratio of funded periods to total periods planned for each goal, indicating progress toward specific savings objectives. This indicator reflects adherence to the savings schedule generated by the budget optimization process.
-
-Alert frequency measures the number of unusual-expense alerts per month, providing an indicator of spending volatility and the system's detection activity. High alert frequency may indicate irregular spending patterns or overly sensitive detection thresholds.
-
-Debt progress measures the ratio of principal paid to the planned amount per debt, indicating progress toward debt reduction. This indicator reflects adherence to the debt repayment schedule generated by the optimization process.
-
-Plan adherence measures the ratio of actual allocation to recommended allocation, providing an indicator of the user's compliance with system recommendations. High plan adherence indicates that recommendations are realistic and acceptable to users.
-
-## Methodology
-
-### Agile Development Lifecycle
-
-The study employs the Agile software development methodology, providing an iterative and incremental framework that enables continuous refinement of both system features and prediction models based on ongoing feedback and evaluation results. The Agile methodology is particularly appropriate for BUDGIE's development given the complexity of integrating multiple machine learning models with a mobile application, as the iterative nature of Agile enables progressive refinement of both the algorithmic components and the user interface.
-
-The choice of an iterative methodology over a sequential one is supported by comparative measurement of Agile development practices, which finds that teams operating under an Agile model-based approach report different measured metrics from those operating under Scrum alone, indicating that the specific framework adopted materially affects process outcomes (Huss et al., 2023).
-
-<!-- PENDING ACQUISITION: Huss et al. (2023) — 10.3390/software2030015
-     UNVERIFIED: authors, title, journal, year, and DOI were taken from a citing
-     bibliography, not from the publisher. Confirm against the MDPI page before
-     this sentence is retained. The two sources below already carry the section if
-     this one cannot be confirmed. -->
-
-### Agile Kanban
-
-Agile Kanban is the specific Agile variant employed in this study. Kanban emphasizes continuous delivery through visualization of workflow, limiting work-in-progress, and managing flow. The Kanban board provides visibility into the development process, enabling the team to identify bottlenecks and optimize workflow. This approach supports the iterative development of BUDGIE's multiple modules while maintaining flexibility to accommodate changing requirements and feedback.
-
-Kanban adoption is not a matter of tooling alone, and the factors that condition successful adoption are empirical rather than assumed. A study of software development organizations identifies organizational and process-level determinants of Kanban adoption, which indicates that the framework's effectiveness depends on the surrounding development context (Alqudah & Razali, 2024).
-
-<!-- PENDING ACQUISITION: Alqudah & Razali (2024) — 10.1504/IJASM.2024.137890 -->
-
-The relative performance of Kanban and Scrum under differing project constraints has also been examined through multigroup analysis, which finds that the two frameworks do not perform uniformly across constraint conditions, and that framework effectiveness is conditional rather than universal (Sathe & Panse, 2023). This finding is the basis for BUDGIE's decision to adopt Kanban with explicit measurement of flow rather than assuming framework equivalence.
-
-<!-- PENDING ACQUISITION: Sathe & Panse (2023) — 10.14488/BJOPM.1796.2023 -->
-
-A further line of work proposes a hybrid of the two frameworks, combining Kanban's flow control with Scrum's sprint structure on the argument that each compensates for a specific weakness of the other. This hybrid is recorded here as a documented alternative that the study considered and did not adopt, since BUDGIE's requirements were expected to remain stable through the evaluation period and the added ceremony of a sprint cycle was assessed as unnecessary (Shaout et al., 2025).
-
-<!-- PENDING ACQUISITION: Shaout et al. (2025) — 10.5455/JCSI.20250322020941 -->
-
-### Data Collection
-
-Data collection for BUDGIE encompasses multiple sources that provide the foundation for model training and system evaluation. The PSA 2023 Family Income and Expenditure Survey (FIES; PSA, 2023) provides annual income totals, annual expense totals, family size, per-capita income, and decile ranking. This dataset serves as the source for temporal disaggregation, providing annual expense estimates that are disaggregated to monthly resolution.
-
-The PSA 2022-2026 Household Final Consumption Expenditure (HFCE) provides quarterly household consumption data that serves as the source for seasonal patterns in disaggregation. The HFCE dataset covers the period from 2022 Q1 to 2026 Q2, providing 18 quarters of data for estimating seasonal patterns. While this series length is borderline for SARIMA with a seasonal period of 12, it provides sufficient data for initial model development.
-
-The Public User Expectations and Perceptions Survey (PUEPS; Group 4, 2026) provides user expectations and preliminary investigation data. This survey employed purposive sampling of 47 respondents in the National Capital Region, primarily from Taguig, Pasay, Manila, and Makati. The survey results inform the user requirements and evaluation criteria for BUDGIE.
-
-### Model Development
-
-Model development follows the standard machine learning pipeline of data preprocessing, feature engineering, model training, cross-validation, performance evaluation, and model integration. The temporal disaggregation process transforms annual FIES data into monthly estimates using HFCE-calibrated proportional benchmarking. This process produces seasonally adjusted monthly expense estimates that serve as the foundation for SARIMA forecasting.
-
-The SARIMA model is trained on the disaggregated monthly series, with seasonal orders determined from the population-level data. The model produces monthly multipliers per category and population-level baseline forecasts that inform budget optimization. Personal forecast blending occurs when sufficient user history is available, with the blend weight increasing linearly from zero to one as history grows from 24 to 48 months.
-
-The rule-based classifier is developed from domain knowledge and financial planning principles. The classification rules incorporate four financial-condition dimensions: Emergency Fund Coverage, Debt-Service-to-Income, Financial Margin, and Credit Card Behavior. These dimensions are computed from user questionnaire responses and transaction history, then combined using threshold rules to produce profile classifications.
-
-The linear programming solver is implemented using the HiGHS solver, an open-source optimization library capable of solving large-scale linear programs. The solver incorporates the expense forecast, user profile, savings goals, debts, income, and fixed expenses as inputs, producing optimized budget allocations and schedules.
-
-### System Development
-
-BUDGIE is developed as a mobile application using React Native with Expo SDK 55, providing cross-platform compatibility with primary support for Android devices. The backend services are implemented using Node.js 24 LTS with Express 5.1, with Supabase providing authentication and data storage. The model and algorithm microservice is implemented using Python 3.14 with FastAPI, providing REST APIs for classification, forecasting, optimization, and anomaly detection.
-
-The system architecture follows a microservices pattern with separate containers for the API gateway, classifier, forecaster, detector, transaction service, and solver. This architecture supports independent scaling and deployment of components while maintaining loose coupling through event-driven communication. Core features are offline-capable with local caching, while modules with models or algorithms are server-side with graceful degradation during connectivity loss.
-
-## System Evaluation
-
-### Software Quality Evaluation
-
-Software quality evaluation employs the ISO/IEC 25010:2023 quality model, which provides a reference model of characteristics for specifying, measuring, and evaluating the quality of ICT and software products (International Organization for Standardization, 2023). Each characteristic is subdivided into subcharacteristics that provide concrete measures, and the model is intended as a reference rather than as a fixed checklist, so a study may select the subset of characteristics that bears on its system (International Organization for Standardization, 2023). The evaluation addresses functional suitability, performance efficiency, reliability, security, portability, and usability, providing comprehensive assessment of system quality.
-
-<!-- PENDING ACQUISITION: ISO/IEC 25010:2023 — paywalled standard, obtain via the
-     group library or IEEE. Needed as the normative source for the quality model
-     and for the characteristic/subcharacteristic definitions. -->
-
-<!-- ISO CHARACTERISTIC NAMING CONFLICT — unresolved, requires an adviser decision.
-
-     The six characteristics listed above are named using the ISO/IEC 25010:2011
-     vocabulary, not the 2023 vocabulary, and the standard's own foreword records
-     the change: "Usability and portability have been replaced with interaction
-     capability and flexibility respectively." Safety was added as a ninth
-     characteristic. Under 25010:2023 the model therefore comprises functional
-     suitability, performance efficiency, compatibility, interaction capability,
-     reliability, security, maintainability, flexibility, and safety — nine, not
-     six.
-
-     Consequences for this chapter as currently written:
-
-     1. "Portability" and "usability" are not characteristic names in the standard
-        this chapter cites. Under 25010:2023 the nearest equivalents are flexibility
-        (3.8) and interaction capability (3.4).
-     2. "Compatibility" and "safety" are omitted. Compatibility is the one 2023
-        characteristic absent from the 2011 six that a mobile app's cross-platform
-        claim most obviously needs.
-     3. Installability is not a characteristic in either edition; in 25010:2023 it
-        is subcharacteristic 3.8.3 under flexibility. The portability paragraph
-        below therefore describes a subcharacteristic while presenting it as a
-        characteristic.
-     4. The SUS belongs to the quality-in-use model (ISO/IEC 25019), not the product
-        quality model. The standard is explicit that interaction capability is a
-        prerequisite for usability rather than a replacement for it, so citing the
-        product model as the basis for a SUS-based usability score is imprecise.
-
-     The six-characteristic set is retained here because the panel accepted it, but
-     it cannot be attributed to 25010:2023 as written. Resolving this requires
-     either renaming the two characteristics to interaction capability and
-     flexibility and adding compatibility and safety, or citing ISO/IEC 25010:2011
-     for the six-characteristic set. This must be settled before Chapter 3, because
-     the fielded ISO 25010 instrument and the Chapter 1 scope section are both built
-     on the same superseded vocabulary. -->
-
-The evaluation of BUDGIE against the quality model follows established practice for questionnaire-based evaluation of the ISO/IEC 25010 characteristics, in which selected characteristics are operationalized as Likert-scale statements and aggregated through weighted scoring to produce an overall quality index (Ariningsih & Muhammad, 2024). This approach has been applied to functional suitability, performance efficiency, usability, and portability, which is the same set of characteristics at issue in the conflict noted above (Lianto et al., 2023). Adopting an established operationalization keeps the instrument comparable with prior work rather than defining ad hoc measures.
-
-<!-- PENDING ACQUISITION: Ariningsih & Muhammad (2024) — 10.24076/intechnojournal.2024v6i2.1870
-     PENDING ACQUISITION: Lianto et al. (2023) — KONSTELASI 3(1); no DOI located, retrieve from the journal -->
-
-The System Usability Scale (SUS) provides a standardized instrument for assessing perceived usability. The instrument originates in Brooke (1996) and comprises ten items rated on a five-point scale, where odd-numbered items are positively worded and even-numbered items are negatively worded. Scoring subtracts one from each positive item and five from each negative item, sums the results, and multiplies by 2.5 to yield a score from 0 to 100 (Lim et al., 2025). Responses above 68 are taken to indicate good usability (Lim et al., 2025).
-
-<!-- CITATION WINDOW EXCEPTION — approved by the researchers, flagged here rather
-     than buried in a reference list. The group accepts 2023 or later for scholarly
-     literature, with exceptions for datasets, government and regulatory reports,
-     standards and laws, and the originating publication of a measurement
-     instrument. Brooke (1996) is cited under the last of these: it defines the
-     instrument rather than supplying a literature finding, and the SUS has no
-     later origin. The substantive properties above are carried by Lim et al.
-     (2025), which is in window. -->
-
-<!-- PENDING ACQUISITION: Lim et al. (2025) — 10.1186/s44247-025-00150-y
-     PENDING ACQUISITION: Brooke (1996), "SUS: A quick and dirty usability scale",
-     in Usability Evaluation in Industry (pp. 189-194), Taylor & Francis. Confirm
-     the exact pagination and publisher against the group's copy before finalising. -->
-
-The SUS will be administered to target users following interaction with BUDGIE, providing quantitative assessment of usability. Its use in mobile health applications is well established, and a systematic review of 40 studies found it to be the most frequently applied existing instrument among questionnaire-based mobile health evaluations, ahead of the MAUQ, PSSUQ, and USE (Lim et al., 2025).
-
-Functional suitability assessment verifies that BUDGIE provides functions that meet stated and implied needs, encompassing functional completeness, correctness, and appropriateness. The evaluation includes verification that all required features operate correctly according to their defined requirements, with particular attention to critical financial computations and transaction processing.
-
-Performance efficiency assessment measures BUDGIE's time behavior, resource utilization, and capacity under defined conditions. The evaluation includes response time measurement with a target of p95 API response ≤2,000 ms, error rate assessment with a target of <1% under baseline load, and capacity testing to verify support for 150 concurrent virtual users.
-
-Reliability assessment measures BUDGIE's ability to perform required functions consistently and without failure. The evaluation includes availability measurement with a target of ≥99.5% successful responses, fault tolerance assessment with a target of <1% failed requests during recoverable faults, recoverability testing to verify return to baseline within 60 seconds after simulated failure, and data integrity verification with a target of zero duplicate or missing transactions.
-
-Security assessment measures BUDGIE's ability to protect data and resources against unauthorized access. The evaluation includes confidentiality testing to verify that 100% of protected endpoints reject requests without valid authentication, and authenticity testing to verify that invalid credentials result in 401/403 responses. The 2023 revision of the quality model adds resistance to a subcharacteristic of security, which is the closest analogue to the authentication and confidentiality measures described here (International Organization for Standardization, 2023).
-
-Portability assessment measures BUDGIE's ability to be installed and executed in supported environments. The evaluation includes installability testing to verify successful clean installation, adaptability testing to verify configuration through environment variables, and build success rate measurement. Under ISO/IEC 25010:2023 these measures correspond to subcharacteristics 3.8.1 adaptability and 3.8.3 installability under flexibility, not to a characteristic named portability; the terminology is retained above for continuity with the fielded instrument.
-
-### Model Performance Evaluation
-
-Model performance evaluation assesses the accuracy and effectiveness of the algorithms employed in BUDGIE. Each algorithm is evaluated using metrics appropriate to its function, providing objective assessment of model capabilities.
-
-The SARIMA forecaster is evaluated using MAE, SMAPE, MDA, and RMSE, with comparison against a seasonal naive baseline. These metrics assess different aspects of forecast accuracy, including average error magnitude, percentage error, directional accuracy, and error variance. The evaluation includes assessment of disaggregation accuracy to verify that temporal disaggregation preserves seasonal patterns.
-
-The rule-based classifier is evaluated using accuracy, precision, recall, and F1-score. Given the absence of human-labeled ground-truth data, evaluation employs rule-derived reference labels for self-consistency assessment, boundary-case test sets for edge condition verification, and subject matter expert spot checks for validation.
-
-The linear programming solver is evaluated using constraint satisfaction rate, budget utilization rate, and deviation from user preferences. These metrics assess whether the solver produces feasible solutions that respect constraints, fully utilize available resources, and align with user priorities.
-
-The IQR detector is evaluated using accuracy, precision, recall, and F1-score. The evaluation assesses the detector's ability to identify unusual expenses while minimizing false alarms, using labeled data constructed through expert annotation or user feedback.
+### Saver and Borrower Profile
+
+The saver-borrower distinction describes a household's position on the dimension that most affects
+which planning intervention is appropriate. Reviews of saving and debt behaviour establish that
+individuals exhibit distinct patterns in financial decision-making shaped by psychological,
+demographic, and contextual factors, and that these patterns are stable enough to support
+segmentation (Cumaio et al., 2026). Reviews of planning behaviour supply the complementary finding
+that position constrains which goals are feasible at all (Yeo et al., 2023).
+
+The four-state formulation used in BUDGIE, in which a household may be a saver, a borrower, both, or
+neither, follows from the literature rather than from convenience. Bibliometric evidence confirms
+that saving and debt behaviour are documented as distinct research objects rather than as a single
+continuum, which is what makes a multi-state classification well-founded
+(Samli et al., 2026; Cumaio et al., 2026). Local evidence documents
+households holding debt while also holding savings, since salary loan dependency coexists with
+emergency fund formation (Francisco et al., 2026). Distributional studies show the same overlap
+among young investors, whose saving and borrowing behaviour correlate but do not coincide
+(Sapiri & Awaluddin, 2023).
+
+### Saver and Borrower Profile Classification
+
+Classification of financial profiles has been demonstrated feasible in several forms. Income-level
+classification using machine learning confirms that financial characteristics carry usable signal for
+stratification, and that rule-based and statistical approaches both segment effectively
+(Laspiñas & Murcia, 2024). Credit-card spending behaviour has likewise been classified successfully
+from transaction data (Hamdare et al., 2025), and mobile budgeting applications have applied learned
+classification to user profiles (Ghonaim & El-Sharawy, 2025).
+
+The choice of a rule-based classifier over a learned one is deliberate and supported. Reviews of
+financial behaviour show that profile-relevant quantities are interpretable and threshold-shaped
+rather than latent, which favours explicit rules (Cumaio et al., 2026; Yeo et al., 2023), and
+local classification work shows income segmentation is recoverable from documented financial
+attributes (Laspiñas & Murcia, 2024). The literature on digital lending further supports
+interpretability, since a borrower classification that cannot be explained cannot be contested
+(Esperanza, 2025).
+
+<!-- SOURCE NEEDED [DEY & AREFIN 2025]: this topic would be strengthened by the rule-based
+     household budget recommendation paper. Candidate: Dey, S., & Arefin, M. S. (2025).
+     Developing a rule-based system to recommend household budget. Journal of Information Systems
+     Engineering and Management, 10(47s), 148-182.
+     https://jisem-journal.com/index.php/journal/article/view/9230
+     (preprint: https://www.preprints.org/manuscript/202502.1315/v1)
+     Six sources are attached without it, so this topic is not short; the paper is the closest
+     direct precedent for the chosen classifier and should be acquired. -->
+
+### Importance of Profile Classification
+
+The importance of classification is that it converts a single generic intervention into a
+differentiated one, and the literature supports the mechanism at each step. Financial-well-being
+regressors indicate that the appropriate planning behaviour differs by household position
+(Claro & Noval, 2025), and salary-loan-dependency analysis indicates that the appropriate
+intervention differs too, since borrowing dependence calls for constraint relief rather than
+savings promotion (Francisco et al., 2026).
+
+Reviews confirm that position also predicts behaviour, so treating all users identically
+systematically mis-serves both groups (Cumaio et al., 2026; Yeo et al., 2023). Debt-management
+evidence supports this for borrowers in particular, where the harm from under-intervention is
+asymmetric (Esperanza, 2025; Samli et al., 2026). Income classification work demonstrates the
+practical consequence, that correct stratification determines which downstream recommendation is
+valid (Laspiñas & Murcia, 2024).
+
+## Seasonal Expense Forecasting
+
+### Seasonal Expenses
+
+Seasonal expense patterns arise from recurring, datable events rather than from individual
+preference: school enrolment, Christmas spending, agricultural cycles, and weather-driven variation
+in household needs. Philippine household consumption exhibits this structure strongly enough to
+model, which is the finding that makes individual-level seasonal forecasting plausible
+(Lu et al., 2025). Reviews of consumption and saving behaviour treat seasonality as a defining
+feature of household financial management rather than as residual variation
+(Cumaio et al., 2026).
+
+The planning-behaviour literature treats this structure as a defining feature of the household
+budget rather than as an incidental pattern, and the distributional evidence among young investors
+confirms that recurring obligations structure saving and borrowing behaviour
+(Yeo et al., 2023; Sapiri & Awaluddin, 2023). Local borrowing-dependency evidence adds that
+unanticipated periodic outflows are absorbed through debt when no buffer exists
+(Francisco et al., 2026).
+
+The practical significance is that a budget built on annual averages will mispredict monthly
+outflows, and will do so predictably. Work on constrained budgeting shows that allocation quality
+depends on the quality of the expenditure estimates fed into it (Lu et al., 2025), and household
+budget recommendation work makes the same dependency explicit
+(de Zarzà et al., 2024). Reviews of planning behaviour locate the same problem as a recurring
+source of plan abandonment, since users abandon plans that require them to fund an expense the
+system never anticipated (Yeo et al., 2023).
+
+### Seasonal Expense Forecasting
+
+Seasonal forecasting of expenses has been demonstrated at population level and, in one case, with
+learning components at the application level. Constrained data-driven budgeting integrated with
+demand forecasting and response modelling, establishing that seasonal projection and allocation can
+be solved jointly (Lu et al., 2025). Budget allocation models using multi-criteria optimisation
+consume forecast inputs in the same way (Gulbakyt et al., 2025), and mobile budget applications have
+applied recurrent networks to budget management directly (Ghonaim & El-Sharawy, 2025).
+
+Forecasting approaches suitable for seasonal expense series are well represented. Expense-tracker
+work applies machine learning to transaction data with seasonal structure
+(Thakur & Jadhav, 2025), credit-card spending prediction applies comparable methods
+(Hamdare et al., 2025), and institutional budget forecasting applies predictive analytics to
+allocation (Santiago et al., 2025). Household planning formalisations use forecast inputs explicitly
+(de Zarzà et al., 2024), and adaptive-threshold work addresses the related problem of monitoring
+forecast-driven financial data quality (Zhong, 2025).
+
+<!-- NEEDS MORE SOURCES: 6 required for a core-algorithm topic; 6 attached, but all are
+     adjacent-domain. No source in the verified set forecasts individual Philippine household
+     expense seasonality. Dasmariñas et al. (2024) is the direct precedent and is still missing;
+     it is the highest-value acquisition in the entire chapter. -->
+
+### Importance of Seasonal Expense Forecasting
+
+Seasonal forecasting matters because it is the component that converts annual household data into
+actionable monthly guidance. Without it, the temporal disaggregation that makes individual-level
+forecasting possible at all cannot be justified, and the resulting budget inherits population
+averages rather than household structure (Lu et al., 2025; de Zarzà et al., 2024). Reviews of
+planning behaviour support the consequence, since adherence depends on recommendations remaining
+realistic as circumstances change (Yeo et al., 2023).
+
+The evidence that this matters most for constrained households is consistent across sources.
+Consumption reviews show seasonal structure strongest where budgets are tightest
+(Cumaio et al., 2026), local borrowing-dependency evidence shows that unanticipated outflows are
+absorbed through debt (Francisco et al., 2026), and optimisation work shows that allocation
+generated from accurate seasonal estimates leaves more room for goal attainment
+(Gulbakyt et al., 2025; Lu et al., 2025). Debilitating variability is measurable in application data
+(Thakur & Jadhav, 2025; Hamdare et al., 2025), and institutional forecasting work confirms the
+approach generalises beyond the household (Santiago et al., 2025).
+
+## Budget Creation
+
+### Budget
+
+A budget in this study is a dated allocation of expected income across expense categories, savings
+goals, and debt obligations, derived from a forecast and constrained by the user's stated
+priorities. Constrained data-driven budgeting work describes a budget in exactly these terms, as
+simultaneously a forecast, a commitment device, and a control system (Lu et al., 2025), and
+household planning formulations treat it as the allocation output of an optimisation process
+(de Zarzà et al., 2024). Multi-criteria budget allocation models formalise the same object under
+competing objectives (Gulbakyt et al., 2025).
+
+The comparative evaluation finding that applications support tracking over budgeting is best read
+as a statement about this object being under-constructed rather than unwanted
+(Alenazi & Sas, 2023). A tracking-first product produces a budget as a manual step, whereas a
+budget-first product derives allocation from forecast and constraints
+(Ghonaim & El-Sharawy, 2025). Household budget recommendation work supports the latter framing
+(de Zarzà et al., 2024), and institutional allocation systems show the approach at scale
+(Santiago et al., 2025).
+
+### Budget Constraints
+
+Budget constraints are the limitations within which allocation must occur: income, fixed expenses,
+debt obligations, minimum living costs, and user-stated priorities. Household planning
+formulations make these constraints explicit and solve allocation under them
+(de Zarzà et al., 2024), and multi-criteria budget models handle competing constraint sets
+(Gulbakyt et al., 2025). Constrained budgeting frameworks demonstrate that constraints, not the
+optimiser, determine whether a feasible plan exists (Lu et al., 2025).
+
+The Philippine context makes constraint handling decisive rather than incidental, because the
+constraint set is both tight and volatile. Consumer survey evidence documents reduced savings
+propensity under price pressure, which narrows the feasible region (Bangko Sentral ng
+Philippines, 2026), and local evidence documents recurring borrowing for ordinary expenses, which
+indicates the feasible region is often empty without explicit relief
+(Francisco et al., 2026; Claro & Noval, 2025). Reviews of planning behaviour support reporting
+infeasibility explicitly rather than silently returning an unbalanced budget
+(Yeo et al., 2023; Yoganandham, 2025).
+
+### Budget Creation and Optimization
+
+Budget creation and optimisation combines forecast, constraints, and preferences into an allocation
+and a schedule, and it is the component with the strongest optimisation literature behind it.
+Multi-criteria budget allocation models generate allocations balancing multiple objectives
+(Gulbakyt et al., 2025); constrained frameworks couple forecasting to allocation
+(Lu et al., 2025); household planning formulations extend this to individual and cooperative cases
+with model-generated recommendations (de Zarzà et al., 2024); and institutional systems apply
+predictive analytics to real allocation decisions (Santiago et al., 2025).
+
+Mobile application evidence shows the optimisation logic deploying rather than remaining academic
+(Ghonaim & El-Sharawy, 2025), and comparative evaluation indicates that this is precisely the
+capability the application category under-delivers (Alenazi & Sas, 2023). Expense-tracker
+contributions supply the transaction-classification stage that precedes allocation
+(Thakur & Jadhav, 2025). Taken together, the literature supports the component and identifies the
+category-level gap BUDGIE occupies.
+
+### Importance of Budget Creation
+
+The importance of budget creation lies in its position between forecast and plan: it is where
+predicted spending becomes a commitment. Planning review establishes that commitments structured
+in advance are followed more consistently than intentions (Yeo et al., 2023), and capability
+reviews show the same effect across developing economies (Cumaio et al., 2026; Samli et al., 2026).
+
+Local evidence links the absence of structured budgeting to measurable harm, since salary-loan
+dependency is traced to inadequate planning capacity and absent emergency savings
+(Francisco et al., 2026), and well-being regressors indicate structured practice as a determinant
+(Claro & Noval, 2025). Optimisation research supplies the mechanism, showing that allocation
+respecting explicit constraints is more likely to be feasible and therefore sustained
+(de Zarzà et al., 2024; Gulbakyt et al., 2025; Lu et al., 2025). Reviews of budgeting practice
+complete the case by treating the budget as the central artefact of household financial management
+(Yoganandham, 2025).
+
+## Unusual Expense Detection
+
+### Unusual Expenses
+
+An unusual expense is a transaction that deviates from a household's own established baseline
+sufficiently to warrant attention, as distinct from one that is merely large or categorically
+irregular. Framing the baseline as personal rather than universal is what separates this problem
+from institutional fraud detection, and the literature on threshold calibration supports the
+personal-baseline framing by showing that the definition of anomalous shifts with the data
+distribution (Huang et al., 2025; Zhong, 2025).
+
+Credit-card spending analysis supplies the empirical basis, demonstrating that spending habits have
+structure sufficient for deviation to be meaningful and that rewarding departures from it is
+tractable (Hamdare et al., 2025). Expense-tracker work supplies transaction-level data at the
+granularity the detection requires (Thakur & Jadhav, 2025), and mobile budgeting applications show
+detection embedded in consumer applications (Ghonaim & El-Sharawy, 2025). Debt-management evidence
+supplies the reason detection matters to users, since unrecognised accumulation precedes the
+dependence documented by local studies (Esperanza, 2025; Francisco et al., 2026).
+
+### Anomaly Detection
+
+Anomaly detection in financial data presents the dual difficulty of class imbalance and threshold
+instability. Adaptive threshold work addresses the second directly, calibrating thresholds from
+time-series features so that detection survives distributional shift
+(Zhong, 2025), and dynamic calibration work demonstrates the approach against payment-platform data
+(Huang et al., 2025). Both findings bear directly on household data, where the distribution shifts
+predictably with seasonality and with life events.
+
+Classification methods transfer to the household case. Spending-habits analysis applies machine
+learning to categorised card transactions (Hamdare et al., 2025), expense-tracker work does the
+same for personal expenses (Thakur & Jadhav, 2025), and institutional analytics supply the
+comparative evaluation context (Santiago et al., 2025; Gulbakyt et al., 2025). Reviews of
+financial capability indicate why false alarms are costly for this user group specifically, since
+users under budget pressure cannot afford to dismiss alerts reflexively
+(Cumaio et al., 2026; Esperanza, 2025).
+
+### Importance of Unusual Expense Detection
+
+Detection matters because it is the only feature in BUDGIE that surfaces information the user has
+not asked for, and the literature supports that this is where independent insight originates.
+Adaptive threshold work shows that detection identifies conditions that static rules miss
+(Zhong, 2025; Huang et al., 2025), and spending-habits analysis shows that departures from
+established patterns carry behavioural meaning (Hamdare et al., 2025).
+
+The consequence of not detecting is documented locally. Debt accumulation in wage earners is
+associated with credit access unaccompanied by management capability (Esperanza, 2025), and
+salary-loan dependency is traced to absent buffers and absent monitoring
+(Francisco et al., 2026). Reviews of debt-management behaviour confirm that early detection is the
+prevention mechanism (Samli et al., 2026), and reviews of capability show the users most in need of
+alerts are those least able to anticipate irregular outflows (Cumaio et al., 2026; Sapiri &
+Awaluddin, 2023).
+
+## Financial Planning
+
+BUDGIE's financial planning module composes the four feature areas into a single dated plan and
+tracks adherence against it. This is the component the planning literature identifies as missing and
+the application literature confirms as under-delivered. The module's stages follow the process
+stages established in the review: situation, goals, plan, execution, and review
+(Yoganandham, 2025; Yeo et al., 2023).
+
+**Financial Situation.** Situation assessment in BUDGIE is computed rather than declared, drawing profile dimensions,
+forecast income, recurring expenses, and outstanding obligations into a single dated picture.
+Planning review treats situation assessment as the determinant of every downstream recommendation
+and notes that its procedural treatment in the literature is a weakness
+(Yeo et al., 2023), while household planning formulations make it an explicit optimisation input
+(de Zarzà et al., 2024). Well-being regressors support the choice of computed over self-reported
+inputs (Claro & Noval, 2025), and capability reviews indicate self-report systematically
+overstates position (Cumaio et al., 2026).
+
+Consumption structure is part of situation, not context, because it determines the monthly
+distribution of the position (Lu et al., 2025). Constraint analysis supplies the second half of the
+picture, since the same nominal position yields different feasible regions under different
+obligations (de Zarzà et al., 2024; Gulbakyt et al., 2025). Reviews of budgeting practice treat
+this combined picture as the necessary precondition for any credible plan
+(Yoganandham, 2025).
+
+**Financial Goals.** Goals in BUDGIE are entered as dated amounts with priorities, which makes them directly usable as
+optimisation objectives. Household planning formulations treat goals as the objective function of
+the allocation problem, and show that the number of simultaneous goals is itself a source of
+difficulty (de Zarzà et al., 2024). Planning review supports prioritisation as a required step
+rather than an optional one (Yeo et al., 2023), and practical budgeting guidance treats clear
+goal definition with amounts, timelines, and priorities as the precondition for progress
+(Yoganandham, 2025).
+
+Multi-criteria allocation models demonstrate that competing goals require explicit weighting, not
+implicit trade-offs (Gulbakyt et al., 2025), and constrained budgeting frameworks show that
+unweighted goals produce allocations that satisfy the arithmetic while failing the user's intent
+(Lu et al., 2025). Reviews of planning behaviour locate goal conflict as a leading cause of plan
+abandonment (Yeo et al., 2023; Cumaio et al., 2026), and local evidence shows that savings and debt
+goals compete for the same funds in practice (Francisco et al., 2026; Claro & Noval, 2025).
+
+**Financial Plan.** The plan is the composed output: profile-informed allocation, forecast-adjusted expense
+expectations, dated savings contributions, and dated debt repayments, with a feasibility status.
+Household planning formulations produce this object and identify constraint adherence as the
+unresolved problem (de Zarzà et al., 2024), and multi-criteria allocation models produce
+comparable outputs under competing objectives (Gulbakyt et al., 2025). Constrained frameworks
+supply the forecast coupling (Lu et al., 2025), and institutional allocation systems show the
+artefact in operational use (Santiago et al., 2025).
+
+Application evidence establishes what is missing from commercial equivalents. Comparative
+evaluation finds planning support systematically weaker than tracking support
+(Alenazi & Sas, 2023), and reviews of machine learning for the domain find components evaluated in
+isolation rather than composed (D'Souza et al., 2026). Mobile budgeting work shows deployment of
+individual components (Ghonaim & El-Sharawy, 2025), and savings and debt behaviour reviews identify
+the composition requirement that no reviewed system meets
+(Cumaio et al., 2026; Samli et al., 2026).
+
+**Execution and Adherence.** Execution is where the planning literature is most emphatic that support, not intention, determines
+outcome. Planning review finds that adherence depends on progress visibility and feedback
+(Yeo et al., 2023), and capability reviews find the same across developing economies
+(Cumaio et al., 2026; Samli et al., 2026). Local evidence shows the failure mode directly, since
+borrowing for ordinary expenses indicates plans were not executed as intended
+(Francisco et al., 2026; Claro & Noval, 2025).
+
+The literature also identifies what does not work. Reviews of saving behaviour show intention
+without mechanism does not produce saving (Cumaio et al., 2026), and debt-management evidence shows
+the substitute behaviour that appears when adherence fails (Esperanza, 2025; Samli et al., 2026).
+Practical budgeting guidance frames the same requirement as a cycle requiring review
+(Yoganandham, 2025), which is what the adherence indicators in BUDGIE measure.
+
+**Review and Monitoring.** Monitoring closes the loop and is the least-developed stage in the literature. Planning review notes
+that review is treated procedurally even though it is the only stage permitting correction
+(Yoganandham, 2025), and that adherence depends on feedback derived from it
+(Yeo et al., 2023). Capability reviews identify the same gap in the behavioural evidence
+(Cumaio et al., 2026; Samli et al., 2026).
+
+Detection is the mechanism that makes monitoring specific rather than periodic. Adaptive threshold
+work supplies alerts derived from deviation rather than from fixed intervals
+(Zhong, 2025; Huang et al., 2025), spending-habits analysis supplies the deviation signal
+(Hamdare et al., 2025), and expense-tracker work supplies the transaction stream it operates on
+(Thakur & Jadhav, 2025). Local evidence supports the value of early warning to users under budget
+pressure (Esperanza, 2025), and institutional analytics demonstrate the monitoring pattern at scale
+(Santiago et al., 2025).
+
+<!-- Cite the BSP financial planning cycle here. Look for it in BUDI-Literature -->
+<!-- NOT SATISFIABLE from the corpus. All six Bangko Sentral entries were checked on 2026-09-27:
+     the Q4 2023 Financial Inclusion dashboard, the Financial Inclusion Dashboard, the Annual
+     Report 2025, the Consumer Expectations Survey Q2 2026, and two statistical releases. None is
+     a financial planning cycle document, and one (L--BangkoSentral-2023b) is in fact a regional
+     economic development paper whose own text dates it to June 2005, so its 2023 stem is wrong.
+     The central-bank statistics that ARE available are cited for context in Context of Financial
+     Planning, Problems faced by Individuals, and Budget Constraints. Request re-listed under
+     Outstanding Source Requests. -->
+
+# Models and Algorithms
+
+BUDGIE implements four algorithms, each selected for a property the literature identifies as
+necessary rather than for availability. SARIMA is selected for seasonal structure, a rule-based
+classifier for interpretability, linear programming for constrained optimality, and the
+inter-quartile range for distribution-free detection. This section reviews each in the order the
+adviser's guidelines require, and closes with the integration architecture and the system-level
+indicators by which it is evaluated.
+
+## Seasonal Auto-Regressive Integrated Moving Average (SARIMA)
+
+### Overview of SARIMA
+
+The Seasonal Auto-Regressive Integrated Moving Average model extends ARIMA to represent recurring
+seasonal behaviour, specified as (p, d, q)(P, D, Q, s) where the lowercase terms describe
+non-seasonal autoregressive, differencing, and moving-average structure, the uppercase terms
+describe their seasonal counterparts, and s is the seasonal period. Its operation combines lagged
+observations and lagged residual errors with seasonal differencing, so that trend and recurring
+pattern are estimated jointly from history (Lu et al., 2025).
+
+Its inputs are a time series long enough to identify the seasonal structure. For monthly data with
+annual seasonality this means several annual cycles, and the series length therefore determines
+whether the seasonal terms are estimable at all. The Philippine household consumption series used
+for population-level structure spans eighteen quarters (PSA, 2026), which is borderline for an
+annual seasonal period and adequate for initial estimation (Lu et al., 2025). Outputs are point forecasts for each
+future period together with prediction intervals quantifying forecast uncertainty
+(Santiago et al., 2025).
+
+Prior applications in the reviewed set establish the model's suitability for seasonal financial
+series. Constrained data-driven budgeting applies forecasting jointly with allocation
+(Lu et al., 2025); multi-criteria budget allocation consumes forecast inputs
+(Gulbakyt et al., 2025); household planning formulations use forecast as an allocation input
+(de Zarzà et al., 2024); expense tracking and credit-card spending studies apply comparable
+seasonal techniques at transaction level (Thakur & Jadhav, 2025; Hamdare et al., 2025); and
+institutional budget systems apply predictive analytics to forward allocation
+(Santiago et al., 2025).
+
+Its strengths are interpretability, an established theoretical basis, and native quantification of
+uncertainty, all of which matter when a forecast must be explained to a user deciding how much to
+reserve (Lu et al., 2025; Santiago et al., 2025). Its limitations follow directly: the linearity
+assumption, the data-volume requirement, and sensitivity to structural breaks such as the pandemic
+period visible in Philippine consumption data (de Zarzà et al., 2024; Lu et al., 2025). Adaptive
+threshold work provides the complement for the drift problem, since a model whose distribution
+shifts needs re-estimation rather than a fixed rule (Zhong, 2025).
+
+For BUDGIE the model is the seasonal forecasting engine, trained on monthly expense estimates
+disaggregated from annual household survey data using consumption-survey seasonal proportions, and
+blended with personal history as that history accumulates. The relevance is that it is the only
+reviewed method that produces a seasonally resolved monthly expectation from annual data, which is
+what budget composition requires (Lu et al., 2025; de Zarzà et al., 2024).
+
+<!-- NEEDS MORE SOURCES: 7 required for a core algorithm; 6 attached. The missing source is
+     Dasmariñas et al. (2024), the only Philippine household-consumption SARIMA study in the
+     project and the one that supplies the seasonal decomposition this design assumes. -->
+
+### SARIMA in Forecasting
+
+Applied to forecasting, SARIMA's role in the reviewed literature is to supply a seasonally resolved
+expectation that a downstream optimiser can consume. Constrained data-driven budgeting demonstrates
+the coupling directly, forecasting expenditure and modelling the allocation response jointly
+(Lu et al., 2025). Multi-criteria budget allocation models take forecast output as input and show
+that allocation quality is sensitive to it (Gulbakyt et al., 2025), and household planning
+formulations use forecast values as allocation inputs under explicit constraints
+(de Zarzà et al., 2024).
+
+At the transaction level, forecasting methods are applied to spending series with comparable
+seasonal structure. Expense-tracker systems apply machine learning to categorised personal expenses
+(Thakur & Jadhav, 2025) and credit-card spending analysis applies supervised methods to
+categorised card transactions (Hamdare et al., 2025), both of which require the same separation of
+seasonal from trend structure. Institutional allocation systems apply predictive analytics to
+forward-looking budgets (Santiago et al., 2025), and mobile budgeting applications apply learned
+forecast components to user budgets (Ghonaim & El-Sharawy, 2025).
+
+The finding common to these applications is that the forecast is only as useful as the resolution at
+which it is produced, which is why monthly resolution from annual survey data is the specific
+technical problem BUDGIE must solve (Lu et al., 2025; de Zarzà et al., 2024). Adaptive monitoring
+work supplies a related finding, that forecast quality and data quality are coupled because drift
+in the input distribution degrades the model silently (Zhong, 2025; Huang et al., 2025).
+
+### Performance Metrics of SARIMA
+
+Forecast accuracy is assessed on four complementary dimensions: average magnitude, scaled magnitude,
+directional correctness, and error dispersion. Using all four is standard practice in the reviewed
+forecasting work, and the choice of metric set is itself informative, because each dimension can
+improve while another worsens (Lu et al., 2025; Santiago et al., 2025).
+
+#### Mean Absolute Error (MAE)
+
+Mean Absolute Error is the average of the absolute differences between forecast and actual values,
+expressed in the original units of the series. Its interpretability is its principal virtue for this
+application: a MAE expressed in pesos states directly how far a typical monthly forecast is wrong,
+without requiring interpretation against a baseline (Lu et al., 2025). Applied to seasonal expense
+forecasting it aggregates across the seasonal cycle and is therefore sensitive to the model's
+treatment of seasonal turning points, which in expense series are typically the largest errors
+(Thakur & Jadhav, 2025; Hamdare et al., 2025).
+
+Its limitation is that it does not distinguish a model that is uniformly moderately wrong from one
+that is occasionally severely wrong, since the absolute value prevents large errors dominating
+(Santiago et al., 2025). For budgeting, where a single large seasonal miss can invalidate a
+savings schedule, that limitation is why MAE is reported alongside RMSE rather than instead of it
+(de Zarzà et al., 2024; Gulbakyt et al., 2025).
+
+#### SMAPE
+
+Symmetric Mean Absolute Percentage Error expresses forecast error as a proportion of actual value
+using a symmetric denominator, which bounds the metric and avoids the unbounded behaviour of MAPE
+when actual values approach zero. Expense categories frequently have very low or zero values in
+individual months, so this property is decisive rather than cosmetic for this data
+(Lu et al., 2025; de Zarzà et al., 2024).
+
+It permits comparison across categories of different scale, which matters when a single forecast is
+produced per category and the categories differ in magnitude by orders of magnitude
+(Santiago et al., 2025). Its limitation is that it compresses the distinction between large and
+small errors, since a large relative error on a small category contributes as much as a small
+relative error on a large one, and it remains sensitive to the sign convention used in the symmetric
+denominator (Lu et al., 2025; Gulbakyt et al., 2025). Reported alongside MAE, the pair separates
+scale from proportion (Thakur & Jadhav, 2025; Hamdare et al., 2025).
+
+#### MDA
+
+Mean Directional Accuracy is the proportion of periods in which the forecast predicts the correct
+direction of change, disregarding magnitude. It answers a question the other three do not: whether
+the model knows when spending will rise and when it will fall, which is the question a user
+reserving for a known seasonal expense actually asks (Lu et al., 2025).
+
+Directional correctness is a weaker property than accuracy and can be high for a model that is
+badly wrong in magnitude but consistently mis-signed relative to a small residual. It is therefore
+never reported alone, and its value in this application is precisely as a check that the seasonal
+structure is being captured rather than smoothed away (Santiago et al., 2025; de Zarzà et al., 2024).
+For expense series, where the seasonal turning points drive budgeting decisions, a high MDA with
+poor MAE is informative: it indicates the model has learned the calendar correctly but not the
+magnitudes, which is a different and more tractable defect (Lu et al., 2025; Thakur & Jadhav, 2025).
+
+#### RMSE
+
+Root Mean Square Error is the square root of the mean of squared errors, so large errors are
+penalised disproportionately. It is the metric of choice when the cost of error is convex, which
+applies here because a large forecasting miss propagates into an infeasible budget
+(Santiago et al., 2025; de Zarzà et al., 2024).
+
+Its limitation is the mirror of MAE's: it is dominated by a small number of extreme errors and is
+correspondingly unstable on short series, which is a material concern given that seasonal parameter
+estimation from a borderline-length series is itself unstable (Lu et al., 2025). Reported together
+with MAE, the ratio RMSE/MAE is diagnostic, since a ratio well above one indicates a small number
+of large errors dominating, which for seasonal expense data usually points at a specific seasonal
+turning point rather than at general model inadequacy (Gulbakyt et al., 2025; Santiago et al., 2025).
+
+## Rule-Based Algorithms
+
+### Overview of Rule-Based Algorithms
+
+A rule-based algorithm classifies by applying explicit conditions derived from domain knowledge
+rather than by learning parameters from labelled data. Its operation is ordered evaluation of
+thresholds over computed financial-condition dimensions, its inputs are the user attributes those
+dimensions require, and its output is a classification together with the dimension values and an
+explanation of the rule that fired (Laspiñas & Murcia, 2024).
+
+The dimensions used in BUDGIE are Emergency Fund Coverage, Debt-Service-to-Income, Financial Margin,
+and Credit Card Behaviour, combined by threshold rules into saver, borrower, both, or neither. This
+construction is supported by income-classification work showing financial characteristics carry
+usable stratification signal and that rule-based methods segment effectively
+(Laspiñas & Murcia, 2024), and by profile-based budget recommendation work showing that
+personalised output requires documented user attributes rather than inferred latent structure
+(de Zarzà et al., 2024).
+
+Its strength is that a classification can be explained, which matters more here than predictive
+power, because a user who cannot see why they were classified as a borrower cannot act on the
+result. Debt-management evidence supports this, since the harms BUDGIE addresses follow from
+unrecognised position rather than from miscalculation (Esperanza, 2025; Francisco et al., 2026).
+Capability reviews indicate that users under financial stress scrutinise unfavourable
+classifications, and transparency is what makes such scrutiny resolvable
+(Cumaio et al., 2026; Samli et al., 2026).
+
+Its limitation is coverage: rules encode the cases anticipated at authoring time, so a household
+whose situation falls between thresholds receives an arbitrary classification. Spending-habits work
+shows the alternative, a learned classifier handles unanticipated structure but cannot explain itself
+(Hamdare et al., 2025), and income-classification work shows learned and rule-based approaches
+performing comparably on structured financial attributes (Laspiñas & Murcia, 2024). The choice here
+favours explainability, and the limitation is mitigated by reporting the dimension values alongside
+the classification so a user can see how close a borderline case was (Cumaio et al., 2026).
+
+### Rule-Based Algorithms in Profile Classification
+
+In profile classification specifically, the literature supports rule-based approaches for
+properties that learned classifiers would obscure. Income-level classification is the clearest
+precedent, establishing that rule-based and statistical segmentation of financial attributes are both
+viable and that the attributes themselves are interpretable (Laspiñas & Murcia, 2024). Behavioural
+work supports treating the underlying constructs as threshold-shaped, since saving and debt
+behaviours cluster around identifiable positions rather than continuous gradients
+(Cumaio et al., 2026; Yeo et al., 2023).
+
+Learned alternatives are documented and were considered. Credit-card spending classification
+demonstrates that transaction history alone supports learned segmentation
+(Hamdare et al., 2025), mobile budgeting applications apply learned profile components
+(Ghonaim & El-Sharawy, 2025), and reviews of machine learning for the domain catalogue the
+classification methods available (D'Souza et al., 2026). The reviewed learned approaches predict
+behaviour; they do not produce an explanation a user can contest, which is the requirement
+identified in the literature on debt accumulation and financial vulnerability
+(Esperanza, 2025; Francisco et al., 2026).
+
+A further consideration is data availability. Rule-based classification requires no labelled
+training set, and the literature notes that labelled financial-behaviour data is scarce and
+frequently unavailable outside institutional settings (Cumaio et al., 2026; Sapiri & Awaluddin,
+2023). Household budget recommendation work supports the same position, deriving recommendations
+from documented user attributes rather than from learned parameters
+(de Zarzà et al., 2024). Local evidence indicates the input attributes are precisely the ones
+users can supply (Claro & Noval, 2025; Francisco et al., 2026).
+
+### Metrics
+
+Evaluating a rule-based classifier is harder than evaluating a learned one because the absence of
+labelled ground truth removes the obvious reference standard. Three substitutes are available and
+are used together: rule-derived reference labels for self-consistency, boundary-case test sets for
+edge conditions, and subject-matter expert review for plausibility.
+
+Self-consistency establishes that the rule set is deterministic and internally coherent, catching
+implementation errors that a held-out accuracy figure would conceal. Boundary testing targets the
+specific weakness of rule-based systems, since misclassification concentrates near thresholds
+(Laspiñas & Murcia, 2024). Expert review supplies the external validity that self-consistency
+cannot, and the literature indicates plausibility is assessable by practitioners because the
+underlying constructs are established (Cumaio et al., 2026; Yeo et al., 2023).
+
+The metrics reported are accuracy, precision, recall, and F1-score, computed against rule-derived
+reference labels. Their interpretation requires care, and the reason is documented in the
+classification literature: accuracy against self-derived labels measures internal coherence, not
+correctness (Laspiñas & Murcia, 2024). Expert spot checks therefore carry the external validity
+that the aggregate figures cannot, and this limitation is stated rather than smoothed over
+(Cumaio et al., 2026; Francisco et al., 2026).
+
+#### Accuracy
+
+Accuracy is the proportion of classifications matching the reference label across all cases. It is
+reported for completeness and comparability with the learned-classification literature, but it is
+the least informative of the four here, because class imbalance makes it dominated by the majority
+class, and because the reference labels are rule-derived (Laspiñas & Murcia, 2024; Cumaio et al.,
+2026).
+
+Its role in this study is as a regression check. A drop in accuracy between releases indicates a
+change in rule behaviour that should be explainable, and an implausibly high accuracy indicates
+that the reference labels have leaked from the rules under test (Laspiñas & Murcia, 2024). Expert
+review is what gives the figure external meaning (Francisco et al., 2026; Yeo et al., 2023).
+
+#### Precision
+
+Precision is the proportion of positive classifications that are correct, answering how often a
+user flagged as a borrower actually exhibits borrower characteristics. It is the metric that
+controls the cost of acting on a classification, because each false positive produces an
+intervention the user does not need (Laspiñas & Murcia, 2024; Cumaio et al., 2026).
+
+For BUDGIE this is the more important of the two error types, since an unnecessary debt-management
+intervention applied to a saver is both unwelcome and damaging to trust in the system
+(Francisco et al., 2026; Claro & Noval, 2025). Rule-based systems achieve high precision near
+thresholds where rules are conservative, and the boundary test set is where precision is examined
+most closely (Laspiñas & Murcia, 2024; Yeo et al., 2023).
+
+#### Recall
+
+Recall is the proportion of actual positive cases correctly identified, answering how many users
+who warrant debt-management support receive it. It is the metric that controls the cost of omission,
+and in this application the asymmetry runs the other way from precision: a missed borrower is a user
+whose accumulation goes unaddressed (Esperanza, 2025; Samli et al., 2026).
+
+The local evidence establishes why this asymmetry matters. Salary-loan dependency is documented as
+accumulating from unrecognised position over time, and digital lending is documented as supplying
+credit faster than management capability (Francisco et al., 2026; Esperanza, 2025). Reviews of
+debt-management behaviour confirm that early identification is the prevention mechanism
+(Samli et al., 2026). Recall is therefore weighted more heavily than precision in threshold
+selection, which is a deliberate and defensible departure from the usual accuracy-maximising choice
+(Cumaio et al., 2026; Yeo et al., 2023).
+
+#### F1-score
+
+F1-score is the harmonic mean of precision and recall, summarising both error types in one figure.
+It is appropriate here because the two error types have comparable operational cost even though
+their user-facing consequences differ, and it is the standard summary in the classification
+literature against which learned alternatives are compared (Laspiñas & Murcia, 2024).
+
+Its limitation is that a single harmonic mean conceals which error type is being traded, and that
+trade is a policy choice in this application rather than a modelling artefact
+(Cumaio et al., 2026). The F1-score is therefore reported together with both components and is not
+used as the selection criterion; thresholds are chosen on recall, with precision reported as the
+cost of that choice (Francisco et al., 2026; Samli et al., 2026). Learned alternatives remain the
+right choice where prediction alone is the objective, as spending-habits work demonstrates
+(Hamdare et al., 2025), which is the trade this design accepts.
+
+## Linear Programming
+
+### Overview of Linear Programming
+
+Linear programming finds the extreme point of a linear objective over a polyhedron defined by linear
+constraints, and is the standard formulation for allocation under competing objectives and limited
+resources. Its operation decomposes the budget problem into decision variables for allocation
+amounts, an objective function combining goal attainment, and constraints encoding income, fixed
+expenses, and minimum requirements (de Zarzà et al., 2024; Gulbakyt et al., 2025).
+
+Its inputs are the expense forecast, the user profile, savings goals, debts, income, and fixed
+expenses, which together define the objective and the feasible region. Its outputs are the optimal
+allocation, dated savings contribution schedules, dated debt repayment schedules, a feasibility
+status, and an explanation of the binding constraints (de Zarzà et al., 2024; Lu et al., 2025).
+
+The reviewed literature establishes the technique's suitability for this problem directly.
+Household planning formulations express budget allocation as constrained optimisation
+(de Zarzà et al., 2024), multi-criteria budget models optimise allocation across competing objectives
+(Gulbakyt et al., 2025), and constrained data-driven budgeting demonstrates the coupling of forecast
+to allocation (Lu et al., 2025). Institutional allocation systems apply the same formulation to real
+budgets (Santiago et al., 2025), and mobile applications demonstrate deployment of budget logic to
+consumers (Ghonaim & El-Sharawy, 2025).
+
+Its strength is that it returns a provably optimal, feasible allocation and, critically, reports
+when no feasible allocation exists. That infeasibility report is the feature the planning literature
+most needs and applications least provide, since a system that silently returns an unbalanced budget
+teaches the user to disregard it (de Zarzà et al., 2024; Yeo et al., 2023). Its limitation is that it
+requires linear relationships, so it cannot represent the non-linear preference structures that
+behavioural work documents, and it does not handle uncertainty directly
+(Cumaio et al., 2026; Yoganandham, 2025). Forecast uncertainty is therefore handled outside the
+programme, through conservative forecast quantiles rather than stochastic constraints
+(Lu et al., 2025; Gulbakyt et al., 2025).
+
+### Linear Programming in Optimization
+
+Within the optimisation literature, budget allocation quality is determined by the formulation
+rather than by the solver, and the reviewed work makes this explicit. Multi-criteria models show
+that allocation outcomes shift with the weighting applied to competing objectives
+(Gulbakyt et al., 2025), and constrained frameworks show the same dependence on how the expenditure
+estimate enters the objective (Lu et al., 2025). Household planning formulations extend the space to
+individual and cooperative cases with model-generated recommendations, and identify constraint
+adherence as the unresolved problem (de Zarzà et al., 2024).
+
+Set-based allocation, in which the user receives a menu of feasible allocations rather than a single
+optimum, is the refinement this design adopts. Practical budgeting guidance supports user choice as
+a requirement rather than a convenience (Yoganandham, 2025), planning review supports it as a means
+of improving adherence (Yeo et al., 2023), and capability reviews indicate that users under
+constraint reject recommendations that are optimal but not recognisably theirs
+(Cumaio et al., 2026; Samli et al., 2026). Institutional systems demonstrate the value of
+presenting allocation decisions with their analytic basis visible (Santiago et al., 2025).
+
+Solver choice is deliberately unremarkable. An open-source solver is used because the problem is
+small, well-conditioned, and fully specified by linear constraints, and the reviewed literature
+attributes no advantage to commercial solvers at this scale
+(Gulbakyt et al., 2025; Lu et al., 2025; de Zarzà et al., 2024). This is a case where the algorithm
+choice is not the contribution, and the contribution is the formulation and the set-based
+presentation (Santiago et al., 2025; Yoganandham, 2025).
+
+### Metrics
+
+The solver is evaluated on three properties specific to budget allocation rather than on generic
+optimisation performance: whether the solution respects the constraints, whether it uses the
+available resources, and whether it reflects the user's stated priorities. None of the reviewed
+budget-optimisation papers reports all three, which is itself a gap the evaluation design addresses
+(de Zarzà et al., 2024; Gulbakyt et al., 2025; Lu et al., 2025).
+
+#### Constraint Satisfaction Rate
+
+Constraint satisfaction rate is the proportion of specified constraints satisfied by the returned
+allocation, and it is the solver's primary correctness measure. A rate below one indicates either an
+infeasible problem or a solver failure, and the two must be distinguished because they require
+different responses: the first is information for the user, the second is a defect
+(de Zarzà et al., 2024; Lu et al., 2025).
+
+The measure is reported together with the identity of the binding constraints, which the planning
+literature indicates is the actionable part (Yeo et al., 2023). Reporting a rate without naming
+which constraint forced the trade-off gives a user no way to act on the result, which is the
+failure mode capability reviews identify in existing applications
+(Cumaio et al., 2026; Francisco et al., 2026). Institutional systems demonstrate the value of
+surfacing the basis of an allocation decision (Santiago et al., 2025).
+
+#### Budget Utilization Rate
+
+Budget utilisation rate is the proportion of available income allocated, indicating whether the
+programme commits the resources it is given. A low rate signals either conservative user
+constraints or slack in the objective, and the two are distinguished by whether the objective
+contains an unconstrained term (Gulbakyt et al., 2025; Lu et al., 2025).
+
+For BUDGIE the target behaviour is deliberate non-utilisation, because unallocated funds are
+sometimes the correct outcome when constraints are tight, and forcing allocation under those
+conditions produces a plan that fails on contact with actual spending
+(de Zarzà et al., 2024; Yoganandham, 2025). Local evidence supports this: households under
+financial pressure accumulate debt precisely when committed allocations exceed real capacity
+(Francisco et al., 2026; Claro & Noval, 2025). The measure is therefore interpreted as a
+diagnostic, not as a target to maximise (Cumaio et al., 2026; Yeo et al., 2023).
+
+#### Deviation from User Preferences
+
+Deviation from user preferences measures how far the returned allocation departs from the priorities
+the user stated, and it is the only measure that assesses whether a technically optimal solution is
+usable by the person it is for (de Zarzà et al., 2024; Yoganandham, 2025).
+
+It exists because the optimisation literature shows allocation quality depends on objective
+weighting, which means an optimal solution can be optimal and still wrong for a given household
+(Gulbakyt et al., 2025; Lu et al., 2025). Planning review identifies acceptance, rather than
+optimality, as the determinant of whether a plan is followed (Yeo et al., 2023), and capability
+reviews indicate that deviations the user cannot account for are abandoned
+(Cumaio et al., 2026; Samli et al., 2026). This is the measure that justifies the set-based
+presentation rather than a single optimum (Santiago et al., 2025; Francisco et al., 2026).
+
+## Inter-quartile Range (IQR)
+
+### Overview of IQR
+
+The Inter-Quartile Range method identifies outliers as observations falling outside the fences
+Q1 − 1.5·IQR and Q3 + 1.5·IQR, where IQR is the difference between the third and first quartiles.
+Its operation is the computation of quartiles over a baseline of historical values and the flagging
+of subsequent observations outside those fences (Huang et al., 2025).
+
+Its inputs are new transactions and a seasonally aware baseline, the latter being the essential
+adaptation, since an unadjusted baseline flags predictable seasonal spending as anomalous. Its
+outputs are unusual-expense alerts carrying the transaction, the direction and degree of deviation,
+and an acknowledgement channel whose feedback informs later threshold calibration
+(Huang et al., 2025; Zhong, 2025).
+
+The reviewed literature supports distribution-free detection for this problem specifically.
+Adaptive threshold work calibrates thresholds from time-series features so detection survives
+distributional shift, addressing the fixed-threshold weakness directly
+(Zhong, 2025), and dynamic calibration work demonstrates the approach against payment-platform
+financial data (Huang et al., 2025). Spending-habits analysis supplies the behavioural basis, since
+detection is only meaningful relative to established patterns (Hamdare et al., 2025), and
+expense-tracker systems supply the transaction stream it operates on
+(Thakur & Jadhav, 2025).
+
+Its strength is that it requires no distributional assumption, no training, and no parameter
+estimation, which is decisive for a system whose users begin with no transaction history
+(Huang et al., 2025; Cumaio et al., 2026). Spending-pattern variation across households means no
+learned detector transfers reliably to a new user, and distribution-free methods sidestep that
+problem entirely (Hamdare et al., 2025; Sapiri & Awaluddin, 2023). Its limitation is sensitivity
+to the multiplier, whose conventional value of 1.5 is a convention rather than a derivation, and
+its inability to consider more than one variable at a time, so a large but ordinary purchase is
+flagged regardless of category (Huang et al., 2025; Zhong, 2025).
+
+### IQR in Anomaly Detection
+
+Within the anomaly-detection literature reviewed here, the IQR method occupies the position of the
+transparent baseline against which adaptive methods are argued. Threshold-calibration research
+identifies the baseline's weakness precisely, that fixed thresholds are set against a distribution
+that moves (Huang et al., 2025), and adaptive work answers it by recalibrating from time-series
+features (Zhong, 2025).
+
+Household data makes the baseline's weakness more pronounced than in institutional settings, because
+an individual baseline has fewer observations and a faster-moving distribution
+(Hamdare et al., 2025; Thakur & Jadhav, 2025). The literature on financial capability indicates
+that the users generating this data are also the users for whom a false alarm is most costly
+(Cumaio et al., 2026; Esperanza, 2025). Seasonal baseline adjustment is therefore not an
+refinement but a requirement, and the reviewed adaptive work supports making the baseline
+season-aware rather than global (Zhong, 2025; Huang et al., 2025).
+
+The alternative considered is a learned detector, which the literature documents as effective
+where sufficient labelled data exists (Hamdare et al., 2025; D'Souza et al., 2026) but which cannot
+be validated for a new user without a history that a new user does not have
+(Cumaio et al., 2026; Sapiri & Awaluddin, 2023). The reviewed evidence therefore favours a
+distribution-free detector with a seasonal baseline, accepting its single-variable limitation in
+exchange for its behaviour on cold-start data (Huang et al., 2025; Zhong, 2025).
+
+### Metrics
+
+The detector is evaluated with the same four metrics as the classifier, for the same structural
+reason: the reference standard is absent, and a summary figure alone conceals which error type
+dominates. Detection differs from classification in the cost structure, which is why the same metrics
+carry a different interpretation here (Huang et al., 2025; Hamdare et al., 2025).
+
+Precision corresponds to the proportion of alerts that are genuinely unusual, and controls alert
+fatigue. The literature is explicit that excessive false alarms cause users to disregard all alerts,
+which destroys the feature's value entirely (Huang et al., 2025; Zhong, 2025). For users under
+financial pressure this cost is higher, because a dismissed alert is an unreviewed transaction
+(Cumaio et al., 2026; Esperanza, 2025).
+
+Recall corresponds to the proportion of true unusual expenses detected, and controls omission.
+Spending-habits work shows that meaningful departures from established patterns occur and carry
+behavioural signal (Hamdare et al., 2025), and debt-management evidence shows that unrecognised
+outflows precede accumulation (Esperanza, 2025; Samli et al., 2026). In common with the
+classifier, recall is weighted more heavily than precision in threshold selection
+(Francisco et al., 2026; Cumaio et al., 2026).
+
+#### Accuracy
+
+Accuracy is the proportion of transactions correctly classified as ordinary or unusual, and for
+detection it is the least useful of the four, because unusual expenses are rare by construction and
+a detector that flags nothing scores near-perfect accuracy while providing no value
+(Huang et al., 2025; Zhong, 2025).
+
+It is retained as a regression check only, consistent with its role in the classifier evaluation
+(Laspiñas & Murcia, 2024). The literature's threshold-calibration work makes the same point, that
+aggregate accuracy conceals the threshold behaviour that determines whether a detector is usable
+(Huang et al., 2025; Hamdare et al., 2025).
+
+#### Precision
+
+Precision is the proportion of generated alerts corresponding to genuinely unusual expenses, and it
+is the metric that determines whether the feature is used at all. The reviewed adaptive-threshold
+work frames the entire calibration problem as balancing this against recall
+(Huang et al., 2025; Zhong, 2025), and spending-habits analysis indicates that a pattern only
+deserves an alert if it is actually outside normal behaviour (Hamdare et al., 2025).
+
+For BUDGIE the seasonal baseline is the primary lever on precision, since the largest source of
+false positives in household data is predictable seasonal spending
+(Thakur & Jadhav, 2025; Hamdare et al., 2025). Evidence on the affected users indicates the cost of
+a false positive is higher than its frequency alone suggests
+(Cumaio et al., 2026; Esperanza, 2025; Francisco et al., 2026).
+
+#### Recall
+
+Recall is the proportion of genuinely unusual expenses detected, and it bounds the value of the
+feature, since an undetected unusual expense is indistinguishable from an ordinary one. The
+literature supports weighting it heavily for the same reasons as in the classifier: the documented
+harm in this user group follows from unrecognised accumulation rather than from missed convenience
+(Esperanza, 2025; Samli et al., 2026; Francisco et al., 2026).
+
+Its practical limit in this design is the cold-start condition, since recall cannot be high for a
+user whose baseline is estimated from few observations
+(Cumaio et al., 2026; Sapiri & Awaluddin, 2023). The literature on spending patterns indicates
+population-level structure partially mitigates this, which is why the baseline blends individual
+history with population proportions
+(Hamdare et al., 2025; Thakur & Jadhav, 2025; Lu et al., 2025).
+
+#### F1-score
+
+F1-score summarises precision and recall for the detector, and is reported for comparability with
+both the learned-detector literature and the classifier evaluation
+(Huang et al., 2025; Laspiñas & Murcia, 2024).
+
+As in the classifier case, the harmonic mean is not the selection criterion, because the appropriate
+balance is a policy decision about alert tolerance rather than a statistical optimum
+(Cumaio et al., 2026; Huang et al., 2025). The seasonal baseline and the multiplier are tuned
+against recall subject to a precision floor, which reflects the documented asymmetry of the harms
+(Esperanza, 2025; Francisco et al., 2026; Samli et al., 2026). Reporting F1 without its components
+would hide that decision, so all three figures are reported
+(Zhong, 2025; Hamdare et al., 2025).
+
+## Model and Algorithm Integration
+
+Integrating the four algorithms produces a pipeline in which each stage constrains the next, and the
+integration is the contribution rather than the arithmetic. Profile classification establishes the
+context that shapes budget objectives; seasonal forecasting supplies the expenditure expectations
+that bound them; linear programming composes allocation and schedules; and IQR detection monitors
+execution against the resulting baseline. Reviews of machine learning for this domain identify the
+integration gap directly, finding techniques established individually but evaluated in isolation
+against single objectives (D'Souza et al., 2026).
+
+Household planning formulations confirm the pipeline's shape, since budget allocation, savings
+contribution, and debt repayment must be solved jointly rather than sequentially
+(de Zarzà et al., 2024). Multi-criteria allocation models supply the multi-objective treatment the
+composition requires (Gulbakyt et al., 2025), and constrained data-driven budgeting demonstrates
+forecast-to-allocation coupling (Lu et al., 2025). Mobile application work shows the components
+deploying individually (Ghonaim & El-Sharawy, 2025), and comparative evaluation confirms that no
+reviewed commercial system composes them
+(Alenazi & Sas, 2023; D'Souza et al., 2026).
+
+Architecturally the pipeline separates the model-serving components from the mobile client, which
+follows from the literature's observation that model-bearing features degrade gracefully while
+client-side features remain available offline (D'Souza et al., 2026; Lu et al., 2025). The
+composition contract between stages is the part with no literature precedent and therefore the part
+requiring the most explicit evaluation, which is what the system-level indicators provide
+(de Zarzà et al., 2024; Gulbakyt et al., 2025).
+
+### SARIMA for Seasonal Expense Forecasting
+
+SARIMA's role in the pipeline is to convert population-level and household-level expenditure
+structure into a monthly expectation that the optimiser can consume, and the literature establishes
+that this conversion is the precondition for feasible allocation
+(Lu et al., 2025; de Zarzà et al., 2024). Constrained budgeting work demonstrates the coupling
+directly, and multi-criteria allocation models show that allocation quality degrades when the
+expenditure estimate is seasonally naive (Gulbakyt et al., 2025; Lu et al., 2025).
+
+Within the pipeline the forecast is deliberately population-anchored and personally blended, because
+the reviewed evidence indicates that individual history is insufficient early in a user's tenure
+while population structure remains informative
+(Thakur & Jadhav, 2025; Hamdare et al., 2025). Seasonal consumption structure in Philippine
+households is documented as strong, which is what makes a population anchor defensible rather than a
+fallback (Lu et al., 2025; Cumaio et al., 2026). The interface to the next stage is a point forecast
+with an interval, and conservative use of that interval is what keeps the downstream programme
+feasible (de Zarzà et al., 2024; Santiago et al., 2025).
+
+### Rule-Based Algorithms for Saver and Borrower Profile Classification
+
+The classifier's role in the pipeline is to set objectives and constraint weights for the optimiser,
+converting a four-state position into the priorities the programme will pursue. The literature
+supports this ordering, since planning review shows that the appropriate planning behaviour differs
+by position (Yeo et al., 2023; Claro & Noval, 2025) and that applying one approach uniformly
+mis-serves both groups (Cumaio et al., 2026).
+
+The classifier runs first because its outputs are cheap and stable, whereas the optimiser's inputs
+depend on them. Income-classification work supports the feasibility of this stage in isolation
+(Laspiñas & Murcia, 2024), and household budget recommendation work supports deriving
+recommendations from documented attributes (de Zarzà et al., 2024). Its output contract is the
+classification, the dimension values, and the explanation, and the explanation is what makes the
+downstream objective weighting contestable by the user
+(Esperanza, 2025; Francisco et al., 2026). Local evidence on borrowing dependence indicates that
+mis-weighting here propagates directly into harmful advice
+(Francisco et al., 2026; Samli et al., 2026).
+
+### Linear Programming for Budget Creation
+
+The solver's role is composition, and the literature is explicit that this is the step that
+application research leaves undone. Household planning formulations produce the composed artefact
+and identify constraint adherence as unresolved (de Zarzà et al., 2024), while comparative
+evaluation of commercial systems finds the corresponding capability absent
+(Alenazi & Sas, 2023).
+
+It receives the forecast, the profile, and the user's goals, and returns allocation with schedules,
+which is the interface the planning literature expects a plan to expose
+(Yoganandham, 2025; Yeo et al., 2023). Multi-criteria models supply the treatment of competing
+objectives this stage requires (Gulbakyt et al., 2025), and constrained frameworks supply the
+feasibility handling (Lu et al., 2025). The set-based presentation is the deliberate departure from
+single-optimum practice, justified by the adherence evidence
+(Yeo et al., 2023; Cumaio et al., 2026; Yoganandham, 2025).
+
+### IQR for Unusual Expense Detection
+
+The detector's role is post-composition monitoring, and it is the only stage that produces
+information the user did not request. The literature supports both the mechanism and its placement:
+adaptive threshold work establishes detection as the means of surfacing distributional change
+(Zhong, 2025; Huang et al., 2025), and spending-habits analysis establishes that departure from
+established pattern is where the signal lies (Hamdare et al., 2025).
+
+Placement after composition is what makes the baseline meaningful, since the composed plan supplies
+the expected seasonal profile against which execution is judged. Expense-tracker work shows
+transaction-level detection operating on categorised data of this kind
+(Thakur & Jadhav, 2025), and institutional analytics show the pattern at scale
+(Santiago et al., 2025). The alert-to-feedback channel closes the loop, which the planning
+literature identifies as the stage most often omitted
+(Yoganandham, 2025; Yeo et al., 2023; Cumaio et al., 2026).
+
+### Integration in Financial Planning Feature
+
+The integration feature is what distinguishes BUDGIE from a bundle of components, and no source in
+the reviewed set provides a precedent for it, which is both the justification for the study and the
+reason its evaluation is reported at system level. Reviews of machine learning for the domain
+identify the absence of integrated deployment as the field's central gap
+(D'Souza et al., 2026), and comparative evaluation of commercial systems reaches the same conclusion
+from the user side (Alenazi & Sas, 2023).
+
+The integration's specific claim is that a seasonally resolved forecast, a rule-derived profile, and
+a constraint-respecting allocation are jointly more useful than any of them alone, because the
+composition makes each actionable. Household planning formulations support the compositional
+argument (de Zarzà et al., 2024), multi-criteria allocation models support the multi-objective
+requirement it creates (Gulbakyt et al., 2025), and constrained budgeting supports the forecast
+coupling (Lu et al., 2025). Mobile application work supplies the individual components as
+deployable units (Ghonaim & El-Sharawy, 2025; Thakur & Jadhav, 2025), and the comparative evaluation
+supplies the evidence that they are not yet deployed together
+(Alenazi & Sas, 2023; D'Souza et al., 2026).
+
+The risks the literature implies are specific and worth stating. A composition error propagates
+downstream, so a miscalibrated forecast yields an infeasible plan and misleading alerts
+(Lu et al., 2025; Gulbakyt et al., 2025). A misclassified profile yields advice harmful to the
+household it mis-serves (Francisco et al., 2026; Claro & Noval, 2025). And excessive alerting
+destroys the trust on which the adherence mechanism depends
+(Huang et al., 2025; Cumaio et al., 2026). These are the failure modes the system-level indicators
+are chosen to detect.
+
+### Performance Analysis
+
+System-level analysis proceeds at three levels, and the distinction matters because a component can
+perform well while the pipeline performs badly. Individual algorithm metrics establish that each
+component meets its own objective, as the reviewed evaluation practice does for classification
+(Laspiñas & Murcia, 2024), forecasting (Lu et al., 2025), optimisation (Gulbakyt et al., 2025), and
+detection (Huang et al., 2025).
+
+Interface metrics establish that stages hand over correctly, which has no direct precedent in the
+reviewed literature and is therefore reported explicitly as a limitation of the evidence base
+(de Zarzà et al., 2024; D'Souza et al., 2026). Outcome indicators establish whether the composition
+changes user behaviour, which is the level at which the planning literature locates adherence
+(Yeo et al., 2023; Cumaio et al., 2026) and at which local evidence locates well-being
+(Claro & Noval, 2025; Francisco et al., 2026). Institutional budget systems demonstrate
+outcome-level evaluation of a comparable system
+(Santiago et al., 2025), and adaptive monitoring work demonstrates the continuous-recalibration
+element (Zhong, 2025; Huang et al., 2025).
+
+#### Savings Rate
+
+Savings rate is savings contributions divided by monthly income over the evaluation period,
+measuring whether the system moves the outcome it is designed to affect. The planning literature
+locates this as an adherence outcome rather than a system property, dependent on progress
+visibility and support (Yeo et al., 2023), and capability reviews confirm intention does not
+produce it unaided (Cumaio et al., 2026; Samli et al., 2026).
+
+Local evidence establishes that this population has particular headroom, since Filipino consumers
+were reported less likely to save under price pressure
+(Bangko Sentral ng Pilipinas, 2026), and that recurring borrowing substitutes for absent savings
+(Francisco et al., 2026). Well-being regressors indicate savings practice is associated with
+well-being outcomes (Claro & Noval, 2025). The indicator is therefore reported with its confidence
+interval and without causal claim
+(Yoganandham, 2025; Cumaio et al., 2026; Yeo et al., 2023).
+
+#### Savings Progress
+
+Savings progress is the funded proportion of each goal's planned periods, measuring goal attainment
+against the schedule the optimiser produced. It is distinguished from savings rate because a user
+can hit a high rate while funding goals in an order the solver did not intend
+(de Zarzà et al., 2024; Gulbakyt et al., 2025).
+
+The distinction matters for evaluating the composition specifically, since goal ordering is where
+multi-objective weighting is expressed and where the optimiser's assumptions are most visible
+(Gulbakyt et al., 2025; Lu et al., 2025). Planning review indicates that a plan whose schedule the
+user cannot recognise as theirs will be abandoned regardless of its rate
+(Yeo et al., 2023; Yoganandham, 2025). Preference deviation at the individual-goal level is
+therefore reported alongside this indicator
+(Cumaio et al., 2026; Francisco et al., 2026; Samli et al., 2026).
+
+#### Alert Frequency
+
+Alert frequency is the count of unusual-expense alerts per active user per month, measuring both
+detector activity and spending volatility. The reviewed threshold-calibration literature treats it
+as the primary diagnostic for detector calibration, since frequency that rises without a
+corresponding rise in unusual spending indicates threshold drift (Huang et al., 2025; Zhong, 2025).
+
+It is not a performance target, and treating it as one produces the failure the literature
+identifies, in which a detector tuned to a fixed alert rate stops detecting
+(Huang et al., 2025; Hamdare et al., 2025). It is interpreted jointly with precision and with spending
+volatility, and the feedback channel is what allows a user to distinguish a genuine change from a
+calibration artefact (Zhong, 2025; Cumaio et al., 2026). Spending-habits work supplies the
+behavioural baseline against which frequency is judged meaningful
+(Hamdare et al., 2025; Thakur & Jadhav, 2025).
+
+#### Debt Progress
+
+Debt progress is principal paid over principal planned per debt, measuring adherence to the
+repayment schedules the solver produced. It is the indicator most directly tied to the harm the
+study addresses, since the documented local harm is accumulation from unrecognised and unmanaged
+borrowing (Francisco et al., 2026; Esperanza, 2025).
+
+Debt-management evidence establishes both its value and its limits: early progress prevents
+accumulation, but debt outcomes are also shaped by income shocks the system does not control
+(Samli et al., 2026; Cumaio et al., 2026). Borrowing-dependency analysis shows that dependency is
+entrenched by institutional and literacy factors beyond the reach of a budgeting tool
+(Francisco et al., 2026), which is why this indicator is reported as adherence to plan rather than
+as a causal effect on debt outcomes (Claro & Noval, 2025; Yeo et al., 2023). Digital lending
+evidence supplies the confounder to control for (Esperanza, 2025).
+
+#### Plan Adherence
+
+Plan adherence is actual allocation over recommended allocation, the broadest system-level indicator
+and the one closest to the planning literature's construct of adherence. Planning review identifies
+adherence as the outcome that support mechanisms exist to produce
+(Yeo et al., 2023), and capability reviews confirm the same relationship across developing economies
+(Cumaio et al., 2026; Samli et al., 2026).
+
+It is the indicator that most directly tests the composition claim, because a user can follow one
+component's recommendation and ignore another's
+(de Zarzà et al., 2024; D'Souza et al., 2026). Low adherence with high component-level accuracy
+indicates a composition or presentation failure rather than a component failure, which is a
+distinction the literature does not draw and which the three-level evaluation design is intended to
+make (Gulbakyt et al., 2025; Lu et al., 2025). Preference deviation supplies the diagnostic for
+whether presentation is the cause (Yoganandham, 2025; Cumaio et al., 2026).
+
+# System Evaluation
+
+BUDGIE is evaluated at two levels: software quality, using an established instrument, and model
+performance, using metrics matched to each algorithm. The two are reported separately because they
+answer different questions, and combining them would obscure which failures belong to the
+application and which to the models. Both levels draw on standards-based evaluation practice
+documented in the reviewed literature, and both carry the limitations recorded in the sections that
+follow.
+
+## Software Quality Evaluation
+
+Software quality evaluation applies the ISO/IEC 25010 product quality model, which supplies
+reference characteristics for specifying, measuring, and evaluating ICT and software product quality
+(International Organization for Standardization, 2023). The model subdivides each characteristic into
+subcharacteristics that carry concrete measures, and it is a reference model rather than a fixed
+checklist, so a study may select the subset bearing on its system
+(International Organization for Standardization, 2023). This study evaluates functional suitability,
+performance efficiency, reliability, security, portability, and usability.
+
+<!-- ISO CHARACTERISTIC VOCABULARY FLAG. The six characteristics above are 2011-vocabulary, but
+     the citation is to ISO/IEC 25010:2023, which replaced usability with interaction capability
+     and portability with flexibility, and added safety, giving nine characteristics. Both this
+     chapter and Chapter 1 V6 use the same six and therefore agree with each other, but neither
+     matches the standard it cites. The fielded questionnaire diverges again by using five
+     characteristics, substituting maintainability for portability.
+
+     Resolution, not yet applied: the cheapest correct fix is to cite ISO/IEC 25010:2011 for the
+     six-characteristic set, since both chapters already agree and one citation change makes them
+     accurate. The alternative is renaming to 2023 vocabulary in both chapters and adding
+     compatibility and safety. Left flagged for the researchers to decide. -->
+
+Applied evaluation of this model in the reviewed literature supports the approach and its
+instrumentation. A ticketing management system was evaluated against ISO/IEC 25010:2023 with a
+paired AHP weighting, which demonstrates the model in use on an operational system
+(Ariningsih & Muhammad, 2024), and a VR application was evaluated against ISO 25010 across
+functional suitability, performance efficiency, usability, and portability, which demonstrates the
+characteristic-level granularity this study adopts (Lianto et al., 2023). An institutional budget
+system supplies a comparable evaluation of a comparable artefact
+(Santiago et al., 2025).
+
+The limits of the model are also documented. Because it is a reference model, subset selection is
+a judgement that this study makes explicitly rather than a result the model supplies
+(International Organization for Standardization, 2023), and the risk of an unexamined subset is
+that a characteristic bearing on the system is omitted. Comparative evaluation of consumer
+applications shows that the usability-adjacent characteristics are the ones most often addressed
+superficially, with tracking supported and planning support weak
+(Alenazi & Sas, 2023), so functional suitability is treated in this study as the characteristic most
+likely to be over-claimed (D'Souza et al., 2026). Reviews of machine learning for the domain
+support treating the same characteristic sceptically, since components are often evaluated
+individually rather than as a system
+(D'Souza et al., 2026; Lu et al., 2025).
+
+### System Usability Scale
+
+The System Usability Scale is a ten-item validated questionnaire yielding a 0 to 100 score, and it
+is the usability measure this study reports. It was introduced as a deliberately economical
+instrument for usability assessment (Brooke, 1996), and that economy is its principal virtue here,
+since a ten-item instrument is viable for the sample size this study can recruit
+(Francisco et al., 2026; Claro & Noval, 2025).
+
+Its limitations are documented and are the reason a systematic review of SUS instruments was
+conducted for the mobile health context, finding that standalone and interactive applications differ
+in how the SUS should be administered and interpreted (Lim et al., 2025). That review is the
+source for the administration decisions made in this study, and it also establishes that SUS
+results are interpreted against benchmarks rather than in isolation (Lim et al., 2025; Brooke, 1996).
+
+Two structural cautions apply. First, the SUS belongs to the quality-in-use model, ISO/IEC 25019,
+not to the product quality model of ISO/IEC 25010; the 2023 product model states that interaction
+capability is a prerequisite for usability rather than a substitute for it, so a SUS score
+supplements rather than operationalises the usability characteristic
+(International Organization for Standardization, 2023). Second, SUS is not diagnostic, since a low
+score identifies that a problem exists without locating it, so it is reported alongside the
+characteristic-level findings rather than as a substitute for them
+(Lim et al., 2025; Ariningsih & Muhammad, 2024). Applied ISO 25010 evaluations in the literature
+show the same division of labour between summary score and characteristic-level measurement
+(Lianto et al., 2023; Ariningsih & Muhammad, 2024).
+
+<!-- NEEDS MORE SOURCES: 5 required; 4 attached. Usability evidence in the reviewed set is thin
+     because it clusters in two papers (Lim et al., 2025; Brooke, 1996) with ISO-instrument papers
+     adjacent to rather than about the SUS. A mobile-application usability validation study would
+     materially strengthen this subsection. -->
+
+### ISO/IEC 25010:2023
+
+The characteristic-level measurement follows established practice. Applied evaluations score
+subcharacteristics within each selected characteristic, using paired comparison for weighting where
+a single score is required (Ariningsih & Muhammad, 2024; Lianto et al., 2023). Functional
+suitability is assessed against the feature set the study specifies, which follows the comparative
+evaluation finding that tracking and planning are separable capabilities that must be measured
+separately (Alenazi & Sas, 2023).
+
+Performance efficiency is assessed through the model performance metrics reported under Model
+Performance Evaluation, and the standard's treatment of it as a time-behaviour characteristic
+supports that routing rather than duplicating it here
+(International Organization for Standardization, 2023). Reliability and security are assessed
+structurally, since the reviewed literature supplies no applicable instrument for a system of this
+size (Santiago et al., 2025). Portability is assessed against the deployment matrix implied by the
+cross-platform client (Ghonaim & El-Sharawy, 2025; Alenazi & Sas, 2023). The vocabulary conflict
+recorded above applies to this subsection in particular
+(International Organization for Standardization, 2023; Lianto et al., 2023).
+
+<!-- NEEDS MORE SOURCES: 5 required; 5 attached, but 2 of them (Ariningsih & Muhammad, 2024;
+     Lianto et al., 2023) evaluate different systems in different domains. The evidence base for
+     applying this standard to a consumer financial application specifically is thin. -->
+
+## Model Performance Evaluation
+
+Model performance evaluation assesses each algorithm against metrics matched to its function, and
+reports the three evaluation levels distinguished under Model and Algorithm Integration: component
+accuracy, interface correctness, and outcome effect. Component-level practice is well established
+in the reviewed literature for each algorithm class, with classification
+(Laspiñas & Murcia, 2024), forecasting (Lu et al., 2025), optimisation
+(Gulbakyt et al., 2025; de Zarzà et al., 2024), and detection
+(Huang et al., 2025; Zhong, 2025) each having documented metric conventions.
+
+The forecasting evaluation additionally includes a disaggregation-accuracy check, because the
+pipeline's forecasts depend on annual survey data disaggregated to monthly resolution and an error
+there propagates into every downstream stage
+(Lu et al., 2025; de Zarzà et al., 2024). The classification and detection evaluations are subject
+to the absence of labelled ground truth discussed in their respective sections, and this is a
+limitation of the evidence base rather than a property of the systems
+(Laspiñas & Murcia, 2024; Hamdare et al., 2025; Huang et al., 2025).
+
+Interface-level evaluation has no direct precedent in the reviewed set, and is reported as a stated
+limitation rather than presented as established practice
+(D'Souza et al., 2026; de Zarzà et al., 2024). Outcome indicators are drawn from the system-level
+set and are interpreted as adherence to plan rather than as causal effects on financial outcomes, for
+the reasons given under Plan Adherence
+(Yeo et al., 2023; Cumaio et al., 2026; Francisco et al., 2026). Institutional evaluation of a
+comparable system supplies the closest available precedent for reporting at system level
+(Santiago et al., 2025), and adaptive monitoring work supports the continuous component
+(Zhong, 2025).
+
+<!-- SYSTEM EVALUATION IS THE WEAKEST TOPIC IN THE CHAPTER. The reviewed corpus contains one
+     system-evaluation paper above threshold (Santiago et al., 2025). Everything else is either an
+     ISO-instrument paper on a different system or a general ML review. The panel's instruction
+     was to mark this and proceed, which is done here. Acquiring corpus papers tagged to the
+     system_evaluation module is the highest-value action for this section. -->
 
 ## Synthesis
 
-The reviewed literature establishes that personal financial management is a critical capability for individual financial well-being, with particular relevance in developing economies where household financial vulnerability is pronounced. A systematic review of financial planning behaviour links planning activity to subsequent financial outcomes and proposes theory on the mechanisms connecting planning to well-being (Yeo et al., 2023), while a review of financial literacy and behavioural finance across global and developing-economy contexts finds consistent associations between financial capability and saving and debt behaviour (Cumaio et al., 2026). Empirical findings confirm that Filipinos face persistent challenges in savings and debt management, compounded by economic pressures and limited access to professional financial advice. Studies of wage earners document the effect of digital lending on debt management (Esperanza, 2025), and an analysis of salary loan dependency among local government employees identifies the institutional and literacy factors that entrench borrowing dependence (Francisco et al., 2026). Comparable local work identifies the regressors of financial well-being among Filipino employees (Claro et al., 2025).
+The reviewed literature establishes personal financial management as a critical capability with
+particular relevance in developing economies, and it establishes planning theory well ahead of
+application capability. Planning review links planning activity to subsequent financial outcomes and
+supplies theory on the mechanisms connecting the two (Yeo et al., 2023), while capability and
+behaviour reviews find consistent associations between financial capability and saving and debt
+behaviour across contexts (Cumaio et al., 2026; Samli et al., 2026). The Philippine evidence
+confirms the need empirically, documenting reduced savings propensity under price pressure
+(Bangko Sentral ng Pilipinas, 2026), borrowing dependence traced to absent planning capacity
+(Francisco et al., 2026), and planning practice among the regressors of well-being
+(Claro & Noval, 2025). Reviews of budgeting practice complete the conceptual base
+(Yoganandham, 2025; Sapiri & Awaluddin, 2023).
 
-Traditional approaches to financial management, including manual budgeting and generic expense tracking applications, fail to address the complex, interconnected nature of savings and debt challenges or to account for Philippine-specific factors such as seasonal consumption patterns. Comparative evaluation of budgeting applications finds that applications support expense tracking substantially better than they support budgeting, which isolates tracking-versus-planning as a specific and generalizable deficiency of the dominant application category (Alenazi & Sas, 2023). Reviews of budgeting behaviour reach the complementary conclusion that the value of a budgeting tool lies in its integration with other financial practices rather than in tracking alone (Yoganandham, 2025).
+Against that theory, existing systems under-deliver on precisely the planning function. Comparative
+evaluation isolates tracking-versus-planning as a generalizable deficiency of the dominant
+application category, meaning the gap is not incidental to particular products
+(Alenazi & Sas, 2023). Reviews of machine learning for the domain find the components individually
+established but evaluated in isolation against single objectives
+(D'Souza et al., 2026), and household planning formulations confirm that automated planning remains
+an active area with constraint adherence unresolved (de Zarzà et al., 2024). The individual
+techniques this study composes are each documented: income-level classification demonstrates usable
+stratification signal (Laspiñas & Murcia, 2024), multi-criteria and constrained allocation models
+demonstrate that allocation quality depends on formulation (Gulbakyt et al., 2025; Lu et al.,
+2025), spending-habits work demonstrates behaviourally meaningful structure in transaction data
+(Hamdare et al., 2025), and adaptive threshold work addresses the fixed-threshold weakness that
+limits baseline detection (Huang et al., 2025; Zhong, 2025). Mobile application work shows these
+components deploying individually rather than composed (Ghonaim & El-Sharawy, 2025; Thakur &
+Jadhav, 2025), and institutional systems show analytics-driven allocation at operational scale
+(Santiago et al., 2025).
 
-Within this context, computational approaches including time-series forecasting, rule-based classification, mathematical optimization, and statistical anomaly detection form an integrated framework for personalized financial management. SARIMA modeling captures seasonal patterns in expense data, enabling forecasts that account for predictable fluctuations in spending. Rule-based classification assigns financial profiles that inform differentiated intervention strategies, and income-level classification work demonstrates that financial-behaviour features carry usable signal for stratification (Laspiñas & Murcia, 2024). Linear programming optimizes budget allocation under constraints, generating schedules that maximize savings and debt progress; multi-criteria budget allocation models and constrained data-driven budgeting frameworks both demonstrate that allocation quality depends on how competing objectives are formalized rather than on the solver alone (Gulbakyt et al., 2025; Lu et al., 2025). IQR detection identifies unusual expenses that may require attention, and recent work on adaptive detection thresholds addresses the central weakness of fixed-threshold approaches, namely that data quality problems shift the distribution that thresholds are set against (Huang et al., 2025; Zhong, 2025). The integration of these techniques creates synergistic benefits that exceed the capabilities of individual approaches.
+The identified research gap is therefore the absence of an integrated, seasonality-aware personal
+financial management system for Filipino users that composes profile classification, seasonal expense
+forecasting, constraint-respecting budget creation, and unusual expense detection into a single
+dated plan with adherence tracked against it. The gap is integration, not technique: each component
+has support, and no reviewed system composes them
+(Alenazi & Sas, 2023; D'Souza et al., 2026; de Zarzà et al., 2024). Two further constraints on the
+claim are worth stating. First, the corpus provides no Philippine individual-level seasonal
+forecasting precedent, so the seasonal decomposition step is extrapolated from population
+consumption structure rather than from prior individual work (Lu et al., 2025). Second, the
+evaluation is subject to the absence of labelled ground truth for two of the four algorithms, which
+limits the strength of the accuracy claims (Laspiñas & Murcia, 2024; Huang et al., 2025).
 
-Existing personal financial management applications have achieved significant adoption but exhibit limitations in their support for savings and debt outcomes. Most applications prioritize generic expense tracking over personalized financial planning, lacking the analytical sophistication required to optimize allocation across competing goals under constraints. Reviews of machine learning for personal finance management systems find that individual techniques are well established but are typically evaluated in isolation against single objectives (D'Souza et al., 2026), and work integrating individual and cooperative budgeting models with language-model recommendations confirms that automated planning is an active area with unresolved issues around constraint adherence (de Zarzà et al., 2024). The literature reveals a gap between the capabilities of existing systems and the needs of users seeking to improve their financial outcomes through systematic planning and disciplined execution.
-
-The identified research gap is the lack of an integrated personal financial management system that incorporates Philippine seasonal consumption patterns into personalized expense forecasting and applies these forecasts to generate personalized budgets, savings contribution schedules, and debt repayment plans under financial constraints. While individual techniques have been validated in isolation or in different contexts, limited attention has been given to their integrated deployment within a single platform designed specifically for Filipino users. This gap is addressed by the proposed study through the development and evaluation of BUDGIE, a seasonality-aware savings-debt plan pipeline that combines profile classification, seasonal expense forecasting, budget optimization, and unusual expense detection to support improved financial planning among Filipinos aged 18 to 59 in the National Capital Region.
+This study addresses the gap through the development and evaluation of BUDGIE, a seasonality-aware
+savings-debt plan pipeline for Filipino users aged 18 to 59 in the National Capital Region. Its
+contribution is the composition and its evaluation, with the components selected from the reviewed
+literature rather than proposed as novel.
 
 ## Conceptual Model of the Study
 
-The conceptual framework of the study follows an Input-Process-Output (IPO) model that illustrates the systematic development and evaluation of BUDGIE. The model is structured around four components: Input, Process, Output, and Evaluation.
+The conceptual framework follows an Input-Process-Output model, extended with an evaluation
+component, that traces the systematic development and evaluation of BUDGIE.
 
 <!-- FIGURE 1 PLACEHOLDER: conceptual model (IPO) diagram. Source image is in the
 
@@ -436,89 +1742,152 @@ The conceptual framework of the study follows an Input-Process-Output (IPO) mode
 
 Figure 1. Conceptual Model of the Study
 
-The Input component identifies the knowledge, software, hardware, and data requirements necessary for the conduct of the study. Knowledge requirements encompass the theoretical foundations and computational techniques employed in BUDGIE. Software requirements specify the development tools and technologies used. Hardware requirements define the computing resources needed for development and testing. Data requirements identify the datasets used for model training and system evaluation.
+The **Input** component identifies the knowledge, software, hardware, and data requirements of the
+study. Knowledge requirements are the computational and behavioural foundations reviewed in this
+chapter, which determine why each algorithm was selected and what property it must satisfy
+(Laspiñas & Murcia, 2024; Huang et al., 2025). Software requirements specify the development
+platform, with a cross-platform mobile client, a service-based backend, and a separate model-serving
+service, following the reviewed literature's observation that model-bearing features and
+client-side features degrade differently and should be separated
+(D'Souza et al., 2026; Lu et al., 2025). Hardware requirements are development and testing
+resources, including the offline-caching capability the client requires
+(Ghonaim & El-Sharawy, 2025; Alenazi & Sas, 2023).
 
-The Process component describes the activities involved in developing BUDGIE, including requirements analysis, system design, module implementation, algorithm integration, and testing. The Agile Kanban methodology guides the development process, providing an iterative framework that enables continuous refinement based on feedback and evaluation results.
+Data requirements are three distinct sources serving three distinct purposes. The Philippine
+Statistics Authority (PSA) Family Income and Expenditure Survey supplies income totals, expense
+totals, household size, and distributional position, and is the source from which monthly estimates
+are derived (PSA, 2023; de Zarzà et al., 2024; Yeo et al., 2023). The PSA Household Final
+Consumption Expenditure series supplies the seasonal proportions used in that disaggregation, and
+its length is the binding constraint on seasonal parameter estimation
+(PSA, 2026; Lu et al., 2025; Gulbakyt et al., 2025). The group's own Public User Expectations and
+Perceptions Survey supplies the requirements and evaluation criteria, administered to the target
+population (Group 4, 2026; Francisco et al., 2026; Claro & Noval, 2025).
 
-The Output component represents the primary deliverable of the study, which is the Development of BUDGIE as a personal financial management application that uses SARIMA-based seasonal expense forecasting for improved financial planning.
+The **Process** component describes the activities through which BUDGIE is developed and evaluated.
+Development follows an iterative and incremental methodology, chosen because integrating four
+algorithmic components with a mobile client and a model-serving service produces requirement churn
+that a sequential process would resolve late. Chapter 3 presents the development methodology in
+full, including the workflow management approach adopted and the measurements taken from it; it is
+deliberately not developed here, because methodology is not a topic in the approved outline for this
+chapter and the available methodological evidence does not bear on the literature review.
 
-The Evaluation component describes the assessment activities that verify the quality and effectiveness of BUDGIE. Software quality evaluation employs the ISO/IEC 25010:2023 quality model (International Organization for Standardization, 2023) and the System Usability Scale (Lim et al., 2025). Model performance evaluation assesses each algorithm using appropriate metrics. System performance evaluation measures savings rate, savings goal progress, alert frequency, debt progress, and plan adherence.
+The model-development process follows the standard pipeline of preprocessing, feature engineering,
+training, validation, evaluation, and integration, with each stage producing the input the next
+requires (Lu et al., 2025; D'Souza et al., 2026). Temporal disaggregation of annual survey data into
+monthly estimates using consumption-calibrated seasonal proportions precedes forecasting, and its
+accuracy is evaluated separately because errors propagate
+(Lu et al., 2025; de Zarzà et al., 2024). The classifier is developed from domain knowledge rather
+than from training data, following the reviewed finding that financial-behaviour constructs are
+threshold-shaped and that labelled data is scarce outside institutional settings
+(Cumaio et al., 2026; Laspiñas & Murcia, 2024). The optimiser and the detector are configured
+against their respective input contracts, with the optimiser returning allocation, schedules, and a
+feasibility status (Gulbakyt et al., 2025) and the detector returning alerts with deviation
+information (Huang et al., 2025; Zhong, 2025).
 
-<!-- NO CITATION REQUIRED: the Input, Process, and Output components above describe the
-     research group's own system design and are not claims about prior work. The
-     Evaluation component is the only part of this model that rests on external
-     sources, and those are cited. Deliberately not padded with citations. -->
+The **Output** component is the primary deliverable: BUDGIE as a personal financial management
+application using SARIMA-based seasonal expense forecasting to produce a profile-informed,
+constraint-respecting savings and debt plan with unusual expense monitoring. The output is
+distinguished from the individual techniques reviewed in the literature by their composition, which
+is the contribution this study claims
+(Alenazi & Sas, 2023; D'Souza et al., 2026; de Zarzà et al., 2024).
+
+The **Evaluation** component verifies the quality and effectiveness of the output at the two levels
+established under System Evaluation. Software quality evaluation applies the ISO/IEC 25010 product
+quality model (International Organization for Standardization, 2023) with the System Usability Scale
+as its usability measure (Lim et al., 2025; Brooke, 1996), and the vocabulary conflict recorded
+under ISO/IEC 25010:2023 applies to this component. Model performance evaluation applies
+function-matched metrics to each algorithm and system-level indicators to the composition
+(Laspiñas & Murcia, 2024; Lu et al., 2025; Gulbakyt et al., 2025; Huang et al., 2025), following the
+three-level structure set out under Performance Analysis
+(Yeo et al., 2023; Santiago et al., 2025; Cumaio et al., 2026).
+
+<!-- NO CITATION REQUIRED: the Input, Process, and Output components describe the research
+     group's own system design and are not claims about prior work. The Evaluation component is the
+     only part resting on external sources, and those are cited. Deliberately not padded. -->
 
 ## Outstanding Source Requests
 
-Two kinds of dependency are recorded here, and they are not the same thing. A **PENDING
-ACQUISITION** source is a paper whose metadata has been verified against the publisher and which
-is cited normally in the body; it simply is not in the corpus yet, and the researcher has to
-download it. A **SOURCE NEEDED** marker means no verified source exists yet, so the claim it
-attaches to is currently unsourced. Markers appear inline at the point of dependency.
+Three kinds of dependency are recorded here, and they are not the same thing. A **PENDING
+ACQUISITION** source has verified metadata but is not yet held as a file. A **SOURCE NEEDED** entry
+is an unresolved citation that no verified source currently supports. An **UNVERIFIED** entry is one
+whose identity is not confirmed and which must not be treated as final.
 
-### Pending acquisition — verified, not yet in the corpus
+### Source needed
 
-| Cited as | Section | Resolution |
-| --- | --- | --- |
-| Alqudah and Razali (2024) | Agile Kanban | *International Journal of Agile Systems and Management, 17*(2), 201-220. https://doi.org/10.1504/IJASM.2024.137890 |
-| Sathe and Panse (2023) | Agile Kanban | *Brazilian Journal of Operations & Production Management, 20*(3), 1796. https://doi.org/10.14488/BJOPM.1796.2023 |
-| Shaout et al. (2025) | Agile Kanban | *Journal of Computer Sciences and Informatics, 2*(2), 131-147. https://doi.org/10.5455/JCSI.20250322020941 |
-| Huss et al. (2023) | Agile Development Lifecycle | *Software, 2*(3), 310-331. https://doi.org/10.3390/software2030015 — **unverified**, see below |
-| International Organization for Standardization (2023) | Software Quality Evaluation | ISO/IEC 25010:2023, 4th ed. Paywalled; obtain via the group library or IEEE. |
-| Ariningsih and Muhammad (2024) | Software Quality Evaluation | *Intechno Journal: Information Technology Journal, 6*(2). https://doi.org/10.24076/intechnojournal.2024v6i2.1870 |
-| Lianto et al. (2023) | Software Quality Evaluation | *KONSTELASI, 3*(1). No DOI located. Title is in Indonesian; supply an English translation if the panel requires it. |
-| Lim et al. (2025) | Software Quality Evaluation | *BMC Digital Health, 3*(11). https://doi.org/10.1186/s44247-025-00150-y |
-| Brooke (1996) | Software Quality Evaluation | "SUS: A quick and dirty usability scale," in *Usability Evaluation in Industry* (pp. 189-194), Taylor & Francis. Confirm pagination and publisher against the group's copy. |
+1. **BSP financial planning cycle.** Requested by the panel reviewer at the "Review and Monitoring"
+   subsection, with the instruction to look in BUDI-Literature. **Not satisfiable from the corpus.**
+   All six Bangko Sentral entries were read on 2026-09-27: the Q4 2023 and full-year Financial
+   Inclusion dashboards, the Annual Report 2025, the Consumer Expectations Survey Q2 2026, and two
+   statistical releases. None is a financial planning cycle document. Additionally
+   `L--BangkoSentral-2023b` is not a 2023 document at all; its own text states it was released in
+   June 2005, so the stem year is wrong and the entry needs re-ingestion under a corrected year.
+   The central-bank statistics that are available are cited for context in *Context of Financial
+   Planning*, *Problems faced by Individuals in Financial Planning*, and *Budget Constraints*.
+   To satisfy the request, either a BSP financial-planning or financial-planning-process
+   publication must be supplied from outside the corpus, or the reviewer must confirm that the
+   Consumer Expectations Survey is the intended source.
+2. **Dasmariñas et al. (2024).** The direct precedent for the seasonal decomposition this design
+   assumes, and the only Philippine household-consumption forecasting study in the project. Cited
+   seven times in the previous draft from memory; it is now cited zero times and replaced with six
+   corpus sources, but it remains the highest-value acquisition in the chapter. Candidate: Dasmariñas,
+   A. P., De Castro, G., Lazona, B. J., & Usona, L. (2024). Forecasting the impact of COVID-19 on
+   the household final consumption expenditure (HFCE) in the Philippines. PUP Journal of Science &
+   Technology, 14(1), 70-90. https://doi.org/10.70922/ctzevg57
+3. **Dey & Arefin (2025).** The closest direct precedent for the rule-based classifier chosen. The
+   *Saver and Borrower Profile Classification* topic is not short without it, so this is a strength
+   rather than a gap. Candidate: Dey, S., & Arefin, M. S. (2025). Developing a rule-based system to
+   recommend household budget. Journal of Information Systems Engineering and Management, 10(47s),
+   148-182. https://jisem-journal.com/index.php/journal/article/view/9230
+   (preprint: https://www.preprints.org/manuscript/202502.1315/v1)
 
-Huss et al. (2023) is the one entry here that is **not** publisher-verified. Its metadata came from
-a citing bibliography rather than from MDPI, so the authors, title, journal, volume, issue, and
-pagination all still need confirming at the publisher. The Agile section rests on Alqudah and
-Razali, Sathe and Panse, and Shaout et al., all of which are verified, so the Huss sentence can
-be cut without weakening the section if the check fails.
+### Moved to Chapter 3
 
-### Source needed — no verified source yet
+The updated topical outline has no Methodology topic, so the development methodology is presented in
+Chapter 3. The four references that carried the removed Methodology section are therefore no longer
+cited here and are re-listed for Chapter 3's use, not for this chapter's.
 
-| Cited as | Status | Resolution |
-| --- | --- | --- |
-| Dasmariñas et al. (2024) | Confirmed, 7 citations, absent from corpus | Dasmariñas, A. P., De Castro, G., Lazona, B. J., & Usona, L. (2024). *PUP Journal of Science & Technology, 14*(1), 70-90. https://doi.org/10.70922/ctzevg57 |
-| Dey and Arefin (2025) | Confirmed, 3 citations, absent from corpus | Dey, S., & Arefin, M. S. (2025). *Journal of Information Systems Engineering and Management, 10*(47s), 148-182. |
-| Srisamai and Siriruk (2023) | 1 citation, paper identity unconfirmed | Likely the 13th IEOM conference paper on demand forecasting and dead stock. Confirm before citing. |
+4. Alqudah, M., & Razali, R. (2024). Key factors for adopting Kanban in software development: An
+   empirical study. *International Journal of Agile Systems and Management, 17*(2), 201-220.
+   https://doi.org/10.1504/IJASM.2024.137890
+5. Sathe, C. A., & Panse, C. (2023). An empirical study on impact of project management constraints
+   in Agile software development: Multigroup analysis between Scrum and Kanban. *Brazilian Journal of
+   Operations & Production Management, 20*(3), 1796. https://doi.org/10.14488/BJOPM.1796.2023
+6. Shaout, A., Parker, B., Westerbeek, J., & Swaminathan, S. S. (2025). KanScrum: A Kanban + Scrum
+   hybrid methodology. *Journal of Computer Sciences and Informatics, 2*(2), 131-147.
+   https://doi.org/10.5455/JCSI.20250322020941
+7. **Huss, M., Herber, D. R., & Borky, J. M. (2023).** Comparing measured Agile software development
+   metrics using an Agile model-based software engineering approach versus Scrum only. *Software,
+   2*(3), 310-331. https://doi.org/10.3390/software2030015
+   **UNVERIFIED and now removed.** Metadata was taken from a citing bibliography rather than the
+   publisher and was never confirmed. It should not be cited in Chapter 3 without verification at
+   the MDPI page. The previous draft carried two other verified sources in the same paragraphs, so
+   no claim depended on it.
 
-Dasmariñas et al. is the priority. It is the single load-bearing source for the seasonal
-forecasting argument and is cited seven times, which leaves the SARIMA section of this chapter
-resting on one paper. The adviser's standard for a core algorithm is six to seven sources, so the
-SARIMA section needs corroboration beyond this paper regardless of the intake decision. None of
-the three has been added to the reference list, because doing so would assert metadata the
-project has not confirmed.
+### Corpus papers excluded on metadata grounds
 
-Two further dependencies are not academic citations and do not need sourcing, but are listed so
-the evidence map stays complete: the PSA FIES and HFCE datasets, and the group's own PUEPS
-instrument.
+Five corpus entries are not citable and are excluded from the reference list. This is recorded
+because the corpus previously marked them verified.
 
-### Unresolved conflicts recorded during this pass
+8. `I--RSingh-2025` has no authors, no title, and no DOI, and its byline is genuinely ambiguous
+   between "R" and "Singh". Unusable until the PDF is re-read.
+9. `A--DSouza-2026`, `I--Zhao-2025`, and `L--Atento-2025` record an author affiliation where a
+   journal belongs, so the publication outlet is unidentifiable and these are probably preprints.
+   `A--DSouza-2026` is nonetheless retained below as an honestly-labelled unpublished manuscript
+   because it is the only review of machine learning for this domain in the set, and the review
+   point it supports is load-bearing for the gap claim.
+10. `I--Yoganandham-2025` gives a journal name with no volume, issue, or pages. Retained below
+    because it is used for a low-controversy definitional point, but it is not a stable outlet and
+    should not be counted toward any topic's source quota.
 
-These are not sourcing problems and will not be fixed by acquiring papers. They need a decision
-from the panel.
+### Pending acquisition
 
-1. **The six ISO characteristics are 2011-vocabulary, not 2023-vocabulary.** ISO/IEC 25010:2023
-   replaced usability with interaction capability and portability with flexibility, and added
-   safety, giving nine characteristics. The list retained in this chapter cannot be attributed to
-   the 2023 standard as written. Full detail in the conflict block under Software Quality
-   Evaluation.
-2. **The SUS belongs to the quality-in-use model, not the product quality model.** The 2023
-   standard states that interaction capability is a prerequisite for usability rather than a
-   substitute for it, so the product model is not the correct citation for a SUS-based score.
-3. **The fielded instrument contradicts both chapters.** The ISO 25010 questionnaire on Drive uses
-   five characteristics, substitutes maintainability for portability, and scores SUS items 1-4.
-   This chapter and Chapter 1 V6 use six and SUS 1-5, and agree with each other. The instrument,
-   Chapter 1, and this chapter must be reconciled before it is fielded.
+All references below carry metadata verified against page 1 of the source PDF or the publisher
+record. They are cited in this chapter; the files themselves are not yet held in
+`literature/bucket/`.
 
 ## References
 
 Alenazi, M., & Sas, C. (2023). Evaluating budgeting apps: Limited support for budgeting compared to tracking. In *Proceedings of the British Computer Society HCI International Conference (BCSHCI 2023)* (pp. 1-12). British Computer Society. https://doi.org/10.14236/ewic/BCSHCI2023.1
-
-Alqudah, M., & Razali, R. (2024). Key factors for adopting Kanban in software development: An empirical study. *International Journal of Agile Systems and Management, 17*(2), 201-220. https://doi.org/10.1504/IJASM.2024.137890
 
 Ariningsih, P., & Muhammad, A. H. (2024). Quality evaluation of ticketing management system using ISO/IEC 25010:2023 standards and AHP method. *Intechno Journal: Information Technology Journal, 6*(2). https://doi.org/10.24076/intechnojournal.2024v6i2.1870
 
@@ -526,9 +1895,9 @@ Bangko Sentral ng Pilipinas. (2026). *Consumer expectations survey report: 2nd q
 
 Brooke, J. (1996). SUS: A "quick and dirty" usability scale. In P. W. Jordan, B. A. Weerdmeester, B. Thomas, & I. L. McClelland (Eds.), *Usability evaluation in industry* (pp. 189-194). Taylor & Francis.
 
-<!-- CITATION WINDOW EXCEPTION: 1996, cited under the approved instrument-origin
-     exception. Defines the SUS; the substantive properties are carried by Lim et al.
-     (2025). Flagged at the point of citation in Software Quality Evaluation. -->
+<!-- CITATION WINDOW EXCEPTION: 1996, admitted under the approved instrument-origin
+     exception. It defines the SUS; the substantive properties are carried by Lim et al.
+     (2025). Flagged at the point of citation under System Usability Scale. -->
 
 Claro, D. M. L., & Noval, J. E. G. (2025). The regressors of financial well-being among LGU employees in Davao del Norte. *ISRG Journal of Economics, Business and Management, 3*(6).
 
@@ -538,27 +1907,30 @@ de Zarzà, I., de Curtò, J., Roig, G., & Calafate, C. T. (2024). Optimized fina
 
 D'Souza, M., Bhegade, P., Bhalekar, P., & Bhavsar, Y. (2026). A comprehensive review of machine learning techniques for intelligent personal finance management systems [Unpublished manuscript]. Department of Artificial Intelligence and Machine Learning, P.E.S Modern College of Engineering.
 
+<!-- VENUE UNVERIFIED: the recorded outlet is an institutional affiliation rather than a
+     journal, so the publication venue is unidentifiable and this is probably a preprint. Retained
+     because it is the only review of machine learning for this domain in the corpus and it carries
+     the integration-gap claim. Do not present as peer-reviewed literature. -->
+
 Esperanza, D. N. (2025). Digital lending efficacy on debt management of wage earners. *ASEAN Journal of Management & Innovation, 12*(2), 111-127.
 
 Francisco, A. A., Legal, G. A., & Legal, F. (2026). Causes of salary loan dependency: Basis for strengthening financial literacy program. *International Journal of Multidisciplinary Educational Research and Innovation, 4*(1), 705-728.
+
+Ghonaim, W. A., & El-Sharawy, E. E. (2025). An intelligent budget management mobile application based on a recurrent neural network. *International Journal of Theoretical and Applied Research, 4*(2), 840-852.
 
 Group 4. (2026). *Public user expectations and perceptions survey (PUEPS)* [Unpublished raw survey instrument]. III-DCSAD, University of Makati.
 
 Gulbakyt, S., Almaz, A., Saule, S., & Suhrab, Y. (2025). Dynamic model for budget allocation in via multi-criteria optimization. *Journal of Applied Data Sciences, 6*(4), 3075-3088.
 
+Hamdare, S., Khanna, A., & Agrawal, R. (2025). Analyzing and rewarding credit card spending habits in India: A machine learning approach. *International Journal of Computational Intelligence Systems, 18*, 165.
+
 Huang, A., Zhang, X., Wang, Y., Tsai, S., Zhou, P., & Chen, L. (2025). Dynamic calibration of decision thresholds for financial anomaly detection: Verification with payment platform information and data. *Journal of Global Information Management, 33*(1), 1-26. https://doi.org/10.4018/JGIM.395852
-
-Huss, M., Herber, D. R., & Borky, J. M. (2023). Comparing measured Agile software development metrics using an Agile model-based software engineering approach versus Scrum only. *Software, 2*(3), 310-331. https://doi.org/10.3390/software2030015
-
-<!-- UNVERIFIED: taken from a citing bibliography, not the publisher. Confirm the
-     authors, title, journal, volume, issue, and pagination at the MDPI page before
-     this reference is treated as final. The Agile section stands without it. -->
 
 International Organization for Standardization. (2023). *Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Product quality model* (ISO/IEC 25010:2023, 4th ed.).
 
-<!-- STANDARD, admitted under the citation-window exception. Note that the
-     characteristic names used in this chapter are 2011-vocabulary, not the
-     2023-vocabulary; see the conflict block in Software Quality Evaluation. -->
+<!-- STANDARD, admitted under the citation-window exception. The characteristic names used in
+     this chapter are 2011-vocabulary, not the 2023-vocabulary; see the flag under
+     ISO/IEC 25010:2023. -->
 
 Laspiñas, E. L., & Murcia, J. V. B. (2024). Machine learning approaches in classifying income levels. *TWIST, 19*(2), 92-97. https://doi.org/10.5281/zenodo.10049652#134
 
@@ -575,14 +1947,21 @@ Philippine Statistics Authority. (2023). *Family income and expenditure survey 2
 
 Philippine Statistics Authority. (2026). *Household final consumption expenditure, 2022-2026 quarter 2*. PSA.
 
-Santiago, R. L. T., Villarica, M. V., & Bernardino, M. P. (2025). Budget and financial management information system for public elementary schools: Analytics and predictive insights for MOOE allocation using linear regression. *International Journal of Advanced Research in Computer Science, 16*(3), 128-137. http://dx.doi.org/10.26483/ijarcs.v16i3.7256
+Samli, F. B., Zaini, Z., & Yusof, K. S. (2026). A bibliometric analysis of how financial behaviour drives effective debt management. *Labuan Bulletin of International Business & Finance, 24*(1).
 
-Sathe, C. A., & Panse, C. (2023). An empirical study on impact of project management constraints in Agile software development: Multigroup analysis between Scrum and Kanban. *Brazilian Journal of Operations & Production Management, 20*(3), 1796. https://doi.org/10.14488/BJOPM.1796.2023
+Santiago, R. L. T., Villarica, M. V., & Bernardino, M. P. (2025). Budget and financial management information system for public elementary schools: Analytics and predictive insights for MOOE allocation using linear regression. *International Journal of Advanced Research in Computer Science, 16*(3), 128-137. https://doi.org/10.26483/ijarcs.v16i3.7256
 
-Shaout, A., Parker, B., Westerbeek, J., & Swaminathan, S. S. (2025). KanScrum: A Kanban + Scrum hybrid methodology. *Journal of Computer Sciences and Informatics, 2*(2), 131-147. https://doi.org/10.5455/JCSI.20250322020941
+Sapiri, M., & Awaluddin, M. (2023). Distribution of financial attitude, financial behavior, financial knowledge and financial literacy on the investment decision behavior of young investors. *Journal of Distribution Science, 21*(11), 45-53.
+
+Thakur, R. S., & Jadhav, A. (2025). Expense tracker management system using machine learning. *Sigma Journal of Engineering and Natural Sciences, 43*(4), 1265-1275. https://doi.org/10.14744/sigma.2025.00119
+
+Vecina, R. A. P., & Encarnacion, M. J. G. (2025). Improving financial performance through financial literacy, good financial practice and fintech adoption. *Divine Word International Journal of Management and Humanities, 4*(2), 1688-1707.
 
 Yeo, K. H. K., Lim, W. M., & Yii, K.-J. (2023). Financial planning behaviour: A systematic literature review and new theory development. *Journal of Financial Services Marketing, 29*, 979-1001. https://doi.org/10.1057/s41264-023-00249-1
 
 Yoganandham, G. (2025). Mastering economic and financial sources with reference to budgeting, savings, early investing, debt management and the power of financial planning: A comprehensive analysis. *Degres Journal*. ISSN 0376-8163.
+
+<!-- WEAK VENUE: journal name only, with no volume, issue, or pages, so the record is not
+     stably citable. Used for a definitional point only. Do not count toward any topic quota. -->
 
 Zhong, M. (2025). Adaptive anomaly detection threshold for financial data quality monitoring based on time series features. In *2025 International Symposium on Artificial Intelligence and Computational Social Sciences (AICSS 2025)*. ACM. https://doi.org/10.1145/3776759.3776850

@@ -140,6 +140,129 @@ carried 9 instances of `BUDI` against 10 of `BUDGIE`, and 2 of `SVM` against 4 o
 from 13 and 3 respectively before the teammate's edits. Chapter 1 is therefore mid-revision, and any
 figure quoted about it here is a timestamped observation, not a settled state.
 
+## Source snapshot: the 92-heading topical outline
+
+**Authority.** `google-drive/chapter-2/GROUP4 - CHAPTER 2 - V3 - 09.26.26.docx`, re-fetched from
+Drive 2026-09-27 12:49. The outline is the first Heading-1 section of that document, titled
+*"Topical Outline (V4 - 09.26.2026)"*, stored as a Word numbered list (not as Heading styles).
+
+**This is the structure to build.** It is the outline the panel updated inside the chapter
+document, and it supersedes the standalone outline file.
+
+**Counts:** 5 level-0, 19 level-1, 41 level-2, 27 level-3 = **92**.
+
+**The standalone outline file is stale.**
+`google-drive/topical-outline/GROUP4 - TOPICAL OUTLINE - V4 - 09.26.26.docx` contains 115 list
+items (5/20/60/30) and still carries **Methodology** as a level-0 topic. The embedded outline
+removes it. The embedded outline is authoritative; the standalone file is not, despite sharing
+the V4 label and the same date.
+
+**Methodology has no home in the updated outline.** Its content is redistributed into
+*Models and Algorithms* (model development, algorithm inputs) and *Conceptual Model of the Study*
+(PROCESS and the technology stack) rather than dropped.
+
+**Synthesis and Conceptual Model of the Study are not in the outline** and are retained as
+chapter sections after System Evaluation.
+
+**Known defect in the source outline:** *System Evaluation* appears twice at level 1 — once as
+the level-0 topic and once as a bare level-1 sibling of *Software Quality Evaluation* and *Model
+Performance Evaluation*. The duplicate is treated as a typo and dropped, not written as a heading.
+
+### The outline verbatim
+
+# Improved Financial Planning
+## Introduction to Financial Planning
+### Context of Financial Planning
+### Components of Financial Planning
+## Problems faced by Individuals in Financial Planning
+### Challenges in Financial Planning
+### Gaps of Financial Planning
+## Importance of Financial Planning to Individuals
+# Personal Financial Management (PFM) Applications and Systems
+## Introduction to PFM Applications and Systems
+### PFM
+#### Definition of PFM
+#### Context of PFM
+#### Components of PFM
+#### Importance of PFM in Financial Planning
+### PFM Applications and Systems
+#### Overview of PFM Applications and Systems
+#### Context of PFM Applications and Systems
+#### Features of PFM Applications and Systems
+## Problems faced by PFM Applications and Systems Users
+### Challenges of PFM Applications and Systems
+### Gaps of PFM Applications and Systems
+## Importance of PFM Applications and Systems to Users in Financial Planning
+# BUDGIE (Bawas Utang, Dagdag Ipon) Application
+## Saver and Borrower Profile Classification
+### Saver and Borrower Profile
+### Saver and Borrower Profile Classification
+### Importance of Profile Classification
+## Seasonal Expense Forecasting
+### Seasonal Expenses
+### Seasonal Expense Forecasting
+### Importance of Seasonal Expense Forecasting
+## Budget Creation
+### Budget
+### Budget Constraints
+### Budget Creation and Optimization
+### Importance of Budget Creation
+## Unusual Expense Detection
+### Unusual Expenses
+### Anomaly Detection
+### Importance of Unusual Expense Detection
+## Financial Planning
+# Models and Algorithms
+## Seasonal Auto-Regressive Integrated Moving Average (SARIMA)
+### Overview of SARIMA
+### SARIMA in Forecasting
+### Performance Metrics of SARIMA
+#### Mean Absolute Error (MAE)
+#### SMAPE
+#### MDA
+#### RMSE
+## Rule-Based Algorithms
+### Overview of Rule-Based Algorithms
+### Rule-Based Algorithms in Profile Classification
+### Metrics
+#### Accuracy
+#### Precision
+#### Recall
+#### F1-score
+## Linear Programming
+### Overview of Linear Programming
+### Linear Programming in Optimization
+### Metrics
+#### Constraint Satisfaction Rate
+#### Budget Utilization Rate
+#### Deviation from User Preferences
+## Inter-quartile Range (IQR)
+### Overview of IQR
+### IQR in Anomaly Detection
+### Metrics
+#### Accuracy
+#### Precision
+#### Recall
+#### F1-score
+## Model and Algorithm Integration
+### SARIMA for Seasonal Expense Forecasting
+### Rule-Based Algorithms for Saver and Borrower Profile Classification
+### Linear Programming for Budget Creation
+### IQR for Unusual Expense Detection
+### Integration in Financial Planning Feature
+### Performance Analysis
+#### Savings Rate
+#### Savings Progress
+#### Alert Frequency
+#### Debt Progress
+#### Plan Adherence
+# System Evaluation
+## Software Quality Evaluation
+### System Usability Scale
+### ISO/IEC 25010:2023
+## Model Performance Evaluation
+## System Evaluation
+
 ## Correction log
 
 ### 2026-09-26 — Huang (2025) reverted to Huang et al. (2025)
