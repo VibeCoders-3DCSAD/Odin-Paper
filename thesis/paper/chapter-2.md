@@ -34,25 +34,32 @@
 
 ## Open items for the adviser
 
-1. **Project identity is inconsistent across Drive.** Chapter 1 V6 is itself only partly
-   updated: its title page and introduction say BUDGIE, but its Scope and Limitations section
-   still describes "the development of BUDI" using **SVM** for profile classification, which
-   Outline V4 replaced with a **rule-based** classifier. This chapter follows V4 and uses
-   rule-based. Chapter 1 needs a matching pass.
-2. **ISO/IEC 25010 characteristic list disagrees three ways.** This chapter and Chapter 1 V6
-   both list six characteristics (functional suitability, performance efficiency, reliability,
-   security, portability, usability). The fielded instrument
-   `GROUP4 - ISO 25010 - V1 - 09.15.2026.docx` instead uses five (it omits portability and
-   substitutes maintainability) and files the usability sub-characteristics under performance
-   efficiency. The instrument also still carries "Pawpid" pet-adoption wording, a 1-4 SUS scale
-   instead of 1-5, and no edition year. The instrument must be rebuilt before fielding, and the
-   characteristic list settled once across Chapters 1, 2, and the instrument.
+1. **Project identity is inconsistent across Drive, and being corrected concurrently.** Chapter 1
+   V6 is only partly updated: its title page and introduction say BUDGIE, but its Scope and
+   Limitations section and its Terms and Definitions still say "BUDI" and still use **SVM** for
+   profile classification, which Outline V4 replaced with a **rule-based** classifier. This chapter
+   follows V4 and uses rule-based. A teammate was editing Chapter 1 on Drive during this pass, and
+   the stale instances were already being removed when the mirror was last re-fetched, so the count
+   is a timestamped observation rather than a settled state. The project name is **BUDGIE**.
+2. **The ISO/IEC 25010 characteristic list disagrees with the standard it cites.** This chapter and
+   Chapter 1 V6 agree with each other — both list six characteristics (functional suitability,
+   performance efficiency, reliability, security, portability, usability) — but that set is
+   2011-vocabulary, and both attribute it to ISO/IEC 25010:**2023**, which replaced usability with
+   interaction capability and portability with flexibility, and added safety, giving nine
+   characteristics. The fielded instrument
+   `GROUP4 - ISO 25010 - V1 - 09.15.2026.docx` diverges a second way: it uses five (it omits
+   portability and substitutes maintainability) and files the usability sub-characteristics under
+   performance efficiency. The instrument also still carries "Pawpid" pet-adoption wording, a 1-4
+   SUS scale instead of 1-5, and no edition year. The instrument must be rebuilt before fielding,
+   and the characteristic list settled once across Chapters 1, 2, and the instrument. The cheapest
+   correct fix for the chapters is to cite ISO/IEC 25010:**2011** for the six-characteristic set.
 3. **The SARIMA section rests on a single source.** Dasmariñas et al. (2024) is cited seven
    times and is not in the corpus. The adviser's standard for a core algorithm is six to seven
    sources, so this section needs corroboration even once that paper is acquired.
 
 ---
 
+<!-- I noticed that each paragraph has only one citation. -->
 # CHAPTER II
 
 ## Review of Related Literature and Studies
@@ -71,12 +78,15 @@ In the Philippine context, financial management challenges are compounded by eco
 
 Financial planning is a comprehensive process that involves assessing one's current financial situation, defining financial goals, developing strategies to achieve those goals, and monitoring progress over time. Yoganandham (2025) described financial planning as a systematic approach that enhances the ability to make sound economic decisions, fostering resilience against economic uncertainties and ensuring intergenerational wealth transfer. The process encompasses multiple domains including budgeting, savings, debt management, and investment, all of which must be coordinated to achieve optimal financial outcomes.
 
+<!-- Needs more citations to say this "has been extensively examined in the literature". -->
 The theoretical foundation of financial planning behavior has been extensively examined in the literature. Yeo et al. (2023) conducted a systematic literature review and developed a new theory of financial planning behavior, identifying that financial planning is influenced by a combination of individual characteristics, environmental factors, and behavioral biases. Their review established that effective financial planning requires not only technical knowledge but also behavioral commitment and consistent execution. This finding has important implications for the design of financial management applications, suggesting that systems must support both analytical capabilities and behavioral adherence.
 
+<!-- Needs more citations if possible -->
 In the Philippine setting, Claro and Noval (2025) investigated the regressors of financial well-being among local government employees in Davao del Norte, finding that financial planning practices significantly influence financial well-being outcomes. Their study confirmed that individuals who engage in systematic financial planning report higher levels of financial satisfaction and security. These findings support the development of tools that facilitate and encourage systematic financial planning among Filipino users, particularly those with limited access to professional financial advice.
 
 ### Financial Planning Process
 
+<!-- Cite the BSP financial planning cycle here. Look for it in BUDI-Literature -->
 The financial planning process typically involves several sequential stages: assessing the current financial situation, establishing financial goals, developing a plan, executing the plan, and reviewing and monitoring progress. Yoganandham (2025) emphasized that each stage requires careful attention and that the process is iterative rather than linear, with reviews and adjustments occurring as circumstances change. The execution and adherence stage is particularly critical, as even well-designed plans fail without consistent implementation.
 
 Cumaio et al. (2026) highlighted that adherence to financial plans is influenced by both individual self-control and environmental factors, with behavioral finance research demonstrating that individuals often struggle to maintain disciplined financial behaviors despite good intentions. Their review suggested that external support mechanisms, such as automated reminders and progress tracking, can improve adherence by reducing reliance on individual willpower. These findings support the integration of monitoring and feedback features in personal financial management applications.
@@ -499,10 +509,10 @@ from the panel.
 2. **The SUS belongs to the quality-in-use model, not the product quality model.** The 2023
    standard states that interaction capability is a prerequisite for usability rather than a
    substitute for it, so the product model is not the correct citation for a SUS-based score.
-3. **The fielded instrument contradicts this chapter.** The ISO 25010 questionnaire on Drive uses
+3. **The fielded instrument contradicts both chapters.** The ISO 25010 questionnaire on Drive uses
    five characteristics, substitutes maintainability for portability, and scores SUS items 1-4.
-   This chapter uses six and SUS 1-5. Chapter 1's scope section is also inconsistent. All three
-   must be reconciled before the instrument is fielded.
+   This chapter and Chapter 1 V6 use six and SUS 1-5, and agree with each other. The instrument,
+   Chapter 1, and this chapter must be reconciled before it is fielded.
 
 ## References
 

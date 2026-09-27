@@ -102,26 +102,43 @@ a successful extraction as a successful verification.
 **Non-academic dependencies** (no sourcing required, listed for completeness): PSA FIES 2023,
 PSA HFCE 2022 Q1-2026 Q2, and the group's own PUEPS instrument.
 
-**The two chapters do not agree, contrary to an earlier reading of this map.** An earlier
-revision of this file claimed Chapter 1 V6 agreed with Chapter 2's characteristic list and that
-the only dissenter was the fielded questionnaire. That was wrong. Chapter 1 evaluates functional
-suitability, performance efficiency, usability, reliability, security, and **maintainability**;
-Chapter 2 evaluates functional suitability, performance efficiency, reliability, security,
-**portability**, and usability. They differ on one characteristic. The fielded ISO questionnaire
-on Drive is closer to Chapter 1 than to Chapter 2, so the majority position is Chapter 1's, and
-Chapter 2 is the outlier.
+**The two chapters agree, and the fielded instrument is the sole outlier.** Chapter 1's stated
+objective reads "Test the functionality, reliability, performance efficiency, usability, security,
+and **portability** of the system", and its ISO/IEC 25010 list is Functional Suitability,
+Reliability, Performance Efficiency, Usability, Security, Portability — the same six characteristics
+Chapter 2 uses, in the same set. `maintainability` does not appear in Chapter 1 at all. The fielded
+questionnaire on Drive, which uses five characteristics and substitutes maintainability for
+portability, matches neither chapter.
 
-**Neither list is a valid subset of ISO/IEC 25010:2023.** Both retain *usability*, which the 2023
-standard replaced with *interaction capability*, and Chapter 2 also retains *portability*, which
-became *flexibility*. Both omit *compatibility* and *safety*. Chapter 1 additionally assigns
-*co-existence* to maintainability, but co-existence is subcharacteristic 3.3.1 under
-**compatibility**, not maintainability, in both the 2011 and 2023 editions.
+> **Superseded finding, retracted 2026-09-27.** An earlier revision of this map claimed the two
+> chapters differed by one characteristic and that Chapter 2 was the outlier. That was **wrong**. It
+> was derived from `thesis/paper/chapter-1.md`, which is a stale V5-era mirror, rather than from the
+> authoritative `GROUP4 - CHAPTER 1 - V6 - 09.24.26.docx`. The mirror is an older revision that still
+> listed maintainability; V6 does not. Verified by reading the V6 `.docx` directly, and re-verified
+> after a Drive re-fetch the same day.
+>
+> This is the mirror-lag trap `AGENTS.md` warns about, and it is the second time this session that a
+> stale repo copy produced a confident wrong conclusion. **Verify against the `.docx` before asserting
+> anything about Chapter 1.**
 
-**Deliberately not changed.** The ISO/IEC 25010 characteristic list in the chapter body was left as
-the Drive V3 body has it. The panel accepted the six-characteristic set, so it is retained and
-the conflict is flagged in `chapter-2.md` rather than silently resolved here. But the flag now
-records three separate disagreements — Chapter 1, the fielded instrument, and the standard itself
-— rather than one. This map previously understated the problem.
+**Both chapters' lists use 2011 vocabulary, not 2023.** They agree with each other and both disagree
+with the standard they cite. They retain *usability*, which ISO/IEC 25010:2023 replaced with
+*interaction capability*, and *portability*, which became *flexibility*; they omit *compatibility*
+and *safety*, giving six where the 2023 model has nine. Chapter 1's usability sub-list is verbatim
+2011 §3.4.1–3.4.5 — appropriateness recognizability, learnability, user error protection, and *user
+interface aesthetics* — the last of which the 2023 edition renamed *user engagement*.
+
+**Deliberately not changed.** The ISO/IEC 25010 characteristic list in the chapter body is retained
+as the panel accepted it, and the conflict is flagged in `chapter-2.md` rather than silently resolved
+here. The researchers were asked to settle it and chose to leave it flagged for now. The cheapest
+correct fix, when they take it up, is to cite **ISO/IEC 25010:2011** for the six-characteristic set:
+one edit, and both chapters — which already agree — become accurate. The alternative is renaming to
+the 2023 vocabulary in both chapters and adding compatibility and safety.
+
+**Chapter 1 is being edited concurrently.** At the 2026-09-27 Drive re-fetch, Chapter 1 V6 still
+carried 9 instances of `BUDI` against 10 of `BUDGIE`, and 2 of `SVM` against 4 of `rule-based` — down
+from 13 and 3 respectively before the teammate's edits. Chapter 1 is therefore mid-revision, and any
+figure quoted about it here is a timestamped observation, not a settled state.
 
 ## Correction log
 
@@ -157,6 +174,9 @@ has been restored to normal paragraphs.
 
 ### 2026-09-26 — the ISO/IEC 25010 characteristic list is misattributed
 
+**Partly retracted 2026-09-27 — see below.** The standard-misattribution finding stands. The
+accompanying claim about Chapter 1 does not.
+
 The chapter body cites ISO/IEC 25010:2023 and then lists functional suitability, performance
 efficiency, reliability, security, portability, and usability. Those are not the 2023
 characteristics. The standard's own foreword states: *"Usability and portability have been
@@ -174,23 +194,36 @@ Three further points from the same document:
 - The SUS belongs to the quality-in-use model, ISO/IEC 25019. Clause 3.4 of 25010:2023 states
   that *"Interaction capability is a prerequisite for usability"*, which is not the same
   relationship as the product model supplying the usability score.
-- Chapter 1 assigns *co-existence* to maintainability. Co-existence is 3.3.1 under
-  **compatibility**.
+- ~~Chapter 1 assigns *co-existence* to maintainability. Co-existence is 3.3.1 under
+  **compatibility**.~~ **Withdrawn.** Chapter 1 V6 has no maintainability entry and no co-existence
+  entry; this came from the stale V5-era mirror.
 
 The six-characteristic list is retained because the panel accepted it, but it cannot be attributed
-to the 2023 standard. Resolving this means either renaming to the 2023 vocabulary and adding
-compatibility and safety, or citing ISO/IEC 25010:2011 for the six-characteristic set.
+to the 2023 standard. Resolving this means either citing ISO/IEC 25010:2011 for the
+six-characteristic set, or renaming to the 2023 vocabulary in both chapters and adding
+compatibility and safety.
 
 **Lesson:** a standard's version number is not a citation. Anyone writing `ISO/IEC 25010:2023`
 into a chapter inherits responsibility for the clause numbering of that edition, and the edition
 boundaries here are exactly where the vocabulary changed.
 
-### 2026-09-26 — this map understated the ISO conflict
+### 2026-09-27 — retracted: "this map understated the ISO conflict"
 
-This map previously recorded the ISO characteristic list as a two-way disagreement between
-Chapter 1 and the fielded questionnaire, with Chapter 2 aligned to Chapter 1. That was wrong on
-both counts. Chapter 1 and Chapter 2 differ by one characteristic (Chapter 1 has maintainability
-where Chapter 2 has portability), so the fielded instrument sides with Chapter 1 and Chapter 2 is
-the outlier. Combined with the standard itself, there are three positions in disagreement, not
-two. The consequence for Chapter 3 is unchanged — the instrument must be reconciled before it is
-fielded — but the panel is being told there is one conflict when there are two.
+**This entry was wrong and is withdrawn.** It claimed Chapter 1 and Chapter 2 differed by one
+characteristic, that the fielded instrument sided with Chapter 1, and that Chapter 2 was therefore
+the outlier. All of that was derived from `thesis/paper/chapter-1.md`, a stale V5-era mirror. The
+authoritative `GROUP4 - CHAPTER 1 - V6 - 09.24.26.docx` agrees with Chapter 2 on all six
+characteristics. The fielded instrument matches neither chapter, and the conflict is two-way, not
+three-way.
+
+Two lessons, both now standing rules for this repo:
+
+1. **A repo mirror is not the document.** `thesis/paper/chapter-1.md` is V5; Drive V6 is newer. Any
+   claim about Chapter 1's content must come from the `.docx`. This is stated in `AGENTS.md` and was
+   ignored anyway, which is the real failure.
+2. **Verify before correcting.** This entry existed to correct a *previous* wrong claim, and it
+   introduced a new one while doing so. A correction is a claim and needs the same evidence as the
+   thing it corrects.
+
+The retraction is recorded here rather than deleted so the error stays auditable.
+
