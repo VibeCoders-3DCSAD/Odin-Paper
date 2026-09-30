@@ -1,0 +1,20 @@
+## Research Methodology
+
+The study will be conducted in the National Capital Region (NCR) and the proposed system is intended for Filipinos residing in the NCR. The region was selected as the locale because the reference data used by the system are drawn from national statistics, specifically the PSA Family Income and Expenditure Survey (FIES) 2023 and the Household Final Consumption Expenditure (HFCE) quarterly series.
+
+The study will use purposive sampling in selecting the respondents for the system evaluation. This non-probability sampling technique will be used to gather insights from individuals who can provide meaningful and specific feedback related to the study's focus. Participants will be chosen based on specific qualifications that align with the study's needs, particularly:
+
+- Non-IT Experts comprised of Filipinos aged 18 to 59 residing in the National Capital Region who represent the target users of the application.
+    
+- IT experts comprised of professionals with relevant educational background and professional experience in software development, system architecture, and algorithm implementation.
+    
+
+A preliminary investigation survey was administered as a pre-survey instrument and will serve as the basis for the user and system requirements of the application. After system development, the System Usability Scale (SUS) will be administered to end users to measure perceived usability, and a software quality evaluation instrument aligned with ISO/IEC 25010 will be administered to IT experts, covering functional suitability, performance efficiency, reliability, security, and maintainability.
+
+The data gathering procedure will follow a chronological sequence. The preliminary investigation survey was administered to gather the expectations, perceptions, and requirements of the intended users. Reference data will then be obtained from published PSA datasets, specifically the FIES 2023 and the HFCE quarterly series covering 2022 Q1 to 2026 Q2, which will be temporally disaggregated into monthly expense estimates with seasonal expense patterns. The requirements and reference data will be analyzed and translated into user and system requirements before development proceeds. After development and technical testing, the completed application will be evaluated by qualified respondents using the instruments described above. The evaluation responses will then be organized, analyzed, and interpreted.
+
+Qualified IT experts will interact with the developed system before evaluating the applicable software quality characteristics using the ISO/IEC 25010-based instrument. Intended end users will perform representative tasks, which involve using the key features of the application, before completing the System Usability Scale.
+
+Descriptive statistics will be used to summarize the system evaluation results. Frequency counts and appropriate measures of central tendency, such as the weighted mean, will be used to summarize the responses from the software quality evaluation instrument, which will use a four-point Likert scale. Responses obtained using the System Usability Scale will be scored and interpreted according to the prescribed SUS scoring procedure. 
+
+The study will use only published and publicly available datasets as reference data, since the PSA data used by the system are free to use and are publicly published by the PSA on their website. Preliminary survey respondents were informed of the purpose of the study, and their participation was voluntary. The preliminary survey includes an informed consent statement compliant with the Data Privacy Act of 2012, and the survey was administered anonymously, with the names of the respondents not recorded. Personally identifiable information that is unnecessary for the research will be excluded or anonymized where appropriate. Research data will be securely stored and accessed only by the authorized researchers. The PSA datasets will be used only for the purposes stated in the study.
