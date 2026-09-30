@@ -7,7 +7,7 @@ Consolidated rules extracted from MA'AM ERA'S formats/guidelines and inline comm
 - `formats-templates/chapter-2/Writing Chapter 2.docx` (the official guideline)
 - `formats-templates/Reference Thesis (Group 10).docx` (golden example — PAWPID)
 - Inline Word comments by `ERA MARIE GANNABAN` on `google-drive/` chapter drafts (chapter-1 V1/V3/V4, chapter-2 V1, topical outline V2)
-- Joint-notes: `google-drive/topical-outline/` comments and `docs/thesis/paper/` drafts
+- Joint-notes: `google-drive/topical-outline/` comments and `thesis/paper/` drafts
 
 ---
 

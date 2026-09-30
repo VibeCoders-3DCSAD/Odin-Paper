@@ -25,12 +25,12 @@
 | Technical specification (ground truth, Drive mirror) | `requirements-engineering/technical-specification.md` |
 | Product requirements (PRD) | `requirements-engineering/product-requirements-document.md` |
 | Functional requirements per module | `requirements-engineering/feature-modules-v2.md` |
-| Chapter drafts | `../thesis/paper/chapter-1.md`, `../thesis/paper/chapter-2.md` |
+| Chapter drafts | `../thesis/paper/chapter-1.md`, `../thesis/paper/chapter-2.md`, `../thesis/paper/chapter-3/` |
 | Model documentation index | `ml/README.md` + **BUDI-ML** `training/docs/model-methodologies/` |
 | Screen descriptions (24 screens) | `design-architecture/screen-descriptions/00-index.md` |
 | System architecture and data schema | `design-architecture/system-architecture.md` |
 | RRL benchmarks | `rrl/benchmarks.md` |
-| Survey instrument | `assessment-evaluation/survey/PUEPS.md` |
+| Survey instrument | `assessment-evaluation/survey/PUEPS.md` (canonical) |
 | Git commit and documentation standards | `standards/` |
 | Adviser (Ma'am Era) writing rules & comments | `standards/adviser-writing-rules.md` |
 | RRL corpus and scoring | **BUDI-Literature** |
@@ -57,8 +57,13 @@
 
 | File | Purpose |
 | :--- | :--- |
-| `survey/PUEPS.md` | Survey instrument (Public User Expectations and Perception Survey). |
+| `survey/PUEPS.md` | Survey instrument (Public User Expectations and Perception Survey). Canonical administered form. |
 | `survey/PUEPS-with-notes.md` | Survey instrument with notes. |
+| `survey/PUEPS-findings.md` | Findings summary from the administered survey. |
+| `survey/data-privacy.md` | RA 10173 data privacy notice and consent statement for the survey. |
+| `survey/preliminary-investigation/questionnaire-v1..v3.md` | Instrument drafting trail for PUEPS. |
+| `survey/preliminary-investigation/preliminary-survey-v1..v3.md` | Section-by-section objectives and empathy map. v3 is current. |
+| `survey/preliminary-investigation/survey-objectives-and-empathy-map-analysis.md` | Redundancy and consistency review of the instrument. |
 
 ---
 
@@ -138,6 +143,14 @@ Study-level model documentation index. The **adopted new-scope methodologies** l
 | `../thesis/paper/chapter-2.md` | Chapter 2 draft (RRL), Draft V2.0. |
 | `../thesis/paper/chapter-1-evidence-map.md` | Claim-by-claim citation audit for Chapter 1. |
 | `../thesis/paper/chapter-2-evidence-map.md` | Citation audit for Chapter 2. |
+| `../thesis/paper/chapter-3/chapter-1-objectives.md` | Objective set extract, for checking chapter 3 alignment. |
+| `../thesis/paper/chapter-3/research-design/research-design-v1..v3.md` | Research design drafts. v3 is current. |
+| `../thesis/paper/chapter-3/research-design/research-design-guidelines.md` | Writing guidelines for the section. |
+| `../thesis/paper/chapter-3/research-design/research-design-example.md` | External thesis held as a formatting benchmark. Not project content. |
+| `../thesis/paper/chapter-3/research-methodology/research-methodology-v1..v2.md` | Research methodology drafts. |
+| `../thesis/paper/chapter-3/research-methodology/research-methodology-combined-v1.md` | Combined design-and-method draft. |
+| `../thesis/paper/chapter-3/research-methodology/research-methodology-guidelines.md` | Writing guidelines for the section. |
+| `../thesis/paper/chapter-3/research-methodology/research-methodology-questions.md` | Open review questions and answer status. |
 
 ---
 

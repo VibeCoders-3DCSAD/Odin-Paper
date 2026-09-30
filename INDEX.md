@@ -31,10 +31,13 @@
 | Product requirements (PRD) | `docs/requirements-engineering/product-requirements-document.md` |
 | Functional requirements per module | `docs/requirements-engineering/feature-modules-v2.md` |
 | Chapter 1 draft | `thesis/paper/chapter-1.md` |
+| Chapter 3 drafts (methodology) | `thesis/paper/chapter-3/` |
 | Model methodologies (adopted new-scope) | `docs/ml/README.md` → **BUDI-ML** `training/docs/model-methodologies/` |
 | Screen descriptions (24 screens) | `docs/design-architecture/screen-descriptions/00-index.md` |
 | System architecture and data schema | `docs/design-architecture/system-architecture.md` |
 | Survey instrument | `docs/assessment-evaluation/survey/PUEPS.md` |
+| Survey data privacy notice | `docs/assessment-evaluation/survey/data-privacy.md` |
+| Survey drafting trail (PUEPS) | `docs/assessment-evaluation/survey/preliminary-investigation/` |
 | RRL corpus, scoring, pipeline | **BUDI-Literature** |
 | Google Drive CLI tool | `scripts/gdrive/README.md` |
 | Agent navigation and standards | `AGENTS.md` |
@@ -68,7 +71,7 @@ For everything under `docs/`, see **`docs/INDEX.md`** (authoritative for the doc
 | Technical specification | `docs/requirements-engineering/technical-specification.md` | Ground truth (Drive mirror). Scope decisions, systems, models. |
 | Product requirements | `docs/requirements-engineering/product-requirements-document.md` | Full-app PRD with user stories and scope. |
 | Model methodologies | `BUDI-ML/training/docs/model-methodologies/` | Adopted new-scope designs; override spec algorithm column. |
-| Paper chapters | `thesis/paper/` | Drafts: `chapter-1.md`, `chapter-2.md`, plus evidence maps. |
+| Paper chapters | `thesis/paper/` | Drafts: `chapter-1.md`, `chapter-2.md`, `chapter-3/`, plus evidence maps. |
 | RRL corpus & scoring | **BUDI-Literature** | Conversions, summaries, scores, module config. |
 
 ---
@@ -82,7 +85,7 @@ For everything under `docs/`, see **`docs/INDEX.md`** (authoritative for the doc
 | Ground-truth technical/systems scope | `docs/requirements-engineering/technical-specification.md` |
 | Full app product requirements | `docs/requirements-engineering/product-requirements-document.md` |
 | Adopted model methodologies | **BUDI-ML** — `training/docs/model-methodologies/` and `docs/models/` |
-| Chapter drafts | `thesis/paper/` |
+| Chapter drafts | `thesis/paper/` — `chapter-3/research-design/` and `chapter-3/research-methodology/` |
 | List/search/download Drive files | `scripts/gdrive/README.md` |
 | RRL corpus and scoring | **BUDI-Literature** — `scores/index.json` / `scores/report.md` |
 | RRL processing workflow | **BUDI-Literature** — `docs/standards/rrl-workflow.md` |

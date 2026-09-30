@@ -24,7 +24,7 @@ This document governs how Odin thesis documentation is structured, tracked, and 
 When one document references another, use relative paths:
 
 ```markdown
-See [System Specification](docs/thesis/specifications/system-spec.md) for details.
+See [System Specification](docs/requirements-engineering/technical-specification.md) for details.
 ```
 
 Verify the path exists before committing. Broken cross-references degrade agent navigation.
