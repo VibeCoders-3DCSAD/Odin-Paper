@@ -1,7 +1,11 @@
 # Local AI assistant state and guidance
+# Bare names match at any depth, so a new AGENTS.md in any folder is
+# ignored without a per-folder entry. Tracked AGENTS.md files (the root
+# navigation guide) stay tracked: gitignore only applies to untracked files.
 .codex
 .claude
 CLAUDE.md
+AGENTS.md
 
 # Office temporary/lock files
 ~$*
